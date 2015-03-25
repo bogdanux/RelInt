@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.mnuCI = new System.Windows.Forms.MenuStrip();
             this.btnCIFormular = new System.Windows.Forms.ToolStripMenuItem();
             this.btnCISalvareFormular = new System.Windows.Forms.ToolStripMenuItem();
@@ -116,6 +117,14 @@
             this.panouFinal = new System.Windows.Forms.Panel();
             this.panouOreRecuperate = new System.Windows.Forms.Panel();
             this.dgvRecuperareOre = new System.Windows.Forms.DataGridView();
+            this.nrinregistrarecorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nrcrtorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.denumiredisciplinaorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.oraorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.salaorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.orerecuperateBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dSOreRecuperate = new RelInt___Gestiune_cereri_de_deplasare.DSOreRecuperate();
             this.lblOreRecuperate = new System.Windows.Forms.Label();
             this.panouConditiiDePlata = new System.Windows.Forms.Panel();
             this.dgvCondiiDePlata = new System.Windows.Forms.DataGridView();
@@ -124,6 +133,7 @@
             this.lblEnuntObligPlata2 = new System.Windows.Forms.Label();
             this.lblEnuntObligDidactice1 = new System.Windows.Forms.Label();
             this.lblEnuntObligDidactice2 = new System.Windows.Forms.Label();
+            this.orerecuperateTableAdapter = new RelInt___Gestiune_cereri_de_deplasare.DSOreRecuperateTableAdapters.orerecuperateTableAdapter();
             this.mnuCI.SuspendLayout();
             this.panouIdentificareCerere.SuspendLayout();
             this.panouContinut.SuspendLayout();
@@ -134,6 +144,8 @@
             this.panouDecanConta.SuspendLayout();
             this.panouOreRecuperate.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecuperareOre)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orerecuperateBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dSOreRecuperate)).BeginInit();
             this.panouConditiiDePlata.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCondiiDePlata)).BeginInit();
             this.SuspendLayout();
@@ -146,7 +158,7 @@
             this.btnCIFormular});
             this.mnuCI.Location = new System.Drawing.Point(0, 0);
             this.mnuCI.Name = "mnuCI";
-            this.mnuCI.Size = new System.Drawing.Size(716, 30);
+            this.mnuCI.Size = new System.Drawing.Size(750, 30);
             this.mnuCI.TabIndex = 0;
             this.mnuCI.Text = "mnuCI";
             // 
@@ -180,6 +192,7 @@
             this.btnCIIesire.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.W)));
             this.btnCIIesire.Size = new System.Drawing.Size(202, 22);
             this.btnCIIesire.Text = "I&esire";
+            this.btnCIIesire.Click += new System.EventHandler(this.btnCIIesire_Click);
             // 
             // lblNrInregistrare
             // 
@@ -999,11 +1012,66 @@
             // 
             // dgvRecuperareOre
             // 
+            this.dgvRecuperareOre.AutoGenerateColumns = false;
             this.dgvRecuperareOre.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRecuperareOre.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.nrinregistrarecorDataGridViewTextBoxColumn,
+            this.nrcrtorDataGridViewTextBoxColumn,
+            this.denumiredisciplinaorDataGridViewTextBoxColumn,
+            this.dataorDataGridViewTextBoxColumn,
+            this.oraorDataGridViewTextBoxColumn,
+            this.salaorDataGridViewTextBoxColumn});
+            this.dgvRecuperareOre.DataSource = this.orerecuperateBindingSource;
             this.dgvRecuperareOre.Location = new System.Drawing.Point(-1, 25);
             this.dgvRecuperareOre.Name = "dgvRecuperareOre";
             this.dgvRecuperareOre.Size = new System.Drawing.Size(642, 150);
             this.dgvRecuperareOre.TabIndex = 1;
+            // 
+            // nrinregistrarecorDataGridViewTextBoxColumn
+            // 
+            this.nrinregistrarecorDataGridViewTextBoxColumn.DataPropertyName = "nrinregistrarecor";
+            this.nrinregistrarecorDataGridViewTextBoxColumn.HeaderText = "Nr. Inregistrare";
+            this.nrinregistrarecorDataGridViewTextBoxColumn.Name = "nrinregistrarecorDataGridViewTextBoxColumn";
+            // 
+            // nrcrtorDataGridViewTextBoxColumn
+            // 
+            this.nrcrtorDataGridViewTextBoxColumn.DataPropertyName = "nrcrtor";
+            this.nrcrtorDataGridViewTextBoxColumn.HeaderText = "Nr. Crt.";
+            this.nrcrtorDataGridViewTextBoxColumn.Name = "nrcrtorDataGridViewTextBoxColumn";
+            // 
+            // denumiredisciplinaorDataGridViewTextBoxColumn
+            // 
+            this.denumiredisciplinaorDataGridViewTextBoxColumn.DataPropertyName = "denumiredisciplinaor";
+            this.denumiredisciplinaorDataGridViewTextBoxColumn.HeaderText = "Denumire Disciplina";
+            this.denumiredisciplinaorDataGridViewTextBoxColumn.Name = "denumiredisciplinaorDataGridViewTextBoxColumn";
+            // 
+            // dataorDataGridViewTextBoxColumn
+            // 
+            this.dataorDataGridViewTextBoxColumn.DataPropertyName = "dataor";
+            this.dataorDataGridViewTextBoxColumn.HeaderText = "Data";
+            this.dataorDataGridViewTextBoxColumn.Name = "dataorDataGridViewTextBoxColumn";
+            // 
+            // oraorDataGridViewTextBoxColumn
+            // 
+            this.oraorDataGridViewTextBoxColumn.DataPropertyName = "oraor";
+            this.oraorDataGridViewTextBoxColumn.HeaderText = "Ora";
+            this.oraorDataGridViewTextBoxColumn.Name = "oraorDataGridViewTextBoxColumn";
+            // 
+            // salaorDataGridViewTextBoxColumn
+            // 
+            this.salaorDataGridViewTextBoxColumn.DataPropertyName = "salaor";
+            this.salaorDataGridViewTextBoxColumn.HeaderText = "Sala";
+            this.salaorDataGridViewTextBoxColumn.Name = "salaorDataGridViewTextBoxColumn";
+            // 
+            // orerecuperateBindingSource
+            // 
+            this.orerecuperateBindingSource.DataMember = "orerecuperate";
+            this.orerecuperateBindingSource.DataSource = this.dSOreRecuperate;
+            // 
+            // dSOreRecuperate
+            // 
+            this.dSOreRecuperate.DataSetName = "DSOreRecuperate";
+            this.dSOreRecuperate.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // lblOreRecuperate
             // 
@@ -1081,12 +1149,16 @@
             this.lblEnuntObligDidactice2.TabIndex = 14;
             this.lblEnuntObligDidactice2.Text = "În cazul în care orele se recupereaza, precizați care este programul";
             // 
+            // orerecuperateTableAdapter
+            // 
+            this.orerecuperateTableAdapter.ClearBeforeFill = true;
+            // 
             // frmCerereInregistrare
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(733, 612);
+            this.ClientSize = new System.Drawing.Size(767, 612);
             this.Controls.Add(this.lblEnuntObligDidactice2);
             this.Controls.Add(this.lblEnuntObligDidactice1);
             this.Controls.Add(this.lblEnuntObligPlata2);
@@ -1122,6 +1194,8 @@
             this.panouOreRecuperate.ResumeLayout(false);
             this.panouOreRecuperate.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRecuperareOre)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orerecuperateBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dSOreRecuperate)).EndInit();
             this.panouConditiiDePlata.ResumeLayout(false);
             this.panouConditiiDePlata.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCondiiDePlata)).EndInit();
@@ -1228,6 +1302,15 @@
         private System.Windows.Forms.Label lblDecan;
         private System.Windows.Forms.Label lblDirectorGeneralAdministrativ;
         public System.Windows.Forms.TextBox txtSubsemnatul;
+        private DSOreRecuperate dSOreRecuperate;
+        private System.Windows.Forms.BindingSource orerecuperateBindingSource;
+        private DSOreRecuperateTableAdapters.orerecuperateTableAdapter orerecuperateTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nrinregistrarecorDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nrcrtorDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn denumiredisciplinaorDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataorDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn oraorDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn salaorDataGridViewTextBoxColumn;
 
     }
 }

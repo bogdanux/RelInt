@@ -68,7 +68,7 @@
             this.btnGCDIntroducereFormular.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
             this.btnGCDIntroducereFormular.Size = new System.Drawing.Size(227, 22);
             this.btnGCDIntroducereFormular.Text = "&Introducere Formular";
-            this.btnGCDIntroducereFormular.Click += new System.EventHandler(this.introducereFormularToolStripMenuItem_Click);
+            this.btnGCDIntroducereFormular.Click += new System.EventHandler(this.btnGCDIntroducereFormular_Click);
             // 
             // btnGCDModificareFormular
             // 
@@ -78,7 +78,7 @@
             this.btnGCDModificareFormular.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.M)));
             this.btnGCDModificareFormular.Size = new System.Drawing.Size(227, 22);
             this.btnGCDModificareFormular.Text = "&Modificare Formular";
-            this.btnGCDModificareFormular.Click += new System.EventHandler(this.modificareFormularToolStripMenuItem_Click);
+            this.btnGCDModificareFormular.Click += new System.EventHandler(this.btnGCDModificareFormular_Click);
             // 
             // toolStripSeparator1
             // 

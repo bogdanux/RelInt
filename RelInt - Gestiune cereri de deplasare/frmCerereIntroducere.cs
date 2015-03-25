@@ -16,8 +16,16 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         public frmCerereInregistrare()
         {
             InitializeComponent();
-        }
 
+            /* ------------ Initializam Combobox-urile cu primele lor valori din colectii ------------------------------------ */
+            //cmbGradDidactic.SelectedIndex = 0;
+            //cmbFacultatea.SelectedIndex = 0;
+            cmbMoneda1.SelectedIndex = 0;
+            cmbMoneda2.SelectedIndex = 0;
+            cmbMoneda3.SelectedIndex = 0;
+            /* --------------------------------------------------------------------------------------------------------------- */
+
+        }
 
 
         /* ----------- Obiecte de lucru cu RelIntDB ---------------------------------------------------------------------- */
@@ -41,17 +49,17 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         // Variabila pentru textbox "txtNrInregistrare"
         int vartxtNrInregistrare;
 
-        // Variabile pentru metoda CalculTotal() si nu numai
+        // Variabile pentru metoda CalculTotal()
         double varDiurna;
         double varCazare;
-        double varTaxaDeVizaEtc;
         double varTaxaDeParticipare;
+        double varTaxaDeVizaEtc;
         bool diurnaEsteNumar;
         bool cazareEsteNumar;
-        bool TaxaDeVizaEtceEsteNumar;
         bool TaxaDeParticipareEsteNumar;
-
-        // 
+        bool TaxaDeVizaEtceEsteNumar;
+        double varTotalDePlata;
+        bool CalculTotalSucces = false;
 
         /* --------------------------------------------------------------------------------------------------------------- */
 
@@ -62,19 +70,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
-        public void txtNrInregistrareAutoCompletare()
-        {
-
-        }
-
-
-
-
-
-
-
-
-
+        /* ----------------- Validarea casetei de text "txtNrInregistrare" ----------------------------------------------- */
         private void txtNrInregistrare_TextChanged(object sender, EventArgs e)
         {
             // Verificam daca valoarea din "txtNrInregistrare" este de tip int si daca da, o inregistram in "vartxtNrInregistrare"
@@ -90,7 +86,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     break;
             }
         }
-
+        /* --------------------------------------------------------------------------------------------------------------- */
 
 
 
@@ -136,12 +132,14 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                         // Iar daca bool-ul de mai sus este adevarat, calculam si afisam efectiv valoarea in campul "txtTotalDePlata"
                         if (TaxaDeParticipareEsteNumar == true)
                         {
-                            double varTotalDePlata = 0;
+                            varTotalDePlata = 0;
 
                             // Calculam total de plata
                             varTotalDePlata = varDiurna + varCazare + varTaxaDeParticipare + varTaxaDeVizaEtc;
                             // Afisare in textboxul "txtTotalDePlata"
                             txtTotalDePlata.Text = varTotalDePlata.ToString();
+                            // Setam bool CalculTotalSucces = true
+                            CalculTotalSucces = true;
                         }
                         else
                         {
@@ -201,7 +199,61 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
         private void MetodaInserareDB()
         {
+            // Metoda de inserare a datelor
+                    // Conexiunea
+            using (OdbcConnection conexiune_RelInt = new OdbcConnection(sircon_RelIntDB))
+            {           // Comanda
+                using (OdbcCommand comanda_inserareRelInt = new OdbcCommand())
+                {
+                    comanda_inserareRelInt.Connection = conexiune_RelInt;
+                    comanda_inserareRelInt.CommandType = CommandType.Text;
+                    comanda_inserareRelInt.CommandText = "INSERT into Cereri (nrinregistrarec, datac, subsemnatulc, graddidacticc, facultateac, departamentulc, localitateac, tarac, scopc, institutiac, datainceputc, datasfarsitc, rutac, mijtransc, platitortranspc, platitorintretinerec, diurnac, cazarec, taxadeparticiparec, taxadevizaetcc, totalc, decanc, vizacontac, admsefbirouc, sefdepartamentdirc, vizaruc) VALUES (@nrinregistrarec, @datac, @subsemnatulc, @graddidacticc, @facultateac, @departamentulc, @localitateac, @tarac, @scopc, @institutiac, @datainceputc, @datasfarsitc, @rutac, @mijtransc, @platitortranspc, @platitorintretinerec, @diurnac, @cazarec, @taxadeparticiparec, @taxadevizaetcc, @totalc, @decanc, @vizacontac, @admsefbirouc, @sefdepartamentdirc, @vizaruc)";
+                    comanda_inserareRelInt.Parameters.AddWithValue("@nrinregistrarec", vartxtNrInregistrare);
+                    comanda_inserareRelInt.Parameters.AddWithValue("@subsemnatulc", txtSubsemnatul.Text);
+                    comanda_inserareRelInt.Parameters.AddWithValue("@graddidacticc", cmbGradDidactic.SelectedItem);
+                    comanda_inserareRelInt.Parameters.AddWithValue("@facultateac", cmbFacultatea.SelectedItem);
+                    comanda_inserareRelInt.Parameters.AddWithValue("@departamentulc", txtDepartament.Text);
+                    comanda_inserareRelInt.Parameters.AddWithValue("@localitateac", txtLocalitatea.Text);
+                    comanda_inserareRelInt.Parameters.AddWithValue("@tarac", txtTara.Text);
+                    comanda_inserareRelInt.Parameters.AddWithValue("@scopc", txtScop.Text);
+                    comanda_inserareRelInt.Parameters.AddWithValue("@institutiac", txtInstitutia.Text);
+                    comanda_inserareRelInt.Parameters.AddWithValue("@departamentulc", txtDepartament.Text);
+                    comanda_inserareRelInt.Parameters.AddWithValue("@datainceputc", dpDataInceput.Value);
+                    comanda_inserareRelInt.Parameters.AddWithValue("@datasfarsitc", dpDataSfarsit.Value);
+                    comanda_inserareRelInt.Parameters.AddWithValue("@rutac", txtRuta.Text);
+                    comanda_inserareRelInt.Parameters.AddWithValue("@mijtransc", txtMijTrans.Text);
+                    comanda_inserareRelInt.Parameters.AddWithValue("@platitortranspc", txtSuportatDe.Text);
+                    comanda_inserareRelInt.Parameters.AddWithValue("@platitorintretinerec", txtCheltuieliSuportate.Text);
+                    comanda_inserareRelInt.Parameters.AddWithValue("@platitorintretinerec", txtCheltuieliSuportate.Text);
+                    comanda_inserareRelInt.Parameters.AddWithValue("@diurnac", varDiurna);
+                    comanda_inserareRelInt.Parameters.AddWithValue("@cazarecc", varCazare);
+                    comanda_inserareRelInt.Parameters.AddWithValue("@taxadeparticiparec", varTaxaDeParticipare);
+                    comanda_inserareRelInt.Parameters.AddWithValue("@taxadevizaetcc", varTaxaDeVizaEtc);
+                    comanda_inserareRelInt.Parameters.AddWithValue("@totalc", varTotalDePlata);
+                    comanda_inserareRelInt.Parameters.AddWithValue("@decanc", txtDecan.Text);
+                    comanda_inserareRelInt.Parameters.AddWithValue("@vizacontac", txtVizaConta.Text);
+                    comanda_inserareRelInt.Parameters.AddWithValue("@admsebirouc", txtAdministratorSef.Text);
+                    comanda_inserareRelInt.Parameters.AddWithValue("@sefdepartamentdirc", txtSefDepartament.Text);
+                    comanda_inserareRelInt.Parameters.AddWithValue("@vizaruc", txtVizaRU.Text);
 
+
+                    // Incercam conexiunea si query-ul
+                    try
+                    {
+                        conexiune_RelInt.Open();
+                        int recordsAffected = comanda_inserareRelInt.ExecuteNonQuery();
+                    } // Captam eventualele erori
+                    catch (OdbcException exInserare)
+                    {
+                        // Afisam eroarea driverului Odbc
+                        MessageBox.Show(exInserare.Message);
+                    } // Ne deconectam
+                    /*finally
+                    {
+                        conexiune_RelInt.Close();
+                    }*/
+                }
+            }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
@@ -219,9 +271,13 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         /* ----------- Actiunea de salvare a formularului ---------------------------------------------------------------- */
         private void btnCISalvareFormular_Click(object sender, EventArgs e)
         {
-            // Executa metodele
+            // Executa urmatoarele
             CalculTotal();
-            MetodaInserareDB();
+
+            if (CalculTotalSucces == true)
+                {
+                    MetodaInserareDB();
+                }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
@@ -236,7 +292,26 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         /* ---------- Intrebam utilizatorul daca vrea sa salveze formularul cand actionam butonul "X" -------------------- */
         private void frmCerereIntroducere_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'dSOreRecuperate.orerecuperate' table. You can move, or remove it, as needed.
+            this.orerecuperateTableAdapter.Fill(this.dSOreRecuperate.orerecuperate);
             // Prompt salvare
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+
+
+
+        /* ---------- Inchidere formular cand actiunam "iesire" din meniul formularului ---------------------------------- */
+        private void btnCIIesire_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 

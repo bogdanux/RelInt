@@ -17,17 +17,17 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             InitializeComponent();
         }
 
-        private void introducereFormularToolStripMenuItem_Click(object sender, EventArgs e)
+        private void btnGCDIntroducereFormular_Click(object sender, EventArgs e)
         {
             // Apelam formularul "frmCerereIntroducere"
-            Form frmCerereIntroducere = new frmCerereIntroducere();
+            Form frmCerereInregistrare = new frmCerereInregistrare();
 
             // Facem "frmCerereIntroducere "copil al "frmGCD"
-            frmCerereIntroducere.MdiParent = this;
+            frmCerereInregistrare.MdiParent = this;
 
             foreach (Form form in Application.OpenForms)
             {
-                if (form.GetType() == typeof(frmCerereIntroducere))
+                if (form.GetType() == typeof(frmCerereInregistrare))
                 {
                     form.WindowState = FormWindowState.Normal;
                     form.Activate();
@@ -36,10 +36,10 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             }
 
             // Afisam "frmCerereIntroducere"
-            frmCerereIntroducere.Show();
+            frmCerereInregistrare.Show();
         }
 
-        private void modificareFormularToolStripMenuItem_Click(object sender, EventArgs e)
+        private void btnGCDModificareFormular_Click(object sender, EventArgs e)
         {
             // Apelam formularul "frmCerereModificare"
             Form frmCerereModificare = new frmCerereModificare();
