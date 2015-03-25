@@ -218,7 +218,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     comanda_inserareRelInt.Parameters.Add("@tarac", OdbcType.NVarChar).Value = txtTara.Text;
                     comanda_inserareRelInt.Parameters.Add("@scopc", OdbcType.NVarChar).Value = txtScop.Text;
                     comanda_inserareRelInt.Parameters.Add("@institutiac", OdbcType.NVarChar).Value = txtInstitutia.Text;
-                    comanda_inserareRelInt.Parameters.Add("@departamentulc", OdbcType.NVarChar).Value = txtDepartament.Text;
                     comanda_inserareRelInt.Parameters.Add("@datainceputc", OdbcType.DateTime).Value = dpDataInceput.Value;
                     comanda_inserareRelInt.Parameters.Add("@datasfarsitc", OdbcType.DateTime).Value = dpDataSfarsit.Value;
                     comanda_inserareRelInt.Parameters.Add("@rutac", OdbcType.NVarChar).Value = txtRuta.Text;
