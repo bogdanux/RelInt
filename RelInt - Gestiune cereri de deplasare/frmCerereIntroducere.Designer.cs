@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.mnuCI = new System.Windows.Forms.MenuStrip();
             this.btnCIFormular = new System.Windows.Forms.ToolStripMenuItem();
             this.btnCISalvareFormular = new System.Windows.Forms.ToolStripMenuItem();
@@ -116,24 +115,12 @@
             this.lblAdministrativ = new System.Windows.Forms.Label();
             this.panouFinal = new System.Windows.Forms.Panel();
             this.panouOreRecuperate = new System.Windows.Forms.Panel();
-            this.dgvRecuperareOre = new System.Windows.Forms.DataGridView();
+            this.chkORCDP = new System.Windows.Forms.CheckBox();
             this.lblOreRecuperate = new System.Windows.Forms.Label();
-            this.panouConditiiDePlata = new System.Windows.Forms.Panel();
-            this.dgvCondiiDePlata = new System.Windows.Forms.DataGridView();
-            this.lblConditiiDePlata = new System.Windows.Forms.Label();
             this.lblEnuntObligPlata1 = new System.Windows.Forms.Label();
             this.lblEnuntObligPlata2 = new System.Windows.Forms.Label();
             this.lblEnuntObligDidactice1 = new System.Windows.Forms.Label();
             this.lblEnuntObligDidactice2 = new System.Windows.Forms.Label();
-            this.orerecuperateBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dSOreRecuperate = new RelInt___Gestiune_cereri_de_deplasare.DSOreRecuperate();
-            this.orerecuperateTableAdapter = new RelInt___Gestiune_cereri_de_deplasare.DSOreRecuperateTableAdapters.orerecuperateTableAdapter();
-            this.nrinregistrarecorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nrcrtorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.denumiredisciplinaorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.oraorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.salaorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mnuCI.SuspendLayout();
             this.panouIdentificareCerere.SuspendLayout();
             this.panouContinut.SuspendLayout();
@@ -143,11 +130,6 @@
             this.panouAdministratorSef.SuspendLayout();
             this.panouDecanConta.SuspendLayout();
             this.panouOreRecuperate.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRecuperareOre)).BeginInit();
-            this.panouConditiiDePlata.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCondiiDePlata)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.orerecuperateBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dSOreRecuperate)).BeginInit();
             this.SuspendLayout();
             // 
             // mnuCI
@@ -158,7 +140,7 @@
             this.btnCIFormular});
             this.mnuCI.Location = new System.Drawing.Point(0, 0);
             this.mnuCI.Name = "mnuCI";
-            this.mnuCI.Size = new System.Drawing.Size(767, 30);
+            this.mnuCI.Size = new System.Drawing.Size(699, 30);
             this.mnuCI.TabIndex = 0;
             this.mnuCI.Text = "mnuCI";
             // 
@@ -306,6 +288,7 @@
             // 
             // txtSuportatDe
             // 
+            this.txtSuportatDe.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSuportatDe.Location = new System.Drawing.Point(103, 196);
             this.txtSuportatDe.Name = "txtSuportatDe";
             this.txtSuportatDe.Size = new System.Drawing.Size(278, 20);
@@ -322,6 +305,7 @@
             // 
             // txtMijTrans
             // 
+            this.txtMijTrans.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMijTrans.Location = new System.Drawing.Point(152, 170);
             this.txtMijTrans.Name = "txtMijTrans";
             this.txtMijTrans.Size = new System.Drawing.Size(276, 20);
@@ -338,6 +322,7 @@
             // 
             // txtRuta
             // 
+            this.txtRuta.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRuta.Location = new System.Drawing.Point(177, 144);
             this.txtRuta.Name = "txtRuta";
             this.txtRuta.Size = new System.Drawing.Size(279, 20);
@@ -401,6 +386,7 @@
             // 
             // txtInstitutia
             // 
+            this.txtInstitutia.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtInstitutia.Location = new System.Drawing.Point(77, 98);
             this.txtInstitutia.Name = "txtInstitutia";
             this.txtInstitutia.Size = new System.Drawing.Size(147, 20);
@@ -417,6 +403,7 @@
             // 
             // txtScop
             // 
+            this.txtScop.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtScop.Location = new System.Drawing.Point(444, 72);
             this.txtScop.Name = "txtScop";
             this.txtScop.Size = new System.Drawing.Size(186, 20);
@@ -433,6 +420,7 @@
             // 
             // txtTara
             // 
+            this.txtTara.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTara.Location = new System.Drawing.Point(231, 72);
             this.txtTara.MaxLength = 80;
             this.txtTara.Name = "txtTara";
@@ -450,6 +438,7 @@
             // 
             // txtLocalitatea
             // 
+            this.txtLocalitatea.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtLocalitatea.Location = new System.Drawing.Point(17, 72);
             this.txtLocalitatea.Name = "txtLocalitatea";
             this.txtLocalitatea.Size = new System.Drawing.Size(137, 20);
@@ -466,6 +455,7 @@
             // 
             // txtDepartament
             // 
+            this.txtDepartament.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDepartament.Location = new System.Drawing.Point(96, 46);
             this.txtDepartament.Name = "txtDepartament";
             this.txtDepartament.Size = new System.Drawing.Size(185, 20);
@@ -530,6 +520,7 @@
             // 
             // txtSubsemnatul
             // 
+            this.txtSubsemnatul.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSubsemnatul.Location = new System.Drawing.Point(103, 20);
             this.txtSubsemnatul.Name = "txtSubsemnatul";
             this.txtSubsemnatul.Size = new System.Drawing.Size(191, 20);
@@ -613,6 +604,7 @@
             // 
             // txtTaxaDeViza
             // 
+            this.txtTaxaDeViza.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTaxaDeViza.Location = new System.Drawing.Point(22, 75);
             this.txtTaxaDeViza.Name = "txtTaxaDeViza";
             this.txtTaxaDeViza.Size = new System.Drawing.Size(100, 20);
@@ -629,6 +621,7 @@
             // 
             // txtTaxaDeParticipare
             // 
+            this.txtTaxaDeParticipare.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTaxaDeParticipare.Location = new System.Drawing.Point(328, 49);
             this.txtTaxaDeParticipare.Name = "txtTaxaDeParticipare";
             this.txtTaxaDeParticipare.Size = new System.Drawing.Size(100, 20);
@@ -659,6 +652,7 @@
             // 
             // txtCazare
             // 
+            this.txtCazare.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCazare.Location = new System.Drawing.Point(71, 49);
             this.txtCazare.Name = "txtCazare";
             this.txtCazare.Size = new System.Drawing.Size(83, 20);
@@ -689,6 +683,7 @@
             // 
             // txtDiurna
             // 
+            this.txtDiurna.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDiurna.Location = new System.Drawing.Point(472, 23);
             this.txtDiurna.Name = "txtDiurna";
             this.txtDiurna.Size = new System.Drawing.Size(86, 20);
@@ -705,6 +700,7 @@
             // 
             // txtCheltuieliSuportate
             // 
+            this.txtCheltuieliSuportate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCheltuieliSuportate.Location = new System.Drawing.Point(231, 23);
             this.txtCheltuieliSuportate.Name = "txtCheltuieliSuportate";
             this.txtCheltuieliSuportate.Size = new System.Drawing.Size(193, 20);
@@ -775,6 +771,7 @@
             // 
             // txtVizaRU
             // 
+            this.txtVizaRU.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtVizaRU.Location = new System.Drawing.Point(13, 98);
             this.txtVizaRU.Name = "txtVizaRU";
             this.txtVizaRU.Size = new System.Drawing.Size(154, 20);
@@ -782,6 +779,7 @@
             // 
             // txtSefDepartament
             // 
+            this.txtSefDepartament.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSefDepartament.Location = new System.Drawing.Point(13, 48);
             this.txtSefDepartament.Name = "txtSefDepartament";
             this.txtSefDepartament.Size = new System.Drawing.Size(154, 20);
@@ -818,6 +816,7 @@
             // 
             // txtAdministratorSef
             // 
+            this.txtAdministratorSef.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAdministratorSef.Location = new System.Drawing.Point(13, 48);
             this.txtAdministratorSef.Name = "txtAdministratorSef";
             this.txtAdministratorSef.Size = new System.Drawing.Size(137, 20);
@@ -865,6 +864,7 @@
             // 
             // txtVizaConta
             // 
+            this.txtVizaConta.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtVizaConta.Location = new System.Drawing.Point(13, 98);
             this.txtVizaConta.Name = "txtVizaConta";
             this.txtVizaConta.Size = new System.Drawing.Size(137, 20);
@@ -872,6 +872,7 @@
             // 
             // txtDecan
             // 
+            this.txtDecan.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDecan.Location = new System.Drawing.Point(13, 48);
             this.txtDecan.Name = "txtDecan";
             this.txtDecan.Size = new System.Drawing.Size(137, 20);
@@ -968,6 +969,7 @@
             // 
             // txtAmbasada
             // 
+            this.txtAmbasada.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtAmbasada.Location = new System.Drawing.Point(381, 24);
             this.txtAmbasada.Name = "txtAmbasada";
             this.txtAmbasada.Size = new System.Drawing.Size(105, 20);
@@ -995,7 +997,7 @@
             // panouFinal
             // 
             this.panouFinal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panouFinal.Location = new System.Drawing.Point(13, 1202);
+            this.panouFinal.Location = new System.Drawing.Point(13, 908);
             this.panouFinal.Name = "panouFinal";
             this.panouFinal.Size = new System.Drawing.Size(642, 13);
             this.panouFinal.TabIndex = 9;
@@ -1003,29 +1005,25 @@
             // panouOreRecuperate
             // 
             this.panouOreRecuperate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panouOreRecuperate.Controls.Add(this.dgvRecuperareOre);
+            this.panouOreRecuperate.Controls.Add(this.chkORCDP);
             this.panouOreRecuperate.Controls.Add(this.lblOreRecuperate);
-            this.panouOreRecuperate.Location = new System.Drawing.Point(13, 786);
+            this.panouOreRecuperate.Location = new System.Drawing.Point(13, 821);
             this.panouOreRecuperate.Name = "panouOreRecuperate";
-            this.panouOreRecuperate.Size = new System.Drawing.Size(642, 176);
+            this.panouOreRecuperate.Size = new System.Drawing.Size(642, 63);
             this.panouOreRecuperate.TabIndex = 10;
             // 
-            // dgvRecuperareOre
+            // chkORCDP
             // 
-            this.dgvRecuperareOre.AutoGenerateColumns = false;
-            this.dgvRecuperareOre.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvRecuperareOre.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.nrinregistrarecorDataGridViewTextBoxColumn,
-            this.nrcrtorDataGridViewTextBoxColumn,
-            this.denumiredisciplinaorDataGridViewTextBoxColumn,
-            this.dataorDataGridViewTextBoxColumn,
-            this.oraorDataGridViewTextBoxColumn,
-            this.salaorDataGridViewTextBoxColumn});
-            this.dgvRecuperareOre.DataSource = this.orerecuperateBindingSource;
-            this.dgvRecuperareOre.Location = new System.Drawing.Point(-1, 25);
-            this.dgvRecuperareOre.Name = "dgvRecuperareOre";
-            this.dgvRecuperareOre.Size = new System.Drawing.Size(642, 150);
-            this.dgvRecuperareOre.TabIndex = 1;
+            this.chkORCDP.AutoSize = true;
+            this.chkORCDP.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkORCDP.Location = new System.Drawing.Point(27, 36);
+            this.chkORCDP.Name = "chkORCDP";
+            this.chkORCDP.Size = new System.Drawing.Size(553, 17);
+            this.chkORCDP.TabIndex = 1;
+            this.chkORCDP.Text = "Se recuperează ore și se impun condiții de plată (se va deschide o nouă fereastră" +
+    " pentru completarea acestora).";
+            this.chkORCDP.UseVisualStyleBackColor = true;
+            this.chkORCDP.CheckedChanged += new System.EventHandler(this.chkORCDP_CheckedChanged);
             // 
             // lblOreRecuperate
             // 
@@ -1033,42 +1031,14 @@
             this.lblOreRecuperate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOreRecuperate.Location = new System.Drawing.Point(20, 5);
             this.lblOreRecuperate.Name = "lblOreRecuperate";
-            this.lblOreRecuperate.Size = new System.Drawing.Size(173, 17);
+            this.lblOreRecuperate.Size = new System.Drawing.Size(321, 17);
             this.lblOreRecuperate.TabIndex = 0;
-            this.lblOreRecuperate.Text = "V. Recuperarea Orelor";
-            // 
-            // panouConditiiDePlata
-            // 
-            this.panouConditiiDePlata.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panouConditiiDePlata.Controls.Add(this.dgvCondiiDePlata);
-            this.panouConditiiDePlata.Controls.Add(this.lblConditiiDePlata);
-            this.panouConditiiDePlata.Location = new System.Drawing.Point(13, 1007);
-            this.panouConditiiDePlata.Name = "panouConditiiDePlata";
-            this.panouConditiiDePlata.Size = new System.Drawing.Size(642, 176);
-            this.panouConditiiDePlata.TabIndex = 11;
-            // 
-            // dgvCondiiDePlata
-            // 
-            this.dgvCondiiDePlata.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCondiiDePlata.Location = new System.Drawing.Point(-1, 25);
-            this.dgvCondiiDePlata.Name = "dgvCondiiDePlata";
-            this.dgvCondiiDePlata.Size = new System.Drawing.Size(642, 150);
-            this.dgvCondiiDePlata.TabIndex = 1;
-            // 
-            // lblConditiiDePlata
-            // 
-            this.lblConditiiDePlata.AutoSize = true;
-            this.lblConditiiDePlata.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblConditiiDePlata.Location = new System.Drawing.Point(21, 4);
-            this.lblConditiiDePlata.Name = "lblConditiiDePlata";
-            this.lblConditiiDePlata.Size = new System.Drawing.Size(150, 17);
-            this.lblConditiiDePlata.TabIndex = 0;
-            this.lblConditiiDePlata.Text = "VI. Condiții de plată";
+            this.lblOreRecuperate.Text = "V. Recuperarea orelor și condițiile de plată";
             // 
             // lblEnuntObligPlata1
             // 
             this.lblEnuntObligPlata1.AutoSize = true;
-            this.lblEnuntObligPlata1.Location = new System.Drawing.Point(38, 969);
+            this.lblEnuntObligPlata1.Location = new System.Drawing.Point(38, 785);
             this.lblEnuntObligPlata1.Name = "lblEnuntObligPlata1";
             this.lblEnuntObligPlata1.Size = new System.Drawing.Size(566, 13);
             this.lblEnuntObligPlata1.TabIndex = 12;
@@ -1078,7 +1048,7 @@
             // lblEnuntObligPlata2
             // 
             this.lblEnuntObligPlata2.AutoSize = true;
-            this.lblEnuntObligPlata2.Location = new System.Drawing.Point(38, 988);
+            this.lblEnuntObligPlata2.Location = new System.Drawing.Point(38, 803);
             this.lblEnuntObligPlata2.Name = "lblEnuntObligPlata2";
             this.lblEnuntObligPlata2.Size = new System.Drawing.Size(162, 13);
             this.lblEnuntObligPlata2.TabIndex = 13;
@@ -1103,67 +1073,16 @@
             this.lblEnuntObligDidactice2.TabIndex = 14;
             this.lblEnuntObligDidactice2.Text = "În cazul în care orele se recupereaza, precizați care este programul";
             // 
-            // orerecuperateBindingSource
-            // 
-            this.orerecuperateBindingSource.DataMember = "orerecuperate";
-            this.orerecuperateBindingSource.DataSource = this.dSOreRecuperate;
-            // 
-            // dSOreRecuperate
-            // 
-            this.dSOreRecuperate.DataSetName = "DSOreRecuperate";
-            this.dSOreRecuperate.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // orerecuperateTableAdapter
-            // 
-            this.orerecuperateTableAdapter.ClearBeforeFill = true;
-            // 
-            // nrinregistrarecorDataGridViewTextBoxColumn
-            // 
-            this.nrinregistrarecorDataGridViewTextBoxColumn.DataPropertyName = "nrinregistrarecor";
-            this.nrinregistrarecorDataGridViewTextBoxColumn.HeaderText = "nrinregistrarecor";
-            this.nrinregistrarecorDataGridViewTextBoxColumn.Name = "nrinregistrarecorDataGridViewTextBoxColumn";
-            // 
-            // nrcrtorDataGridViewTextBoxColumn
-            // 
-            this.nrcrtorDataGridViewTextBoxColumn.DataPropertyName = "nrcrtor";
-            this.nrcrtorDataGridViewTextBoxColumn.HeaderText = "nrcrtor";
-            this.nrcrtorDataGridViewTextBoxColumn.Name = "nrcrtorDataGridViewTextBoxColumn";
-            // 
-            // denumiredisciplinaorDataGridViewTextBoxColumn
-            // 
-            this.denumiredisciplinaorDataGridViewTextBoxColumn.DataPropertyName = "denumiredisciplinaor";
-            this.denumiredisciplinaorDataGridViewTextBoxColumn.HeaderText = "denumiredisciplinaor";
-            this.denumiredisciplinaorDataGridViewTextBoxColumn.Name = "denumiredisciplinaorDataGridViewTextBoxColumn";
-            // 
-            // dataorDataGridViewTextBoxColumn
-            // 
-            this.dataorDataGridViewTextBoxColumn.DataPropertyName = "dataor";
-            this.dataorDataGridViewTextBoxColumn.HeaderText = "dataor";
-            this.dataorDataGridViewTextBoxColumn.Name = "dataorDataGridViewTextBoxColumn";
-            // 
-            // oraorDataGridViewTextBoxColumn
-            // 
-            this.oraorDataGridViewTextBoxColumn.DataPropertyName = "oraor";
-            this.oraorDataGridViewTextBoxColumn.HeaderText = "oraor";
-            this.oraorDataGridViewTextBoxColumn.Name = "oraorDataGridViewTextBoxColumn";
-            // 
-            // salaorDataGridViewTextBoxColumn
-            // 
-            this.salaorDataGridViewTextBoxColumn.DataPropertyName = "salaor";
-            this.salaorDataGridViewTextBoxColumn.HeaderText = "salaor";
-            this.salaorDataGridViewTextBoxColumn.Name = "salaorDataGridViewTextBoxColumn";
-            // 
             // frmCerereInregistrare
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(784, 612);
+            this.ClientSize = new System.Drawing.Size(716, 612);
             this.Controls.Add(this.lblEnuntObligDidactice2);
             this.Controls.Add(this.lblEnuntObligDidactice1);
             this.Controls.Add(this.lblEnuntObligPlata2);
             this.Controls.Add(this.lblEnuntObligPlata1);
-            this.Controls.Add(this.panouConditiiDePlata);
             this.Controls.Add(this.panouOreRecuperate);
             this.Controls.Add(this.panouFinal);
             this.Controls.Add(this.panouMentiuniLegale);
@@ -1193,12 +1112,6 @@
             this.panouDecanConta.PerformLayout();
             this.panouOreRecuperate.ResumeLayout(false);
             this.panouOreRecuperate.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvRecuperareOre)).EndInit();
-            this.panouConditiiDePlata.ResumeLayout(false);
-            this.panouConditiiDePlata.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCondiiDePlata)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.orerecuperateBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dSOreRecuperate)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1277,10 +1190,6 @@
         private System.Windows.Forms.Label lblMijTrans;
         private System.Windows.Forms.TextBox txtSuportatDe;
         private System.Windows.Forms.Label lblSuportatDe;
-        private System.Windows.Forms.DataGridView dgvRecuperareOre;
-        private System.Windows.Forms.Panel panouConditiiDePlata;
-        private System.Windows.Forms.Label lblConditiiDePlata;
-        private System.Windows.Forms.DataGridView dgvCondiiDePlata;
         private System.Windows.Forms.Label lblEnuntObligPlata1;
         private System.Windows.Forms.Label lblEnuntObligPlata2;
         private System.Windows.Forms.Label lblEnuntObligDidactice1;
@@ -1302,15 +1211,7 @@
         private System.Windows.Forms.Label lblDecan;
         private System.Windows.Forms.Label lblDirectorGeneralAdministrativ;
         public System.Windows.Forms.TextBox txtSubsemnatul;
-        private DSOreRecuperate dSOreRecuperate;
-        private System.Windows.Forms.BindingSource orerecuperateBindingSource;
-        private DSOreRecuperateTableAdapters.orerecuperateTableAdapter orerecuperateTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nrinregistrarecorDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nrcrtorDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn denumiredisciplinaorDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataorDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn oraorDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn salaorDataGridViewTextBoxColumn;
+        private System.Windows.Forms.CheckBox chkORCDP;
 
     }
 }

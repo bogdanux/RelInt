@@ -115,11 +115,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DSOreRecuperate.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DSOreRecuperate.xsd</DependentUpon>
-    </Compile>
     <Compile Include="frmCautareCerere.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -167,17 +162,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="DSOreRecuperate.xsc">
-      <DependentUpon>DSOreRecuperate.xsd</DependentUpon>
-    </None>
-    <None Include="DSOreRecuperate.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DSOreRecuperate.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="DSOreRecuperate.xss">
-      <DependentUpon>DSOreRecuperate.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

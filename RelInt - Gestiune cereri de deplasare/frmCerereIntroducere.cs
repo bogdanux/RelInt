@@ -61,6 +61,8 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         double varTotalDePlata;
         bool CalculTotalSucces = false;
 
+        // Variabile de lucru pentru metoda PerioadaAngajare()
+
         /* --------------------------------------------------------------------------------------------------------------- */
 
 
@@ -195,6 +197,8 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
+
+
         /* ------------ Metoda de inserare a datelor in RelIntDB --------------------------------------------------------- */
 
         private void MetodaInserareDB()
@@ -207,7 +211,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 {
                     comanda_inserareRelInt.Connection = conexiune_RelInt;
                     comanda_inserareRelInt.CommandType = CommandType.Text;
-                    comanda_inserareRelInt.CommandText = "INSERT into Cereri VALUES (?, ?, ?, ?, ?, ?, ?, ? ,?, ?, ?, ?, ?, ?, ?, ? ,?, ?, ?, ?, ?, ?, ?, ? ,? ,?)";
+                    comanda_inserareRelInt.CommandText = "INSERT into Cereri VALUES (?, ?, ?, ?, ?, ?, ?, ? ,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ,?, ?, ?, ?, ?, ?, ?, ? ,? ,?)";
                     comanda_inserareRelInt.Parameters.Add("@nrinregistrarec", OdbcType.Int).Value = vartxtNrInregistrare;
                     comanda_inserareRelInt.Parameters.Add("@datac", OdbcType.DateTime).Value = dpDataFormular.Value;
                     comanda_inserareRelInt.Parameters.Add("@subsemnatulc", OdbcType.NVarChar).Value = txtSubsemnatul.Text;
@@ -229,6 +233,9 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     comanda_inserareRelInt.Parameters.Add("@taxadeparticiparec", OdbcType.Double).Value = varTaxaDeParticipare;
                     comanda_inserareRelInt.Parameters.Add("@taxadevizaetcc", OdbcType.Double).Value = varTaxaDeVizaEtc;
                     comanda_inserareRelInt.Parameters.Add("@totalc", OdbcType.Double).Value = varTotalDePlata;
+                    comanda_inserareRelInt.Parameters.Add("@ambasadac", OdbcType.NVarChar).Value = txtAmbasada.Text;
+                    comanda_inserareRelInt.Parameters.Add("@nedeterminatac", OdbcType.Bit).Value = rdoPerNedeterminata.Checked;
+                    comanda_inserareRelInt.Parameters.Add("@determinatac", OdbcType.Bit).Value = rdoPerDeterminata.Checked;
                     comanda_inserareRelInt.Parameters.Add("@decanc", OdbcType.NVarChar).Value = txtDecan.Text;
                     comanda_inserareRelInt.Parameters.Add("@vizacontac", OdbcType.NVarChar).Value = txtVizaConta.Text;
                     comanda_inserareRelInt.Parameters.Add("@admsebirouc", OdbcType.NVarChar).Value = txtAdministratorSef.Text;
@@ -291,8 +298,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         /* ---------- Intrebam utilizatorul daca vrea sa salveze formularul cand actionam butonul "X" -------------------- */
         private void frmCerereIntroducere_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dSOreRecuperate.orerecuperate' table. You can move, or remove it, as needed.
-            this.orerecuperateTableAdapter.Fill(this.dSOreRecuperate.orerecuperate);
             // Prompt salvare
         }
         /* --------------------------------------------------------------------------------------------------------------- */
@@ -300,7 +305,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
-
+        
 
 
 
@@ -311,6 +316,24 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         private void btnCIIesire_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void chkORCDP_CheckedChanged(object sender, EventArgs e)
+        {
+            if (txtNrInregistrare.Text != string.Empty) {
+                    switch (chkORCDP.Checked)
+                {
+                    case true:
+                        txtNrInregistrare.Enabled = false;
+                    break;
+                }
+
+            }
+            else
+            {
+                chkORCDP.Enabled = false;
+            }
+            
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
