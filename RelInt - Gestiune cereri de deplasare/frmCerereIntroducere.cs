@@ -25,6 +25,8 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             cmbMoneda3.SelectedIndex = 0;
             /* --------------------------------------------------------------------------------------------------------------- */
 
+            // Dezactivam checkbox-ul "chkORCDP"
+            chkORCDP.Enabled = false;
         }
 
 
@@ -61,8 +63,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         double varTotalDePlata;
         bool CalculTotalSucces = false;
 
-        // Variabile de lucru pentru metoda PerioadaAngajare()
-
         /* --------------------------------------------------------------------------------------------------------------- */
 
 
@@ -87,6 +87,33 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     MessageBox.Show("        Vă rugăm introduceți doar numere în această casetă de text.");
                     break;
             }
+
+            // Activam/Dezactivam caseta "chkORCDP"
+            activarecheckORCDP();
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+
+
+        /* ----------- Metoda activate/dezactivare a "chkORCDP" in functie de txtNrInregistrare -------------------------- */
+        public void activarecheckORCDP()
+        {
+            if (txtNrInregistrare.Text == string.Empty)
+            {
+                chkORCDP.Enabled = false;
+            }
+            else
+            {
+                chkORCDP.Enabled = true;
+            }
+            return;
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
@@ -283,6 +310,24 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             if (CalculTotalSucces == true)
                 {
                     MetodaInserareDB();
+                    // Apelam formularul "frmCerereModificare"
+                    Form frmCerereModificare = new frmCerereModificare();
+
+                    // Facem "frmCerereModificare "copil al "frmGCD"
+                    frmCerereModificare.MdiParent = this.MdiParent;
+
+                    foreach (Form form in Application.OpenForms)
+                    {
+                        if (form.GetType() == typeof(frmCerereModificare))
+                        {
+                            form.WindowState = FormWindowState.Normal;
+                            form.Activate();
+                            return;
+                        }
+                    }
+
+                    // Afisam "frmCerereModificare"
+                    frmCerereModificare.Show();
                 }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
@@ -305,7 +350,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
-        
+
 
 
 
@@ -317,24 +362,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         {
             this.Close();
         }
-
-        private void chkORCDP_CheckedChanged(object sender, EventArgs e)
-        {
-            if (txtNrInregistrare.Text != string.Empty) {
-                    switch (chkORCDP.Checked)
-                {
-                    case true:
-                        txtNrInregistrare.Enabled = false;
-                    break;
-                }
-
-            }
-            else
-            {
-                chkORCDP.Enabled = false;
-            }
-            
-        }
         /* --------------------------------------------------------------------------------------------------------------- */
 
 
@@ -342,6 +369,22 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
+
+
+        /* ------------ Metoda pentru checkbox "chkORCDP" ---------------------------------------------------------------- */
+        private void chkORCDP_CheckedChanged(object sender, EventArgs e)
+        {
+            // Apelam validarea chkORCDP
+            if (chkORCDP.Checked == true)
+            {
+                txtNrInregistrare.Enabled = false;
+            }
+            else
+            {
+                txtNrInregistrare.Enabled = true;
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
 
 
 

@@ -31,10 +31,10 @@
             this.mnuBaraMeniu = new System.Windows.Forms.MenuStrip();
             this.mnuOperatiuniFormulare = new System.Windows.Forms.ToolStripMenuItem();
             this.btnGCDIntroducereFormular = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnGCDCautareCerere = new System.Windows.Forms.ToolStripMenuItem();
             this.btnGCDModificareFormular = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.btnGCDIesire = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnGCDCautareCerere = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuBaraMeniu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -70,6 +70,14 @@
             this.btnGCDIntroducereFormular.Text = "&Introducere Formular";
             this.btnGCDIntroducereFormular.Click += new System.EventHandler(this.btnGCDIntroducereFormular_Click);
             // 
+            // btnGCDCautareCerere
+            // 
+            this.btnGCDCautareCerere.Name = "btnGCDCautareCerere";
+            this.btnGCDCautareCerere.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
+            this.btnGCDCautareCerere.Size = new System.Drawing.Size(227, 22);
+            this.btnGCDCautareCerere.Text = "&Căutare Cerere";
+            this.btnGCDCautareCerere.Click += new System.EventHandler(this.btnGCDcăutareCerere_Click);
+            // 
             // btnGCDModificareFormular
             // 
             this.btnGCDModificareFormular.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -92,14 +100,6 @@
             this.btnGCDIesire.Size = new System.Drawing.Size(227, 22);
             this.btnGCDIesire.Text = "I&esire";
             this.btnGCDIesire.Click += new System.EventHandler(this.mnuIesire_Click);
-            // 
-            // btnGCDCautareCerere
-            // 
-            this.btnGCDCautareCerere.Name = "btnGCDCautareCerere";
-            this.btnGCDCautareCerere.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
-            this.btnGCDCautareCerere.Size = new System.Drawing.Size(227, 22);
-            this.btnGCDCautareCerere.Text = "&Căutare Cerere";
-            this.btnGCDCautareCerere.Click += new System.EventHandler(this.btnGCDcăutareCerere_Click);
             // 
             // frmGCD
             // 

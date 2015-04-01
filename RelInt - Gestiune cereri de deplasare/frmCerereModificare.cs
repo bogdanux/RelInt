@@ -21,5 +21,14 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         {
             this.Close();
         }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form frmintroducere = new frmCerereInregistrare();
+            if (frmintroducere != null)
+            {
+                frmintroducere.Close();
+                this.Close();
+            }
+        }
     }
 }
