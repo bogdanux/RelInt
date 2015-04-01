@@ -328,6 +328,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
                     // Afisam "frmCerereModificare"
                     frmCerereModificare.Show();
+                    this.Enabled = false;
                 }
         }
         /* --------------------------------------------------------------------------------------------------------------- */

@@ -121,11 +121,11 @@
     <Compile Include="frmCautareCerere.Designer.cs">
       <DependentUpon>frmCautareCerere.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmCerereIntroducere.cs">
+    <Compile Include="frmCerereInregistrare.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCerereIntroducere.Designer.cs">
-      <DependentUpon>frmCerereIntroducere.cs</DependentUpon>
+    <Compile Include="frmCerereInregistrare.Designer.cs">
+      <DependentUpon>frmCerereInregistrare.cs</DependentUpon>
     </Compile>
     <Compile Include="frmCerereModificare.cs">
       <SubType>Form</SubType>
@@ -144,8 +144,8 @@
     <EmbeddedResource Include="frmCautareCerere.resx">
       <DependentUpon>frmCautareCerere.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmCerereIntroducere.resx">
-      <DependentUpon>frmCerereIntroducere.cs</DependentUpon>
+    <EmbeddedResource Include="frmCerereInregistrare.resx">
+      <DependentUpon>frmCerereInregistrare.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCerereModificare.resx">
       <DependentUpon>frmCerereModificare.cs</DependentUpon>
