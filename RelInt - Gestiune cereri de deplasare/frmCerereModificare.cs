@@ -21,28 +21,5 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         {
             this.Close();
         }
-        private void button1_Click(object sender, EventArgs e)
-        {
-            // Apelam formularul "frmCerereIntroducere"
-            Form frmCerereInregistrare = new frmCerereInregistrare();
-
-            // Facem "frmCerereIntroducere "copil al "frmGCD"
-            frmCerereInregistrare.MdiParent = this.MdiParent;
-
-            this.Close();
-
-            foreach (Form form in Application.OpenForms)
-            {
-                if (form.GetType() == typeof(frmCerereInregistrare))
-                {
-                    form.Dispose();
-                    return;
-                }
-            }
-
-        }
-
-
-
     }
 }

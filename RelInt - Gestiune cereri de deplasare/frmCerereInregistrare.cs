@@ -312,25 +312,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             if (CalculTotalSucces == true)
                 {
                     MetodaInserareDB();
-                    // Apelam formularul "frmCerereModificare"
-                    Form frmCerereModificare = new frmCerereModificare();
-
-                    // Facem "frmCerereModificare "copil al "frmGCD"
-                    frmCerereModificare.MdiParent = this.MdiParent;
-
-                    foreach (Form form in Application.OpenForms)
-                    {
-                        if (form.GetType() == typeof(frmCerereModificare))
-                        {
-                            form.WindowState = FormWindowState.Normal;
-                            form.Activate();
-                            return;
-                        }
-                    }
-
-                    // Afisam "frmCerereModificare"
-                    frmCerereModificare.Show();
-                    this.Enabled = false;
                 }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
