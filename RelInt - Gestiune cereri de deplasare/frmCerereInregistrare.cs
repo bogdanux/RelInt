@@ -27,14 +27,16 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
             // Dezactivam checkbox-ul "chkORCDP"
             chkORCDP.Enabled = false;
+
+            // Dezactivam caseta "dgvOreRecuperate" & "dgvCondiiDePlata"
+            dgvOreRecuperate.Enabled = false;
+            dgvConditiiDePlata.Enabled = false;
         }
 
 
         /* ----------- Obiecte de lucru cu RelIntDB ---------------------------------------------------------------------- */
         // Sir de conectare al RelIntDB
         string sircon_RelIntDB = "DSN=PostgreSQL35W;database=RelIntDB;server=localhost;port=5432;UID=postgres;PWD=12345;sslmode=disable;readonly=0;protocol=7.4;fakeoidindex=0;showoidcolumn=0;rowversioning=0;showsystemtables=0;fetch=100;socket=4096;unknownsizes=0;maxvarcharsize=255;maxlongvarcharsize=8190;debug=0;commlog=0;optimizer=0;ksqo=1;usedeclarefetch=0;textaslongvarchar=1;unknownsaslongvarchar=0;boolsaschar=1;parse=0;cancelasfreestmt=0;extrasystableprefixes=dd_;lfconversion=1;updatablecursors=1;disallowpremature=0;trueisminus1=0;bi=0;byteaaslongvarbinary=0;useserversideprepare=1;lowercaseidentifier=0;gssauthusegss=0;xaopt=1;";
-        // Conexiune la RelIntDB
-
         
         /* --------------------------------------------------------------------------------------------------------------- */
 
@@ -232,11 +234,11 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         {
             // Metoda de inserare a datelor
                     // Conexiunea
-            using (OdbcConnection conexiune_RelInt = new OdbcConnection(sircon_RelIntDB))
+            using (OdbcConnection conexiune_InserareCerereRelInt = new OdbcConnection(sircon_RelIntDB))
             {           // Comanda
                 using (OdbcCommand comanda_inserareRelInt = new OdbcCommand())
                 {
-                    comanda_inserareRelInt.Connection = conexiune_RelInt;
+                    comanda_inserareRelInt.Connection = conexiune_InserareCerereRelInt;
                     comanda_inserareRelInt.CommandType = CommandType.Text;
                     comanda_inserareRelInt.CommandText = "INSERT into Cereri VALUES (?, ?, ?, ?, ?, ?, ?, ? ,?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ,?, ?, ?, ?, ?, ?, ?, ? ,? ,?)";
                     comanda_inserareRelInt.Parameters.Add("@nrinregistrarec", OdbcType.Int).Value = vartxtNrInregistrare;
@@ -273,7 +275,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     // Incercam conexiunea si query-ul
                     try
                     {
-                        conexiune_RelInt.Open();
+                        conexiune_InserareCerereRelInt.Open();
                         int recordsAffected = comanda_inserareRelInt.ExecuteNonQuery();
                     } // Captam eventualele erori
                     catch (OdbcException exInserare)
@@ -378,14 +380,229 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             // Apelam validarea chkORCDP
             if (chkORCDP.Checked == true)
             {
+                // Dezactivam caseta "txtNrInregistrare"
                 txtNrInregistrare.Enabled = false;
+
+                        // Activam caseta "dgvOreRecuperate"
+                        dgvOreRecuperate.Enabled = true;
+
+                        // Activam caseta "dgvCondiiDePlata"
+                        dgvConditiiDePlata.Enabled = true;
+
+                                // Incarcam "dgvOreRecuperate"
+                                IncarcaredgvOreRecuperate();
+
+                                // Incarcam "dgvConditiiDePlata"
+                                IncarcaredgvConditiiDePlata();
             }
             else
             {
+                // Activam caseta "txtNrInregistrare"
                 txtNrInregistrare.Enabled = true;
+
+                        // Descarcare "dgvOreRecuperate"
+                        DescarcaredgvOreRecuperate();
+
+                        // Dezactivam caseta "dgvOreRecuperate"
+                        dgvOreRecuperate.Enabled = false;
+
+                                // Descarcare "dgvOreRecuperate"
+                                DescarcaredgvConditiiDePlata();
+
+                                // Dezactivam caseta "dgvCondiiDePlata"
+                                dgvConditiiDePlata.Enabled = false;
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+        /* --------------- Metoda de incarcare a "dgvOreRecuperate" ------------------------------------------------------ */
+        public void IncarcaredgvOreRecuperate()
+        {
+            using (OdbcConnection conexiune_dgvOreRecuperate = new OdbcConnection(sircon_RelIntDB))
+            {           // Comanda
+                using (OdbcCommand comanda_dgvOreRecuperate = new OdbcCommand())
+                {
+                    comanda_dgvOreRecuperate.Connection = conexiune_dgvOreRecuperate;
+                    comanda_dgvOreRecuperate.CommandType = CommandType.Text;
+                    comanda_dgvOreRecuperate.CommandText = "SELECT nrcrtor, denumiredisciplinaor, dataor, oraor, salaor FROM orerecuperate WHERE nrinregistrarecor = ?";
+                    comanda_dgvOreRecuperate.Parameters.Add("@nrinregistrarecor", OdbcType.Int).Value = vartxtNrInregistrare;
+
+                    try
+                    {
+                        conexiune_dgvOreRecuperate.Open();
+                        // OdbcDataReader rdr_dgvOreRecuperate = comanda_dgvOreRecuperate.ExecuteReader();
+                        OdbcDataAdapter da_dgvOreRecuperate = new OdbcDataAdapter();
+                        da_dgvOreRecuperate.SelectCommand = comanda_dgvOreRecuperate;
+
+                        DataTable dt_dgvOreRecuperate = new DataTable();
+                        da_dgvOreRecuperate.Fill(dt_dgvOreRecuperate);
+
+                        BindingSource bs_dgvOreRecuperate = new BindingSource();
+
+                        bs_dgvOreRecuperate.DataSource = dt_dgvOreRecuperate;
+
+                        dgvOreRecuperate.DataSource = bs_dgvOreRecuperate;
+                        da_dgvOreRecuperate.Update(dt_dgvOreRecuperate);
+                    }
+                    catch (Exception exdgvOreRecuperate)
+                    {
+                        MessageBox.Show(exdgvOreRecuperate.Message);
+                    } // Ne deconectam
+                    /*finally
+                    {
+                        conexiune_dgvOreRecuperate.Close();
+                    }*/
+                }
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+        /* --------------- Metoda de Descarcare a "dgvOreRecuperate" ----------------------------------------------------- */
+        public void DescarcaredgvOreRecuperate()
+        {
+            using (OdbcConnection conexiune_dgvOreRecuperate = new OdbcConnection(sircon_RelIntDB))
+            {           // Comanda
+                using (OdbcCommand comanda_dgvOreRecuperate = new OdbcCommand())
+                {
+                    comanda_dgvOreRecuperate.Connection = conexiune_dgvOreRecuperate;
+                    comanda_dgvOreRecuperate.CommandType = CommandType.Text;
+                    comanda_dgvOreRecuperate.CommandText = "SELECT nrcrtor, denumiredisciplinaor, dataor, oraor, salaor FROM orerecuperate WHERE nrinregistrarecor = ?";
+                    comanda_dgvOreRecuperate.Parameters.Add("@nrinregistrarecor", OdbcType.Int).Value = vartxtNrInregistrare;
+
+                    try
+                    {
+                        conexiune_dgvOreRecuperate.Open();
+                        OdbcDataAdapter da_dgvOreRecuperate = new OdbcDataAdapter();
+                        da_dgvOreRecuperate.SelectCommand = comanda_dgvOreRecuperate;
+
+                        DataTable dt_dgvOreRecuperate = new DataTable();
+                        da_dgvOreRecuperate.Dispose();
+
+                        BindingSource bs_dgvOreRecuperate = new BindingSource();
+
+                        bs_dgvOreRecuperate.DataSource = dt_dgvOreRecuperate;
+
+                        dgvOreRecuperate.DataSource = bs_dgvOreRecuperate;
+                        da_dgvOreRecuperate.Update(dt_dgvOreRecuperate);
+                    }
+                    catch (Exception exdgvOreRecuperate)
+                    {
+                        MessageBox.Show(exdgvOreRecuperate.Message);
+                    } // Ne deconectam
+                    /*finally
+                    {
+                        conexiune_dgvOreRecuperate.Close();
+                    }*/
+                }
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+        /* --------------- Metoda de incarcare a "dgvConditiiDePlata" ------------------------------------------------------ */
+        public void IncarcaredgvConditiiDePlata()
+        {
+            using (OdbcConnection conexiune_dgvConditiiDePlata = new OdbcConnection(sircon_RelIntDB))
+            {           // Comanda
+                using (OdbcCommand comanda_dgvConditiiDePlata = new OdbcCommand())
+                {
+                    comanda_dgvConditiiDePlata.Connection = conexiune_dgvConditiiDePlata;
+                    comanda_dgvConditiiDePlata.CommandType = CommandType.Text;
+                    comanda_dgvConditiiDePlata.CommandText = "SELECT nrcrtorcdp, nrcrtcdp, numeprenprofcdp, denumiredisciplinacdp, conditiideplatacdp FROM conditiideplata";
+
+                    try
+                    {
+                        conexiune_dgvConditiiDePlata.Open();
+                        OdbcDataAdapter da_dgvConditiiDePlata = new OdbcDataAdapter();
+                        da_dgvConditiiDePlata.SelectCommand = comanda_dgvConditiiDePlata;
+
+                        DataTable dt_dgvConditiiDePlata = new DataTable();
+                        da_dgvConditiiDePlata.Fill(dt_dgvConditiiDePlata);
+
+                        BindingSource bs_dgvConditiiDePlata = new BindingSource();
+
+                        bs_dgvConditiiDePlata.DataSource = dt_dgvConditiiDePlata;
+
+                        dgvConditiiDePlata.DataSource = bs_dgvConditiiDePlata;
+                        da_dgvConditiiDePlata.Update(dt_dgvConditiiDePlata);
+                    }
+                    catch (Exception exdgvConditiiDePlata)
+                    {
+                        MessageBox.Show(exdgvConditiiDePlata.Message);
+                    } // Ne deconectam
+                    /*finally
+                    {
+                        conexiune_dgvConditiiDePlata.Close();
+                    }*/
+                }
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+        /* --------------- Metoda de descarcare a "dgvConditiiDePlata" ----------------------------------------------------- */
+        public void DescarcaredgvConditiiDePlata()
+        {
+            using (OdbcConnection conexiune_dgvConditiiDePlata = new OdbcConnection(sircon_RelIntDB))
+            {           // Comanda
+                using (OdbcCommand comanda_dgvConditiiDePlata = new OdbcCommand())
+                {
+                    comanda_dgvConditiiDePlata.Connection = conexiune_dgvConditiiDePlata;
+                    comanda_dgvConditiiDePlata.CommandType = CommandType.Text;
+                    comanda_dgvConditiiDePlata.CommandText = "SELECT nrcrtorcdp, nrcrtcdp, numeprenprofcdp, denumiredisciplinacdp, conditiideplatacdp FROM conditiideplata";
+
+                    try
+                    {
+                        conexiune_dgvConditiiDePlata.Open();
+                        OdbcDataAdapter da_dgvConditiiDePlata = new OdbcDataAdapter();
+                        da_dgvConditiiDePlata.SelectCommand = comanda_dgvConditiiDePlata;
+
+                        DataTable dt_dgvConditiiDePlata = new DataTable();
+                        da_dgvConditiiDePlata.Dispose();
+
+                        BindingSource bs_dgvConditiiDePlata = new BindingSource();
+
+                        bs_dgvConditiiDePlata.DataSource = dt_dgvConditiiDePlata;
+
+                        dgvConditiiDePlata.DataSource = bs_dgvConditiiDePlata;
+                        da_dgvConditiiDePlata.Update(dt_dgvConditiiDePlata);
+                    }
+                    catch (Exception exdgvConditiiDePlata)
+                    {
+                        MessageBox.Show(exdgvConditiiDePlata.Message);
+                    } // Ne deconectam
+                    /*finally
+                    {
+                        conexiune_dgvConditiiDePlata.Close();
+                    }*/
+                }
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
 
 
 

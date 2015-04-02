@@ -121,6 +121,8 @@
             this.lblEnuntObligPlata2 = new System.Windows.Forms.Label();
             this.lblEnuntObligDidactice1 = new System.Windows.Forms.Label();
             this.lblEnuntObligDidactice2 = new System.Windows.Forms.Label();
+            this.dgvOreRecuperate = new System.Windows.Forms.DataGridView();
+            this.dgvConditiiDePlata = new System.Windows.Forms.DataGridView();
             this.mnuCI.SuspendLayout();
             this.panouIdentificareCerere.SuspendLayout();
             this.panouContinut.SuspendLayout();
@@ -130,6 +132,8 @@
             this.panouAdministratorSef.SuspendLayout();
             this.panouDecanConta.SuspendLayout();
             this.panouOreRecuperate.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOreRecuperate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvConditiiDePlata)).BeginInit();
             this.SuspendLayout();
             // 
             // mnuCI
@@ -997,7 +1001,7 @@
             // panouFinal
             // 
             this.panouFinal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panouFinal.Location = new System.Drawing.Point(13, 908);
+            this.panouFinal.Location = new System.Drawing.Point(13, 1210);
             this.panouFinal.Name = "panouFinal";
             this.panouFinal.Size = new System.Drawing.Size(642, 13);
             this.panouFinal.TabIndex = 9;
@@ -1005,11 +1009,13 @@
             // panouOreRecuperate
             // 
             this.panouOreRecuperate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panouOreRecuperate.Controls.Add(this.dgvConditiiDePlata);
+            this.panouOreRecuperate.Controls.Add(this.dgvOreRecuperate);
             this.panouOreRecuperate.Controls.Add(this.chkORCDP);
             this.panouOreRecuperate.Controls.Add(this.lblOreRecuperate);
             this.panouOreRecuperate.Location = new System.Drawing.Point(13, 821);
             this.panouOreRecuperate.Name = "panouOreRecuperate";
-            this.panouOreRecuperate.Size = new System.Drawing.Size(642, 63);
+            this.panouOreRecuperate.Size = new System.Drawing.Size(642, 383);
             this.panouOreRecuperate.TabIndex = 10;
             // 
             // chkORCDP
@@ -1073,12 +1079,28 @@
             this.lblEnuntObligDidactice2.TabIndex = 14;
             this.lblEnuntObligDidactice2.Text = "În cazul în care orele se recupereaza, precizați care este programul";
             // 
+            // dgvOreRecuperate
+            // 
+            this.dgvOreRecuperate.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvOreRecuperate.Location = new System.Drawing.Point(21, 59);
+            this.dgvOreRecuperate.Name = "dgvOreRecuperate";
+            this.dgvOreRecuperate.Size = new System.Drawing.Size(591, 150);
+            this.dgvOreRecuperate.TabIndex = 2;
+            // 
+            // dgvConditiiDePlata
+            // 
+            this.dgvConditiiDePlata.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvConditiiDePlata.Location = new System.Drawing.Point(21, 215);
+            this.dgvConditiiDePlata.Name = "dgvConditiiDePlata";
+            this.dgvConditiiDePlata.Size = new System.Drawing.Size(591, 150);
+            this.dgvConditiiDePlata.TabIndex = 3;
+            // 
             // frmCerereInregistrare
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(699, 591);
+            this.ClientSize = new System.Drawing.Size(699, 1023);
             this.Controls.Add(this.lblEnuntObligDidactice2);
             this.Controls.Add(this.lblEnuntObligDidactice1);
             this.Controls.Add(this.lblEnuntObligPlata2);
@@ -1112,6 +1134,8 @@
             this.panouDecanConta.PerformLayout();
             this.panouOreRecuperate.ResumeLayout(false);
             this.panouOreRecuperate.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOreRecuperate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvConditiiDePlata)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1212,6 +1236,8 @@
         private System.Windows.Forms.Label lblDirectorGeneralAdministrativ;
         public System.Windows.Forms.TextBox txtSubsemnatul;
         private System.Windows.Forms.CheckBox chkORCDP;
+        private System.Windows.Forms.DataGridView dgvOreRecuperate;
+        private System.Windows.Forms.DataGridView dgvConditiiDePlata;
 
     }
 }
