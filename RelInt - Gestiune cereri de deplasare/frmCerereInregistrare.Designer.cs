@@ -1025,6 +1025,7 @@
             this.dgvConditiiDePlata.Name = "dgvConditiiDePlata";
             this.dgvConditiiDePlata.Size = new System.Drawing.Size(591, 150);
             this.dgvConditiiDePlata.TabIndex = 3;
+            this.dgvConditiiDePlata.RowLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvConditiiDePlata_RowLeave);
             // 
             // dgvOreRecuperate
             // 
@@ -1033,6 +1034,7 @@
             this.dgvOreRecuperate.Name = "dgvOreRecuperate";
             this.dgvOreRecuperate.Size = new System.Drawing.Size(591, 150);
             this.dgvOreRecuperate.TabIndex = 2;
+            this.dgvOreRecuperate.RowLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOreRecuperate_RowLeave);
             // 
             // chkORCDP
             // 

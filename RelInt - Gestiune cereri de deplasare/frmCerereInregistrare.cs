@@ -491,12 +491,12 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
-        /* ------------------ Obiecte de BD ptr dgcOreRecuperate --------------------------------------------------------- */
+        /* ------------------ Obiecte de BD ptr dgcConditiiDePlata ------------------------------------------------------- */
         DataSet ds_dgvConditiiDePlata = new DataSet();
         OdbcDataAdapter da_dgvConditiiDePlata = new OdbcDataAdapter();
         DataTable dt_dgvConditiiDePlata = new DataTable();
         BindingSource bs_dgvConditiiDePlata = new BindingSource();
-        /* --------------- Metoda de incarcare a "dgvConditiiDePlata" ------------------------------------------------------ */
+        /* --------------- Metoda de incarcare a "dgvConditiiDePlata" ---------------------------------------------------- */
         public void IncarcaredgvConditiiDePlata()
         {
             using (OdbcConnection conexiune_dgvConditiiDePlata = new OdbcConnection(sircon_RelIntDB))
@@ -533,7 +533,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-        /* --------------- Metoda de descarcare a "dgvConditiiDePlata" ----------------------------------------------------- */
+        /* --------------- Metoda de descarcare a "dgvConditiiDePlata" --------------------------------------------------- */
         public void DescarcaredgvConditiiDePlata()
         {
             using (OdbcConnection conexiune_dgvConditiiDePlata = new OdbcConnection(sircon_RelIntDB))
@@ -568,6 +568,40 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     }
                 }
             }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+
+
+
+        /* ------------------ Inserare in tabela "orerecuperate" prin "dgvOreRecuperate" --------------------------------- */
+        private void dgvOreRecuperate_RowLeave(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+
+
+
+        /* ------------------ Inserare in tabela "conditiideplata" prin "dgvConditiiDePlata" ----------------------------- */
+        private void dgvConditiiDePlata_RowLeave(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
