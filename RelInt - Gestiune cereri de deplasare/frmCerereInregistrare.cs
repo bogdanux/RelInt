@@ -41,6 +41,26 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             // Dezactivam selectiile pentru tipul de inserare al Conditiilor De Plata
             rdoCDPInserare.Enabled = false;
             rdoCDPStergere.Enabled = false;
+
+                // Dezactivam campurile si butonul pentru introducerea datelor (OR)
+                txtORNrCrt.Enabled = false;
+                txtORDenDisciplina.Enabled = false;
+                txtORData.Enabled = false;
+                txtOROra.Enabled = false;
+                txtORSala.Enabled = false;
+                btnORInserare.Enabled = false;
+
+                // Dezctivam campurile si butonul pentru stergerea datelor (OR)
+                txtORNrCrtStergere.Enabled = false;
+                btnORStergere.Enabled = false;
+
+                    // Dezactivam campurile si butonul pentru introducerea datelor (CDP)
+                    txtCDPNrCrtOR.Enabled = false;
+                    txtCDPNrCrt.Enabled = false;
+                    txtCDPNumePrenProf.Enabled = false;
+                    txtCDPDenDisciplina.Enabled = false;
+                    txtCDPCondDePlata.Enabled = false;
+                    btnCDPIntroducere.Enabled = false;
         }
 
 
@@ -443,28 +463,9 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-
-
-
-
-
-
-
-
-
-
-
         /* ------------------ Inserare in tabela "orerecuperate" prin "dgvOreRecuperate" --------------------------------- */
         private void dgvOreRecuperate_RowLeave(object sender, DataGridViewCellEventArgs e)
         {
-            
-
-
-
-
-
-
-
             if (dgvOreRecuperate.IsCurrentRowDirty == true)
             {
                 using (OdbcConnection conexiune_InserareOreRecuperate = new OdbcConnection(sircon_RelIntDB))
@@ -509,6 +510,10 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
 
 
 
@@ -598,21 +603,15 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-
-
-
-
-
-
-
-
-
-
-
         /* ------------------ Inserare in tabela "conditiideplata" prin "dgvConditiiDePlata" ----------------------------- */
-        private void dgvConditiiDePlata_RowLeave(object sender, DataGridViewCellEventArgs e)
+        private void dgvConditiiDePlata_RowDirtyStateNeeded(object sender, System.Windows.Forms.QuestionEventArgs e)
         {
-
+            //if (!rowScopeCommit)
+            //{
+            //    // In cell-level commit scope, indicate whether the value 
+            //    // of the current cell has been modified.
+            //    e.Response = this.dgvConditiiDePlata.IsCurrentCellDirty;
+            //}
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
@@ -669,6 +668,50 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                             // Dezactivam selectiile pentru tipul de inserare al Conditiilor De Plata
                             rdoCDPInserare.Enabled = false;
                             rdoCDPStergere.Enabled = false;
+
+                                // Stergem tot din campurile pentru introducerea datelor (OR)
+                                txtORNrCrt.Clear();
+                                txtORDenDisciplina.Clear();
+                                txtORData.Clear();
+                                txtOROra.Clear();
+                                txtORSala.Clear();
+
+                                // Dezactivam campurile si butonul pentru introducerea datelor (OR)
+                                txtORNrCrt.Enabled = false;
+                                txtORDenDisciplina.Enabled = false;
+                                txtORData.Enabled = false;
+                                txtOROra.Enabled = false;
+                                txtORSala.Enabled = false;
+                                btnORInserare.Enabled = false;
+
+                                // Stergem tot din campurile pentru stergerea datelor (OR)
+                                txtORNrCrtStergere.Clear();
+
+                                // Dezactivam campurile si butonul pentru stergerea datelor (OR)
+                                txtORNrCrtStergere.Enabled = false;
+                                btnORStergere.Enabled = false;
+
+                                    // Stergem tot din campurile pentru introducerea datelor (CDP)
+                                    txtCDPNrCrtOR.Clear();
+                                    txtCDPNrCrt.Clear();
+                                    txtCDPNumePrenProf.Clear();
+                                    txtCDPDenDisciplina.Clear();
+                                    txtCDPCondDePlata.Clear();
+
+                                    // Dezactivam campurile si butonul pentru introducerea datelor (CDP)
+                                    txtCDPNrCrtOR.Enabled = false;
+                                    txtCDPNrCrt.Enabled = false;
+                                    txtCDPNumePrenProf.Enabled = false;
+                                    txtCDPDenDisciplina.Enabled = false;
+                                    txtCDPCondDePlata.Enabled = false;
+                                    btnCDPIntroducere.Enabled = false;
+
+                                    // Stergem tot din campurile pentru stergerea datelor (CDP)
+                                    txtCDPNrCrtOR.Clear();
+
+                                    // Dezactivam campurile si butonul pentru stergerea datelor (CDP)
+                                    txtCDPNrCrtStergere.Enabled = false;
+                                    btnCDPStergere.Enabled = false;
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
@@ -690,11 +733,34 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
                     // Incarcam "dgvOreRecuperate"
                     IncarcaredgvOreRecuperate();
+
+                    // Activam campurile si butonul pentru introducerea datelor
+                    txtORNrCrt.Enabled = true;
+                    txtORDenDisciplina.Enabled = true;
+                    txtORData.Enabled = true;
+                    txtOROra.Enabled = true;
+                    txtORSala.Enabled = true;
+                    btnORInserare.Enabled = true;
                 }
                 else
                 {
                     // Activam "dgvOreRecuperate"
                     dgvOreRecuperate.Enabled = true;
+
+                    // Stergem tot din campurile pentru introducerea datelor
+                    txtORNrCrt.Clear();
+                    txtORDenDisciplina.Clear();
+                    txtORData.Clear();
+                    txtOROra.Clear();
+                    txtORSala.Clear();
+
+                    // Dezactivam campurile si butonul pentru introducerea datelor
+                    txtORNrCrt.Enabled = false;
+                    txtORDenDisciplina.Enabled = false;
+                    txtORData.Enabled = false;
+                    txtOROra.Enabled = false;
+                    txtORSala.Enabled = false;
+                    btnORInserare.Enabled = false;
                 }
             }
         }
@@ -719,11 +785,22 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
                     // Incarcam "dgvOreRecuperate"
                     IncarcaredgvOreRecuperate();
+
+                    // Activam campurile si butonul pentru stergerea datelor
+                    txtORNrCrtStergere.Enabled = true;
+                    btnORStergere.Enabled = true;
                 }
                 else
                 {
                     // Activam "dgvOreRecuperate"
                     dgvOreRecuperate.Enabled = true;
+
+                    // Stergem tot din campurile pentru stergerea datelor
+                    txtORNrCrtStergere.Clear();
+
+                    // Dezactivam campurile si butonul pentru stergerea datelor
+                    txtORNrCrtStergere.Enabled = false;
+                    btnORStergere.Enabled = false;
                 }
             }
         }
@@ -749,11 +826,34 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
                     // Incarcam "dgvOreRecuperate"
                     IncarcaredgvConditiiDePlata();
+
+                    // Activam campurile si butonul pentru introducerea datelor
+                    txtCDPNrCrtOR.Enabled = true;
+                    txtCDPNrCrt.Enabled = true;
+                    txtCDPNumePrenProf.Enabled = true;
+                    txtCDPDenDisciplina.Enabled = true;
+                    txtCDPCondDePlata.Enabled = true;
+                    btnCDPIntroducere.Enabled = true;
                 }
                 else
                 {
                     // Activam "dgvOreRecuperate"
                     dgvConditiiDePlata.Enabled = true;
+
+                    // Stergem tot din campurile pentru introducerea datelor
+                    txtCDPNrCrtOR.Clear();
+                    txtCDPNrCrt.Clear();
+                    txtCDPNumePrenProf.Clear();
+                    txtCDPDenDisciplina.Clear();
+                    txtCDPCondDePlata.Clear();
+
+                    // Dezactivam campurile si butonul pentru introducerea datelor
+                    txtCDPNrCrtOR.Enabled = false;
+                    txtCDPNrCrt.Enabled = false;
+                    txtCDPNumePrenProf.Enabled = false;
+                    txtCDPDenDisciplina.Enabled = false;
+                    txtCDPCondDePlata.Enabled = false;
+                    btnCDPIntroducere.Enabled = false;
                 }
             }
         }
@@ -778,11 +878,22 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
                     // Incarcam "dgvOreRecuperate"
                     IncarcaredgvConditiiDePlata();
+
+                    // Activam campurile si butonul pentru stergerea datelor
+                    txtCDPNrCrtStergere.Enabled = true;
+                    btnCDPStergere.Enabled = true;
                 }
                 else
                 {
                     // Activam "dgvOreRecuperate"
                     dgvConditiiDePlata.Enabled = true;
+
+                    // Stergem tot din campurile pentru stergerea datelor
+                    txtCDPNrCrtOR.Clear();
+
+                    // Dezactivam campurile si butonul pentru stergerea datelor
+                    txtCDPNrCrtStergere.Enabled = false;
+                    btnCDPStergere.Enabled = false;
                 }
             }
         }
