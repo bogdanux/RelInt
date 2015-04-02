@@ -33,6 +33,14 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
             // Dezactivam caseta "dgvCondiiDePlata"
             dgvConditiiDePlata.Enabled = false;
+
+            // Dezactivam selectiile pentru tipul de inserare al Orelor Recuperate
+            rdoORInserare.Enabled = false;
+            rdoORStergere.Enabled = false;
+
+            // Dezactivam selectiile pentru tipul de inserare al Conditiilor De Plata
+            rdoCDPInserare.Enabled = false;
+            rdoCDPStergere.Enabled = false;
         }
 
 
@@ -450,6 +458,55 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         private void dgvOreRecuperate_RowLeave(object sender, DataGridViewCellEventArgs e)
         {
             
+
+
+
+
+
+
+
+            if (dgvOreRecuperate.IsCurrentRowDirty == true)
+            {
+                using (OdbcConnection conexiune_InserareOreRecuperate = new OdbcConnection(sircon_RelIntDB))
+                {           // Comanda
+                    using (OdbcCommand comanda_InserareOreRecuperate = new OdbcCommand())
+                    {
+                        for (int i = 0; i < dgvOreRecuperate.Rows.Count; i++)
+                        {
+                            // Dezactivam prima celula din "dgvOreRecuperate"
+                            dgvOreRecuperate.Rows[i].Cells[0].ReadOnly = true;
+
+                            comanda_InserareOreRecuperate.Connection = conexiune_InserareOreRecuperate;
+                            comanda_InserareOreRecuperate.CommandType = CommandType.Text;
+                            comanda_InserareOreRecuperate.CommandText = "INSERT into orerecuperate VALUES (?, ?, ?, ?, ?, ?)";
+                            comanda_InserareOreRecuperate.Parameters.Add("@nrinregistrarec", OdbcType.Int).Value = vartxtNrInregistrare;
+                            comanda_InserareOreRecuperate.Parameters.Add("@nrcrtor", OdbcType.Int).Value = dgvOreRecuperate.Rows[i].Cells[1].Value;
+                            comanda_InserareOreRecuperate.Parameters.Add("@denumiredisciplinaor", OdbcType.NVarChar).Value = dgvOreRecuperate.Rows[i].Cells[2].Value;
+                            comanda_InserareOreRecuperate.Parameters.Add("@dataor", OdbcType.DateTime).Value = dgvOreRecuperate.Rows[i].Cells[3].Value;
+                            comanda_InserareOreRecuperate.Parameters.Add("@oraor", OdbcType.DateTime).Value = dgvOreRecuperate.Rows[i].Cells[4].Value;
+                            comanda_InserareOreRecuperate.Parameters.Add("@salaor", OdbcType.NVarChar).Value = dgvOreRecuperate.Rows[i].Cells[5].Value;
+                            // Incercam conexiunea si query-ul
+                            try
+                            {
+                                conexiune_InserareOreRecuperate.Open();
+                            } // Captam eventualele erori
+                            catch (OdbcException exInserare)
+                            {
+                                // Afisam eroarea driverului Odbc
+                                MessageBox.Show(exInserare.Message);
+                            } // Ne deconectam
+                            finally
+                            {
+                                conexiune_InserareOreRecuperate.Close();
+                            }
+                        }
+                    }
+                }
+            }
+            else
+            {
+                // Nu fa nimic
+            }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
@@ -575,17 +632,12 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 // Dezactivam caseta "txtNrInregistrare"
                 txtNrInregistrare.Enabled = false;
 
-                    // Activam datagridview "dgvOreRecuperate"
-                    dgvOreRecuperate.Enabled = true;
-
-                    // Activam datagridview "dgvCondiiDePlata"
-                    dgvConditiiDePlata.Enabled = true;
-
-                        // Incarcam "dgvOreRecuperate"
-                        IncarcaredgvOreRecuperate();
-
-                        // Incarcam "dgvConditiiDePlata"
-                        IncarcaredgvConditiiDePlata();
+                // Activam selectiile pentru tipul de inserare al Orelor Recuperate
+                rdoORInserare.Enabled = true;
+                rdoORStergere.Enabled = true;
+                // Activam selectiile pentru tipul de inserare al Conditiilor De Plata
+                rdoCDPInserare.Enabled = true;
+                rdoCDPStergere.Enabled = true;
             }
             else
             {
@@ -603,10 +655,138 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
                         // Dezactivam datagridview "dgvCondiiDePlata"
                         dgvConditiiDePlata.Enabled = false;
+
+                            // Stergem selectiile pentru tipul de inserare al Orelor Recuperate
+                            rdoORInserare.Checked = false;
+                            rdoORStergere.Checked = false;
+                            // Dezactivam selectiile pentru tipul de inserare al Orelor Recuperate
+                            rdoORInserare.Enabled = false;
+                            rdoORStergere.Enabled = false;
+
+                            // Stergem selectiile pentru tipul de inserare al Conditiilor De Plata
+                            rdoCDPInserare.Checked = false;
+                            rdoCDPStergere.Checked = false;
+                            // Dezactivam selectiile pentru tipul de inserare al Conditiilor De Plata
+                            rdoCDPInserare.Enabled = false;
+                            rdoCDPStergere.Enabled = false;
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
+
+
+
+
+
+        /* ------------- Metoda pentru actiunile lui "rdoORInserare" ----------------------------------------------------- */
+        private void rdoORInserare_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkORCDP.Checked == true) 
+            {
+                if (rdoORInserare.Checked == true)
+                {
+                    // Activam "dgvOreRecuperate"
+                    dgvOreRecuperate.Enabled = true;
+
+                    // Incarcam "dgvOreRecuperate"
+                    IncarcaredgvOreRecuperate();
+                }
+                else
+                {
+                    // Activam "dgvOreRecuperate"
+                    dgvOreRecuperate.Enabled = true;
+                }
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+        /* ------------- Metoda pentru actiunile lui "rdoORStergere" ----------------------------------------------------- */
+        private void rdoORStergere_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkORCDP.Checked == true)
+            {
+                if (rdoORStergere.Checked == true)
+                {
+                    // Activam "dgvOreRecuperate"
+                    dgvOreRecuperate.Enabled = true;
+
+                    // Incarcam "dgvOreRecuperate"
+                    IncarcaredgvOreRecuperate();
+                }
+                else
+                {
+                    // Activam "dgvOreRecuperate"
+                    dgvOreRecuperate.Enabled = true;
+                }
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+
+        /* -------------------- Metoda pentru actiunile lui "rdoCDPInserare" --------------------------------------------- */
+        private void rdoCDPInserare_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkORCDP.Checked == true)
+            {
+                if (rdoCDPInserare.Checked == true)
+                {
+                    // Activam "dgvOreRecuperate"
+                    dgvConditiiDePlata.Enabled = true;
+
+                    // Incarcam "dgvOreRecuperate"
+                    IncarcaredgvConditiiDePlata();
+                }
+                else
+                {
+                    // Activam "dgvOreRecuperate"
+                    dgvConditiiDePlata.Enabled = true;
+                }
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+        /* -------------------- Metoda pentru actiunile lui "rdoCDPStergere" --------------------------------------------- */
+        private void rdoCDPStergere_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkORCDP.Checked == true)
+            {
+                if (rdoCDPStergere.Checked == true)
+                {
+                    // Activam "dgvOreRecuperate"
+                    dgvConditiiDePlata.Enabled = true;
+
+                    // Incarcam "dgvOreRecuperate"
+                    IncarcaredgvConditiiDePlata();
+                }
+                else
+                {
+                    // Activam "dgvOreRecuperate"
+                    dgvConditiiDePlata.Enabled = true;
+                }
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
 
 
 

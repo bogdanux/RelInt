@@ -123,6 +123,12 @@
             this.lblEnuntObligPlata2 = new System.Windows.Forms.Label();
             this.lblEnuntObligDidactice1 = new System.Windows.Forms.Label();
             this.lblEnuntObligDidactice2 = new System.Windows.Forms.Label();
+            this.panouTipInsOR = new System.Windows.Forms.Panel();
+            this.rdoORInserare = new System.Windows.Forms.RadioButton();
+            this.rdoORStergere = new System.Windows.Forms.RadioButton();
+            this.panouTipInsCDP = new System.Windows.Forms.Panel();
+            this.rdoCDPStergere = new System.Windows.Forms.RadioButton();
+            this.rdoCDPInserare = new System.Windows.Forms.RadioButton();
             this.mnuCI.SuspendLayout();
             this.panouIdentificareCerere.SuspendLayout();
             this.panouContinut.SuspendLayout();
@@ -134,6 +140,8 @@
             this.panouOreRecuperate.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConditiiDePlata)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOreRecuperate)).BeginInit();
+            this.panouTipInsOR.SuspendLayout();
+            this.panouTipInsCDP.SuspendLayout();
             this.SuspendLayout();
             // 
             // mnuCI
@@ -1001,7 +1009,7 @@
             // panouFinal
             // 
             this.panouFinal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panouFinal.Location = new System.Drawing.Point(13, 1230);
+            this.panouFinal.Location = new System.Drawing.Point(13, 1320);
             this.panouFinal.Name = "panouFinal";
             this.panouFinal.Size = new System.Drawing.Size(642, 13);
             this.panouFinal.TabIndex = 9;
@@ -1009,19 +1017,21 @@
             // panouOreRecuperate
             // 
             this.panouOreRecuperate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panouOreRecuperate.Controls.Add(this.panouTipInsCDP);
+            this.panouOreRecuperate.Controls.Add(this.panouTipInsOR);
             this.panouOreRecuperate.Controls.Add(this.dgvConditiiDePlata);
             this.panouOreRecuperate.Controls.Add(this.dgvOreRecuperate);
             this.panouOreRecuperate.Controls.Add(this.chkORCDP);
             this.panouOreRecuperate.Controls.Add(this.lblOreRecuperate);
             this.panouOreRecuperate.Location = new System.Drawing.Point(13, 819);
             this.panouOreRecuperate.Name = "panouOreRecuperate";
-            this.panouOreRecuperate.Size = new System.Drawing.Size(642, 387);
+            this.panouOreRecuperate.Size = new System.Drawing.Size(642, 430);
             this.panouOreRecuperate.TabIndex = 10;
             // 
             // dgvConditiiDePlata
             // 
             this.dgvConditiiDePlata.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvConditiiDePlata.Location = new System.Drawing.Point(21, 215);
+            this.dgvConditiiDePlata.Location = new System.Drawing.Point(21, 271);
             this.dgvConditiiDePlata.Name = "dgvConditiiDePlata";
             this.dgvConditiiDePlata.Size = new System.Drawing.Size(591, 150);
             this.dgvConditiiDePlata.TabIndex = 3;
@@ -1030,7 +1040,7 @@
             // dgvOreRecuperate
             // 
             this.dgvOreRecuperate.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvOreRecuperate.Location = new System.Drawing.Point(21, 59);
+            this.dgvOreRecuperate.Location = new System.Drawing.Point(21, 87);
             this.dgvOreRecuperate.Name = "dgvOreRecuperate";
             this.dgvOreRecuperate.Size = new System.Drawing.Size(591, 150);
             this.dgvOreRecuperate.TabIndex = 2;
@@ -1097,12 +1107,80 @@
             this.lblEnuntObligDidactice2.TabIndex = 14;
             this.lblEnuntObligDidactice2.Text = "În cazul în care orele se recupereaza, precizați care este programul";
             // 
+            // panouTipInsOR
+            // 
+            this.panouTipInsOR.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panouTipInsOR.Controls.Add(this.rdoORStergere);
+            this.panouTipInsOR.Controls.Add(this.rdoORInserare);
+            this.panouTipInsOR.Location = new System.Drawing.Point(21, 59);
+            this.panouTipInsOR.Name = "panouTipInsOR";
+            this.panouTipInsOR.Size = new System.Drawing.Size(171, 29);
+            this.panouTipInsOR.TabIndex = 4;
+            // 
+            // rdoORInserare
+            // 
+            this.rdoORInserare.AutoSize = true;
+            this.rdoORInserare.Location = new System.Drawing.Point(5, 5);
+            this.rdoORInserare.Name = "rdoORInserare";
+            this.rdoORInserare.Size = new System.Drawing.Size(63, 17);
+            this.rdoORInserare.TabIndex = 0;
+            this.rdoORInserare.TabStop = true;
+            this.rdoORInserare.Text = "Inserare";
+            this.rdoORInserare.UseVisualStyleBackColor = true;
+            this.rdoORInserare.CheckedChanged += new System.EventHandler(this.rdoORInserare_CheckedChanged);
+            // 
+            // rdoORStergere
+            // 
+            this.rdoORStergere.AutoSize = true;
+            this.rdoORStergere.Location = new System.Drawing.Point(96, 5);
+            this.rdoORStergere.Name = "rdoORStergere";
+            this.rdoORStergere.Size = new System.Drawing.Size(65, 17);
+            this.rdoORStergere.TabIndex = 1;
+            this.rdoORStergere.TabStop = true;
+            this.rdoORStergere.Text = "Ștergere";
+            this.rdoORStergere.UseVisualStyleBackColor = true;
+            this.rdoORStergere.CheckedChanged += new System.EventHandler(this.rdoORStergere_CheckedChanged);
+            // 
+            // panouTipInsCDP
+            // 
+            this.panouTipInsCDP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panouTipInsCDP.Controls.Add(this.rdoCDPStergere);
+            this.panouTipInsCDP.Controls.Add(this.rdoCDPInserare);
+            this.panouTipInsCDP.Location = new System.Drawing.Point(21, 243);
+            this.panouTipInsCDP.Name = "panouTipInsCDP";
+            this.panouTipInsCDP.Size = new System.Drawing.Size(171, 29);
+            this.panouTipInsCDP.TabIndex = 5;
+            // 
+            // rdoCDPStergere
+            // 
+            this.rdoCDPStergere.AutoSize = true;
+            this.rdoCDPStergere.Location = new System.Drawing.Point(96, 5);
+            this.rdoCDPStergere.Name = "rdoCDPStergere";
+            this.rdoCDPStergere.Size = new System.Drawing.Size(65, 17);
+            this.rdoCDPStergere.TabIndex = 1;
+            this.rdoCDPStergere.TabStop = true;
+            this.rdoCDPStergere.Text = "Ștergere";
+            this.rdoCDPStergere.UseVisualStyleBackColor = true;
+            this.rdoCDPStergere.CheckedChanged += new System.EventHandler(this.rdoCDPStergere_CheckedChanged);
+            // 
+            // rdoCDPInserare
+            // 
+            this.rdoCDPInserare.AutoSize = true;
+            this.rdoCDPInserare.Location = new System.Drawing.Point(5, 5);
+            this.rdoCDPInserare.Name = "rdoCDPInserare";
+            this.rdoCDPInserare.Size = new System.Drawing.Size(63, 17);
+            this.rdoCDPInserare.TabIndex = 0;
+            this.rdoCDPInserare.TabStop = true;
+            this.rdoCDPInserare.Text = "Inserare";
+            this.rdoCDPInserare.UseVisualStyleBackColor = true;
+            this.rdoCDPInserare.CheckedChanged += new System.EventHandler(this.rdoCDPInserare_CheckedChanged);
+            // 
             // frmCerereInregistrare
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(699, 1023);
+            this.ClientSize = new System.Drawing.Size(699, 1015);
             this.Controls.Add(this.lblEnuntObligDidactice2);
             this.Controls.Add(this.lblEnuntObligDidactice1);
             this.Controls.Add(this.lblEnuntObligPlata2);
@@ -1138,6 +1216,10 @@
             this.panouOreRecuperate.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConditiiDePlata)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOreRecuperate)).EndInit();
+            this.panouTipInsOR.ResumeLayout(false);
+            this.panouTipInsOR.PerformLayout();
+            this.panouTipInsCDP.ResumeLayout(false);
+            this.panouTipInsCDP.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1240,6 +1322,12 @@
         private System.Windows.Forms.CheckBox chkORCDP;
         private System.Windows.Forms.DataGridView dgvOreRecuperate;
         private System.Windows.Forms.DataGridView dgvConditiiDePlata;
+        private System.Windows.Forms.Panel panouTipInsOR;
+        private System.Windows.Forms.RadioButton rdoORStergere;
+        private System.Windows.Forms.RadioButton rdoORInserare;
+        private System.Windows.Forms.Panel panouTipInsCDP;
+        private System.Windows.Forms.RadioButton rdoCDPStergere;
+        private System.Windows.Forms.RadioButton rdoCDPInserare;
 
     }
 }
