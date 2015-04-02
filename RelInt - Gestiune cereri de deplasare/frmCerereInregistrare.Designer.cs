@@ -115,14 +115,14 @@
             this.lblAdministrativ = new System.Windows.Forms.Label();
             this.panouFinal = new System.Windows.Forms.Panel();
             this.panouOreRecuperate = new System.Windows.Forms.Panel();
+            this.dgvConditiiDePlata = new System.Windows.Forms.DataGridView();
+            this.dgvOreRecuperate = new System.Windows.Forms.DataGridView();
             this.chkORCDP = new System.Windows.Forms.CheckBox();
             this.lblOreRecuperate = new System.Windows.Forms.Label();
             this.lblEnuntObligPlata1 = new System.Windows.Forms.Label();
             this.lblEnuntObligPlata2 = new System.Windows.Forms.Label();
             this.lblEnuntObligDidactice1 = new System.Windows.Forms.Label();
             this.lblEnuntObligDidactice2 = new System.Windows.Forms.Label();
-            this.dgvOreRecuperate = new System.Windows.Forms.DataGridView();
-            this.dgvConditiiDePlata = new System.Windows.Forms.DataGridView();
             this.mnuCI.SuspendLayout();
             this.panouIdentificareCerere.SuspendLayout();
             this.panouContinut.SuspendLayout();
@@ -132,8 +132,8 @@
             this.panouAdministratorSef.SuspendLayout();
             this.panouDecanConta.SuspendLayout();
             this.panouOreRecuperate.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvOreRecuperate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConditiiDePlata)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOreRecuperate)).BeginInit();
             this.SuspendLayout();
             // 
             // mnuCI
@@ -231,7 +231,7 @@
             this.panouIdentificareCerere.Controls.Add(this.dpDataFormular);
             this.panouIdentificareCerere.Controls.Add(this.txtNrInregistrare);
             this.panouIdentificareCerere.Controls.Add(this.lblDataFormular);
-            this.panouIdentificareCerere.Location = new System.Drawing.Point(12, 44);
+            this.panouIdentificareCerere.Location = new System.Drawing.Point(12, 42);
             this.panouIdentificareCerere.Name = "panouIdentificareCerere";
             this.panouIdentificareCerere.Size = new System.Drawing.Size(643, 56);
             this.panouIdentificareCerere.TabIndex = 5;
@@ -285,7 +285,7 @@
             this.panouContinut.Controls.Add(this.txtSubsemnatul);
             this.panouContinut.Controls.Add(this.lblSubsemnatul);
             this.panouContinut.Controls.Add(this.lblDescriere);
-            this.panouContinut.Location = new System.Drawing.Point(13, 106);
+            this.panouContinut.Location = new System.Drawing.Point(13, 104);
             this.panouContinut.Name = "panouContinut";
             this.panouContinut.Size = new System.Drawing.Size(642, 225);
             this.panouContinut.TabIndex = 6;
@@ -568,7 +568,7 @@
             this.panouCheltuieliPlecare.Controls.Add(this.txtCheltuieliSuportate);
             this.panouCheltuieliPlecare.Controls.Add(this.lblCheltuielileVorFi);
             this.panouCheltuieliPlecare.Controls.Add(this.lblCheltuieliPlecare);
-            this.panouCheltuieliPlecare.Location = new System.Drawing.Point(13, 337);
+            this.panouCheltuieliPlecare.Location = new System.Drawing.Point(13, 335);
             this.panouCheltuieliPlecare.Name = "panouCheltuieliPlecare";
             this.panouCheltuieliPlecare.Size = new System.Drawing.Size(642, 110);
             this.panouCheltuieliPlecare.TabIndex = 7;
@@ -745,7 +745,7 @@
             this.panouMentiuniLegale.Controls.Add(this.txtAmbasada);
             this.panouMentiuniLegale.Controls.Add(this.lblAdresaAmbasada);
             this.panouMentiuniLegale.Controls.Add(this.lblAdministrativ);
-            this.panouMentiuniLegale.Location = new System.Drawing.Point(13, 453);
+            this.panouMentiuniLegale.Location = new System.Drawing.Point(13, 451);
             this.panouMentiuniLegale.Margin = new System.Windows.Forms.Padding(3, 3, 3, 15);
             this.panouMentiuniLegale.Name = "panouMentiuniLegale";
             this.panouMentiuniLegale.Size = new System.Drawing.Size(642, 287);
@@ -1001,7 +1001,7 @@
             // panouFinal
             // 
             this.panouFinal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panouFinal.Location = new System.Drawing.Point(13, 1210);
+            this.panouFinal.Location = new System.Drawing.Point(13, 1230);
             this.panouFinal.Name = "panouFinal";
             this.panouFinal.Size = new System.Drawing.Size(642, 13);
             this.panouFinal.TabIndex = 9;
@@ -1013,10 +1013,26 @@
             this.panouOreRecuperate.Controls.Add(this.dgvOreRecuperate);
             this.panouOreRecuperate.Controls.Add(this.chkORCDP);
             this.panouOreRecuperate.Controls.Add(this.lblOreRecuperate);
-            this.panouOreRecuperate.Location = new System.Drawing.Point(13, 821);
+            this.panouOreRecuperate.Location = new System.Drawing.Point(13, 819);
             this.panouOreRecuperate.Name = "panouOreRecuperate";
-            this.panouOreRecuperate.Size = new System.Drawing.Size(642, 383);
+            this.panouOreRecuperate.Size = new System.Drawing.Size(642, 387);
             this.panouOreRecuperate.TabIndex = 10;
+            // 
+            // dgvConditiiDePlata
+            // 
+            this.dgvConditiiDePlata.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvConditiiDePlata.Location = new System.Drawing.Point(21, 215);
+            this.dgvConditiiDePlata.Name = "dgvConditiiDePlata";
+            this.dgvConditiiDePlata.Size = new System.Drawing.Size(591, 150);
+            this.dgvConditiiDePlata.TabIndex = 3;
+            // 
+            // dgvOreRecuperate
+            // 
+            this.dgvOreRecuperate.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvOreRecuperate.Location = new System.Drawing.Point(21, 59);
+            this.dgvOreRecuperate.Name = "dgvOreRecuperate";
+            this.dgvOreRecuperate.Size = new System.Drawing.Size(591, 150);
+            this.dgvOreRecuperate.TabIndex = 2;
             // 
             // chkORCDP
             // 
@@ -1044,7 +1060,7 @@
             // lblEnuntObligPlata1
             // 
             this.lblEnuntObligPlata1.AutoSize = true;
-            this.lblEnuntObligPlata1.Location = new System.Drawing.Point(38, 785);
+            this.lblEnuntObligPlata1.Location = new System.Drawing.Point(38, 783);
             this.lblEnuntObligPlata1.Name = "lblEnuntObligPlata1";
             this.lblEnuntObligPlata1.Size = new System.Drawing.Size(566, 13);
             this.lblEnuntObligPlata1.TabIndex = 12;
@@ -1054,7 +1070,7 @@
             // lblEnuntObligPlata2
             // 
             this.lblEnuntObligPlata2.AutoSize = true;
-            this.lblEnuntObligPlata2.Location = new System.Drawing.Point(38, 803);
+            this.lblEnuntObligPlata2.Location = new System.Drawing.Point(38, 801);
             this.lblEnuntObligPlata2.Name = "lblEnuntObligPlata2";
             this.lblEnuntObligPlata2.Size = new System.Drawing.Size(162, 13);
             this.lblEnuntObligPlata2.TabIndex = 13;
@@ -1063,7 +1079,7 @@
             // lblEnuntObligDidactice1
             // 
             this.lblEnuntObligDidactice1.AutoSize = true;
-            this.lblEnuntObligDidactice1.Location = new System.Drawing.Point(38, 747);
+            this.lblEnuntObligDidactice1.Location = new System.Drawing.Point(38, 745);
             this.lblEnuntObligDidactice1.Name = "lblEnuntObligDidactice1";
             this.lblEnuntObligDidactice1.Size = new System.Drawing.Size(532, 13);
             this.lblEnuntObligDidactice1.TabIndex = 14;
@@ -1073,27 +1089,11 @@
             // lblEnuntObligDidactice2
             // 
             this.lblEnuntObligDidactice2.AutoSize = true;
-            this.lblEnuntObligDidactice2.Location = new System.Drawing.Point(38, 766);
+            this.lblEnuntObligDidactice2.Location = new System.Drawing.Point(38, 764);
             this.lblEnuntObligDidactice2.Name = "lblEnuntObligDidactice2";
             this.lblEnuntObligDidactice2.Size = new System.Drawing.Size(324, 13);
             this.lblEnuntObligDidactice2.TabIndex = 14;
             this.lblEnuntObligDidactice2.Text = "În cazul în care orele se recupereaza, precizați care este programul";
-            // 
-            // dgvOreRecuperate
-            // 
-            this.dgvOreRecuperate.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvOreRecuperate.Location = new System.Drawing.Point(21, 59);
-            this.dgvOreRecuperate.Name = "dgvOreRecuperate";
-            this.dgvOreRecuperate.Size = new System.Drawing.Size(591, 150);
-            this.dgvOreRecuperate.TabIndex = 2;
-            // 
-            // dgvConditiiDePlata
-            // 
-            this.dgvConditiiDePlata.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvConditiiDePlata.Location = new System.Drawing.Point(21, 215);
-            this.dgvConditiiDePlata.Name = "dgvConditiiDePlata";
-            this.dgvConditiiDePlata.Size = new System.Drawing.Size(591, 150);
-            this.dgvConditiiDePlata.TabIndex = 3;
             // 
             // frmCerereInregistrare
             // 
@@ -1134,8 +1134,8 @@
             this.panouDecanConta.PerformLayout();
             this.panouOreRecuperate.ResumeLayout(false);
             this.panouOreRecuperate.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvOreRecuperate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConditiiDePlata)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOreRecuperate)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

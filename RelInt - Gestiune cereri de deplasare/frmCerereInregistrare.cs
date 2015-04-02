@@ -421,6 +421,12 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
+
+        /* ------------------ Obiecte de BD ptr dgcOreRecuperate --------------------------------------------------------- */
+        DataSet ds_dgvOreRecuperate = new DataSet();
+        OdbcDataAdapter da_dgvOreRecuperate = new OdbcDataAdapter();
+        DataTable dt_dgvOreRecuperate = new DataTable();
+        BindingSource bs_dgvOreRecuperate = new BindingSource();
         /* --------------- Metoda de incarcare a "dgvOreRecuperate" ------------------------------------------------------ */
         public void IncarcaredgvOreRecuperate()
         {
@@ -436,18 +442,15 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     try
                     {
                         conexiune_dgvOreRecuperate.Open();
-                        // OdbcDataReader rdr_dgvOreRecuperate = comanda_dgvOreRecuperate.ExecuteReader();
-                        OdbcDataAdapter da_dgvOreRecuperate = new OdbcDataAdapter();
+
                         da_dgvOreRecuperate.SelectCommand = comanda_dgvOreRecuperate;
 
-                        DataTable dt_dgvOreRecuperate = new DataTable();
                         da_dgvOreRecuperate.Fill(dt_dgvOreRecuperate);
-
-                        BindingSource bs_dgvOreRecuperate = new BindingSource();
 
                         bs_dgvOreRecuperate.DataSource = dt_dgvOreRecuperate;
 
                         dgvOreRecuperate.DataSource = bs_dgvOreRecuperate;
+
                         da_dgvOreRecuperate.Update(dt_dgvOreRecuperate);
                     }
                     catch (Exception exdgvOreRecuperate)
@@ -462,13 +465,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-
-
-
-
-
-
-
         /* --------------- Metoda de Descarcare a "dgvOreRecuperate" ----------------------------------------------------- */
         public void DescarcaredgvOreRecuperate()
         {
@@ -484,17 +480,15 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     try
                     {
                         conexiune_dgvOreRecuperate.Open();
-                        OdbcDataAdapter da_dgvOreRecuperate = new OdbcDataAdapter();
+
                         da_dgvOreRecuperate.SelectCommand = comanda_dgvOreRecuperate;
 
-                        DataTable dt_dgvOreRecuperate = new DataTable();
                         da_dgvOreRecuperate.Dispose();
-
-                        BindingSource bs_dgvOreRecuperate = new BindingSource();
-
+                        
                         bs_dgvOreRecuperate.DataSource = dt_dgvOreRecuperate;
 
                         dgvOreRecuperate.DataSource = bs_dgvOreRecuperate;
+
                         da_dgvOreRecuperate.Update(dt_dgvOreRecuperate);
                     }
                     catch (Exception exdgvOreRecuperate)
@@ -516,6 +510,11 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
+        /* ------------------ Obiecte de BD ptr dgcOreRecuperate --------------------------------------------------------- */
+        DataSet ds_dgvConditiiDePlata = new DataSet();
+        OdbcDataAdapter da_dgvConditiiDePlata = new OdbcDataAdapter();
+        DataTable dt_dgvConditiiDePlata = new DataTable();
+        BindingSource bs_dgvConditiiDePlata = new BindingSource();
         /* --------------- Metoda de incarcare a "dgvConditiiDePlata" ------------------------------------------------------ */
         public void IncarcaredgvConditiiDePlata()
         {
@@ -530,17 +529,15 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     try
                     {
                         conexiune_dgvConditiiDePlata.Open();
-                        OdbcDataAdapter da_dgvConditiiDePlata = new OdbcDataAdapter();
+
                         da_dgvConditiiDePlata.SelectCommand = comanda_dgvConditiiDePlata;
 
-                        DataTable dt_dgvConditiiDePlata = new DataTable();
                         da_dgvConditiiDePlata.Fill(dt_dgvConditiiDePlata);
-
-                        BindingSource bs_dgvConditiiDePlata = new BindingSource();
 
                         bs_dgvConditiiDePlata.DataSource = dt_dgvConditiiDePlata;
 
                         dgvConditiiDePlata.DataSource = bs_dgvConditiiDePlata;
+
                         da_dgvConditiiDePlata.Update(dt_dgvConditiiDePlata);
                     }
                     catch (Exception exdgvConditiiDePlata)
@@ -555,13 +552,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-
-
-
-
-
-
-
         /* --------------- Metoda de descarcare a "dgvConditiiDePlata" ----------------------------------------------------- */
         public void DescarcaredgvConditiiDePlata()
         {
@@ -571,22 +561,20 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 {
                     comanda_dgvConditiiDePlata.Connection = conexiune_dgvConditiiDePlata;
                     comanda_dgvConditiiDePlata.CommandType = CommandType.Text;
-                    comanda_dgvConditiiDePlata.CommandText = "SELECT nrcrtorcdp, nrcrtcdp, numeprenprofcdp, denumiredisciplinacdp, conditiideplatacdp FROM conditiideplata";
+                    comanda_dgvConditiiDePlata.CommandText = "SELECT nrcrtorcdp as \"Nr. Crt. O-R\", nrcrtcdp as \"Nr. Crt.\", numeprenprofcdp as \"Nume Prenume prof.\", denumiredisciplinacdp as \"Denumire Disciplina\", conditiideplatacdp as \"Conditii de plata\" FROM conditiideplata";
 
                     try
                     {
                         conexiune_dgvConditiiDePlata.Open();
-                        OdbcDataAdapter da_dgvConditiiDePlata = new OdbcDataAdapter();
+
                         da_dgvConditiiDePlata.SelectCommand = comanda_dgvConditiiDePlata;
 
-                        DataTable dt_dgvConditiiDePlata = new DataTable();
                         da_dgvConditiiDePlata.Dispose();
-
-                        BindingSource bs_dgvConditiiDePlata = new BindingSource();
 
                         bs_dgvConditiiDePlata.DataSource = dt_dgvConditiiDePlata;
 
                         dgvConditiiDePlata.DataSource = bs_dgvConditiiDePlata;
+
                         da_dgvConditiiDePlata.Update(dt_dgvConditiiDePlata);
                     }
                     catch (Exception exdgvConditiiDePlata)
