@@ -28,8 +28,10 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             // Dezactivam checkbox-ul "chkORCDP"
             chkORCDP.Enabled = false;
 
-            // Dezactivam caseta "dgvOreRecuperate" & "dgvCondiiDePlata"
+            // Dezactivam caseta "dgvOreRecuperate"
             dgvOreRecuperate.Enabled = false;
+
+            // Dezactivam caseta "dgvCondiiDePlata"
             dgvConditiiDePlata.Enabled = false;
         }
 
@@ -65,6 +67,21 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         double varTotalDePlata;
         bool CalculTotalSucces = false;
 
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+
+        /* ---------- Inchidere formular cand actiunam "iesire" din meniul formularului ---------------------------------- */
+        private void btnCIIesire_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
         /* --------------------------------------------------------------------------------------------------------------- */
 
 
@@ -338,76 +355,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
-
-
-
-        /* ---------- Inchidere formular cand actiunam "iesire" din meniul formularului ---------------------------------- */
-        private void btnCIIesire_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-        /* --------------------------------------------------------------------------------------------------------------- */
-
-
-
-
-
-
-
-
-        /* ------------ Metoda pentru checkbox "chkORCDP" ---------------------------------------------------------------- */
-        private void chkORCDP_CheckedChanged(object sender, EventArgs e)
-        {
-            // Apelam validarea chkORCDP
-            if (chkORCDP.Checked == true)
-            {
-                // Dezactivam caseta "txtNrInregistrare"
-                txtNrInregistrare.Enabled = false;
-
-                        // Activam caseta "dgvOreRecuperate"
-                        dgvOreRecuperate.Enabled = true;
-
-                        // Activam caseta "dgvCondiiDePlata"
-                        dgvConditiiDePlata.Enabled = true;
-
-                                // Incarcam "dgvOreRecuperate"
-                                IncarcaredgvOreRecuperate();
-
-                                // Incarcam "dgvConditiiDePlata"
-                                IncarcaredgvConditiiDePlata();
-            }
-            else
-            {
-                // Activam caseta "txtNrInregistrare"
-                txtNrInregistrare.Enabled = true;
-
-                        // Descarcare "dgvOreRecuperate"
-                        DescarcaredgvOreRecuperate();
-
-                        // Dezactivam caseta "dgvOreRecuperate"
-                        dgvOreRecuperate.Enabled = false;
-
-                                // Descarcare "dgvOreRecuperate"
-                                DescarcaredgvConditiiDePlata();
-
-                                // Dezactivam caseta "dgvCondiiDePlata"
-                                dgvConditiiDePlata.Enabled = false;
-            }
-        }
-        /* --------------------------------------------------------------------------------------------------------------- */
-
-
-
-
-
-
-
-
-        /* ------------------ Obiecte de BD ptr dgcOreRecuperate --------------------------------------------------------- */
-        DataSet ds_dgvOreRecuperate = new DataSet();
-        OdbcDataAdapter da_dgvOreRecuperate = new OdbcDataAdapter();
-        DataTable dt_dgvOreRecuperate = new DataTable();
-        BindingSource bs_dgvOreRecuperate = new BindingSource();
         /* --------------- Metoda de incarcare a "dgvOreRecuperate" ------------------------------------------------------ */
         public void IncarcaredgvOreRecuperate()
         {
@@ -423,11 +370,13 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     try
                     {
                         conexiune_dgvOreRecuperate.Open();
-
+                        OdbcDataAdapter da_dgvOreRecuperate = new OdbcDataAdapter();
                         da_dgvOreRecuperate.SelectCommand = comanda_dgvOreRecuperate;
 
+                        DataTable dt_dgvOreRecuperate = new DataTable();
                         da_dgvOreRecuperate.Fill(dt_dgvOreRecuperate);
 
+                        BindingSource bs_dgvOreRecuperate = new BindingSource();
                         bs_dgvOreRecuperate.DataSource = dt_dgvOreRecuperate;
 
                         dgvOreRecuperate.DataSource = bs_dgvOreRecuperate;
@@ -461,11 +410,13 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     try
                     {
                         conexiune_dgvOreRecuperate.Open();
-
+                        OdbcDataAdapter da_dgvOreRecuperate = new OdbcDataAdapter();
                         da_dgvOreRecuperate.SelectCommand = comanda_dgvOreRecuperate;
 
+                        DataTable dt_dgvOreRecuperate = new DataTable();
                         da_dgvOreRecuperate.Dispose();
-                        
+
+                        BindingSource bs_dgvOreRecuperate = new BindingSource();
                         bs_dgvOreRecuperate.DataSource = dt_dgvOreRecuperate;
 
                         dgvOreRecuperate.DataSource = bs_dgvOreRecuperate;
@@ -498,7 +449,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         /* ------------------ Inserare in tabela "orerecuperate" prin "dgvOreRecuperate" --------------------------------- */
         private void dgvOreRecuperate_RowLeave(object sender, DataGridViewCellEventArgs e)
         {
-
+            
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
@@ -512,11 +463,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
-        /* ------------------ Obiecte de BD ptr dgcConditiiDePlata ------------------------------------------------------- */
-        DataSet ds_dgvConditiiDePlata = new DataSet();
-        OdbcDataAdapter da_dgvConditiiDePlata = new OdbcDataAdapter();
-        DataTable dt_dgvConditiiDePlata = new DataTable();
-        BindingSource bs_dgvConditiiDePlata = new BindingSource();
         /* --------------- Metoda de incarcare a "dgvConditiiDePlata" ---------------------------------------------------- */
         public void IncarcaredgvConditiiDePlata()
         {
@@ -531,11 +477,13 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     try
                     {
                         conexiune_dgvConditiiDePlata.Open();
-
+                        OdbcDataAdapter da_dgvConditiiDePlata = new OdbcDataAdapter();
                         da_dgvConditiiDePlata.SelectCommand = comanda_dgvConditiiDePlata;
 
+                        DataTable dt_dgvConditiiDePlata = new DataTable();
                         da_dgvConditiiDePlata.Fill(dt_dgvConditiiDePlata);
 
+                        BindingSource bs_dgvConditiiDePlata = new BindingSource();
                         bs_dgvConditiiDePlata.DataSource = dt_dgvConditiiDePlata;
 
                         dgvConditiiDePlata.DataSource = bs_dgvConditiiDePlata;
@@ -568,11 +516,13 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     try
                     {
                         conexiune_dgvConditiiDePlata.Open();
-
+                        OdbcDataAdapter da_dgvConditiiDePlata = new OdbcDataAdapter();
                         da_dgvConditiiDePlata.SelectCommand = comanda_dgvConditiiDePlata;
 
+                        DataTable dt_dgvConditiiDePlata = new DataTable();
                         da_dgvConditiiDePlata.Dispose();
 
+                        BindingSource bs_dgvConditiiDePlata = new BindingSource();
                         bs_dgvConditiiDePlata.DataSource = dt_dgvConditiiDePlata;
 
                         dgvConditiiDePlata.DataSource = bs_dgvConditiiDePlata;
@@ -606,6 +556,54 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         private void dgvConditiiDePlata_RowLeave(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+        /* ------------ Metoda pentru checkbox "chkORCDP" ---------------------------------------------------------------- */
+        private void chkORCDP_CheckedChanged(object sender, EventArgs e)
+        {
+            // Apelam validarea chkORCDP
+            if (chkORCDP.Checked == true)
+            {
+                // Dezactivam caseta "txtNrInregistrare"
+                txtNrInregistrare.Enabled = false;
+
+                    // Activam datagridview "dgvOreRecuperate"
+                    dgvOreRecuperate.Enabled = true;
+
+                    // Activam datagridview "dgvCondiiDePlata"
+                    dgvConditiiDePlata.Enabled = true;
+
+                        // Incarcam "dgvOreRecuperate"
+                        IncarcaredgvOreRecuperate();
+
+                        // Incarcam "dgvConditiiDePlata"
+                        IncarcaredgvConditiiDePlata();
+            }
+            else
+            {
+                // Activam caseta "txtNrInregistrare"
+                txtNrInregistrare.Enabled = true;
+
+                    // Descarcare "dgvOreRecuperate"
+                    DescarcaredgvOreRecuperate();
+
+                    // Descarcare "dgvOreRecuperate"
+                    DescarcaredgvConditiiDePlata();
+
+                        // Dezactivam datagridview "dgvOreRecuperate"
+                        dgvOreRecuperate.Enabled = false;
+
+                        // Dezactivam datagridview "dgvCondiiDePlata"
+                        dgvConditiiDePlata.Enabled = false;
+            }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
