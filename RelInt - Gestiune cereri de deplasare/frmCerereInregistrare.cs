@@ -139,25 +139,25 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     // Verificam daca valoarea din "txtDiurna" este de tip double
                     diurnaEsteNumar = double.TryParse(txtDiurna.Text, out varDiurna);
 
-                    // Verificam daca valoarea din "txtCazare" este de tip double
-                    cazareEsteNumar = double.TryParse(txtCazare.Text, out varCazare);
+                        // Verificam daca valoarea din "txtCazare" este de tip double
+                        cazareEsteNumar = double.TryParse(txtCazare.Text, out varCazare);
 
-                    // Verificam daca valoarea din "txtTaxaDeViza" este de tip double
-                    TaxaDeVizaEtceEsteNumar = double.TryParse(txtTaxaDeViza.Text, out varTaxaDeVizaEtc);
+                            // Verificam daca valoarea din "txtTaxaDeViza" este de tip double
+                            TaxaDeVizaEtceEsteNumar = double.TryParse(txtTaxaDeViza.Text, out varTaxaDeVizaEtc);
 
-                    // Daca valorile din toate textbox-urile de mai sus sunt cifre (de tip double), efectueaza Totalul
-                    if (diurnaEsteNumar == true && cazareEsteNumar == true && TaxaDeVizaEtceEsteNumar == true)
+                                // Daca valorile din toate textbox-urile de mai sus sunt cifre (de tip double), efectueaza Totalul
+                                if (diurnaEsteNumar == true && cazareEsteNumar == true && TaxaDeVizaEtceEsteNumar == true)
                     {
                         // Verificam daca valoarea din "txtTaxaDeParticipare" este de tip double
                         TaxaDeParticipareEsteNumar = double.TryParse(txtTaxaDeParticipare.Text, out varTaxaDeParticipare);
 
-                        // Daca da, verificam daca s-a introdus ceva in campul "txtTaxaDeParticipare"
-                        if (txtTaxaDeParticipare.Text == string.Empty)
+                            // Daca da, verificam daca s-a introdus ceva in campul "txtTaxaDeParticipare"
+                            if (txtTaxaDeParticipare.Text == string.Empty)
                         {
                             // Daca nu, setam valoarea campului "zero"
                             varTaxaDeParticipare = 0;
-                            // Si punem bool-ul "TaxaDeParticipareEsteNumar" ca fiind adevarat
-                            TaxaDeParticipareEsteNumar = true;
+                                // Si punem bool-ul "TaxaDeParticipareEsteNumar" ca fiind adevarat
+                                TaxaDeParticipareEsteNumar = true;
                         }
 
                         // Iar daca bool-ul de mai sus este adevarat, calculam si afisam efectiv valoarea in campul "txtTotalDePlata"
@@ -167,10 +167,10 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
                             // Calculam total de plata
                             varTotalDePlata = varDiurna + varCazare + varTaxaDeParticipare + varTaxaDeVizaEtc;
-                            // Afisare in textboxul "txtTotalDePlata"
-                            txtTotalDePlata.Text = varTotalDePlata.ToString();
-                            // Setam bool CalculTotalSucces = true
-                            CalculTotalSucces = true;
+                                // Afisare in textboxul "txtTotalDePlata"
+                                txtTotalDePlata.Text = varTotalDePlata.ToString();
+                                    // Setam bool CalculTotalSucces = true
+                                    CalculTotalSucces = true;
                         }
                         else
                         {
@@ -196,19 +196,19 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                         return;
                     }
 
-                    // Alerteaza daca "txtCazare" nu este completat
-                    if (txtCazare.Text == string.Empty)
-                    {
-                        MessageBox.Show("              Caseta cazare nu conține nimic ! \n              Vă rugăm completați câmpul.");
-                        return;
-                    }
+                        // Alerteaza daca "txtCazare" nu este completat
+                        if (txtCazare.Text == string.Empty)
+                        {
+                            MessageBox.Show("              Caseta cazare nu conține nimic ! \n              Vă rugăm completați câmpul.");
+                            return;
+                        }
 
-                    // Alerteaza daca "txtTaxaDeViza" nu este completat
-                    if (txtTaxaDeViza.Text == string.Empty)
-                    {
-                        MessageBox.Show("              Caseta taxa de viză + asigurarea medicală nu conține nimic ! \n                                   Vă rugăm completați câmpul.");
-                        return;
-                    }
+                            // Alerteaza daca "txtTaxaDeViza" nu este completat
+                            if (txtTaxaDeViza.Text == string.Empty)
+                            {
+                                MessageBox.Show("              Caseta taxa de viză + asigurarea medicală nu conține nimic ! \n                                   Vă rugăm completați câmpul.");
+                                return;
+                            }
                 }
             } // daca nu
             else
@@ -283,10 +283,10 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                         // Afisam eroarea driverului Odbc
                         MessageBox.Show(exInserare.Message);
                     } // Ne deconectam
-                    /*finally
+                    finally
                     {
-                        conexiune_RelInt.Close();
-                    }*/
+                        conexiune_InserareCerereRelInt.Close();
+                    }
                 }
             }
         }
@@ -430,7 +430,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 {
                     comanda_dgvOreRecuperate.Connection = conexiune_dgvOreRecuperate;
                     comanda_dgvOreRecuperate.CommandType = CommandType.Text;
-                    comanda_dgvOreRecuperate.CommandText = "SELECT nrcrtor, denumiredisciplinaor, dataor, oraor, salaor FROM orerecuperate WHERE nrinregistrarecor = ?";
+                    comanda_dgvOreRecuperate.CommandText = "SELECT nrcrtor as \"Nr. Crt.\", denumiredisciplinaor as \"Denumire Disciplina\", dataor as \"Data\", oraor as \"Ora\", salaor as \"Sala\" FROM orerecuperate WHERE nrinregistrarecor = ?";
                     comanda_dgvOreRecuperate.Parameters.Add("@nrinregistrarecor", OdbcType.Int).Value = vartxtNrInregistrare;
 
                     try
@@ -454,10 +454,10 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     {
                         MessageBox.Show(exdgvOreRecuperate.Message);
                     } // Ne deconectam
-                    /*finally
+                    finally
                     {
                         conexiune_dgvOreRecuperate.Close();
-                    }*/
+                    }
                 }
             }
         }
@@ -478,7 +478,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 {
                     comanda_dgvOreRecuperate.Connection = conexiune_dgvOreRecuperate;
                     comanda_dgvOreRecuperate.CommandType = CommandType.Text;
-                    comanda_dgvOreRecuperate.CommandText = "SELECT nrcrtor, denumiredisciplinaor, dataor, oraor, salaor FROM orerecuperate WHERE nrinregistrarecor = ?";
+                    comanda_dgvOreRecuperate.CommandText = "SELECT nrcrtor as \"Nr. Crt.\", denumiredisciplinaor as \"Denumire Disciplina\", dataor as \"Data\", oraor as \"Ora\", salaor as \"Sala\" FROM orerecuperate WHERE nrinregistrarecor = ?";
                     comanda_dgvOreRecuperate.Parameters.Add("@nrinregistrarecor", OdbcType.Int).Value = vartxtNrInregistrare;
 
                     try
@@ -501,10 +501,10 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     {
                         MessageBox.Show(exdgvOreRecuperate.Message);
                     } // Ne deconectam
-                    /*finally
+                    finally
                     {
                         conexiune_dgvOreRecuperate.Close();
-                    }*/
+                    }
                 }
             }
         }
@@ -525,7 +525,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 {
                     comanda_dgvConditiiDePlata.Connection = conexiune_dgvConditiiDePlata;
                     comanda_dgvConditiiDePlata.CommandType = CommandType.Text;
-                    comanda_dgvConditiiDePlata.CommandText = "SELECT nrcrtorcdp, nrcrtcdp, numeprenprofcdp, denumiredisciplinacdp, conditiideplatacdp FROM conditiideplata";
+                    comanda_dgvConditiiDePlata.CommandText = "SELECT nrcrtorcdp as \"Nr. Crt. O-R\", nrcrtcdp as \"Nr. Crt.\", numeprenprofcdp as \"Nume Prenume prof.\", denumiredisciplinacdp as \"Denumire Disciplina\", conditiideplatacdp as \"Conditii de plata\" FROM conditiideplata";
 
                     try
                     {
@@ -547,10 +547,10 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     {
                         MessageBox.Show(exdgvConditiiDePlata.Message);
                     } // Ne deconectam
-                    /*finally
+                    finally
                     {
                         conexiune_dgvConditiiDePlata.Close();
-                    }*/
+                    }
                 }
             }
         }
@@ -593,10 +593,10 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     {
                         MessageBox.Show(exdgvConditiiDePlata.Message);
                     } // Ne deconectam
-                    /*finally
+                    finally
                     {
                         conexiune_dgvConditiiDePlata.Close();
-                    }*/
+                    }
                 }
             }
         }
