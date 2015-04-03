@@ -126,8 +126,6 @@
             this.txtORNrCrtStergere = new System.Windows.Forms.TextBox();
             this.btnORStergere = new System.Windows.Forms.Button();
             this.txtORSala = new System.Windows.Forms.TextBox();
-            this.txtOROra = new System.Windows.Forms.TextBox();
-            this.txtORData = new System.Windows.Forms.TextBox();
             this.txtORDenDisciplina = new System.Windows.Forms.TextBox();
             this.btnORInserare = new System.Windows.Forms.Button();
             this.txtORNrCrt = new System.Windows.Forms.TextBox();
@@ -145,6 +143,8 @@
             this.lblEnuntObligPlata2 = new System.Windows.Forms.Label();
             this.lblEnuntObligDidactice1 = new System.Windows.Forms.Label();
             this.lblEnuntObligDidactice2 = new System.Windows.Forms.Label();
+            this.dpORData = new System.Windows.Forms.DateTimePicker();
+            this.dpOROra = new System.Windows.Forms.DateTimePicker();
             this.mnuCI.SuspendLayout();
             this.panouIdentificareCerere.SuspendLayout();
             this.panouContinut.SuspendLayout();
@@ -377,17 +377,17 @@
             // dpDataSfarsit
             // 
             this.dpDataSfarsit.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpDataSfarsit.Location = new System.Drawing.Point(445, 98);
+            this.dpDataSfarsit.Location = new System.Drawing.Point(442, 98);
             this.dpDataSfarsit.MaxDate = new System.DateTime(2040, 12, 31, 0, 0, 0, 0);
             this.dpDataSfarsit.MinDate = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
             this.dpDataSfarsit.Name = "dpDataSfarsit";
-            this.dpDataSfarsit.Size = new System.Drawing.Size(101, 20);
+            this.dpDataSfarsit.Size = new System.Drawing.Size(91, 20);
             this.dpDataSfarsit.TabIndex = 20;
             // 
             // lblDataSfarsit
             // 
             this.lblDataSfarsit.AutoSize = true;
-            this.lblDataSfarsit.Location = new System.Drawing.Point(398, 101);
+            this.lblDataSfarsit.Location = new System.Drawing.Point(392, 101);
             this.lblDataSfarsit.Name = "lblDataSfarsit";
             this.lblDataSfarsit.Size = new System.Drawing.Size(44, 13);
             this.lblDataSfarsit.TabIndex = 19;
@@ -400,7 +400,7 @@
             this.dpDataInceput.MaxDate = new System.DateTime(2040, 12, 31, 0, 0, 0, 0);
             this.dpDataInceput.MinDate = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
             this.dpDataInceput.Name = "dpDataInceput";
-            this.dpDataInceput.Size = new System.Drawing.Size(97, 20);
+            this.dpDataInceput.Size = new System.Drawing.Size(92, 20);
             this.dpDataInceput.TabIndex = 18;
             // 
             // lblDataInceput
@@ -1033,6 +1033,8 @@
             // panouOreRecuperate
             // 
             this.panouOreRecuperate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panouOreRecuperate.Controls.Add(this.dpOROra);
+            this.panouOreRecuperate.Controls.Add(this.dpORData);
             this.panouOreRecuperate.Controls.Add(this.btnCDPStergere);
             this.panouOreRecuperate.Controls.Add(this.txtCDPNrCrtStergere);
             this.panouOreRecuperate.Controls.Add(this.btnCDPIntroducere);
@@ -1044,8 +1046,6 @@
             this.panouOreRecuperate.Controls.Add(this.txtORNrCrtStergere);
             this.panouOreRecuperate.Controls.Add(this.btnORStergere);
             this.panouOreRecuperate.Controls.Add(this.txtORSala);
-            this.panouOreRecuperate.Controls.Add(this.txtOROra);
-            this.panouOreRecuperate.Controls.Add(this.txtORData);
             this.panouOreRecuperate.Controls.Add(this.txtORDenDisciplina);
             this.panouOreRecuperate.Controls.Add(this.btnORInserare);
             this.panouOreRecuperate.Controls.Add(this.txtORNrCrt);
@@ -1133,7 +1133,7 @@
             // 
             // txtORNrCrtStergere
             // 
-            this.txtORNrCrtStergere.Location = new System.Drawing.Point(68, 305);
+            this.txtORNrCrtStergere.Location = new System.Drawing.Point(70, 305);
             this.txtORNrCrtStergere.Name = "txtORNrCrtStergere";
             this.txtORNrCrtStergere.Size = new System.Drawing.Size(60, 20);
             this.txtORNrCrtStergere.TabIndex = 13;
@@ -1152,27 +1152,11 @@
             // 
             // txtORSala
             // 
-            this.txtORSala.Location = new System.Drawing.Point(408, 281);
+            this.txtORSala.Location = new System.Drawing.Point(411, 281);
             this.txtORSala.Name = "txtORSala";
             this.txtORSala.Size = new System.Drawing.Size(60, 20);
             this.txtORSala.TabIndex = 11;
             this.txtORSala.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtOROra
-            // 
-            this.txtOROra.Location = new System.Drawing.Point(342, 281);
-            this.txtOROra.Name = "txtOROra";
-            this.txtOROra.Size = new System.Drawing.Size(60, 20);
-            this.txtOROra.TabIndex = 10;
-            this.txtOROra.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtORData
-            // 
-            this.txtORData.Location = new System.Drawing.Point(250, 281);
-            this.txtORData.Name = "txtORData";
-            this.txtORData.Size = new System.Drawing.Size(86, 20);
-            this.txtORData.TabIndex = 9;
-            this.txtORData.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtORDenDisciplina
             // 
@@ -1194,7 +1178,7 @@
             // 
             // txtORNrCrt
             // 
-            this.txtORNrCrt.Location = new System.Drawing.Point(68, 281);
+            this.txtORNrCrt.Location = new System.Drawing.Point(70, 281);
             this.txtORNrCrt.Name = "txtORNrCrt";
             this.txtORNrCrt.Size = new System.Drawing.Size(60, 20);
             this.txtORNrCrt.TabIndex = 6;
@@ -1345,6 +1329,22 @@
             this.lblEnuntObligDidactice2.Size = new System.Drawing.Size(324, 13);
             this.lblEnuntObligDidactice2.TabIndex = 14;
             this.lblEnuntObligDidactice2.Text = "În cazul în care orele se recupereaza, precizați care este programul";
+            // 
+            // dpORData
+            // 
+            this.dpORData.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dpORData.Location = new System.Drawing.Point(248, 281);
+            this.dpORData.Name = "dpORData";
+            this.dpORData.Size = new System.Drawing.Size(91, 20);
+            this.dpORData.TabIndex = 22;
+            // 
+            // dpOROra
+            // 
+            this.dpOROra.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dpOROra.Location = new System.Drawing.Point(343, 281);
+            this.dpOROra.Name = "dpOROra";
+            this.dpOROra.Size = new System.Drawing.Size(64, 20);
+            this.dpOROra.TabIndex = 23;
             // 
             // frmCerereInregistrare
             // 
@@ -1503,8 +1503,6 @@
         private System.Windows.Forms.TextBox txtORDenDisciplina;
         private System.Windows.Forms.Button btnORInserare;
         private System.Windows.Forms.TextBox txtORSala;
-        private System.Windows.Forms.TextBox txtOROra;
-        private System.Windows.Forms.TextBox txtORData;
         private System.Windows.Forms.Button btnORStergere;
         private System.Windows.Forms.TextBox txtORNrCrtStergere;
         private System.Windows.Forms.TextBox txtCDPNrCrtOR;
@@ -1515,6 +1513,8 @@
         private System.Windows.Forms.Button btnCDPIntroducere;
         private System.Windows.Forms.Button btnCDPStergere;
         private System.Windows.Forms.TextBox txtCDPNrCrtStergere;
+        private System.Windows.Forms.DateTimePicker dpORData;
+        private System.Windows.Forms.DateTimePicker dpOROra;
 
     }
 }

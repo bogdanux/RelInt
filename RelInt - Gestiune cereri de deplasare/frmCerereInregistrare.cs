@@ -45,8 +45,8 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 // Dezactivam campurile si butonul pentru introducerea datelor (OR)
                 txtORNrCrt.Enabled = false;
                 txtORDenDisciplina.Enabled = false;
-                txtORData.Enabled = false;
-                txtOROra.Enabled = false;
+                dpORData.Enabled = false;
+                dpOROra.Enabled = false;
                 txtORSala.Enabled = false;
                 btnORInserare.Enabled = false;
 
@@ -615,15 +615,13 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                                 // Stergem tot din campurile pentru introducerea datelor (OR)
                                 txtORNrCrt.Clear();
                                 txtORDenDisciplina.Clear();
-                                txtORData.Clear();
-                                txtOROra.Clear();
                                 txtORSala.Clear();
 
                                 // Dezactivam campurile si butonul pentru introducerea datelor (OR)
                                 txtORNrCrt.Enabled = false;
                                 txtORDenDisciplina.Enabled = false;
-                                txtORData.Enabled = false;
-                                txtOROra.Enabled = false;
+                                dpORData.Enabled = false;
+                                dpOROra.Enabled = false;
                                 txtORSala.Enabled = false;
                                 btnORInserare.Enabled = false;
 
@@ -680,8 +678,8 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     // Activam campurile si butonul pentru introducerea datelor
                     txtORNrCrt.Enabled = true;
                     txtORDenDisciplina.Enabled = true;
-                    txtORData.Enabled = true;
-                    txtOROra.Enabled = true;
+                    dpORData.Enabled = true;
+                    dpOROra.Enabled = true;
                     txtORSala.Enabled = true;
                     btnORInserare.Enabled = true;
                 }
@@ -693,15 +691,13 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     // Stergem tot din campurile pentru introducerea datelor
                     txtORNrCrt.Clear();
                     txtORDenDisciplina.Clear();
-                    txtORData.Clear();
-                    txtOROra.Clear();
                     txtORSala.Clear();
 
                     // Dezactivam campurile si butonul pentru introducerea datelor
                     txtORNrCrt.Enabled = false;
                     txtORDenDisciplina.Enabled = false;
-                    txtORData.Enabled = false;
-                    txtOROra.Enabled = false;
+                    dpORData.Enabled = false;
+                    dpOROra.Enabled = false;
                     txtORSala.Enabled = false;
                     btnORInserare.Enabled = false;
                 }
@@ -901,8 +897,8 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     comanda_InserareOR.Parameters.AddWithValue("@nrinregistrarecor", OdbcType.Int).Value = vartxtNrInregistrare;
                     comanda_InserareOR.Parameters.AddWithValue("@nrcrtor", OdbcType.Int).Value = vartxtORNrCrt;
                     comanda_InserareOR.Parameters.AddWithValue("@denumiredisciplinaor", OdbcType.NVarChar).Value = txtORDenDisciplina.Text;
-                    comanda_InserareOR.Parameters.AddWithValue("@dataor", OdbcType.DateTime).Value = txtORData.Text;
-                    comanda_InserareOR.Parameters.AddWithValue("@dataor", OdbcType.DateTime).Value = txtOROra.Text;
+                    comanda_InserareOR.Parameters.AddWithValue("@dataor", OdbcType.DateTime).Value = dpORData.Value;
+                    comanda_InserareOR.Parameters.AddWithValue("@dataor", OdbcType.DateTime).Value = dpOROra.Value;
                     comanda_InserareOR.Parameters.AddWithValue("@dsalaor", OdbcType.NVarChar).Value = txtORSala.Text;
                     
                     // Incercam conexiunea si query-ul
@@ -929,8 +925,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             // Golim campurile pentru introducerea datelor
             txtORNrCrt.Clear();
             txtORDenDisciplina.Clear();
-            txtORData.Clear();
-            txtOROra.Clear();
             txtORSala.Clear();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
