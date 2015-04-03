@@ -1076,6 +1076,8 @@
             this.txtCDPNrCrtStergere.Name = "txtCDPNrCrtStergere";
             this.txtCDPNrCrtStergere.Size = new System.Drawing.Size(60, 20);
             this.txtCDPNrCrtStergere.TabIndex = 20;
+            this.txtCDPNrCrtStergere.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtCDPNrCrtStergere.TextChanged += new System.EventHandler(this.txtCDPNrCrtStergere_TextChanged);
             // 
             // btnCDPIntroducere
             // 
@@ -1101,6 +1103,7 @@
             this.txtCDPDenDisciplina.Name = "txtCDPDenDisciplina";
             this.txtCDPDenDisciplina.Size = new System.Drawing.Size(100, 20);
             this.txtCDPDenDisciplina.TabIndex = 17;
+            this.txtCDPDenDisciplina.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtCDPNumePrenProf
             // 
@@ -1108,6 +1111,7 @@
             this.txtCDPNumePrenProf.Name = "txtCDPNumePrenProf";
             this.txtCDPNumePrenProf.Size = new System.Drawing.Size(130, 20);
             this.txtCDPNumePrenProf.TabIndex = 16;
+            this.txtCDPNumePrenProf.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtCDPNrCrt
             // 
@@ -1115,6 +1119,8 @@
             this.txtCDPNrCrt.Name = "txtCDPNrCrt";
             this.txtCDPNrCrt.Size = new System.Drawing.Size(60, 20);
             this.txtCDPNrCrt.TabIndex = 15;
+            this.txtCDPNrCrt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtCDPNrCrt.TextChanged += new System.EventHandler(this.txtCDPNrCrt_TextChanged);
             // 
             // txtCDPNrCrtOR
             // 
@@ -1122,6 +1128,8 @@
             this.txtCDPNrCrtOR.Name = "txtCDPNrCrtOR";
             this.txtCDPNrCrtOR.Size = new System.Drawing.Size(60, 20);
             this.txtCDPNrCrtOR.TabIndex = 14;
+            this.txtCDPNrCrtOR.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtCDPNrCrtOR.TextChanged += new System.EventHandler(this.txtCDPNrCrtOR_TextChanged);
             // 
             // txtORNrCrtStergere
             // 

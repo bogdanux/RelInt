@@ -926,7 +926,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             // Actualizam "dgvOreRecuprate"
             IncarcaredgvOreRecuperate();
 
-            // Stergem tot din campurile pentru introducerea datelor
+            // Golim campurile pentru introducerea datelor
             txtORNrCrt.Clear();
             txtORDenDisciplina.Clear();
             txtORData.Clear();
@@ -969,7 +969,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             // Actualizam "dgvOreRecuprate"
             IncarcaredgvOreRecuperate();
 
-            // Stergem tot din campurile pentru introducerea datelor
+            // Golim campul "txtORNrCrtStergere"
             txtORNrCrtStergere.Clear();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
@@ -977,17 +977,144 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
+        /* -------- Variabile de lucru pentru validarile textboxurilor folosite pentru a insera date in tabea CDP -------- */
+        int vartxtCDPNrCrtOR;
+        int vartxtCDPNrCrt;
+        int vartxtCDPNrCrtStergere;
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* --------------------- Validari pentru textbox-urile folosite pentru a insera date in tabela OR ---------------- */
+        private void txtCDPNrCrtOR_TextChanged(object sender, EventArgs e)
+        {
+            // Verificam daca valoarea din "txtCDPNrCrtOR" este de tip int
+            bool vartxtCDPNrCrtOREsteNumar = Int32.TryParse(txtCDPNrCrtOR.Text, out vartxtCDPNrCrtOR);
 
+            // Judecam si "sanctionam" la nevoie
+            switch (vartxtCDPNrCrtOREsteNumar || txtCDPNrCrtOR.Text == string.Empty)
+            {
+                case false:
+                    // Golim casuta si afisam mesaj de eroare
+                    txtCDPNrCrtOR.Clear();
+                    MessageBox.Show("        Vă rugăm introduceți doar numere în această casetă de text.");
+                    break;
+            }
+        }
+
+            private void txtCDPNrCrt_TextChanged(object sender, EventArgs e)
+            {
+                // Verificam daca valoarea din "txtCDPNrCrt" este de tip int
+                bool vartxtCDPNrCrtEsteNumar = Int32.TryParse(txtCDPNrCrt.Text, out vartxtCDPNrCrt);
+
+                // Judecam si "sanctionam" la nevoie
+                switch (vartxtCDPNrCrtEsteNumar || txtCDPNrCrt.Text == string.Empty)
+                {
+                    case false:
+                        // Golim casuta si afisam mesaj de eroare
+                        txtCDPNrCrt.Clear();
+                        MessageBox.Show("        Vă rugăm introduceți doar numere în această casetă de text.");
+                        break;
+                }
+            }
+
+                private void txtCDPNrCrtStergere_TextChanged(object sender, EventArgs e)
+                {
+                    // Verificam daca valoarea din "txtCDPNrCrtStergere" este de tip int
+                    bool vartxtCDPNrCrtStergereEsteNumar = Int32.TryParse(txtCDPNrCrtStergere.Text, out vartxtCDPNrCrtStergere);
+
+                    // Judecam si "sanctionam" la nevoie
+                    switch (vartxtCDPNrCrtStergereEsteNumar || txtCDPNrCrtStergere.Text == string.Empty)
+                    {
+                        case false:
+                            // Golim casuta si afisam mesaj de eroare
+                            txtCDPNrCrtStergere.Clear();
+                            MessageBox.Show("        Vă rugăm introduceți doar numere în această casetă de text.");
+                            break;
+                    }
+                }
+        /* --------------------------------------------------------------------------------------------------------------- */
         /* -------------------- Metoda de tip "INSERT" pentru CDP -------------------------------------------------------- */
         private void btnCDPIntroducere_Click(object sender, EventArgs e)
         {
+            // Metoda de inserare a datelor
+            // Conexiunea
+            using (OdbcConnection conexiune_InserareCDP = new OdbcConnection(sircon_RelIntDB))
+            {           // Comanda
+                using (OdbcCommand comanda_InserareCDP = new OdbcCommand())
+                {
+                    comanda_InserareCDP.Connection = conexiune_InserareCDP;
+                    comanda_InserareCDP.CommandType = CommandType.Text;
+                    comanda_InserareCDP.CommandText = "INSERT into conditiideplata VALUES (?, ?, ?, ?, ?)";
+                    comanda_InserareCDP.Parameters.AddWithValue("@nrcrtorcdp", OdbcType.Int).Value = vartxtCDPNrCrtOR;
+                    comanda_InserareCDP.Parameters.AddWithValue("@nrcrtcdp", OdbcType.Int).Value = vartxtCDPNrCrt;
+                    comanda_InserareCDP.Parameters.AddWithValue("@numeprenprofcdp", OdbcType.NVarChar).Value = txtCDPNumePrenProf.Text;
+                    comanda_InserareCDP.Parameters.AddWithValue("@denumiredisciplinacdp", OdbcType.NVarChar).Value = txtCDPDenDisciplina.Text;
+                    comanda_InserareCDP.Parameters.AddWithValue("@conditiideplatacdp", OdbcType.NVarChar).Value = txtCDPCondDePlata.Text;
 
+                    // Incercam conexiunea si query-ul
+                    try
+                    {
+                        conexiune_InserareCDP.Open();
+                        int recordsAffected = comanda_InserareCDP.ExecuteNonQuery();
+                    } // Captam eventualele erori
+                    catch (OdbcException exInserare)
+                    {
+                        // Afisam eroarea driverului Odbc
+                        MessageBox.Show(exInserare.Message);
+                    } // Ne deconectam
+                    finally
+                    {
+                        conexiune_InserareCDP.Close();
+                    }
+                }
+            }
+
+            // Actualizam "dgvConditiiDePlata"
+            IncarcaredgvConditiiDePlata();
+
+            // Golim campurile pentru introducerea datelor
+            txtCDPNrCrtOR.Clear();
+            txtCDPNrCrt.Clear();
+            txtCDPNumePrenProf.Clear();
+            txtCDPDenDisciplina.Clear();
+            txtCDPCondDePlata.Clear();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
         /* -------------------- Metoda de tip "DELETE" pentru CDP -------------------------------------------------------- */
         private void btnCDPStergere_Click(object sender, EventArgs e)
         {
+            // Metoda de stergere a datelor
+            // Conexiunea
+            using (OdbcConnection conexiune_StergereCDP = new OdbcConnection(sircon_RelIntDB))
+            {           // Comanda
+                using (OdbcCommand comanda_StergereCDP = new OdbcCommand())
+                {
+                    comanda_StergereCDP.Connection = conexiune_StergereCDP;
+                    comanda_StergereCDP.CommandType = CommandType.Text;
+                    comanda_StergereCDP.CommandText = "DELETE FROM conditiideplata WHERE nrcrtcdp = ?";
+                    comanda_StergereCDP.Parameters.AddWithValue("@nrcrtcdp", OdbcType.Int).Value = vartxtCDPNrCrtStergere;
 
+                    // Incercam conexiunea si query-ul
+                    try
+                    {
+                        conexiune_StergereCDP.Open();
+                        int recordsAffected = comanda_StergereCDP.ExecuteNonQuery();
+                    } // Captam eventualele erori
+                    catch (OdbcException exInserare)
+                    {
+                        // Afisam eroarea driverului Odbc
+                        MessageBox.Show(exInserare.Message);
+                    } // Ne deconectam
+                    finally
+                    {
+                        conexiune_StergereCDP.Close();
+                    }
+                }
+            }
+
+            // Actualizam "dgvConditiiDePlata"
+            IncarcaredgvConditiiDePlata();
+
+            // Golim campul "txtORNrCrtStergere"
+            txtCDPNrCrtStergere.Clear();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
