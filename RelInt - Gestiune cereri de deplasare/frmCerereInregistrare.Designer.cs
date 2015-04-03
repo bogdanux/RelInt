@@ -115,6 +115,22 @@
             this.lblAdministrativ = new System.Windows.Forms.Label();
             this.panouFinal = new System.Windows.Forms.Panel();
             this.panouOreRecuperate = new System.Windows.Forms.Panel();
+            this.btnCDPStergere = new System.Windows.Forms.Button();
+            this.txtCDPNrCrtStergere = new System.Windows.Forms.TextBox();
+            this.btnCDPIntroducere = new System.Windows.Forms.Button();
+            this.txtCDPCondDePlata = new System.Windows.Forms.TextBox();
+            this.txtCDPDenDisciplina = new System.Windows.Forms.TextBox();
+            this.txtCDPNumePrenProf = new System.Windows.Forms.TextBox();
+            this.txtCDPNrCrt = new System.Windows.Forms.TextBox();
+            this.txtCDPNrCrtOR = new System.Windows.Forms.TextBox();
+            this.txtORNrCrtStergere = new System.Windows.Forms.TextBox();
+            this.btnORStergere = new System.Windows.Forms.Button();
+            this.txtORSala = new System.Windows.Forms.TextBox();
+            this.txtOROra = new System.Windows.Forms.TextBox();
+            this.txtORData = new System.Windows.Forms.TextBox();
+            this.txtORDenDisciplina = new System.Windows.Forms.TextBox();
+            this.btnORInserare = new System.Windows.Forms.Button();
+            this.txtORNrCrt = new System.Windows.Forms.TextBox();
             this.panouTipInsCDP = new System.Windows.Forms.Panel();
             this.rdoCDPStergere = new System.Windows.Forms.RadioButton();
             this.rdoCDPInserare = new System.Windows.Forms.RadioButton();
@@ -129,22 +145,6 @@
             this.lblEnuntObligPlata2 = new System.Windows.Forms.Label();
             this.lblEnuntObligDidactice1 = new System.Windows.Forms.Label();
             this.lblEnuntObligDidactice2 = new System.Windows.Forms.Label();
-            this.txtORNrCrt = new System.Windows.Forms.TextBox();
-            this.btnORInserare = new System.Windows.Forms.Button();
-            this.txtORDenDisciplina = new System.Windows.Forms.TextBox();
-            this.txtORData = new System.Windows.Forms.TextBox();
-            this.txtOROra = new System.Windows.Forms.TextBox();
-            this.txtORSala = new System.Windows.Forms.TextBox();
-            this.btnORStergere = new System.Windows.Forms.Button();
-            this.txtORNrCrtStergere = new System.Windows.Forms.TextBox();
-            this.txtCDPNrCrtOR = new System.Windows.Forms.TextBox();
-            this.txtCDPNrCrt = new System.Windows.Forms.TextBox();
-            this.txtCDPNumePrenProf = new System.Windows.Forms.TextBox();
-            this.txtCDPDenDisciplina = new System.Windows.Forms.TextBox();
-            this.txtCDPCondDePlata = new System.Windows.Forms.TextBox();
-            this.btnCDPIntroducere = new System.Windows.Forms.Button();
-            this.txtCDPNrCrtStergere = new System.Windows.Forms.TextBox();
-            this.btnCDPStergere = new System.Windows.Forms.Button();
             this.mnuCI.SuspendLayout();
             this.panouIdentificareCerere.SuspendLayout();
             this.panouContinut.SuspendLayout();
@@ -1025,7 +1025,7 @@
             // panouFinal
             // 
             this.panouFinal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panouFinal.Location = new System.Drawing.Point(13, 1418);
+            this.panouFinal.Location = new System.Drawing.Point(13, 1374);
             this.panouFinal.Name = "panouFinal";
             this.panouFinal.Size = new System.Drawing.Size(642, 13);
             this.panouFinal.TabIndex = 9;
@@ -1055,17 +1055,144 @@
             this.panouOreRecuperate.Controls.Add(this.dgvOreRecuperate);
             this.panouOreRecuperate.Controls.Add(this.chkORCDP);
             this.panouOreRecuperate.Controls.Add(this.lblOreRecuperate);
-            this.panouOreRecuperate.Location = new System.Drawing.Point(13, 819);
+            this.panouOreRecuperate.Location = new System.Drawing.Point(13, 745);
             this.panouOreRecuperate.Name = "panouOreRecuperate";
-            this.panouOreRecuperate.Size = new System.Drawing.Size(642, 593);
+            this.panouOreRecuperate.Size = new System.Drawing.Size(642, 608);
             this.panouOreRecuperate.TabIndex = 10;
+            // 
+            // btnCDPStergere
+            // 
+            this.btnCDPStergere.Location = new System.Drawing.Point(474, 577);
+            this.btnCDPStergere.Name = "btnCDPStergere";
+            this.btnCDPStergere.Size = new System.Drawing.Size(100, 22);
+            this.btnCDPStergere.TabIndex = 21;
+            this.btnCDPStergere.Text = "Ștergere";
+            this.btnCDPStergere.UseVisualStyleBackColor = true;
+            // 
+            // txtCDPNrCrtStergere
+            // 
+            this.txtCDPNrCrtStergere.Location = new System.Drawing.Point(100, 578);
+            this.txtCDPNrCrtStergere.Name = "txtCDPNrCrtStergere";
+            this.txtCDPNrCrtStergere.Size = new System.Drawing.Size(60, 20);
+            this.txtCDPNrCrtStergere.TabIndex = 20;
+            // 
+            // btnCDPIntroducere
+            // 
+            this.btnCDPIntroducere.Location = new System.Drawing.Point(474, 553);
+            this.btnCDPIntroducere.Name = "btnCDPIntroducere";
+            this.btnCDPIntroducere.Size = new System.Drawing.Size(100, 22);
+            this.btnCDPIntroducere.TabIndex = 19;
+            this.btnCDPIntroducere.Text = "Introducere";
+            this.btnCDPIntroducere.UseVisualStyleBackColor = true;
+            // 
+            // txtCDPCondDePlata
+            // 
+            this.txtCDPCondDePlata.Location = new System.Drawing.Point(409, 554);
+            this.txtCDPCondDePlata.Name = "txtCDPCondDePlata";
+            this.txtCDPCondDePlata.Size = new System.Drawing.Size(60, 20);
+            this.txtCDPCondDePlata.TabIndex = 18;
+            this.txtCDPCondDePlata.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtCDPDenDisciplina
+            // 
+            this.txtCDPDenDisciplina.Location = new System.Drawing.Point(303, 554);
+            this.txtCDPDenDisciplina.Name = "txtCDPDenDisciplina";
+            this.txtCDPDenDisciplina.Size = new System.Drawing.Size(100, 20);
+            this.txtCDPDenDisciplina.TabIndex = 17;
+            // 
+            // txtCDPNumePrenProf
+            // 
+            this.txtCDPNumePrenProf.Location = new System.Drawing.Point(166, 554);
+            this.txtCDPNumePrenProf.Name = "txtCDPNumePrenProf";
+            this.txtCDPNumePrenProf.Size = new System.Drawing.Size(130, 20);
+            this.txtCDPNumePrenProf.TabIndex = 16;
+            // 
+            // txtCDPNrCrt
+            // 
+            this.txtCDPNrCrt.Location = new System.Drawing.Point(100, 554);
+            this.txtCDPNrCrt.Name = "txtCDPNrCrt";
+            this.txtCDPNrCrt.Size = new System.Drawing.Size(60, 20);
+            this.txtCDPNrCrt.TabIndex = 15;
+            // 
+            // txtCDPNrCrtOR
+            // 
+            this.txtCDPNrCrtOR.Location = new System.Drawing.Point(34, 554);
+            this.txtCDPNrCrtOR.Name = "txtCDPNrCrtOR";
+            this.txtCDPNrCrtOR.Size = new System.Drawing.Size(60, 20);
+            this.txtCDPNrCrtOR.TabIndex = 14;
+            // 
+            // txtORNrCrtStergere
+            // 
+            this.txtORNrCrtStergere.Location = new System.Drawing.Point(68, 305);
+            this.txtORNrCrtStergere.Name = "txtORNrCrtStergere";
+            this.txtORNrCrtStergere.Size = new System.Drawing.Size(60, 20);
+            this.txtORNrCrtStergere.TabIndex = 13;
+            this.txtORNrCrtStergere.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // btnORStergere
+            // 
+            this.btnORStergere.Location = new System.Drawing.Point(474, 304);
+            this.btnORStergere.Name = "btnORStergere";
+            this.btnORStergere.Size = new System.Drawing.Size(100, 22);
+            this.btnORStergere.TabIndex = 12;
+            this.btnORStergere.Text = "Ștergere";
+            this.btnORStergere.UseVisualStyleBackColor = true;
+            // 
+            // txtORSala
+            // 
+            this.txtORSala.Location = new System.Drawing.Point(408, 281);
+            this.txtORSala.Name = "txtORSala";
+            this.txtORSala.Size = new System.Drawing.Size(60, 20);
+            this.txtORSala.TabIndex = 11;
+            this.txtORSala.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtOROra
+            // 
+            this.txtOROra.Location = new System.Drawing.Point(342, 281);
+            this.txtOROra.Name = "txtOROra";
+            this.txtOROra.Size = new System.Drawing.Size(60, 20);
+            this.txtOROra.TabIndex = 10;
+            this.txtOROra.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtORData
+            // 
+            this.txtORData.Location = new System.Drawing.Point(250, 281);
+            this.txtORData.Name = "txtORData";
+            this.txtORData.Size = new System.Drawing.Size(86, 20);
+            this.txtORData.TabIndex = 9;
+            this.txtORData.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtORDenDisciplina
+            // 
+            this.txtORDenDisciplina.Location = new System.Drawing.Point(134, 281);
+            this.txtORDenDisciplina.Name = "txtORDenDisciplina";
+            this.txtORDenDisciplina.Size = new System.Drawing.Size(110, 20);
+            this.txtORDenDisciplina.TabIndex = 8;
+            this.txtORDenDisciplina.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // btnORInserare
+            // 
+            this.btnORInserare.Location = new System.Drawing.Point(474, 280);
+            this.btnORInserare.Name = "btnORInserare";
+            this.btnORInserare.Size = new System.Drawing.Size(100, 22);
+            this.btnORInserare.TabIndex = 7;
+            this.btnORInserare.Text = "Introducere";
+            this.btnORInserare.UseVisualStyleBackColor = true;
+            // 
+            // txtORNrCrt
+            // 
+            this.txtORNrCrt.Location = new System.Drawing.Point(68, 281);
+            this.txtORNrCrt.Name = "txtORNrCrt";
+            this.txtORNrCrt.Size = new System.Drawing.Size(60, 20);
+            this.txtORNrCrt.TabIndex = 6;
+            this.txtORNrCrt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // panouTipInsCDP
             // 
             this.panouTipInsCDP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panouTipInsCDP.Controls.Add(this.rdoCDPStergere);
             this.panouTipInsCDP.Controls.Add(this.rdoCDPInserare);
-            this.panouTipInsCDP.Location = new System.Drawing.Point(21, 295);
+            this.panouTipInsCDP.Location = new System.Drawing.Point(21, 372);
             this.panouTipInsCDP.Name = "panouTipInsCDP";
             this.panouTipInsCDP.Size = new System.Drawing.Size(171, 29);
             this.panouTipInsCDP.TabIndex = 5;
@@ -1099,7 +1226,7 @@
             this.panouTipInsOR.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panouTipInsOR.Controls.Add(this.rdoORStergere);
             this.panouTipInsOR.Controls.Add(this.rdoORInserare);
-            this.panouTipInsOR.Location = new System.Drawing.Point(21, 59);
+            this.panouTipInsOR.Location = new System.Drawing.Point(21, 99);
             this.panouTipInsOR.Name = "panouTipInsOR";
             this.panouTipInsOR.Size = new System.Drawing.Size(171, 29);
             this.panouTipInsOR.TabIndex = 4;
@@ -1131,7 +1258,7 @@
             // dgvConditiiDePlata
             // 
             this.dgvConditiiDePlata.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvConditiiDePlata.Location = new System.Drawing.Point(21, 323);
+            this.dgvConditiiDePlata.Location = new System.Drawing.Point(21, 400);
             this.dgvConditiiDePlata.Name = "dgvConditiiDePlata";
             this.dgvConditiiDePlata.Size = new System.Drawing.Size(591, 150);
             this.dgvConditiiDePlata.TabIndex = 3;
@@ -1140,7 +1267,7 @@
             // dgvOreRecuperate
             // 
             this.dgvOreRecuperate.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvOreRecuperate.Location = new System.Drawing.Point(21, 87);
+            this.dgvOreRecuperate.Location = new System.Drawing.Point(21, 127);
             this.dgvOreRecuperate.Name = "dgvOreRecuperate";
             this.dgvOreRecuperate.Size = new System.Drawing.Size(591, 150);
             this.dgvOreRecuperate.TabIndex = 2;
@@ -1172,7 +1299,7 @@
             // lblEnuntObligPlata1
             // 
             this.lblEnuntObligPlata1.AutoSize = true;
-            this.lblEnuntObligPlata1.Location = new System.Drawing.Point(38, 783);
+            this.lblEnuntObligPlata1.Location = new System.Drawing.Point(38, 1079);
             this.lblEnuntObligPlata1.Name = "lblEnuntObligPlata1";
             this.lblEnuntObligPlata1.Size = new System.Drawing.Size(566, 13);
             this.lblEnuntObligPlata1.TabIndex = 12;
@@ -1182,7 +1309,7 @@
             // lblEnuntObligPlata2
             // 
             this.lblEnuntObligPlata2.AutoSize = true;
-            this.lblEnuntObligPlata2.Location = new System.Drawing.Point(38, 801);
+            this.lblEnuntObligPlata2.Location = new System.Drawing.Point(38, 1097);
             this.lblEnuntObligPlata2.Name = "lblEnuntObligPlata2";
             this.lblEnuntObligPlata2.Size = new System.Drawing.Size(162, 13);
             this.lblEnuntObligPlata2.TabIndex = 13;
@@ -1191,7 +1318,7 @@
             // lblEnuntObligDidactice1
             // 
             this.lblEnuntObligDidactice1.AutoSize = true;
-            this.lblEnuntObligDidactice1.Location = new System.Drawing.Point(38, 745);
+            this.lblEnuntObligDidactice1.Location = new System.Drawing.Point(38, 804);
             this.lblEnuntObligDidactice1.Name = "lblEnuntObligDidactice1";
             this.lblEnuntObligDidactice1.Size = new System.Drawing.Size(532, 13);
             this.lblEnuntObligDidactice1.TabIndex = 14;
@@ -1201,145 +1328,18 @@
             // lblEnuntObligDidactice2
             // 
             this.lblEnuntObligDidactice2.AutoSize = true;
-            this.lblEnuntObligDidactice2.Location = new System.Drawing.Point(38, 764);
+            this.lblEnuntObligDidactice2.Location = new System.Drawing.Point(38, 823);
             this.lblEnuntObligDidactice2.Name = "lblEnuntObligDidactice2";
             this.lblEnuntObligDidactice2.Size = new System.Drawing.Size(324, 13);
             this.lblEnuntObligDidactice2.TabIndex = 14;
             this.lblEnuntObligDidactice2.Text = "În cazul în care orele se recupereaza, precizați care este programul";
-            // 
-            // txtORNrCrt
-            // 
-            this.txtORNrCrt.Location = new System.Drawing.Point(68, 241);
-            this.txtORNrCrt.Name = "txtORNrCrt";
-            this.txtORNrCrt.Size = new System.Drawing.Size(60, 20);
-            this.txtORNrCrt.TabIndex = 6;
-            this.txtORNrCrt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // btnORInserare
-            // 
-            this.btnORInserare.Location = new System.Drawing.Point(474, 240);
-            this.btnORInserare.Name = "btnORInserare";
-            this.btnORInserare.Size = new System.Drawing.Size(100, 22);
-            this.btnORInserare.TabIndex = 7;
-            this.btnORInserare.Text = "Introducere";
-            this.btnORInserare.UseVisualStyleBackColor = true;
-            // 
-            // txtORDenDisciplina
-            // 
-            this.txtORDenDisciplina.Location = new System.Drawing.Point(134, 241);
-            this.txtORDenDisciplina.Name = "txtORDenDisciplina";
-            this.txtORDenDisciplina.Size = new System.Drawing.Size(110, 20);
-            this.txtORDenDisciplina.TabIndex = 8;
-            this.txtORDenDisciplina.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtORData
-            // 
-            this.txtORData.Location = new System.Drawing.Point(250, 241);
-            this.txtORData.Name = "txtORData";
-            this.txtORData.Size = new System.Drawing.Size(86, 20);
-            this.txtORData.TabIndex = 9;
-            this.txtORData.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtOROra
-            // 
-            this.txtOROra.Location = new System.Drawing.Point(342, 241);
-            this.txtOROra.Name = "txtOROra";
-            this.txtOROra.Size = new System.Drawing.Size(60, 20);
-            this.txtOROra.TabIndex = 10;
-            this.txtOROra.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtORSala
-            // 
-            this.txtORSala.Location = new System.Drawing.Point(408, 241);
-            this.txtORSala.Name = "txtORSala";
-            this.txtORSala.Size = new System.Drawing.Size(60, 20);
-            this.txtORSala.TabIndex = 11;
-            this.txtORSala.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // btnORStergere
-            // 
-            this.btnORStergere.Location = new System.Drawing.Point(474, 264);
-            this.btnORStergere.Name = "btnORStergere";
-            this.btnORStergere.Size = new System.Drawing.Size(100, 22);
-            this.btnORStergere.TabIndex = 12;
-            this.btnORStergere.Text = "Ștergere";
-            this.btnORStergere.UseVisualStyleBackColor = true;
-            // 
-            // txtORNrCrtStergere
-            // 
-            this.txtORNrCrtStergere.Location = new System.Drawing.Point(68, 265);
-            this.txtORNrCrtStergere.Name = "txtORNrCrtStergere";
-            this.txtORNrCrtStergere.Size = new System.Drawing.Size(60, 20);
-            this.txtORNrCrtStergere.TabIndex = 13;
-            this.txtORNrCrtStergere.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtCDPNrCrtOR
-            // 
-            this.txtCDPNrCrtOR.Location = new System.Drawing.Point(34, 477);
-            this.txtCDPNrCrtOR.Name = "txtCDPNrCrtOR";
-            this.txtCDPNrCrtOR.Size = new System.Drawing.Size(60, 20);
-            this.txtCDPNrCrtOR.TabIndex = 14;
-            // 
-            // txtCDPNrCrt
-            // 
-            this.txtCDPNrCrt.Location = new System.Drawing.Point(100, 477);
-            this.txtCDPNrCrt.Name = "txtCDPNrCrt";
-            this.txtCDPNrCrt.Size = new System.Drawing.Size(60, 20);
-            this.txtCDPNrCrt.TabIndex = 15;
-            // 
-            // txtCDPNumePrenProf
-            // 
-            this.txtCDPNumePrenProf.Location = new System.Drawing.Point(166, 477);
-            this.txtCDPNumePrenProf.Name = "txtCDPNumePrenProf";
-            this.txtCDPNumePrenProf.Size = new System.Drawing.Size(130, 20);
-            this.txtCDPNumePrenProf.TabIndex = 16;
-            // 
-            // txtCDPDenDisciplina
-            // 
-            this.txtCDPDenDisciplina.Location = new System.Drawing.Point(303, 477);
-            this.txtCDPDenDisciplina.Name = "txtCDPDenDisciplina";
-            this.txtCDPDenDisciplina.Size = new System.Drawing.Size(100, 20);
-            this.txtCDPDenDisciplina.TabIndex = 17;
-            // 
-            // txtCDPCondDePlata
-            // 
-            this.txtCDPCondDePlata.Location = new System.Drawing.Point(409, 477);
-            this.txtCDPCondDePlata.Name = "txtCDPCondDePlata";
-            this.txtCDPCondDePlata.Size = new System.Drawing.Size(60, 20);
-            this.txtCDPCondDePlata.TabIndex = 18;
-            this.txtCDPCondDePlata.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // btnCDPIntroducere
-            // 
-            this.btnCDPIntroducere.Location = new System.Drawing.Point(474, 476);
-            this.btnCDPIntroducere.Name = "btnCDPIntroducere";
-            this.btnCDPIntroducere.Size = new System.Drawing.Size(100, 22);
-            this.btnCDPIntroducere.TabIndex = 19;
-            this.btnCDPIntroducere.Text = "Introducere";
-            this.btnCDPIntroducere.UseVisualStyleBackColor = true;
-            // 
-            // txtCDPNrCrtStergere
-            // 
-            this.txtCDPNrCrtStergere.Location = new System.Drawing.Point(100, 501);
-            this.txtCDPNrCrtStergere.Name = "txtCDPNrCrtStergere";
-            this.txtCDPNrCrtStergere.Size = new System.Drawing.Size(60, 20);
-            this.txtCDPNrCrtStergere.TabIndex = 20;
-            // 
-            // btnCDPStergere
-            // 
-            this.btnCDPStergere.Location = new System.Drawing.Point(474, 500);
-            this.btnCDPStergere.Name = "btnCDPStergere";
-            this.btnCDPStergere.Size = new System.Drawing.Size(100, 22);
-            this.btnCDPStergere.TabIndex = 21;
-            this.btnCDPStergere.Text = "Ștergere";
-            this.btnCDPStergere.UseVisualStyleBackColor = true;
             // 
             // frmCerereInregistrare
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(699, 1015);
+            this.ClientSize = new System.Drawing.Size(699, 661);
             this.Controls.Add(this.lblEnuntObligDidactice2);
             this.Controls.Add(this.lblEnuntObligDidactice1);
             this.Controls.Add(this.lblEnuntObligPlata2);

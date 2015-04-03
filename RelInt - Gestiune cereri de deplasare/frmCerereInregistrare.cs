@@ -61,6 +61,10 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     txtCDPDenDisciplina.Enabled = false;
                     txtCDPCondDePlata.Enabled = false;
                     btnCDPIntroducere.Enabled = false;
+
+                    // Dezctivam campurile si butonul pentru stergerea datelor (CDP)
+                    txtCDPNrCrtStergere.Enabled = false;
+                    btnCDPStergere.Enabled = false;
         }
 
 
