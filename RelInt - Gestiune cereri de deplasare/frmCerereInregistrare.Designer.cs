@@ -1068,6 +1068,7 @@
             this.btnCDPStergere.TabIndex = 21;
             this.btnCDPStergere.Text = "Ștergere";
             this.btnCDPStergere.UseVisualStyleBackColor = true;
+            this.btnCDPStergere.Click += new System.EventHandler(this.btnCDPStergere_Click);
             // 
             // txtCDPNrCrtStergere
             // 
@@ -1084,6 +1085,7 @@
             this.btnCDPIntroducere.TabIndex = 19;
             this.btnCDPIntroducere.Text = "Introducere";
             this.btnCDPIntroducere.UseVisualStyleBackColor = true;
+            this.btnCDPIntroducere.Click += new System.EventHandler(this.btnCDPIntroducere_Click);
             // 
             // txtCDPCondDePlata
             // 
@@ -1128,6 +1130,7 @@
             this.txtORNrCrtStergere.Size = new System.Drawing.Size(60, 20);
             this.txtORNrCrtStergere.TabIndex = 13;
             this.txtORNrCrtStergere.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtORNrCrtStergere.TextChanged += new System.EventHandler(this.txtORNrCrtStergere_TextChanged);
             // 
             // btnORStergere
             // 
@@ -1137,6 +1140,7 @@
             this.btnORStergere.TabIndex = 12;
             this.btnORStergere.Text = "Ștergere";
             this.btnORStergere.UseVisualStyleBackColor = true;
+            this.btnORStergere.Click += new System.EventHandler(this.btnORStergere_Click);
             // 
             // txtORSala
             // 
@@ -1178,6 +1182,7 @@
             this.btnORInserare.TabIndex = 7;
             this.btnORInserare.Text = "Introducere";
             this.btnORInserare.UseVisualStyleBackColor = true;
+            this.btnORInserare.Click += new System.EventHandler(this.btnORInserare_Click);
             // 
             // txtORNrCrt
             // 
@@ -1186,6 +1191,7 @@
             this.txtORNrCrt.Size = new System.Drawing.Size(60, 20);
             this.txtORNrCrt.TabIndex = 6;
             this.txtORNrCrt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtORNrCrt.TextChanged += new System.EventHandler(this.txtORNrCrt_TextChanged);
             // 
             // panouTipInsCDP
             // 
@@ -1262,7 +1268,6 @@
             this.dgvConditiiDePlata.Name = "dgvConditiiDePlata";
             this.dgvConditiiDePlata.Size = new System.Drawing.Size(591, 150);
             this.dgvConditiiDePlata.TabIndex = 3;
-            this.dgvConditiiDePlata.RowDirtyStateNeeded += new System.Windows.Forms.QuestionEventHandler(this.dgvConditiiDePlata_RowDirtyStateNeeded);
             // 
             // dgvOreRecuperate
             // 
@@ -1271,7 +1276,6 @@
             this.dgvOreRecuperate.Name = "dgvOreRecuperate";
             this.dgvOreRecuperate.Size = new System.Drawing.Size(591, 150);
             this.dgvOreRecuperate.TabIndex = 2;
-            this.dgvOreRecuperate.RowLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOreRecuperate_RowLeave);
             // 
             // chkORCDP
             // 

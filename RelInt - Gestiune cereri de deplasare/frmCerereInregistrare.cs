@@ -467,56 +467,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-        /* ------------------ Inserare in tabela "orerecuperate" prin "dgvOreRecuperate" --------------------------------- */
-        private void dgvOreRecuperate_RowLeave(object sender, DataGridViewCellEventArgs e)
-        {
-            if (dgvOreRecuperate.IsCurrentRowDirty == true)
-            {
-                using (OdbcConnection conexiune_InserareOreRecuperate = new OdbcConnection(sircon_RelIntDB))
-                {           // Comanda
-                    using (OdbcCommand comanda_InserareOreRecuperate = new OdbcCommand())
-                    {
-                        for (int i = 0; i < dgvOreRecuperate.Rows.Count; i++)
-                        {
-                            // Dezactivam prima celula din "dgvOreRecuperate"
-                            dgvOreRecuperate.Rows[i].Cells[0].ReadOnly = true;
-
-                            comanda_InserareOreRecuperate.Connection = conexiune_InserareOreRecuperate;
-                            comanda_InserareOreRecuperate.CommandType = CommandType.Text;
-                            comanda_InserareOreRecuperate.CommandText = "INSERT into orerecuperate VALUES (?, ?, ?, ?, ?, ?)";
-                            comanda_InserareOreRecuperate.Parameters.Add("@nrinregistrarec", OdbcType.Int).Value = vartxtNrInregistrare;
-                            comanda_InserareOreRecuperate.Parameters.Add("@nrcrtor", OdbcType.Int).Value = dgvOreRecuperate.Rows[i].Cells[1].Value;
-                            comanda_InserareOreRecuperate.Parameters.Add("@denumiredisciplinaor", OdbcType.NVarChar).Value = dgvOreRecuperate.Rows[i].Cells[2].Value;
-                            comanda_InserareOreRecuperate.Parameters.Add("@dataor", OdbcType.DateTime).Value = dgvOreRecuperate.Rows[i].Cells[3].Value;
-                            comanda_InserareOreRecuperate.Parameters.Add("@oraor", OdbcType.DateTime).Value = dgvOreRecuperate.Rows[i].Cells[4].Value;
-                            comanda_InserareOreRecuperate.Parameters.Add("@salaor", OdbcType.NVarChar).Value = dgvOreRecuperate.Rows[i].Cells[5].Value;
-                            // Incercam conexiunea si query-ul
-                            try
-                            {
-                                conexiune_InserareOreRecuperate.Open();
-                            } // Captam eventualele erori
-                            catch (OdbcException exInserare)
-                            {
-                                // Afisam eroarea driverului Odbc
-                                MessageBox.Show(exInserare.Message);
-                            } // Ne deconectam
-                            finally
-                            {
-                                conexiune_InserareOreRecuperate.Close();
-                            }
-                        }
-                    }
-                }
-            }
-            else
-            {
-                // Nu fa nimic
-            }
-        }
-        /* --------------------------------------------------------------------------------------------------------------- */
-
-
-
 
 
 
@@ -605,17 +555,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     }
                 }
             }
-        }
-        /* --------------------------------------------------------------------------------------------------------------- */
-        /* ------------------ Inserare in tabela "conditiideplata" prin "dgvConditiiDePlata" ----------------------------- */
-        private void dgvConditiiDePlata_RowDirtyStateNeeded(object sender, System.Windows.Forms.QuestionEventArgs e)
-        {
-            //if (!rowScopeCommit)
-            //{
-            //    // In cell-level commit scope, indicate whether the value 
-            //    // of the current cell has been modified.
-            //    e.Response = this.dgvConditiiDePlata.IsCurrentCellDirty;
-            //}
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
@@ -900,6 +839,155 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     btnCDPStergere.Enabled = false;
                 }
             }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+        /* --------- Variabile de lucru pentru validarile textboxurilor folosite pentru a insera date in tabea OR -------- */
+        int vartxtORNrCrt;
+        int vartxtORNrCrtStergere;
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* --------------------- Validari pentru textbox-urile folosite pentru a insera date in tabela OR ---------------- */
+        private void txtORNrCrt_TextChanged(object sender, EventArgs e)
+        {
+            // Verificam daca valoarea din "txtORNrCrt" este de tip int
+            bool vartxtORNrCrtEsteNumar = Int32.TryParse(txtORNrCrt.Text, out vartxtORNrCrt);
+
+            // Judecam si "sanctionam" la nevoie
+            switch (vartxtORNrCrtEsteNumar || txtORNrCrt.Text == string.Empty)
+            {
+                case false:
+                    // Golim casuta si afisam mesaj de eroare
+                    txtORNrCrt.Clear();
+                    MessageBox.Show("        Vă rugăm introduceți doar numere în această casetă de text.");
+                    break;
+            }
+        }
+
+            private void txtORNrCrtStergere_TextChanged(object sender, EventArgs e)
+            {
+                // Verificam daca valoarea din "txtORNrCrtStergere" este de tip int
+                bool vartxtORNrCrtStergereEsteNumar = Int32.TryParse(txtORNrCrtStergere.Text, out vartxtORNrCrtStergere);
+
+                // Judecam si "sanctionam" la nevoie
+                switch (vartxtORNrCrtStergereEsteNumar || txtORNrCrtStergere.Text == string.Empty)
+                {
+                    case false:
+                        // Golim casuta si afisam mesaj de eroare
+                        txtORNrCrtStergere.Clear();
+                        MessageBox.Show("        Vă rugăm introduceți doar numere în această casetă de text.");
+                        break;
+                }
+            }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* -------------------- Metoda de tip "INSERT" pentru O-R -------------------------------------------------------- */
+        private void btnORInserare_Click(object sender, EventArgs e)
+        {
+            // Metoda de inserare a datelor
+            // Conexiunea
+            using (OdbcConnection conexiune_InserareOR = new OdbcConnection(sircon_RelIntDB))
+            {           // Comanda
+                using (OdbcCommand comanda_InserareOR = new OdbcCommand())
+                {
+                    comanda_InserareOR.Connection = conexiune_InserareOR;
+                    comanda_InserareOR.CommandType = CommandType.Text;
+                    comanda_InserareOR.CommandText = "INSERT into orerecuperate VALUES (?, ?, ?, ?, ?, ?)";
+                    comanda_InserareOR.Parameters.AddWithValue("@nrinregistrarecor", OdbcType.Int).Value = vartxtNrInregistrare;
+                    comanda_InserareOR.Parameters.AddWithValue("@nrcrtor", OdbcType.Int).Value = vartxtORNrCrt;
+                    comanda_InserareOR.Parameters.AddWithValue("@denumiredisciplinaor", OdbcType.NVarChar).Value = txtORDenDisciplina.Text;
+                    comanda_InserareOR.Parameters.AddWithValue("@dataor", OdbcType.DateTime).Value = txtORData.Text;
+                    comanda_InserareOR.Parameters.AddWithValue("@dataor", OdbcType.DateTime).Value = txtOROra.Text;
+                    comanda_InserareOR.Parameters.AddWithValue("@dsalaor", OdbcType.NVarChar).Value = txtORSala.Text;
+                    
+                    // Incercam conexiunea si query-ul
+                    try
+                    {
+                        conexiune_InserareOR.Open();
+                        int recordsAffected = comanda_InserareOR.ExecuteNonQuery();
+                    } // Captam eventualele erori
+                    catch (OdbcException exInserare)
+                    {
+                        // Afisam eroarea driverului Odbc
+                        MessageBox.Show(exInserare.Message);
+                    } // Ne deconectam
+                    finally
+                    {
+                        conexiune_InserareOR.Close();
+                    }
+                }
+            }
+
+            // Actualizam "dgvOreRecuprate"
+            IncarcaredgvOreRecuperate();
+
+            // Stergem tot din campurile pentru introducerea datelor
+            txtORNrCrt.Clear();
+            txtORDenDisciplina.Clear();
+            txtORData.Clear();
+            txtOROra.Clear();
+            txtORSala.Clear();
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* -------------------- Metoda de tip "DELETE" pentru O-R -------------------------------------------------------- */
+        private void btnORStergere_Click(object sender, EventArgs e)
+        {
+            // Metoda de stergere a datelor
+            // Conexiunea
+            using (OdbcConnection conexiune_StergereOR = new OdbcConnection(sircon_RelIntDB))
+            {           // Comanda
+                using (OdbcCommand comanda_StergereOR = new OdbcCommand())
+                {
+                    comanda_StergereOR.Connection = conexiune_StergereOR;
+                    comanda_StergereOR.CommandType = CommandType.Text;
+                    comanda_StergereOR.CommandText = "DELETE FROM orerecuperate WHERE nrcrtor = ?";
+                    comanda_StergereOR.Parameters.AddWithValue("@nrcrtor", OdbcType.Int).Value = vartxtORNrCrtStergere;
+
+                    // Incercam conexiunea si query-ul
+                    try
+                    {
+                        conexiune_StergereOR.Open();
+                        int recordsAffected = comanda_StergereOR.ExecuteNonQuery();
+                    } // Captam eventualele erori
+                    catch (OdbcException exInserare)
+                    {
+                        // Afisam eroarea driverului Odbc
+                        MessageBox.Show(exInserare.Message);
+                    } // Ne deconectam
+                    finally
+                    {
+                        conexiune_StergereOR.Close();
+                    }
+                }
+            }
+
+            // Actualizam "dgvOreRecuprate"
+            IncarcaredgvOreRecuperate();
+
+            // Stergem tot din campurile pentru introducerea datelor
+            txtORNrCrtStergere.Clear();
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+        /* -------------------- Metoda de tip "INSERT" pentru CDP -------------------------------------------------------- */
+        private void btnCDPIntroducere_Click(object sender, EventArgs e)
+        {
+
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* -------------------- Metoda de tip "DELETE" pentru CDP -------------------------------------------------------- */
+        private void btnCDPStergere_Click(object sender, EventArgs e)
+        {
+
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
