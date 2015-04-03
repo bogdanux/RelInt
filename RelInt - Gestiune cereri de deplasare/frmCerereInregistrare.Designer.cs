@@ -114,7 +114,7 @@
             this.lblAdresaAmbasada = new System.Windows.Forms.Label();
             this.lblAdministrativ = new System.Windows.Forms.Label();
             this.panouFinal = new System.Windows.Forms.Panel();
-            this.panouOreRecuperate = new System.Windows.Forms.Panel();
+            this.panouORCDP = new System.Windows.Forms.Panel();
             this.dpOROra = new System.Windows.Forms.DateTimePicker();
             this.dpORData = new System.Windows.Forms.DateTimePicker();
             this.btnCDPStergere = new System.Windows.Forms.Button();
@@ -152,7 +152,7 @@
             this.panouSefDepartament.SuspendLayout();
             this.panouAdministratorSef.SuspendLayout();
             this.panouDecanConta.SuspendLayout();
-            this.panouOreRecuperate.SuspendLayout();
+            this.panouORCDP.SuspendLayout();
             this.panouTipInsCDP.SuspendLayout();
             this.panouTipInsOR.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvConditiiDePlata)).BeginInit();
@@ -320,6 +320,7 @@
             this.txtSuportatDe.Name = "txtSuportatDe";
             this.txtSuportatDe.Size = new System.Drawing.Size(278, 20);
             this.txtSuportatDe.TabIndex = 27;
+            this.txtSuportatDe.TextChanged += new System.EventHandler(this.txtSuportatDe_TextChanged);
             // 
             // lblSuportatDe
             // 
@@ -337,6 +338,7 @@
             this.txtMijTrans.Name = "txtMijTrans";
             this.txtMijTrans.Size = new System.Drawing.Size(276, 20);
             this.txtMijTrans.TabIndex = 25;
+            this.txtMijTrans.TextChanged += new System.EventHandler(this.txtMijTrans_TextChanged);
             // 
             // lblMijTrans
             // 
@@ -354,6 +356,7 @@
             this.txtRuta.Name = "txtRuta";
             this.txtRuta.Size = new System.Drawing.Size(279, 20);
             this.txtRuta.TabIndex = 23;
+            this.txtRuta.TextChanged += new System.EventHandler(this.txtRuta_TextChanged);
             // 
             // lblRuta
             // 
@@ -418,6 +421,7 @@
             this.txtInstitutia.Name = "txtInstitutia";
             this.txtInstitutia.Size = new System.Drawing.Size(147, 20);
             this.txtInstitutia.TabIndex = 16;
+            this.txtInstitutia.TextChanged += new System.EventHandler(this.txtInstitutia_TextChanged);
             // 
             // lblInstitutia
             // 
@@ -435,6 +439,7 @@
             this.txtScop.Name = "txtScop";
             this.txtScop.Size = new System.Drawing.Size(186, 20);
             this.txtScop.TabIndex = 14;
+            this.txtScop.TextChanged += new System.EventHandler(this.txtScop_TextChanged);
             // 
             // lblScop
             // 
@@ -453,6 +458,7 @@
             this.txtTara.Name = "txtTara";
             this.txtTara.Size = new System.Drawing.Size(117, 20);
             this.txtTara.TabIndex = 12;
+            this.txtTara.TextChanged += new System.EventHandler(this.txtTara_TextChanged);
             // 
             // lblTara
             // 
@@ -470,6 +476,7 @@
             this.txtLocalitatea.Name = "txtLocalitatea";
             this.txtLocalitatea.Size = new System.Drawing.Size(137, 20);
             this.txtLocalitatea.TabIndex = 10;
+            this.txtLocalitatea.TextChanged += new System.EventHandler(this.txtLocalitatea_TextChanged);
             // 
             // lblLocalitatea
             // 
@@ -487,6 +494,7 @@
             this.txtDepartament.Name = "txtDepartament";
             this.txtDepartament.Size = new System.Drawing.Size(185, 20);
             this.txtDepartament.TabIndex = 8;
+            this.txtDepartament.TextChanged += new System.EventHandler(this.txtDepartament_TextChanged);
             // 
             // lblDepartament
             // 
@@ -510,6 +518,7 @@
             this.cmbFacultatea.Name = "cmbFacultatea";
             this.cmbFacultatea.Size = new System.Drawing.Size(99, 21);
             this.cmbFacultatea.TabIndex = 6;
+            this.cmbFacultatea.SelectedIndexChanged += new System.EventHandler(this.cmbFacultatea_SelectedIndexChanged);
             // 
             // lblFacultatea
             // 
@@ -544,6 +553,7 @@
             this.cmbGradDidactic.Name = "cmbGradDidactic";
             this.cmbGradDidactic.Size = new System.Drawing.Size(84, 21);
             this.cmbGradDidactic.TabIndex = 3;
+            this.cmbGradDidactic.SelectedIndexChanged += new System.EventHandler(this.cmbGradDidactic_SelectedIndexChanged);
             // 
             // txtSubsemnatul
             // 
@@ -637,6 +647,7 @@
             this.txtTaxaDeViza.Name = "txtTaxaDeViza";
             this.txtTaxaDeViza.Size = new System.Drawing.Size(100, 20);
             this.txtTaxaDeViza.TabIndex = 12;
+            this.txtTaxaDeViza.TextChanged += new System.EventHandler(this.txtTaxaDeViza_TextChanged);
             // 
             // lblTaxaDeViza
             // 
@@ -654,6 +665,7 @@
             this.txtTaxaDeParticipare.Name = "txtTaxaDeParticipare";
             this.txtTaxaDeParticipare.Size = new System.Drawing.Size(100, 20);
             this.txtTaxaDeParticipare.TabIndex = 10;
+            this.txtTaxaDeParticipare.TextChanged += new System.EventHandler(this.txtTaxaDeParticipare_TextChanged);
             // 
             // lblTaxaParticipare
             // 
@@ -685,6 +697,7 @@
             this.txtCazare.Name = "txtCazare";
             this.txtCazare.Size = new System.Drawing.Size(83, 20);
             this.txtCazare.TabIndex = 7;
+            this.txtCazare.TextChanged += new System.EventHandler(this.txtCazare_TextChanged);
             // 
             // lblCazarea
             // 
@@ -716,6 +729,7 @@
             this.txtDiurna.Name = "txtDiurna";
             this.txtDiurna.Size = new System.Drawing.Size(86, 20);
             this.txtDiurna.TabIndex = 4;
+            this.txtDiurna.TextChanged += new System.EventHandler(this.txtDiurna_TextChanged);
             // 
             // lblDiurna
             // 
@@ -733,6 +747,7 @@
             this.txtCheltuieliSuportate.Name = "txtCheltuieliSuportate";
             this.txtCheltuieliSuportate.Size = new System.Drawing.Size(193, 20);
             this.txtCheltuieliSuportate.TabIndex = 2;
+            this.txtCheltuieliSuportate.TextChanged += new System.EventHandler(this.txtCheltuieliSuportate_TextChanged);
             // 
             // lblCheltuielileVorFi
             // 
@@ -804,6 +819,7 @@
             this.txtVizaRU.Name = "txtVizaRU";
             this.txtVizaRU.Size = new System.Drawing.Size(154, 20);
             this.txtVizaRU.TabIndex = 11;
+            this.txtVizaRU.TextChanged += new System.EventHandler(this.txtVizaRU_TextChanged);
             // 
             // txtSefDepartament
             // 
@@ -812,6 +828,7 @@
             this.txtSefDepartament.Name = "txtSefDepartament";
             this.txtSefDepartament.Size = new System.Drawing.Size(154, 20);
             this.txtSefDepartament.TabIndex = 11;
+            this.txtSefDepartament.TextChanged += new System.EventHandler(this.txtSefDepartament_TextChanged);
             // 
             // lblSefDepartament
             // 
@@ -849,6 +866,7 @@
             this.txtAdministratorSef.Name = "txtAdministratorSef";
             this.txtAdministratorSef.Size = new System.Drawing.Size(137, 20);
             this.txtAdministratorSef.TabIndex = 11;
+            this.txtAdministratorSef.TextChanged += new System.EventHandler(this.txtAdministratorSef_TextChanged);
             // 
             // lblAdministratorSef
             // 
@@ -897,6 +915,7 @@
             this.txtVizaConta.Name = "txtVizaConta";
             this.txtVizaConta.Size = new System.Drawing.Size(137, 20);
             this.txtVizaConta.TabIndex = 11;
+            this.txtVizaConta.TextChanged += new System.EventHandler(this.txtVizaConta_TextChanged);
             // 
             // txtDecan
             // 
@@ -905,6 +924,7 @@
             this.txtDecan.Name = "txtDecan";
             this.txtDecan.Size = new System.Drawing.Size(137, 20);
             this.txtDecan.TabIndex = 11;
+            this.txtDecan.TextChanged += new System.EventHandler(this.txtDecan_TextChanged);
             // 
             // lblDecan
             // 
@@ -1002,6 +1022,7 @@
             this.txtAmbasada.Name = "txtAmbasada";
             this.txtAmbasada.Size = new System.Drawing.Size(105, 20);
             this.txtAmbasada.TabIndex = 2;
+            this.txtAmbasada.TextChanged += new System.EventHandler(this.txtAmbasada_TextChanged);
             // 
             // lblAdresaAmbasada
             // 
@@ -1030,34 +1051,34 @@
             this.panouFinal.Size = new System.Drawing.Size(642, 13);
             this.panouFinal.TabIndex = 9;
             // 
-            // panouOreRecuperate
+            // panouORCDP
             // 
-            this.panouOreRecuperate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panouOreRecuperate.Controls.Add(this.dpOROra);
-            this.panouOreRecuperate.Controls.Add(this.dpORData);
-            this.panouOreRecuperate.Controls.Add(this.btnCDPStergere);
-            this.panouOreRecuperate.Controls.Add(this.txtCDPNrCrtStergere);
-            this.panouOreRecuperate.Controls.Add(this.btnCDPIntroducere);
-            this.panouOreRecuperate.Controls.Add(this.txtCDPCondDePlata);
-            this.panouOreRecuperate.Controls.Add(this.txtCDPDenDisciplina);
-            this.panouOreRecuperate.Controls.Add(this.txtCDPNumePrenProf);
-            this.panouOreRecuperate.Controls.Add(this.txtCDPNrCrt);
-            this.panouOreRecuperate.Controls.Add(this.txtORNrCrtStergere);
-            this.panouOreRecuperate.Controls.Add(this.btnORStergere);
-            this.panouOreRecuperate.Controls.Add(this.txtORSala);
-            this.panouOreRecuperate.Controls.Add(this.txtORDenDisciplina);
-            this.panouOreRecuperate.Controls.Add(this.btnORInserare);
-            this.panouOreRecuperate.Controls.Add(this.txtORNrCrt);
-            this.panouOreRecuperate.Controls.Add(this.panouTipInsCDP);
-            this.panouOreRecuperate.Controls.Add(this.panouTipInsOR);
-            this.panouOreRecuperate.Controls.Add(this.dgvConditiiDePlata);
-            this.panouOreRecuperate.Controls.Add(this.dgvOreRecuperate);
-            this.panouOreRecuperate.Controls.Add(this.chkORCDP);
-            this.panouOreRecuperate.Controls.Add(this.lblOreRecuperate);
-            this.panouOreRecuperate.Location = new System.Drawing.Point(13, 745);
-            this.panouOreRecuperate.Name = "panouOreRecuperate";
-            this.panouOreRecuperate.Size = new System.Drawing.Size(642, 608);
-            this.panouOreRecuperate.TabIndex = 10;
+            this.panouORCDP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panouORCDP.Controls.Add(this.dpOROra);
+            this.panouORCDP.Controls.Add(this.dpORData);
+            this.panouORCDP.Controls.Add(this.btnCDPStergere);
+            this.panouORCDP.Controls.Add(this.txtCDPNrCrtStergere);
+            this.panouORCDP.Controls.Add(this.btnCDPIntroducere);
+            this.panouORCDP.Controls.Add(this.txtCDPCondDePlata);
+            this.panouORCDP.Controls.Add(this.txtCDPDenDisciplina);
+            this.panouORCDP.Controls.Add(this.txtCDPNumePrenProf);
+            this.panouORCDP.Controls.Add(this.txtCDPNrCrt);
+            this.panouORCDP.Controls.Add(this.txtORNrCrtStergere);
+            this.panouORCDP.Controls.Add(this.btnORStergere);
+            this.panouORCDP.Controls.Add(this.txtORSala);
+            this.panouORCDP.Controls.Add(this.txtORDenDisciplina);
+            this.panouORCDP.Controls.Add(this.btnORInserare);
+            this.panouORCDP.Controls.Add(this.txtORNrCrt);
+            this.panouORCDP.Controls.Add(this.panouTipInsCDP);
+            this.panouORCDP.Controls.Add(this.panouTipInsOR);
+            this.panouORCDP.Controls.Add(this.dgvConditiiDePlata);
+            this.panouORCDP.Controls.Add(this.dgvOreRecuperate);
+            this.panouORCDP.Controls.Add(this.chkORCDP);
+            this.panouORCDP.Controls.Add(this.lblOreRecuperate);
+            this.panouORCDP.Location = new System.Drawing.Point(13, 745);
+            this.panouORCDP.Name = "panouORCDP";
+            this.panouORCDP.Size = new System.Drawing.Size(642, 608);
+            this.panouORCDP.TabIndex = 10;
             // 
             // dpOROra
             // 
@@ -1346,7 +1367,7 @@
             this.Controls.Add(this.lblEnuntObligDidactice1);
             this.Controls.Add(this.lblEnuntObligPlata2);
             this.Controls.Add(this.lblEnuntObligPlata1);
-            this.Controls.Add(this.panouOreRecuperate);
+            this.Controls.Add(this.panouORCDP);
             this.Controls.Add(this.panouFinal);
             this.Controls.Add(this.panouMentiuniLegale);
             this.Controls.Add(this.panouCheltuieliPlecare);
@@ -1373,8 +1394,8 @@
             this.panouAdministratorSef.PerformLayout();
             this.panouDecanConta.ResumeLayout(false);
             this.panouDecanConta.PerformLayout();
-            this.panouOreRecuperate.ResumeLayout(false);
-            this.panouOreRecuperate.PerformLayout();
+            this.panouORCDP.ResumeLayout(false);
+            this.panouORCDP.PerformLayout();
             this.panouTipInsCDP.ResumeLayout(false);
             this.panouTipInsCDP.PerformLayout();
             this.panouTipInsOR.ResumeLayout(false);
@@ -1450,7 +1471,7 @@
         private System.Windows.Forms.RadioButton rdoPerNedeterminata;
         private System.Windows.Forms.RadioButton rdoPerDeterminata;
         private System.Windows.Forms.Panel panouFinal;
-        private System.Windows.Forms.Panel panouOreRecuperate;
+        private System.Windows.Forms.Panel panouORCDP;
         private System.Windows.Forms.Label lblOreRecuperate;
         private System.Windows.Forms.Label lblCheltuieliDeplasare;
         private System.Windows.Forms.Label lblRuta;
