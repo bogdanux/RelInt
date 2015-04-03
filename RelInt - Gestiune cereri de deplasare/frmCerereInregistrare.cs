@@ -395,8 +395,8 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 {
                     comanda_dgvOreRecuperate.Connection = conexiune_dgvOreRecuperate;
                     comanda_dgvOreRecuperate.CommandType = CommandType.Text;
-                    comanda_dgvOreRecuperate.CommandText = "SELECT nrcrtor as \"Nr. Cerere\", dendisciplinaor as \"Denumire Disciplina\", dataor as \"Data\", oraor as \"Ora\", salaor as \"Sala\" FROM orerecuperate WHERE nrcrtor = ?";
-                    comanda_dgvOreRecuperate.Parameters.Add("@nrinregistrarecor", OdbcType.Int).Value = vartxtNrInregistrare;
+                    comanda_dgvOreRecuperate.CommandText = "SELECT nrcrtor as \"Nr. Crt.\", dendisciplinaor as \"Denumire Disciplina\", dataor as \"Data\", oraor as \"Ora\", salaor as \"Sala\" FROM orerecuperate WHERE nrcerereor = ?";
+                    comanda_dgvOreRecuperate.Parameters.AddWithValue("@nrcerereor", OdbcType.Int).Value = vartxtNrInregistrare;
 
                     try
                     {
@@ -435,8 +435,8 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 {
                     comanda_dgvOreRecuperate.Connection = conexiune_dgvOreRecuperate;
                     comanda_dgvOreRecuperate.CommandType = CommandType.Text;
-                    comanda_dgvOreRecuperate.CommandText = "SELECT nrcrtor as \"Nr. Cerere\", dendisciplinaor as \"Denumire Disciplina\", dataor as \"Data\", oraor as \"Ora\", salaor as \"Sala\" FROM orerecuperate WHERE nrcrtor = ?";
-                    comanda_dgvOreRecuperate.Parameters.Add("@nrinregistrarecor", OdbcType.Int).Value = vartxtNrInregistrare;
+                    comanda_dgvOreRecuperate.CommandText = "SELECT nrcrtor as \"Nr. Crt.\", dendisciplinaor as \"Denumire Disciplina\", dataor as \"Data\", oraor as \"Ora\", salaor as \"Sala\" FROM orerecuperate WHERE nrcerereor = ?";
+                    comanda_dgvOreRecuperate.Parameters.AddWithValue("@nrcerereor", OdbcType.Int).Value = vartxtNrInregistrare;
 
                     try
                     {
@@ -487,7 +487,8 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 {
                     comanda_dgvConditiiDePlata.Connection = conexiune_dgvConditiiDePlata;
                     comanda_dgvConditiiDePlata.CommandType = CommandType.Text;
-                    comanda_dgvConditiiDePlata.CommandText = "SELECT nrcrtcdp as \"Nr. Cerere\", numeprenprofcdp as \"Nume Prenume prof.\", dendisciplinacdp as \"Denumire Disciplina\", conddeplatacdp as \"Conditii de plata\" FROM conditiideplata";
+                    comanda_dgvConditiiDePlata.CommandText = "SELECT nrcrtcdp as \"Nr. Crt.\", numeprenprofcdp as \"Nume Prenume prof.\", dendisciplinacdp as \"Denumire Disciplina\", conddeplatacdp as \"Conditii de plata\" FROM conditiideplata";
+                    comanda_dgvConditiiDePlata.Parameters.AddWithValue("@nrcererecdp", OdbcType.Int).Value = vartxtNrInregistrare;
 
                     try
                     {
@@ -526,7 +527,8 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 {
                     comanda_dgvConditiiDePlata.Connection = conexiune_dgvConditiiDePlata;
                     comanda_dgvConditiiDePlata.CommandType = CommandType.Text;
-                    comanda_dgvConditiiDePlata.CommandText = "SELECT nrcrtcdp as \"Nr. Cerere\", numeprenprofcdp as \"Nume Prenume prof.\", dendisciplinacdp as \"Denumire Disciplina\", conddeplatacdp as \"Conditii de plata\" FROM conditiideplata";
+                    comanda_dgvConditiiDePlata.CommandText = "SELECT nrcrtcdp as \"Nr. Crt.\", numeprenprofcdp as \"Nume Prenume prof.\", dendisciplinacdp as \"Denumire Disciplina\", conddeplatacdp as \"Conditii de plata\" FROM conditiideplata";
+                    comanda_dgvConditiiDePlata.Parameters.AddWithValue("@nrcererecdp", OdbcType.Int).Value = vartxtNrInregistrare;
 
                     try
                     {
