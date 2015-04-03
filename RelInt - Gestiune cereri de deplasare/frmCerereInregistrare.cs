@@ -24,9 +24,9 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             cmbMoneda2.SelectedIndex = 0;
             cmbMoneda3.SelectedIndex = 0;
             /* --------------------------------------------------------------------------------------------------------------- */
-
+            
             // Dezactivam checkbox-ul "chkORCDP"
-            chkORCDP.Enabled = false;
+            // chkORCDP.Enabled = false;
 
             // Dezactivam caseta "dgvOreRecuperate"
             dgvOreRecuperate.Enabled = false;
@@ -64,7 +64,17 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     // Dezctivam campurile si butonul pentru stergerea datelor (CDP)
                     txtCDPNrCrtStergere.Enabled = false;
                     btnCDPStergere.Enabled = false;
+
+                        // Dezactivam panoul OR & CDP
+                        panouOreRecuperate.Enabled = false;
         }
+
+
+
+
+
+
+
 
 
         /* ----------- Obiecte de lucru cu RelIntDB ---------------------------------------------------------------------- */
@@ -96,7 +106,10 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         bool TaxaDeParticipareEsteNumar;
         bool TaxaDeVizaEtceEsteNumar;
         double varTotalDePlata;
+
+        // Variabile pentru alte porti logice
         bool CalculTotalSucces = false;
+        bool MetodaInserareSucces = false;
 
         /* --------------------------------------------------------------------------------------------------------------- */
 
@@ -137,9 +150,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     MessageBox.Show("        Vă rugăm introduceți doar numere în această casetă de text.");
                     break;
             }
-
-            // Activam/Dezactivam caseta "chkORCDP"
-            activarecheckORCDP();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
@@ -152,18 +162,25 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
-        /* ----------- Metoda activate/dezactivare a "chkORCDP" in functie de txtNrInregistrare -------------------------- */
+        /* ------ Metoda activare/dezactivare a "chkORCDP" in functie de txtNrInregistrare si MetodaInserareSucces ------- */
         public void activarecheckORCDP()
         {
-            if (txtNrInregistrare.Text == string.Empty)
-            {
-                chkORCDP.Enabled = false;
-            }
-            else
+            //if (txtNrInregistrare.Text == string.Empty && MetodaInserareSucces == false)
+            //{
+            //    chkORCDP.Enabled = false;
+            //    panouOreRecuperate.Enabled = false;
+            //}
+            //else if (txtNrInregistrare.Text != string.Empty && MetodaInserareSucces == true)
+            //{
+            //    chkORCDP.Enabled = true;
+            //    panouOreRecuperate.Enabled = true;
+            //}
+
+            if (txtNrInregistrare.Text != string.Empty && MetodaInserareSucces == true)
             {
                 chkORCDP.Enabled = true;
+                panouOreRecuperate.Enabled = true;
             }
-            return;
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
@@ -325,6 +342,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     {
                         conexiune_InserareCerereRelInt.Open();
                         int recordsAffected = comanda_inserareRelInt.ExecuteNonQuery();
+                            MetodaInserareSucces = true;
                     } // Captam eventualele erori
                     catch (OdbcException exInserare)
                     {
@@ -360,6 +378,8 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             if (CalculTotalSucces == true)
                 {
                     MetodaInserareDB();
+                    activarecheckORCDP();
+                    btnCISalvareFormular.Enabled = false;
                 }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
