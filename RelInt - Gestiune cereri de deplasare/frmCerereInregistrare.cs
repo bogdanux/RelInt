@@ -55,7 +55,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 btnORStergere.Enabled = false;
 
                     // Dezactivam campurile si butonul pentru introducerea datelor (CDP)
-                    txtCDPNrCrtOR.Enabled = false;
                     txtCDPNrCrt.Enabled = false;
                     txtCDPNumePrenProf.Enabled = false;
                     txtCDPDenDisciplina.Enabled = false;
@@ -396,7 +395,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 {
                     comanda_dgvOreRecuperate.Connection = conexiune_dgvOreRecuperate;
                     comanda_dgvOreRecuperate.CommandType = CommandType.Text;
-                    comanda_dgvOreRecuperate.CommandText = "SELECT nrcrtor as \"Nr. Crt.\", denumiredisciplinaor as \"Denumire Disciplina\", dataor as \"Data\", oraor as \"Ora\", salaor as \"Sala\" FROM orerecuperate WHERE nrinregistrarecor = ?";
+                    comanda_dgvOreRecuperate.CommandText = "SELECT nrcrtor as \"Nr. Cerere\", dendisciplinaor as \"Denumire Disciplina\", dataor as \"Data\", oraor as \"Ora\", salaor as \"Sala\" FROM orerecuperate WHERE nrcrtor = ?";
                     comanda_dgvOreRecuperate.Parameters.Add("@nrinregistrarecor", OdbcType.Int).Value = vartxtNrInregistrare;
 
                     try
@@ -436,7 +435,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 {
                     comanda_dgvOreRecuperate.Connection = conexiune_dgvOreRecuperate;
                     comanda_dgvOreRecuperate.CommandType = CommandType.Text;
-                    comanda_dgvOreRecuperate.CommandText = "SELECT nrcrtor as \"Nr. Crt.\", denumiredisciplinaor as \"Denumire Disciplina\", dataor as \"Data\", oraor as \"Ora\", salaor as \"Sala\" FROM orerecuperate WHERE nrinregistrarecor = ?";
+                    comanda_dgvOreRecuperate.CommandText = "SELECT nrcrtor as \"Nr. Cerere\", dendisciplinaor as \"Denumire Disciplina\", dataor as \"Data\", oraor as \"Ora\", salaor as \"Sala\" FROM orerecuperate WHERE nrcrtor = ?";
                     comanda_dgvOreRecuperate.Parameters.Add("@nrinregistrarecor", OdbcType.Int).Value = vartxtNrInregistrare;
 
                     try
@@ -488,7 +487,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 {
                     comanda_dgvConditiiDePlata.Connection = conexiune_dgvConditiiDePlata;
                     comanda_dgvConditiiDePlata.CommandType = CommandType.Text;
-                    comanda_dgvConditiiDePlata.CommandText = "SELECT nrcrtorcdp as \"Nr. Crt. O-R\", nrcrtcdp as \"Nr. Crt.\", numeprenprofcdp as \"Nume Prenume prof.\", denumiredisciplinacdp as \"Denumire Disciplina\", conditiideplatacdp as \"Conditii de plata\" FROM conditiideplata";
+                    comanda_dgvConditiiDePlata.CommandText = "SELECT nrcrtcdp as \"Nr. Cerere\", numeprenprofcdp as \"Nume Prenume prof.\", dendisciplinacdp as \"Denumire Disciplina\", conddeplatacdp as \"Conditii de plata\" FROM conditiideplata";
 
                     try
                     {
@@ -527,7 +526,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 {
                     comanda_dgvConditiiDePlata.Connection = conexiune_dgvConditiiDePlata;
                     comanda_dgvConditiiDePlata.CommandType = CommandType.Text;
-                    comanda_dgvConditiiDePlata.CommandText = "SELECT nrcrtorcdp as \"Nr. Crt. O-R\", nrcrtcdp as \"Nr. Crt.\", numeprenprofcdp as \"Nume Prenume prof.\", denumiredisciplinacdp as \"Denumire Disciplina\", conditiideplatacdp as \"Conditii de plata\" FROM conditiideplata";
+                    comanda_dgvConditiiDePlata.CommandText = "SELECT nrcrtcdp as \"Nr. Cerere\", numeprenprofcdp as \"Nume Prenume prof.\", dendisciplinacdp as \"Denumire Disciplina\", conddeplatacdp as \"Conditii de plata\" FROM conditiideplata";
 
                     try
                     {
@@ -633,14 +632,12 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                                 btnORStergere.Enabled = false;
 
                                     // Stergem tot din campurile pentru introducerea datelor (CDP)
-                                    txtCDPNrCrtOR.Clear();
                                     txtCDPNrCrt.Clear();
                                     txtCDPNumePrenProf.Clear();
                                     txtCDPDenDisciplina.Clear();
                                     txtCDPCondDePlata.Clear();
 
                                     // Dezactivam campurile si butonul pentru introducerea datelor (CDP)
-                                    txtCDPNrCrtOR.Enabled = false;
                                     txtCDPNrCrt.Enabled = false;
                                     txtCDPNumePrenProf.Enabled = false;
                                     txtCDPDenDisciplina.Enabled = false;
@@ -648,7 +645,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                                     btnCDPIntroducere.Enabled = false;
 
                                     // Stergem tot din campurile pentru stergerea datelor (CDP)
-                                    txtCDPNrCrtOR.Clear();
+                                    
 
                                     // Dezactivam campurile si butonul pentru stergerea datelor (CDP)
                                     txtCDPNrCrtStergere.Enabled = false;
@@ -681,7 +678,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     dpORData.Enabled = true;
                     dpOROra.Enabled = true;
                     txtORSala.Enabled = true;
-                    btnORInserare.Enabled = true;
+                        btnORInserare.Enabled = true;
                 }
                 else
                 {
@@ -699,19 +696,11 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     dpORData.Enabled = false;
                     dpOROra.Enabled = false;
                     txtORSala.Enabled = false;
-                    btnORInserare.Enabled = false;
+                        btnORInserare.Enabled = false;
                 }
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-
-
-
-
-
-
-
-
         /* ------------- Metoda pentru actiunile lui "rdoORStergere" ----------------------------------------------------- */
         private void rdoORStergere_CheckedChanged(object sender, EventArgs e)
         {
@@ -727,7 +716,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
                     // Activam campurile si butonul pentru stergerea datelor
                     txtORNrCrtStergere.Enabled = true;
-                    btnORStergere.Enabled = true;
+                        btnORStergere.Enabled = true;
                 }
                 else
                 {
@@ -739,11 +728,14 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
                     // Dezactivam campurile si butonul pentru stergerea datelor
                     txtORNrCrtStergere.Enabled = false;
-                    btnORStergere.Enabled = false;
+                        btnORStergere.Enabled = false;
                 }
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
 
 
 
@@ -767,7 +759,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     IncarcaredgvConditiiDePlata();
 
                     // Activam campurile si butonul pentru introducerea datelor
-                    txtCDPNrCrtOR.Enabled = true;
                     txtCDPNrCrt.Enabled = true;
                     txtCDPNumePrenProf.Enabled = true;
                     txtCDPDenDisciplina.Enabled = true;
@@ -780,31 +771,21 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     dgvConditiiDePlata.Enabled = true;
 
                     // Stergem tot din campurile pentru introducerea datelor
-                    txtCDPNrCrtOR.Clear();
                     txtCDPNrCrt.Clear();
                     txtCDPNumePrenProf.Clear();
                     txtCDPDenDisciplina.Clear();
                     txtCDPCondDePlata.Clear();
 
                     // Dezactivam campurile si butonul pentru introducerea datelor
-                    txtCDPNrCrtOR.Enabled = false;
                     txtCDPNrCrt.Enabled = false;
                     txtCDPNumePrenProf.Enabled = false;
                     txtCDPDenDisciplina.Enabled = false;
                     txtCDPCondDePlata.Enabled = false;
-                    btnCDPIntroducere.Enabled = false;
+                        btnCDPIntroducere.Enabled = false;
                 }
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-
-
-
-
-
-
-
-
         /* -------------------- Metoda pentru actiunile lui "rdoCDPStergere" --------------------------------------------- */
         private void rdoCDPStergere_CheckedChanged(object sender, EventArgs e)
         {
@@ -828,15 +809,18 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     dgvConditiiDePlata.Enabled = true;
 
                     // Stergem tot din campurile pentru stergerea datelor
-                    txtCDPNrCrtOR.Clear();
+                    txtCDPNrCrtStergere.Clear();
 
                     // Dezactivam campurile si butonul pentru stergerea datelor
                     txtCDPNrCrtStergere.Enabled = false;
-                    btnCDPStergere.Enabled = false;
+                        btnCDPStergere.Enabled = false;
                 }
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
 
 
 
@@ -866,21 +850,21 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             }
         }
 
-            private void txtORNrCrtStergere_TextChanged(object sender, EventArgs e)
-            {
-                // Verificam daca valoarea din "txtORNrCrtStergere" este de tip int
-                bool vartxtORNrCrtStergereEsteNumar = Int32.TryParse(txtORNrCrtStergere.Text, out vartxtORNrCrtStergere);
-
-                // Judecam si "sanctionam" la nevoie
-                switch (vartxtORNrCrtStergereEsteNumar || txtORNrCrtStergere.Text == string.Empty)
+                private void txtORNrCrtStergere_TextChanged(object sender, EventArgs e)
                 {
-                    case false:
-                        // Golim casuta si afisam mesaj de eroare
-                        txtORNrCrtStergere.Clear();
-                        MessageBox.Show("        Vă rugăm introduceți doar numere în această casetă de text.");
-                        break;
+                    // Verificam daca valoarea din "txtORNrCrtStergere" este de tip int
+                    bool vartxtORNrCrtStergereEsteNumar = Int32.TryParse(txtORNrCrtStergere.Text, out vartxtORNrCrtStergere);
+
+                    // Judecam si "sanctionam" la nevoie
+                    switch (vartxtORNrCrtStergereEsteNumar || txtORNrCrtStergere.Text == string.Empty)
+                    {
+                        case false:
+                            // Golim casuta si afisam mesaj de eroare
+                            txtORNrCrtStergere.Clear();
+                            MessageBox.Show("        Vă rugăm introduceți doar numere în această casetă de text.");
+                            break;
+                    }
                 }
-            }
         /* --------------------------------------------------------------------------------------------------------------- */
         /* -------------------- Metoda de tip "INSERT" pentru O-R -------------------------------------------------------- */
         private void btnORInserare_Click(object sender, EventArgs e)
@@ -894,9 +878,9 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     comanda_InserareOR.Connection = conexiune_InserareOR;
                     comanda_InserareOR.CommandType = CommandType.Text;
                     comanda_InserareOR.CommandText = "INSERT into orerecuperate VALUES (?, ?, ?, ?, ?, ?)";
-                    comanda_InserareOR.Parameters.AddWithValue("@nrinregistrarecor", OdbcType.Int).Value = vartxtNrInregistrare;
+                    comanda_InserareOR.Parameters.AddWithValue("@nrcerereor", OdbcType.Int).Value = vartxtNrInregistrare;
                     comanda_InserareOR.Parameters.AddWithValue("@nrcrtor", OdbcType.Int).Value = vartxtORNrCrt;
-                    comanda_InserareOR.Parameters.AddWithValue("@denumiredisciplinaor", OdbcType.NVarChar).Value = txtORDenDisciplina.Text;
+                    comanda_InserareOR.Parameters.AddWithValue("@dendisciplinaor", OdbcType.NVarChar).Value = txtORDenDisciplina.Text;
                     comanda_InserareOR.Parameters.AddWithValue("@dataor", OdbcType.DateTime).Value = dpORData.Value;
                     comanda_InserareOR.Parameters.AddWithValue("@dataor", OdbcType.DateTime).Value = dpOROra.Value;
                     comanda_InserareOR.Parameters.AddWithValue("@dsalaor", OdbcType.NVarChar).Value = txtORSala.Text;
@@ -939,7 +923,8 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 {
                     comanda_StergereOR.Connection = conexiune_StergereOR;
                     comanda_StergereOR.CommandType = CommandType.Text;
-                    comanda_StergereOR.CommandText = "DELETE FROM orerecuperate WHERE nrcrtor = ?";
+                    comanda_StergereOR.CommandText = "DELETE FROM orerecuperate WHERE nrcerereor = ? AND nrcrtor = ?";
+                    comanda_StergereOR.Parameters.AddWithValue("@nrcerereor", OdbcType.Int).Value = vartxtNrInregistrare;
                     comanda_StergereOR.Parameters.AddWithValue("@nrcrtor", OdbcType.Int).Value = vartxtORNrCrtStergere;
 
                     // Incercam conexiunea si query-ul
@@ -971,43 +956,33 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
+
+
+
+
+
+
+
         /* -------- Variabile de lucru pentru validarile textboxurilor folosite pentru a insera date in tabea CDP -------- */
-        int vartxtCDPNrCrtOR;
         int vartxtCDPNrCrt;
         int vartxtCDPNrCrtStergere;
         /* --------------------------------------------------------------------------------------------------------------- */
         /* --------------------- Validari pentru textbox-urile folosite pentru a insera date in tabela OR ---------------- */
-        private void txtCDPNrCrtOR_TextChanged(object sender, EventArgs e)
+        private void txtCDPNrCrt_TextChanged(object sender, EventArgs e)
         {
-            // Verificam daca valoarea din "txtCDPNrCrtOR" este de tip int
-            bool vartxtCDPNrCrtOREsteNumar = Int32.TryParse(txtCDPNrCrtOR.Text, out vartxtCDPNrCrtOR);
+            // Verificam daca valoarea din "txtCDPNrCrt" este de tip int
+            bool vartxtCDPNrCrtEsteNumar = Int32.TryParse(txtCDPNrCrt.Text, out vartxtCDPNrCrt);
 
             // Judecam si "sanctionam" la nevoie
-            switch (vartxtCDPNrCrtOREsteNumar || txtCDPNrCrtOR.Text == string.Empty)
+            switch (vartxtCDPNrCrtEsteNumar || txtCDPNrCrt.Text == string.Empty)
             {
                 case false:
                     // Golim casuta si afisam mesaj de eroare
-                    txtCDPNrCrtOR.Clear();
+                    txtCDPNrCrt.Clear();
                     MessageBox.Show("        Vă rugăm introduceți doar numere în această casetă de text.");
                     break;
             }
         }
-
-            private void txtCDPNrCrt_TextChanged(object sender, EventArgs e)
-            {
-                // Verificam daca valoarea din "txtCDPNrCrt" este de tip int
-                bool vartxtCDPNrCrtEsteNumar = Int32.TryParse(txtCDPNrCrt.Text, out vartxtCDPNrCrt);
-
-                // Judecam si "sanctionam" la nevoie
-                switch (vartxtCDPNrCrtEsteNumar || txtCDPNrCrt.Text == string.Empty)
-                {
-                    case false:
-                        // Golim casuta si afisam mesaj de eroare
-                        txtCDPNrCrt.Clear();
-                        MessageBox.Show("        Vă rugăm introduceți doar numere în această casetă de text.");
-                        break;
-                }
-            }
 
                 private void txtCDPNrCrtStergere_TextChanged(object sender, EventArgs e)
                 {
@@ -1037,11 +1012,11 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     comanda_InserareCDP.Connection = conexiune_InserareCDP;
                     comanda_InserareCDP.CommandType = CommandType.Text;
                     comanda_InserareCDP.CommandText = "INSERT into conditiideplata VALUES (?, ?, ?, ?, ?)";
-                    comanda_InserareCDP.Parameters.AddWithValue("@nrcrtorcdp", OdbcType.Int).Value = vartxtCDPNrCrtOR;
+                    comanda_InserareCDP.Parameters.AddWithValue("@nrcererecdp", OdbcType.Int).Value = vartxtNrInregistrare;
                     comanda_InserareCDP.Parameters.AddWithValue("@nrcrtcdp", OdbcType.Int).Value = vartxtCDPNrCrt;
                     comanda_InserareCDP.Parameters.AddWithValue("@numeprenprofcdp", OdbcType.NVarChar).Value = txtCDPNumePrenProf.Text;
-                    comanda_InserareCDP.Parameters.AddWithValue("@denumiredisciplinacdp", OdbcType.NVarChar).Value = txtCDPDenDisciplina.Text;
-                    comanda_InserareCDP.Parameters.AddWithValue("@conditiideplatacdp", OdbcType.NVarChar).Value = txtCDPCondDePlata.Text;
+                    comanda_InserareCDP.Parameters.AddWithValue("@dendisciplinacdp", OdbcType.NVarChar).Value = txtCDPDenDisciplina.Text;
+                    comanda_InserareCDP.Parameters.AddWithValue("@conddeplatacdp", OdbcType.NVarChar).Value = txtCDPCondDePlata.Text;
 
                     // Incercam conexiunea si query-ul
                     try
@@ -1065,7 +1040,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             IncarcaredgvConditiiDePlata();
 
             // Golim campurile pentru introducerea datelor
-            txtCDPNrCrtOR.Clear();
             txtCDPNrCrt.Clear();
             txtCDPNumePrenProf.Clear();
             txtCDPDenDisciplina.Clear();
@@ -1083,7 +1057,8 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 {
                     comanda_StergereCDP.Connection = conexiune_StergereCDP;
                     comanda_StergereCDP.CommandType = CommandType.Text;
-                    comanda_StergereCDP.CommandText = "DELETE FROM conditiideplata WHERE nrcrtcdp = ?";
+                    comanda_StergereCDP.CommandText = "DELETE FROM conditiideplata WHERE nrcererecdp = ? AND nrcrtcdp = ?";
+                    comanda_StergereCDP.Parameters.AddWithValue("@nrcererecdp", OdbcType.Int).Value = vartxtNrInregistrare;
                     comanda_StergereCDP.Parameters.AddWithValue("@nrcrtcdp", OdbcType.Int).Value = vartxtCDPNrCrtStergere;
 
                     // Incercam conexiunea si query-ul

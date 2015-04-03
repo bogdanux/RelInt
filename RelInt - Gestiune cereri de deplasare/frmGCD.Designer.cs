@@ -66,15 +66,15 @@
             // 
             this.btnGCDIntroducereFormular.Name = "btnGCDIntroducereFormular";
             this.btnGCDIntroducereFormular.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
-            this.btnGCDIntroducereFormular.Size = new System.Drawing.Size(227, 22);
-            this.btnGCDIntroducereFormular.Text = "&Introducere Formular";
+            this.btnGCDIntroducereFormular.Size = new System.Drawing.Size(223, 22);
+            this.btnGCDIntroducereFormular.Text = "Formular &Introducere";
             this.btnGCDIntroducereFormular.Click += new System.EventHandler(this.btnGCDIntroducereFormular_Click);
             // 
             // btnGCDCautareCerere
             // 
             this.btnGCDCautareCerere.Name = "btnGCDCautareCerere";
             this.btnGCDCautareCerere.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
-            this.btnGCDCautareCerere.Size = new System.Drawing.Size(227, 22);
+            this.btnGCDCautareCerere.Size = new System.Drawing.Size(223, 22);
             this.btnGCDCautareCerere.Text = "&Căutare Cerere";
             this.btnGCDCautareCerere.Click += new System.EventHandler(this.btnGCDcăutareCerere_Click);
             // 
@@ -84,20 +84,20 @@
             this.btnGCDModificareFormular.Name = "btnGCDModificareFormular";
             this.btnGCDModificareFormular.ShortcutKeyDisplayString = "";
             this.btnGCDModificareFormular.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.M)));
-            this.btnGCDModificareFormular.Size = new System.Drawing.Size(227, 22);
-            this.btnGCDModificareFormular.Text = "&Modificare Formular";
+            this.btnGCDModificareFormular.Size = new System.Drawing.Size(223, 22);
+            this.btnGCDModificareFormular.Text = "&Modificare Cerere";
             this.btnGCDModificareFormular.Click += new System.EventHandler(this.btnGCDModificareFormular_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(224, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(220, 6);
             // 
             // btnGCDIesire
             // 
             this.btnGCDIesire.Name = "btnGCDIesire";
             this.btnGCDIesire.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Q)));
-            this.btnGCDIesire.Size = new System.Drawing.Size(227, 22);
+            this.btnGCDIesire.Size = new System.Drawing.Size(223, 22);
             this.btnGCDIesire.Text = "I&esire";
             this.btnGCDIesire.Click += new System.EventHandler(this.mnuIesire_Click);
             // 

@@ -115,6 +115,8 @@
             this.lblAdministrativ = new System.Windows.Forms.Label();
             this.panouFinal = new System.Windows.Forms.Panel();
             this.panouOreRecuperate = new System.Windows.Forms.Panel();
+            this.dpOROra = new System.Windows.Forms.DateTimePicker();
+            this.dpORData = new System.Windows.Forms.DateTimePicker();
             this.btnCDPStergere = new System.Windows.Forms.Button();
             this.txtCDPNrCrtStergere = new System.Windows.Forms.TextBox();
             this.btnCDPIntroducere = new System.Windows.Forms.Button();
@@ -122,13 +124,11 @@
             this.txtCDPDenDisciplina = new System.Windows.Forms.TextBox();
             this.txtCDPNumePrenProf = new System.Windows.Forms.TextBox();
             this.txtCDPNrCrt = new System.Windows.Forms.TextBox();
-            this.txtCDPNrCrtOR = new System.Windows.Forms.TextBox();
             this.txtORNrCrtStergere = new System.Windows.Forms.TextBox();
             this.btnORStergere = new System.Windows.Forms.Button();
             this.txtORSala = new System.Windows.Forms.TextBox();
             this.txtORDenDisciplina = new System.Windows.Forms.TextBox();
             this.btnORInserare = new System.Windows.Forms.Button();
-            this.txtORNrCrt = new System.Windows.Forms.TextBox();
             this.panouTipInsCDP = new System.Windows.Forms.Panel();
             this.rdoCDPStergere = new System.Windows.Forms.RadioButton();
             this.rdoCDPInserare = new System.Windows.Forms.RadioButton();
@@ -143,8 +143,7 @@
             this.lblEnuntObligPlata2 = new System.Windows.Forms.Label();
             this.lblEnuntObligDidactice1 = new System.Windows.Forms.Label();
             this.lblEnuntObligDidactice2 = new System.Windows.Forms.Label();
-            this.dpORData = new System.Windows.Forms.DateTimePicker();
-            this.dpOROra = new System.Windows.Forms.DateTimePicker();
+            this.txtORNrCrt = new System.Windows.Forms.TextBox();
             this.mnuCI.SuspendLayout();
             this.panouIdentificareCerere.SuspendLayout();
             this.panouContinut.SuspendLayout();
@@ -1042,7 +1041,6 @@
             this.panouOreRecuperate.Controls.Add(this.txtCDPDenDisciplina);
             this.panouOreRecuperate.Controls.Add(this.txtCDPNumePrenProf);
             this.panouOreRecuperate.Controls.Add(this.txtCDPNrCrt);
-            this.panouOreRecuperate.Controls.Add(this.txtCDPNrCrtOR);
             this.panouOreRecuperate.Controls.Add(this.txtORNrCrtStergere);
             this.panouOreRecuperate.Controls.Add(this.btnORStergere);
             this.panouOreRecuperate.Controls.Add(this.txtORSala);
@@ -1059,6 +1057,22 @@
             this.panouOreRecuperate.Name = "panouOreRecuperate";
             this.panouOreRecuperate.Size = new System.Drawing.Size(642, 608);
             this.panouOreRecuperate.TabIndex = 10;
+            // 
+            // dpOROra
+            // 
+            this.dpOROra.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dpOROra.Location = new System.Drawing.Point(343, 281);
+            this.dpOROra.Name = "dpOROra";
+            this.dpOROra.Size = new System.Drawing.Size(64, 20);
+            this.dpOROra.TabIndex = 23;
+            // 
+            // dpORData
+            // 
+            this.dpORData.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dpORData.Location = new System.Drawing.Point(248, 281);
+            this.dpORData.Name = "dpORData";
+            this.dpORData.Size = new System.Drawing.Size(91, 20);
+            this.dpORData.TabIndex = 22;
             // 
             // btnCDPStergere
             // 
@@ -1122,15 +1136,6 @@
             this.txtCDPNrCrt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtCDPNrCrt.TextChanged += new System.EventHandler(this.txtCDPNrCrt_TextChanged);
             // 
-            // txtCDPNrCrtOR
-            // 
-            this.txtCDPNrCrtOR.Location = new System.Drawing.Point(34, 554);
-            this.txtCDPNrCrtOR.Name = "txtCDPNrCrtOR";
-            this.txtCDPNrCrtOR.Size = new System.Drawing.Size(60, 20);
-            this.txtCDPNrCrtOR.TabIndex = 14;
-            this.txtCDPNrCrtOR.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtCDPNrCrtOR.TextChanged += new System.EventHandler(this.txtCDPNrCrtOR_TextChanged);
-            // 
             // txtORNrCrtStergere
             // 
             this.txtORNrCrtStergere.Location = new System.Drawing.Point(70, 305);
@@ -1175,15 +1180,6 @@
             this.btnORInserare.Text = "Introducere";
             this.btnORInserare.UseVisualStyleBackColor = true;
             this.btnORInserare.Click += new System.EventHandler(this.btnORInserare_Click);
-            // 
-            // txtORNrCrt
-            // 
-            this.txtORNrCrt.Location = new System.Drawing.Point(70, 281);
-            this.txtORNrCrt.Name = "txtORNrCrt";
-            this.txtORNrCrt.Size = new System.Drawing.Size(60, 20);
-            this.txtORNrCrt.TabIndex = 6;
-            this.txtORNrCrt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtORNrCrt.TextChanged += new System.EventHandler(this.txtORNrCrt_TextChanged);
             // 
             // panouTipInsCDP
             // 
@@ -1330,21 +1326,14 @@
             this.lblEnuntObligDidactice2.TabIndex = 14;
             this.lblEnuntObligDidactice2.Text = "În cazul în care orele se recupereaza, precizați care este programul";
             // 
-            // dpORData
+            // txtORNrCrt
             // 
-            this.dpORData.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpORData.Location = new System.Drawing.Point(248, 281);
-            this.dpORData.Name = "dpORData";
-            this.dpORData.Size = new System.Drawing.Size(91, 20);
-            this.dpORData.TabIndex = 22;
-            // 
-            // dpOROra
-            // 
-            this.dpOROra.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dpOROra.Location = new System.Drawing.Point(343, 281);
-            this.dpOROra.Name = "dpOROra";
-            this.dpOROra.Size = new System.Drawing.Size(64, 20);
-            this.dpOROra.TabIndex = 23;
+            this.txtORNrCrt.Location = new System.Drawing.Point(70, 281);
+            this.txtORNrCrt.Name = "txtORNrCrt";
+            this.txtORNrCrt.Size = new System.Drawing.Size(60, 20);
+            this.txtORNrCrt.TabIndex = 6;
+            this.txtORNrCrt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtORNrCrt.TextChanged += new System.EventHandler(this.txtORNrCrt_TextChanged);
             // 
             // frmCerereInregistrare
             // 
@@ -1499,13 +1488,11 @@
         private System.Windows.Forms.Panel panouTipInsCDP;
         private System.Windows.Forms.RadioButton rdoCDPStergere;
         private System.Windows.Forms.RadioButton rdoCDPInserare;
-        private System.Windows.Forms.TextBox txtORNrCrt;
         private System.Windows.Forms.TextBox txtORDenDisciplina;
         private System.Windows.Forms.Button btnORInserare;
         private System.Windows.Forms.TextBox txtORSala;
         private System.Windows.Forms.Button btnORStergere;
         private System.Windows.Forms.TextBox txtORNrCrtStergere;
-        private System.Windows.Forms.TextBox txtCDPNrCrtOR;
         private System.Windows.Forms.TextBox txtCDPNrCrt;
         private System.Windows.Forms.TextBox txtCDPDenDisciplina;
         private System.Windows.Forms.TextBox txtCDPNumePrenProf;
@@ -1515,6 +1502,7 @@
         private System.Windows.Forms.TextBox txtCDPNrCrtStergere;
         private System.Windows.Forms.DateTimePicker dpORData;
         private System.Windows.Forms.DateTimePicker dpOROra;
+        private System.Windows.Forms.TextBox txtORNrCrt;
 
     }
 }
