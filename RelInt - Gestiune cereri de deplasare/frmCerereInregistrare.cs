@@ -16,7 +16,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         public frmCerereInregistrare()
         {
             InitializeComponent();
-
             /* ------------ Initializam Combobox-urile cu primele lor valori din colectii ------------------------------------ */
             //cmbGradDidactic.SelectedIndex = 0;
             //cmbFacultatea.SelectedIndex = 0;
@@ -67,11 +66,18 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
                         // Dezactivam panoul OR & CDP
                         panouOreRecuperate.Enabled = false;
+
+                            // Resetam controalele
+                        MetodaNegareControale();
+        }                   
+
+
+
+
+        private void MetodaNegareControale()
+        {
+            txtSubsemnatulSchimbat = false;
         }
-
-
-
-
 
 
 
@@ -111,6 +117,9 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         bool CalculTotalSucces = false;
         bool MetodaInserareSucces = false;
 
+        // Variabile de lucru pentru PromptSalvare()
+        bool txtSubsemnatulSchimbat = false;
+
         /* --------------------------------------------------------------------------------------------------------------- */
 
 
@@ -124,7 +133,8 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         /* ---------- Inchidere formular cand actiunam "iesire" din meniul formularului ---------------------------------- */
         private void btnCIIesire_Click(object sender, EventArgs e)
         {
-            this.Close();
+            // Prompt salvare
+            PromptSalvare();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
@@ -163,22 +173,16 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
         /* ------ Metoda activare/dezactivare a "chkORCDP" in functie de txtNrInregistrare si MetodaInserareSucces ------- */
-        public void activarecheckORCDP()
+        public void ActivarePanouORCDP()
         {
-            //if (txtNrInregistrare.Text == string.Empty && MetodaInserareSucces == false)
-            //{
-            //    chkORCDP.Enabled = false;
-            //    panouOreRecuperate.Enabled = false;
-            //}
-            //else if (txtNrInregistrare.Text != string.Empty && MetodaInserareSucces == true)
-            //{
-            //    chkORCDP.Enabled = true;
-            //    panouOreRecuperate.Enabled = true;
-            //}
-
-            if (txtNrInregistrare.Text != string.Empty && MetodaInserareSucces == true)
+            if (txtNrInregistrare.Text == string.Empty && MetodaInserareSucces == false)
             {
-                chkORCDP.Enabled = true;
+                //chkORCDP.Enabled = false;
+                panouOreRecuperate.Enabled = false;
+            }
+            else if (txtNrInregistrare.Text != string.Empty && MetodaInserareSucces == true)
+            {
+                //chkORCDP.Enabled = true;
                 panouOreRecuperate.Enabled = true;
             }
         }
@@ -372,15 +376,45 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         /* ----------- Actiunea de salvare a formularului ---------------------------------------------------------------- */
         private void btnCISalvareFormular_Click(object sender, EventArgs e)
         {
-            // Executa urmatoarele
-            CalculTotal();
+            SalvareFormular();
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
 
-            if (CalculTotalSucces == true)
-                {
-                    MetodaInserareDB();
-                    activarecheckORCDP();
-                    btnCISalvareFormular.Enabled = false;
-                }
+
+
+
+
+
+
+        /* -------------- Actiunile ce iau loc la salvare ---------------------------------------------------------------- */
+        private void SalvareFormular()
+        {
+            if (txtNrInregistrare.Text != string.Empty)
+            {
+                // Lucreaza asta
+                CalculTotal();
+
+                    if (CalculTotalSucces == true)
+                    {
+                        // Lucreaza asta
+                        MetodaInserareDB();
+
+                            if (MetodaInserareSucces == true)
+                            {
+                                // Lucreaza asta
+                                ActivarePanouORCDP();
+                            }
+                    }
+                    else
+                    {
+
+                    }
+            }
+            else
+            {
+                // Afiseaza eroarea
+                MessageBox.Show("Nu ați completat caseta \"Număr Înregistrare\".");
+            }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
@@ -392,11 +426,43 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
-        /* ---------- Intrebam utilizatorul daca vrea sa salveze formularul cand actionam butonul "X" -------------------- */
-        private void frmCerereIntroducere_Load(object sender, EventArgs e)
+        /* ---------------- Prompt Salvare ------------------------------------------------------------------------------- */
+        private void PromptSalvare()
         {
-            // Prompt salvare
+            // Pentru prompt-ul "salvare"
+            if (txtSubsemnatulSchimbat == true)
+            {
+                DialogResult DialogSalvare = MessageBox.Show("Doriți sa salvați formularul curent?", "Salvare formular", MessageBoxButtons.YesNo);
+                if (DialogSalvare == DialogResult.Yes)
+                {
+                    SalvareFormular();
+
+                        // Apelam
+                        MetodaNegareControale();
+
+                            // Inchidem formularul
+                            this.Close();
+                }
+                    else if (DialogSalvare == DialogResult.No)
+                    {
+                        // Apelam
+                        MetodaNegareControale();
+
+                            // Inchidem formularul
+                            this.Close();
+                    }
+            }
         }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+        /* ---------- Intrebam utilizatorul daca vrea sa salveze formularul cand actionam butonul "X" -------------------- */
+        
         /* --------------------------------------------------------------------------------------------------------------- */
 
 
@@ -1111,6 +1177,31 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
+
+
+
+
+        /* --------------- Eveniment pentru txtSubsemnatul --------------------------------------------------------------- */
+        private void txtSubsemnatul_TextChanged(object sender, EventArgs e)
+        {
+            // Daca textul se schimba atunci
+            txtSubsemnatulSchimbat = true;
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+
+        private void frmCerereInregistrare_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // Prompt Salvare
+            PromptSalvare();
+        }
 
 
 

@@ -129,6 +129,7 @@
             this.txtORSala = new System.Windows.Forms.TextBox();
             this.txtORDenDisciplina = new System.Windows.Forms.TextBox();
             this.btnORInserare = new System.Windows.Forms.Button();
+            this.txtORNrCrt = new System.Windows.Forms.TextBox();
             this.panouTipInsCDP = new System.Windows.Forms.Panel();
             this.rdoCDPStergere = new System.Windows.Forms.RadioButton();
             this.rdoCDPInserare = new System.Windows.Forms.RadioButton();
@@ -143,7 +144,6 @@
             this.lblEnuntObligPlata2 = new System.Windows.Forms.Label();
             this.lblEnuntObligDidactice1 = new System.Windows.Forms.Label();
             this.lblEnuntObligDidactice2 = new System.Windows.Forms.Label();
-            this.txtORNrCrt = new System.Windows.Forms.TextBox();
             this.mnuCI.SuspendLayout();
             this.panouIdentificareCerere.SuspendLayout();
             this.panouContinut.SuspendLayout();
@@ -167,7 +167,7 @@
             this.btnCIFormular});
             this.mnuCI.Location = new System.Drawing.Point(0, 0);
             this.mnuCI.Name = "mnuCI";
-            this.mnuCI.Size = new System.Drawing.Size(682, 30);
+            this.mnuCI.Size = new System.Drawing.Size(699, 30);
             this.mnuCI.TabIndex = 0;
             this.mnuCI.Text = "mnuCI";
             // 
@@ -552,6 +552,7 @@
             this.txtSubsemnatul.Name = "txtSubsemnatul";
             this.txtSubsemnatul.Size = new System.Drawing.Size(191, 20);
             this.txtSubsemnatul.TabIndex = 2;
+            this.txtSubsemnatul.TextChanged += new System.EventHandler(this.txtSubsemnatul_TextChanged);
             // 
             // lblSubsemnatul
             // 
@@ -1181,6 +1182,15 @@
             this.btnORInserare.UseVisualStyleBackColor = true;
             this.btnORInserare.Click += new System.EventHandler(this.btnORInserare_Click);
             // 
+            // txtORNrCrt
+            // 
+            this.txtORNrCrt.Location = new System.Drawing.Point(70, 281);
+            this.txtORNrCrt.Name = "txtORNrCrt";
+            this.txtORNrCrt.Size = new System.Drawing.Size(60, 20);
+            this.txtORNrCrt.TabIndex = 6;
+            this.txtORNrCrt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtORNrCrt.TextChanged += new System.EventHandler(this.txtORNrCrt_TextChanged);
+            // 
             // panouTipInsCDP
             // 
             this.panouTipInsCDP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -1326,21 +1336,12 @@
             this.lblEnuntObligDidactice2.TabIndex = 14;
             this.lblEnuntObligDidactice2.Text = "În cazul în care orele se recupereaza, precizați care este programul";
             // 
-            // txtORNrCrt
-            // 
-            this.txtORNrCrt.Location = new System.Drawing.Point(70, 281);
-            this.txtORNrCrt.Name = "txtORNrCrt";
-            this.txtORNrCrt.Size = new System.Drawing.Size(60, 20);
-            this.txtORNrCrt.TabIndex = 6;
-            this.txtORNrCrt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtORNrCrt.TextChanged += new System.EventHandler(this.txtORNrCrt_TextChanged);
-            // 
             // frmCerereInregistrare
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(699, 661);
+            this.ClientSize = new System.Drawing.Size(716, 661);
             this.Controls.Add(this.lblEnuntObligDidactice2);
             this.Controls.Add(this.lblEnuntObligDidactice1);
             this.Controls.Add(this.lblEnuntObligPlata2);
@@ -1355,7 +1356,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "frmCerereInregistrare";
             this.Text = "Introducere Cerere de Deplasare";
-            this.Load += new System.EventHandler(this.frmCerereIntroducere_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmCerereInregistrare_FormClosing);
             this.mnuCI.ResumeLayout(false);
             this.mnuCI.PerformLayout();
             this.panouIdentificareCerere.ResumeLayout(false);
