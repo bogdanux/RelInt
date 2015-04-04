@@ -13,7 +13,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 {
     public partial class frmCerereInregistrare: Form
     {
-        public frmCerereInregistrare()
+        public frmCerereInregistrare() // Metoda de LOAD a frmCerereInregistrare
         {
             InitializeComponent();
             /* ------------ Initializam Combobox-urile cu primele lor valori din colectii ------------------------------------ */
@@ -69,15 +69,37 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
                             // Resetam controalele
                         MetodaNegareControale();
-        }                   
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */       
 
 
 
 
         private void MetodaNegareControale()
         {
-            
+            // Variabile de negat (resetat)
             txtSubsemnatulSchimbat = false;
+            cmbGradDidacticSchimbat = false;
+            cmbFacultateaSchimbat = false;
+            txtDepartamentSchimbat = false;
+            txtLocalitateaSchimbat = false;
+            txtTaraSchimbat = false;
+            txtScopSchimbat = false;
+            txtInstitutiaSchimbat = false;
+            txtRutaSchimbat = false;
+            txtMijTransSchimbat = false;
+            txtSuportatDeSchimbat = false;
+            txtCheltuieliSuportateSchimbat = false;
+            txtDiurnaSchimbat = false;
+            txtCazareSchimbat = false;
+            txtTaxaDeParticipareSchimbat = false;
+            txtTaxaDeVizaSchimbat = false;
+            txtAmbasadaSchimbat = false;
+            txtDecanSchimbat = false;
+            txtVizaContaSchimbat = false;
+            txtAdministratorSefSchimbat = false;
+            txtSefDepartamentSchimbat = false;
+            txtVizaRUSchimbat = false;
         }
 
 
@@ -129,7 +151,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         bool txtScopSchimbat = false;
         bool txtInstitutiaSchimbat = false;
         bool txtRutaSchimbat = false;
-        bool txtMijTranSchimbat = false;
+        bool txtMijTransSchimbat = false;
         bool txtSuportatDeSchimbat = false;
         bool txtCheltuieliSuportateSchimbat = false;
         bool txtDiurnaSchimbat = false;
@@ -161,8 +183,16 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         /* ---------- Inchidere formular cand actiunam "iesire" din meniul formularului ---------------------------------- */
         private void btnCIIesire_Click(object sender, EventArgs e)
         {
-            // Prompt salvare
-            PromptSalvare();
+            if (DacaCevaSchimbat == true)
+            {
+                // Prompt salvare
+                PromptSalvare();
+            }
+            else
+            {
+                this.Close();
+            }
+            
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
@@ -472,6 +502,9 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                                     // Fa astea
                                     IesireDinProgram = true;
                                     btnCISalvareFormular.Enabled = false;
+
+                                    // Negam modificarile controalelor (le resetam pe false)
+                                    MetodaNegareControale();
                                 }
                                 // Daca panoul "panouORCDP" este activ si "chkORCDP" bifat
                                 else if (panouORCDP.Enabled == true && PanouriDezactivate == true && chkORCDP.Checked == true)
@@ -479,6 +512,9 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                                     // Fa astea
                                     IesireDinProgram = true;
                                     btnCISalvareFormular.Enabled = false;
+
+                                    // Negam modificarile controalelor (le resetam pe false)
+                                    MetodaNegareControale();
                                 }
                             }
                         // Daca variabila "MetodaInserareSucces" nu este adevarata
@@ -514,41 +550,71 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         /* ---------------- Prompt Salvare ------------------------------------------------------------------------------- */
         private void PromptSalvare()
         {
-            // Daca primele 4 panouri nu sunt dezactivate fa urmatoarele
-            if (PanouriDezactivate == false)
+            // Executam verificarea starii de modificare a campurilor din formular
+            CevaSchimbat();
+
+            // Verificam daca a fost modificat vreun camp
+            if (DacaCevaSchimbat == true)
             {
-                // Pentru prompt-ul "salvare"
-                if (txtSubsemnatulSchimbat == true)
+                // Verificam daca formularul a fost salvat deja
+
+                // Daca formularul nu a fost salvat
+                if (IesireDinProgram == false) 
                 {
+
+                    // Intrebam utilizatorul daca doreste sa-l salveze
                     DialogResult DialogSalvare = MessageBox.Show("Doriți sa salvați formularul curent?", "Salvare formular", MessageBoxButtons.YesNo);
-                    if (DialogSalvare == DialogResult.Yes)
-                    {
-                        SalvareFormular();
 
-                        // Apelam
-                        MetodaNegareControale();
+                                // Daca DORESTE sa salveze
+                                if (DialogSalvare == DialogResult.Yes)
+                                {
 
-                        // Daca variabila "IesireDinProgram" este adevarata
-                        if (IesireDinProgram == true)
-                        {
-                            // Inchidem formularul
-                            this.Close();
-                        }
-                    }
-                    else if (DialogSalvare == DialogResult.No)
-                    {
-                        // Apelam
-                        MetodaNegareControale();
+                                    // Salvam formularul
+                                    SalvareFormular();
+                                            // Daca S-A salvat
+                                            if (IesireDinProgram == true)
+                                            {
+                                                // Apelam
+                                                MetodaNegareControale();
+                                                // Inchidem formularul
+                                                this.Close();
+                                            }
 
-                        // Inchidem formularul
-                        this.Close();
-                    }
+                                            // Daca NU s-a salvat
+                                            else if (IesireDinProgram == false)
+                                            {
+                                                // Apelam
+                                                MetodaNegareControale();
+                                                return;
+                                            }
+                                }
+
+                                // Daca NU DORESTE sa salveze
+                                else if (DialogSalvare == DialogResult.No)
+                                {
+
+                                    // Apelam
+                                    MetodaNegareControale();
+
+                                    // Inchidem formularul
+                                    this.Close();
+                                }
+                }
+
+                // Daca formularul a fost salvat
+                else if (IesireDinProgram == true)
+                {
+                    // Apelam
+                    MetodaNegareControale();
+
+                    // Inchidem formularul
+                    this.Close();
                 }
             }
-            // Daca primele 4 panouri sunt dezactivate fa urmatoarele
-            else
+
+            // Daca nu a fost modificat nici un camp, inchidem formularul
+            else if (DacaCevaSchimbat == false)
             {
-                // Inchide formularul curent
                 this.Close();
             }
         }
@@ -566,7 +632,29 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         private void CevaSchimbat()
         {
             // Daca vreuna din variabilele urmatoare este adevarata atunci
-            if (txtNrInregistrareSchimbat == true || txtSubsemnatulSchimbat == true || cmbGradDidacticSchimbat == true || cmbFacultateaSchimbat == true || txtDepartamentSchimbat == true || txtLocalitateaSchimbat == true || txtTaraSchimbat == true || txtScopSchimbat == true || txtInstitutiaSchimbat == true || txtRutaSchimbat == true || txtMijTranSchimbat == true || txtSuportatDeSchimbat == true || txtCheltuieliSuportateSchimbat == true || txtDiurnaSchimbat == true || txtCazareSchimbat == true || txtTaxaDeParticipareSchimbat == true || txtTaxaDeVizaSchimbat == true || txtAmbasadaSchimbat == true || txtDecanSchimbat == true || txtVizaContaSchimbat == true || txtAdministratorSefSchimbat == true || txtSefDepartamentSchimbat == true || txtVizaRUSchimbat == true)
+            if (txtNrInregistrareSchimbat == true 
+                || txtSubsemnatulSchimbat == true 
+                || cmbGradDidacticSchimbat == true 
+                || cmbFacultateaSchimbat == true 
+                || txtDepartamentSchimbat == true 
+                || txtLocalitateaSchimbat == true 
+                || txtTaraSchimbat == true 
+                || txtScopSchimbat == true 
+                || txtInstitutiaSchimbat == true 
+                || txtRutaSchimbat == true 
+                || txtMijTransSchimbat == true 
+                || txtSuportatDeSchimbat == true 
+                || txtCheltuieliSuportateSchimbat == true 
+                || txtDiurnaSchimbat == true 
+                || txtCazareSchimbat == true 
+                || txtTaxaDeParticipareSchimbat == true 
+                || txtTaxaDeVizaSchimbat == true 
+                || txtAmbasadaSchimbat == true 
+                || txtDecanSchimbat == true 
+                || txtVizaContaSchimbat == true 
+                || txtAdministratorSefSchimbat == true 
+                || txtSefDepartamentSchimbat == true 
+                || txtVizaRUSchimbat == true)
                 {
                     DacaCevaSchimbat = true;
                 } 
@@ -1357,7 +1445,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         private void txtMijTrans_TextChanged(object sender, EventArgs e)
         {
             // Daca textul selectat se schimba atunci
-            txtMijTranSchimbat = true;
+            txtMijTransSchimbat = true;
         }
 
         private void txtSuportatDe_TextChanged(object sender, EventArgs e)
