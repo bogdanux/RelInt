@@ -135,10 +135,8 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         bool txtTaxaDeParticipareSchimbat = false;
         bool txtTaxaDeVizaSchimbat = false;
         bool txtAmbasadaSchimbat = false;
-
         bool rdoPerNedeterminataBifat = false;
         bool rdoPerDeterminataBifat = false;
-
         bool txtDecanSchimbat = false;
         bool txtVizaContaSchimbat = false;
         bool txtAdministratorSefSchimbat = false;
@@ -191,7 +189,8 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     break;
             }
 
-
+            // Inregistram modificarea campului
+            txtNrInregistrareSchimbat = true;
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
@@ -204,7 +203,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
-        /* ------ Metoda activare/dezactivare a "chkORCDP" in functie de txtNrInregistrare si MetodaInserareSucces ------- */
+        /* ------ Metoda activare/dezactivare a panoului 5 in functie de txtNrInregistrare si MetodaInserareSucces ------- */
         public void ActivarePanouORCDP()
         {
             if (txtNrInregistrare.Text == string.Empty && MetodaInserareSucces == false)
@@ -503,22 +502,26 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                                 // Daca panoul "panouORCDP" este activ si "chkORCDP" nebifat
                                 if (panouORCDP.Enabled == true && PanouriDezactivate == true && chkORCDP.Checked == false)
                                 {
-                                    // Fa astea
+                                    // Notifica bool iesire din program (true)
                                     IesireDinProgram = true;
-                                    btnCISalvareFormular.Enabled = false;
 
-                                    // Negam modificarile controalelor (le resetam pe false)
-                                    MetodaNegareControale();
+                                        // Dezactivam butonul de salvare
+                                        btnCISalvareFormular.Enabled = false;
+
+                                            // Negam modificarile controalelor (le resetam pe false)
+                                            MetodaNegareControale();
                                 }
                                 // Daca panoul "panouORCDP" este activ si "chkORCDP" bifat
                                 else if (panouORCDP.Enabled == true && PanouriDezactivate == true && chkORCDP.Checked == true)
                                 {
-                                    // Fa astea
+                                    // Notifica bool iesire din program (true)
                                     IesireDinProgram = true;
-                                    btnCISalvareFormular.Enabled = false;
 
-                                    // Negam modificarile controalelor (le resetam pe false)
-                                    MetodaNegareControale();
+                                        // Dezactivam butonul de salvare
+                                        btnCISalvareFormular.Enabled = false;
+
+                                            // Negam modificarile controalelor (le resetam pe false)
+                                            MetodaNegareControale();
                                 }
                             }
                         // Daca variabila "MetodaInserareSucces" nu este adevarata
