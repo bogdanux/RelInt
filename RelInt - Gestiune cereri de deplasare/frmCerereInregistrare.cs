@@ -135,6 +135,10 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         bool txtTaxaDeParticipareSchimbat = false;
         bool txtTaxaDeVizaSchimbat = false;
         bool txtAmbasadaSchimbat = false;
+
+        bool rdoPerNedeterminataBifat = false;
+        bool rdoPerDeterminataBifat = false;
+
         bool txtDecanSchimbat = false;
         bool txtVizaContaSchimbat = false;
         bool txtAdministratorSefSchimbat = false;
@@ -159,16 +163,8 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         /* ---------- Inchidere formular cand actiunam "iesire" din meniul formularului ---------------------------------- */
         private void btnCIIesire_Click(object sender, EventArgs e)
         {
-            if (DacaCevaSchimbat == true)
-            {
-                // Prompt salvare
-                PromptSalvare();
-            }
-            else
-            {
-                this.Close();
-            }
-            
+            // Inchidem formularul
+            this.Close();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
@@ -556,86 +552,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
-        /* ---------------- Prompt Salvare ------------------------------------------------------------------------------- */
-        private void PromptSalvare()
-        {
-            // Executam verificarea starii de modificare a campurilor din formular
-            CevaSchimbat();
-
-            // Verificam daca a fost modificat vreun camp
-            if (DacaCevaSchimbat == true)
-            {
-                // Verificam daca formularul a fost salvat deja
-
-                // Daca formularul nu a fost salvat
-                if (IesireDinProgram == false) 
-                {
-
-                    // Intrebam utilizatorul daca doreste sa-l salveze
-                    DialogResult DialogSalvare = MessageBox.Show("Doriți sa salvați formularul curent?", "Salvare formular", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                                // Daca DORESTE sa salveze
-                                if (DialogSalvare == DialogResult.Yes)
-                                {
-                                    // Salvam formularul
-                                    SalvareFormular();
-
-                                            // Daca S-A salvat
-                                            if (IesireDinProgram == true)
-                                            {
-                                                // Apelam
-                                                MetodaNegareControale();
-                                                // Inchidem formularul
-                                                this.Close();
-                                            }
-
-                                            // Daca NU s-a salvat
-                                            else if (IesireDinProgram == false)
-                                            {
-                                                // Apelam
-                                                MetodaNegareControale();
-                                                return;
-                                            }
-                                }
-
-                                // Daca NU DORESTE sa salveze
-                                else if (DialogSalvare == DialogResult.No)
-                                {
-                                    // Apelam
-                                    MetodaNegareControale();
-
-                                    // Inchidem formularul
-                                    this.Close();
-                                }
-                }
-
-                // Daca formularul a fost salvat
-                else if (IesireDinProgram == true)
-                {
-                    // Apelam
-                    MetodaNegareControale();
-
-                    // Inchidem formularul
-                    this.Close();
-                }
-            }
-
-            // Daca nu a fost modificat nici un camp, inchidem formularul
-            else if (DacaCevaSchimbat == false)
-            {
-                this.Close();
-            }
-        }
-        /* --------------------------------------------------------------------------------------------------------------- */
-
-
-
-
-
-
-
-
-
         /* - Metoda de detectare daca un anumit camp a fost modificat din formular dupa ce acesta din urma este incarcat - */
         private void CevaSchimbat()
         {
@@ -658,6 +574,8 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 || txtTaxaDeParticipareSchimbat == true 
                 || txtTaxaDeVizaSchimbat == true 
                 || txtAmbasadaSchimbat == true 
+                || rdoPerNedeterminataBifat == true
+                || rdoPerDeterminataBifat == true
                 || txtDecanSchimbat == true 
                 || txtVizaContaSchimbat == true 
                 || txtAdministratorSefSchimbat == true 
@@ -1527,8 +1445,22 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             // Daca textul selectat se schimba atunci
             txtVizaRUSchimbat = true;
         }
+
+        private void rdoPerNedeterminata_CheckedChanged(object sender, EventArgs e)
+        {
+            // Daca caseta este bifata atunci
+            rdoPerNedeterminataBifat = true;
+        }
+
+        private void rdoPerDeterminata_CheckedChanged(object sender, EventArgs e)
+        {
+            // Daca caseta este bifata atunci
+            rdoPerDeterminataBifat = true;
+        }
         /* --------------------------------------------------------------------------------------------------------------- */
 
+
+        
 
 
 
@@ -1563,17 +1495,14 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                                                 // Daca S-A salvat
                                                 if (IesireDinProgram == true)
                                                 {
-                                                    // Apelam
+                                                    // Apelam "MetodaNegareControale" si inchidem formularul
                                                     MetodaNegareControale();
-                                                    // Inchidem formularul
-                                                    Dispose();
                                                 }
 
                                                 // Daca NU s-a salvat
                                                 else if (IesireDinProgram == false)
                                                 {
-                                                    //// Apelam
-                                                    //MetodaNegareControale();
+                                                    // Anulam inchiderea
                                                     e.Cancel = true;
                                                 }
                                     }
@@ -1581,32 +1510,31 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                                     // Daca NU DORESTE sa salveze
                                     else if (DialogSalvare == DialogResult.No)
                                     {
-                                        //// Apelam
-                                        //MetodaNegareControale();
+                                        // Apelam "MetodaNegareControale" si inchidem formularul
+                                        MetodaNegareControale();
+                                    }
 
-                                        //// Inchidem formularul
-                                        //this.Close();
-                                        Dispose();
+                                    // Daca utilizatorul apasa cancel
+                                    else if (DialogSalvare == DialogResult.Cancel)
+                                    {
+                                        // Anulam inchiderea
+                                        e.Cancel = true;
                                     }
                         }
 
                         // Daca formularul a fost salvat
                         else if (IesireDinProgram == true)
                         {
-                            //// Apelam
-                            //MetodaNegareControale();
-
-                            //// Inchidem formularul
-                            //this.Close();
-                            Dispose();
+                            // Apelam "MetodaNegareControale" si inchidem formularul
+                            MetodaNegareControale();
                         }
             }
 
             // Daca nu a fost modificat nici un camp, inchidem formularul
             else if (DacaCevaSchimbat == false)
             {
-                this.Close();
-                Dispose();
+                // Apelam "MetodaNegareControale" si inchidem formularul
+                MetodaNegareControale();
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
