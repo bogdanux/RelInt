@@ -70,9 +70,11 @@
             this.lblSubsemnatul = new System.Windows.Forms.Label();
             this.lblDescriere = new System.Windows.Forms.Label();
             this.panouCheltuieliPlecare = new System.Windows.Forms.Panel();
+            this.lblTaxaDeViza2 = new System.Windows.Forms.Label();
+            this.cmbMoneda3 = new System.Windows.Forms.ComboBox();
             this.txtTotalDePlata = new System.Windows.Forms.TextBox();
             this.lblTotal = new System.Windows.Forms.Label();
-            this.cmbMoneda3 = new System.Windows.Forms.ComboBox();
+            this.cmbMoneda4 = new System.Windows.Forms.ComboBox();
             this.txtTaxaDeViza = new System.Windows.Forms.TextBox();
             this.lblTaxaDeViza = new System.Windows.Forms.Label();
             this.txtTaxaDeParticipare = new System.Windows.Forms.TextBox();
@@ -167,7 +169,7 @@
             this.btnCIFormular});
             this.mnuCI.Location = new System.Drawing.Point(0, 0);
             this.mnuCI.Name = "mnuCI";
-            this.mnuCI.Size = new System.Drawing.Size(699, 30);
+            this.mnuCI.Size = new System.Drawing.Size(716, 30);
             this.mnuCI.TabIndex = 0;
             this.mnuCI.Text = "mnuCI";
             // 
@@ -586,9 +588,11 @@
             // panouCheltuieliPlecare
             // 
             this.panouCheltuieliPlecare.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panouCheltuieliPlecare.Controls.Add(this.lblTaxaDeViza2);
+            this.panouCheltuieliPlecare.Controls.Add(this.cmbMoneda3);
             this.panouCheltuieliPlecare.Controls.Add(this.txtTotalDePlata);
             this.panouCheltuieliPlecare.Controls.Add(this.lblTotal);
-            this.panouCheltuieliPlecare.Controls.Add(this.cmbMoneda3);
+            this.panouCheltuieliPlecare.Controls.Add(this.cmbMoneda4);
             this.panouCheltuieliPlecare.Controls.Add(this.txtTaxaDeViza);
             this.panouCheltuieliPlecare.Controls.Add(this.lblTaxaDeViza);
             this.panouCheltuieliPlecare.Controls.Add(this.txtTaxaDeParticipare);
@@ -607,24 +611,14 @@
             this.panouCheltuieliPlecare.Size = new System.Drawing.Size(642, 110);
             this.panouCheltuieliPlecare.TabIndex = 7;
             // 
-            // txtTotalDePlata
+            // lblTaxaDeViza2
             // 
-            this.txtTotalDePlata.Enabled = false;
-            this.txtTotalDePlata.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotalDePlata.Location = new System.Drawing.Point(358, 74);
-            this.txtTotalDePlata.Name = "txtTotalDePlata";
-            this.txtTotalDePlata.Size = new System.Drawing.Size(100, 20);
-            this.txtTotalDePlata.TabIndex = 15;
-            // 
-            // lblTotal
-            // 
-            this.lblTotal.AutoSize = true;
-            this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.Location = new System.Drawing.Point(199, 78);
-            this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(157, 13);
-            this.lblTotal.TabIndex = 14;
-            this.lblTotal.Text = "TOTAL (În limita sumei de)";
+            this.lblTaxaDeViza2.AutoSize = true;
+            this.lblTaxaDeViza2.Location = new System.Drawing.Point(21, 78);
+            this.lblTaxaDeViza2.Name = "lblTaxaDeViza2";
+            this.lblTaxaDeViza2.Size = new System.Drawing.Size(101, 13);
+            this.lblTaxaDeViza2.TabIndex = 17;
+            this.lblTaxaDeViza2.Text = "asigurarea medicală";
             // 
             // cmbMoneda3
             // 
@@ -634,16 +628,49 @@
             "RON",
             "EUR",
             "USD",
-            "GPB"});
-            this.cmbMoneda3.Location = new System.Drawing.Point(128, 74);
+            "GBP"});
+            this.cmbMoneda3.Location = new System.Drawing.Point(434, 48);
             this.cmbMoneda3.Name = "cmbMoneda3";
-            this.cmbMoneda3.Size = new System.Drawing.Size(64, 21);
-            this.cmbMoneda3.TabIndex = 13;
+            this.cmbMoneda3.Size = new System.Drawing.Size(66, 21);
+            this.cmbMoneda3.TabIndex = 16;
+            // 
+            // txtTotalDePlata
+            // 
+            this.txtTotalDePlata.Enabled = false;
+            this.txtTotalDePlata.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotalDePlata.Location = new System.Drawing.Point(463, 74);
+            this.txtTotalDePlata.Name = "txtTotalDePlata";
+            this.txtTotalDePlata.Size = new System.Drawing.Size(100, 20);
+            this.txtTotalDePlata.TabIndex = 15;
+            // 
+            // lblTotal
+            // 
+            this.lblTotal.AutoSize = true;
+            this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal.Location = new System.Drawing.Point(304, 78);
+            this.lblTotal.Name = "lblTotal";
+            this.lblTotal.Size = new System.Drawing.Size(157, 13);
+            this.lblTotal.TabIndex = 14;
+            this.lblTotal.Text = "TOTAL (În limita sumei de)";
+            // 
+            // cmbMoneda4
+            // 
+            this.cmbMoneda4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbMoneda4.FormattingEnabled = true;
+            this.cmbMoneda4.Items.AddRange(new object[] {
+            "RON",
+            "EUR",
+            "USD",
+            "GBP"});
+            this.cmbMoneda4.Location = new System.Drawing.Point(233, 74);
+            this.cmbMoneda4.Name = "cmbMoneda4";
+            this.cmbMoneda4.Size = new System.Drawing.Size(64, 21);
+            this.cmbMoneda4.TabIndex = 13;
             // 
             // txtTaxaDeViza
             // 
             this.txtTaxaDeViza.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTaxaDeViza.Location = new System.Drawing.Point(22, 75);
+            this.txtTaxaDeViza.Location = new System.Drawing.Point(127, 75);
             this.txtTaxaDeViza.Name = "txtTaxaDeViza";
             this.txtTaxaDeViza.Size = new System.Drawing.Size(100, 20);
             this.txtTaxaDeViza.TabIndex = 12;
@@ -652,11 +679,11 @@
             // lblTaxaDeViza
             // 
             this.lblTaxaDeViza.AutoSize = true;
-            this.lblTaxaDeViza.Location = new System.Drawing.Point(435, 52);
+            this.lblTaxaDeViza.Location = new System.Drawing.Point(506, 52);
             this.lblTaxaDeViza.Name = "lblTaxaDeViza";
-            this.lblTaxaDeViza.Size = new System.Drawing.Size(170, 13);
+            this.lblTaxaDeViza.Size = new System.Drawing.Size(73, 13);
             this.lblTaxaDeViza.TabIndex = 11;
-            this.lblTaxaDeViza.Text = "taxa de viză + asigurarea medicală";
+            this.lblTaxaDeViza.Text = "taxa de viză +";
             // 
             // txtTaxaDeParticipare
             // 
@@ -684,7 +711,7 @@
             "RON",
             "EUR",
             "USD",
-            "GPB"});
+            "GBP"});
             this.cmbMoneda2.Location = new System.Drawing.Point(160, 48);
             this.cmbMoneda2.Name = "cmbMoneda2";
             this.cmbMoneda2.Size = new System.Drawing.Size(64, 21);
@@ -716,7 +743,7 @@
             "RON",
             "EUR",
             "USD",
-            "GPB"});
+            "GBP"});
             this.cmbMoneda1.Location = new System.Drawing.Point(564, 22);
             this.cmbMoneda1.Name = "cmbMoneda1";
             this.cmbMoneda1.Size = new System.Drawing.Size(66, 21);
@@ -1364,7 +1391,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(716, 661);
+            this.ClientSize = new System.Drawing.Size(733, 661);
             this.Controls.Add(this.lblEnuntObligDidactice2);
             this.Controls.Add(this.lblEnuntObligDidactice1);
             this.Controls.Add(this.lblEnuntObligPlata2);
@@ -1458,7 +1485,7 @@
         private System.Windows.Forms.Label lblTaxaParticipare;
         private System.Windows.Forms.Label lblTaxaDeViza;
         private System.Windows.Forms.TextBox txtTaxaDeViza;
-        private System.Windows.Forms.ComboBox cmbMoneda3;
+        private System.Windows.Forms.ComboBox cmbMoneda4;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.TextBox txtTotalDePlata;
         private System.Windows.Forms.Panel panouMentiuniLegale;
@@ -1527,6 +1554,8 @@
         private System.Windows.Forms.DateTimePicker dpORData;
         private System.Windows.Forms.DateTimePicker dpOROra;
         private System.Windows.Forms.TextBox txtORNrCrt;
+        private System.Windows.Forms.Label lblTaxaDeViza2;
+        private System.Windows.Forms.ComboBox cmbMoneda3;
 
     }
 }

@@ -23,6 +23,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             cmbMoneda1.SelectedIndex = 0;
             cmbMoneda2.SelectedIndex = 0;
             cmbMoneda3.SelectedIndex = 0;
+            cmbMoneda4.SelectedIndex = 0;
             /* --------------------------------------------------------------------------------------------------------------- */
             
             // Dezactivam checkbox-ul "chkORCDP"
@@ -231,7 +232,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         private void CalculTotal()
         {
             // Verificam daca formularul a fost completat cu o valuta unica
-            if (cmbMoneda1.SelectedItem == cmbMoneda2.SelectedItem && cmbMoneda2.SelectedItem == cmbMoneda3.SelectedItem)
+            if (cmbMoneda1.SelectedItem == cmbMoneda2.SelectedItem && cmbMoneda2.SelectedItem == cmbMoneda3.SelectedItem && cmbMoneda3.SelectedItem == cmbMoneda4.SelectedItem)
             {
                 // Verificam daca campurile obligatorii sunt completate
                 if (txtDiurna.Text != string.Empty && txtCazare.Text != string.Empty && txtTaxaDeViza.Text != string.Empty)
