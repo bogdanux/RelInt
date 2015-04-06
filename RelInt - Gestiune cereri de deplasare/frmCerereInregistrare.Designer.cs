@@ -1314,6 +1314,7 @@
             this.dgvConditiiDePlata.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvConditiiDePlata.Location = new System.Drawing.Point(21, 400);
             this.dgvConditiiDePlata.Name = "dgvConditiiDePlata";
+            this.dgvConditiiDePlata.ReadOnly = true;
             this.dgvConditiiDePlata.Size = new System.Drawing.Size(591, 150);
             this.dgvConditiiDePlata.TabIndex = 3;
             // 
@@ -1322,6 +1323,7 @@
             this.dgvOreRecuperate.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvOreRecuperate.Location = new System.Drawing.Point(21, 127);
             this.dgvOreRecuperate.Name = "dgvOreRecuperate";
+            this.dgvOreRecuperate.ReadOnly = true;
             this.dgvOreRecuperate.Size = new System.Drawing.Size(591, 150);
             this.dgvOreRecuperate.TabIndex = 2;
             // 
