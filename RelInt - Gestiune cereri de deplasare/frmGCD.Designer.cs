@@ -40,13 +40,12 @@
             this.btnGCDOrdineaDeZi = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuAjutor = new System.Windows.Forms.ToolStripMenuItem();
             this.btnGCDDespreApp = new System.Windows.Forms.ToolStripMenuItem();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.tsStatusUltimaInregistrare = new System.Windows.Forms.ToolStripStatusLabel();
-            this.btnGCDRealizatori = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnGCDRealizatori = new System.Windows.Forms.ToolStripMenuItem();
+            this.StatusGCD = new System.Windows.Forms.StatusStrip();
+            this.tsStatusUltimaInregistrare = new System.Windows.Forms.ToolStripStatusLabel();
             this.mnuBaraMeniu.SuspendLayout();
-            this.statusStrip1.SuspendLayout();
+            this.StatusGCD.SuspendLayout();
             this.SuspendLayout();
             // 
             // mnuBaraMeniu
@@ -134,8 +133,7 @@
             this.mnuAjutor.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnGCDDespreApp,
             this.toolStripSeparator2,
-            this.btnGCDRealizatori,
-            this.toolStripSeparator3});
+            this.btnGCDRealizatori});
             this.mnuAjutor.Name = "mnuAjutor";
             this.mnuAjutor.Size = new System.Drawing.Size(52, 26);
             this.mnuAjutor.Text = "Ajut&or";
@@ -149,22 +147,10 @@
             this.btnGCDDespreApp.Text = "&Despre RelInt - GCdD";
             this.btnGCDDespreApp.Click += new System.EventHandler(this.btnGCDDespreApp_Click);
             // 
-            // statusStrip1
+            // toolStripSeparator2
             // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsStatusUltimaInregistrare});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 439);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(784, 22);
-            this.statusStrip1.TabIndex = 5;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // tsStatusUltimaInregistrare
-            // 
-            this.tsStatusUltimaInregistrare.Enabled = false;
-            this.tsStatusUltimaInregistrare.Name = "tsStatusUltimaInregistrare";
-            this.tsStatusUltimaInregistrare.Size = new System.Drawing.Size(39, 17);
-            this.tsStatusUltimaInregistrare.Text = "blabla";
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(256, 6);
             // 
             // btnGCDRealizatori
             // 
@@ -175,15 +161,22 @@
             this.btnGCDRealizatori.Text = "&Realizatori";
             this.btnGCDRealizatori.Click += new System.EventHandler(this.btnGCDRealizatori_Click);
             // 
-            // toolStripSeparator2
+            // StatusGCD
             // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(256, 6);
+            this.StatusGCD.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsStatusUltimaInregistrare});
+            this.StatusGCD.Location = new System.Drawing.Point(0, 439);
+            this.StatusGCD.Name = "StatusGCD";
+            this.StatusGCD.Size = new System.Drawing.Size(784, 22);
+            this.StatusGCD.TabIndex = 5;
+            this.StatusGCD.Text = "statusStrip1";
             // 
-            // toolStripSeparator3
+            // tsStatusUltimaInregistrare
             // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(256, 6);
+            this.tsStatusUltimaInregistrare.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.tsStatusUltimaInregistrare.ForeColor = System.Drawing.Color.Green;
+            this.tsStatusUltimaInregistrare.Name = "tsStatusUltimaInregistrare";
+            this.tsStatusUltimaInregistrare.Size = new System.Drawing.Size(0, 17);
             // 
             // frmGCD
             // 
@@ -192,7 +185,7 @@
             this.BackgroundImage = global::RelInt___Gestiune_cereri_de_deplasare.Properties.Resources.UAIC_logo_bw_1024;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(784, 461);
-            this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.StatusGCD);
             this.Controls.Add(this.mnuBaraMeniu);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -200,10 +193,11 @@
             this.Name = "frmGCD";
             this.Text = "Gestiune Cereri de Deplasare";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Activated += new System.EventHandler(this.frmGCD_Activated);
             this.mnuBaraMeniu.ResumeLayout(false);
             this.mnuBaraMeniu.PerformLayout();
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
+            this.StatusGCD.ResumeLayout(false);
+            this.StatusGCD.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -218,7 +212,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem btnGCDIesire;
         private System.Windows.Forms.ToolStripMenuItem btnGCDCautareCerere;
-        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.StatusStrip StatusGCD;
         private System.Windows.Forms.ToolStripStatusLabel tsStatusUltimaInregistrare;
         private System.Windows.Forms.ToolStripMenuItem mnuOperatiuniEvidentaActivitate;
         private System.Windows.Forms.ToolStripMenuItem btnGCDOrdineaDeZi;
@@ -226,7 +220,6 @@
         private System.Windows.Forms.ToolStripMenuItem btnGCDDespreApp;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem btnGCDRealizatori;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
     }
 }
 

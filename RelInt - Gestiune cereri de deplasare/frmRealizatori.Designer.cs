@@ -86,6 +86,7 @@
             this.llblMailDezv2.TabIndex = 17;
             this.llblMailDezv2.TabStop = true;
             this.llblMailDezv2.Text = "vioreln5@gmail.com";
+            this.llblMailDezv2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llblMailDezv2_LinkClicked);
             // 
             // llblMailDezv1
             // 
@@ -97,6 +98,7 @@
             this.llblMailDezv1.TabIndex = 18;
             this.llblMailDezv1.TabStop = true;
             this.llblMailDezv1.Text = "timofteba@gmail.com";
+            this.llblMailDezv1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llblMailDezv1_LinkClicked);
             // 
             // lblNrTelDezv2
             // 
@@ -204,6 +206,7 @@
             this.linkLabel2.TabIndex = 17;
             this.linkLabel2.TabStop = true;
             this.linkLabel2.Text = "vioreln5@gmail.com";
+            this.linkLabel2.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel2_LinkClicked);
             // 
             // frmRealizatori
             // 

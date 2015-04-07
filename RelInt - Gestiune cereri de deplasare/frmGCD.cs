@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.Odbc;
 
 namespace RelInt___Gestiune_cereri_de_deplasare
 {
@@ -237,7 +238,53 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         /* -------------------- MetodaScriereInStatus -------------------------------------------------------------------- */
         private void MetodaScriereInStatus()
         {
-            tsStatusUltimaInregistrare.Text = "Numarul ultimului formular introdus: ";
+            using (OdbcConnection conexiune_lblUCI = new OdbcConnection(sircon_RelIntDB))
+            {           // Comanda
+                using (OdbcCommand comanda_lblUCI = new OdbcCommand())
+                {
+                    comanda_lblUCI.Connection = conexiune_lblUCI;
+                    comanda_lblUCI.CommandType = CommandType.Text;
+                    comanda_lblUCI.CommandText = "SELECT MAX(nrinregistrarec) FROM cereri";
+
+                    try
+                    {
+                        conexiune_lblUCI.Open();
+                        OdbcDataReader reader_lblUCI = comanda_lblUCI.ExecuteReader();
+
+
+                        while (reader_lblUCI.Read())
+                        {
+                            tsStatusUltimaInregistrare.Text = "Numarul ultimei cereri introduse: " + reader_lblUCI.GetInt32(0).ToString();
+                        }
+                        reader_lblUCI.Close();
+                    } 
+                    catch (Exception exlblUCI) 
+                    {
+                        MessageBox.Show(exlblUCI.Message);
+                    }
+                    finally
+                    {
+                        conexiune_lblUCI.Close();
+                    }
+                }
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+
+
+
+        /* ------------------- Eveniment de tip Click pentru update al Statusului ---------------------------------------- */
+        private void frmGCD_Activated(object sender, EventArgs e)
+        {
+            MetodaScriereInStatus();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
        }
