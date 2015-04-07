@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGCD));
             this.mnuBaraMeniu = new System.Windows.Forms.MenuStrip();
             this.mnuOperatiuniFormulare = new System.Windows.Forms.ToolStripMenuItem();
             this.btnGCDIntroducereFormular = new System.Windows.Forms.ToolStripMenuItem();
@@ -35,10 +36,15 @@
             this.btnGCDModificareFormular = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.btnGCDIesire = new System.Windows.Forms.ToolStripMenuItem();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.tsStatusUltimaInregistrare = new System.Windows.Forms.ToolStripStatusLabel();
             this.mnuOperatiuniEvidentaActivitate = new System.Windows.Forms.ToolStripMenuItem();
             this.btnGCDOrdineaDeZi = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuAjutor = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnGCDDespreApp = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.tsStatusUltimaInregistrare = new System.Windows.Forms.ToolStripStatusLabel();
+            this.btnGCDRealizatori = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuBaraMeniu.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -49,10 +55,11 @@
             this.mnuBaraMeniu.BackColor = System.Drawing.SystemColors.Info;
             this.mnuBaraMeniu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuOperatiuniFormulare,
-            this.mnuOperatiuniEvidentaActivitate});
+            this.mnuOperatiuniEvidentaActivitate,
+            this.mnuAjutor});
             this.mnuBaraMeniu.Location = new System.Drawing.Point(0, 0);
             this.mnuBaraMeniu.Name = "mnuBaraMeniu";
-            this.mnuBaraMeniu.Size = new System.Drawing.Size(745, 30);
+            this.mnuBaraMeniu.Size = new System.Drawing.Size(784, 30);
             this.mnuBaraMeniu.TabIndex = 3;
             this.mnuBaraMeniu.Text = "mnuBaraMeniu";
             // 
@@ -107,23 +114,6 @@
             this.btnGCDIesire.Text = "I&esire";
             this.btnGCDIesire.Click += new System.EventHandler(this.mnuIesire_Click);
             // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsStatusUltimaInregistrare});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 376);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(745, 22);
-            this.statusStrip1.TabIndex = 5;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // tsStatusUltimaInregistrare
-            // 
-            this.tsStatusUltimaInregistrare.Enabled = false;
-            this.tsStatusUltimaInregistrare.Name = "tsStatusUltimaInregistrare";
-            this.tsStatusUltimaInregistrare.Size = new System.Drawing.Size(39, 17);
-            this.tsStatusUltimaInregistrare.Text = "blabla";
-            // 
             // mnuOperatiuniEvidentaActivitate
             // 
             this.mnuOperatiuniEvidentaActivitate.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -139,13 +129,73 @@
             this.btnGCDOrdineaDeZi.Size = new System.Drawing.Size(183, 22);
             this.btnGCDOrdineaDeZi.Text = "Ordin&ea de zi";
             // 
+            // mnuAjutor
+            // 
+            this.mnuAjutor.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnGCDDespreApp,
+            this.toolStripSeparator2,
+            this.btnGCDRealizatori,
+            this.toolStripSeparator3});
+            this.mnuAjutor.Name = "mnuAjutor";
+            this.mnuAjutor.Size = new System.Drawing.Size(52, 26);
+            this.mnuAjutor.Text = "Ajut&or";
+            // 
+            // btnGCDDespreApp
+            // 
+            this.btnGCDDespreApp.Name = "btnGCDDespreApp";
+            this.btnGCDDespreApp.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.D)));
+            this.btnGCDDespreApp.Size = new System.Drawing.Size(259, 22);
+            this.btnGCDDespreApp.Text = "&Despre RelInt - GCdD";
+            this.btnGCDDespreApp.Click += new System.EventHandler(this.btnGCDDespreApp_Click);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsStatusUltimaInregistrare});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 439);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(784, 22);
+            this.statusStrip1.TabIndex = 5;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // tsStatusUltimaInregistrare
+            // 
+            this.tsStatusUltimaInregistrare.Enabled = false;
+            this.tsStatusUltimaInregistrare.Name = "tsStatusUltimaInregistrare";
+            this.tsStatusUltimaInregistrare.Size = new System.Drawing.Size(39, 17);
+            this.tsStatusUltimaInregistrare.Text = "blabla";
+            // 
+            // btnGCDRealizatori
+            // 
+            this.btnGCDRealizatori.Name = "btnGCDRealizatori";
+            this.btnGCDRealizatori.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.R)));
+            this.btnGCDRealizatori.Size = new System.Drawing.Size(259, 22);
+            this.btnGCDRealizatori.Text = "&Realizatori";
+            this.btnGCDRealizatori.Click += new System.EventHandler(this.btnGCDRealizatori_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(256, 6);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(256, 6);
+            // 
             // frmGCD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(745, 398);
+            this.BackgroundImage = global::RelInt___Gestiune_cereri_de_deplasare.Properties.Resources.UAIC_logo_bw_1024;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.ClientSize = new System.Drawing.Size(784, 461);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.mnuBaraMeniu);
+            this.DoubleBuffered = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.Name = "frmGCD";
             this.Text = "Gestiune Cereri de Deplasare";
@@ -172,6 +222,11 @@
         private System.Windows.Forms.ToolStripStatusLabel tsStatusUltimaInregistrare;
         private System.Windows.Forms.ToolStripMenuItem mnuOperatiuniEvidentaActivitate;
         private System.Windows.Forms.ToolStripMenuItem btnGCDOrdineaDeZi;
+        private System.Windows.Forms.ToolStripMenuItem mnuAjutor;
+        private System.Windows.Forms.ToolStripMenuItem btnGCDDespreApp;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem btnGCDRealizatori;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
     }
 }
 

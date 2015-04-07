@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCerereInregistrare));
             this.mnuCI = new System.Windows.Forms.MenuStrip();
             this.btnCIFormular = new System.Windows.Forms.ToolStripMenuItem();
             this.btnCISalvareFormular = new System.Windows.Forms.ToolStripMenuItem();
@@ -169,7 +170,7 @@
             this.btnCIFormular});
             this.mnuCI.Location = new System.Drawing.Point(0, 0);
             this.mnuCI.Name = "mnuCI";
-            this.mnuCI.Size = new System.Drawing.Size(716, 30);
+            this.mnuCI.Size = new System.Drawing.Size(682, 30);
             this.mnuCI.TabIndex = 0;
             this.mnuCI.Text = "mnuCI";
             // 
@@ -1393,7 +1394,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(733, 661);
+            this.ClientSize = new System.Drawing.Size(699, 661);
             this.Controls.Add(this.lblEnuntObligDidactice2);
             this.Controls.Add(this.lblEnuntObligDidactice1);
             this.Controls.Add(this.lblEnuntObligPlata2);
@@ -1406,6 +1407,7 @@
             this.Controls.Add(this.panouIdentificareCerere);
             this.Controls.Add(this.mnuCI);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmCerereInregistrare";
             this.Text = "Introducere Cerere de Deplasare";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmCerereInregistrare_FormClosing);

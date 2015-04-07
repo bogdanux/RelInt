@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCautareCerere));
             this.mnuCerereCautare = new System.Windows.Forms.MenuStrip();
             this.btnIesire = new System.Windows.Forms.ToolStripMenuItem();
             this.dgvCautare = new System.Windows.Forms.DataGridView();
@@ -91,6 +92,7 @@
             this.Controls.Add(this.txtNumePren);
             this.Controls.Add(this.dgvCautare);
             this.Controls.Add(this.mnuCerereCautare);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.mnuCerereCautare;
             this.Name = "frmCautareCerere";
             this.Text = "frmCautareCerere";

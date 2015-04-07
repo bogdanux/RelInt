@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCerereModificare));
             this.mnuCM = new System.Windows.Forms.MenuStrip();
             this.btnCMFormular = new System.Windows.Forms.ToolStripMenuItem();
             this.btnCMSalvareFormular = new System.Windows.Forms.ToolStripMenuItem();
@@ -86,6 +87,7 @@
             this.ClientSize = new System.Drawing.Size(643, 234);
             this.Controls.Add(this.mnuCM);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.mnuCM;
             this.Name = "frmCerereModificare";
             this.Text = "Modificare Cerere de Deplasare";

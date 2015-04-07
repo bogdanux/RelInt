@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("RelInt - Gestiune cereri de deplasare")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Aplicatie pentru gestionarea cererilor de deplasare in strainatate si a documentelor aferente acestora")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("UAIC, FEAA")]
 [assembly: AssemblyProduct("RelInt - Gestiune cereri de deplasare")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
