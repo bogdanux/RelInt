@@ -230,6 +230,38 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
+        /* ------------------ Deschiderea formularului "frmOrdineaDeZi" ------------------------------------------------------- */
+        private void btnGCDOrdineaDeZi_Click(object sender, EventArgs e)
+        {
+            // Apelam formularul "frmRealizatori"
+            Form frmOrdineaDeZi = new frmOrdineaDeZi();
+
+            // Facem "frmDespreApp" copil al "frmGCD"
+            frmOrdineaDeZi.MdiParent = this;
+
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form.GetType() == typeof(frmOrdineaDeZi))
+                {
+                    form.WindowState = FormWindowState.Normal;
+                    form.Activate();
+                    return;
+                }
+            }
+
+            // Afisam "frmCerereModificare"
+            frmOrdineaDeZi.Show();
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+
 
 
 
@@ -270,10 +302,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-
-
-
-
 
 
 

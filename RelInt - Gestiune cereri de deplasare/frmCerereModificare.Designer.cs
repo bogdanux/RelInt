@@ -40,6 +40,7 @@
             // mnuCM
             // 
             this.mnuCM.AutoSize = false;
+            this.mnuCM.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.mnuCM.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnCMFormular});
             this.mnuCM.Location = new System.Drawing.Point(0, 0);

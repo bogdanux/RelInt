@@ -153,6 +153,12 @@
     <Compile Include="frmGCD.Designer.cs">
       <DependentUpon>frmGCD.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmOrdineaDeZi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOrdineaDeZi.Designer.cs">
+      <DependentUpon>frmOrdineaDeZi.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmRealizatori.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -175,6 +181,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmGCD.resx">
       <DependentUpon>frmGCD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmOrdineaDeZi.resx">
+      <DependentUpon>frmOrdineaDeZi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRealizatori.resx">
       <DependentUpon>frmRealizatori.cs</DependentUpon>

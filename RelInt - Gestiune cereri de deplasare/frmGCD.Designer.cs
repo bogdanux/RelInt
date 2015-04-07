@@ -127,6 +127,7 @@
             this.btnGCDOrdineaDeZi.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
             this.btnGCDOrdineaDeZi.Size = new System.Drawing.Size(183, 22);
             this.btnGCDOrdineaDeZi.Text = "Ordin&ea de zi";
+            this.btnGCDOrdineaDeZi.Click += new System.EventHandler(this.btnGCDOrdineaDeZi_Click);
             // 
             // mnuAjutor
             // 
