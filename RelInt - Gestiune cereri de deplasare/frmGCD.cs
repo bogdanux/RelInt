@@ -285,7 +285,10 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
                         while (reader_lblUCI.Read())
                         {
-                            tsStatusUltimaInregistrare.Text = "Numarul ultimei cereri introduse: " + reader_lblUCI.GetInt32(0).ToString();
+                            if (reader_lblUCI[0].ToString() != "")
+                            {
+                                tsStatusUltimaInregistrare.Text = "Numarul ultimei cereri introduse: " + reader_lblUCI.GetDecimal(0).ToString();
+                            }                            
                         }
                         reader_lblUCI.Close();
                     } 

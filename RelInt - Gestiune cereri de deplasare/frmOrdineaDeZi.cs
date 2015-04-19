@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.Odbc;
 using PdfSharp;
 using PdfSharp.Drawing;
+using PdfSharp.Drawing.Layout;
 using PdfSharp.Pdf;
 using System.Diagnostics;
 
@@ -17,11 +18,12 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 {
     public partial class frmOrdineaDeZi : Form
     {
+        DataTable dt_dgvAfisare;
         public frmOrdineaDeZi() // Metoda LOAD
         {
             InitializeComponent();
 
-            DataTable dt_dgvAfisare;
+            //DataTable dt_dgvAfisare;
 
             /* ------------------------- Evenimente pentru casetele de text folosite la afisare ------------------------------ */
             using (OdbcConnection conexiune_dgvAfisare = new OdbcConnection(sircon_RelIntDB))
@@ -99,10 +101,42 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             PdfDocument pdfGenerat = new PdfDocument();
             pdfGenerat.Info.Title = "Ordinea de Zi";
             PdfPage pdfPagina = pdfGenerat.AddPage();
+            pdfPagina.Height = 842;
+            pdfPagina.Width = 595;
             XGraphics pdfGraf = XGraphics.FromPdfPage(pdfPagina);
-            XFont pdfFont = new XFont("Verdana", 20, XFontStyle.Regular);
-            pdfGraf.DrawString("Cererea d-lui/d-nei", pdfFont, XBrushes.Black, new XRect(0, 0, pdfPagina.Width.Point, pdfPagina.Height.Point), XStringFormats.Center);
+            XFont pdfFont = new XFont("Times New Roman", 12, XFontStyle.Regular);
+            XTextFormatter tf = new XTextFormatter(pdfGraf);
 
+            XRect rect = new XRect(50, 30, 500, 800);
+            pdfGraf.DrawRectangle(XBrushes.White, rect);
+            tf.Alignment = XParagraphAlignment.Justify;
+
+            string formularCerere = string.Empty;
+            int numaratoare = 0;
+
+            for(int i=0; i<dt_dgvAfisare.Rows.Count; i++)
+            {
+                string dataInceput = dt_dgvAfisare.Rows[i].ItemArray[10].ToString().Substring(0, dt_dgvAfisare.Rows[i].ItemArray[10].ToString().IndexOf("00:"));
+                dataInceput = dataInceput.Substring(0, dataInceput.IndexOf(" "));
+
+                string dataSfarsit = dt_dgvAfisare.Rows[i].ItemArray[11].ToString().Substring(0, dt_dgvAfisare.Rows[i].ItemArray[11].ToString().IndexOf("00:"));
+                dataSfarsit = dataSfarsit.Substring(0, dataSfarsit.IndexOf(" "));
+
+                numaratoare++;
+
+                formularCerere += numaratoare.ToString() + ". Cererea d-lui/d-nei " + dt_dgvAfisare.Rows[i].ItemArray[2] + " " + 
+                    dt_dgvAfisare.Rows[i].ItemArray[3] + " la " + dt_dgvAfisare.Rows[i].ItemArray[4] + 
+                    ", prin care se solicita aprobare pentru a participa la " + dt_dgvAfisare.Rows[i].ItemArray[8] + 
+                    " organizata de " + dt_dgvAfisare.Rows[i].ItemArray[9] + ", " + dt_dgvAfisare.Rows[i].ItemArray[7] +
+                    ", intre " + dataInceput + " si " + dataSfarsit +
+                    ". Cheltuielile de transport: 5555555 sunt suporttate de " + dt_dgvAfisare.Rows[i].ItemArray[14] +
+                    "si de sejur: 55555555 sunt suportate" + Environment.NewLine + Environment.NewLine + "Rezolutie: "
+                    + Environment.NewLine + Environment.NewLine + Environment.NewLine + Environment.NewLine + "Transmis la: "
+                    + Environment.NewLine + Environment.NewLine + Environment.NewLine;
+            }
+
+            tf.DrawString(formularCerere, pdfFont, XBrushes.Black, rect, XStringFormats.TopLeft);
+           
             string NumeFisierPDF = string.Empty;
 
             SaveFileDialog dlgPDFSalvat = new SaveFileDialog();
@@ -110,9 +144,9 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             dlgPDFSalvat.DefaultExt = ".pdf";
             dlgPDFSalvat.Filter = "PDF documents (.pdf)|*.pdf";
 
+
             if (dlgPDFSalvat.ShowDialog() == DialogResult.OK)
             {
-
                 NumeFisierPDF = dlgPDFSalvat.FileName;
             }
             pdfGenerat.Save(NumeFisierPDF);
