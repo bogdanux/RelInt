@@ -184,8 +184,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     " și din veniturile proprii ale " + dt_dgvAfisare.Rows[i].ItemArray[15] + Environment.NewLine + Environment.NewLine + "Rezoluție: "
                     + Environment.NewLine + Environment.NewLine + Environment.NewLine + Environment.NewLine + "Transmis la: "
                     + Environment.NewLine + Environment.NewLine + Environment.NewLine;
-
-                
             }
 
             // Paragraf 6
