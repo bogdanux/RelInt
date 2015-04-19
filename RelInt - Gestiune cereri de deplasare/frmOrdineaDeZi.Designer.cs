@@ -58,6 +58,7 @@
             // btnTiparire
             // 
             this.btnTiparire.Name = "btnTiparire";
+            this.btnTiparire.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
             this.btnTiparire.Size = new System.Drawing.Size(59, 20);
             this.btnTiparire.Text = "Ti&părire";
             // 
