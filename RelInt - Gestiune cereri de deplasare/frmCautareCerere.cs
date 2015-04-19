@@ -92,21 +92,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 }
             }
         }
-
-        private void txtGradDidactic_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtTara_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtLocalitatea_TextChanged(object sender, EventArgs e)
-        {
-
-        }
         /* --------------------------------------------------------------------------------------------------------------- */
     }
 }
