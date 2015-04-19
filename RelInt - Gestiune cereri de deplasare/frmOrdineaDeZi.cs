@@ -91,11 +91,11 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             this.Close();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
         
-
-
-
-
 
 
 
@@ -192,6 +192,8 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             paragraf6.Format.Font.Size = 12;
             paragraf6.Format.Font.Name = "Times New Roman";
             paragraf6.Format.SpaceBefore = "0.7cm";
+            //paragraf6.Format.Borders.Bottom.Visible = true;
+            //paragraf6.Format.Borders.Bottom.Width = 0.1;
 
             paragraf6.AddText(formularCerere);
 
@@ -200,7 +202,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             paragraf7.AddTab();
             paragraf7.AddPageField();
             paragraf7.Format.Font.Size = 9;
-            paragraf6.Format.Font.Name = "Times New Roman";
+            paragraf7.Format.Font.Name = "Times New Roman";
             paragraf7.Format.Alignment = ParagraphAlignment.Center;
             // Add "paragraf7" in footer-ul paginilor impare
             section1.Footers.Primary.Add(paragraf7);
@@ -241,6 +243,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
+
 
 
 
