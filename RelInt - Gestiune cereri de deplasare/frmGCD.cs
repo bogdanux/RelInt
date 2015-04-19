@@ -313,9 +313,9 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
         /* ------------------- Eveniment de tip Click pentru update al Statusului ---------------------------------------- */
-        public void frmGCD_Activated(object sender, EventArgs e)
+        private void frmGCD_Activated(object sender, EventArgs e)
         {
-            //MetodaScriereInStatus();
+            MetodaScriereInStatus();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
        }
