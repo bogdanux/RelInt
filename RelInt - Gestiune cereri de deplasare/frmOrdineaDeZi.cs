@@ -173,6 +173,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     + Environment.NewLine + Environment.NewLine + Environment.NewLine;
             }
 
+            // Paragraf 6
             Paragraph paragraf6 = section.AddParagraph();
             paragraf6.Format.Alignment = ParagraphAlignment.Justify;
             paragraf6.Format.Font.Size = 12;
