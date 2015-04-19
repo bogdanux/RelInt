@@ -36,7 +36,8 @@ DecanC VARCHAR(30),
 VizaContaC VARCHAR(30),
 AdmSefBirouC VARCHAR(30),
 SefDepartamentDirC VARCHAR(30),
-VizaRUC VARCHAR(30)
+VizaRUC VARCHAR(30),
+TIOZ BOOLEAN
 );
 
 -- Creare tabela OreRecuperate
