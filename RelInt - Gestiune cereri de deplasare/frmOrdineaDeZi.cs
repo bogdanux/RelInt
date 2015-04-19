@@ -8,11 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Odbc;
-using PdfSharp;
-using PdfSharp.Drawing;
-using PdfSharp.Drawing.Layout;
-using PdfSharp.Pdf;
 using System.Diagnostics;
+
 
 namespace RelInt___Gestiune_cereri_de_deplasare
 {
@@ -98,18 +95,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         /* --------------------- Eveniment click pentru butonul "btnGenerarePDF" ----------------------------------------- */
         private void btnGenerarePDF_Click(object sender, EventArgs e)
         {
-            PdfDocument pdfGenerat = new PdfDocument();
-            pdfGenerat.Info.Title = "Ordinea de Zi";
-            PdfPage pdfPagina = pdfGenerat.AddPage();
-            pdfPagina.Height = 842;
-            pdfPagina.Width = 595;
-            XGraphics pdfGraf = XGraphics.FromPdfPage(pdfPagina);
-            XFont pdfFont = new XFont("Times New Roman", 12, XFontStyle.Regular);
-            XTextFormatter tf = new XTextFormatter(pdfGraf);
-
-            XRect rect = new XRect(50, 30, 500, 800);
-            pdfGraf.DrawRectangle(XBrushes.White, rect);
-            tf.Alignment = XParagraphAlignment.Justify;
+            
 
             string formularCerere = string.Empty;
             int numaratoare = 0;
@@ -135,7 +121,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     + Environment.NewLine + Environment.NewLine + Environment.NewLine;
             }
 
-            tf.DrawString(formularCerere, pdfFont, XBrushes.Black, rect, XStringFormats.TopLeft);
+            //tf.DrawString(formularCerere, pdfFont, XBrushes.Black, rect, XStringFormats.TopLeft);
            
             string NumeFisierPDF = string.Empty;
 
@@ -149,7 +135,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             {
                 NumeFisierPDF = dlgPDFSalvat.FileName;
             }
-            pdfGenerat.Save(NumeFisierPDF);
+            //pdfGenerat.Save(NumeFisierPDF);
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
