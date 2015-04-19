@@ -9,7 +9,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Odbc;
 using System.Diagnostics;
-
+using MigraDoc.Rendering;
+using MigraDoc;
+using MigraDoc.DocumentObjectModel;
+using MigraDoc.Rendering.Forms;
 
 namespace RelInt___Gestiune_cereri_de_deplasare
 {
@@ -95,10 +98,59 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         /* --------------------- Eveniment click pentru butonul "btnGenerarePDF" ----------------------------------------- */
         private void btnGenerarePDF_Click(object sender, EventArgs e)
         {
-            
+            // Create a MigraDoc document
+            Document document = new Document();
+            document.Info.Author = "Rolf Baxter";
+            document.Info.Keywords = "MigraDoc, Examples, C#";
+            Unit width, height;
+            PageSetup.GetPageSize(PageFormat.A4, out width, out height);
+
+            Section section = document.AddSection();
+            section.PageSetup.PageHeight = height;
+            section.PageSetup.PageWidth = width;
+            section.PageSetup.LeftMargin = 60;
+            section.PageSetup.RightMargin = 50;
+            section.PageSetup.TopMargin = 20;
+            section.PageSetup.BottomMargin = 15;
+
+            Paragraph paragraf1 = section.AddParagraph();
+            paragraf1.Format.Alignment = ParagraphAlignment.Right;
+            paragraf1.Format.Font.Size = 8;
+            paragraf1.Format.Font.Name = "Times New Roman";
+            paragraf1.AddText("Sedinta Biroului Executiv al Consiliului de Administratie din data de " + DateTime.Today.ToString().Substring(0, DateTime.Today.ToString().IndexOf("00:")));
+
+            Paragraph paragraf2 = section.AddParagraph();
+            paragraf2.Format.Alignment = ParagraphAlignment.Left;
+            paragraf2.Format.Font.Size = 12;
+            paragraf2.Format.Font.Name = "Times New Roman";
+            paragraf2.AddText("UNIVERSITATEA \"Alexandru Ioan Cuza\" Iasi");
+
+            Paragraph paragraf3 = section.AddParagraph();
+            paragraf3.Format.Alignment = ParagraphAlignment.Center;
+            paragraf3.Format.Font.Size = 14;
+            paragraf3.Format.Font.Bold = true;
+            paragraf3.Format.Font.Name = "Times New Roman";
+            paragraf3.Format.SpaceBefore = "1.5cm";
+            paragraf3.AddText("BIROUL EXECUTIV AL CONSILIULUI DE ADMINISTRATIE");
+
+            Paragraph paragraf4 = section.AddParagraph();
+            paragraf4.Format.Alignment = ParagraphAlignment.Center;
+            paragraf4.Format.Font.Size = 11;
+            paragraf4.Format.Font.Bold = true;
+            paragraf4.Format.Font.Name = "Times New Roman";
+            paragraf4.Format.SpaceBefore = "0.5cm";
+            paragraf4.AddText("Sectiunea Relatii Internationale (RI)");
+
+            Paragraph paragraf5 = section.AddParagraph();
+            paragraf5.Format.Alignment = ParagraphAlignment.Center;
+            paragraf5.Format.Font.Size = 11;
+            paragraf5.Format.Font.Name = "Times New Roman";
+            paragraf5.Format.SpaceBefore = "0.3cm";
+            paragraf5.AddText("din data de " + DateTime.Today.ToString().Substring(0, DateTime.Today.ToString().IndexOf("00:")));
 
             string formularCerere = string.Empty;
             int numaratoare = 0;
+            
 
             for(int i=0; i<dt_dgvAfisare.Rows.Count; i++)
             {
@@ -121,8 +173,18 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     + Environment.NewLine + Environment.NewLine + Environment.NewLine;
             }
 
-            //tf.DrawString(formularCerere, pdfFont, XBrushes.Black, rect, XStringFormats.TopLeft);
-           
+            Paragraph paragraf6 = section.AddParagraph();
+            paragraf6.Format.Alignment = ParagraphAlignment.Justify;
+            paragraf6.Format.Font.Size = 12;
+            paragraf6.Format.Font.Name = "Times New Roman";
+            paragraf6.Format.SpaceBefore = "2cm";
+
+            paragraf6.AddText(formularCerere);
+
+            PdfDocumentRenderer pdfRenderer = new PdfDocumentRenderer();
+            pdfRenderer.Document = document;
+            pdfRenderer.RenderDocument();
+
             string NumeFisierPDF = string.Empty;
 
             SaveFileDialog dlgPDFSalvat = new SaveFileDialog();
@@ -135,7 +197,8 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             {
                 NumeFisierPDF = dlgPDFSalvat.FileName;
             }
-            //pdfGenerat.Save(NumeFisierPDF);
+            pdfRenderer.PdfDocument.Save(NumeFisierPDF);
+            Process.Start(NumeFisierPDF);
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
