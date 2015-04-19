@@ -18,12 +18,9 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 {
     public partial class frmOrdineaDeZi : Form
     {
-        DataTable dt_dgvAfisare;
         public frmOrdineaDeZi() // Metoda LOAD
         {
             InitializeComponent();
-
-            //DataTable dt_dgvAfisare;
 
             /* ------------------------- Evenimente pentru casetele de text folosite la afisare ------------------------------ */
             using (OdbcConnection conexiune_dgvAfisare = new OdbcConnection(sircon_RelIntDB))
@@ -70,6 +67,14 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
+        /* --------------- Varaibile publice de lucru cu diferite obiecte ------------------------------------------------ */
+        // Variabila pentru afisare in "dgvAfisare"
+        DataTable dt_dgvAfisare;
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
 
         /* ----------- Obiecte de lucru cu RelIntDB ---------------------------------------------------------------------- */
         // Sir de conectare al RelIntDB
@@ -99,54 +104,57 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         private void btnGenerarePDF_Click(object sender, EventArgs e)
         {
             // Create a MigraDoc document
-            Document document = new Document();
-            document.Info.Author = "Rolf Baxter";
-            document.Info.Keywords = "MigraDoc, Examples, C#";
+            Document documentPDF = new Document();
+            documentPDF.Info.Author = "Departamentul Relatii Internationale";
+            documentPDF.Info.Keywords = "Ordinea, de, zi";
             Unit width, height;
             PageSetup.GetPageSize(PageFormat.A4, out width, out height);
 
-            Section section = document.AddSection();
-            section.PageSetup.PageHeight = height;
-            section.PageSetup.PageWidth = width;
-            section.PageSetup.LeftMargin = 60;
-            section.PageSetup.RightMargin = 50;
-            section.PageSetup.TopMargin = 20;
-            section.PageSetup.BottomMargin = 15;
+            Section section1 = documentPDF.AddSection();
+            section1.PageSetup.PageHeight = height;
+            section1.PageSetup.PageWidth = width;
+            section1.PageSetup.LeftMargin = 60;
+            section1.PageSetup.RightMargin = 60;
+            section1.PageSetup.TopMargin = 40;
+            section1.PageSetup.BottomMargin = 40;
+            section1.PageSetup.OddAndEvenPagesHeaderFooter = true;
+            section1.PageSetup.StartingNumber = 1;
 
             // Paragraf 1
-            Paragraph paragraf1 = section.AddParagraph();
+            Paragraph paragraf1 = section1.AddParagraph();
             paragraf1.Format.Alignment = ParagraphAlignment.Right;
             paragraf1.Format.Font.Size = 8;
             paragraf1.Format.Font.Name = "Times New Roman";
-            paragraf1.AddText("Sedinta Biroului Executiv al Consiliului de Administratie din data de " + DateTime.Today.ToString().Substring(0, DateTime.Today.ToString().IndexOf("00:")));
+            paragraf1.AddText("Ședința Biroului Executiv al Consiliului de Administrație din data de " + DateTime.Today.ToString().Substring(0, DateTime.Today.ToString().IndexOf("00:")));
 
             // Paragraf 2
-            Paragraph paragraf2 = section.AddParagraph();
+            Paragraph paragraf2 = section1.AddParagraph();
             paragraf2.Format.Alignment = ParagraphAlignment.Left;
             paragraf2.Format.Font.Size = 12;
             paragraf2.Format.Font.Name = "Times New Roman";
-            paragraf2.AddText("UNIVERSITATEA \"Alexandru Ioan Cuza\" Iasi");
+            paragraf2.Format.SpaceBefore = "0,2cm";
+            paragraf2.AddText("UNIVERSITATEA \"Alexandru Ioan Cuza\" Iași");
 
             // Paragraf 3
-            Paragraph paragraf3 = section.AddParagraph();
+            Paragraph paragraf3 = section1.AddParagraph();
             paragraf3.Format.Alignment = ParagraphAlignment.Center;
             paragraf3.Format.Font.Size = 14;
             paragraf3.Format.Font.Bold = true;
             paragraf3.Format.Font.Name = "Times New Roman";
             paragraf3.Format.SpaceBefore = "1.5cm";
-            paragraf3.AddText("BIROUL EXECUTIV AL CONSILIULUI DE ADMINISTRATIE");
+            paragraf3.AddText("BIROUL EXECUTIV AL CONSILIULUI DE ADMINISTRAȚIE");
 
             // Paragraf 4
-            Paragraph paragraf4 = section.AddParagraph();
+            Paragraph paragraf4 = section1.AddParagraph();
             paragraf4.Format.Alignment = ParagraphAlignment.Center;
             paragraf4.Format.Font.Size = 11;
             paragraf4.Format.Font.Bold = true;
             paragraf4.Format.Font.Name = "Times New Roman";
             paragraf4.Format.SpaceBefore = "0.5cm";
-            paragraf4.AddText("Sectiunea Relatii Internationale (RI)");
+            paragraf4.AddText("Secțiunea Relații Internaționale (RI)");
 
             // Paragraf 5
-            Paragraph paragraf5 = section.AddParagraph();
+            Paragraph paragraf5 = section1.AddParagraph();
             paragraf5.Format.Alignment = ParagraphAlignment.Center;
             paragraf5.Format.Font.Size = 11;
             paragraf5.Format.Font.Name = "Times New Roman";
@@ -169,26 +177,41 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
                 formularCerere += numaratoare.ToString() + ". Cererea d-lui/d-nei " + dt_dgvAfisare.Rows[i].ItemArray[2] + " " + 
                     dt_dgvAfisare.Rows[i].ItemArray[3] + " la " + dt_dgvAfisare.Rows[i].ItemArray[4] + 
-                    ", prin care se solicita aprobare pentru a participa la " + dt_dgvAfisare.Rows[i].ItemArray[8] + 
-                    " organizata de " + dt_dgvAfisare.Rows[i].ItemArray[9] + ", " + dt_dgvAfisare.Rows[i].ItemArray[7] +
-                    ", intre " + dataInceput + " si " + dataSfarsit +
-                    ". Cheltuielile de transport: 5555555 sunt suporttate de " + dt_dgvAfisare.Rows[i].ItemArray[14] +
-                    "si de sejur: 55555555 sunt suportate" + Environment.NewLine + Environment.NewLine + "Rezolutie: "
-                    + Environment.NewLine + Environment.NewLine + Environment.NewLine + Environment.NewLine + "Transmis la: "
+                    ", prin care se solicită aprobare pentru a participa la " + dt_dgvAfisare.Rows[i].ItemArray[8] + 
+                    " organizată de " + dt_dgvAfisare.Rows[i].ItemArray[9] + ", " + dt_dgvAfisare.Rows[i].ItemArray[7] +
+                    ", între " + dataInceput + " și " + dataSfarsit +
+                    ". Cheltuielile de transport și de sejur sunt suportate de la: " + dt_dgvAfisare.Rows[i].ItemArray[14] +
+                    " și din veniturile proprii ale " + dt_dgvAfisare.Rows[i].ItemArray[15] + Environment.NewLine + Environment.NewLine + "Rezoluție: "
+                    + Environment.NewLine + Environment.NewLine + Environment.NewLine + Environment.NewLine + "Transmis la: "
                     + Environment.NewLine + Environment.NewLine + Environment.NewLine;
+
+                
             }
 
             // Paragraf 6
-            Paragraph paragraf6 = section.AddParagraph();
+            Paragraph paragraf6 = section1.AddParagraph();
             paragraf6.Format.Alignment = ParagraphAlignment.Justify;
             paragraf6.Format.Font.Size = 12;
             paragraf6.Format.Font.Name = "Times New Roman";
-            paragraf6.Format.SpaceBefore = "2cm";
+            paragraf6.Format.SpaceBefore = "0.7cm";
 
             paragraf6.AddText(formularCerere);
 
-            PdfDocumentRenderer pdfRenderer = new PdfDocumentRenderer();
-            pdfRenderer.Document = document;
+            // Cream un paragraf pentru numerotarea paginilor
+            Paragraph paragraf7 = new Paragraph();
+            paragraf7.AddTab();
+            paragraf7.AddPageField();
+            paragraf7.Format.Font.Size = 9;
+            paragraf6.Format.Font.Name = "Times New Roman";
+            paragraf7.Format.Alignment = ParagraphAlignment.Center;
+            // Add "paragraf7" in footer-ul paginilor impare
+            section1.Footers.Primary.Add(paragraf7);
+            // Cloanam "paragraf7" in footer-ul paginilor pare (clonam deoarece o sa ne dea eroare daca-l punem pe acelasi)
+            section1.Footers.EvenPage.Add(paragraf7.Clone());
+
+
+            PdfDocumentRenderer pdfRenderer = new PdfDocumentRenderer(true);
+            pdfRenderer.Document = documentPDF;
             pdfRenderer.RenderDocument();
 
             string NumeFisierPDF = string.Empty;
@@ -201,14 +224,37 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
             if (dlgPDFSalvat.ShowDialog() == DialogResult.OK)
             {
+                // Atribuim numele standard
                 NumeFisierPDF = dlgPDFSalvat.FileName;
+
+                // Salvam fisierul PDF
+                pdfRenderer.PdfDocument.Save(NumeFisierPDF);
+
+                // Deschidem fisierul dupa ce l-am salvat
+                Process.Start(NumeFisierPDF);
+
+                // Actualizam campurile exportate in BD
+                MetodaUpdateBD();
             }
-            pdfRenderer.PdfDocument.Save(NumeFisierPDF);
-            Process.Start(NumeFisierPDF);
+            else
+            {
+                // Inchidem formularul curent
+                this.Close();
+            }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
 
+
+
+
+
+        /* ------------------- Actualizarea campurilor in BD ---------------------------------------- */
+        private void MetodaUpdateBD()
+        {
+            // nu fa nimica deocamdata
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
 
 
 

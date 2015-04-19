@@ -546,12 +546,12 @@
             this.cmbGradDidactic.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbGradDidactic.FormattingEnabled = true;
             this.cmbGradDidactic.Items.AddRange(new object[] {
-            "Student",
-            "Asistent",
-            "Prof. Dr.",
-            "Lect. Univ.",
-            "Decan",
-            "Prodecan"});
+            "student",
+            "asistent",
+            "prof. Dr.",
+            "lect. Univ.",
+            "decan",
+            "prodecan"});
             this.cmbGradDidactic.Location = new System.Drawing.Point(372, 19);
             this.cmbGradDidactic.Name = "cmbGradDidactic";
             this.cmbGradDidactic.Size = new System.Drawing.Size(84, 21);

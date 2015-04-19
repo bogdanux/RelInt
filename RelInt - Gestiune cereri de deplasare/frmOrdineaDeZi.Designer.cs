@@ -45,7 +45,7 @@
             this.btnGenerarePDF});
             this.mnuODZ.Location = new System.Drawing.Point(0, 0);
             this.mnuODZ.Name = "mnuODZ";
-            this.mnuODZ.Size = new System.Drawing.Size(884, 24);
+            this.mnuODZ.Size = new System.Drawing.Size(1184, 24);
             this.mnuODZ.TabIndex = 0;
             this.mnuODZ.Text = "menuStrip1";
             // 
@@ -70,16 +70,17 @@
             this.dgvObiecteOrdineZi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvObiecteOrdineZi.Location = new System.Drawing.Point(13, 40);
             this.dgvObiecteOrdineZi.Name = "dgvObiecteOrdineZi";
-            this.dgvObiecteOrdineZi.Size = new System.Drawing.Size(859, 358);
+            this.dgvObiecteOrdineZi.Size = new System.Drawing.Size(1159, 358);
             this.dgvObiecteOrdineZi.TabIndex = 2;
             // 
             // frmOrdineaDeZi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(884, 411);
+            this.ClientSize = new System.Drawing.Size(1184, 411);
             this.Controls.Add(this.dgvObiecteOrdineZi);
             this.Controls.Add(this.mnuODZ);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.mnuODZ;
             this.Name = "frmOrdineaDeZi";
