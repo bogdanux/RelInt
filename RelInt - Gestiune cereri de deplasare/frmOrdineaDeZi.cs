@@ -113,18 +113,21 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             section.PageSetup.TopMargin = 20;
             section.PageSetup.BottomMargin = 15;
 
+            // Paragraf 1
             Paragraph paragraf1 = section.AddParagraph();
             paragraf1.Format.Alignment = ParagraphAlignment.Right;
             paragraf1.Format.Font.Size = 8;
             paragraf1.Format.Font.Name = "Times New Roman";
             paragraf1.AddText("Sedinta Biroului Executiv al Consiliului de Administratie din data de " + DateTime.Today.ToString().Substring(0, DateTime.Today.ToString().IndexOf("00:")));
 
+            // Paragraf 2
             Paragraph paragraf2 = section.AddParagraph();
             paragraf2.Format.Alignment = ParagraphAlignment.Left;
             paragraf2.Format.Font.Size = 12;
             paragraf2.Format.Font.Name = "Times New Roman";
             paragraf2.AddText("UNIVERSITATEA \"Alexandru Ioan Cuza\" Iasi");
 
+            // Paragraf 3
             Paragraph paragraf3 = section.AddParagraph();
             paragraf3.Format.Alignment = ParagraphAlignment.Center;
             paragraf3.Format.Font.Size = 14;
@@ -133,6 +136,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             paragraf3.Format.SpaceBefore = "1.5cm";
             paragraf3.AddText("BIROUL EXECUTIV AL CONSILIULUI DE ADMINISTRATIE");
 
+            // Paragraf 4
             Paragraph paragraf4 = section.AddParagraph();
             paragraf4.Format.Alignment = ParagraphAlignment.Center;
             paragraf4.Format.Font.Size = 11;
@@ -141,6 +145,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             paragraf4.Format.SpaceBefore = "0.5cm";
             paragraf4.AddText("Sectiunea Relatii Internationale (RI)");
 
+            // Paragraf 5
             Paragraph paragraf5 = section.AddParagraph();
             paragraf5.Format.Alignment = ParagraphAlignment.Center;
             paragraf5.Format.Font.Size = 11;
