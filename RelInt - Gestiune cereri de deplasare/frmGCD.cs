@@ -258,7 +258,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
-
+        
 
 
 
@@ -268,7 +268,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
         /* -------------------- MetodaScriereInStatus -------------------------------------------------------------------- */
-        private void MetodaScriereInStatus()
+        public void MetodaScriereInStatus()
         {
             using (OdbcConnection conexiune_lblUCI = new OdbcConnection(sircon_RelIntDB))
             {           // Comanda
@@ -282,7 +282,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     {
                         conexiune_lblUCI.Open();
                         OdbcDataReader reader_lblUCI = comanda_lblUCI.ExecuteReader();
-
 
                         while (reader_lblUCI.Read())
                         {
@@ -309,10 +308,14 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
+
+
+
+
         /* ------------------- Eveniment de tip Click pentru update al Statusului ---------------------------------------- */
-        private void frmGCD_Activated(object sender, EventArgs e)
+        public void frmGCD_Activated(object sender, EventArgs e)
         {
-            MetodaScriereInStatus();
+            //MetodaScriereInStatus();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
        }

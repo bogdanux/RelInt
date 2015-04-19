@@ -499,6 +499,10 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                                 // Activeaza panoul 5
                                 ActivarePanouORCDP();
 
+                                // Actualizam statusul de pe frmGCD
+                                frmGCD frmGCD = new frmGCD();
+                                frmGCD.MetodaScriereInStatus();
+
                                 // Daca panoul "panouORCDP" este activ si "chkORCDP" nebifat
                                 if (panouORCDP.Enabled == true && PanouriDezactivate == true && chkORCDP.Checked == false)
                                 {

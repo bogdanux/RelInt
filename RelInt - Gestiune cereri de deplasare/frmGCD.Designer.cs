@@ -214,13 +214,13 @@
         private System.Windows.Forms.ToolStripMenuItem btnGCDIesire;
         private System.Windows.Forms.ToolStripMenuItem btnGCDCautareCerere;
         private System.Windows.Forms.StatusStrip StatusGCD;
-        private System.Windows.Forms.ToolStripStatusLabel tsStatusUltimaInregistrare;
         private System.Windows.Forms.ToolStripMenuItem mnuOperatiuniEvidentaActivitate;
         private System.Windows.Forms.ToolStripMenuItem btnGCDOrdineaDeZi;
         private System.Windows.Forms.ToolStripMenuItem mnuAjutor;
         private System.Windows.Forms.ToolStripMenuItem btnGCDDespreApp;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem btnGCDRealizatori;
+        public System.Windows.Forms.ToolStripStatusLabel tsStatusUltimaInregistrare;
     }
 }
 
