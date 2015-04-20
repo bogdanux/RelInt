@@ -85,6 +85,7 @@
             this.MainMenuStrip = this.mnuODZ;
             this.Name = "frmOrdineaDeZi";
             this.Text = "frmOrdineaDeZi";
+            this.Activated += new System.EventHandler(this.frmOrdineaDeZi_Activated);
             this.mnuODZ.ResumeLayout(false);
             this.mnuODZ.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvObiecteOrdineZi)).EndInit();

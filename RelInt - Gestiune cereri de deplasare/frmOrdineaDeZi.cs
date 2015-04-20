@@ -39,14 +39,32 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                         da_dgvAfisare.SelectCommand = comanda_dgvAfisare;
 
                         dt_dgvAfisare = new DataTable();
-                        da_dgvAfisare.Fill(dt_dgvAfisare);
-
+                        
                         BindingSource bs_dgvAfisare = new BindingSource();
                         bs_dgvAfisare.DataSource = dt_dgvAfisare;
 
                         dgvObiecteOrdineZi.DataSource = bs_dgvAfisare;
 
+
+                        da_dgvAfisare.Fill(dt_dgvAfisare);
                         da_dgvAfisare.Update(dt_dgvAfisare);
+
+                            if (dt_dgvAfisare.Rows.Count > 0)
+                            {
+                                // Activam "dgvObiecteOrdineZi"
+                                dgvObiecteOrdineZi.Enabled = true;
+
+                                // Activam "btnGenerarePDF"
+                                btnGenerarePDF.Enabled = true;
+                            }
+                                else
+                                {
+                                    // Dezactivam "dgvObiecteOrdineZi"
+                                    dgvObiecteOrdineZi.Enabled = false;
+
+                                    // Dezactivam "btnGenerarePDF"
+                                    btnGenerarePDF.Enabled = false;
+                                }
                     }
                     catch (Exception exdgvAfisare)
                     {
@@ -64,6 +82,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         /* --------------------------------------------------------------------------------------------------------------- */
 
 
+        
 
 
 
@@ -251,7 +270,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 Process.Start(NumeFisierPDF);
 
                 // Actualizam campurile exportate in BD
-                // MetodaUpdateBD();
+                MetodaUpdateBD();
             }
             else
             {
@@ -267,11 +286,55 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
-        /* ------------------- Actualizarea campurilor in BD ---------------------------------------- */
+        /* ------------------- Actualizarea campurilor in BD ------------------------------------------------------------- */
         private void MetodaUpdateBD()
         {
-            // nu fa nimica deocamdata
-        }
+            using (OdbcConnection conexiune_InserareCerereRelInt = new OdbcConnection(sircon_RelIntDB))
+            {           // Comanda
+                using (OdbcCommand comanda_inserareRelInt = new OdbcCommand())
+                {
+                    comanda_inserareRelInt.Connection = conexiune_InserareCerereRelInt;
+                    comanda_inserareRelInt.CommandType = CommandType.Text;
+                    comanda_inserareRelInt.CommandText = "UPDATE cereri SET tiozc = ? WHERE tiozc = ?";
+                    comanda_inserareRelInt.Parameters.AddWithValue("@tiozc", OdbcType.Bit).Value = true;
+                    comanda_inserareRelInt.Parameters.AddWithValue("@tiozc", OdbcType.Bit).Value = false;
+
+
+
+                    // Incercam conexiunea si query-ul
+                    try
+                    {
+                        conexiune_InserareCerereRelInt.Open();
+                        int recordsAffected = comanda_inserareRelInt.ExecuteNonQuery();
+                    } // Captam eventualele erori
+                    catch (OdbcException exInserare)
+                    {
+                        // Afisam eroarea driverului Odbc
+                        MessageBox.Show(exInserare.Message);
+                    } // Ne deconectam
+                    finally
+                    {
+                        conexiune_InserareCerereRelInt.Close();
+                    }
+                }
+            }
+        }     
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+        /* --------------------------------------------------------------------------------------------------------------- */
+        private void frmOrdineaDeZi_Activated(object sender, EventArgs e)
+        {
+            if (dgvObiecteOrdineZi.Enabled == false) {
+                // Afisam un mesaj informativ
+                MessageBox.Show("   Nu există înregistrări ce pot fi exportate către PDF. \n        Vă rugăm accesați această fereastră ulterior.", "Informație", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }   
         /* --------------------------------------------------------------------------------------------------------------- */
 
 
