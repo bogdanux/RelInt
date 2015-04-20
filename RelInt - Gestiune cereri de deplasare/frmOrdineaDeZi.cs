@@ -13,6 +13,10 @@ using MigraDoc.Rendering;
 using MigraDoc;
 using MigraDoc.DocumentObjectModel;
 using MigraDoc.Rendering.Forms;
+using PdfSharp;
+using PdfSharp.Drawing;
+using PdfSharp.Pdf;
+using PdfSharp.Pdf.IO;
 
 namespace RelInt___Gestiune_cereri_de_deplasare
 {
@@ -161,53 +165,70 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             paragraf5.Format.SpaceBefore = "0.3cm";
             paragraf5.AddText("din data de " + DateTime.Today.ToString().Substring(0, DateTime.Today.ToString().IndexOf("00:")));
 
-            string formularCerere = string.Empty;
             int numaratoare = 0;
-            
 
-            for(int i=0; i<dt_dgvAfisare.Rows.Count; i++)
-            {
-                string dataInceput = dt_dgvAfisare.Rows[i].ItemArray[10].ToString().Substring(0, dt_dgvAfisare.Rows[i].ItemArray[10].ToString().IndexOf("00:"));
-                dataInceput = dataInceput.Substring(0, dataInceput.IndexOf(" "));
+                for(int i=0; i<dt_dgvAfisare.Rows.Count; i++)
+                {
+                    string TextParagraf1 = string.Empty;
+                    string TextParagraf2 = string.Empty;
 
-                string dataSfarsit = dt_dgvAfisare.Rows[i].ItemArray[11].ToString().Substring(0, dt_dgvAfisare.Rows[i].ItemArray[11].ToString().IndexOf("00:"));
-                dataSfarsit = dataSfarsit.Substring(0, dataSfarsit.IndexOf(" "));
+                    string dataInceput = dt_dgvAfisare.Rows[i].ItemArray[10].ToString().Substring(0, dt_dgvAfisare.Rows[i].ItemArray[10].ToString().IndexOf("00:"));
+                    dataInceput = dataInceput.Substring(0, dataInceput.IndexOf(" "));
 
-                numaratoare++;
+                    string dataSfarsit = dt_dgvAfisare.Rows[i].ItemArray[11].ToString().Substring(0, dt_dgvAfisare.Rows[i].ItemArray[11].ToString().IndexOf("00:"));
+                    dataSfarsit = dataSfarsit.Substring(0, dataSfarsit.IndexOf(" "));
 
-                formularCerere += numaratoare.ToString() + ". Cererea d-lui/d-nei " + dt_dgvAfisare.Rows[i].ItemArray[2] + " " + 
-                    dt_dgvAfisare.Rows[i].ItemArray[3] + " la " + dt_dgvAfisare.Rows[i].ItemArray[4] + 
-                    ", prin care se solicită aprobare pentru a participa la " + dt_dgvAfisare.Rows[i].ItemArray[8] + 
-                    " organizată de " + dt_dgvAfisare.Rows[i].ItemArray[9] + ", " + dt_dgvAfisare.Rows[i].ItemArray[7] +
-                    ", între " + dataInceput + " și " + dataSfarsit +
-                    ". Cheltuielile de transport și de sejur sunt suportate de la: " + dt_dgvAfisare.Rows[i].ItemArray[14] +
-                    " și din veniturile proprii ale " + dt_dgvAfisare.Rows[i].ItemArray[15] + Environment.NewLine + Environment.NewLine + "Rezoluție: "
-                    + Environment.NewLine + Environment.NewLine + Environment.NewLine + Environment.NewLine + "Transmis la: "
-                    + Environment.NewLine + Environment.NewLine + Environment.NewLine;
-            }
+                    numaratoare++;
 
-            // Paragraf 6
-            Paragraph paragraf6 = section1.AddParagraph();
-            paragraf6.Format.Alignment = ParagraphAlignment.Justify;
-            paragraf6.Format.Font.Size = 12;
-            paragraf6.Format.Font.Name = "Times New Roman";
-            paragraf6.Format.SpaceBefore = "0.7cm";
-            //paragraf6.Format.Borders.Bottom.Visible = true;
-            //paragraf6.Format.Borders.Bottom.Width = 0.1;
+                    TextParagraf1 = numaratoare.ToString() + ". Cererea d-lui/d-nei " + dt_dgvAfisare.Rows[i].ItemArray[2] + " " + 
+                        dt_dgvAfisare.Rows[i].ItemArray[3] + " la " + dt_dgvAfisare.Rows[i].ItemArray[4] + 
+                        ", prin care se solicită aprobare pentru a participa la " + dt_dgvAfisare.Rows[i].ItemArray[8] + 
+                        " organizată de " + dt_dgvAfisare.Rows[i].ItemArray[9] + ", " + dt_dgvAfisare.Rows[i].ItemArray[7] +
+                        ", între " + dataInceput + " și " + dataSfarsit +
+                        ". Cheltuielile de transport și de sejur sunt suportate de la: " + dt_dgvAfisare.Rows[i].ItemArray[14] +
+                        " și din veniturile proprii ale " + dt_dgvAfisare.Rows[i].ItemArray[15] + Environment.NewLine + Environment.NewLine;
 
-            paragraf6.AddText(formularCerere);
+                    Paragraph paragraf6 = section1.AddParagraph();
+                    paragraf6.Format.Alignment = ParagraphAlignment.Justify;
+                    paragraf6.Format.Font.Size = 12;
+                    paragraf6.Format.Font.Name = "Times New Roman";
+                    paragraf6.Format.SpaceBefore = "0.7cm";
+                    paragraf6.Format.Borders.Bottom.Visible = true;
+                    paragraf6.Format.Borders.Bottom.Width = 0.1;
+                    paragraf6.AddText(TextParagraf1);
+
+                    TextParagraf2 = "    Rezoluție: "
+                        + Environment.NewLine + Environment.NewLine + Environment.NewLine + Environment.NewLine + "    Transmis la: "
+                        + Environment.NewLine + Environment.NewLine + Environment.NewLine;
+
+                    Paragraph paragraf7 = section1.AddParagraph();
+                    paragraf7.Format.Alignment = ParagraphAlignment.Left;
+                    paragraf7.Format.Font.Size = 12;
+                    paragraf7.Format.Font.Name = "Times New Roman";
+                    paragraf7.Format.Borders.Top.Visible = true;
+                    paragraf7.Format.Borders.Top.Width = 0.1;
+                    paragraf7.Format.Borders.Bottom.Visible = true;
+                    paragraf7.Format.Borders.Bottom.Width = 0.1;
+                    paragraf7.Format.Borders.Left.Visible = true;
+                    paragraf7.Format.Borders.Left.Width = 0.1;
+                    paragraf7.Format.Borders.Right.Visible = true;
+                    paragraf7.Format.Borders.Right.Width = 0.1;
+                    paragraf7.AddText(TextParagraf2);
+
+
+                }
 
             // Cream un paragraf pentru numerotarea paginilor
-            Paragraph paragraf7 = new Paragraph();
-            paragraf7.AddTab();
-            paragraf7.AddPageField();
-            paragraf7.Format.Font.Size = 9;
-            paragraf7.Format.Font.Name = "Times New Roman";
-            paragraf7.Format.Alignment = ParagraphAlignment.Center;
+            Paragraph paragraf8 = new Paragraph();
+            paragraf8.AddTab();
+            paragraf8.AddPageField();
+            paragraf8.Format.Font.Size = 9;
+            paragraf8.Format.Font.Name = "Times New Roman";
+            paragraf8.Format.Alignment = ParagraphAlignment.Center;
             // Add "paragraf7" in footer-ul paginilor impare
-            section1.Footers.Primary.Add(paragraf7);
+            section1.Footers.Primary.Add(paragraf8);
             // Cloanam "paragraf7" in footer-ul paginilor pare (clonam deoarece o sa ne dea eroare daca-l punem pe acelasi)
-            section1.Footers.EvenPage.Add(paragraf7.Clone());
+            section1.Footers.EvenPage.Add(paragraf8.Clone());
 
 
             PdfDocumentRenderer pdfRenderer = new PdfDocumentRenderer(true);
@@ -234,7 +255,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 Process.Start(NumeFisierPDF);
 
                 // Actualizam campurile exportate in BD
-                MetodaUpdateBD();
+                // MetodaUpdateBD();
             }
             else
             {
