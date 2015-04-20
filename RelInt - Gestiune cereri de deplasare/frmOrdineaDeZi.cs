@@ -13,10 +13,6 @@ using MigraDoc.Rendering;
 using MigraDoc;
 using MigraDoc.DocumentObjectModel;
 using MigraDoc.Rendering.Forms;
-using PdfSharp;
-using PdfSharp.Drawing;
-using PdfSharp.Pdf;
-using PdfSharp.Pdf.IO;
 
 namespace RelInt___Gestiune_cereri_de_deplasare
 {
