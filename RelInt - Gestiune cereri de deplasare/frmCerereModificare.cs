@@ -86,19 +86,35 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             {
                 // In caza ca bool "PregatireFormular" este
                 case true:
-                panouIdentificareCerere.Enabled = true;
-                panouContinut.Enabled = false;
-                panouCheltuieliPlecare.Enabled = false;
-                panouMentiuniLegale.Enabled = false;
-                break;
+                    panouIdentificareCerere.Enabled = true;
+                    panouContinut.Enabled = false;
+                    panouCheltuieliPlecare.Enabled = false;
+                    panouMentiuniLegale.Enabled = false;
+                    dpDataFormular.Enabled = false;
+                    lblDataFormular.Enabled = false;
+                    break;
 
                 // In caza ca bool "PregatireFormular" este
                 case false:
-                panouIdentificareCerere.Enabled = true;
-                panouContinut.Enabled = true;
-                panouCheltuieliPlecare.Enabled = true;
-                panouMentiuniLegale.Enabled = true;
-                break;
+                    panouIdentificareCerere.Enabled = true;
+                    panouContinut.Enabled = true;
+                    panouCheltuieliPlecare.Enabled = true;
+                    panouMentiuniLegale.Enabled = true;
+                    dpDataFormular.Enabled = true;
+                    lblDataFormular.Enabled = true;
+                    break;
+            }
+
+            switch (txtNrInregistrare.Text == string.Empty)
+            {
+                case true:
+                    panouIdentificareCerere.Enabled = true;
+                    panouContinut.Enabled = false;
+                    panouCheltuieliPlecare.Enabled = false;
+                    panouMentiuniLegale.Enabled = false;
+                    dpDataFormular.Enabled = false;
+                    lblDataFormular.Enabled = false;
+                    break;
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
@@ -212,10 +228,14 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     // Golim casuta si afisam mesaj de eroare
                     txtNrInregistrare.Clear();
                     MessageBox.Show("        Vă rugăm introduceți doar numere în această casetă de text.");
+
+                    // Rearanjam formularul
                     PregatireFormular = true;
                     MetodaPregatireFormular();
                     break;
+
                 case true:
+                    // Rearanjam formularul
                     PregatireFormular = false;
                     MetodaPregatireFormular();
                     break;
@@ -1582,6 +1602,28 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         /* --------------------------------------------------------------------------------------------------------------- */
 
 
+
+
+
+
+        /* ---------------------- Eveniment de tip click pentru butonul btnModifica -------------------------------------- */
+        private void btnModifica_Click(object sender, EventArgs e)
+        {
+            // Dezactivam urmatoarele
+            switch (txtNrInregistrare.Enabled) 
+            {
+                case true:
+                txtNrInregistrare.Enabled = false;
+                lblNrInregistrare.Enabled = false;
+                break;
+
+                case false:
+                txtNrInregistrare.Enabled = false;
+                lblNrInregistrare.Enabled = false;
+                break;
+            }            
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
 
 
 

@@ -147,6 +147,7 @@
             this.lblEnuntObligPlata2 = new System.Windows.Forms.Label();
             this.lblEnuntObligDidactice1 = new System.Windows.Forms.Label();
             this.lblEnuntObligDidactice2 = new System.Windows.Forms.Label();
+            this.btnModifica = new System.Windows.Forms.Button();
             this.mnuCI.SuspendLayout();
             this.panouIdentificareCerere.SuspendLayout();
             this.panouContinut.SuspendLayout();
@@ -170,7 +171,7 @@
             this.btnCIFormular});
             this.mnuCI.Location = new System.Drawing.Point(0, 0);
             this.mnuCI.Name = "mnuCI";
-            this.mnuCI.Size = new System.Drawing.Size(699, 30);
+            this.mnuCI.Size = new System.Drawing.Size(682, 30);
             this.mnuCI.TabIndex = 0;
             this.mnuCI.Text = "mnuCI";
             // 
@@ -231,7 +232,7 @@
             // 
             this.lblDataFormular.AutoSize = true;
             this.lblDataFormular.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDataFormular.Location = new System.Drawing.Point(290, 26);
+            this.lblDataFormular.Location = new System.Drawing.Point(373, 26);
             this.lblDataFormular.Name = "lblDataFormular";
             this.lblDataFormular.Size = new System.Drawing.Size(33, 15);
             this.lblDataFormular.TabIndex = 3;
@@ -241,7 +242,7 @@
             // 
             this.dpDataFormular.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dpDataFormular.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpDataFormular.Location = new System.Drawing.Point(329, 24);
+            this.dpDataFormular.Location = new System.Drawing.Point(412, 24);
             this.dpDataFormular.MaxDate = new System.DateTime(2040, 12, 31, 0, 0, 0, 0);
             this.dpDataFormular.MinDate = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
             this.dpDataFormular.Name = "dpDataFormular";
@@ -251,6 +252,7 @@
             // panouIdentificareCerere
             // 
             this.panouIdentificareCerere.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panouIdentificareCerere.Controls.Add(this.btnModifica);
             this.panouIdentificareCerere.Controls.Add(this.panouVizaControlFinanciar);
             this.panouIdentificareCerere.Controls.Add(this.lblIdentficareFormular);
             this.panouIdentificareCerere.Controls.Add(this.lblNrInregistrare);
@@ -265,9 +267,9 @@
             // panouVizaControlFinanciar
             // 
             this.panouVizaControlFinanciar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panouVizaControlFinanciar.Location = new System.Drawing.Point(461, -1);
+            this.panouVizaControlFinanciar.Location = new System.Drawing.Point(523, -1);
             this.panouVizaControlFinanciar.Name = "panouVizaControlFinanciar";
-            this.panouVizaControlFinanciar.Size = new System.Drawing.Size(181, 56);
+            this.panouVizaControlFinanciar.Size = new System.Drawing.Size(119, 56);
             this.panouVizaControlFinanciar.TabIndex = 6;
             // 
             // lblIdentficareFormular
@@ -1389,12 +1391,23 @@
             this.lblEnuntObligDidactice2.TabIndex = 14;
             this.lblEnuntObligDidactice2.Text = "În cazul în care orele se recupereaza, precizați care este programul";
             // 
+            // btnModifica
+            // 
+            this.btnModifica.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModifica.Location = new System.Drawing.Point(289, 23);
+            this.btnModifica.Name = "btnModifica";
+            this.btnModifica.Size = new System.Drawing.Size(75, 23);
+            this.btnModifica.TabIndex = 7;
+            this.btnModifica.Text = "Modifcă";
+            this.btnModifica.UseVisualStyleBackColor = true;
+            this.btnModifica.Click += new System.EventHandler(this.btnModifica_Click);
+            // 
             // frmCerereModificare
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(716, 661);
+            this.ClientSize = new System.Drawing.Size(699, 661);
             this.Controls.Add(this.lblEnuntObligDidactice2);
             this.Controls.Add(this.lblEnuntObligDidactice1);
             this.Controls.Add(this.lblEnuntObligPlata2);
@@ -1560,6 +1573,7 @@
         private System.Windows.Forms.TextBox txtORNrCrt;
         private System.Windows.Forms.Label lblTaxaDeViza2;
         private System.Windows.Forms.ComboBox cmbMoneda3;
+        private System.Windows.Forms.Button btnModifica;
 
     }
 }
