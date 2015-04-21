@@ -70,6 +70,9 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
             // Pregatim formularul
             MetodaPregatireFormular();
+
+            // Dezactivam butonul "btnModifica"
+            btnModifica.Enabled = false;
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
@@ -86,22 +89,20 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             {
                 // In caza ca bool "PregatireFormular" este
                 case true:
-                    panouIdentificareCerere.Enabled = true;
                     panouContinut.Enabled = false;
                     panouCheltuieliPlecare.Enabled = false;
                     panouMentiuniLegale.Enabled = false;
-                    dpDataFormular.Enabled = false;
                     lblDataFormular.Enabled = false;
+                    dpDataFormular.Enabled = false;
                     break;
 
                 // In caza ca bool "PregatireFormular" este
                 case false:
-                    panouIdentificareCerere.Enabled = true;
                     panouContinut.Enabled = true;
                     panouCheltuieliPlecare.Enabled = true;
                     panouMentiuniLegale.Enabled = true;
-                    dpDataFormular.Enabled = true;
                     lblDataFormular.Enabled = true;
+                    dpDataFormular.Enabled = true;
                     break;
             }
 
@@ -114,6 +115,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     panouMentiuniLegale.Enabled = false;
                     dpDataFormular.Enabled = false;
                     lblDataFormular.Enabled = false;
+                    btnModifica.Enabled = false;
                     break;
             }
         }
@@ -229,15 +231,27 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     txtNrInregistrare.Clear();
                     MessageBox.Show("        Vă rugăm introduceți doar numere în această casetă de text.");
 
-                    // Rearanjam formularul
-                    PregatireFormular = true;
-                    MetodaPregatireFormular();
+                    //// Rearanjam formularul
+                    //PregatireFormular = true;
+                    //MetodaPregatireFormular();
+
+                    btnModifica.Enabled = false;
                     break;
 
                 case true:
-                    // Rearanjam formularul
-                    PregatireFormular = false;
-                    MetodaPregatireFormular();
+
+                    //// Rearanjam formularul
+                    //PregatireFormular = false;
+                    //MetodaPregatireFormular();
+
+                    btnModifica.Enabled = true;
+
+                    switch (vartxtNrInregistrare == 0)
+                    {
+                        case true:
+                            btnModifica.Enabled = false;
+                            return;
+                    }
                     break;
             }
 
@@ -1613,15 +1627,12 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             switch (txtNrInregistrare.Enabled) 
             {
                 case true:
-                txtNrInregistrare.Enabled = false;
-                lblNrInregistrare.Enabled = false;
-                break;
-
-                case false:
-                txtNrInregistrare.Enabled = false;
-                lblNrInregistrare.Enabled = false;
-                break;
-            }            
+                    txtNrInregistrare.Enabled = false;
+                    lblNrInregistrare.Enabled = false;
+                    PregatireFormular = false;
+                    MetodaPregatireFormular();
+                    break;
+            }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
