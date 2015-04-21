@@ -1706,6 +1706,93 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
+        /* ------------- Eveniment la apasarea unei taste de pe tastatura ------------------------------------------------ */
+        private void frmCerereModificare_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (txtNrInregistrare.Text != string.Empty && e.KeyCode == Keys.Enter)
+            {
+                // Aranjam Formularul
+                switch (txtNrInregistrare.Enabled)
+                {
+                    case true:
+                        txtNrInregistrare.Enabled = false;
+                        lblNrInregistrare.Enabled = false;
+                        PregatireFormular = false;
+                        MetodaPregatireFormular();
+                        break;
+                }
+
+                // Populam campurile cu date din BD
+                using (OdbcConnection conexiune_populareDinBD = new OdbcConnection(sircon_RelIntDB))
+                {           // Comanda
+                    using (OdbcCommand comanda_populareDinBD = new OdbcCommand())
+                    {
+                        comanda_populareDinBD.Connection = conexiune_populareDinBD;
+                        comanda_populareDinBD.CommandType = CommandType.Text;
+                        comanda_populareDinBD.CommandText = "SELECT * FROM cereri WHERE nrinregistrarec = ?";
+                        comanda_populareDinBD.Parameters.AddWithValue("@nrinregistrarec", OdbcType.Int).Value = vartxtNrInregistrare;
+
+
+                        try
+                        {
+                            conexiune_populareDinBD.Open();
+
+                            OdbcDataReader cititor_populareDinBD = comanda_populareDinBD.ExecuteReader();
+
+                            while (cititor_populareDinBD.Read())
+                            {
+                                dpDataFormular.Value = cititor_populareDinBD.GetDateTime(1);
+                                txtSubsemnatul.Text = cititor_populareDinBD.GetString(2);
+                                cmbGradDidactic.SelectedIndex = cititor_populareDinBD.GetInt32(3);
+                                cmbFacultatea.SelectedIndex = cititor_populareDinBD.GetInt32(4);
+                                txtDepartament.Text = cititor_populareDinBD.GetString(5);
+                                txtLocalitatea.Text = cititor_populareDinBD.GetString(6);
+                                txtTara.Text = cititor_populareDinBD.GetString(7);
+                                txtScop.Text = cititor_populareDinBD.GetString(8);
+                                txtInstitutia.Text = cititor_populareDinBD.GetString(9);
+                                dpDataInceput.Value = cititor_populareDinBD.GetDateTime(10);
+                                dpDataSfarsit.Value = cititor_populareDinBD.GetDateTime(11);
+                                txtRuta.Text = cititor_populareDinBD.GetString(12);
+                                txtMijTrans.Text = cititor_populareDinBD.GetString(13);
+                                txtSuportatDe.Text = cititor_populareDinBD.GetString(14);
+                                txtCheltuieliSuportate.Text = cititor_populareDinBD.GetString(15);
+                                txtDiurna.Text = cititor_populareDinBD.GetString(16);
+                                txtCazare.Text = cititor_populareDinBD.GetString(17);
+                                txtTaxaDeParticipare.Text = cititor_populareDinBD.GetString(18);
+                                txtTaxaDeViza.Text = cititor_populareDinBD.GetString(19);
+                                txtTotalDePlata.Text = cititor_populareDinBD.GetString(20);
+                                txtAmbasada.Text = cititor_populareDinBD.GetString(21);
+                                rdoPerNedeterminata.Checked = cititor_populareDinBD.GetBoolean(22);
+                                rdoPerDeterminata.Checked = cititor_populareDinBD.GetBoolean(23);
+                                txtDecan.Text = cititor_populareDinBD.GetString(24);
+                                txtVizaConta.Text = cititor_populareDinBD.GetString(25);
+                                txtAdministratorSef.Text = cititor_populareDinBD.GetString(26);
+                                txtSefDepartament.Text = cititor_populareDinBD.GetString(27);
+                                txtVizaRU.Text = cititor_populareDinBD.GetString(28);
+                            }
+
+                            cititor_populareDinBD.Close();
+                        }
+                        catch (Exception expopulareDinBD)
+                        {
+                            MessageBox.Show(expopulareDinBD.Message);
+                        } // Ne deconectam
+                        finally
+                        {
+                            conexiune_populareDinBD.Close();
+                        }
+                    }
+                }
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
         
     }
 }

@@ -92,6 +92,14 @@
             this.lblCheltuieliPlecare = new System.Windows.Forms.Label();
             this.panouMentiuniLegale = new System.Windows.Forms.Panel();
             this.panouSemnatari = new System.Windows.Forms.Panel();
+            this.txtVizaRU = new System.Windows.Forms.TextBox();
+            this.lblAdministratorSef = new System.Windows.Forms.Label();
+            this.lblSefBirouDeptServ = new System.Windows.Forms.Label();
+            this.lblServRU = new System.Windows.Forms.Label();
+            this.txtSefDepartament = new System.Windows.Forms.TextBox();
+            this.txtVizaConta = new System.Windows.Forms.TextBox();
+            this.lblSefDepartament = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.lblVizaConta = new System.Windows.Forms.Label();
             this.txtDecan = new System.Windows.Forms.TextBox();
             this.txtAdministratorSef = new System.Windows.Forms.TextBox();
@@ -138,14 +146,6 @@
             this.lblEnuntObligPlata2 = new System.Windows.Forms.Label();
             this.lblEnuntObligDidactice1 = new System.Windows.Forms.Label();
             this.lblEnuntObligDidactice2 = new System.Windows.Forms.Label();
-            this.lblServRU = new System.Windows.Forms.Label();
-            this.txtSefDepartament = new System.Windows.Forms.TextBox();
-            this.txtVizaConta = new System.Windows.Forms.TextBox();
-            this.lblSefDepartament = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtVizaRU = new System.Windows.Forms.TextBox();
-            this.lblAdministratorSef = new System.Windows.Forms.Label();
-            this.lblSefBirouDeptServ = new System.Windows.Forms.Label();
             this.mnuCI.SuspendLayout();
             this.panouIdentificareCerere.SuspendLayout();
             this.panouContinut.SuspendLayout();
@@ -267,7 +267,7 @@
             this.btnModifica.Name = "btnModifica";
             this.btnModifica.Size = new System.Drawing.Size(75, 23);
             this.btnModifica.TabIndex = 7;
-            this.btnModifica.Text = "Modifcă";
+            this.btnModifica.Text = "Modifică";
             this.btnModifica.UseVisualStyleBackColor = true;
             this.btnModifica.Click += new System.EventHandler(this.btnModifica_Click);
             // 
@@ -846,6 +846,75 @@
             this.panouSemnatari.Size = new System.Drawing.Size(588, 131);
             this.panouSemnatari.TabIndex = 15;
             // 
+            // txtVizaRU
+            // 
+            this.txtVizaRU.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtVizaRU.Location = new System.Drawing.Point(409, 98);
+            this.txtVizaRU.Name = "txtVizaRU";
+            this.txtVizaRU.Size = new System.Drawing.Size(154, 20);
+            this.txtVizaRU.TabIndex = 20;
+            // 
+            // lblAdministratorSef
+            // 
+            this.lblAdministratorSef.AutoSize = true;
+            this.lblAdministratorSef.Location = new System.Drawing.Point(216, 10);
+            this.lblAdministratorSef.Name = "lblAdministratorSef";
+            this.lblAdministratorSef.Size = new System.Drawing.Size(86, 13);
+            this.lblAdministratorSef.TabIndex = 18;
+            this.lblAdministratorSef.Text = "Administrator Sef";
+            // 
+            // lblSefBirouDeptServ
+            // 
+            this.lblSefBirouDeptServ.AutoSize = true;
+            this.lblSefBirouDeptServ.Location = new System.Drawing.Point(216, 29);
+            this.lblSefBirouDeptServ.Name = "lblSefBirouDeptServ";
+            this.lblSefBirouDeptServ.Size = new System.Drawing.Size(136, 13);
+            this.lblSefBirouDeptServ.TabIndex = 19;
+            this.lblSefBirouDeptServ.Text = "Sef Birou / Dept. / Serviciu";
+            // 
+            // lblServRU
+            // 
+            this.lblServRU.AutoSize = true;
+            this.lblServRU.Location = new System.Drawing.Point(405, 80);
+            this.lblServRU.Name = "lblServRU";
+            this.lblServRU.Size = new System.Drawing.Size(89, 13);
+            this.lblServRU.TabIndex = 17;
+            this.lblServRU.Text = "Viza Serviciul RU";
+            // 
+            // txtSefDepartament
+            // 
+            this.txtSefDepartament.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSefDepartament.Location = new System.Drawing.Point(409, 48);
+            this.txtSefDepartament.Name = "txtSefDepartament";
+            this.txtSefDepartament.Size = new System.Drawing.Size(154, 20);
+            this.txtSefDepartament.TabIndex = 15;
+            // 
+            // txtVizaConta
+            // 
+            this.txtVizaConta.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtVizaConta.Location = new System.Drawing.Point(9, 98);
+            this.txtVizaConta.Name = "txtVizaConta";
+            this.txtVizaConta.Size = new System.Drawing.Size(154, 20);
+            this.txtVizaConta.TabIndex = 16;
+            // 
+            // lblSefDepartament
+            // 
+            this.lblSefDepartament.AutoSize = true;
+            this.lblSefDepartament.Location = new System.Drawing.Point(405, 10);
+            this.lblSefDepartament.Name = "lblSefDepartament";
+            this.lblSefDepartament.Size = new System.Drawing.Size(87, 13);
+            this.lblSefDepartament.TabIndex = 13;
+            this.lblSefDepartament.Text = "Sef Departament";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(405, 29);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(165, 13);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "Director Proiect / Coord. Erasmus";
+            // 
             // lblVizaConta
             // 
             this.lblVizaConta.AutoSize = true;
@@ -1308,75 +1377,6 @@
             this.lblEnuntObligDidactice2.TabIndex = 14;
             this.lblEnuntObligDidactice2.Text = "În cazul în care orele se recupereaza, precizați care este programul";
             // 
-            // lblServRU
-            // 
-            this.lblServRU.AutoSize = true;
-            this.lblServRU.Location = new System.Drawing.Point(405, 80);
-            this.lblServRU.Name = "lblServRU";
-            this.lblServRU.Size = new System.Drawing.Size(89, 13);
-            this.lblServRU.TabIndex = 17;
-            this.lblServRU.Text = "Viza Serviciul RU";
-            // 
-            // txtSefDepartament
-            // 
-            this.txtSefDepartament.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSefDepartament.Location = new System.Drawing.Point(409, 48);
-            this.txtSefDepartament.Name = "txtSefDepartament";
-            this.txtSefDepartament.Size = new System.Drawing.Size(154, 20);
-            this.txtSefDepartament.TabIndex = 15;
-            // 
-            // txtVizaConta
-            // 
-            this.txtVizaConta.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtVizaConta.Location = new System.Drawing.Point(9, 98);
-            this.txtVizaConta.Name = "txtVizaConta";
-            this.txtVizaConta.Size = new System.Drawing.Size(154, 20);
-            this.txtVizaConta.TabIndex = 16;
-            // 
-            // lblSefDepartament
-            // 
-            this.lblSefDepartament.AutoSize = true;
-            this.lblSefDepartament.Location = new System.Drawing.Point(405, 10);
-            this.lblSefDepartament.Name = "lblSefDepartament";
-            this.lblSefDepartament.Size = new System.Drawing.Size(87, 13);
-            this.lblSefDepartament.TabIndex = 13;
-            this.lblSefDepartament.Text = "Sef Departament";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(405, 29);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(165, 13);
-            this.label6.TabIndex = 14;
-            this.label6.Text = "Director Proiect / Coord. Erasmus";
-            // 
-            // txtVizaRU
-            // 
-            this.txtVizaRU.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtVizaRU.Location = new System.Drawing.Point(409, 98);
-            this.txtVizaRU.Name = "txtVizaRU";
-            this.txtVizaRU.Size = new System.Drawing.Size(154, 20);
-            this.txtVizaRU.TabIndex = 20;
-            // 
-            // lblAdministratorSef
-            // 
-            this.lblAdministratorSef.AutoSize = true;
-            this.lblAdministratorSef.Location = new System.Drawing.Point(216, 10);
-            this.lblAdministratorSef.Name = "lblAdministratorSef";
-            this.lblAdministratorSef.Size = new System.Drawing.Size(86, 13);
-            this.lblAdministratorSef.TabIndex = 18;
-            this.lblAdministratorSef.Text = "Administrator Sef";
-            // 
-            // lblSefBirouDeptServ
-            // 
-            this.lblSefBirouDeptServ.AutoSize = true;
-            this.lblSefBirouDeptServ.Location = new System.Drawing.Point(216, 29);
-            this.lblSefBirouDeptServ.Name = "lblSefBirouDeptServ";
-            this.lblSefBirouDeptServ.Size = new System.Drawing.Size(136, 13);
-            this.lblSefBirouDeptServ.TabIndex = 19;
-            this.lblSefBirouDeptServ.Text = "Sef Birou / Dept. / Serviciu";
-            // 
             // frmCerereModificare
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1396,9 +1396,11 @@
             this.Controls.Add(this.mnuCI);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Name = "frmCerereModificare";
             this.Text = "Modificare Cerere de Deplasare";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmCerereModificare_FormClosing);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmCerereModificare_KeyDown);
             this.mnuCI.ResumeLayout(false);
             this.mnuCI.PerformLayout();
             this.panouIdentificareCerere.ResumeLayout(false);
