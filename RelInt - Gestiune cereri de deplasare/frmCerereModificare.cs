@@ -82,6 +82,21 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
+
+
+        /* ----------- Obiecte de lucru cu RelIntDB ---------------------------------------------------------------------- */
+        // Sir de conectare al RelIntDB
+        string sircon_RelIntDB = "DSN=PostgreSQL35W;database=RelIntDB;server=localhost;port=5432;UID=postgres;PWD=12345;sslmode=disable;readonly=0;protocol=7.4;fakeoidindex=0;showoidcolumn=0;rowversioning=0;showsystemtables=0;fetch=100;socket=4096;unknownsizes=0;maxvarcharsize=255;maxlongvarcharsize=8190;debug=0;commlog=0;optimizer=0;ksqo=1;usedeclarefetch=0;textaslongvarchar=1;unknownsaslongvarchar=0;boolsaschar=1;parse=0;cancelasfreestmt=0;extrasystableprefixes=dd_;lfconversion=1;updatablecursors=1;disallowpremature=0;trueisminus1=0;bi=0;byteaaslongvarbinary=0;useserversideprepare=1;lowercaseidentifier=0;gssauthusegss=0;xaopt=1;";
+
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+        
+
+
+
+
+
+
         /* ---------------- Metoda ce pregateste frmCerereModificare la inceput ------------------------------------------ */
         private void MetodaPregatireFormular()
         {
@@ -120,17 +135,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-
-
-
-
-
-        /* ----------- Obiecte de lucru cu RelIntDB ---------------------------------------------------------------------- */
-        // Sir de conectare al RelIntDB
-        string sircon_RelIntDB = "DSN=PostgreSQL35W;database=RelIntDB;server=localhost;port=5432;UID=postgres;PWD=12345;sslmode=disable;readonly=0;protocol=7.4;fakeoidindex=0;showoidcolumn=0;rowversioning=0;showsystemtables=0;fetch=100;socket=4096;unknownsizes=0;maxvarcharsize=255;maxlongvarcharsize=8190;debug=0;commlog=0;optimizer=0;ksqo=1;usedeclarefetch=0;textaslongvarchar=1;unknownsaslongvarchar=0;boolsaschar=1;parse=0;cancelasfreestmt=0;extrasystableprefixes=dd_;lfconversion=1;updatablecursors=1;disallowpremature=0;trueisminus1=0;bi=0;byteaaslongvarbinary=0;useserversideprepare=1;lowercaseidentifier=0;gssauthusegss=0;xaopt=1;";
-
-        /* --------------------------------------------------------------------------------------------------------------- */
-
 
 
 
@@ -220,7 +224,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         /* ----------------- Validarea casetei de text "txtNrInregistrare" ----------------------------------------------- */
         private void txtNrInregistrare_TextChanged(object sender, EventArgs e)
         {
-            AutocompletareNrInregistrare();
             // Verificam daca valoarea din "txtNrInregistrare" este de tip int si daca da, o inregistram in "vartxtNrInregistrare"
             bool vartxtNrInregistrareEsteNumar = Int32.TryParse(txtNrInregistrare.Text, out vartxtNrInregistrare);
 
@@ -264,46 +267,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
-
-
-        /* ---------------- Metoda pentru autocompletarea campului txtNrInregistrare ------------------------------------- */
-        private void AutocompletareNrInregistrare()
-        {
-            using (OdbcConnection conex_AutocompletareNrInreg = new OdbcConnection(sircon_RelIntDB))
-            {           // Comanda
-                using (OdbcCommand comanda_AutocompletareNrInregreRelInt = new OdbcCommand())
-                {
-                    comanda_AutocompletareNrInregreRelInt.Connection = conex_AutocompletareNrInreg;
-                    comanda_AutocompletareNrInregreRelInt.CommandType = CommandType.Text;
-                    comanda_AutocompletareNrInregreRelInt.CommandText = "SELECT nrinregistrarec FROM cereri WHERE nrinregistrarec LIKE ?%";
-                    comanda_AutocompletareNrInregreRelInt.Parameters.AddWithValue("@nrinregistrarec", OdbcType.Int).Value = vartxtNrInregistrare;
-
-                    OdbcDataReader reader_AutocompletareNrInreg;
-
-                    try
-                    {
-                        conex_AutocompletareNrInreg.Open();
-                        reader_AutocompletareNrInreg = comanda_AutocompletareNrInregreRelInt.ExecuteReader();
-
-                        while (reader_AutocompletareNrInreg.Read())
-                        {
-                            string varinttxtnrinregistrare = reader_AutocompletareNrInreg.GetInt32("nrinregistrarec").ToString();
-                            txtNrInregistrare.Text = varinttxtnrinregistrare.ToString();
-                        }
-
-                    }
-                    catch (Exception exAutocompletareNrInreg)
-                    {
-                        MessageBox.Show(exAutocompletareNrInreg.Message);
-                    }
-                    finally
-                    {
-                        conex_AutocompletareNrInreg.Close();
-                    }
-                }
-            }
-        }
-        /* --------------------------------------------------------------------------------------------------------------- */
 
 
 
@@ -471,11 +434,11 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     comanda_inserareRelInt.Parameters.AddWithValue("@ambasadac", OdbcType.NVarChar).Value = txtAmbasada.Text;
                     comanda_inserareRelInt.Parameters.AddWithValue("@nedeterminatac", OdbcType.Bit).Value = rdoPerNedeterminata.Checked;
                     comanda_inserareRelInt.Parameters.AddWithValue("@determinatac", OdbcType.Bit).Value = rdoPerDeterminata.Checked;
-                    comanda_inserareRelInt.Parameters.AddWithValue("@decanc", OdbcType.NVarChar).Value = txtDecan.Text;
-                    comanda_inserareRelInt.Parameters.AddWithValue("@vizacontac", OdbcType.NVarChar).Value = txtVizaConta.Text;
-                    comanda_inserareRelInt.Parameters.AddWithValue("@admsebirouc", OdbcType.NVarChar).Value = txtAdministratorSef.Text;
-                    comanda_inserareRelInt.Parameters.AddWithValue("@sefdepartamentdirc", OdbcType.NVarChar).Value = txtSefDepartament.Text;
-                    comanda_inserareRelInt.Parameters.AddWithValue("@vizaruc", OdbcType.NVarChar).Value = txtVizaRU.Text;
+                    comanda_inserareRelInt.Parameters.AddWithValue("@decanc", OdbcType.NVarChar).Value = txtAdministratorSef.Text;
+                    comanda_inserareRelInt.Parameters.AddWithValue("@vizacontac", OdbcType.NVarChar).Value = txtDecan.Text;
+                    comanda_inserareRelInt.Parameters.AddWithValue("@admsebirouc", OdbcType.NVarChar).Value = txtVizaRU.Text;
+                    comanda_inserareRelInt.Parameters.AddWithValue("@sefdepartamentdirc", OdbcType.NVarChar).Value = txtVizaConta.Text;
+                    comanda_inserareRelInt.Parameters.AddWithValue("@vizaruc", OdbcType.NVarChar).Value = txtSefDepartament.Text;
                     comanda_inserareRelInt.Parameters.AddWithValue("@tioz", OdbcType.Bit).Value = false;
 
 
@@ -1663,7 +1626,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         /* ---------------------- Eveniment de tip click pentru butonul btnModifica -------------------------------------- */
         private void btnModifica_Click(object sender, EventArgs e)
         {
-            // Dezactivam urmatoarele
+            // Aranjam Formularul
             switch (txtNrInregistrare.Enabled) 
             {
                 case true:
@@ -1672,6 +1635,68 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     PregatireFormular = false;
                     MetodaPregatireFormular();
                     break;
+            }
+
+            // Populam campurile cu date din BD
+            using (OdbcConnection conexiune_populareDinBD = new OdbcConnection(sircon_RelIntDB))
+            {           // Comanda
+                using (OdbcCommand comanda_populareDinBD = new OdbcCommand())
+                {
+                    comanda_populareDinBD.Connection = conexiune_populareDinBD;
+                    comanda_populareDinBD.CommandType = CommandType.Text;
+                    comanda_populareDinBD.CommandText = "SELECT * FROM cereri WHERE nrinregistrarec = ?";
+                    comanda_populareDinBD.Parameters.AddWithValue("@nrinregistrarec", OdbcType.Int).Value = vartxtNrInregistrare;
+
+
+                    try
+                    {
+                        conexiune_populareDinBD.Open();
+
+                        OdbcDataReader cititor_populareDinBD = comanda_populareDinBD.ExecuteReader();
+
+                        while (cititor_populareDinBD.Read())
+                        {
+                            dpDataFormular.Value = cititor_populareDinBD.GetDateTime(1);
+                            txtSubsemnatul.Text = cititor_populareDinBD.GetString(2);
+                            cmbGradDidactic.SelectedIndex = cititor_populareDinBD.GetInt32(3);
+                            cmbFacultatea.SelectedIndex = cititor_populareDinBD.GetInt32(4);
+                            txtDepartament.Text = cititor_populareDinBD.GetString(5);
+                            txtLocalitatea.Text = cititor_populareDinBD.GetString(6);
+                            txtTara.Text = cititor_populareDinBD.GetString(7);
+                            txtScop.Text = cititor_populareDinBD.GetString(8);
+                            txtInstitutia.Text = cititor_populareDinBD.GetString(9);
+                            dpDataInceput.Value = cititor_populareDinBD.GetDateTime(10);
+                            dpDataSfarsit.Value = cititor_populareDinBD.GetDateTime(11);
+                            txtRuta.Text = cititor_populareDinBD.GetString(12);
+                            txtMijTrans.Text = cititor_populareDinBD.GetString(13);
+                            txtSuportatDe.Text = cititor_populareDinBD.GetString(14);
+                            txtCheltuieliSuportate.Text = cititor_populareDinBD.GetString(15);
+                            txtDiurna.Text = cititor_populareDinBD.GetString(16);
+                            txtCazare.Text = cititor_populareDinBD.GetString(17);
+                            txtTaxaDeParticipare.Text = cititor_populareDinBD.GetString(18);
+                            txtTaxaDeViza.Text = cititor_populareDinBD.GetString(19);
+                            txtTotalDePlata.Text = cititor_populareDinBD.GetString(20);
+                            txtAmbasada.Text = cititor_populareDinBD.GetString(21);
+                            rdoPerNedeterminata.Checked = cititor_populareDinBD.GetBoolean(22);
+                            rdoPerDeterminata.Checked = cititor_populareDinBD.GetBoolean(23);
+                            txtDecan.Text = cititor_populareDinBD.GetString(24);
+                            txtVizaConta.Text = cititor_populareDinBD.GetString(25);
+                            txtAdministratorSef.Text = cititor_populareDinBD.GetString(26);
+                            txtSefDepartament.Text = cititor_populareDinBD.GetString(27);
+                            txtVizaRU.Text = cititor_populareDinBD.GetString(28);
+                        }
+
+                        cititor_populareDinBD.Close();
+                    }
+                    catch (Exception expopulareDinBD)
+                    {
+                        MessageBox.Show(expopulareDinBD.Message);
+                    } // Ne deconectam
+                    finally
+                    {
+                        conexiune_populareDinBD.Close();
+                    }
+                }
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
