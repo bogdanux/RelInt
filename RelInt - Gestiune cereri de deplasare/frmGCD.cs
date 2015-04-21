@@ -13,7 +13,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 {
     public partial class frmGCD : Form
     {
-        public frmGCD() // Metoda de LOAD a frmGCD
+        public frmGCD() // Metoda de LOAD
         {
             InitializeComponent();
             MetodaScriereInStatus();

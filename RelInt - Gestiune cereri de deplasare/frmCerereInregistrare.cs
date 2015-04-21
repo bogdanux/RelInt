@@ -12,7 +12,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 {
     public partial class frmCerereInregistrare: Form
     {
-        public frmCerereInregistrare() // Metoda de LOAD a frmCerereInregistrare
+        public frmCerereInregistrare() // Metoda de LOAD
         {
             InitializeComponent();
 

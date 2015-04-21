@@ -61,14 +61,24 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             // Specificam daca legatura URL a fost vizitata
             this.llblDezvoltator1.LinkVisited = true;
         }
-        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void llblMailDezv3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            // System.Diagnostics.Process.Start("mailto:vioreln5@gmail.com");
+            // System.Diagnostics.Process.Start("mailto:carmen.vzdoaga@gmail.com");
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
 
 
+
+
+
+
+        /* ------------- Eveniment de tip click al butonului "btnIesire" ------------------------------------------------ */
+        private void btnIesire_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
 
 
 

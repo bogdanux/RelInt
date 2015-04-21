@@ -41,13 +41,16 @@
             this.lblContinutDespre8 = new System.Windows.Forms.Label();
             this.lblContinutDespre9 = new System.Windows.Forms.Label();
             this.lblAnDespre = new System.Windows.Forms.Label();
+            this.mnuDespre = new System.Windows.Forms.MenuStrip();
+            this.btnIesire = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuDespre.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblTitluDespre
             // 
             this.lblTitluDespre.AutoSize = true;
             this.lblTitluDespre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitluDespre.Location = new System.Drawing.Point(28, 84);
+            this.lblTitluDespre.Location = new System.Drawing.Point(28, 113);
             this.lblTitluDespre.Name = "lblTitluDespre";
             this.lblTitluDespre.Size = new System.Drawing.Size(419, 17);
             this.lblTitluDespre.TabIndex = 0;
@@ -57,7 +60,7 @@
             // 
             this.lblContinutDespre1.AutoSize = true;
             this.lblContinutDespre1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContinutDespre1.Location = new System.Drawing.Point(48, 125);
+            this.lblContinutDespre1.Location = new System.Drawing.Point(48, 154);
             this.lblContinutDespre1.Name = "lblContinutDespre1";
             this.lblContinutDespre1.Size = new System.Drawing.Size(387, 15);
             this.lblContinutDespre1.TabIndex = 1;
@@ -67,7 +70,7 @@
             // 
             this.lblInformatiiDespre.AutoSize = true;
             this.lblInformatiiDespre.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInformatiiDespre.Location = new System.Drawing.Point(196, 50);
+            this.lblInformatiiDespre.Location = new System.Drawing.Point(196, 79);
             this.lblInformatiiDespre.Name = "lblInformatiiDespre";
             this.lblInformatiiDespre.Size = new System.Drawing.Size(67, 20);
             this.lblInformatiiDespre.TabIndex = 2;
@@ -77,7 +80,7 @@
             // 
             this.lblContinutDespre2.AutoSize = true;
             this.lblContinutDespre2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContinutDespre2.Location = new System.Drawing.Point(40, 145);
+            this.lblContinutDespre2.Location = new System.Drawing.Point(40, 174);
             this.lblContinutDespre2.Name = "lblContinutDespre2";
             this.lblContinutDespre2.Size = new System.Drawing.Size(395, 15);
             this.lblContinutDespre2.TabIndex = 1;
@@ -87,7 +90,7 @@
             // 
             this.lblContinutDespre3.AutoSize = true;
             this.lblContinutDespre3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContinutDespre3.Location = new System.Drawing.Point(40, 165);
+            this.lblContinutDespre3.Location = new System.Drawing.Point(40, 194);
             this.lblContinutDespre3.Name = "lblContinutDespre3";
             this.lblContinutDespre3.Size = new System.Drawing.Size(153, 15);
             this.lblContinutDespre3.TabIndex = 1;
@@ -97,7 +100,7 @@
             // 
             this.lblContinutDespre4.AutoSize = true;
             this.lblContinutDespre4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContinutDespre4.Location = new System.Drawing.Point(48, 185);
+            this.lblContinutDespre4.Location = new System.Drawing.Point(48, 214);
             this.lblContinutDespre4.Name = "lblContinutDespre4";
             this.lblContinutDespre4.Size = new System.Drawing.Size(401, 15);
             this.lblContinutDespre4.TabIndex = 1;
@@ -107,7 +110,7 @@
             // 
             this.lblContinutDespre5.AutoSize = true;
             this.lblContinutDespre5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContinutDespre5.Location = new System.Drawing.Point(40, 205);
+            this.lblContinutDespre5.Location = new System.Drawing.Point(40, 234);
             this.lblContinutDespre5.Name = "lblContinutDespre5";
             this.lblContinutDespre5.Size = new System.Drawing.Size(377, 15);
             this.lblContinutDespre5.TabIndex = 1;
@@ -117,7 +120,7 @@
             // 
             this.lblContinutDespre6.AutoSize = true;
             this.lblContinutDespre6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContinutDespre6.Location = new System.Drawing.Point(40, 225);
+            this.lblContinutDespre6.Location = new System.Drawing.Point(40, 254);
             this.lblContinutDespre6.Name = "lblContinutDespre6";
             this.lblContinutDespre6.Size = new System.Drawing.Size(388, 15);
             this.lblContinutDespre6.TabIndex = 1;
@@ -127,7 +130,7 @@
             // 
             this.lblContinutDespre7.AutoSize = true;
             this.lblContinutDespre7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContinutDespre7.Location = new System.Drawing.Point(48, 245);
+            this.lblContinutDespre7.Location = new System.Drawing.Point(48, 274);
             this.lblContinutDespre7.Name = "lblContinutDespre7";
             this.lblContinutDespre7.Size = new System.Drawing.Size(386, 15);
             this.lblContinutDespre7.TabIndex = 1;
@@ -137,7 +140,7 @@
             // 
             this.lblContinutDespre8.AutoSize = true;
             this.lblContinutDespre8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContinutDespre8.Location = new System.Drawing.Point(40, 265);
+            this.lblContinutDespre8.Location = new System.Drawing.Point(40, 294);
             this.lblContinutDespre8.Name = "lblContinutDespre8";
             this.lblContinutDespre8.Size = new System.Drawing.Size(408, 15);
             this.lblContinutDespre8.TabIndex = 1;
@@ -147,7 +150,7 @@
             // 
             this.lblContinutDespre9.AutoSize = true;
             this.lblContinutDespre9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblContinutDespre9.Location = new System.Drawing.Point(40, 285);
+            this.lblContinutDespre9.Location = new System.Drawing.Point(40, 314);
             this.lblContinutDespre9.Name = "lblContinutDespre9";
             this.lblContinutDespre9.Size = new System.Drawing.Size(41, 15);
             this.lblContinutDespre9.TabIndex = 1;
@@ -157,17 +160,35 @@
             // 
             this.lblAnDespre.AutoSize = true;
             this.lblAnDespre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAnDespre.Location = new System.Drawing.Point(198, 25);
+            this.lblAnDespre.Location = new System.Drawing.Point(198, 54);
             this.lblAnDespre.Name = "lblAnDespre";
             this.lblAnDespre.Size = new System.Drawing.Size(60, 17);
             this.lblAnDespre.TabIndex = 6;
             this.lblAnDespre.Text = "© 2015";
             // 
+            // mnuDespre
+            // 
+            this.mnuDespre.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.mnuDespre.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnIesire});
+            this.mnuDespre.Location = new System.Drawing.Point(0, 0);
+            this.mnuDespre.Name = "mnuDespre";
+            this.mnuDespre.Size = new System.Drawing.Size(484, 24);
+            this.mnuDespre.TabIndex = 7;
+            this.mnuDespre.Text = "menuStrip1";
+            // 
+            // btnIesire
+            // 
+            this.btnIesire.Name = "btnIesire";
+            this.btnIesire.Size = new System.Drawing.Size(46, 20);
+            this.btnIesire.Text = "I&eșire";
+            this.btnIesire.Click += new System.EventHandler(this.btnIesire_Click);
+            // 
             // frmDespreApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(484, 361);
+            this.ClientSize = new System.Drawing.Size(484, 381);
             this.Controls.Add(this.lblAnDespre);
             this.Controls.Add(this.lblInformatiiDespre);
             this.Controls.Add(this.lblContinutDespre9);
@@ -180,9 +201,13 @@
             this.Controls.Add(this.lblContinutDespre2);
             this.Controls.Add(this.lblContinutDespre1);
             this.Controls.Add(this.lblTitluDespre);
+            this.Controls.Add(this.mnuDespre);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.mnuDespre;
             this.Name = "frmDespreApp";
             this.Text = "frmDespreApp";
+            this.mnuDespre.ResumeLayout(false);
+            this.mnuDespre.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -202,5 +227,7 @@
         private System.Windows.Forms.Label lblContinutDespre8;
         private System.Windows.Forms.Label lblContinutDespre9;
         private System.Windows.Forms.Label lblAnDespre;
+        private System.Windows.Forms.MenuStrip mnuDespre;
+        private System.Windows.Forms.ToolStripMenuItem btnIesire;
     }
 }
