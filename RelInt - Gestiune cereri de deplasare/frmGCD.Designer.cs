@@ -38,6 +38,8 @@
             this.btnGCDIesire = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuOperatiuniEvidentaActivitate = new System.Windows.Forms.ToolStripMenuItem();
             this.btnGCDOrdineaDeZi = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnGCDVizualizareTot = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuAjutor = new System.Windows.Forms.ToolStripMenuItem();
             this.btnGCDDespreApp = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
@@ -116,7 +118,9 @@
             // mnuOperatiuniEvidentaActivitate
             // 
             this.mnuOperatiuniEvidentaActivitate.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnGCDOrdineaDeZi});
+            this.btnGCDOrdineaDeZi,
+            this.toolStripSeparator3,
+            this.btnGCDVizualizareTot});
             this.mnuOperatiuniEvidentaActivitate.Name = "mnuOperatiuniEvidentaActivitate";
             this.mnuOperatiuniEvidentaActivitate.Size = new System.Drawing.Size(126, 26);
             this.mnuOperatiuniEvidentaActivitate.Text = "Evidența &activităților";
@@ -125,9 +129,22 @@
             // 
             this.btnGCDOrdineaDeZi.Name = "btnGCDOrdineaDeZi";
             this.btnGCDOrdineaDeZi.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
-            this.btnGCDOrdineaDeZi.Size = new System.Drawing.Size(183, 22);
+            this.btnGCDOrdineaDeZi.Size = new System.Drawing.Size(219, 22);
             this.btnGCDOrdineaDeZi.Text = "Ordin&ea de zi";
             this.btnGCDOrdineaDeZi.Click += new System.EventHandler(this.btnGCDOrdineaDeZi_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(216, 6);
+            // 
+            // btnGCDVizualizareTot
+            // 
+            this.btnGCDVizualizareTot.Name = "btnGCDVizualizareTot";
+            this.btnGCDVizualizareTot.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L)));
+            this.btnGCDVizualizareTot.Size = new System.Drawing.Size(219, 22);
+            this.btnGCDVizualizareTot.Text = "&Lista cereri existente";
+            this.btnGCDVizualizareTot.Click += new System.EventHandler(this.btnGCDVizualizareTot_Click);
             // 
             // mnuAjutor
             // 
@@ -221,6 +238,8 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem btnGCDRealizatori;
         public System.Windows.Forms.ToolStripStatusLabel tsStatusUltimaInregistrare;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripMenuItem btnGCDVizualizareTot;
     }
 }
 

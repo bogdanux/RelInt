@@ -205,7 +205,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.mnuDespre;
             this.Name = "frmDespreApp";
-            this.Text = "frmDespreApp";
+            this.Text = "Despre";
             this.mnuDespre.ResumeLayout(false);
             this.mnuDespre.PerformLayout();
             this.ResumeLayout(false);

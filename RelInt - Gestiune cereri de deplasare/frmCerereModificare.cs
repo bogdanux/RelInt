@@ -409,8 +409,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 {
                     comanda_inserareRelInt.Connection = conexiune_InserareCerereRelInt;
                     comanda_inserareRelInt.CommandType = CommandType.Text;
-                    comanda_inserareRelInt.CommandText = "INSERT into Cereri VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-                    comanda_inserareRelInt.Parameters.AddWithValue("@nrinregistrarec", OdbcType.Int).Value = vartxtNrInregistrare;
+                    comanda_inserareRelInt.CommandText = "UPDATE cereri SET datac = ?, subsemnatulc = ?, graddidacticc = ?, facultateac = ?, departamentulc = ?, localitateac = ?, tarac = ?, scopc = ?, institutiac = ?, datainceputc = ?, datasfarsitc = ?, rutac = ?, mijtransc = ?, platitortranspc = ?, platitorintretinerec = ?, diurnac = ?, cazarec = ?, taxadeparticiparec = ?, taxadevizaetcc = ?, totalc = ?, ambasadac = ?, nedeterminatac = ?, determinatac = ?, decanc = ?, vizacontac = ?, admsefbirouc = ?, sefdepartamentdirc = ?, vizaruc = ?, tiozc = ? WHERE nrinregistrarec = ?";
                     comanda_inserareRelInt.Parameters.AddWithValue("@datac", OdbcType.DateTime).Value = dpDataFormular.Value;
                     comanda_inserareRelInt.Parameters.AddWithValue("@subsemnatulc", OdbcType.NVarChar).Value = txtSubsemnatul.Text;
                     comanda_inserareRelInt.Parameters.AddWithValue("@graddidacticc", OdbcType.NVarChar).Value = cmbGradDidactic.SelectedItem;
@@ -441,8 +440,8 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     comanda_inserareRelInt.Parameters.AddWithValue("@vizaruc", OdbcType.NVarChar).Value = txtSefDepartament.Text;
                     comanda_inserareRelInt.Parameters.AddWithValue("@tioz", OdbcType.Bit).Value = false;
 
-
-
+                    comanda_inserareRelInt.Parameters.AddWithValue("@nrinregistrarec", OdbcType.Int).Value = vartxtNrInregistrare;
+                    
                     // Incercam conexiunea si query-ul
                     try
                     {

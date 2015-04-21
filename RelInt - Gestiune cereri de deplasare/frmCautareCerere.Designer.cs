@@ -95,7 +95,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.mnuCerereCautare;
             this.Name = "frmCautareCerere";
-            this.Text = "frmCautareCerere";
+            this.Text = "Căutare Cerere";
             this.mnuCerereCautare.ResumeLayout(false);
             this.mnuCerereCautare.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCautare)).EndInit();

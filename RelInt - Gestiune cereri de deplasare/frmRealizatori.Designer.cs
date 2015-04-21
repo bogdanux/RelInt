@@ -288,7 +288,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.mnuRealizatori;
             this.Name = "frmRealizatori";
-            this.Text = "frmRealizatori";
+            this.Text = "Realizatori";
             this.mnuRealizatori.ResumeLayout(false);
             this.mnuRealizatori.PerformLayout();
             this.ResumeLayout(false);

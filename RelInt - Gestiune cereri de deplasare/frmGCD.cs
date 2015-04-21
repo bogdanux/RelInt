@@ -258,6 +258,35 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
+
+        /* ------------------------ Deschiderea formularului VizualizareTot ---------------------------------------------- */
+        private void btnGCDVizualizareTot_Click(object sender, EventArgs e)
+        {
+            // Apelam formularul "frmVizualizareTot"
+            Form frmVizualizareTot = new frmVizualizareTot();
+
+            // Facem "frmVizualizareTot" copil al "frmGCD"
+            frmVizualizareTot.MdiParent = this;
+
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form.GetType() == typeof(frmVizualizareTot))
+                {
+                    form.WindowState = FormWindowState.Normal;
+                    form.Activate();
+                    return;
+                }
+            }
+
+            // Afisam "frmVizualizareTot"
+            frmVizualizareTot.Show();
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
         
 
 
@@ -304,11 +333,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-
-
-
-
-
 
 
 
