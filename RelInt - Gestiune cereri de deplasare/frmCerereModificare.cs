@@ -220,6 +220,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         /* ----------------- Validarea casetei de text "txtNrInregistrare" ----------------------------------------------- */
         private void txtNrInregistrare_TextChanged(object sender, EventArgs e)
         {
+            AutocompletareNrInregistrare();
             // Verificam daca valoarea din "txtNrInregistrare" este de tip int si daca da, o inregistram in "vartxtNrInregistrare"
             bool vartxtNrInregistrareEsteNumar = Int32.TryParse(txtNrInregistrare.Text, out vartxtNrInregistrare);
 
@@ -264,6 +265,45 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
+
+        /* ---------------- Metoda pentru autocompletarea campului txtNrInregistrare ------------------------------------- */
+        private void AutocompletareNrInregistrare()
+        {
+            using (OdbcConnection conex_AutocompletareNrInreg = new OdbcConnection(sircon_RelIntDB))
+            {           // Comanda
+                using (OdbcCommand comanda_AutocompletareNrInregreRelInt = new OdbcCommand())
+                {
+                    comanda_AutocompletareNrInregreRelInt.Connection = conex_AutocompletareNrInreg;
+                    comanda_AutocompletareNrInregreRelInt.CommandType = CommandType.Text;
+                    comanda_AutocompletareNrInregreRelInt.CommandText = "SELECT nrinregistrarec FROM cereri WHERE nrinregistrarec LIKE ?%";
+                    comanda_AutocompletareNrInregreRelInt.Parameters.AddWithValue("@nrinregistrarec", OdbcType.Int).Value = vartxtNrInregistrare;
+
+                    OdbcDataReader reader_AutocompletareNrInreg;
+
+                    try
+                    {
+                        conex_AutocompletareNrInreg.Open();
+                        reader_AutocompletareNrInreg = comanda_AutocompletareNrInregreRelInt.ExecuteReader();
+
+                        while (reader_AutocompletareNrInreg.Read())
+                        {
+                            string varinttxtnrinregistrare = reader_AutocompletareNrInreg.GetInt32("nrinregistrarec").ToString();
+                            txtNrInregistrare.Text = varinttxtnrinregistrare.ToString();
+                        }
+
+                    }
+                    catch (Exception exAutocompletareNrInreg)
+                    {
+                        MessageBox.Show(exAutocompletareNrInreg.Message);
+                    }
+                    finally
+                    {
+                        conex_AutocompletareNrInreg.Close();
+                    }
+                }
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
 
 
 
