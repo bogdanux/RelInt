@@ -26,7 +26,7 @@
     <ProductName>RelInt - GCdD %28Gestiunea Cererilor de Deplasare%29</ProductName>
     <PublisherName>SIA - GCdD</PublisherName>
     <SuiteName>SIA - Sisteme Informationale pentru Birotica</SuiteName>
-    <ApplicationRevision>15</ApplicationRevision>
+    <ApplicationRevision>16</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -178,6 +178,12 @@
     <Compile Include="frmOrdineaDeZi.Designer.cs">
       <DependentUpon>frmOrdineaDeZi.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmRaportCereri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRaportCereri.Designer.cs">
+      <DependentUpon>frmRaportCereri.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmRealizatori.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -209,6 +215,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmOrdineaDeZi.resx">
       <DependentUpon>frmOrdineaDeZi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRaportCereri.resx">
+      <DependentUpon>frmRaportCereri.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRealizatori.resx">
       <DependentUpon>frmRealizatori.cs</DependentUpon>

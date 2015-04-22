@@ -1,6 +1,6 @@
 ﻿namespace RelInt___Gestiune_cereri_de_deplasare
 {
-    partial class frmVizualizareTot
+    partial class frmRaportCereri
     {
         /// <summary>
         /// Required designer variable.
@@ -28,13 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmVizualizareTot));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRaportCereri));
+            this.rvRaportCereri = new Microsoft.Reporting.WinForms.ReportViewer();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.btnIesire = new System.Windows.Forms.ToolStripMenuItem();
-            this.dgvVizualizareTot = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvVizualizareTot)).BeginInit();
             this.SuspendLayout();
+            // 
+            // rvRaportCereri
+            // 
+            this.rvRaportCereri.Location = new System.Drawing.Point(3, 27);
+            this.rvRaportCereri.Name = "rvRaportCereri";
+            this.rvRaportCereri.Size = new System.Drawing.Size(979, 432);
+            this.rvRaportCereri.TabIndex = 0;
             // 
             // menuStrip1
             // 
@@ -43,8 +49,8 @@
             this.btnIesire});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1184, 24);
-            this.menuStrip1.TabIndex = 0;
+            this.menuStrip1.Size = new System.Drawing.Size(984, 24);
+            this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // btnIesire
@@ -55,28 +61,20 @@
             this.btnIesire.Text = "I&eșire";
             this.btnIesire.Click += new System.EventHandler(this.btnIesire_Click);
             // 
-            // dgvVizualizareTot
-            // 
-            this.dgvVizualizareTot.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvVizualizareTot.Location = new System.Drawing.Point(9, 34);
-            this.dgvVizualizareTot.Name = "dgvVizualizareTot";
-            this.dgvVizualizareTot.Size = new System.Drawing.Size(1163, 415);
-            this.dgvVizualizareTot.TabIndex = 1;
-            // 
-            // frmVizualizareTot
+            // frmRaportCereri
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1184, 461);
-            this.Controls.Add(this.dgvVizualizareTot);
+            this.ClientSize = new System.Drawing.Size(984, 461);
+            this.Controls.Add(this.rvRaportCereri);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "frmVizualizareTot";
-            this.Text = "Lista Cereri Existente";
+            this.Name = "frmRaportCereri";
+            this.Text = "Raport Cereri";
+            this.Load += new System.EventHandler(this.frmRaportCereri_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvVizualizareTot)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -84,8 +82,8 @@
 
         #endregion
 
+        private Microsoft.Reporting.WinForms.ReportViewer rvRaportCereri;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem btnIesire;
-        private System.Windows.Forms.DataGridView dgvVizualizareTot;
     }
 }

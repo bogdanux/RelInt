@@ -40,6 +40,8 @@
             this.btnGCDOrdineaDeZi = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.btnGCDVizualizareTot = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuRapoarte = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnGCDRaportCereri = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuAjutor = new System.Windows.Forms.ToolStripMenuItem();
             this.btnGCDDespreApp = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
@@ -57,6 +59,7 @@
             this.mnuBaraMeniu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuOperatiuniFormulare,
             this.mnuOperatiuniEvidentaActivitate,
+            this.mnuRapoarte,
             this.mnuAjutor});
             this.mnuBaraMeniu.Location = new System.Drawing.Point(0, 0);
             this.mnuBaraMeniu.Name = "mnuBaraMeniu";
@@ -145,6 +148,23 @@
             this.btnGCDVizualizareTot.Size = new System.Drawing.Size(219, 22);
             this.btnGCDVizualizareTot.Text = "&Lista cereri existente";
             this.btnGCDVizualizareTot.Click += new System.EventHandler(this.btnGCDVizualizareTot_Click);
+            // 
+            // mnuRapoarte
+            // 
+            this.mnuRapoarte.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnGCDRaportCereri});
+            this.mnuRapoarte.Name = "mnuRapoarte";
+            this.mnuRapoarte.Size = new System.Drawing.Size(66, 26);
+            this.mnuRapoarte.Text = "&Rapoarte";
+            // 
+            // btnGCDRaportCereri
+            // 
+            this.btnGCDRaportCereri.Name = "btnGCDRaportCereri";
+            this.btnGCDRaportCereri.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
+            | System.Windows.Forms.Keys.R)));
+            this.btnGCDRaportCereri.Size = new System.Drawing.Size(207, 22);
+            this.btnGCDRaportCereri.Text = "Raport &Cereri";
+            this.btnGCDRaportCereri.Click += new System.EventHandler(this.btnGCDRaportCereri_Click);
             // 
             // mnuAjutor
             // 
@@ -240,6 +260,8 @@
         public System.Windows.Forms.ToolStripStatusLabel tsStatusUltimaInregistrare;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem btnGCDVizualizareTot;
+        private System.Windows.Forms.ToolStripMenuItem mnuRapoarte;
+        private System.Windows.Forms.ToolStripMenuItem btnGCDRaportCereri;
     }
 }
 

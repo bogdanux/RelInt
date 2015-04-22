@@ -287,7 +287,36 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
+
+
+
+
         
+        
+        /* --------------------- Deschiderea formularului frmRaportCereri ------------------------------------------------ */
+        private void btnGCDRaportCereri_Click(object sender, EventArgs e)
+        {
+            // Apelam formularul "frmRaportCereri"
+            Form frmRaportCereri = new frmRaportCereri();
+
+            // Facem "frmRaportCereri" copil al "frmGCD"
+            frmRaportCereri.MdiParent = this;
+
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form.GetType() == typeof(frmRaportCereri))
+                {
+                    form.WindowState = FormWindowState.Normal;
+                    form.Activate();
+                    return;
+                }
+            }
+
+            // Afisam "frmRaportCereri"
+            frmRaportCereri.Show();
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
 
 
 
@@ -344,6 +373,8 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         {
             MetodaScriereInStatus();
         }
+
+        
         /* --------------------------------------------------------------------------------------------------------------- */
        }
     }

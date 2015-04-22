@@ -180,6 +180,7 @@
             // btnIesire
             // 
             this.btnIesire.Name = "btnIesire";
+            this.btnIesire.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.W)));
             this.btnIesire.Size = new System.Drawing.Size(46, 20);
             this.btnIesire.Text = "I&eșire";
             this.btnIesire.Click += new System.EventHandler(this.btnIesire_Click);
