@@ -26,7 +26,7 @@
     <ProductName>RelInt - GCdD %28Gestiunea Cererilor de Deplasare%29</ProductName>
     <PublisherName>SIA - GCdD</PublisherName>
     <SuiteName>SIA - Sisteme Informationale pentru Birotica</SuiteName>
-    <ApplicationRevision>16</ApplicationRevision>
+    <ApplicationRevision>17</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -148,6 +148,12 @@
     <Compile Include="frmCautareCerere.Designer.cs">
       <DependentUpon>frmCautareCerere.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCerereBECA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCerereBECA.Designer.cs">
+      <DependentUpon>frmCerereBECA.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCerereInregistrare.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -200,6 +206,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmCautareCerere.resx">
       <DependentUpon>frmCautareCerere.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCerereBECA.resx">
+      <DependentUpon>frmCerereBECA.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCerereInregistrare.resx">
       <DependentUpon>frmCerereInregistrare.cs</DependentUpon>

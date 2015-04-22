@@ -48,6 +48,7 @@
             this.btnGCDRealizatori = new System.Windows.Forms.ToolStripMenuItem();
             this.StatusGCD = new System.Windows.Forms.StatusStrip();
             this.tsStatusUltimaInregistrare = new System.Windows.Forms.ToolStripStatusLabel();
+            this.btnGCDBeca = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuBaraMeniu.SuspendLayout();
             this.StatusGCD.SuspendLayout();
             this.SuspendLayout();
@@ -121,6 +122,7 @@
             // mnuOperatiuniEvidentaActivitate
             // 
             this.mnuOperatiuniEvidentaActivitate.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnGCDBeca,
             this.btnGCDOrdineaDeZi,
             this.toolStripSeparator3,
             this.btnGCDVizualizareTot});
@@ -216,6 +218,14 @@
             this.tsStatusUltimaInregistrare.Name = "tsStatusUltimaInregistrare";
             this.tsStatusUltimaInregistrare.Size = new System.Drawing.Size(0, 17);
             // 
+            // btnGCDBeca
+            // 
+            this.btnGCDBeca.Name = "btnGCDBeca";
+            this.btnGCDBeca.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B)));
+            this.btnGCDBeca.Size = new System.Drawing.Size(219, 22);
+            this.btnGCDBeca.Text = "Cerere pentru &BECA";
+            this.btnGCDBeca.Click += new System.EventHandler(this.btnGCDBeca_Click);
+            // 
             // frmGCD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -264,6 +274,7 @@
         private System.Windows.Forms.ToolStripMenuItem btnGCDVizualizareTot;
         private System.Windows.Forms.ToolStripMenuItem mnuRapoarte;
         private System.Windows.Forms.ToolStripMenuItem btnGCDRaportCereri;
+        private System.Windows.Forms.ToolStripMenuItem btnGCDBeca;
     }
 }
 

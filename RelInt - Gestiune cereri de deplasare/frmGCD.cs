@@ -325,6 +325,38 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
+        /* ---------------------- Deschiderea formularului frmCerereBECA -------------------------------------- */
+        private void btnGCDBeca_Click(object sender, EventArgs e)
+        {
+            // Apelam formularul "frmCerereBECA"
+            Form frmCerereBECA = new frmCerereBECA();
+
+            // Facem "frmCerereBECA" copil al "frmGCD"
+            frmCerereBECA.MdiParent = this;
+
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form.GetType() == typeof(frmCerereBECA))
+                {
+                    form.WindowState = FormWindowState.Normal;
+                    form.Activate();
+                    return;
+                }
+            }
+
+            // Afisam "frmCerereBECA"
+            frmCerereBECA.Show();
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+
         /* -------------------- MetodaScriereInStatus -------------------------------------------------------------------- */
         public void MetodaScriereInStatus()
         {
