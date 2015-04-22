@@ -16,7 +16,14 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         public frmGCD() // Metoda de LOAD
         {
             InitializeComponent();
+
             MetodaScriereInStatus();
+
+            VerificareGradeDidactice();
+            VerificareFacultati();
+            VerificareMonezi();
+
+            VerificareCereri();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
@@ -33,6 +40,231 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         // Sir de conectare al RelIntDB
         string sircon_RelIntDB = "DSN=PostgreSQL35W;database=RelIntDB;server=localhost;port=5432;UID=postgres;PWD=12345;sslmode=disable;readonly=0;protocol=7.4;fakeoidindex=0;showoidcolumn=0;rowversioning=0;showsystemtables=0;fetch=100;socket=4096;unknownsizes=0;maxvarcharsize=255;maxlongvarcharsize=8190;debug=0;commlog=0;optimizer=0;ksqo=1;usedeclarefetch=0;textaslongvarchar=1;unknownsaslongvarchar=0;boolsaschar=1;parse=0;cancelasfreestmt=0;extrasystableprefixes=dd_;lfconversion=1;updatablecursors=1;disallowpremature=0;trueisminus1=0;bi=0;byteaaslongvarbinary=0;useserversideprepare=1;lowercaseidentifier=0;gssauthusegss=0;xaopt=1;";
 
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+
+
+
+        /* ------------------- Evenimentul click al butonului "mnuIesire" ------------------------------------------------ */
+        private void VerificareGradeDidactice()
+        {
+            using (OdbcConnection conexiune_cmbGradDidactic = new OdbcConnection(sircon_RelIntDB))
+            {           // Comanda
+                using (OdbcCommand comanda_cmbGradDidactic = new OdbcCommand())
+                {
+                    comanda_cmbGradDidactic.Connection = conexiune_cmbGradDidactic;
+                    comanda_cmbGradDidactic.CommandType = CommandType.Text;
+                    comanda_cmbGradDidactic.CommandText = "SELECT * FROM gradedidactice ORDER BY graddidacticgd ASC";
+
+                    OdbcDataReader cititor_cmbGradDidactic;
+
+                    try
+                    {
+                        conexiune_cmbGradDidactic.Open();
+                        cititor_cmbGradDidactic = comanda_cmbGradDidactic.ExecuteReader();
+                        
+                        // Daca cititorul
+                        if (cititor_cmbGradDidactic.HasRows == false)
+                        {
+                            // Dezactivam urmatoarele
+                            btnGCDIntroducereFormular.Enabled = false;
+                            btnGCDModificareFormular.Enabled = false;
+
+                            // Afisam de ce
+                            tsStatusDeCe.Text += " Nu sunt denumiri de GRADE DIDACTICE introduse în baza de date. Introduceți-le! ";
+                        }
+                        else
+                        {
+                            // Activam urmatoarele
+                            btnGCDIntroducereFormular.Enabled = true;
+                            btnGCDModificareFormular.Enabled = true;
+                        }
+                    }
+                    catch (Exception excmbGradDidactic)
+                    {
+                        MessageBox.Show(excmbGradDidactic.Message);
+                    } // Ne deconectam
+                    finally
+                    {
+                        conexiune_cmbGradDidactic.Close();
+                    }
+                }
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+
+        /* ---------- Metoda de umplere a cmbFacultate cu date din RelIntDB ---------------------------------------------- */
+        private void VerificareFacultati()
+        {
+            using (OdbcConnection conexiune_cmbFacultate = new OdbcConnection(sircon_RelIntDB))
+            {           // Comanda
+                using (OdbcCommand comanda_cmbFacultate = new OdbcCommand())
+                {
+                    comanda_cmbFacultate.Connection = conexiune_cmbFacultate;
+                    comanda_cmbFacultate.CommandType = CommandType.Text;
+                    comanda_cmbFacultate.CommandText = "SELECT * FROM facultati ORDER BY facultati ASC";
+
+                    OdbcDataReader cititor_cmbFacultate;
+
+                    try
+                    {
+                        conexiune_cmbFacultate.Open();
+                        cititor_cmbFacultate = comanda_cmbFacultate.ExecuteReader();
+
+                        // Daca cititorul
+                        if (cititor_cmbFacultate.HasRows == false)
+                        {
+                            // Dezactivam urmatoarele
+                            btnGCDIntroducereFormular.Enabled = false;
+                            btnGCDModificareFormular.Enabled = false;
+
+                            // Afisam de ce
+                            tsStatusDeCe.Text += " Nu sunt denumiri de FACULTĂȚI introduse în baza de date. Introduceți-le! ";
+                        }
+                        else
+                        {
+                            // Activam urmatoarele
+                            btnGCDIntroducereFormular.Enabled = true;
+                            btnGCDModificareFormular.Enabled = true;
+                        }
+                    }
+                    catch (Exception excmbFacultate)
+                    {
+                        MessageBox.Show(excmbFacultate.Message);
+                    } // Ne deconectam
+                    finally
+                    {
+                        conexiune_cmbFacultate.Close();
+                    }
+                }
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+
+        /* ---------- Metoda de umplere a cmbFacultate cu date din RelIntDB --------------------------------------------- */
+        private void VerificareMonezi()
+        {
+            using (OdbcConnection conexiune_cmbMonezi = new OdbcConnection(sircon_RelIntDB))
+            {           // Comanda
+                using (OdbcCommand comanda_cmbMonezi = new OdbcCommand())
+                {
+                    comanda_cmbMonezi.Connection = conexiune_cmbMonezi;
+                    comanda_cmbMonezi.CommandType = CommandType.Text;
+                    comanda_cmbMonezi.CommandText = "SELECT * FROM monezi ORDER BY monezim ASC";
+
+                    OdbcDataReader cititor_cmbMonezi;
+
+                    try
+                    {
+                        conexiune_cmbMonezi.Open();
+                        cititor_cmbMonezi = comanda_cmbMonezi.ExecuteReader();
+
+                        // Daca cititorul
+                        if (cititor_cmbMonezi.HasRows == false)
+                        {
+                            // Dezactivam urmatoarele
+                            btnGCDIntroducereFormular.Enabled = false;
+                            btnGCDModificareFormular.Enabled = false;
+
+                            // Afisam de ce
+                            tsStatusDeCe.Text += " Nu sunt denumiri de MONEDE introduse în baza de date. Introduceți-le! ";
+                        }
+                        else
+                        {
+                            // Activam urmatoarele
+                            btnGCDIntroducereFormular.Enabled = true;
+                            btnGCDModificareFormular.Enabled = true;
+                        }
+                    }
+                    catch (Exception excmbMonezi)
+                    {
+                        MessageBox.Show(excmbMonezi.Message);
+                    } // Ne deconectam
+                    finally
+                    {
+                        conexiune_cmbMonezi.Close();
+                    }
+                }
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+
+        /* ---------- Metoda de umplere a cmbFacultate cu date din RelIntDB --------------------------------------------- */
+        public void VerificareCereri()
+        {
+            using (OdbcConnection conexiune_cereri = new OdbcConnection(sircon_RelIntDB))
+            {           // Comanda
+                using (OdbcCommand comanda_cereri = new OdbcCommand())
+                {
+                    comanda_cereri.Connection = conexiune_cereri;
+                    comanda_cereri.CommandType = CommandType.Text;
+                    comanda_cereri.CommandText = "SELECT nrinregistrarec FROM cereri";
+
+                    OdbcDataReader cititor_cereri;
+
+                    try
+                    {
+                        conexiune_cereri.Open();
+
+                        cititor_cereri = comanda_cereri.ExecuteReader();
+
+                        // Daca cititorul
+                        if (cititor_cereri.HasRows == false)
+                        {
+                            // Dezactivam urmatoarele
+                            btnGCDModificareFormular.Enabled = false;
+
+                            // Afisam de ce
+                            tsStatusDeCe.Text += " Nu sunt CERERI introduse în baza de date. Introduceți măcar una! ";
+                        }
+                        else
+                        {
+                            // Activam urmatoarele
+                            btnGCDModificareFormular.Enabled = true;
+                        }
+                    }
+                    catch (Exception excmbMonezi)
+                    {
+                        MessageBox.Show(excmbMonezi.Message);
+                    } // Ne deconectam
+                    finally
+                    {
+                        conexiune_cereri.Close();
+                    }
+                }
+            }
+        }
         /* --------------------------------------------------------------------------------------------------------------- */
 
 
@@ -85,7 +317,10 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             frmCerereInregistrare.Show();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-
+        private void form2_DisableButton(object sender, EventArgs e)
+        {
+            btnGCDModificareFormular.Enabled = true;
+        }
 
 
 
@@ -485,8 +720,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
-
-
-
-       }
+        
     }
+}

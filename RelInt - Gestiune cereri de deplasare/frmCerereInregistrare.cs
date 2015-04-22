@@ -207,7 +207,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
-        /* ---------- Metoda de umplere a cmbFacultate cu date din RelIntDB ------------------------------------------- */
+        /* ---------- Metoda de umplere a cmbFacultate cu date din RelIntDB ---------------------------------------------- */
         private void UmplereFacultate()
         {
             using (OdbcConnection conexiune_cmbFacultate = new OdbcConnection(sircon_RelIntDB))
@@ -251,7 +251,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
-        /* ---------- Metoda de umplere a cmbFacultate cu date din RelIntDB ------------------------------------------- */
+        /* ---------- Metoda de umplere a cmbFacultate cu date din RelIntDB --------------------------------------------- */
         private void UmplereMonezi()
         {
             using (OdbcConnection conexiune_cmbMonezi = new OdbcConnection(sircon_RelIntDB))
@@ -582,7 +582,8 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
-        // Metoda MetodaNegareControale
+
+        /* ----------------------- Metoda MetodaNegareControale ---------------------------------------------------------- */
         private void MetodaNegareControale()
         {
             // Variabile de negat (resetat)
@@ -609,8 +610,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             txtSefDepartamentSchimbat = false;
             txtVizaRUSchimbat = false;
         }
-
-
+        /* --------------------------------------------------------------------------------------------------------------- */
 
 
 

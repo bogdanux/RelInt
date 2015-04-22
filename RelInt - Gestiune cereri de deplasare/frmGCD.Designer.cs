@@ -52,6 +52,7 @@
             this.btnGCDDespreApp = new System.Windows.Forms.ToolStripMenuItem();
             this.StatusGCD = new System.Windows.Forms.StatusStrip();
             this.tsStatusUltimaInregistrare = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tsStatusDeCe = new System.Windows.Forms.ToolStripStatusLabel();
             this.mnuBaraMeniu.SuspendLayout();
             this.StatusGCD.SuspendLayout();
             this.SuspendLayout();
@@ -238,7 +239,8 @@
             // StatusGCD
             // 
             this.StatusGCD.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsStatusUltimaInregistrare});
+            this.tsStatusUltimaInregistrare,
+            this.tsStatusDeCe});
             this.StatusGCD.Location = new System.Drawing.Point(0, 439);
             this.StatusGCD.Name = "StatusGCD";
             this.StatusGCD.Size = new System.Drawing.Size(784, 22);
@@ -251,6 +253,13 @@
             this.tsStatusUltimaInregistrare.ForeColor = System.Drawing.Color.Green;
             this.tsStatusUltimaInregistrare.Name = "tsStatusUltimaInregistrare";
             this.tsStatusUltimaInregistrare.Size = new System.Drawing.Size(0, 17);
+            // 
+            // tsStatusDeCe
+            // 
+            this.tsStatusDeCe.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.tsStatusDeCe.ForeColor = System.Drawing.Color.Purple;
+            this.tsStatusDeCe.Name = "tsStatusDeCe";
+            this.tsStatusDeCe.Size = new System.Drawing.Size(0, 17);
             // 
             // frmGCD
             // 
@@ -282,8 +291,6 @@
         #endregion
 
         private System.Windows.Forms.ToolStripMenuItem mnuOperatiuniFormulare;
-        private System.Windows.Forms.ToolStripMenuItem btnGCDIntroducereFormular;
-        private System.Windows.Forms.ToolStripMenuItem btnGCDModificareFormular;
         private System.Windows.Forms.MenuStrip mnuBaraMeniu;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem btnGCDIesire;
@@ -304,6 +311,9 @@
         private System.Windows.Forms.ToolStripMenuItem mnuSetari;
         private System.Windows.Forms.ToolStripMenuItem btnGCDTipIntrari;
         private System.Windows.Forms.ToolStripMenuItem btnManualUtilizare;
+        private System.Windows.Forms.ToolStripStatusLabel tsStatusDeCe;
+        public System.Windows.Forms.ToolStripMenuItem btnGCDIntroducereFormular;
+        public System.Windows.Forms.ToolStripMenuItem btnGCDModificareFormular;
     }
 }
 
