@@ -56,7 +56,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 {
                     comanda_dgvAfisareVT.Connection = conexiune_dgvAfisareVT;
                     comanda_dgvAfisareVT.CommandType = CommandType.Text;
-                    comanda_dgvAfisareVT.CommandText = "SELECT * FROM cereri";
+                    comanda_dgvAfisareVT.CommandText = "SELECT nrinregistrarec as \"Nr. înregistrare\", datac AS \"Data înregistrare\", subsemnatulc AS \"Subsemnatul\", graddidacticc AS \"Grad Didactic\", facultateac AS \"Facultatea\", departamentulc AS \"Departamentul\", localitateac AS \"Localitatea\", tarac AS \"Țara\", scopc AS \"Acțiunea\", institutiac AS \"Instituția\", datainceputc AS \"Între data\", datasfarsitc AS \"și data\", rutac AS \"Ruta\", mijtransc AS \"Mijloc de transport\", platitortranspc AS \"Plătitor transport\", platitorintretinerec AS \"Plătitor întreținere\", diurnac AS \"Diurnă\", cazarec AS \"Cazare\", taxadeparticiparec AS \"Taxă de participare\", taxadevizaetcc AS \"Taxă de viză\", totalc AS \"Total\", ambasadac AS \"Ambasadă\", nedeterminatac AS \"Perioadă nedeterminată?\", determinatac AS \"Perioadă determinată?\", decanc AS \"Decan\", vizacontac AS \"Viza Contabilitate\", admsefbirouc AS \"Administrator șef\", sefdepartamentdirc AS \"Șef departament\", vizaruc AS \"Viza RU\", tiozc AS \"Trecut în ordinea de zi?\" FROM cereri";
 
                     try
                     {
