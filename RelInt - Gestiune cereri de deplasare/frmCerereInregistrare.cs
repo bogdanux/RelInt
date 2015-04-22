@@ -17,12 +17,17 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             InitializeComponent();
 
             /* ------------ Initializam Combobox-urile cu primele lor valori din colectii ------------------------------------ */
-            //cmbGradDidactic.SelectedIndex = 0;
-            //cmbFacultatea.SelectedIndex = 0;
-            cmbMoneda1.SelectedIndex = 0;
-            cmbMoneda2.SelectedIndex = 0;
-            cmbMoneda3.SelectedIndex = 0;
-            cmbMoneda4.SelectedIndex = 0;
+            UmplereGradDidactic();
+                //cmbGradDidactic.SelectedIndex = 0;
+
+            UmplereFacultate();
+                //cmbFacultatea.SelectedIndex = 0;
+
+            UmplereMonezi();
+                //cmbMoneda1.SelectedIndex = 0;
+                //cmbMoneda2.SelectedIndex = 0;
+                //cmbMoneda3.SelectedIndex = 0;
+                //cmbMoneda4.SelectedIndex = 0;
             /* --------------------------------------------------------------------------------------------------------------- */
             
             // Dezactivam checkbox-ul "chkORCDP"
@@ -148,6 +153,141 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         bool PanouriDezactivate = false;
         bool DacaCevaSchimbat = false;
 
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+
+        /* ---------- Metoda de umplere a cmbGradDidactic cu date din RelIntDB ------------------------------------------- */
+        private void UmplereGradDidactic()
+        {
+            using (OdbcConnection conexiune_cmbGradDidactic = new OdbcConnection(sircon_RelIntDB))
+            {           // Comanda
+                using (OdbcCommand comanda_cmbGradDidactic = new OdbcCommand())
+                {
+                    comanda_cmbGradDidactic.Connection = conexiune_cmbGradDidactic;
+                    comanda_cmbGradDidactic.CommandType = CommandType.Text;
+                    comanda_cmbGradDidactic.CommandText = "SELECT * FROM gradedidactice ORDER BY graddidacticgd ASC";
+
+                    OdbcDataReader cititor_cmbGradDidactic;
+
+                    try
+                    {
+                        conexiune_cmbGradDidactic.Open();
+                        cititor_cmbGradDidactic = comanda_cmbGradDidactic.ExecuteReader();
+                        while (cititor_cmbGradDidactic.Read())
+                        {
+                            string str_cmbGradDidactic = cititor_cmbGradDidactic.GetString(0);
+                            cmbGradDidactic.Items.Add(str_cmbGradDidactic);
+                        }
+                    }
+                    catch (Exception excmbGradDidactic)
+                    {
+                        MessageBox.Show(excmbGradDidactic.Message);
+                    } // Ne deconectam
+                    finally
+                    {
+                        conexiune_cmbGradDidactic.Close();
+                    }
+                }
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+
+        /* ---------- Metoda de umplere a cmbFacultate cu date din RelIntDB ------------------------------------------- */
+        private void UmplereFacultate()
+        {
+            using (OdbcConnection conexiune_cmbFacultate = new OdbcConnection(sircon_RelIntDB))
+            {           // Comanda
+                using (OdbcCommand comanda_cmbFacultate = new OdbcCommand())
+                {
+                    comanda_cmbFacultate.Connection = conexiune_cmbFacultate;
+                    comanda_cmbFacultate.CommandType = CommandType.Text;
+                    comanda_cmbFacultate.CommandText = "SELECT * FROM facultati ORDER BY facultati ASC";
+
+                    OdbcDataReader cititor_cmbFacultate;
+
+                    try
+                    {
+                        conexiune_cmbFacultate.Open();
+                        cititor_cmbFacultate = comanda_cmbFacultate.ExecuteReader();
+                        while (cititor_cmbFacultate.Read())
+                        {
+                            string str_cmbFacultate = cititor_cmbFacultate.GetString(0);
+                            cmbFacultatea.Items.Add(str_cmbFacultate);
+                        }
+                    }
+                    catch (Exception excmbFacultate)
+                    {
+                        MessageBox.Show(excmbFacultate.Message);
+                    } // Ne deconectam
+                    finally
+                    {
+                        conexiune_cmbFacultate.Close();
+                    }
+                }
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+
+        /* ---------- Metoda de umplere a cmbFacultate cu date din RelIntDB ------------------------------------------- */
+        private void UmplereMonezi()
+        {
+            using (OdbcConnection conexiune_cmbMonezi = new OdbcConnection(sircon_RelIntDB))
+            {           // Comanda
+                using (OdbcCommand comanda_cmbMonezi = new OdbcCommand())
+                {
+                    comanda_cmbMonezi.Connection = conexiune_cmbMonezi;
+                    comanda_cmbMonezi.CommandType = CommandType.Text;
+                    comanda_cmbMonezi.CommandText = "SELECT * FROM monezi ORDER BY monezim ASC";
+
+                    OdbcDataReader cititor_cmbMonezi;
+
+                    try
+                    {
+                        conexiune_cmbMonezi.Open();
+                        cititor_cmbMonezi = comanda_cmbMonezi.ExecuteReader();
+                        while (cititor_cmbMonezi.Read())
+                        {
+                            string str_cmbMonezi = cititor_cmbMonezi.GetString(0);
+                            cmbMoneda1.Items.Add(str_cmbMonezi);
+                            cmbMoneda2.Items.Add(str_cmbMonezi);
+                            cmbMoneda3.Items.Add(str_cmbMonezi);
+                            cmbMoneda4.Items.Add(str_cmbMonezi);
+                        }
+                    }
+                    catch (Exception excmbMonezi)
+                    {
+                        MessageBox.Show(excmbMonezi.Message);
+                    } // Ne deconectam
+                    finally
+                    {
+                        conexiune_cmbMonezi.Close();
+                    }
+                }
+            }
+        }
         /* --------------------------------------------------------------------------------------------------------------- */
 
 
@@ -481,7 +621,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         private void SalvareFormular()
         {
             // Daca caseta "txtNrInregistrare" nu este goala
-            if (txtNrInregistrare.Text != string.Empty)
+            if (txtNrInregistrare.Text != string.Empty && cmbGradDidactic.SelectedIndex != -1 && cmbFacultatea.SelectedIndex != -1 && cmbMoneda1.SelectedIndex != -1 && cmbMoneda2.SelectedIndex != -1 && cmbMoneda3.SelectedIndex != -1 && cmbMoneda4.SelectedIndex != -1)
             {
                 // Lucreaza asta
                 CalculTotal();
@@ -547,8 +687,48 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             // Daca caseta "txtNrInregistrare" este goala
             else 
             {
-                // Afiseaza eroarea
-                MessageBox.Show("               Nu ați completat caseta \"Număr Înregistrare\"! \n                              Vă rugăm să o completați.");
+                if (txtNrInregistrare.Text == string.Empty)
+                {
+                    // Afiseaza eroarea
+                    MessageBox.Show(
+                        "               Nu ați completat caseta \"Număr Înregistrare\"! \n                              Vă rugăm să o completați.");
+                }
+                else if (cmbGradDidactic.SelectedIndex == -1)
+                {
+                    // Afiseaza eroarea
+                    MessageBox.Show(
+                        "               Nu ați selectat nici un grad didactic (-- Grad didactic --) ! \n                 Vă rugăm selectați o valoare.");
+                }
+                else if (cmbFacultatea.SelectedIndex == -1)
+                {
+                    // Afiseaza eroarea
+                    MessageBox.Show(
+                        "               Nu ați selectat nici o facultate (-- Facultatea --) ! \n                 Vă rugăm selectați o valoare.");
+                }
+                else if (cmbMoneda1.SelectedIndex == -1)
+                {
+                    // Afiseaza eroarea
+                    MessageBox.Show(
+                        "               Nu ați selectat nici o moneda (-- Diurnă --) ! \n                 Vă rugăm selectați o valoare.");
+                }
+                else if (cmbMoneda2.SelectedIndex == -1)
+                {
+                    // Afiseaza eroarea
+                    MessageBox.Show(
+                        "               Nu ați selectat nici o moneda (-- Cazare --) ! \n                 Vă rugăm selectați o valoare.");
+                }
+                else if (cmbMoneda3.SelectedIndex == -1)
+                {
+                    // Afiseaza eroarea
+                    MessageBox.Show(
+                        "               Nu ați selectat nici o moneda (-- Taxă de participare --) ! \n                 Vă rugăm selectați o valoare.");
+                }
+                else if (cmbMoneda4.SelectedIndex == -1)
+                {
+                    // Afiseaza eroarea
+                    MessageBox.Show(
+                        "               Nu ați selectat nici o moneda (-- Taxă de Viza + Asigurare Medicală --) ! \n                 Vă rugăm selectați o valoare.");
+                }
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */

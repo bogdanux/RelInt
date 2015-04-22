@@ -357,6 +357,39 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
+
+        /* ----------------- Deschiderea formularului frmTipuriIntrari ---------------------------------------------- */
+        private void btnGCDTipIntrari_Click(object sender, EventArgs e)
+        {
+            // Apelam formularul "frmTipuriIntrari"
+            Form frmTipuriIntrari = new frmTipuriIntrari();
+
+            // Facem "frmTipuriIntrari" copil al "frmGCD"
+            frmTipuriIntrari.MdiParent = this;
+
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form.GetType() == typeof(frmTipuriIntrari))
+                {
+                    form.WindowState = FormWindowState.Normal;
+                    form.Activate();
+                    return;
+                }
+            }
+
+            // Afisam "frmTipuriIntrari"
+            frmTipuriIntrari.Show();
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+
         /* -------------------- MetodaScriereInStatus -------------------------------------------------------------------- */
         public void MetodaScriereInStatus()
         {
@@ -394,6 +427,9 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
+        
+
+
 
 
 
@@ -406,6 +442,9 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             MetodaScriereInStatus();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
 
 
 

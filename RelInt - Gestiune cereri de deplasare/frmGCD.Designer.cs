@@ -37,18 +37,21 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.btnGCDIesire = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuOperatiuniEvidentaActivitate = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnGCDBeca = new System.Windows.Forms.ToolStripMenuItem();
             this.btnGCDOrdineaDeZi = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.btnGCDVizualizareTot = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuRapoarte = new System.Windows.Forms.ToolStripMenuItem();
             this.btnGCDRaportCereri = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuSetari = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnGCDTipIntrari = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuAjutor = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnGCDDespreApp = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnManualUtilizare = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.btnGCDRealizatori = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnGCDDespreApp = new System.Windows.Forms.ToolStripMenuItem();
             this.StatusGCD = new System.Windows.Forms.StatusStrip();
             this.tsStatusUltimaInregistrare = new System.Windows.Forms.ToolStripStatusLabel();
-            this.btnGCDBeca = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuBaraMeniu.SuspendLayout();
             this.StatusGCD.SuspendLayout();
             this.SuspendLayout();
@@ -61,6 +64,7 @@
             this.mnuOperatiuniFormulare,
             this.mnuOperatiuniEvidentaActivitate,
             this.mnuRapoarte,
+            this.mnuSetari,
             this.mnuAjutor});
             this.mnuBaraMeniu.Location = new System.Drawing.Point(0, 0);
             this.mnuBaraMeniu.Name = "mnuBaraMeniu";
@@ -130,6 +134,14 @@
             this.mnuOperatiuniEvidentaActivitate.Size = new System.Drawing.Size(126, 26);
             this.mnuOperatiuniEvidentaActivitate.Text = "Evidența &activităților";
             // 
+            // btnGCDBeca
+            // 
+            this.btnGCDBeca.Name = "btnGCDBeca";
+            this.btnGCDBeca.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B)));
+            this.btnGCDBeca.Size = new System.Drawing.Size(219, 22);
+            this.btnGCDBeca.Text = "Cerere pentru &BECA";
+            this.btnGCDBeca.Click += new System.EventHandler(this.btnGCDBeca_Click);
+            // 
             // btnGCDOrdineaDeZi
             // 
             this.btnGCDOrdineaDeZi.Name = "btnGCDOrdineaDeZi";
@@ -168,38 +180,60 @@
             this.btnGCDRaportCereri.Text = "Raport &Cereri";
             this.btnGCDRaportCereri.Click += new System.EventHandler(this.btnGCDRaportCereri_Click);
             // 
+            // mnuSetari
+            // 
+            this.mnuSetari.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnGCDTipIntrari});
+            this.mnuSetari.Name = "mnuSetari";
+            this.mnuSetari.Size = new System.Drawing.Size(79, 26);
+            this.mnuSetari.Text = "&Configurări";
+            // 
+            // btnGCDTipIntrari
+            // 
+            this.btnGCDTipIntrari.Name = "btnGCDTipIntrari";
+            this.btnGCDTipIntrari.ShortcutKeys = System.Windows.Forms.Keys.F4;
+            this.btnGCDTipIntrari.Size = new System.Drawing.Size(210, 22);
+            this.btnGCDTipIntrari.Text = "Editare tipuri de intrări";
+            this.btnGCDTipIntrari.Click += new System.EventHandler(this.btnGCDTipIntrari_Click);
+            // 
             // mnuAjutor
             // 
             this.mnuAjutor.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnGCDDespreApp,
+            this.btnManualUtilizare,
             this.toolStripSeparator2,
-            this.btnGCDRealizatori});
+            this.btnGCDRealizatori,
+            this.btnGCDDespreApp});
             this.mnuAjutor.Name = "mnuAjutor";
             this.mnuAjutor.Size = new System.Drawing.Size(52, 26);
             this.mnuAjutor.Text = "Ajut&or";
             // 
-            // btnGCDDespreApp
+            // btnManualUtilizare
             // 
-            this.btnGCDDespreApp.Name = "btnGCDDespreApp";
-            this.btnGCDDespreApp.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
-            | System.Windows.Forms.Keys.D)));
-            this.btnGCDDespreApp.Size = new System.Drawing.Size(259, 22);
-            this.btnGCDDespreApp.Text = "&Despre RelInt - GCdD";
-            this.btnGCDDespreApp.Click += new System.EventHandler(this.btnGCDDespreApp_Click);
+            this.btnManualUtilizare.Name = "btnManualUtilizare";
+            this.btnManualUtilizare.ShortcutKeys = System.Windows.Forms.Keys.F1;
+            this.btnManualUtilizare.Size = new System.Drawing.Size(204, 22);
+            this.btnManualUtilizare.Text = "Manual Utilizare";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(256, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(201, 6);
             // 
             // btnGCDRealizatori
             // 
             this.btnGCDRealizatori.Name = "btnGCDRealizatori";
-            this.btnGCDRealizatori.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
-            | System.Windows.Forms.Keys.R)));
-            this.btnGCDRealizatori.Size = new System.Drawing.Size(259, 22);
+            this.btnGCDRealizatori.ShortcutKeys = System.Windows.Forms.Keys.F2;
+            this.btnGCDRealizatori.Size = new System.Drawing.Size(204, 22);
             this.btnGCDRealizatori.Text = "&Realizatori";
             this.btnGCDRealizatori.Click += new System.EventHandler(this.btnGCDRealizatori_Click);
+            // 
+            // btnGCDDespreApp
+            // 
+            this.btnGCDDespreApp.Name = "btnGCDDespreApp";
+            this.btnGCDDespreApp.ShortcutKeys = System.Windows.Forms.Keys.F3;
+            this.btnGCDDespreApp.Size = new System.Drawing.Size(204, 22);
+            this.btnGCDDespreApp.Text = "&Despre RelInt - GCdD";
+            this.btnGCDDespreApp.Click += new System.EventHandler(this.btnGCDDespreApp_Click);
             // 
             // StatusGCD
             // 
@@ -217,14 +251,6 @@
             this.tsStatusUltimaInregistrare.ForeColor = System.Drawing.Color.Green;
             this.tsStatusUltimaInregistrare.Name = "tsStatusUltimaInregistrare";
             this.tsStatusUltimaInregistrare.Size = new System.Drawing.Size(0, 17);
-            // 
-            // btnGCDBeca
-            // 
-            this.btnGCDBeca.Name = "btnGCDBeca";
-            this.btnGCDBeca.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B)));
-            this.btnGCDBeca.Size = new System.Drawing.Size(219, 22);
-            this.btnGCDBeca.Text = "Cerere pentru &BECA";
-            this.btnGCDBeca.Click += new System.EventHandler(this.btnGCDBeca_Click);
             // 
             // frmGCD
             // 
@@ -275,6 +301,9 @@
         private System.Windows.Forms.ToolStripMenuItem mnuRapoarte;
         private System.Windows.Forms.ToolStripMenuItem btnGCDRaportCereri;
         private System.Windows.Forms.ToolStripMenuItem btnGCDBeca;
+        private System.Windows.Forms.ToolStripMenuItem mnuSetari;
+        private System.Windows.Forms.ToolStripMenuItem btnGCDTipIntrari;
+        private System.Windows.Forms.ToolStripMenuItem btnManualUtilizare;
     }
 }
 
