@@ -220,6 +220,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FloralWhite;
             this.BackgroundImage = global::RelInt___Gestiune_cereri_de_deplasare.Properties.Resources.UAIC_logo_bw_1024;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(784, 461);
@@ -232,6 +233,7 @@
             this.Text = "Gestiune Cereri de Deplasare";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Activated += new System.EventHandler(this.frmGCD_Activated);
+            this.Load += new System.EventHandler(this.frmGCD_Load);
             this.mnuBaraMeniu.ResumeLayout(false);
             this.mnuBaraMeniu.PerformLayout();
             this.StatusGCD.ResumeLayout(false);

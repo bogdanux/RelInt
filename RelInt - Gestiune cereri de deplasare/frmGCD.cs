@@ -368,13 +368,54 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
-        /* ------------------- Eveniment de tip Click pentru update al Statusului ---------------------------------------- */
+        /* ------------------- Eveniment de tip "activated" am formularului curent --------------------------------------- */
         private void frmGCD_Activated(object sender, EventArgs e)
         {
             MetodaScriereInStatus();
         }
-
-        
         /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+        /* --------------------- Eveniment de tip "load" al formularului curent ------------------------------------------ */
+        private void frmGCD_Load(object sender, EventArgs e)
+        {
+            MdiClient ctlMDI;
+
+            // Cautam printre controale controlul de acest tip
+            foreach (Control ctl in this.Controls)
+            {
+                if (ctl is MdiClient)
+                {
+                    try
+                    {
+                        // facem Cast controlului curent la tipul MdiClient
+                        ctlMDI = (MdiClient)ctl;
+
+                        // Seteaza culoarea de background pe culoarea setata in proprietati
+                        ctlMDI.BackColor = this.BackColor;
+                    }
+                    catch (InvalidCastException exCuloareBG)
+                    {
+                        // Arata eroarea
+                        MessageBox.Show(exCuloareBG.Message);
+                    } 
+                }
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+
+
        }
     }
