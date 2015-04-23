@@ -53,6 +53,8 @@
             this.StatusGCD = new System.Windows.Forms.StatusStrip();
             this.tsStatusUltimaInregistrare = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsStatusDeCe = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnGCDModificareBECA = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuBaraMeniu.SuspendLayout();
             this.StatusGCD.SuspendLayout();
             this.SuspendLayout();
@@ -89,15 +91,15 @@
             // 
             this.btnGCDIntroducereFormular.Name = "btnGCDIntroducereFormular";
             this.btnGCDIntroducereFormular.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
-            this.btnGCDIntroducereFormular.Size = new System.Drawing.Size(223, 22);
-            this.btnGCDIntroducereFormular.Text = "Formular &Introducere";
+            this.btnGCDIntroducereFormular.Size = new System.Drawing.Size(213, 22);
+            this.btnGCDIntroducereFormular.Text = "&Introducere Cerere";
             this.btnGCDIntroducereFormular.Click += new System.EventHandler(this.btnGCDIntroducereFormular_Click);
             // 
             // btnGCDCautareCerere
             // 
             this.btnGCDCautareCerere.Name = "btnGCDCautareCerere";
             this.btnGCDCautareCerere.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F)));
-            this.btnGCDCautareCerere.Size = new System.Drawing.Size(223, 22);
+            this.btnGCDCautareCerere.Size = new System.Drawing.Size(213, 22);
             this.btnGCDCautareCerere.Text = "&Căutare Cerere";
             this.btnGCDCautareCerere.Click += new System.EventHandler(this.btnGCDcăutareCerere_Click);
             // 
@@ -107,20 +109,20 @@
             this.btnGCDModificareFormular.Name = "btnGCDModificareFormular";
             this.btnGCDModificareFormular.ShortcutKeyDisplayString = "";
             this.btnGCDModificareFormular.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.M)));
-            this.btnGCDModificareFormular.Size = new System.Drawing.Size(223, 22);
+            this.btnGCDModificareFormular.Size = new System.Drawing.Size(213, 22);
             this.btnGCDModificareFormular.Text = "&Modificare Cerere";
             this.btnGCDModificareFormular.Click += new System.EventHandler(this.btnGCDModificareFormular_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(220, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(210, 6);
             // 
             // btnGCDIesire
             // 
             this.btnGCDIesire.Name = "btnGCDIesire";
             this.btnGCDIesire.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Q)));
-            this.btnGCDIesire.Size = new System.Drawing.Size(223, 22);
+            this.btnGCDIesire.Size = new System.Drawing.Size(213, 22);
             this.btnGCDIesire.Text = "I&esire";
             this.btnGCDIesire.Click += new System.EventHandler(this.mnuIesire_Click);
             // 
@@ -128,6 +130,8 @@
             // 
             this.mnuOperatiuniEvidentaActivitate.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnGCDBeca,
+            this.btnGCDModificareBECA,
+            this.toolStripSeparator4,
             this.btnGCDOrdineaDeZi,
             this.toolStripSeparator3,
             this.btnGCDVizualizareTot});
@@ -139,7 +143,7 @@
             // 
             this.btnGCDBeca.Name = "btnGCDBeca";
             this.btnGCDBeca.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B)));
-            this.btnGCDBeca.Size = new System.Drawing.Size(219, 22);
+            this.btnGCDBeca.Size = new System.Drawing.Size(271, 22);
             this.btnGCDBeca.Text = "Cerere pentru &BECA";
             this.btnGCDBeca.Click += new System.EventHandler(this.btnGCDBeca_Click);
             // 
@@ -147,20 +151,20 @@
             // 
             this.btnGCDOrdineaDeZi.Name = "btnGCDOrdineaDeZi";
             this.btnGCDOrdineaDeZi.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
-            this.btnGCDOrdineaDeZi.Size = new System.Drawing.Size(219, 22);
+            this.btnGCDOrdineaDeZi.Size = new System.Drawing.Size(271, 22);
             this.btnGCDOrdineaDeZi.Text = "Ordin&ea de zi";
             this.btnGCDOrdineaDeZi.Click += new System.EventHandler(this.btnGCDOrdineaDeZi_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(216, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(268, 6);
             // 
             // btnGCDVizualizareTot
             // 
             this.btnGCDVizualizareTot.Name = "btnGCDVizualizareTot";
             this.btnGCDVizualizareTot.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L)));
-            this.btnGCDVizualizareTot.Size = new System.Drawing.Size(219, 22);
+            this.btnGCDVizualizareTot.Size = new System.Drawing.Size(271, 22);
             this.btnGCDVizualizareTot.Text = "&Lista cereri existente";
             this.btnGCDVizualizareTot.Click += new System.EventHandler(this.btnGCDVizualizareTot_Click);
             // 
@@ -261,6 +265,19 @@
             this.tsStatusDeCe.Name = "tsStatusDeCe";
             this.tsStatusDeCe.Size = new System.Drawing.Size(0, 17);
             // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(268, 6);
+            // 
+            // btnGCDModificareBECA
+            // 
+            this.btnGCDModificareBECA.Name = "btnGCDModificareBECA";
+            this.btnGCDModificareBECA.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.B)));
+            this.btnGCDModificareBECA.Size = new System.Drawing.Size(271, 22);
+            this.btnGCDModificareBECA.Text = "Modificare cerere BEC&A";
+            // 
             // frmGCD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -314,6 +331,8 @@
         private System.Windows.Forms.ToolStripStatusLabel tsStatusDeCe;
         public System.Windows.Forms.ToolStripMenuItem btnGCDIntroducereFormular;
         public System.Windows.Forms.ToolStripMenuItem btnGCDModificareFormular;
+        private System.Windows.Forms.ToolStripMenuItem btnGCDModificareBECA;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
     }
 }
 

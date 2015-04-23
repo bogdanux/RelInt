@@ -106,6 +106,7 @@
             this.dgvGradDidactic.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvGradDidactic.Location = new System.Drawing.Point(3, 3);
             this.dgvGradDidactic.Name = "dgvGradDidactic";
+            this.dgvGradDidactic.ReadOnly = true;
             this.dgvGradDidactic.Size = new System.Drawing.Size(380, 415);
             this.dgvGradDidactic.TabIndex = 3;
             // 
@@ -184,6 +185,7 @@
             this.dgvFacultate.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFacultate.Location = new System.Drawing.Point(3, 3);
             this.dgvFacultate.Name = "dgvFacultate";
+            this.dgvFacultate.ReadOnly = true;
             this.dgvFacultate.Size = new System.Drawing.Size(380, 415);
             this.dgvFacultate.TabIndex = 0;
             // 
@@ -234,6 +236,7 @@
             this.dgvMoneda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMoneda.Location = new System.Drawing.Point(3, 3);
             this.dgvMoneda.Name = "dgvMoneda";
+            this.dgvMoneda.ReadOnly = true;
             this.dgvMoneda.Size = new System.Drawing.Size(380, 415);
             this.dgvMoneda.TabIndex = 0;
             // 
