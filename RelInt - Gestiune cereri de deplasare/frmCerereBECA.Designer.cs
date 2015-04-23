@@ -36,7 +36,6 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.btnIesire = new System.Windows.Forms.ToolStripMenuItem();
             this.panouIdentificare = new System.Windows.Forms.Panel();
-            this.btnAcceseaza = new System.Windows.Forms.Button();
             this.lblIdentificareBECA = new System.Windows.Forms.Label();
             this.dpDataBECA = new System.Windows.Forms.DateTimePicker();
             this.lblDin = new System.Windows.Forms.Label();
@@ -172,7 +171,6 @@
             // panouIdentificare
             // 
             this.panouIdentificare.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panouIdentificare.Controls.Add(this.btnAcceseaza);
             this.panouIdentificare.Controls.Add(this.lblIdentificareBECA);
             this.panouIdentificare.Controls.Add(this.dpDataBECA);
             this.panouIdentificare.Controls.Add(this.lblDin);
@@ -184,16 +182,6 @@
             this.panouIdentificare.Name = "panouIdentificare";
             this.panouIdentificare.Size = new System.Drawing.Size(642, 66);
             this.panouIdentificare.TabIndex = 1;
-            // 
-            // btnAcceseaza
-            // 
-            this.btnAcceseaza.Location = new System.Drawing.Point(213, 31);
-            this.btnAcceseaza.Name = "btnAcceseaza";
-            this.btnAcceseaza.Size = new System.Drawing.Size(75, 23);
-            this.btnAcceseaza.TabIndex = 7;
-            this.btnAcceseaza.Text = "Accesează";
-            this.btnAcceseaza.UseVisualStyleBackColor = true;
-            this.btnAcceseaza.Click += new System.EventHandler(this.btnAcceseaza_Click);
             // 
             // lblIdentificareBECA
             // 
@@ -208,7 +196,7 @@
             // dpDataBECA
             // 
             this.dpDataBECA.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpDataBECA.Location = new System.Drawing.Point(497, 32);
+            this.dpDataBECA.Location = new System.Drawing.Point(416, 32);
             this.dpDataBECA.Name = "dpDataBECA";
             this.dpDataBECA.Size = new System.Drawing.Size(93, 20);
             this.dpDataBECA.TabIndex = 5;
@@ -216,7 +204,7 @@
             // lblDin
             // 
             this.lblDin.AutoSize = true;
-            this.lblDin.Location = new System.Drawing.Point(470, 36);
+            this.lblDin.Location = new System.Drawing.Point(389, 36);
             this.lblDin.Name = "lblDin";
             this.lblDin.Size = new System.Drawing.Size(21, 13);
             this.lblDin.TabIndex = 4;
@@ -224,7 +212,7 @@
             // 
             // txtNrUAIC
             // 
-            this.txtNrUAIC.Location = new System.Drawing.Point(364, 32);
+            this.txtNrUAIC.Location = new System.Drawing.Point(283, 32);
             this.txtNrUAIC.Name = "txtNrUAIC";
             this.txtNrUAIC.Size = new System.Drawing.Size(100, 20);
             this.txtNrUAIC.TabIndex = 3;
@@ -248,16 +236,15 @@
             this.txtNrInregistrare.Size = new System.Drawing.Size(100, 20);
             this.txtNrInregistrare.TabIndex = 1;
             this.txtNrInregistrare.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.txtNrInregistrare.TextChanged += new System.EventHandler(this.txtNrInregistrare_TextChanged);
             // 
             // lblNrUAIC
             // 
             this.lblNrUAIC.AutoSize = true;
-            this.lblNrUAIC.Location = new System.Drawing.Point(294, 36);
+            this.lblNrUAIC.Location = new System.Drawing.Point(213, 36);
             this.lblNrUAIC.Name = "lblNrUAIC";
             this.lblNrUAIC.Size = new System.Drawing.Size(64, 13);
             this.lblNrUAIC.TabIndex = 0;
-            this.lblNrUAIC.Text = "numar UAIC";
+            this.lblNrUAIC.Text = "număr UAIC";
             // 
             // panouContinut
             // 
@@ -1027,7 +1014,6 @@
         private System.Windows.Forms.TextBox txtNrZileDiurna;
         private System.Windows.Forms.Label lblSuma;
         private System.Windows.Forms.Label lblMoneda;
-        private System.Windows.Forms.Button btnAcceseaza;
         private System.Windows.Forms.ComboBox cmbRectorProrector;
         private System.Windows.Forms.Label lblSubtotal;
         private System.Windows.Forms.TextBox txtSubtotalDiurna;

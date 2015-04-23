@@ -17,13 +17,13 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         {
             InitializeComponent();
 
+            // Aducem din BD numarul de inregistrare
+            MetodaAducereNrInregistrare();
+
             // Incarcam ComboBox-urile urmatoare
             UmplereGradDidactic();
             UmplereFacultate();
             UmplereMonezi();
-
-            // Pregatim formularul
-            PregatireFormular();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
@@ -225,59 +225,64 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
-        /* --------------- Metoda Pregatire Formular --------------------------------------------------------------------- */
-        private void PregatireFormular()
-        {
-            if (txtNrInregistrare.Text != string.Empty)
-            {
-                btnAcceseaza.Enabled = true;
-            }
-            else
-            {
-                // Dezactivam urmatoarele controale
-                btnAcceseaza.Enabled = false;
-                lblNrUAIC.Enabled = false;
-                txtNrUAIC.Enabled = false;
-                dpDataBECA.Enabled = false;
-                dpDataBECA.Enabled = false;
 
-                // Dezactivam urmatoarele panouri
-                panouContinut.Enabled = false;
-                panouCheltuieli.Enabled = false;
-                panouAlteDispuneri.Enabled = false;
-                panouSemnatari.Enabled = false;
+
+        /* ---------------------- Metoda de verificare a txtNrInregistrare ----------------------------------------------- */
+        private void MetodaAducereNrInregistrare()
+        {
+            using (OdbcConnection conexiune_VerifNrInregistrare = new OdbcConnection(sircon_RelIntDB))
+            {           // Comanda
+                using (OdbcCommand comanda_VerifNrInregistrare = new OdbcCommand())
+                {
+                    comanda_VerifNrInregistrare.Connection = conexiune_VerifNrInregistrare;
+                    comanda_VerifNrInregistrare.CommandType = CommandType.Text;
+                    comanda_VerifNrInregistrare.CommandText = "SELECT max(nrinregistrarec) FROM cereri";
+
+                    OdbcDataReader cititor_VerifNrInregistrare;
+
+                    try
+                    {
+                        conexiune_VerifNrInregistrare.Open();
+                        cititor_VerifNrInregistrare = comanda_VerifNrInregistrare.ExecuteReader();
+
+                        while (cititor_VerifNrInregistrare.Read())
+                        {
+                            switch (cititor_VerifNrInregistrare.IsDBNull(0))
+                            {
+                                case true:
+                                    // Atribuim valoarea
+                                    txtNrInregistrare.Text = "1";
+
+                                    // Dezactivam controlul
+                                    txtNrInregistrare.Enabled = false;
+                                    break;
+
+                                case false:
+                                    // Declaram variabila si calculam
+                                    int nrinregistrare = Convert.ToInt32(cititor_VerifNrInregistrare.GetValue(0)) + 1;
+
+                                    // Afisam un textbox
+                                    txtNrInregistrare.Text = nrinregistrare.ToString();
+
+                                    // Dezactivam controlul
+                                    txtNrInregistrare.Enabled = false;
+                                    break;
+                            }
+                        }
+                    }
+                    catch (Exception exVerifNrInregistrare)
+                    {
+                        MessageBox.Show(exVerifNrInregistrare.Message);
+                    } // Ne deconectam
+                    finally
+                    {
+                        conexiune_VerifNrInregistrare.Close();
+                    }
+                }
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
-
-
-
-
-        int vartxtNrInregistrare;
-        bool txtNrInregistrareSchimbat = false;
-        /* ------------------- Eveniment al txtNrInregistrare ------------------------------------------------------------ */
-        private void txtNrInregistrare_TextChanged(object sender, EventArgs e)
-        {
-            // Verificam daca valoarea din "txtNrInregistrare" este de tip int si daca da, o inregistram in "vartxtNrInregistrare"
-            bool vartxtNrInregistrareEsteNumar = Int32.TryParse(txtNrInregistrare.Text, out vartxtNrInregistrare);
-
-            // Judecam si "sanctionam" la nevoie
-            switch (vartxtNrInregistrareEsteNumar || txtNrInregistrare.Text == string.Empty)
-            {
-                case false:
-                    // Golim casuta si afisam mesaj de eroare
-                    txtNrInregistrare.Clear();
-                    MessageBox.Show("        Vă rugăm introduceți doar numere în această casetă de text.");
-                    break;
-            }
-
-            // Inregistram modificarea campului
-            txtNrInregistrareSchimbat = true;
-
-            PregatireFormular();
-        }
-        /* --------------------------------------------------------------------------------------------------------------- */
 
 
 
@@ -514,13 +519,13 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
         /* --------------------- variabile de lucru pentru eveniment txtDiurna ------------------------------------- */
-        decimal vartxtDiurna;
+        double vartxtDiurna;
         bool txtDiurnaSchimbat = false;
         /* ------------------------- Eveniment pentru txtDiurna ---------------------------------------------------------- */
         private void txtDiurna_TextChanged(object sender, EventArgs e)
         {
             // Verificam daca valoarea din "txtDiurna" este de tip int si daca da, o inregistram in "vartxtDiurna"
-            bool vartxtDiurnaEsteNumar = decimal.TryParse(txtDiurna.Text, out vartxtDiurna);
+            bool vartxtDiurnaEsteNumar = double.TryParse(txtDiurna.Text, out vartxtDiurna);
 
             // Judecam si "sanctionam" la nevoie
             switch (vartxtDiurnaEsteNumar || txtDiurna.Text == string.Empty)
@@ -645,7 +650,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         private void MetodaCalculSubtotalDiurna()
         {
             // Declaram o variabila locala
-            decimal varSubtotal = 0;
+            double varSubtotal = 0;
 
             // Calculam
             varSubtotal = vartxtNrZileDiurna*vartxtDiurna;
