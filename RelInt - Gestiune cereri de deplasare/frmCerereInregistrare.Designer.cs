@@ -221,6 +221,7 @@
             this.txtNrInregistrare.Name = "txtNrInregistrare";
             this.txtNrInregistrare.Size = new System.Drawing.Size(153, 21);
             this.txtNrInregistrare.TabIndex = 2;
+            this.txtNrInregistrare.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtNrInregistrare.TextChanged += new System.EventHandler(this.txtNrInregistrare_TextChanged);
             // 
             // lblDataFormular

@@ -6,6 +6,8 @@ DROP TABLE IF EXISTS CereriBECA;
 DROP TABLE IF EXISTS Cereri;
 DROP TABLE IF EXISTS GradeDidactice;
 DROP TABLE IF EXISTS Facultati;
+DROP TABLE IF EXISTS Rectori;
+DROP TABLE IF EXISTS ProRectori;
 DROP TABLE IF EXISTS Monezi;
 
 -------------------------------------
@@ -78,8 +80,23 @@ CREATE TABLE Monezi (
 MoneziM VARCHAR(50) CONSTRAINT pk_MoneziM PRIMARY KEY
 );
 
--- Creare tebela CereriBECA
+-- Creare tabela CereriBECA
 CREATE TABLE CereriBECA (
-NrInregistrareCB NUMERIC(5) CONSTRAINT pk_NrInregistrareCB PRIMARY KEY,
-NrInregistrareCBC NUMERIC(5) CONSTRAINT fk_NrInregistrareCBC REFERENCES Cereri(NrInregistrareC)
+NrInregistrareBC NUMERIC(5) CONSTRAINT fk_NrInregistrareCBC REFERENCES Cereri(NrInregistrareC),
+NrInregistrareB NUMERIC(5) CONSTRAINT pk_NrInregistrareCB PRIMARY KEY
+);
+
+-- Creare tabela Rectori
+CREATE TABLE Rectori (
+Rector VARCHAR(50) CONSTRAINT pk_Rector PRIMARY KEY,
+EMailR VARCHAR(50),
+TelefonR NUMERIC(12)
+);
+
+-- Creare tabela ProRectori
+CREATE TABLE ProRectori (
+ProRector VARCHAR(50) CONSTRAINT pk_ProRector PRIMARY KEY,
+EMailP VARCHAR(50),
+TelefonP1 NUMERIC(12) NOT NULL,
+TelefonP2 NUMERIC(12)
 );

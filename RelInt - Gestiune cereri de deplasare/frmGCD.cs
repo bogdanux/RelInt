@@ -624,6 +624,36 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
+        /* ------------------ Deschiderea formularului frmEditareRector ----------------------------------------- */
+        private void btnGCDEditareRectori_Click(object sender, EventArgs e)
+        {
+            // Apelam formularul "frmEditareRector"
+            Form frmEditareRector = new frmEditareRector();
+
+            // Facem "frmEditareRector" copil al "frmGCD"
+            frmEditareRector.MdiParent = this;
+
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form.GetType() == typeof(frmEditareRector))
+                {
+                    form.WindowState = FormWindowState.Normal;
+                    form.Activate();
+                    return;
+                }
+            }
+
+            // Afisam "frmEditareRector"
+            frmEditareRector.Show();
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
 
         /* -------------------- MetodaScriereInStatus -------------------------------------------------------------------- */
         public void MetodaScriereInStatus()
@@ -713,13 +743,5 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-
-
-
-
-
-
-
-        
     }
 }

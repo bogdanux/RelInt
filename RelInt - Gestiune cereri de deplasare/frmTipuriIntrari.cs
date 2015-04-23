@@ -170,9 +170,9 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                         conexiune_dgvGradDidactic.Open();
                         int recordsAffected = comanda_dgvGradDidactic.ExecuteNonQuery();
                     }
-                    catch (Exception dgvGradDidactic)
+                    catch (Exception exdgvGradDidactic)
                     {
-                        MessageBox.Show(dgvGradDidactic.Message);
+                        MessageBox.Show(exdgvGradDidactic.Message);
                     } // Ne deconectam
                     finally
                     {

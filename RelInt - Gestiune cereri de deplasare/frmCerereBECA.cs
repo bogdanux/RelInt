@@ -22,7 +22,8 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             UmplereFacultate();
             UmplereMonezi();
 
-            MetodaActivareNrUAIC();
+            // Pregatim formularul
+            PregatireFormular();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
@@ -53,6 +54,21 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
+
+
+
+
+
+
+        /* --------------- Event KeyDown al formularului ----------------------------------------------------------------- */
+        private void frmCerereBECA_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (txtNrInregistrare.Text != string.Empty && e.KeyCode == Keys.Enter)
+            {
+                ActivareControaleForm();
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
 
 
 
@@ -208,27 +224,28 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
-        /* --------------------------------------------------------------------------------------------------------------- */
-        int vartxtNrUAIC;
-        bool txtNrUAICSchimbat = false;
-        /* ----------------- Eveniment pentru txtNrUAIC ------------------------------------------------------------------ */
-        private void txtNrUAIC_TextChanged(object sender, EventArgs e)
+        /* --------------- Metoda Pregatire Formular --------------------------------------------------------------------- */
+        private void PregatireFormular()
         {
-            // Verificam daca valoarea din "txtNrUAIC" este de tip int si daca da, o inregistram in "vartxtNrUAIC"
-            bool vartxtNrUAICEsteNumar = Int32.TryParse(txtNrUAIC.Text, out vartxtNrUAIC);
-
-            // Judecam si "sanctionam" la nevoie
-            switch (vartxtNrUAICEsteNumar || txtNrUAIC.Text == string.Empty)
+            if (txtNrInregistrare.Text != string.Empty)
             {
-                case false:
-                    // Golim casuta si afisam mesaj de eroare
-                    txtNrUAIC.Clear();
-                    MessageBox.Show("        Vă rugăm introduceți doar numere în această casetă de text.");
-                    break;
+                btnAcceseaza.Enabled = true;
             }
+            else
+            {
+                // Dezactivam urmatoarele controale
+                btnAcceseaza.Enabled = false;
+                lblNrUAIC.Enabled = false;
+                txtNrUAIC.Enabled = false;
+                dpDataBECA.Enabled = false;
+                dpDataBECA.Enabled = false;
 
-            // Inregistram modificarea campului
-            txtNrUAICSchimbat = true;
+                // Dezactivam urmatoarele panouri
+                panouContinut.Enabled = false;
+                panouCheltuieli.Enabled = false;
+                panouAlteDispuneri.Enabled = false;
+                panouSemnatari.Enabled = false;
+            }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
@@ -236,13 +253,9 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
-
-
-
-        /* --------------------------------------------------------------------------------------------------------------- */
         int vartxtNrInregistrare;
-        bool txtNrInregistrareSchimbat;
-        /* ----------------- Validarea casetei de text "txtNrInregistrare" ----------------------------------------------- */
+        bool txtNrInregistrareSchimbat = false;
+        /* ------------------- Eveniment al txtNrInregistrare ------------------------------------------------------------ */
         private void txtNrInregistrare_TextChanged(object sender, EventArgs e)
         {
             // Verificam daca valoarea din "txtNrInregistrare" este de tip int si daca da, o inregistram in "vartxtNrInregistrare"
@@ -260,6 +273,30 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
             // Inregistram modificarea campului
             txtNrInregistrareSchimbat = true;
+
+            PregatireFormular();
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+        /* ------------ Metoda de activare a tututor controalelor de pe form --------------------------------------------- */
+        private void ActivareControaleForm()
+        {
+            // Dezactivam urmatoarele controale
+            lblNrUAIC.Enabled = true;
+            txtNrUAIC.Enabled = true;
+            dpDataBECA.Enabled = true;
+            dpDataBECA.Enabled = true;
+
+            // Dezactivam urmatoarele panouri
+            panouContinut.Enabled = true;
+            panouCheltuieli.Enabled = true;
+            panouAlteDispuneri.Enabled = true;
+            panouSemnatari.Enabled = true;
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
@@ -269,46 +306,18 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
-        private void MetodaActivareNrUAIC()
+        /* ------------------ Eveniment al butonului btnAcceseaza -------------------------------------------------------- */
+        private void btnAcceseaza_Click(object sender, EventArgs e)
         {
-            using (OdbcConnection conexiune_txtNrUAIC = new OdbcConnection(sircon_RelIntDB))
-            {           // Comanda
-                using (OdbcCommand comanda_txtNrUAIC = new OdbcCommand())
-                {
-                    comanda_txtNrUAIC.Connection = conexiune_txtNrUAIC;
-                    comanda_txtNrUAIC.CommandType = CommandType.Text;
-                    comanda_txtNrUAIC.CommandText = "SELECT max(nrinregistrarecb) FROM cereribeca";
-
-                    OdbcDataReader cititor_txtNrUAIC;
-
-                    try
-                    {
-                        conexiune_txtNrUAIC.Open();
-                        cititor_txtNrUAIC = comanda_txtNrUAIC.ExecuteReader();
-
-                        while (cititor_txtNrUAIC.Read())
-                        {
-                            if (cititor_txtNrUAIC.HasRows == false)
-                            {
-                                txtNrUAIC.Enabled = true;
-                            }
-                            else
-                            {
-                                txtNrUAIC.Enabled = false;
-                                txtNrUAIC.Text = cititor_txtNrUAIC.GetInt32(0).ToString();
-                            }  
-                        }
-                    }
-                    catch (Exception excmbMonezi)
-                    {
-                        MessageBox.Show(excmbMonezi.Message);
-                    } // Ne deconectam
-                    finally
-                    {
-                        conexiune_txtNrUAIC.Close();
-                    }
-                }
-            }
+            ActivareControaleForm();
         }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
     }
 }
