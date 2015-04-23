@@ -47,6 +47,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
+
         /* ----------------- Eveniment de tip click pentru btnIesire ----------------------------------------------------- */
         private void btnIesire_Click(object sender, EventArgs e)
         {
@@ -310,6 +311,386 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         private void btnAcceseaza_Click(object sender, EventArgs e)
         {
             ActivareControaleForm();
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+        /* ------------------ Metoda de incarcare a cmbRectorProrector --------------------------------------------------- */
+        private void IncarcarecmbRectorProrector()
+        {
+            if (rdoRector.Checked == true)
+            {
+                
+                using (OdbcConnection conexiune_cmbRectorProrector1 = new OdbcConnection(sircon_RelIntDB))
+                {           // Comanda
+                    using (OdbcCommand comanda_cmbRectorProrector1 = new OdbcCommand())
+                    {
+                        comanda_cmbRectorProrector1.Connection = conexiune_cmbRectorProrector1;
+                        comanda_cmbRectorProrector1.CommandType = CommandType.Text;
+                        comanda_cmbRectorProrector1.CommandText = "SELECT rector FROM rectori";
+
+                        OdbcDataReader cititor_cmbRectorProrector1;
+
+                        try
+                        {
+                            conexiune_cmbRectorProrector1.Open();
+                            cititor_cmbRectorProrector1 = comanda_cmbRectorProrector1.ExecuteReader();
+                            while (cititor_cmbRectorProrector1.Read())
+                            {
+                                string str_cmbRectorProrector1 = cititor_cmbRectorProrector1.GetString(0);
+                                cmbRectorProrector.Items.Clear();
+                                cmbRectorProrector.Items.Add(str_cmbRectorProrector1);
+                            }
+                            cititor_cmbRectorProrector1.Close();
+                        }
+                        catch (Exception excmbRectorProrector1)
+                        {
+                            MessageBox.Show(excmbRectorProrector1.Message);
+                        } // Ne deconectam
+                        finally
+                        {
+                            conexiune_cmbRectorProrector1.Close();
+                        }
+                    }
+                }
+            }
+
+            else if (rdoProRector.Checked == true)
+            {
+                using (OdbcConnection conexiune_cmbRectorProrector2 = new OdbcConnection(sircon_RelIntDB))
+                {           // Comanda
+                    using (OdbcCommand comanda_cmbRectorProrector2 = new OdbcCommand())
+                    {
+                        comanda_cmbRectorProrector2.Connection = conexiune_cmbRectorProrector2;
+                        comanda_cmbRectorProrector2.CommandType = CommandType.Text;
+                        comanda_cmbRectorProrector2.CommandText = "SELECT prorector FROM prorectori ORDER BY prorector ASC";
+
+                        OdbcDataReader cititor_cmbRectorProrector2;
+
+                        try
+                        {
+                            conexiune_cmbRectorProrector2.Open();
+                            cititor_cmbRectorProrector2 = comanda_cmbRectorProrector2.ExecuteReader();
+                            while (cititor_cmbRectorProrector2.Read())
+                            {
+                                string str_cmbRectorProrector2 = cititor_cmbRectorProrector2.GetString(0);
+                                cmbRectorProrector.Items.Clear();
+                                cmbRectorProrector.Items.Add(str_cmbRectorProrector2);
+                            }
+                            cititor_cmbRectorProrector2.Close();
+                        }
+                        catch (Exception excmbRectorProrector2)
+                        {
+                            MessageBox.Show(excmbRectorProrector2.Message);
+                        } // Ne deconectam
+                        finally
+                        {
+                            conexiune_cmbRectorProrector2.Close();
+                        }
+                    }
+                }
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+        /* ------------------- Eveniement pentru rdoRector --------------------------------------------------------------- */
+        private void rdoRector_CheckedChanged(object sender, EventArgs e)
+        {
+            IncarcarecmbRectorProrector();
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+        /* ------------------- Eveniement pentru rdoProRector ------------------------------------------------------------ */
+        private void rdoProRector_CheckedChanged(object sender, EventArgs e)
+        {
+            IncarcarecmbRectorProrector();
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+        /* --------------------- variabile de lucru pentru eveniment txtNrUAIC ------------------------------------------- */
+        int vartxtNrUAIC;
+        bool txtNrUAICSchimbat = false;
+        /* --------------------- Eveniment pentru txtNrUAIC -------------------------------------------------------------- */
+        private void txtNrUAIC_TextChanged(object sender, EventArgs e)
+        {
+            // Verificam daca valoarea din "txtNrUAIC" este de tip int si daca da, o inregistram in "vartxtNrUAIC"
+            bool vartxtNrInregistrareEsteNumar = Int32.TryParse(txtNrUAIC.Text, out vartxtNrUAIC);
+
+            // Judecam si "sanctionam" la nevoie
+            switch (vartxtNrInregistrareEsteNumar || txtNrUAIC.Text == string.Empty)
+            {
+                case false:
+                    // Golim casuta si afisam mesaj de eroare
+                    txtNrUAIC.Clear();
+                    MessageBox.Show("        Vă rugăm introduceți doar numere în această casetă de text.");
+                    break;
+            }
+
+            // Inregistram modificarea campului
+            txtNrUAICSchimbat = true;
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+        /* --------------------- variabile de lucru pentru eveniment txtNrZileDiurna ------------------------------------- */
+        int vartxtNrZileDiurna;
+        bool txtNrZileDiurnaSchimbat = false;
+        /* ------------------------- Eveniment pentru txtNrZileDiurna ---------------------------------------------------- */
+        private void txtNrZileDiurna_TextChanged(object sender, EventArgs e)
+        {
+            // Verificam daca valoarea din "txtNrZileDiurna" este de tip int si daca da, o inregistram in "vartxtNrZileDiurna"
+            bool vartxtNrZileDiurnaEsteNumar = Int32.TryParse(txtNrZileDiurna.Text, out vartxtNrZileDiurna);
+
+            // Judecam si "sanctionam" la nevoie
+            switch (vartxtNrZileDiurnaEsteNumar || txtNrZileDiurna.Text == string.Empty)
+            {
+                case false:
+                    // Golim casuta si afisam mesaj de eroare
+                    txtNrZileDiurna.Clear();
+                    MessageBox.Show("        Vă rugăm introduceți doar numere în această casetă de text.");
+                    break;
+            }
+
+            // Calculam
+            MetodaCalculSubtotalDiurna();
+
+            // Inregistram modificarea campului
+            txtNrZileDiurnaSchimbat = true;
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+        /* --------------------- variabile de lucru pentru eveniment txtNrZileCazare ------------------------------------- */
+        int vartxtNrZileCazare;
+        bool txtNrZileCazareSchimbat = false;
+        /* ------------------------- Eveniment pentru txtNrZileCazare ---------------------------------------------------- */
+        private void txtNrZileCazare_TextChanged(object sender, EventArgs e)
+        {
+            // Verificam daca valoarea din "txtNrZileCazare" este de tip int si daca da, o inregistram in "vartxtNrZileCazare"
+            bool vartxtNrZileCazareEsteNumar = Int32.TryParse(txtNrZileCazare.Text, out vartxtNrZileCazare);
+
+            // Judecam si "sanctionam" la nevoie
+            switch (vartxtNrZileCazareEsteNumar || txtNrZileCazare.Text == string.Empty)
+            {
+                case false:
+                    // Golim casuta si afisam mesaj de eroare
+                    txtNrZileCazare.Clear();
+                    MessageBox.Show("        Vă rugăm introduceți doar numere în această casetă de text.");
+                    break;
+            }
+            
+            // Calculam
+            MetodaCalculSubtotalCazare();
+
+            // Inregistram modificarea campului
+            txtNrZileCazareSchimbat = true;
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+        
+
+
+        /* --------------------- variabile de lucru pentru eveniment txtDiurna ------------------------------------- */
+        decimal vartxtDiurna;
+        bool txtDiurnaSchimbat = false;
+        /* ------------------------- Eveniment pentru txtDiurna ---------------------------------------------------------- */
+        private void txtDiurna_TextChanged(object sender, EventArgs e)
+        {
+            // Verificam daca valoarea din "txtDiurna" este de tip int si daca da, o inregistram in "vartxtDiurna"
+            bool vartxtDiurnaEsteNumar = decimal.TryParse(txtDiurna.Text, out vartxtDiurna);
+
+            // Judecam si "sanctionam" la nevoie
+            switch (vartxtDiurnaEsteNumar || txtDiurna.Text == string.Empty)
+            {
+                case false:
+                    // Golim casuta si afisam mesaj de eroare
+                    txtDiurna.Clear();
+                    MessageBox.Show("        Vă rugăm introduceți doar numere în această casetă de text.");
+                    break;
+            }
+
+            // Calculam
+            MetodaCalculSubtotalDiurna();
+
+            // Inregistram modificarea campului
+            txtDiurnaSchimbat = true;
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+        /* ------------------------- Variabile de lucru pentru txtCazare ------------------------------------------------- */
+        double vartxtCazare;
+        bool txtCazareSchimbat = false;
+        /* ------------------------- Eveniment pentru txtCazare ---------------------------------------------------------- */
+        private void txtCazare_TextChanged(object sender, EventArgs e)
+        {
+            // Verificam daca valoarea din "txtCazare" este de tip int si daca da, o inregistram in "vartxtCazare"
+            bool vartxtCazareEsteNumar = Double.TryParse(txtCazare.Text, out vartxtCazare);
+
+            // Judecam si "sanctionam" la nevoie
+            switch (vartxtCazareEsteNumar || txtCazare.Text == string.Empty)
+            {
+                case false:
+                    // Golim casuta si afisam mesaj de eroare
+                    txtCazare.Clear();
+                    MessageBox.Show("        Vă rugăm introduceți doar numere în această casetă de text.");
+                    break;
+            }
+
+            // Calculam
+            MetodaCalculSubtotalCazare();
+
+            // Inregistram modificarea campului
+            txtCazareSchimbat = true;
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+        /* ------------------------ Variabile de lucru pentru txtTaxaDeParticipare --------------------------------------- */
+        int vartxtTaxaDeParticipare;
+        bool txtTaxaDeParticipareSchimbat = false;
+        /* ------------------------- Eveniment pentru txtTaxaDeParticipare ----------------------------------------------- */
+        private void txtTaxaDeParticipare_TextChanged(object sender, EventArgs e)
+        {
+            // Verificam daca valoarea din "txtTaxaDeParticipare" este de tip int si daca da, o inregistram in "vartxtTaxaDeParticipare"
+            bool vartxtTaxaDeParticipareEsteNumar = Int32.TryParse(txtTaxaDeParticipare.Text, out vartxtTaxaDeParticipare);
+
+            // Judecam si "sanctionam" la nevoie
+            switch (vartxtTaxaDeParticipareEsteNumar || txtTaxaDeParticipare.Text == string.Empty)
+            {
+                case false:
+                    // Golim casuta si afisam mesaj de eroare
+                    txtTaxaDeParticipare.Clear();
+                    MessageBox.Show("        Vă rugăm introduceți doar numere în această casetă de text.");
+                    break;
+            }
+
+            // Inregistram modificarea campului
+            txtTaxaDeParticipareSchimbat = true;
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+
+        /* -------------------------- Variabile de lucru pentru txtTaxaDeViza -------------------------------------------- */
+        int vartxtTaxaDeViza;
+        bool txtTaxaDeVizaSchimbat = false;
+        /* ------------------------- Eveniment pentru txtTaxaDeViza ------------------------------------------------------ */
+        private void txtTaxaDeViza_TextChanged(object sender, EventArgs e)
+        {
+            // Verificam daca valoarea din "txtTaxaDeViza" este de tip int si daca da, o inregistram in "vartxtTaxaDeViza"
+            bool vartxtTaxaDeVizaEsteNumar = Int32.TryParse(txtTaxaDeViza.Text, out vartxtTaxaDeViza);
+
+            // Judecam si "sanctionam" la nevoie
+            switch (vartxtTaxaDeVizaEsteNumar || txtTaxaDeViza.Text == string.Empty)
+            {
+                case false:
+                    // Golim casuta si afisam mesaj de eroare
+                    txtTaxaDeViza.Clear();
+                    MessageBox.Show("        Vă rugăm introduceți doar numere în această casetă de text.");
+                    break;
+            }
+
+            // Inregistram modificarea campului
+            txtTaxaDeVizaSchimbat = true;
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+        /* --------------------------------------------------------------------------------------------------------------- */
+        private void MetodaCalculSubtotalDiurna()
+        {
+            // Declaram o variabila locala
+            decimal varSubtotal = 0;
+
+            // Calculam
+            varSubtotal = vartxtNrZileDiurna*vartxtDiurna;
+
+            // Afisam
+            txtSubtotalDiurna.Text = varSubtotal.ToString();
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+        /* --------------------------------------------------------------------------------------------------------------- */
+        private void MetodaCalculSubtotalCazare()
+        {
+            // Declaram o variabila locala
+            double varSubtotal = 0;
+
+            // Calculam
+            varSubtotal = vartxtNrZileCazare * vartxtCazare;
+
+            // Afisam
+            txtSubtotalCazare.Text = varSubtotal.ToString();
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+        /* --------------------------------------------------------------------------------------------------------------- */
+        private void cmbMoneda1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Calculam
+            MetodaCalculSubtotalDiurna();
+        }
+
+        private void cmbMoneda2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Calculam
+            MetodaCalculSubtotalCazare();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 

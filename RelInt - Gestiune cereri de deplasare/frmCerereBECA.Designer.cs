@@ -30,8 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCerereBECA));
             this.mnuCerereBeca = new System.Windows.Forms.MenuStrip();
+            this.btnFormular = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnSalvare = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnGenerarePDF = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.btnIesire = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnGenerare = new System.Windows.Forms.ToolStripMenuItem();
             this.panouIdentificare = new System.Windows.Forms.Panel();
             this.btnAcceseaza = new System.Windows.Forms.Button();
             this.lblIdentificareBECA = new System.Windows.Forms.Label();
@@ -61,12 +64,15 @@
             this.lblSubsemnatul = new System.Windows.Forms.Label();
             this.lblContinutCerere = new System.Windows.Forms.Label();
             this.panouCheltuieli = new System.Windows.Forms.Panel();
+            this.txtSubtotalCazare = new System.Windows.Forms.TextBox();
+            this.lblSubtotal = new System.Windows.Forms.Label();
+            this.txtSubtotalDiurna = new System.Windows.Forms.TextBox();
             this.lblMoneda = new System.Windows.Forms.Label();
             this.lblSuma = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblX = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.lblX2 = new System.Windows.Forms.Label();
+            this.lblX1 = new System.Windows.Forms.Label();
+            this.txtNrZileCazare = new System.Windows.Forms.TextBox();
+            this.txtNrZileDiurna = new System.Windows.Forms.TextBox();
             this.lblNrZile = new System.Windows.Forms.Label();
             this.txtMoneda = new System.Windows.Forms.TextBox();
             this.txtTotal = new System.Windows.Forms.TextBox();
@@ -97,14 +103,15 @@
             this.txtDispunere1 = new System.Windows.Forms.TextBox();
             this.lblAlteDispuneri = new System.Windows.Forms.Label();
             this.panouSemnatari = new System.Windows.Forms.Panel();
+            this.cmbRectorProrector = new System.Windows.Forms.ComboBox();
             this.rdoProRector = new System.Windows.Forms.RadioButton();
             this.rdoRector = new System.Windows.Forms.RadioButton();
             this.lblCoordProiect = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtDFC = new System.Windows.Forms.TextBox();
             this.lblDFC = new System.Windows.Forms.Label();
-            this.txtRector = new System.Windows.Forms.TextBox();
             this.lblSemnatari = new System.Windows.Forms.Label();
+            this.panouFinal = new System.Windows.Forms.Panel();
             this.mnuCerereBeca.SuspendLayout();
             this.panouIdentificare.SuspendLayout();
             this.panouContinut.SuspendLayout();
@@ -117,29 +124,50 @@
             // 
             this.mnuCerereBeca.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.mnuCerereBeca.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnIesire,
-            this.btnGenerare});
+            this.btnFormular});
             this.mnuCerereBeca.Location = new System.Drawing.Point(0, 0);
             this.mnuCerereBeca.Name = "mnuCerereBeca";
             this.mnuCerereBeca.Size = new System.Drawing.Size(699, 24);
             this.mnuCerereBeca.TabIndex = 0;
             this.mnuCerereBeca.Text = "menuStrip1";
             // 
+            // btnFormular
+            // 
+            this.btnFormular.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnSalvare,
+            this.btnGenerarePDF,
+            this.toolStripSeparator1,
+            this.btnIesire});
+            this.btnFormular.Name = "btnFormular";
+            this.btnFormular.Size = new System.Drawing.Size(67, 20);
+            this.btnFormular.Text = "&Formular";
+            // 
+            // btnSalvare
+            // 
+            this.btnSalvare.Name = "btnSalvare";
+            this.btnSalvare.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.btnSalvare.Size = new System.Drawing.Size(200, 22);
+            this.btnSalvare.Text = "&Salvare formular";
+            // 
+            // btnGenerarePDF
+            // 
+            this.btnGenerarePDF.Name = "btnGenerarePDF";
+            this.btnGenerarePDF.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
+            this.btnGenerarePDF.Size = new System.Drawing.Size(200, 22);
+            this.btnGenerarePDF.Text = "&Generare PDF";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(197, 6);
+            // 
             // btnIesire
             // 
             this.btnIesire.Name = "btnIesire";
             this.btnIesire.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.W)));
-            this.btnIesire.Size = new System.Drawing.Size(46, 20);
-            this.btnIesire.Text = "I&eșire";
+            this.btnIesire.Size = new System.Drawing.Size(200, 22);
+            this.btnIesire.Text = "Ieșire";
             this.btnIesire.Click += new System.EventHandler(this.btnIesire_Click);
-            // 
-            // btnGenerare
-            // 
-            this.btnGenerare.Name = "btnGenerare";
-            this.btnGenerare.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-            this.btnGenerare.Size = new System.Drawing.Size(90, 20);
-            this.btnGenerare.Text = "Generare &PDF";
-            this.btnGenerare.Click += new System.EventHandler(this.btnGenerare_Click);
             // 
             // panouIdentificare
             // 
@@ -201,6 +229,7 @@
             this.txtNrUAIC.Size = new System.Drawing.Size(100, 20);
             this.txtNrUAIC.TabIndex = 3;
             this.txtNrUAIC.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtNrUAIC.TextChanged += new System.EventHandler(this.txtNrUAIC_TextChanged);
             // 
             // lblNrInregistrare
             // 
@@ -410,12 +439,15 @@
             // panouCheltuieli
             // 
             this.panouCheltuieli.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panouCheltuieli.Controls.Add(this.txtSubtotalCazare);
+            this.panouCheltuieli.Controls.Add(this.lblSubtotal);
+            this.panouCheltuieli.Controls.Add(this.txtSubtotalDiurna);
             this.panouCheltuieli.Controls.Add(this.lblMoneda);
             this.panouCheltuieli.Controls.Add(this.lblSuma);
-            this.panouCheltuieli.Controls.Add(this.label1);
-            this.panouCheltuieli.Controls.Add(this.lblX);
-            this.panouCheltuieli.Controls.Add(this.textBox4);
-            this.panouCheltuieli.Controls.Add(this.textBox3);
+            this.panouCheltuieli.Controls.Add(this.lblX2);
+            this.panouCheltuieli.Controls.Add(this.lblX1);
+            this.panouCheltuieli.Controls.Add(this.txtNrZileCazare);
+            this.panouCheltuieli.Controls.Add(this.txtNrZileDiurna);
             this.panouCheltuieli.Controls.Add(this.lblNrZile);
             this.panouCheltuieli.Controls.Add(this.txtMoneda);
             this.panouCheltuieli.Controls.Add(this.txtTotal);
@@ -444,6 +476,35 @@
             this.panouCheltuieli.Size = new System.Drawing.Size(642, 223);
             this.panouCheltuieli.TabIndex = 8;
             // 
+            // txtSubtotalCazare
+            // 
+            this.txtSubtotalCazare.Enabled = false;
+            this.txtSubtotalCazare.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSubtotalCazare.Location = new System.Drawing.Point(295, 141);
+            this.txtSubtotalCazare.Name = "txtSubtotalCazare";
+            this.txtSubtotalCazare.Size = new System.Drawing.Size(70, 20);
+            this.txtSubtotalCazare.TabIndex = 41;
+            this.txtSubtotalCazare.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lblSubtotal
+            // 
+            this.lblSubtotal.AutoSize = true;
+            this.lblSubtotal.Location = new System.Drawing.Point(306, 101);
+            this.lblSubtotal.Name = "lblSubtotal";
+            this.lblSubtotal.Size = new System.Drawing.Size(44, 13);
+            this.lblSubtotal.TabIndex = 40;
+            this.lblSubtotal.Text = "subtotal";
+            // 
+            // txtSubtotalDiurna
+            // 
+            this.txtSubtotalDiurna.Enabled = false;
+            this.txtSubtotalDiurna.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSubtotalDiurna.Location = new System.Drawing.Point(295, 117);
+            this.txtSubtotalDiurna.Name = "txtSubtotalDiurna";
+            this.txtSubtotalDiurna.Size = new System.Drawing.Size(70, 20);
+            this.txtSubtotalDiurna.TabIndex = 39;
+            this.txtSubtotalDiurna.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // lblMoneda
             // 
             this.lblMoneda.AutoSize = true;
@@ -462,37 +523,41 @@
             this.lblSuma.TabIndex = 37;
             this.lblSuma.Text = "suma";
             // 
-            // label1
+            // lblX2
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(101, 145);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(14, 13);
-            this.label1.TabIndex = 34;
-            this.label1.Text = "X";
+            this.lblX2.AutoSize = true;
+            this.lblX2.Location = new System.Drawing.Point(101, 145);
+            this.lblX2.Name = "lblX2";
+            this.lblX2.Size = new System.Drawing.Size(14, 13);
+            this.lblX2.TabIndex = 34;
+            this.lblX2.Text = "X";
             // 
-            // lblX
+            // lblX1
             // 
-            this.lblX.AutoSize = true;
-            this.lblX.Location = new System.Drawing.Point(101, 120);
-            this.lblX.Name = "lblX";
-            this.lblX.Size = new System.Drawing.Size(14, 13);
-            this.lblX.TabIndex = 33;
-            this.lblX.Text = "X";
+            this.lblX1.AutoSize = true;
+            this.lblX1.Location = new System.Drawing.Point(101, 120);
+            this.lblX1.Name = "lblX1";
+            this.lblX1.Size = new System.Drawing.Size(14, 13);
+            this.lblX1.TabIndex = 33;
+            this.lblX1.Text = "X";
             // 
-            // textBox4
+            // txtNrZileCazare
             // 
-            this.textBox4.Location = new System.Drawing.Point(59, 142);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(38, 20);
-            this.textBox4.TabIndex = 30;
+            this.txtNrZileCazare.Location = new System.Drawing.Point(59, 142);
+            this.txtNrZileCazare.Name = "txtNrZileCazare";
+            this.txtNrZileCazare.Size = new System.Drawing.Size(38, 20);
+            this.txtNrZileCazare.TabIndex = 30;
+            this.txtNrZileCazare.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtNrZileCazare.TextChanged += new System.EventHandler(this.txtNrZileCazare_TextChanged);
             // 
-            // textBox3
+            // txtNrZileDiurna
             // 
-            this.textBox3.Location = new System.Drawing.Point(59, 117);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(38, 20);
-            this.textBox3.TabIndex = 29;
+            this.txtNrZileDiurna.Location = new System.Drawing.Point(59, 117);
+            this.txtNrZileDiurna.Name = "txtNrZileDiurna";
+            this.txtNrZileDiurna.Size = new System.Drawing.Size(38, 20);
+            this.txtNrZileDiurna.TabIndex = 29;
+            this.txtNrZileDiurna.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtNrZileDiurna.TextChanged += new System.EventHandler(this.txtNrZileDiurna_TextChanged);
             // 
             // lblNrZile
             // 
@@ -511,6 +576,7 @@
             this.txtMoneda.Name = "txtMoneda";
             this.txtMoneda.Size = new System.Drawing.Size(56, 20);
             this.txtMoneda.TabIndex = 27;
+            this.txtMoneda.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtTotal
             // 
@@ -520,12 +586,13 @@
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(100, 20);
             this.txtTotal.TabIndex = 26;
+            this.txtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.Location = new System.Drawing.Point(306, 194);
+            this.lblTotal.Location = new System.Drawing.Point(459, 170);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(154, 13);
             this.lblTotal.TabIndex = 25;
@@ -546,6 +613,8 @@
             this.txtTaxaDeViza.Name = "txtTaxaDeViza";
             this.txtTaxaDeViza.Size = new System.Drawing.Size(99, 20);
             this.txtTaxaDeViza.TabIndex = 23;
+            this.txtTaxaDeViza.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtTaxaDeViza.TextChanged += new System.EventHandler(this.txtTaxaDeViza_TextChanged);
             // 
             // lblTaxaDeVizaEtc
             // 
@@ -571,6 +640,8 @@
             this.txtTaxaDeParticipare.Name = "txtTaxaDeParticipare";
             this.txtTaxaDeParticipare.Size = new System.Drawing.Size(99, 20);
             this.txtTaxaDeParticipare.TabIndex = 20;
+            this.txtTaxaDeParticipare.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtTaxaDeParticipare.TextChanged += new System.EventHandler(this.txtTaxaDeParticipare_TextChanged);
             // 
             // lblTaxaDeParticipare
             // 
@@ -589,6 +660,7 @@
             this.cmbMoneda2.Name = "cmbMoneda2";
             this.cmbMoneda2.Size = new System.Drawing.Size(66, 21);
             this.cmbMoneda2.TabIndex = 18;
+            this.cmbMoneda2.SelectedIndexChanged += new System.EventHandler(this.cmbMoneda2_SelectedIndexChanged);
             // 
             // txtCazare
             // 
@@ -596,6 +668,8 @@
             this.txtCazare.Name = "txtCazare";
             this.txtCazare.Size = new System.Drawing.Size(99, 20);
             this.txtCazare.TabIndex = 17;
+            this.txtCazare.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtCazare.TextChanged += new System.EventHandler(this.txtCazare_TextChanged);
             // 
             // lblCazare
             // 
@@ -614,6 +688,7 @@
             this.cmbMoneda1.Name = "cmbMoneda1";
             this.cmbMoneda1.Size = new System.Drawing.Size(66, 21);
             this.cmbMoneda1.TabIndex = 15;
+            this.cmbMoneda1.SelectedIndexChanged += new System.EventHandler(this.cmbMoneda1_SelectedIndexChanged);
             // 
             // txtDiurna
             // 
@@ -621,6 +696,8 @@
             this.txtDiurna.Name = "txtDiurna";
             this.txtDiurna.Size = new System.Drawing.Size(99, 20);
             this.txtDiurna.TabIndex = 14;
+            this.txtDiurna.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtDiurna.TextChanged += new System.EventHandler(this.txtDiurna_TextChanged);
             // 
             // lblDiurna
             // 
@@ -743,18 +820,27 @@
             // panouSemnatari
             // 
             this.panouSemnatari.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panouSemnatari.Controls.Add(this.cmbRectorProrector);
             this.panouSemnatari.Controls.Add(this.rdoProRector);
             this.panouSemnatari.Controls.Add(this.rdoRector);
             this.panouSemnatari.Controls.Add(this.lblCoordProiect);
             this.panouSemnatari.Controls.Add(this.textBox2);
-            this.panouSemnatari.Controls.Add(this.textBox1);
+            this.panouSemnatari.Controls.Add(this.txtDFC);
             this.panouSemnatari.Controls.Add(this.lblDFC);
-            this.panouSemnatari.Controls.Add(this.txtRector);
             this.panouSemnatari.Controls.Add(this.lblSemnatari);
             this.panouSemnatari.Location = new System.Drawing.Point(12, 638);
             this.panouSemnatari.Name = "panouSemnatari";
             this.panouSemnatari.Size = new System.Drawing.Size(642, 131);
             this.panouSemnatari.TabIndex = 33;
+            // 
+            // cmbRectorProrector
+            // 
+            this.cmbRectorProrector.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbRectorProrector.FormattingEnabled = true;
+            this.cmbRectorProrector.Location = new System.Drawing.Point(12, 49);
+            this.cmbRectorProrector.Name = "cmbRectorProrector";
+            this.cmbRectorProrector.Size = new System.Drawing.Size(169, 21);
+            this.cmbRectorProrector.TabIndex = 37;
             // 
             // rdoProRector
             // 
@@ -766,6 +852,7 @@
             this.rdoProRector.TabStop = true;
             this.rdoProRector.Text = "PRORECTOR";
             this.rdoProRector.UseVisualStyleBackColor = true;
+            this.rdoProRector.CheckedChanged += new System.EventHandler(this.rdoProRector_CheckedChanged);
             // 
             // rdoRector
             // 
@@ -777,6 +864,7 @@
             this.rdoRector.TabStop = true;
             this.rdoRector.Text = "RECTOR";
             this.rdoRector.UseVisualStyleBackColor = true;
+            this.rdoRector.CheckedChanged += new System.EventHandler(this.rdoRector_CheckedChanged);
             // 
             // lblCoordProiect
             // 
@@ -794,12 +882,12 @@
             this.textBox2.Size = new System.Drawing.Size(169, 20);
             this.textBox2.TabIndex = 33;
             // 
-            // textBox1
+            // txtDFC
             // 
-            this.textBox1.Location = new System.Drawing.Point(427, 49);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(176, 20);
-            this.textBox1.TabIndex = 32;
+            this.txtDFC.Location = new System.Drawing.Point(427, 49);
+            this.txtDFC.Name = "txtDFC";
+            this.txtDFC.Size = new System.Drawing.Size(176, 20);
+            this.txtDFC.TabIndex = 32;
             // 
             // lblDFC
             // 
@@ -809,13 +897,6 @@
             this.lblDFC.Size = new System.Drawing.Size(179, 13);
             this.lblDFC.TabIndex = 31;
             this.lblDFC.Text = "DIRECTOR FINANCIAR-CONTABIL";
-            // 
-            // txtRector
-            // 
-            this.txtRector.Location = new System.Drawing.Point(12, 49);
-            this.txtRector.Name = "txtRector";
-            this.txtRector.Size = new System.Drawing.Size(169, 20);
-            this.txtRector.TabIndex = 30;
             // 
             // lblSemnatari
             // 
@@ -827,11 +908,21 @@
             this.lblSemnatari.TabIndex = 28;
             this.lblSemnatari.Text = "V. Semnatari";
             // 
+            // panouFinal
+            // 
+            this.panouFinal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panouFinal.Location = new System.Drawing.Point(12, 780);
+            this.panouFinal.Name = "panouFinal";
+            this.panouFinal.Size = new System.Drawing.Size(642, 10);
+            this.panouFinal.TabIndex = 34;
+            // 
             // frmCerereBECA
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(699, 778);
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(716, 667);
+            this.Controls.Add(this.panouFinal);
             this.Controls.Add(this.panouSemnatari);
             this.Controls.Add(this.panouAlteDispuneri);
             this.Controls.Add(this.panouCheltuieli);
@@ -864,8 +955,7 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip mnuCerereBeca;
-        private System.Windows.Forms.ToolStripMenuItem btnIesire;
-        private System.Windows.Forms.ToolStripMenuItem btnGenerare;
+        private System.Windows.Forms.ToolStripMenuItem btnFormular;
         private System.Windows.Forms.Panel panouIdentificare;
         private System.Windows.Forms.Label lblNrUAIC;
         private System.Windows.Forms.TextBox txtNrInregistrare;
@@ -924,20 +1014,28 @@
         private System.Windows.Forms.TextBox txtDispunere4;
         private System.Windows.Forms.Panel panouSemnatari;
         private System.Windows.Forms.Label lblSemnatari;
-        private System.Windows.Forms.TextBox txtRector;
         private System.Windows.Forms.Label lblDFC;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtDFC;
         private System.Windows.Forms.Label lblCoordProiect;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.RadioButton rdoRector;
         private System.Windows.Forms.RadioButton rdoProRector;
         private System.Windows.Forms.Label lblNrZile;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lblX;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label lblX2;
+        private System.Windows.Forms.Label lblX1;
+        private System.Windows.Forms.TextBox txtNrZileCazare;
+        private System.Windows.Forms.TextBox txtNrZileDiurna;
         private System.Windows.Forms.Label lblSuma;
         private System.Windows.Forms.Label lblMoneda;
         private System.Windows.Forms.Button btnAcceseaza;
+        private System.Windows.Forms.ComboBox cmbRectorProrector;
+        private System.Windows.Forms.Label lblSubtotal;
+        private System.Windows.Forms.TextBox txtSubtotalDiurna;
+        private System.Windows.Forms.TextBox txtSubtotalCazare;
+        private System.Windows.Forms.Panel panouFinal;
+        private System.Windows.Forms.ToolStripMenuItem btnSalvare;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem btnIesire;
+        private System.Windows.Forms.ToolStripMenuItem btnGenerarePDF;
     }
 }
