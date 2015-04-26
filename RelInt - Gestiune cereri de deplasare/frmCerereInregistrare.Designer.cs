@@ -125,6 +125,10 @@
             this.lblAdministrativ = new System.Windows.Forms.Label();
             this.panouFinal = new System.Windows.Forms.Panel();
             this.panouORCDP = new System.Windows.Forms.Panel();
+            this.lblEnuntObligDidactice2 = new System.Windows.Forms.Label();
+            this.lblEnuntObligDidactice1 = new System.Windows.Forms.Label();
+            this.lblEnuntObligPlata2 = new System.Windows.Forms.Label();
+            this.lblEnuntObligPlata1 = new System.Windows.Forms.Label();
             this.dpOROra = new System.Windows.Forms.DateTimePicker();
             this.dpORData = new System.Windows.Forms.DateTimePicker();
             this.btnCDPStergere = new System.Windows.Forms.Button();
@@ -150,10 +154,6 @@
             this.dgvOreRecuperate = new System.Windows.Forms.DataGridView();
             this.chkORCDP = new System.Windows.Forms.CheckBox();
             this.lblOreRecuperate = new System.Windows.Forms.Label();
-            this.lblEnuntObligDidactice2 = new System.Windows.Forms.Label();
-            this.lblEnuntObligDidactice1 = new System.Windows.Forms.Label();
-            this.lblEnuntObligPlata2 = new System.Windows.Forms.Label();
-            this.lblEnuntObligPlata1 = new System.Windows.Forms.Label();
             this.mnuCI.SuspendLayout();
             this.panouIdentificareCerere.SuspendLayout();
             this.panouContinut.SuspendLayout();
@@ -1157,6 +1157,44 @@
             this.panouORCDP.Size = new System.Drawing.Size(642, 608);
             this.panouORCDP.TabIndex = 10;
             // 
+            // lblEnuntObligDidactice2
+            // 
+            this.lblEnuntObligDidactice2.AutoSize = true;
+            this.lblEnuntObligDidactice2.Location = new System.Drawing.Point(37, 78);
+            this.lblEnuntObligDidactice2.Name = "lblEnuntObligDidactice2";
+            this.lblEnuntObligDidactice2.Size = new System.Drawing.Size(324, 13);
+            this.lblEnuntObligDidactice2.TabIndex = 26;
+            this.lblEnuntObligDidactice2.Text = "În cazul în care orele se recupereaza, precizați care este programul";
+            // 
+            // lblEnuntObligDidactice1
+            // 
+            this.lblEnuntObligDidactice1.AutoSize = true;
+            this.lblEnuntObligDidactice1.Location = new System.Drawing.Point(37, 59);
+            this.lblEnuntObligDidactice1.Name = "lblEnuntObligDidactice1";
+            this.lblEnuntObligDidactice1.Size = new System.Drawing.Size(532, 13);
+            this.lblEnuntObligDidactice1.TabIndex = 27;
+            this.lblEnuntObligDidactice1.Text = "Modul de acoperire a obligațiilor didactice (ore, comisii de doctorat / de licenț" +
+    "ă / de disertație / de admitere etc.)";
+            // 
+            // lblEnuntObligPlata2
+            // 
+            this.lblEnuntObligPlata2.AutoSize = true;
+            this.lblEnuntObligPlata2.Location = new System.Drawing.Point(37, 352);
+            this.lblEnuntObligPlata2.Name = "lblEnuntObligPlata2";
+            this.lblEnuntObligPlata2.Size = new System.Drawing.Size(162, 13);
+            this.lblEnuntObligPlata2.TabIndex = 25;
+            this.lblEnuntObligPlata2.Text = "cu precizarea condițiilor de plată.";
+            // 
+            // lblEnuntObligPlata1
+            // 
+            this.lblEnuntObligPlata1.AutoSize = true;
+            this.lblEnuntObligPlata1.Location = new System.Drawing.Point(37, 334);
+            this.lblEnuntObligPlata1.Name = "lblEnuntObligPlata1";
+            this.lblEnuntObligPlata1.Size = new System.Drawing.Size(566, 13);
+            this.lblEnuntObligPlata1.TabIndex = 24;
+            this.lblEnuntObligPlata1.Text = "Dacă obligațiile didactice sunt suplinite, se comunică programul de suplinire sub" +
+    " semnătura persoanelor care î-l asigură,";
+            // 
             // dpOROra
             // 
             this.dpOROra.Format = System.Windows.Forms.DateTimePickerFormat.Time;
@@ -1397,44 +1435,6 @@
             this.lblOreRecuperate.Size = new System.Drawing.Size(321, 17);
             this.lblOreRecuperate.TabIndex = 0;
             this.lblOreRecuperate.Text = "V. Recuperarea orelor și condițiile de plată";
-            // 
-            // lblEnuntObligDidactice2
-            // 
-            this.lblEnuntObligDidactice2.AutoSize = true;
-            this.lblEnuntObligDidactice2.Location = new System.Drawing.Point(37, 78);
-            this.lblEnuntObligDidactice2.Name = "lblEnuntObligDidactice2";
-            this.lblEnuntObligDidactice2.Size = new System.Drawing.Size(324, 13);
-            this.lblEnuntObligDidactice2.TabIndex = 26;
-            this.lblEnuntObligDidactice2.Text = "În cazul în care orele se recupereaza, precizați care este programul";
-            // 
-            // lblEnuntObligDidactice1
-            // 
-            this.lblEnuntObligDidactice1.AutoSize = true;
-            this.lblEnuntObligDidactice1.Location = new System.Drawing.Point(37, 59);
-            this.lblEnuntObligDidactice1.Name = "lblEnuntObligDidactice1";
-            this.lblEnuntObligDidactice1.Size = new System.Drawing.Size(532, 13);
-            this.lblEnuntObligDidactice1.TabIndex = 27;
-            this.lblEnuntObligDidactice1.Text = "Modul de acoperire a obligațiilor didactice (ore, comisii de doctorat / de licenț" +
-    "ă / de disertație / de admitere etc.)";
-            // 
-            // lblEnuntObligPlata2
-            // 
-            this.lblEnuntObligPlata2.AutoSize = true;
-            this.lblEnuntObligPlata2.Location = new System.Drawing.Point(37, 352);
-            this.lblEnuntObligPlata2.Name = "lblEnuntObligPlata2";
-            this.lblEnuntObligPlata2.Size = new System.Drawing.Size(162, 13);
-            this.lblEnuntObligPlata2.TabIndex = 25;
-            this.lblEnuntObligPlata2.Text = "cu precizarea condițiilor de plată.";
-            // 
-            // lblEnuntObligPlata1
-            // 
-            this.lblEnuntObligPlata1.AutoSize = true;
-            this.lblEnuntObligPlata1.Location = new System.Drawing.Point(37, 334);
-            this.lblEnuntObligPlata1.Name = "lblEnuntObligPlata1";
-            this.lblEnuntObligPlata1.Size = new System.Drawing.Size(566, 13);
-            this.lblEnuntObligPlata1.TabIndex = 24;
-            this.lblEnuntObligPlata1.Text = "Dacă obligațiile didactice sunt suplinite, se comunică programul de suplinire sub" +
-    " semnătura persoanelor care î-l asigură,";
             // 
             // frmCerereInregistrare
             // 

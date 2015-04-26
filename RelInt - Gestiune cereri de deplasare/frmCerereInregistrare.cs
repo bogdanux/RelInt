@@ -371,87 +371,74 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         /* ----------------- Metoda calcularii totalului din textbox-ul "txtTotalDePlata" -------------------------------- */
         private string CalculTotal()
         {
+            double diurna;
+            bool diurnaEsteNumar = double.TryParse(txtDiurna.Text, out diurna);
+            if (diurnaEsteNumar != false)
+            {
+                diurna = double.Parse(txtDiurna.Text, CultureInfo.InvariantCulture);
+            }
+
+            double cazare;
+            bool cazareEsteNumar = double.TryParse(txtDiurna.Text, out cazare);
+            if (cazareEsteNumar != false)
+            {
+                cazare = double.Parse(txtCazare.Text, CultureInfo.InvariantCulture);
+            }
+
+            double taxaParticipare;
+            bool taxaParticipareEsteNumar = double.TryParse(txtDiurna.Text, out taxaParticipare);
+            if (taxaParticipareEsteNumar != false)
+            {
+                taxaParticipare = double.Parse(txtTaxaDeParticipare.Text, CultureInfo.InvariantCulture);
+            }
+
+            double taxaDeViza;
+            bool taxaDeVizaEsteNumar = double.TryParse(txtDiurna.Text, out taxaDeViza);
+            if (taxaDeVizaEsteNumar != false)
+            {
+                taxaDeViza = double.Parse(txtTaxaDeViza.Text, CultureInfo.InvariantCulture);
+            }
+
+
             string total = string.Empty;
-            double sumaTotala1 = 0;
-            double sumaTotala2 = 0;
-            double sumaTotala3 = 0;
-            double sumaTotala4 = 0;
-            bool ok1 = false;
-            bool ok2 = false;
-            bool ok3 = false;
 
+            string moneda1 = cmbMoneda1.SelectedItem.ToString();
+            string moneda2 = cmbMoneda2.SelectedItem.ToString();
+            string moneda3 = cmbMoneda3.SelectedItem.ToString();
+            string moneda4 = cmbMoneda4.SelectedItem.ToString();
 
-            // combinari toate diferite
-            if (cmbMoneda4.SelectedItem != cmbMoneda1.SelectedItem && cmbMoneda4.SelectedItem != cmbMoneda2.SelectedItem &&
-                cmbMoneda4.SelectedItem != cmbMoneda3.SelectedItem)
+            Dictionary<string, double> valoriIntroduse = new Dictionary<string, double>();
+            valoriIntroduse.Add(moneda1, diurna * vartxtNrZileDiurna);
+            if (valoriIntroduse.ContainsKey(moneda2))
             {
-                sumaTotala4 = double.Parse(txtTaxaDeViza.Text, CultureInfo.InvariantCulture);
-                total = sumaTotala4.ToString() + cmbMoneda4.SelectedItem + " ";
+                valoriIntroduse[moneda2] = valoriIntroduse[moneda2] + cazare * vartxtNrZileCazare;
             }
-
-            // combinari cu 1
-            if (cmbMoneda1.SelectedItem == cmbMoneda2.SelectedItem)
+            else
             {
-                sumaTotala1 = Convert.ToInt32(txtSubtotalDiurna.Text) + Convert.ToInt32(txtSubtotalCazare.Text);
-                
-                ok1 = true;
-            }
-            if (cmbMoneda1.SelectedItem == cmbMoneda3.SelectedItem)
-            {
-                sumaTotala1 = sumaTotala1 != 0 ? sumaTotala1 + Convert.ToInt32(txtTaxaDeParticipare) : Convert.ToInt32(txtSubtotalDiurna.Text) + Convert.ToInt32(txtTaxaDeParticipare);
-                ok1 = true;
-            }
-            if (cmbMoneda1.SelectedItem == cmbMoneda4.SelectedItem)
-            {
-                sumaTotala1 = sumaTotala1 != 0 ? sumaTotala1 + Convert.ToInt32(txtTaxaDeViza) : Convert.ToInt32(txtSubtotalDiurna.Text) + Convert.ToInt32(txtTaxaDeViza);
-                ok1 = true;
-            }
-            if (ok1 == false)
-            {
-                sumaTotala1 = double.Parse(txtSubtotalDiurna.Text, CultureInfo.InvariantCulture);
-            }
-            if (sumaTotala1 !=0)
-            {
-                total += sumaTotala1.ToString() + cmbMoneda1.SelectedItem + " ";
+                valoriIntroduse.Add(moneda2, cazare * vartxtNrZileCazare);
             }
 
-
-
-            // combinari cu 2
-            if (cmbMoneda2.SelectedItem == cmbMoneda3.SelectedItem)
+            if (valoriIntroduse.ContainsKey(moneda3))
             {
-                sumaTotala2 = Convert.ToInt32(txtSubtotalCazare) + Convert.ToInt32(txtTaxaDeParticipare);
-                ok2 = true;
+                valoriIntroduse[moneda3] = valoriIntroduse[moneda3] + taxaParticipare;
             }
-            if (cmbMoneda2.SelectedItem == cmbMoneda4.SelectedItem)
+            else
             {
-                sumaTotala2 = sumaTotala2 != 0 ? sumaTotala2 + Convert.ToInt32(txtTaxaDeViza) : Convert.ToInt32(txtSubtotalCazare) + Convert.ToInt32(txtTaxaDeViza);
-                ok2 = true;
-            }
-            if (ok2 == false)
-            {
-                sumaTotala2 = double.Parse(txtSubtotalCazare.Text, CultureInfo.InvariantCulture);
-            }
-            if (sumaTotala2 != 0)
-            {
-                total += sumaTotala2.ToString() + cmbMoneda2.SelectedItem + " ";
+                valoriIntroduse.Add(moneda3, taxaParticipare);
             }
 
-
-
-            // combinari cu 3
-            if (cmbMoneda3.SelectedItem == cmbMoneda4.SelectedItem)
+            if (valoriIntroduse.ContainsKey(moneda4))
             {
-                sumaTotala3 = Convert.ToInt32(txtTaxaDeParticipare) + Convert.ToInt32(txtTaxaDeViza);
-                ok3 = true;
+                valoriIntroduse[moneda4] = valoriIntroduse[moneda4] + taxaDeViza;
             }
-            if (ok3 == false)
+            else
             {
-                sumaTotala3 = double.Parse(txtTaxaDeParticipare.Text, CultureInfo.InvariantCulture);;
+                valoriIntroduse.Add(moneda4, taxaDeViza);
             }
-            if (sumaTotala3 != 0)
+
+            foreach (var pereche in valoriIntroduse)
             {
-                total += sumaTotala3.ToString() + cmbMoneda3.SelectedItem;
+                total += pereche.Value + pereche.Key + " ";
             }
             return total;
         }
@@ -1812,22 +1799,29 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         /* ------------------------- Eveniment pentru txtDiurna ---------------------------------------------------------- */
         private void txtDiurna_TextChanged(object sender, EventArgs e)
         {
-            // Verificam daca valoarea din "txtDiurna" este de tip int si daca da, o inregistram in "vartxtDiurna"
-            bool vartxtDiurnaEsteNumar = double.TryParse(txtDiurna.Text, out vartxtDiurna);
-            if (vartxtDiurnaEsteNumar !=false)
+            if (txtDiurna.Text.Contains(","))
             {
-                vartxtDiurna = double.Parse(txtDiurna.Text, CultureInfo.InvariantCulture);
+                MessageBox.Show("Caracterul \"(,) virgula\" nu este permis!");
+                txtDiurna.Clear();
             }
-            
-
-            // Judecam si "sanctionam" la nevoie
-            switch (vartxtDiurnaEsteNumar || txtDiurna.Text == string.Empty)
+            else
             {
-                case false:
-                    // Golim casuta si afisam mesaj de eroare
-                    txtDiurna.Clear();
-                    MessageBox.Show("        Vă rugăm introduceți doar numere în această casetă de text.");
-                    break;
+                // Verificam daca valoarea din "txtDiurna" este de tip int si daca da, o inregistram in "vartxtDiurna"
+                bool vartxtDiurnaEsteNumar = double.TryParse(txtDiurna.Text, out vartxtDiurna);
+                if (vartxtDiurnaEsteNumar != false)
+                {
+                    vartxtDiurna = double.Parse(txtDiurna.Text, CultureInfo.InvariantCulture);
+                }
+
+                // Judecam si "sanctionam" la nevoie
+                switch (vartxtDiurnaEsteNumar || txtDiurna.Text == string.Empty)
+                {
+                    case false:
+                        // Golim casuta si afisam mesaj de eroare
+                        txtDiurna.Clear();
+                        MessageBox.Show("        Vă rugăm introduceți doar numere în această casetă de text.");
+                        break;
+                }
             }
 
             // Calculam
@@ -1849,24 +1843,32 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         /* ------------------------- Eveniment pentru txtCazare ---------------------------------------------------------- */
         private void txtCazare_TextChanged(object sender, EventArgs e)
         {
-            // Verificam daca valoarea din "txtCazare" este de tip int si daca da, o inregistram in "vartxtCazare"
-            bool vartxtCazareEsteNumar = Double.TryParse(txtCazare.Text, out vartxtCazare);
-            if (vartxtCazareEsteNumar != false)
+            if (txtCazare.Text.Contains(","))
             {
-                vartxtCazare = double.Parse(txtCazare.Text, CultureInfo.InvariantCulture);
+                MessageBox.Show("Caracterul \"(,) virgula\" nu este permis!");
+                txtCazare.Clear();
+            }
+            else
+            {
+                // Verificam daca valoarea din "txtCazare" este de tip int si daca da, o inregistram in "vartxtCazare"
+                bool vartxtCazareEsteNumar = Double.TryParse(txtCazare.Text, out vartxtCazare);
+                if (vartxtCazareEsteNumar != false)
+                {
+                    vartxtCazare = double.Parse(txtCazare.Text, CultureInfo.InvariantCulture);
+                }
+
+
+                // Judecam si "sanctionam" la nevoie
+                switch (vartxtCazareEsteNumar || txtCazare.Text == string.Empty)
+                {
+                    case false:
+                        // Golim casuta si afisam mesaj de eroare
+                        txtCazare.Clear();
+                        MessageBox.Show("        Vă rugăm introduceți doar numere în această casetă de text.");
+                        break;
+                }
             }
             
-
-            // Judecam si "sanctionam" la nevoie
-            switch (vartxtCazareEsteNumar || txtCazare.Text == string.Empty)
-            {
-                case false:
-                    // Golim casuta si afisam mesaj de eroare
-                    txtCazare.Clear();
-                    MessageBox.Show("        Vă rugăm introduceți doar numere în această casetă de text.");
-                    break;
-            }
-
             // Calculam
             MetodaCalculSubtotalCazare();
 
@@ -1883,22 +1885,35 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
         /* ------------------------ Variabile de lucru pentru txtTaxaDeParticipare --------------------------------------- */
-        int vartxtTaxaDeParticipare;
+        double vartxtTaxaDeParticipare;
         /* ------------------------- Eveniment pentru txtTaxaDeParticipare ----------------------------------------------- */
         private void txtTaxaDeParticipare_TextChanged(object sender, EventArgs e)
         {
-            // Verificam daca valoarea din "txtTaxaDeParticipare" este de tip int si daca da, o inregistram in "vartxtTaxaDeParticipare"
-            bool vartxtTaxaDeParticipareEsteNumar = Int32.TryParse(txtTaxaDeParticipare.Text, out vartxtTaxaDeParticipare);
-
-            // Judecam si "sanctionam" la nevoie
-            switch (vartxtTaxaDeParticipareEsteNumar || txtTaxaDeParticipare.Text == string.Empty)
+            if (txtTaxaDeParticipare.Text.Contains(","))
             {
-                case false:
-                    // Golim casuta si afisam mesaj de eroare
-                    txtTaxaDeParticipare.Clear();
-                    MessageBox.Show("        Vă rugăm introduceți doar numere în această casetă de text.");
-                    break;
+                MessageBox.Show("Caracterul \"(,) virgula\" nu este permis!");
+                txtTaxaDeParticipare.Clear();
             }
+            else
+            {
+                // Verificam daca valoarea din "txtTaxaDeParticipare" este de tip int si daca da, o inregistram in "vartxtTaxaDeParticipare"
+                bool vartxtTaxaDeParticipareEsteNumar = Double.TryParse(txtTaxaDeParticipare.Text, out vartxtTaxaDeParticipare);
+                if (vartxtTaxaDeParticipareEsteNumar != false)
+                {
+                    vartxtTaxaDeParticipare = double.Parse(txtTaxaDeParticipare.Text, CultureInfo.InvariantCulture);
+                }
+
+                // Judecam si "sanctionam" la nevoie
+                switch (vartxtTaxaDeParticipareEsteNumar || txtTaxaDeParticipare.Text == string.Empty)
+                {
+                    case false:
+                        // Golim casuta si afisam mesaj de eroare
+                        txtTaxaDeParticipare.Clear();
+                        MessageBox.Show("        Vă rugăm introduceți doar numere în această casetă de text.");
+                        break;
+                }
+            }
+          
 
             // Inregistram modificarea campului
             txtTaxaDeParticipareSchimbat = true;
@@ -1914,22 +1929,34 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
         /* -------------------------- Variabile de lucru pentru txtTaxaDeViza -------------------------------------------- */
-        int vartxtTaxaDeViza;
+        double vartxtTaxaDeViza;
         /* ------------------------- Eveniment pentru txtTaxaDeViza ------------------------------------------------------ */
         private void txtTaxaDeViza_TextChanged(object sender, EventArgs e)
         {
-            // Verificam daca valoarea din "txtTaxaDeViza" este de tip int si daca da, o inregistram in "vartxtTaxaDeViza"
-            bool vartxtTaxaDeVizaEsteNumar = Int32.TryParse(txtTaxaDeViza.Text, out vartxtTaxaDeViza);
-
-            // Judecam si "sanctionam" la nevoie
-            switch (vartxtTaxaDeVizaEsteNumar || txtTaxaDeViza.Text == string.Empty)
+            if (txtTaxaDeViza.Text.Contains(","))
             {
-                case false:
-                    // Golim casuta si afisam mesaj de eroare
-                    txtTaxaDeViza.Clear();
-                    MessageBox.Show("        Vă rugăm introduceți doar numere în această casetă de text.");
-                    break;
+                MessageBox.Show("Caracterul \"(,) virgula\" nu este permis!");
+                txtTaxaDeViza.Clear();
             }
+            else
+            {
+                // Verificam daca valoarea din "txtTaxaDeViza" este de tip int si daca da, o inregistram in "vartxtTaxaDeViza"
+                bool vartxtTaxaDeVizaEsteNumar = Double.TryParse(txtTaxaDeViza.Text, out vartxtTaxaDeViza);
+                if (vartxtTaxaDeVizaEsteNumar != false)
+                {
+                    vartxtTaxaDeViza = double.Parse(txtTaxaDeViza.Text, CultureInfo.InvariantCulture);
+                }
+                // Judecam si "sanctionam" la nevoie
+                switch (vartxtTaxaDeVizaEsteNumar || txtTaxaDeViza.Text == string.Empty)
+                {
+                    case false:
+                        // Golim casuta si afisam mesaj de eroare
+                        txtTaxaDeViza.Clear();
+                        MessageBox.Show("        Vă rugăm introduceți doar numere în această casetă de text.");
+                        break;
+                }
+            }
+            
 
             // Inregistram modificarea campului
             txtTaxaDeVizaSchimbat = true;
