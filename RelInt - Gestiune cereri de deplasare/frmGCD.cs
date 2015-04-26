@@ -564,14 +564,14 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         private void btnGCDBeca_Click(object sender, EventArgs e)
         {
             // Apelam formularul "frmCerereBECA"
-            Form frmCerereBECA = new frmCerereBECA();
+            Form frmCerereBECA = new frmOrdinDeDeplasare();
 
             // Facem "frmCerereBECA" copil al "frmGCD"
             frmCerereBECA.MdiParent = this;
 
             foreach (Form form in Application.OpenForms)
             {
-                if (form.GetType() == typeof(frmCerereBECA))
+                if (form.GetType() == typeof(frmOrdinDeDeplasare))
                 {
                     form.WindowState = FormWindowState.Normal;
                     form.Activate();

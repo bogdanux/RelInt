@@ -144,8 +144,8 @@
             // 
             this.btnGCDBeca.Name = "btnGCDBeca";
             this.btnGCDBeca.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B)));
-            this.btnGCDBeca.Size = new System.Drawing.Size(271, 22);
-            this.btnGCDBeca.Text = "Introducere cerere &BECA";
+            this.btnGCDBeca.Size = new System.Drawing.Size(313, 22);
+            this.btnGCDBeca.Text = "Introducere Ordin de Deplasare";
             this.btnGCDBeca.Click += new System.EventHandler(this.btnGCDBeca_Click);
             // 
             // btnGCDModificareBECA
@@ -153,32 +153,32 @@
             this.btnGCDModificareBECA.Name = "btnGCDModificareBECA";
             this.btnGCDModificareBECA.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.B)));
-            this.btnGCDModificareBECA.Size = new System.Drawing.Size(271, 22);
-            this.btnGCDModificareBECA.Text = "Modificare cerere BEC&A";
+            this.btnGCDModificareBECA.Size = new System.Drawing.Size(313, 22);
+            this.btnGCDModificareBECA.Text = "Modificare Ordine de Deplasare";
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(268, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(310, 6);
             // 
             // btnGCDOrdineaDeZi
             // 
             this.btnGCDOrdineaDeZi.Name = "btnGCDOrdineaDeZi";
             this.btnGCDOrdineaDeZi.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
-            this.btnGCDOrdineaDeZi.Size = new System.Drawing.Size(271, 22);
+            this.btnGCDOrdineaDeZi.Size = new System.Drawing.Size(313, 22);
             this.btnGCDOrdineaDeZi.Text = "Ordin&ea de zi";
             this.btnGCDOrdineaDeZi.Click += new System.EventHandler(this.btnGCDOrdineaDeZi_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(268, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(310, 6);
             // 
             // btnGCDVizualizareTot
             // 
             this.btnGCDVizualizareTot.Name = "btnGCDVizualizareTot";
             this.btnGCDVizualizareTot.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L)));
-            this.btnGCDVizualizareTot.Size = new System.Drawing.Size(271, 22);
+            this.btnGCDVizualizareTot.Size = new System.Drawing.Size(313, 22);
             this.btnGCDVizualizareTot.Text = "&Lista cereri existente";
             this.btnGCDVizualizareTot.Click += new System.EventHandler(this.btnGCDVizualizareTot_Click);
             // 

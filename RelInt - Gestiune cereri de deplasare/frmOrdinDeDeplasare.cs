@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace RelInt___Gestiune_cereri_de_deplasare
 {
-    public partial class frmCerereBECA : Form
+    public partial class frmOrdinDeDeplasare : Form
     {
-        public frmCerereBECA() // Metoda de LOAD
+        public frmOrdinDeDeplasare() // Metoda de LOAD
         {
             InitializeComponent();
 

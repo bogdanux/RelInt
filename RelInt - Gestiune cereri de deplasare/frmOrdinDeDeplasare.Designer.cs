@@ -1,6 +1,6 @@
 ﻿namespace RelInt___Gestiune_cereri_de_deplasare
 {
-    partial class frmCerereBECA
+    partial class frmOrdinDeDeplasare
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCerereBECA));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOrdinDeDeplasare));
             this.mnuCerereBeca = new System.Windows.Forms.MenuStrip();
             this.btnFormular = new System.Windows.Forms.ToolStripMenuItem();
             this.btnSalvare = new System.Windows.Forms.ToolStripMenuItem();
@@ -126,7 +126,7 @@
             this.btnFormular});
             this.mnuCerereBeca.Location = new System.Drawing.Point(0, 0);
             this.mnuCerereBeca.Name = "mnuCerereBeca";
-            this.mnuCerereBeca.Size = new System.Drawing.Size(699, 24);
+            this.mnuCerereBeca.Size = new System.Drawing.Size(682, 24);
             this.mnuCerereBeca.TabIndex = 0;
             this.mnuCerereBeca.Text = "menuStrip1";
             // 
@@ -903,12 +903,12 @@
             this.panouFinal.Size = new System.Drawing.Size(642, 10);
             this.panouFinal.TabIndex = 34;
             // 
-            // frmCerereBECA
+            // frmOrdinDeDeplasare
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(716, 667);
+            this.ClientSize = new System.Drawing.Size(699, 667);
             this.Controls.Add(this.panouFinal);
             this.Controls.Add(this.panouSemnatari);
             this.Controls.Add(this.panouAlteDispuneri);
@@ -919,8 +919,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.mnuCerereBeca;
-            this.Name = "frmCerereBECA";
-            this.Text = "Cerere BECA";
+            this.Name = "frmOrdinDeDeplasare";
+            this.Text = "Ordin de Deplasare";
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmCerereBECA_KeyDown);
             this.mnuCerereBeca.ResumeLayout(false);
             this.mnuCerereBeca.PerformLayout();
