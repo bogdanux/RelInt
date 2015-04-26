@@ -36,6 +36,7 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.btnIesire = new System.Windows.Forms.ToolStripMenuItem();
             this.panouIdentificare = new System.Windows.Forms.Panel();
+            this.btnAcceseaza = new System.Windows.Forms.Button();
             this.lblIdentificareBECA = new System.Windows.Forms.Label();
             this.dpDataBECA = new System.Windows.Forms.DateTimePicker();
             this.lblDin = new System.Windows.Forms.Label();
@@ -171,6 +172,7 @@
             // panouIdentificare
             // 
             this.panouIdentificare.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panouIdentificare.Controls.Add(this.btnAcceseaza);
             this.panouIdentificare.Controls.Add(this.lblIdentificareBECA);
             this.panouIdentificare.Controls.Add(this.dpDataBECA);
             this.panouIdentificare.Controls.Add(this.lblDin);
@@ -182,6 +184,16 @@
             this.panouIdentificare.Name = "panouIdentificare";
             this.panouIdentificare.Size = new System.Drawing.Size(642, 66);
             this.panouIdentificare.TabIndex = 1;
+            // 
+            // btnAcceseaza
+            // 
+            this.btnAcceseaza.Location = new System.Drawing.Point(213, 30);
+            this.btnAcceseaza.Name = "btnAcceseaza";
+            this.btnAcceseaza.Size = new System.Drawing.Size(75, 23);
+            this.btnAcceseaza.TabIndex = 7;
+            this.btnAcceseaza.Text = "Accesează";
+            this.btnAcceseaza.UseVisualStyleBackColor = true;
+            this.btnAcceseaza.Click += new System.EventHandler(this.btnAcceseaza_Click);
             // 
             // lblIdentificareBECA
             // 
@@ -196,7 +208,7 @@
             // dpDataBECA
             // 
             this.dpDataBECA.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpDataBECA.Location = new System.Drawing.Point(416, 32);
+            this.dpDataBECA.Location = new System.Drawing.Point(497, 32);
             this.dpDataBECA.Name = "dpDataBECA";
             this.dpDataBECA.Size = new System.Drawing.Size(93, 20);
             this.dpDataBECA.TabIndex = 5;
@@ -204,7 +216,7 @@
             // lblDin
             // 
             this.lblDin.AutoSize = true;
-            this.lblDin.Location = new System.Drawing.Point(389, 36);
+            this.lblDin.Location = new System.Drawing.Point(470, 36);
             this.lblDin.Name = "lblDin";
             this.lblDin.Size = new System.Drawing.Size(21, 13);
             this.lblDin.TabIndex = 4;
@@ -212,7 +224,7 @@
             // 
             // txtNrUAIC
             // 
-            this.txtNrUAIC.Location = new System.Drawing.Point(283, 32);
+            this.txtNrUAIC.Location = new System.Drawing.Point(364, 32);
             this.txtNrUAIC.Name = "txtNrUAIC";
             this.txtNrUAIC.Size = new System.Drawing.Size(100, 20);
             this.txtNrUAIC.TabIndex = 3;
@@ -236,11 +248,12 @@
             this.txtNrInregistrare.Size = new System.Drawing.Size(100, 20);
             this.txtNrInregistrare.TabIndex = 1;
             this.txtNrInregistrare.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtNrInregistrare.TextChanged += new System.EventHandler(this.txtNrInregistrare_TextChanged);
             // 
             // lblNrUAIC
             // 
             this.lblNrUAIC.AutoSize = true;
-            this.lblNrUAIC.Location = new System.Drawing.Point(213, 36);
+            this.lblNrUAIC.Location = new System.Drawing.Point(294, 36);
             this.lblNrUAIC.Name = "lblNrUAIC";
             this.lblNrUAIC.Size = new System.Drawing.Size(64, 13);
             this.lblNrUAIC.TabIndex = 0;
@@ -269,13 +282,13 @@
             this.panouContinut.Controls.Add(this.lblContinutCerere);
             this.panouContinut.Location = new System.Drawing.Point(12, 112);
             this.panouContinut.Name = "panouContinut";
-            this.panouContinut.Size = new System.Drawing.Size(642, 136);
+            this.panouContinut.Size = new System.Drawing.Size(642, 131);
             this.panouContinut.TabIndex = 7;
             // 
             // dpDataSfarsit
             // 
             this.dpDataSfarsit.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpDataSfarsit.Location = new System.Drawing.Point(217, 101);
+            this.dpDataSfarsit.Location = new System.Drawing.Point(539, 100);
             this.dpDataSfarsit.Name = "dpDataSfarsit";
             this.dpDataSfarsit.Size = new System.Drawing.Size(93, 20);
             this.dpDataSfarsit.TabIndex = 57;
@@ -283,7 +296,7 @@
             // lblDataSfarsit
             // 
             this.lblDataSfarsit.AutoSize = true;
-            this.lblDataSfarsit.Location = new System.Drawing.Point(170, 104);
+            this.lblDataSfarsit.Location = new System.Drawing.Point(492, 103);
             this.lblDataSfarsit.Name = "lblDataSfarsit";
             this.lblDataSfarsit.Size = new System.Drawing.Size(41, 13);
             this.lblDataSfarsit.TabIndex = 56;
@@ -292,7 +305,7 @@
             // dpDataInceput
             // 
             this.dpDataInceput.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpDataInceput.Location = new System.Drawing.Point(71, 101);
+            this.dpDataInceput.Location = new System.Drawing.Point(393, 100);
             this.dpDataInceput.Name = "dpDataInceput";
             this.dpDataInceput.Size = new System.Drawing.Size(93, 20);
             this.dpDataInceput.TabIndex = 55;
@@ -300,7 +313,7 @@
             // lblDataInceput
             // 
             this.lblDataInceput.AutoSize = true;
-            this.lblDataInceput.Location = new System.Drawing.Point(9, 104);
+            this.lblDataInceput.Location = new System.Drawing.Point(331, 103);
             this.lblDataInceput.Name = "lblDataInceput";
             this.lblDataInceput.Size = new System.Drawing.Size(56, 13);
             this.lblDataInceput.TabIndex = 54;
@@ -308,25 +321,25 @@
             // 
             // txtInstitutia
             // 
-            this.txtInstitutia.Location = new System.Drawing.Point(253, 76);
+            this.txtInstitutia.Location = new System.Drawing.Point(30, 100);
             this.txtInstitutia.Name = "txtInstitutia";
-            this.txtInstitutia.Size = new System.Drawing.Size(370, 20);
+            this.txtInstitutia.Size = new System.Drawing.Size(295, 20);
             this.txtInstitutia.TabIndex = 53;
             // 
             // lblInstitutia
             // 
             this.lblInstitutia.AutoSize = true;
-            this.lblInstitutia.Location = new System.Drawing.Point(232, 79);
+            this.lblInstitutia.Location = new System.Drawing.Point(9, 103);
             this.lblInstitutia.Name = "lblInstitutia";
-            this.lblInstitutia.Size = new System.Drawing.Size(15, 13);
+            this.lblInstitutia.Size = new System.Drawing.Size(18, 13);
             this.lblInstitutia.TabIndex = 52;
-            this.lblInstitutia.Text = "la";
+            this.lblInstitutia.Text = "la:";
             // 
             // txtScop
             // 
             this.txtScop.Location = new System.Drawing.Point(58, 76);
             this.txtScop.Name = "txtScop";
-            this.txtScop.Size = new System.Drawing.Size(168, 20);
+            this.txtScop.Size = new System.Drawing.Size(565, 20);
             this.txtScop.TabIndex = 51;
             // 
             // lblScop
@@ -340,7 +353,7 @@
             // 
             // txtTara
             // 
-            this.txtTara.Location = new System.Drawing.Point(309, 51);
+            this.txtTara.Location = new System.Drawing.Point(266, 51);
             this.txtTara.Name = "txtTara";
             this.txtTara.Size = new System.Drawing.Size(140, 20);
             this.txtTara.TabIndex = 49;
@@ -350,9 +363,9 @@
             this.lblTara.AutoSize = true;
             this.lblTara.Location = new System.Drawing.Point(232, 55);
             this.lblTara.Name = "lblTara";
-            this.lblTara.Size = new System.Drawing.Size(71, 13);
+            this.lblTara.Size = new System.Drawing.Size(28, 13);
             this.lblTara.TabIndex = 48;
-            this.lblTara.Text = "în localitatea:";
+            this.lblTara.Text = "țara:";
             // 
             // txtLocalitatea
             // 
@@ -458,7 +471,7 @@
             this.panouCheltuieli.Controls.Add(this.txtRuta);
             this.panouCheltuieli.Controls.Add(this.lblRuta);
             this.panouCheltuieli.Controls.Add(this.lblCheltuieli);
-            this.panouCheltuieli.Location = new System.Drawing.Point(12, 254);
+            this.panouCheltuieli.Location = new System.Drawing.Point(12, 249);
             this.panouCheltuieli.Name = "panouCheltuieli";
             this.panouCheltuieli.Size = new System.Drawing.Size(642, 223);
             this.panouCheltuieli.TabIndex = 8;
@@ -761,7 +774,7 @@
             this.panouAlteDispuneri.Controls.Add(this.txtDispunere2);
             this.panouAlteDispuneri.Controls.Add(this.txtDispunere1);
             this.panouAlteDispuneri.Controls.Add(this.lblAlteDispuneri);
-            this.panouAlteDispuneri.Location = new System.Drawing.Point(12, 483);
+            this.panouAlteDispuneri.Location = new System.Drawing.Point(12, 478);
             this.panouAlteDispuneri.Name = "panouAlteDispuneri";
             this.panouAlteDispuneri.Size = new System.Drawing.Size(642, 149);
             this.panouAlteDispuneri.TabIndex = 9;
@@ -815,7 +828,7 @@
             this.panouSemnatari.Controls.Add(this.txtDFC);
             this.panouSemnatari.Controls.Add(this.lblDFC);
             this.panouSemnatari.Controls.Add(this.lblSemnatari);
-            this.panouSemnatari.Location = new System.Drawing.Point(12, 638);
+            this.panouSemnatari.Location = new System.Drawing.Point(12, 633);
             this.panouSemnatari.Name = "panouSemnatari";
             this.panouSemnatari.Size = new System.Drawing.Size(642, 131);
             this.panouSemnatari.TabIndex = 33;
@@ -898,7 +911,7 @@
             // panouFinal
             // 
             this.panouFinal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panouFinal.Location = new System.Drawing.Point(12, 780);
+            this.panouFinal.Location = new System.Drawing.Point(12, 776);
             this.panouFinal.Name = "panouFinal";
             this.panouFinal.Size = new System.Drawing.Size(642, 10);
             this.panouFinal.TabIndex = 34;
@@ -1023,5 +1036,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem btnIesire;
         private System.Windows.Forms.ToolStripMenuItem btnGenerarePDF;
+        private System.Windows.Forms.Button btnAcceseaza;
     }
 }

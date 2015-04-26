@@ -17,13 +17,13 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         {
             InitializeComponent();
 
-            // Aducem din BD numarul de inregistrare
-            MetodaAducereNrInregistrare();
-
             // Incarcam ComboBox-urile urmatoare
             UmplereGradDidactic();
             UmplereFacultate();
             UmplereMonezi();
+
+            // Pregatim formularul
+            PregatireFormular();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
@@ -71,6 +71,24 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
+
+
+
+
+
+        private void PregatireFormular()
+        {
+            // Dezactivam urmatoarele
+            btnAcceseaza.Enabled = false;
+            txtNrUAIC.Enabled = false;
+            dpDataBECA.Enabled = false;
+
+            // dezactivam panourile urmatoare
+            panouContinut.Enabled = false;
+            panouCheltuieli.Enabled = false;
+            panouAlteDispuneri.Enabled = false;
+            panouSemnatari.Enabled = false;
+        }
 
 
 
@@ -226,69 +244,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
-
-        /* ---------------------- Metoda de verificare a txtNrInregistrare ----------------------------------------------- */
-        private void MetodaAducereNrInregistrare()
-        {
-            using (OdbcConnection conexiune_VerifNrInregistrare = new OdbcConnection(sircon_RelIntDB))
-            {           // Comanda
-                using (OdbcCommand comanda_VerifNrInregistrare = new OdbcCommand())
-                {
-                    comanda_VerifNrInregistrare.Connection = conexiune_VerifNrInregistrare;
-                    comanda_VerifNrInregistrare.CommandType = CommandType.Text;
-                    comanda_VerifNrInregistrare.CommandText = "SELECT max(nrinregistrarec) FROM cereri";
-
-                    OdbcDataReader cititor_VerifNrInregistrare;
-
-                    try
-                    {
-                        conexiune_VerifNrInregistrare.Open();
-                        cititor_VerifNrInregistrare = comanda_VerifNrInregistrare.ExecuteReader();
-
-                        while (cititor_VerifNrInregistrare.Read())
-                        {
-                            switch (cititor_VerifNrInregistrare.IsDBNull(0))
-                            {
-                                case true:
-                                    // Atribuim valoarea
-                                    txtNrInregistrare.Text = "1";
-
-                                    // Dezactivam controlul
-                                    txtNrInregistrare.Enabled = false;
-                                    break;
-
-                                case false:
-                                    // Declaram variabila si calculam
-                                    int nrinregistrare = Convert.ToInt32(cititor_VerifNrInregistrare.GetValue(0)) + 1;
-
-                                    // Afisam un textbox
-                                    txtNrInregistrare.Text = nrinregistrare.ToString();
-
-                                    // Dezactivam controlul
-                                    txtNrInregistrare.Enabled = false;
-                                    break;
-                            }
-                        }
-                    }
-                    catch (Exception exVerifNrInregistrare)
-                    {
-                        MessageBox.Show(exVerifNrInregistrare.Message);
-                    } // Ne deconectam
-                    finally
-                    {
-                        conexiune_VerifNrInregistrare.Close();
-                    }
-                }
-            }
-        }
-        /* --------------------------------------------------------------------------------------------------------------- */
-
-
-
-
-
-
-
         /* ------------ Metoda de activare a tututor controalelor de pe form --------------------------------------------- */
         private void ActivareControaleForm()
         {
@@ -307,17 +262,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         /* --------------------------------------------------------------------------------------------------------------- */
 
 
-
-
-
-
-
-        /* ------------------ Eveniment al butonului btnAcceseaza -------------------------------------------------------- */
-        private void btnAcceseaza_Click(object sender, EventArgs e)
-        {
-            ActivareControaleForm();
-        }
-        /* --------------------------------------------------------------------------------------------------------------- */
 
 
 
@@ -646,6 +590,48 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
+
+        /* -------------------------- Variabile de lucru pentru txtTaxaDeViza -------------------------------------------- */
+        int vartxtNrInregistrare;
+        bool txtNrInregistrareSchimbat = false;
+        /* --------------------------------------------------------------------------------------------------------------- */
+        private void txtNrInregistrare_TextChanged(object sender, EventArgs e)
+        {
+            // Verificam daca valoarea din "txtNrInregistrare" este de tip int si daca da, o inregistram in "vartxtNrInregistrare"
+            bool vartxtNrInregistrareEsteNumar = Int32.TryParse(txtNrInregistrare.Text, out vartxtNrInregistrare);
+
+            // Judecam si "sanctionam" la nevoie
+            switch (vartxtNrInregistrareEsteNumar || txtNrInregistrare.Text == string.Empty)
+            {
+                case false:
+                    // Golim casuta si afisam mesaj de eroare
+                    txtNrInregistrare.Clear();
+                    MessageBox.Show("        Vă rugăm introduceți doar numere în această casetă de text.");
+                    break;
+            }
+
+            // Inregistram modificarea campului
+            txtNrInregistrareSchimbat = true;
+
+            // Activam btnAcceseaza
+            if (txtNrInregistrare.Text != string.Empty)
+            {
+                btnAcceseaza.Enabled = true;
+            }
+            else
+            {
+                btnAcceseaza.Enabled = false;
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
         /* --------------------------------------------------------------------------------------------------------------- */
         private void MetodaCalculSubtotalDiurna()
         {
@@ -696,6 +682,143 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         {
             // Calculam
             MetodaCalculSubtotalCazare();
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+        private void PopulareCampuri()
+        {
+            // Populam campurile cu date din BD
+            using (OdbcConnection conexiune_populareDinBD = new OdbcConnection(sircon_RelIntDB))
+            {           // Comanda
+                using (OdbcCommand comanda_populareDinBD = new OdbcCommand())
+                {
+                    comanda_populareDinBD.Connection = conexiune_populareDinBD;
+                    comanda_populareDinBD.CommandType = CommandType.Text;
+                    comanda_populareDinBD.CommandText = "SELECT * FROM cereri WHERE nrinregistrarec = ?";
+                    comanda_populareDinBD.Parameters.AddWithValue("@nrinregistrarec", OdbcType.Int).Value = vartxtNrInregistrare;
+
+                    try
+                    {
+                        conexiune_populareDinBD.Open();
+
+                        OdbcDataReader cititor_populareDinBD = comanda_populareDinBD.ExecuteReader();
+
+                        while (cititor_populareDinBD.Read())
+                        {
+                            txtSubsemnatul.Text = cititor_populareDinBD.GetString(2);
+                            cmbGradDidactic.SelectedIndex = cititor_populareDinBD.GetInt32(3);
+                            cmbFacultatea.SelectedIndex = cititor_populareDinBD.GetInt32(4);
+                            txtLocalitatea.Text = cititor_populareDinBD.GetString(6);
+                            txtTara.Text = cititor_populareDinBD.GetString(7);
+                            txtScop.Text = cititor_populareDinBD.GetString(8);
+                            txtInstitutia.Text = cititor_populareDinBD.GetString(9);
+                            dpDataInceput.Value = cititor_populareDinBD.GetDateTime(10);
+                            dpDataSfarsit.Value = cititor_populareDinBD.GetDateTime(11);
+                            txtRuta.Text = cititor_populareDinBD.GetString(12);
+                            txtPlatitorTransport.Text = cititor_populareDinBD.GetString(14);
+                            txtIntretinere.Text = cititor_populareDinBD.GetString(15);
+                            txtDiurna.Text = cititor_populareDinBD.GetString(16);
+                            txtCazare.Text = cititor_populareDinBD.GetString(17);
+                            txtTaxaDeParticipare.Text = cititor_populareDinBD.GetString(18);
+                            txtTaxaDeViza.Text = cititor_populareDinBD.GetString(19);
+                            //txtTotalDePlata.Text = cititor_populareDinBD.GetString(20);
+                            //txtAmbasada.Text = cititor_populareDinBD.GetString(21);
+                            //rdoPerNedeterminata.Checked = cititor_populareDinBD.GetBoolean(22);
+                            //rdoPerDeterminata.Checked = cititor_populareDinBD.GetBoolean(23);
+                            //txtDecan.Text = cititor_populareDinBD.GetString(24);
+                            //txtVizaConta.Text = cititor_populareDinBD.GetString(25);
+                            //txtAdministratorSef.Text = cititor_populareDinBD.GetString(26);
+                            //txtSefDepartament.Text = cititor_populareDinBD.GetString(27);
+                            //txtVizaRU.Text = cititor_populareDinBD.GetString(28);
+                        }
+
+                        cititor_populareDinBD.Close();
+                    }
+                    catch (Exception expopulareDinBD)
+                    {
+                        MessageBox.Show(expopulareDinBD.Message);
+                    } // Ne deconectam
+                    finally
+                    {
+                        conexiune_populareDinBD.Close();
+                    }
+                }
+            }
+        }
+
+
+
+
+
+
+
+
+        /* --------------------------------------------------------------------------------------------------------------- */
+        private void btnAcceseaza_Click(object sender, EventArgs e)
+        {
+            using (OdbcConnection conexiune_VerifNrInregistrare = new OdbcConnection(sircon_RelIntDB))
+            {           // Comanda
+                using (OdbcCommand comanda_VerifNrInregistrare = new OdbcCommand())
+                {
+                    comanda_VerifNrInregistrare.Connection = conexiune_VerifNrInregistrare;
+                    comanda_VerifNrInregistrare.CommandType = CommandType.Text;
+                    comanda_VerifNrInregistrare.CommandText = "SELECT nrinregistrarec FROM cereri";
+
+                    OdbcDataReader cititor_VerifNrInregistrare;
+
+                    try
+                    {
+                        conexiune_VerifNrInregistrare.Open();
+                        cititor_VerifNrInregistrare = comanda_VerifNrInregistrare.ExecuteReader();
+
+                        while (cititor_VerifNrInregistrare.Read())
+                        {
+                            if (cititor_VerifNrInregistrare.GetInt32(0) == vartxtNrInregistrare)
+                            {
+                                txtNrUAIC.Enabled = true;
+                                dpDataBECA.Enabled = true;
+                                panouContinut.Enabled = true;
+                                panouCheltuieli.Enabled = true;
+                                panouAlteDispuneri.Enabled = true;
+                                panouSemnatari.Enabled = true;
+
+                                txtNrInregistrare.Enabled = false;
+                                btnAcceseaza.Enabled = false;
+
+                                PopulareCampuri();
+                            }
+                            else
+                            {
+                                txtNrUAIC.Enabled = false;
+                                dpDataBECA.Enabled = false;
+                                panouContinut.Enabled = false;
+                                panouCheltuieli.Enabled = false;
+                                panouAlteDispuneri.Enabled = false;
+                                panouSemnatari.Enabled = false;
+
+                                MessageBox.Show("Numărul de înregistrare nu există !");
+
+                                txtNrInregistrare.Clear();
+                            }
+                        }
+                    }
+                    catch (Exception VerifNrInregistrare)
+                    {
+                        MessageBox.Show(VerifNrInregistrare.Message);
+                    } // Ne deconectam
+                    finally
+                    {
+                        conexiune_VerifNrInregistrare.Close();
+                    }
+                }
+            }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 

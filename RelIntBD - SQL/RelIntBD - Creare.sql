@@ -1,13 +1,13 @@
 ﻿-- Script Creare BD
 
+DROP TABLE IF EXISTS OrdineDeplasare;
+DROP TABLE IF EXISTS Rectori;
+DROP TABLE IF EXISTS ProRectori;
 DROP TABLE IF EXISTS OreRecuperate;
 DROP TABLE IF EXISTS ConditiiDePlata;
-DROP TABLE IF EXISTS CereriBECA;
 DROP TABLE IF EXISTS Cereri;
 DROP TABLE IF EXISTS GradeDidactice;
 DROP TABLE IF EXISTS Facultati;
-DROP TABLE IF EXISTS Rectori;
-DROP TABLE IF EXISTS ProRectori;
 DROP TABLE IF EXISTS Monezi;
 
 -------------------------------------
@@ -20,6 +20,11 @@ GradDidacticGD VARCHAR(50) CONSTRAINT pk_GradDidacticGD PRIMARY KEY
 -- Creare tabela Facultati
 CREATE TABLE Facultati (
 FacultatiF VARCHAR(50) CONSTRAINT pk_FacultatiF PRIMARY KEY
+);
+
+-- Creare tabela Facultati
+CREATE TABLE Monezi (
+MoneziM VARCHAR(50) CONSTRAINT pk_MoneziM PRIMARY KEY
 );
 
 -- Creare tabela Cereri
@@ -40,11 +45,17 @@ RutaC VARCHAR(30),
 MijTransC VARCHAR(30),
 PlatitorTranspC VARCHAR(30),
 PlatitorIntretinereC VARCHAR(30),
+NrZileDiurnaC NUMERIC(3),
 DiurnaC NUMERIC(7,2),
+MonedaDiurnaC VARCHAR(50) CONSTRAINT fk_MonedaDiurnaC REFERENCES Monezi(MoneziM),
+NrZileCazareC NUMERIC(3),
 CazareC NUMERIC(7,2),
+MonedaCazareC VARCHAR(50) CONSTRAINT fk_MonedaCazareC REFERENCES Monezi(MoneziM),
 TaxaDeParticipareC NUMERIC(7,2),
+MonedaTaxaDeParticipareC VARCHAR(50) CONSTRAINT fk_MonedaTaxaDeParticipareC REFERENCES Monezi(MoneziM),
 TaxaDeVizaEtcC NUMERIC(7,2),
-TotalC NUMERIC (7,2),
+MonedaTaxaDeVizaEtcC VARCHAR(50) CONSTRAINT fk_MonedaTaxaDeVizaEtcC REFERENCES Monezi(MoneziM),
+TotalC VARCHAR(50),
 AmbasadaC VARCHAR(50),
 NedeterminataC BOOLEAN,
 DeterminataC BOOLEAN,
@@ -75,17 +86,6 @@ DenDisciplinaCDP VARCHAR(50),
 CondDePlataCDP VARCHAR(70)
 );
 
--- Creare tabela Facultati
-CREATE TABLE Monezi (
-MoneziM VARCHAR(50) CONSTRAINT pk_MoneziM PRIMARY KEY
-);
-
--- Creare tabela CereriBECA
-CREATE TABLE CereriBECA (
-NrInregistrareBC NUMERIC(5) CONSTRAINT fk_NrInregistrareCBC REFERENCES Cereri(NrInregistrareC),
-NrInregistrareB NUMERIC(5) CONSTRAINT pk_NrInregistrareCB PRIMARY KEY
-);
-
 -- Creare tabela Rectori
 CREATE TABLE Rectori (
 Rector VARCHAR(50) CONSTRAINT pk_Rector PRIMARY KEY,
@@ -99,4 +99,10 @@ ProRector VARCHAR(50) CONSTRAINT pk_ProRector PRIMARY KEY,
 EMailP VARCHAR(50),
 TelefonP1 NUMERIC(12) NOT NULL,
 TelefonP2 NUMERIC(12)
+);
+
+-- Creare tabela CereriBECA
+CREATE TABLE OrdineDeplasare (
+NrInregistrareBC NUMERIC(5) CONSTRAINT fk_NrInregistrareCBC REFERENCES Cereri(NrInregistrareC),
+NrInregistrareB NUMERIC(5) CONSTRAINT pk_NrInregistrareCB PRIMARY KEY
 );

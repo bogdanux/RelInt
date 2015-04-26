@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -368,94 +369,91 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
         /* ----------------- Metoda calcularii totalului din textbox-ul "txtTotalDePlata" -------------------------------- */
-        private void CalculTotal()
+        private string CalculTotal()
         {
-            // Verificam daca formularul a fost completat cu o valuta unica
-            if (cmbMoneda1.SelectedItem == cmbMoneda2.SelectedItem && cmbMoneda2.SelectedItem == cmbMoneda3.SelectedItem && cmbMoneda3.SelectedItem == cmbMoneda4.SelectedItem)
+            string total = string.Empty;
+            double sumaTotala1 = 0;
+            double sumaTotala2 = 0;
+            double sumaTotala3 = 0;
+            double sumaTotala4 = 0;
+            bool ok1 = false;
+            bool ok2 = false;
+            bool ok3 = false;
+
+
+            // combinari toate diferite
+            if (cmbMoneda4.SelectedItem != cmbMoneda1.SelectedItem && cmbMoneda4.SelectedItem != cmbMoneda2.SelectedItem &&
+                cmbMoneda4.SelectedItem != cmbMoneda3.SelectedItem)
             {
-                // Verificam daca campurile obligatorii sunt completate
-                if (txtDiurna.Text != string.Empty && txtCazare.Text != string.Empty && txtTaxaDeViza.Text != string.Empty)
-                {
-                    // Verificam daca valoarea din "txtDiurna" este de tip double
-                    diurnaEsteNumar = double.TryParse(txtDiurna.Text, out varDiurna);
-
-                        // Verificam daca valoarea din "txtCazare" este de tip double
-                        cazareEsteNumar = double.TryParse(txtCazare.Text, out varCazare);
-
-                            // Verificam daca valoarea din "txtTaxaDeViza" este de tip double
-                            TaxaDeVizaEtceEsteNumar = double.TryParse(txtTaxaDeViza.Text, out varTaxaDeVizaEtc);
-
-                                // Daca valorile din toate textbox-urile de mai sus sunt cifre (de tip double), efectueaza Totalul
-                                if (diurnaEsteNumar == true && cazareEsteNumar == true && TaxaDeVizaEtceEsteNumar == true)
-                    {
-                        // Verificam daca valoarea din "txtTaxaDeParticipare" este de tip double
-                        TaxaDeParticipareEsteNumar = double.TryParse(txtTaxaDeParticipare.Text, out varTaxaDeParticipare);
-
-                            // Daca da, verificam daca s-a introdus ceva in campul "txtTaxaDeParticipare"
-                            if (txtTaxaDeParticipare.Text == string.Empty)
-                        {
-                            // Daca nu, setam valoarea campului "zero"
-                            varTaxaDeParticipare = 0;
-                                // Si punem bool-ul "TaxaDeParticipareEsteNumar" ca fiind adevarat
-                                TaxaDeParticipareEsteNumar = true;
-                        }
-
-                        // Iar daca bool-ul de mai sus este adevarat, calculam si afisam efectiv valoarea in campul "txtTotalDePlata"
-                        if (TaxaDeParticipareEsteNumar == true)
-                        {
-                            varTotalDePlata = 0;
-
-                            // Calculam total de plata
-                            varTotalDePlata = varDiurna + varCazare + varTaxaDeParticipare + varTaxaDeVizaEtc;
-                                // Afisare in textboxul "txtTotalDePlata"
-                                txtTotalDePlata.Text = varTotalDePlata.ToString();
-                                    // Setam bool CalculTotalSucces = true
-                                    CalculTotalSucces = true;
-                        }
-                        else
-                        {
-                            // Eroare taxa de participare nu este numar
-                            MessageBox.Show("              ! Taxa de participare nu este număr ! \n     Vă rugăm introduceți un NUMĂR în acest câmp.");
-                        }
-
-                    }
-                    // Daca nu sunt toate cifre, afiseaza mesaj
-                    else
-                    {
-                        MessageBox.Show("              ! Vă rugăm introduceți cifre nu litere în acest câmp !");
-                    }
-                }
-                // Daca nu sunt completate cele de mai sus, alerteaza
-                else
-                {
-
-                    // Alerteaza daca "txtDiurna" nu este completat
-                    if (txtDiurna.Text == string.Empty)
-                    {
-                        MessageBox.Show("              Caseta diurnă nu conține nimic ! \n              Vă rugăm completați câmpul.");
-                        return;
-                    }
-
-                        // Alerteaza daca "txtCazare" nu este completat
-                        if (txtCazare.Text == string.Empty)
-                        {
-                            MessageBox.Show("              Caseta cazare nu conține nimic ! \n              Vă rugăm completați câmpul.");
-                            return;
-                        }
-
-                            // Alerteaza daca "txtTaxaDeViza" nu este completat
-                            if (txtTaxaDeViza.Text == string.Empty)
-                            {
-                                MessageBox.Show("              Caseta taxa de viză + asigurarea medicală nu conține nimic ! \n                                   Vă rugăm completați câmpul.");
-                                return;
-                            }
-                }
-            } // daca nu
-            else
-            {
-                // Alertam corespunzator
-                MessageBox.Show("              Nu se poate înregistra / calcula totalul cu valute diferite !");
+                sumaTotala4 = double.Parse(txtTaxaDeViza.Text, CultureInfo.InvariantCulture);
+                total = sumaTotala4.ToString() + cmbMoneda4.SelectedItem + " ";
             }
+
+            // combinari cu 1
+            if (cmbMoneda1.SelectedItem == cmbMoneda2.SelectedItem)
+            {
+                sumaTotala1 = Convert.ToInt32(txtSubtotalDiurna.Text) + Convert.ToInt32(txtSubtotalCazare.Text);
+                
+                ok1 = true;
+            }
+            if (cmbMoneda1.SelectedItem == cmbMoneda3.SelectedItem)
+            {
+                sumaTotala1 = sumaTotala1 != 0 ? sumaTotala1 + Convert.ToInt32(txtTaxaDeParticipare) : Convert.ToInt32(txtSubtotalDiurna.Text) + Convert.ToInt32(txtTaxaDeParticipare);
+                ok1 = true;
+            }
+            if (cmbMoneda1.SelectedItem == cmbMoneda4.SelectedItem)
+            {
+                sumaTotala1 = sumaTotala1 != 0 ? sumaTotala1 + Convert.ToInt32(txtTaxaDeViza) : Convert.ToInt32(txtSubtotalDiurna.Text) + Convert.ToInt32(txtTaxaDeViza);
+                ok1 = true;
+            }
+            if (ok1 == false)
+            {
+                sumaTotala1 = double.Parse(txtSubtotalDiurna.Text, CultureInfo.InvariantCulture);
+            }
+            if (sumaTotala1 !=0)
+            {
+                total += sumaTotala1.ToString() + cmbMoneda1.SelectedItem + " ";
+            }
+
+
+
+            // combinari cu 2
+            if (cmbMoneda2.SelectedItem == cmbMoneda3.SelectedItem)
+            {
+                sumaTotala2 = Convert.ToInt32(txtSubtotalCazare) + Convert.ToInt32(txtTaxaDeParticipare);
+                ok2 = true;
+            }
+            if (cmbMoneda2.SelectedItem == cmbMoneda4.SelectedItem)
+            {
+                sumaTotala2 = sumaTotala2 != 0 ? sumaTotala2 + Convert.ToInt32(txtTaxaDeViza) : Convert.ToInt32(txtSubtotalCazare) + Convert.ToInt32(txtTaxaDeViza);
+                ok2 = true;
+            }
+            if (ok2 == false)
+            {
+                sumaTotala2 = double.Parse(txtSubtotalCazare.Text, CultureInfo.InvariantCulture);
+            }
+            if (sumaTotala2 != 0)
+            {
+                total += sumaTotala2.ToString() + cmbMoneda2.SelectedItem + " ";
+            }
+
+
+
+            // combinari cu 3
+            if (cmbMoneda3.SelectedItem == cmbMoneda4.SelectedItem)
+            {
+                sumaTotala3 = Convert.ToInt32(txtTaxaDeParticipare) + Convert.ToInt32(txtTaxaDeViza);
+                ok3 = true;
+            }
+            if (ok3 == false)
+            {
+                sumaTotala3 = double.Parse(txtTaxaDeParticipare.Text, CultureInfo.InvariantCulture);;
+            }
+            if (sumaTotala3 != 0)
+            {
+                total += sumaTotala3.ToString() + cmbMoneda3.SelectedItem;
+            }
+            return total;
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
@@ -480,7 +478,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 {
                     comanda_inserareRelInt.Connection = conexiune_InserareCerereRelInt;
                     comanda_inserareRelInt.CommandType = CommandType.Text;
-                    comanda_inserareRelInt.CommandText = "INSERT into Cereri VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                    comanda_inserareRelInt.CommandText = "INSERT into Cereri VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
                     comanda_inserareRelInt.Parameters.AddWithValue("@nrinregistrarec", OdbcType.Int).Value = vartxtNrInregistrare;
                     comanda_inserareRelInt.Parameters.AddWithValue("@datac", OdbcType.DateTime).Value = dpDataFormular.Value;
                     comanda_inserareRelInt.Parameters.AddWithValue("@subsemnatulc", OdbcType.NVarChar).Value = txtSubsemnatul.Text;
@@ -497,11 +495,17 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     comanda_inserareRelInt.Parameters.AddWithValue("@mijtransc", OdbcType.NVarChar).Value = txtMijTrans.Text;
                     comanda_inserareRelInt.Parameters.AddWithValue("@platitortranspc", OdbcType.NVarChar).Value = txtSuportatDe.Text;
                     comanda_inserareRelInt.Parameters.AddWithValue("@platitorintretinerec", OdbcType.NVarChar).Value = txtCheltuieliSuportate.Text;
+                    comanda_inserareRelInt.Parameters.AddWithValue("@nrzilediurnac", OdbcType.Int).Value = vartxtNrZileDiurna;
                     comanda_inserareRelInt.Parameters.AddWithValue("@diurnac", OdbcType.Double).Value = varDiurna;
-                    comanda_inserareRelInt.Parameters.AddWithValue("@cazarecc", OdbcType.Double).Value = varCazare;
+                    comanda_inserareRelInt.Parameters.AddWithValue("@monedadiurnac", OdbcType.NVarChar).Value = cmbMoneda1.SelectedItem;
+                    comanda_inserareRelInt.Parameters.AddWithValue("@nrzilecazarec", OdbcType.Int).Value = vartxtNrZileCazare;
+                    comanda_inserareRelInt.Parameters.AddWithValue("@cazarec", OdbcType.Double).Value = varCazare;
+                    comanda_inserareRelInt.Parameters.AddWithValue("@monedacazarec", OdbcType.NVarChar).Value = cmbMoneda2.SelectedItem;
                     comanda_inserareRelInt.Parameters.AddWithValue("@taxadeparticiparec", OdbcType.Double).Value = varTaxaDeParticipare;
+                    comanda_inserareRelInt.Parameters.AddWithValue("@monedataxadeparticiparec", OdbcType.NVarChar).Value = cmbMoneda3.SelectedItem;
                     comanda_inserareRelInt.Parameters.AddWithValue("@taxadevizaetcc", OdbcType.Double).Value = varTaxaDeVizaEtc;
-                    comanda_inserareRelInt.Parameters.AddWithValue("@totalc", OdbcType.Double).Value = varTotalDePlata;
+                    comanda_inserareRelInt.Parameters.AddWithValue("@monedataxadevizaetcc", OdbcType.NVarChar).Value = cmbMoneda4.SelectedItem;
+                    comanda_inserareRelInt.Parameters.AddWithValue("@totalc", OdbcType.NVarChar).Value = CalculTotal();
                     comanda_inserareRelInt.Parameters.AddWithValue("@ambasadac", OdbcType.NVarChar).Value = txtAmbasada.Text;
                     comanda_inserareRelInt.Parameters.AddWithValue("@nedeterminatac", OdbcType.Bit).Value = rdoPerNedeterminata.Checked;
                     comanda_inserareRelInt.Parameters.AddWithValue("@determinatac", OdbcType.Bit).Value = rdoPerDeterminata.Checked;
@@ -624,11 +628,8 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             if (txtNrInregistrare.Text != string.Empty && cmbGradDidactic.SelectedIndex != -1 && cmbFacultatea.SelectedIndex != -1 && cmbMoneda1.SelectedIndex != -1 && cmbMoneda2.SelectedIndex != -1 && cmbMoneda3.SelectedIndex != -1 && cmbMoneda4.SelectedIndex != -1)
             {
                 // Lucreaza asta
-                CalculTotal();
+                txtTotalDePlata.Text = CalculTotal();
 
-                    // Daca variabila "CalculTotalSucces" este adevarata
-                    if (CalculTotalSucces == true)
-                    {
                         // Lucreaza asta
                         MetodaInserareDB();
 
@@ -670,19 +671,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                                             MetodaNegareControale();
                                 }
                             }
-                        // Daca variabila "MetodaInserareSucces" nu este adevarata
-                        else 
-                        { 
-                            // Nu fa nimic
-
-                        }
-                    }
-                    // Daca variabila "CalculTotalSucces" nu este adevarata
-                    else
-                    {
-                        // Nu fa nimic
-
-                    }
             }
             // Daca caseta "txtNrInregistrare" este goala
             else 
@@ -1575,30 +1563,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             txtCheltuieliSuportateSchimbat = true;
         }
 
-        private void txtDiurna_TextChanged(object sender, EventArgs e)
-        {
-            // Daca textul selectat se schimba atunci
-            txtDiurnaSchimbat = true;
-        }
-
-        private void txtCazare_TextChanged(object sender, EventArgs e)
-        {
-            // Daca textul selectat se schimba atunci
-            txtCazareSchimbat = true;
-        }
-
-        private void txtTaxaDeParticipare_TextChanged(object sender, EventArgs e)
-        {
-            // Daca textul selectat se schimba atunci
-            txtTaxaDeParticipareSchimbat = true;
-        }
-
-        private void txtTaxaDeViza_TextChanged(object sender, EventArgs e)
-        {
-            // Daca textul selectat se schimba atunci
-            txtTaxaDeVizaSchimbat = true;
-        }
-
         private void txtAmbasada_TextChanged(object sender, EventArgs e)
         {
             // Daca textul selectat se schimba atunci
@@ -1727,7 +1691,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-        
 
 
 
@@ -1735,6 +1698,243 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
+
+        /* --------------------------------------------------------------------------------------------------------------- */
+        private void MetodaCalculSubtotalDiurna()
+        {
+            // Declaram o variabila locala
+            double varSubtotal = 0;
+
+            // Calculam
+            varSubtotal = vartxtNrZileDiurna * vartxtDiurna;
+
+            // Afisam
+            txtSubtotalDiurna.Text = varSubtotal.ToString();
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+        /* --------------------------------------------------------------------------------------------------------------- */
+        private void MetodaCalculSubtotalCazare()
+        {
+            // Declaram o variabila locala
+            double varSubtotal = 0;
+
+            // Calculam
+            varSubtotal = vartxtNrZileCazare * vartxtCazare;
+
+            // Afisam
+            txtSubtotalCazare.Text = varSubtotal.ToString();
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+        /* --------------------- variabile de lucru pentru eveniment txtNrZileDiurna ------------------------------------- */
+        int vartxtNrZileDiurna;
+        bool txtNrZileDiurnaSchimbat = false;
+        /* ------------------------- Eveniment pentru txtNrZileDiurna ---------------------------------------------------- */
+        private void txtNrZileDiurna_TextChanged(object sender, EventArgs e)
+        {
+            // Verificam daca valoarea din "txtNrZileDiurna" este de tip int si daca da, o inregistram in "vartxtNrZileDiurna"
+            bool vartxtNrZileDiurnaEsteNumar = Int32.TryParse(txtNrZileDiurna.Text, out vartxtNrZileDiurna);
+
+            // Judecam si "sanctionam" la nevoie
+            switch (vartxtNrZileDiurnaEsteNumar || txtNrZileDiurna.Text == string.Empty)
+            {
+                case false:
+                    // Golim casuta si afisam mesaj de eroare
+                    txtNrZileDiurna.Clear();
+                    MessageBox.Show("        Vă rugăm introduceți doar numere în această casetă de text.");
+                    break;
+            }
+
+            // Calculam
+            MetodaCalculSubtotalDiurna();
+
+            // Inregistram modificarea campului
+            txtNrZileDiurnaSchimbat = true;
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+        /* --------------------- variabile de lucru pentru eveniment txtNrZileCazare ------------------------------------- */
+        int vartxtNrZileCazare;
+        bool txtNrZileCazareSchimbat = false;
+        /* ------------------------- Eveniment pentru txtNrZileCazare ---------------------------------------------------- */
+        private void txtNrZileCazare_TextChanged(object sender, EventArgs e)
+        {
+            // Verificam daca valoarea din "txtNrZileCazare" este de tip int si daca da, o inregistram in "vartxtNrZileCazare"
+            bool vartxtNrZileCazareEsteNumar = Int32.TryParse(txtNrZileCazare.Text, out vartxtNrZileCazare);
+
+            // Judecam si "sanctionam" la nevoie
+            switch (vartxtNrZileCazareEsteNumar || txtNrZileCazare.Text == string.Empty)
+            {
+                case false:
+                    // Golim casuta si afisam mesaj de eroare
+                    txtNrZileCazare.Clear();
+                    MessageBox.Show("        Vă rugăm introduceți doar numere în această casetă de text.");
+                    break;
+            }
+
+            // Calculam
+            MetodaCalculSubtotalCazare();
+
+            // Inregistram modificarea campului
+            txtNrZileCazareSchimbat = true;
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+
+        /* --------------------- variabile de lucru pentru eveniment txtDiurna ------------------------------------- */
+        double vartxtDiurna;
+        /* ------------------------- Eveniment pentru txtDiurna ---------------------------------------------------------- */
+        private void txtDiurna_TextChanged(object sender, EventArgs e)
+        {
+            // Verificam daca valoarea din "txtDiurna" este de tip int si daca da, o inregistram in "vartxtDiurna"
+            bool vartxtDiurnaEsteNumar = double.TryParse(txtDiurna.Text, out vartxtDiurna);
+            if (vartxtDiurnaEsteNumar !=false)
+            {
+                vartxtDiurna = double.Parse(txtDiurna.Text, CultureInfo.InvariantCulture);
+            }
+            
+
+            // Judecam si "sanctionam" la nevoie
+            switch (vartxtDiurnaEsteNumar || txtDiurna.Text == string.Empty)
+            {
+                case false:
+                    // Golim casuta si afisam mesaj de eroare
+                    txtDiurna.Clear();
+                    MessageBox.Show("        Vă rugăm introduceți doar numere în această casetă de text.");
+                    break;
+            }
+
+            // Calculam
+            MetodaCalculSubtotalDiurna();
+
+            // Inregistram modificarea campului
+            txtDiurnaSchimbat = true;
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+        /* ------------------------- Variabile de lucru pentru txtCazare ------------------------------------------------- */
+        double vartxtCazare;
+        /* ------------------------- Eveniment pentru txtCazare ---------------------------------------------------------- */
+        private void txtCazare_TextChanged(object sender, EventArgs e)
+        {
+            // Verificam daca valoarea din "txtCazare" este de tip int si daca da, o inregistram in "vartxtCazare"
+            bool vartxtCazareEsteNumar = Double.TryParse(txtCazare.Text, out vartxtCazare);
+            if (vartxtCazareEsteNumar != false)
+            {
+                vartxtCazare = double.Parse(txtCazare.Text, CultureInfo.InvariantCulture);
+            }
+            
+
+            // Judecam si "sanctionam" la nevoie
+            switch (vartxtCazareEsteNumar || txtCazare.Text == string.Empty)
+            {
+                case false:
+                    // Golim casuta si afisam mesaj de eroare
+                    txtCazare.Clear();
+                    MessageBox.Show("        Vă rugăm introduceți doar numere în această casetă de text.");
+                    break;
+            }
+
+            // Calculam
+            MetodaCalculSubtotalCazare();
+
+            // Inregistram modificarea campului
+            txtCazareSchimbat = true;
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+        /* ------------------------ Variabile de lucru pentru txtTaxaDeParticipare --------------------------------------- */
+        int vartxtTaxaDeParticipare;
+        /* ------------------------- Eveniment pentru txtTaxaDeParticipare ----------------------------------------------- */
+        private void txtTaxaDeParticipare_TextChanged(object sender, EventArgs e)
+        {
+            // Verificam daca valoarea din "txtTaxaDeParticipare" este de tip int si daca da, o inregistram in "vartxtTaxaDeParticipare"
+            bool vartxtTaxaDeParticipareEsteNumar = Int32.TryParse(txtTaxaDeParticipare.Text, out vartxtTaxaDeParticipare);
+
+            // Judecam si "sanctionam" la nevoie
+            switch (vartxtTaxaDeParticipareEsteNumar || txtTaxaDeParticipare.Text == string.Empty)
+            {
+                case false:
+                    // Golim casuta si afisam mesaj de eroare
+                    txtTaxaDeParticipare.Clear();
+                    MessageBox.Show("        Vă rugăm introduceți doar numere în această casetă de text.");
+                    break;
+            }
+
+            // Inregistram modificarea campului
+            txtTaxaDeParticipareSchimbat = true;
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+
+        /* -------------------------- Variabile de lucru pentru txtTaxaDeViza -------------------------------------------- */
+        int vartxtTaxaDeViza;
+        /* ------------------------- Eveniment pentru txtTaxaDeViza ------------------------------------------------------ */
+        private void txtTaxaDeViza_TextChanged(object sender, EventArgs e)
+        {
+            // Verificam daca valoarea din "txtTaxaDeViza" este de tip int si daca da, o inregistram in "vartxtTaxaDeViza"
+            bool vartxtTaxaDeVizaEsteNumar = Int32.TryParse(txtTaxaDeViza.Text, out vartxtTaxaDeViza);
+
+            // Judecam si "sanctionam" la nevoie
+            switch (vartxtTaxaDeVizaEsteNumar || txtTaxaDeViza.Text == string.Empty)
+            {
+                case false:
+                    // Golim casuta si afisam mesaj de eroare
+                    txtTaxaDeViza.Clear();
+                    MessageBox.Show("        Vă rugăm introduceți doar numere în această casetă de text.");
+                    break;
+            }
+
+            // Inregistram modificarea campului
+            txtTaxaDeVizaSchimbat = true;
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
     }
 }
 
