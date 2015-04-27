@@ -716,9 +716,11 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 || txtAdministratorSefSchimbat == true 
                 || txtSefDepartamentSchimbat == true 
                 || txtVizaRUSchimbat == true)
+
                 {
                     DacaCevaSchimbat = true;
                 } 
+
                 // Daca niciuna din variabilele urmatoare nu este adevarata atunci
                 else {
                 DacaCevaSchimbat = false;
@@ -837,7 +839,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 {
                     comanda_dgvConditiiDePlata.Connection = conexiune_dgvConditiiDePlata;
                     comanda_dgvConditiiDePlata.CommandType = CommandType.Text;
-                    comanda_dgvConditiiDePlata.CommandText = "SELECT nrcrtcdp as \"Nr. Crt.\", numeprenprofcdp as \"Nume Prenume prof.\", dendisciplinacdp as \"Denumire Disciplina\", conddeplatacdp as \"Conditii de plata\" FROM conditiideplata";
+                    comanda_dgvConditiiDePlata.CommandText = "SELECT nrcrtcdp as \"Nr. Crt.\", numeprenprofcdp as \"Nume Prenume prof.\", dendisciplinacdp as \"Denumire Disciplina\", conddeplatacdp as \"Conditii de plata\" FROM conditiideplata WHERE nrcererecdp = ?";
                     comanda_dgvConditiiDePlata.Parameters.AddWithValue("@nrcererecdp", OdbcType.Int).Value = vartxtNrInregistrare;
 
                     try
@@ -922,89 +924,64 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             // Apelam validarea chkORCDP
             if (chkORCDP.Checked == true)
             {
-                // Dezactivam caseta "txtNrInregistrare"
-                txtNrInregistrare.Enabled = false;
-
-                // Metoda dezactivare campuri
-
-
-                    // Activam selectiile pentru tipul de inserare al Orelor Recuperate
-                    rdoORInserare.Enabled = true;
-                    rdoORStergere.Enabled = true;
-                    // Activam selectiile pentru tipul de inserare al Conditiilor De Plata
-                    rdoCDPInserare.Enabled = true;
-                    rdoCDPStergere.Enabled = true;
+                // Activam selectiile pentru tipul de inserare al Orelor Recuperate
+                rdoORInserare.Checked = false;
+                rdoORStergere.Checked = false;
+                panouTipInsOR.Enabled = true;
+                // Activam selectiile pentru tipul de inserare al Conditiilor De Plata
+                rdoCDPInserare.Checked = false;
+                rdoCDPStergere.Checked = false;
+                panouTipInsCDP.Enabled = true;
             }
+
             else
             {
-                // Activam caseta "txtNrInregistrare"
-                txtNrInregistrare.Enabled = true;
+                // Descarcare "dgvOreRecuperate"
+                DescarcaredgvOreRecuperate();
+                dgvOreRecuperate.Enabled = false;
 
-                    // Descarcare "dgvOreRecuperate"
-                    DescarcaredgvOreRecuperate();
+                // Descarcare "dgvOreRecuperate"
+                DescarcaredgvConditiiDePlata();
+                dgvConditiiDePlata.Enabled = false;
 
-                    // Descarcare "dgvOreRecuperate"
-                    DescarcaredgvConditiiDePlata();
+                    // Dezactivam selectiile pentru tipul de inserare al Orelor Recuperate
+                    panouTipInsOR.Enabled = false;
+                    // Dezactivam selectiile pentru tipul de inserare al Conditiilor De Plata
+                    panouTipInsCDP.Enabled = false;
 
-                        // Dezactivam datagridview "dgvOreRecuperate"
-                        dgvOreRecuperate.Enabled = false;
+                        // Stergem / Dezactivam urmatoarele (OR)
+                        txtORNrCrt.Clear();
+                        txtORDenDisciplina.Clear();
+                        txtORSala.Clear();
 
-                        // Dezactivam datagridview "dgvCondiiDePlata"
-                        dgvConditiiDePlata.Enabled = false;
+                        txtORNrCrt.Enabled = false;
+                        txtORDenDisciplina.Enabled = false;
+                        dpORData.Enabled = false;
+                        dpOROra.Enabled = false;
+                        txtORSala.Enabled = false;
+                        btnORInserare.Enabled = false;
 
-                            // Stergem selectiile pentru tipul de inserare al Orelor Recuperate
-                            rdoORInserare.Checked = false;
-                            rdoORStergere.Checked = false;
-                            // Dezactivam selectiile pentru tipul de inserare al Orelor Recuperate
-                            rdoORInserare.Enabled = false;
-                            rdoORStergere.Enabled = false;
+                        txtORNrCrtStergere.Clear();
 
-                            // Stergem selectiile pentru tipul de inserare al Conditiilor De Plata
-                            rdoCDPInserare.Checked = false;
-                            rdoCDPStergere.Checked = false;
-                            // Dezactivam selectiile pentru tipul de inserare al Conditiilor De Plata
-                            rdoCDPInserare.Enabled = false;
-                            rdoCDPStergere.Enabled = false;
+                        txtORNrCrtStergere.Enabled = false;
+                        btnORStergere.Enabled = false;
 
-                                // Stergem tot din campurile pentru introducerea datelor (OR)
-                                txtORNrCrt.Clear();
-                                txtORDenDisciplina.Clear();
-                                txtORSala.Clear();
+                            // Stergem / Dezactivam urmatoarele (CDP)
+                            txtCDPNrCrt.Clear();
+                            txtCDPNumePrenProf.Clear();
+                            txtCDPDenDisciplina.Clear();
+                            txtCDPCondDePlata.Clear();
 
-                                // Dezactivam campurile si butonul pentru introducerea datelor (OR)
-                                txtORNrCrt.Enabled = false;
-                                txtORDenDisciplina.Enabled = false;
-                                dpORData.Enabled = false;
-                                dpOROra.Enabled = false;
-                                txtORSala.Enabled = false;
-                                btnORInserare.Enabled = false;
+                            txtCDPNrCrt.Enabled = false;
+                            txtCDPNumePrenProf.Enabled = false;
+                            txtCDPDenDisciplina.Enabled = false;
+                            txtCDPCondDePlata.Enabled = false;
+                            btnCDPIntroducere.Enabled = false;
 
-                                // Stergem tot din campurile pentru stergerea datelor (OR)
-                                txtORNrCrtStergere.Clear();
+                            txtCDPNrCrtStergere.Clear();
 
-                                // Dezactivam campurile si butonul pentru stergerea datelor (OR)
-                                txtORNrCrtStergere.Enabled = false;
-                                btnORStergere.Enabled = false;
-
-                                    // Stergem tot din campurile pentru introducerea datelor (CDP)
-                                    txtCDPNrCrt.Clear();
-                                    txtCDPNumePrenProf.Clear();
-                                    txtCDPDenDisciplina.Clear();
-                                    txtCDPCondDePlata.Clear();
-
-                                    // Dezactivam campurile si butonul pentru introducerea datelor (CDP)
-                                    txtCDPNrCrt.Enabled = false;
-                                    txtCDPNumePrenProf.Enabled = false;
-                                    txtCDPDenDisciplina.Enabled = false;
-                                    txtCDPCondDePlata.Enabled = false;
-                                    btnCDPIntroducere.Enabled = false;
-
-                                    // Stergem tot din campurile pentru stergerea datelor (CDP)
-                                    
-
-                                    // Dezactivam campurile si butonul pentru stergerea datelor (CDP)
-                                    txtCDPNrCrtStergere.Enabled = false;
-                                    btnCDPStergere.Enabled = false;
+                            txtCDPNrCrtStergere.Enabled = false;
+                            btnCDPStergere.Enabled = false;
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */

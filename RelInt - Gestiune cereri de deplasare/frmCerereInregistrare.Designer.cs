@@ -39,7 +39,6 @@
             this.lblDataFormular = new System.Windows.Forms.Label();
             this.dpDataFormular = new System.Windows.Forms.DateTimePicker();
             this.panouIdentificareCerere = new System.Windows.Forms.Panel();
-            this.panouVizaControlFinanciar = new System.Windows.Forms.Panel();
             this.lblIdentficareFormular = new System.Windows.Forms.Label();
             this.panouContinut = new System.Windows.Forms.Panel();
             this.txtPlatitorTransport = new System.Windows.Forms.TextBox();
@@ -257,7 +256,6 @@
             // panouIdentificareCerere
             // 
             this.panouIdentificareCerere.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panouIdentificareCerere.Controls.Add(this.panouVizaControlFinanciar);
             this.panouIdentificareCerere.Controls.Add(this.lblIdentficareFormular);
             this.panouIdentificareCerere.Controls.Add(this.lblNrInregistrare);
             this.panouIdentificareCerere.Controls.Add(this.dpDataFormular);
@@ -267,14 +265,6 @@
             this.panouIdentificareCerere.Name = "panouIdentificareCerere";
             this.panouIdentificareCerere.Size = new System.Drawing.Size(643, 56);
             this.panouIdentificareCerere.TabIndex = 5;
-            // 
-            // panouVizaControlFinanciar
-            // 
-            this.panouVizaControlFinanciar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panouVizaControlFinanciar.Location = new System.Drawing.Point(461, -1);
-            this.panouVizaControlFinanciar.Name = "panouVizaControlFinanciar";
-            this.panouVizaControlFinanciar.Size = new System.Drawing.Size(181, 56);
-            this.panouVizaControlFinanciar.TabIndex = 6;
             // 
             // lblIdentficareFormular
             // 
@@ -1199,6 +1189,7 @@
             // 
             // dpOROra
             // 
+            this.dpOROra.Enabled = false;
             this.dpOROra.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dpOROra.Location = new System.Drawing.Point(343, 281);
             this.dpOROra.Name = "dpOROra";
@@ -1207,6 +1198,7 @@
             // 
             // dpORData
             // 
+            this.dpORData.Enabled = false;
             this.dpORData.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dpORData.Location = new System.Drawing.Point(248, 281);
             this.dpORData.Name = "dpORData";
@@ -1215,6 +1207,7 @@
             // 
             // btnCDPStergere
             // 
+            this.btnCDPStergere.Enabled = false;
             this.btnCDPStergere.Location = new System.Drawing.Point(474, 577);
             this.btnCDPStergere.Name = "btnCDPStergere";
             this.btnCDPStergere.Size = new System.Drawing.Size(100, 22);
@@ -1225,6 +1218,7 @@
             // 
             // txtCDPNrCrtStergere
             // 
+            this.txtCDPNrCrtStergere.Enabled = false;
             this.txtCDPNrCrtStergere.Location = new System.Drawing.Point(100, 578);
             this.txtCDPNrCrtStergere.Name = "txtCDPNrCrtStergere";
             this.txtCDPNrCrtStergere.Size = new System.Drawing.Size(60, 20);
@@ -1234,6 +1228,7 @@
             // 
             // btnCDPIntroducere
             // 
+            this.btnCDPIntroducere.Enabled = false;
             this.btnCDPIntroducere.Location = new System.Drawing.Point(474, 553);
             this.btnCDPIntroducere.Name = "btnCDPIntroducere";
             this.btnCDPIntroducere.Size = new System.Drawing.Size(100, 22);
@@ -1244,6 +1239,7 @@
             // 
             // txtCDPCondDePlata
             // 
+            this.txtCDPCondDePlata.Enabled = false;
             this.txtCDPCondDePlata.Location = new System.Drawing.Point(409, 554);
             this.txtCDPCondDePlata.Name = "txtCDPCondDePlata";
             this.txtCDPCondDePlata.Size = new System.Drawing.Size(60, 20);
@@ -1252,6 +1248,7 @@
             // 
             // txtCDPDenDisciplina
             // 
+            this.txtCDPDenDisciplina.Enabled = false;
             this.txtCDPDenDisciplina.Location = new System.Drawing.Point(303, 554);
             this.txtCDPDenDisciplina.Name = "txtCDPDenDisciplina";
             this.txtCDPDenDisciplina.Size = new System.Drawing.Size(100, 20);
@@ -1260,6 +1257,7 @@
             // 
             // txtCDPNumePrenProf
             // 
+            this.txtCDPNumePrenProf.Enabled = false;
             this.txtCDPNumePrenProf.Location = new System.Drawing.Point(166, 554);
             this.txtCDPNumePrenProf.Name = "txtCDPNumePrenProf";
             this.txtCDPNumePrenProf.Size = new System.Drawing.Size(130, 20);
@@ -1268,6 +1266,7 @@
             // 
             // txtCDPNrCrt
             // 
+            this.txtCDPNrCrt.Enabled = false;
             this.txtCDPNrCrt.Location = new System.Drawing.Point(100, 554);
             this.txtCDPNrCrt.Name = "txtCDPNrCrt";
             this.txtCDPNrCrt.Size = new System.Drawing.Size(60, 20);
@@ -1277,6 +1276,7 @@
             // 
             // txtORNrCrtStergere
             // 
+            this.txtORNrCrtStergere.Enabled = false;
             this.txtORNrCrtStergere.Location = new System.Drawing.Point(70, 305);
             this.txtORNrCrtStergere.Name = "txtORNrCrtStergere";
             this.txtORNrCrtStergere.Size = new System.Drawing.Size(60, 20);
@@ -1286,6 +1286,7 @@
             // 
             // btnORStergere
             // 
+            this.btnORStergere.Enabled = false;
             this.btnORStergere.Location = new System.Drawing.Point(474, 304);
             this.btnORStergere.Name = "btnORStergere";
             this.btnORStergere.Size = new System.Drawing.Size(100, 22);
@@ -1296,6 +1297,7 @@
             // 
             // txtORSala
             // 
+            this.txtORSala.Enabled = false;
             this.txtORSala.Location = new System.Drawing.Point(411, 281);
             this.txtORSala.Name = "txtORSala";
             this.txtORSala.Size = new System.Drawing.Size(60, 20);
@@ -1304,6 +1306,7 @@
             // 
             // txtORDenDisciplina
             // 
+            this.txtORDenDisciplina.Enabled = false;
             this.txtORDenDisciplina.Location = new System.Drawing.Point(134, 281);
             this.txtORDenDisciplina.Name = "txtORDenDisciplina";
             this.txtORDenDisciplina.Size = new System.Drawing.Size(110, 20);
@@ -1312,6 +1315,7 @@
             // 
             // btnORInserare
             // 
+            this.btnORInserare.Enabled = false;
             this.btnORInserare.Location = new System.Drawing.Point(474, 280);
             this.btnORInserare.Name = "btnORInserare";
             this.btnORInserare.Size = new System.Drawing.Size(100, 22);
@@ -1322,6 +1326,7 @@
             // 
             // txtORNrCrt
             // 
+            this.txtORNrCrt.Enabled = false;
             this.txtORNrCrt.Location = new System.Drawing.Point(70, 281);
             this.txtORNrCrt.Name = "txtORNrCrt";
             this.txtORNrCrt.Size = new System.Drawing.Size(60, 20);
@@ -1495,7 +1500,6 @@
         private System.Windows.Forms.Label lblIdentficareFormular;
         private System.Windows.Forms.Panel panouContinut;
         private System.Windows.Forms.Label lblDescriere;
-        private System.Windows.Forms.Panel panouVizaControlFinanciar;
         private System.Windows.Forms.Label lblSubsemnatul;
         private System.Windows.Forms.ComboBox cmbGradDidactic;
         private System.Windows.Forms.Label lblGradDidactic;

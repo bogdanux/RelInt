@@ -104,5 +104,5 @@ TelefonP2 NUMERIC(12)
 -- Creare tabela CereriBECA
 CREATE TABLE OrdineDeplasare (
 NrInregistrareBC NUMERIC(5) CONSTRAINT fk_NrInregistrareCBC REFERENCES Cereri(NrInregistrareC),
-NrInregistrareB NUMERIC(5) CONSTRAINT pk_NrInregistrareCB PRIMARY KEY
+NrInregistrareB NUMERIC(10)
 );

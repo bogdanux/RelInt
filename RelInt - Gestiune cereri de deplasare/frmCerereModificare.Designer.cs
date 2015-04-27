@@ -175,7 +175,7 @@
             this.btnCIFormular});
             this.mnuCI.Location = new System.Drawing.Point(0, 0);
             this.mnuCI.Name = "mnuCI";
-            this.mnuCI.Size = new System.Drawing.Size(699, 30);
+            this.mnuCI.Size = new System.Drawing.Size(682, 30);
             this.mnuCI.TabIndex = 0;
             this.mnuCI.Text = "mnuCI";
             // 
@@ -1201,6 +1201,7 @@
             // 
             // dpOROra
             // 
+            this.dpOROra.Enabled = false;
             this.dpOROra.Format = System.Windows.Forms.DateTimePickerFormat.Time;
             this.dpOROra.Location = new System.Drawing.Point(343, 281);
             this.dpOROra.Name = "dpOROra";
@@ -1209,6 +1210,7 @@
             // 
             // dpORData
             // 
+            this.dpORData.Enabled = false;
             this.dpORData.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dpORData.Location = new System.Drawing.Point(248, 281);
             this.dpORData.Name = "dpORData";
@@ -1217,6 +1219,7 @@
             // 
             // btnCDPStergere
             // 
+            this.btnCDPStergere.Enabled = false;
             this.btnCDPStergere.Location = new System.Drawing.Point(474, 577);
             this.btnCDPStergere.Name = "btnCDPStergere";
             this.btnCDPStergere.Size = new System.Drawing.Size(100, 22);
@@ -1227,6 +1230,7 @@
             // 
             // txtCDPNrCrtStergere
             // 
+            this.txtCDPNrCrtStergere.Enabled = false;
             this.txtCDPNrCrtStergere.Location = new System.Drawing.Point(100, 578);
             this.txtCDPNrCrtStergere.Name = "txtCDPNrCrtStergere";
             this.txtCDPNrCrtStergere.Size = new System.Drawing.Size(60, 20);
@@ -1236,6 +1240,7 @@
             // 
             // btnCDPIntroducere
             // 
+            this.btnCDPIntroducere.Enabled = false;
             this.btnCDPIntroducere.Location = new System.Drawing.Point(474, 553);
             this.btnCDPIntroducere.Name = "btnCDPIntroducere";
             this.btnCDPIntroducere.Size = new System.Drawing.Size(100, 22);
@@ -1246,6 +1251,7 @@
             // 
             // txtCDPCondDePlata
             // 
+            this.txtCDPCondDePlata.Enabled = false;
             this.txtCDPCondDePlata.Location = new System.Drawing.Point(409, 554);
             this.txtCDPCondDePlata.Name = "txtCDPCondDePlata";
             this.txtCDPCondDePlata.Size = new System.Drawing.Size(60, 20);
@@ -1254,6 +1260,7 @@
             // 
             // txtCDPDenDisciplina
             // 
+            this.txtCDPDenDisciplina.Enabled = false;
             this.txtCDPDenDisciplina.Location = new System.Drawing.Point(303, 554);
             this.txtCDPDenDisciplina.Name = "txtCDPDenDisciplina";
             this.txtCDPDenDisciplina.Size = new System.Drawing.Size(100, 20);
@@ -1262,6 +1269,7 @@
             // 
             // txtCDPNumePrenProf
             // 
+            this.txtCDPNumePrenProf.Enabled = false;
             this.txtCDPNumePrenProf.Location = new System.Drawing.Point(166, 554);
             this.txtCDPNumePrenProf.Name = "txtCDPNumePrenProf";
             this.txtCDPNumePrenProf.Size = new System.Drawing.Size(130, 20);
@@ -1270,6 +1278,7 @@
             // 
             // txtCDPNrCrt
             // 
+            this.txtCDPNrCrt.Enabled = false;
             this.txtCDPNrCrt.Location = new System.Drawing.Point(100, 554);
             this.txtCDPNrCrt.Name = "txtCDPNrCrt";
             this.txtCDPNrCrt.Size = new System.Drawing.Size(60, 20);
@@ -1279,6 +1288,7 @@
             // 
             // txtORNrCrtStergere
             // 
+            this.txtORNrCrtStergere.Enabled = false;
             this.txtORNrCrtStergere.Location = new System.Drawing.Point(70, 305);
             this.txtORNrCrtStergere.Name = "txtORNrCrtStergere";
             this.txtORNrCrtStergere.Size = new System.Drawing.Size(60, 20);
@@ -1288,6 +1298,7 @@
             // 
             // btnORStergere
             // 
+            this.btnORStergere.Enabled = false;
             this.btnORStergere.Location = new System.Drawing.Point(474, 304);
             this.btnORStergere.Name = "btnORStergere";
             this.btnORStergere.Size = new System.Drawing.Size(100, 22);
@@ -1298,6 +1309,7 @@
             // 
             // txtORSala
             // 
+            this.txtORSala.Enabled = false;
             this.txtORSala.Location = new System.Drawing.Point(411, 281);
             this.txtORSala.Name = "txtORSala";
             this.txtORSala.Size = new System.Drawing.Size(60, 20);
@@ -1306,6 +1318,7 @@
             // 
             // txtORDenDisciplina
             // 
+            this.txtORDenDisciplina.Enabled = false;
             this.txtORDenDisciplina.Location = new System.Drawing.Point(134, 281);
             this.txtORDenDisciplina.Name = "txtORDenDisciplina";
             this.txtORDenDisciplina.Size = new System.Drawing.Size(110, 20);
@@ -1314,6 +1327,7 @@
             // 
             // btnORInserare
             // 
+            this.btnORInserare.Enabled = false;
             this.btnORInserare.Location = new System.Drawing.Point(474, 280);
             this.btnORInserare.Name = "btnORInserare";
             this.btnORInserare.Size = new System.Drawing.Size(100, 22);
@@ -1324,6 +1338,7 @@
             // 
             // txtORNrCrt
             // 
+            this.txtORNrCrt.Enabled = false;
             this.txtORNrCrt.Location = new System.Drawing.Point(70, 281);
             this.txtORNrCrt.Name = "txtORNrCrt";
             this.txtORNrCrt.Size = new System.Drawing.Size(60, 20);
@@ -1440,12 +1455,12 @@
             this.lblOreRecuperate.TabIndex = 0;
             this.lblOreRecuperate.Text = "V. Recuperarea orelor și condițiile de plată";
             // 
-            // frmCerereModificare2
+            // frmCerereModificare
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(716, 661);
+            this.ClientSize = new System.Drawing.Size(699, 661);
             this.Controls.Add(this.panouORCDP);
             this.Controls.Add(this.panouFinal);
             this.Controls.Add(this.panouMentiuniLegale);
@@ -1455,7 +1470,7 @@
             this.Controls.Add(this.mnuCI);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "frmCerereModificare2";
+            this.Name = "frmCerereModificare";
             this.Text = "Modificare Cerere de Deplasare";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmCerereInregistrare_FormClosing);
             this.mnuCI.ResumeLayout(false);
