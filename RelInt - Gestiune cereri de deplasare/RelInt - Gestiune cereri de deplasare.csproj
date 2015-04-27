@@ -148,6 +148,12 @@
     <Compile Include="frmCautareCerere.Designer.cs">
       <DependentUpon>frmCautareCerere.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCerereModificare.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCerereModificare.Designer.cs">
+      <DependentUpon>frmCerereModificare.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmOrdinDeDeplasare.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,12 +165,6 @@
     </Compile>
     <Compile Include="frmCerereInregistrare.Designer.cs">
       <DependentUpon>frmCerereInregistrare.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmCerereModificare.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmCerereModificare.Designer.cs">
-      <DependentUpon>frmCerereModificare.cs</DependentUpon>
     </Compile>
     <Compile Include="frmDespreApp.cs">
       <SubType>Form</SubType>
@@ -219,14 +219,14 @@
     <EmbeddedResource Include="frmCautareCerere.resx">
       <DependentUpon>frmCautareCerere.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmCerereModificare.resx">
+      <DependentUpon>frmCerereModificare.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmOrdinDeDeplasare.resx">
       <DependentUpon>frmOrdinDeDeplasare.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCerereInregistrare.resx">
       <DependentUpon>frmCerereInregistrare.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmCerereModificare.resx">
-      <DependentUpon>frmCerereModificare.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDespreApp.resx">
       <DependentUpon>frmDespreApp.cs</DependentUpon>
