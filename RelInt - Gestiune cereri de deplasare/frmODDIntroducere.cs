@@ -69,7 +69,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             lblNrUAIC.Enabled = false;
             txtNrUAIC.Enabled = false;
             lblDin.Enabled = false;
-            dpDataBECA.Enabled = false;
+            dpDataODD.Enabled = false;
 
             // dezactivam panourile urmatoare
             panouContinutODD.Enabled = false;
@@ -724,7 +724,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                                 lblNrUAIC.Enabled = true;
                                 txtNrUAIC.Enabled = true;
                                 lblDin.Enabled = true;
-                                dpDataBECA.Enabled = true;
+                                dpDataODD.Enabled = true;
 
                                 panouContinutODD.Enabled = true;
                                 panouCheltuieliODD.Enabled = true;
@@ -739,7 +739,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                         if (cititor_populareDinBD.HasRows == false)
                         {
                             txtNrUAIC.Enabled = false;
-                            dpDataBECA.Enabled = false;
+                            dpDataODD.Enabled = false;
                             panouContinutODD.Enabled = false;
                             panouCheltuieliODD.Enabled = false;
                             panouAlteDispuneriODD.Enabled = false;
@@ -837,7 +837,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     comanda_inserareRelInt.CommandText = "INSERT into ordinedeplasare VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
                     comanda_inserareRelInt.Parameters.AddWithValue("@nrinregistrareodc", OdbcType.Int).Value = vartxtNrInregistrare;
                     comanda_inserareRelInt.Parameters.AddWithValue("@nrinregistrareod", OdbcType.Int).Value = vartxtNrUAIC;
-                    comanda_inserareRelInt.Parameters.AddWithValue("@dataOD", OdbcType.DateTime).Value = dpDataBECA.Value;
+                    comanda_inserareRelInt.Parameters.AddWithValue("@dataOD", OdbcType.DateTime).Value = dpDataODD.Value;
                     comanda_inserareRelInt.Parameters.AddWithValue("@subsemnatulOD", OdbcType.NVarChar).Value = txtSubsemnatul.Text;
                     comanda_inserareRelInt.Parameters.AddWithValue("@graddidacticOD", OdbcType.NVarChar).Value = cmbGradDidactic.SelectedItem;
                     comanda_inserareRelInt.Parameters.AddWithValue("@facultateaOD", OdbcType.NVarChar).Value = cmbFacultatea.SelectedItem;

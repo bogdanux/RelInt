@@ -26,7 +26,7 @@
     <ProductName>RelInt - GCdD %28Gestiunea Cererilor de Deplasare%29</ProductName>
     <PublisherName>SIA - GCdD</PublisherName>
     <SuiteName>SIA - Sisteme Informationale pentru Birotica</SuiteName>
-    <ApplicationRevision>22</ApplicationRevision>
+    <ApplicationRevision>23</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -220,6 +220,12 @@
     <Compile Include="frmListaCereriExistente.Designer.cs">
       <DependentUpon>frmListaCereriExistente.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmResetareAplicatie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmResetareAplicatie.Designer.cs">
+      <DependentUpon>frmResetareAplicatie.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmCautareCerere.resx">
@@ -227,6 +233,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCerereModificare.resx">
       <DependentUpon>frmCerereModificare.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmODDIntroducere.resx">
+      <DependentUpon>frmODDIntroducere.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmODDModificare.resx">
       <DependentUpon>frmODDModificare.cs</DependentUpon>
@@ -257,6 +266,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmListaCereriExistente.resx">
       <DependentUpon>frmListaCereriExistente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmResetareAplicatie.resx">
+      <DependentUpon>frmResetareAplicatie.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -305,6 +317,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="RelIntBD-CRPO.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <Content Include="UAIC_icon.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

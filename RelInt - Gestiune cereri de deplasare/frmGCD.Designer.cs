@@ -58,6 +58,7 @@
             this.tsStatusDeCeGD = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsStatusDeCeF = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsStatusDeCeM = new System.Windows.Forms.ToolStripStatusLabel();
+            this.btnGCDReset = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuBaraMeniu.SuspendLayout();
             this.StatusGCD.SuspendLayout();
             this.SuspendLayout();
@@ -260,6 +261,8 @@
             // 
             // btnGCDDespreApp
             // 
+            this.btnGCDDespreApp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnGCDReset});
             this.btnGCDDespreApp.Name = "btnGCDDespreApp";
             this.btnGCDDespreApp.ShortcutKeys = System.Windows.Forms.Keys.F3;
             this.btnGCDDespreApp.Size = new System.Drawing.Size(204, 22);
@@ -306,6 +309,16 @@
             this.tsStatusDeCeM.ForeColor = System.Drawing.Color.Purple;
             this.tsStatusDeCeM.Name = "tsStatusDeCeM";
             this.tsStatusDeCeM.Size = new System.Drawing.Size(0, 17);
+            // 
+            // btnGCDReset
+            // 
+            this.btnGCDReset.Name = "btnGCDReset";
+            this.btnGCDReset.ShortcutKeys = ((System.Windows.Forms.Keys)((((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
+            | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.Delete)));
+            this.btnGCDReset.Size = new System.Drawing.Size(273, 22);
+            this.btnGCDReset.Text = "Resetare Aplicație";
+            this.btnGCDReset.Click += new System.EventHandler(this.btnGCDReset_Click);
             // 
             // frmGCD
             // 
@@ -364,6 +377,7 @@
         public System.Windows.Forms.ToolStripMenuItem btnGCDRaportCereri;
         private System.Windows.Forms.ToolStripStatusLabel tsStatusDeCeM;
         private System.Windows.Forms.ToolStripStatusLabel tsStatusDeCeF;
+        private System.Windows.Forms.ToolStripMenuItem btnGCDReset;
     }
 }
 

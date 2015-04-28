@@ -68,8 +68,14 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             btnAcceseaza.Enabled = false;
             lblNrUAICVechi.Enabled = false;
             txtNrUAICVechi.Enabled = false;
+            lblNrVechi.Enabled = false;
             lblDin1.Enabled = false;
-            dpDataODDVeche.Enabled = false;
+            lblDin2.Enabled = false;
+            lblNrUAICNou.Enabled = false;
+            lblNrNou.Enabled = false;
+            txtNrUAICNou.Enabled = false;
+            lblDataNoua.Enabled = false;
+            dpDataODDNoua.Enabled = false;
 
             // dezactivam panourile urmatoare
             panouContinutODD.Enabled = false;
@@ -312,13 +318,13 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
         /* --------------------- variabile de lucru pentru eveniment txtNrUAIC ------------------------------------------- */
-        int vartxtNrUAIC;
+        int vartxtNrUAICVechi;
         bool txtNrUAICSchimbat;
         /* --------------------- Eveniment pentru txtNrUAIC -------------------------------------------------------------- */
         private void txtNrUAICVechi_TextChanged(object sender, EventArgs e)
         {
             // Verificam daca valoarea din "txtNrUAIC" este de tip int si daca da, o inregistram in "vartxtNrUAIC"
-            bool vartxtNrInregistrareEsteNumar = Int32.TryParse(txtNrUAICVechi.Text, out vartxtNrUAIC);
+            bool vartxtNrInregistrareEsteNumar = Int32.TryParse(txtNrUAICVechi.Text, out vartxtNrUAICVechi);
 
             // Judecam si "sanctionam" la nevoie
             switch (vartxtNrInregistrareEsteNumar || txtNrUAICVechi.Text == string.Empty)
@@ -704,8 +710,9 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 {
                     comanda_populareDinBD.Connection = conexiune_populareDinBD;
                     comanda_populareDinBD.CommandType = CommandType.Text;
-                    comanda_populareDinBD.CommandText = "SELECT * FROM cereri WHERE nrinregistrarec = ?";
-                    comanda_populareDinBD.Parameters.AddWithValue("@nrinregistrarec", OdbcType.Int).Value = vartxtNrInregistrare;
+                    comanda_populareDinBD.CommandText = "SELECT * FROM ordinedeplasare WHERE nrinregistrareodc = ? AND nrinregistrareod = ?";
+                    comanda_populareDinBD.Parameters.AddWithValue("@nrinregistrareodc", OdbcType.Int).Value = vartxtNrInregistrare;
+                    comanda_populareDinBD.Parameters.AddWithValue("@nrinregistrareod", OdbcType.Int).Value = vartxtNrUAICVechi;
 
                     try
                     {
@@ -717,57 +724,59 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                         {
                             while (cititor_populareDinBD.Read())
                             {
-                                txtSubsemnatul.Text = cititor_populareDinBD.GetString(2);
-                                cmbGradDidactic.SelectedItem = cititor_populareDinBD.GetString(3);
-                                cmbFacultatea.SelectedItem = cititor_populareDinBD.GetString(4);
+                                dpDataODDVeche.Value = cititor_populareDinBD.GetDateTime(2);
+                                txtSubsemnatul.Text = cititor_populareDinBD.GetString(3);
+                                cmbGradDidactic.SelectedItem = cititor_populareDinBD.GetString(4);
+                                cmbFacultatea.SelectedItem = cititor_populareDinBD.GetString(5);
                                 txtLocalitatea.Text = cititor_populareDinBD.GetString(6);
                                 txtTara.Text = cititor_populareDinBD.GetString(7);
                                 txtScop.Text = cititor_populareDinBD.GetString(8);
                                 txtInstitutia.Text = cititor_populareDinBD.GetString(9);
                                 dpDataInceput.Value = cititor_populareDinBD.GetDateTime(10);
-                                dpDataSfarsit.Value = cititor_populareDinBD.GetDate(11);
+                                dpDataSfarsit.Value = cititor_populareDinBD.GetDateTime(11);
                                 txtRuta.Text = cititor_populareDinBD.GetString(12);
-                                txtPlatitorTransport.Text = cititor_populareDinBD.GetString(14);
-                                txtPlatitorIntretinere.Text = cititor_populareDinBD.GetString(15);
-                                txtNrZileDiurna.Text = cititor_populareDinBD.GetString(16);
-                                txtDiurna.Text = cititor_populareDinBD.GetString(17);
-                                cmbMoneda1.SelectedItem = cititor_populareDinBD.GetString(18);
-                                txtNrZileCazare.Text = cititor_populareDinBD.GetString(19);
-                                txtCazare.Text = cititor_populareDinBD.GetString(20);
-                                cmbMoneda2.SelectedItem = cititor_populareDinBD.GetString(21);
-                                txtTaxaDeParticipare.Text = cititor_populareDinBD.GetString(22);
-                                cmbMoneda3.SelectedItem = cititor_populareDinBD.GetString(23);
-                                txtTaxaDeViza.Text = cititor_populareDinBD.GetString(24);
-                                cmbMoneda4.SelectedItem = cititor_populareDinBD.GetString(25);
-                                txtTotalDePlata.Text = cititor_populareDinBD.GetString(26);
+                                txtPlatitorTransport.Text = cititor_populareDinBD.GetString(13);
+                                txtPlatitorIntretinere.Text = cititor_populareDinBD.GetString(14);
+                                txtNrZileDiurna.Text = cititor_populareDinBD.GetString(15);
+                                txtDiurna.Text = cititor_populareDinBD.GetString(16);
+                                cmbMoneda1.SelectedItem = cititor_populareDinBD.GetString(17);
+                                txtNrZileCazare.Text = cititor_populareDinBD.GetString(18);
+                                txtCazare.Text = cititor_populareDinBD.GetString(19);
+                                cmbMoneda2.SelectedItem = cititor_populareDinBD.GetString(20);
+                                txtTaxaDeParticipare.Text = cititor_populareDinBD.GetString(21);
+                                cmbMoneda3.SelectedItem = cititor_populareDinBD.GetString(22);
+                                txtTaxaDeViza.Text = cititor_populareDinBD.GetString(23);
+                                cmbMoneda4.SelectedItem = cititor_populareDinBD.GetString(24);
+                                txtTotalDePlata.Text = cititor_populareDinBD.GetString(25);
+                                txtDispunere1.Text = cititor_populareDinBD.GetString(26);
+                                txtDispunere2.Text = cititor_populareDinBD.GetString(27);
+                                txtDispunere3.Text = cititor_populareDinBD.GetString(28);
+                                txtDispunere4.Text = cititor_populareDinBD.GetString(29);
+                                rdoRector.Checked = cititor_populareDinBD.GetBoolean(30);
+                                rdoProRector.Checked = cititor_populareDinBD.GetBoolean(31);
+                                cmbRectorProrector.SelectedItem = cititor_populareDinBD.GetString(32);
+                                txtDFC.Text = cititor_populareDinBD.GetString(33);
+                                txtCoordProiect.Text = cititor_populareDinBD.GetString(34);
 
-                                lblNrUAICVechi.Enabled = true;
-                                txtNrUAICVechi.Enabled = true;
-                                lblDin1.Enabled = true;
-                                dpDataODDVeche.Enabled = true;
+                                // Activam
+                                lblNrUAICNou.Enabled = true;
+                                txtNrUAICNou.Enabled = true;
+                                lblNrNou.Enabled = true;
+                                lblDin2.Enabled = true;
+                                lblDataNoua.Enabled = true;
+                                dpDataODDNoua.Enabled = true;
 
                                 panouContinutODD.Enabled = true;
                                 panouCheltuieliODD.Enabled = true;
                                 panouAlteDispuneriODD.Enabled = true;
                                 panouSemnatariODD.Enabled = true;
 
-                                txtNrInregistrare.Enabled = false;
-                                btnAcceseaza.Enabled = false;
+                                    // Dezactivam
+                                    txtNrInregistrare.Enabled = false;
+                                    btnAcceseaza.Enabled = false;
+                                    txtNrUAICVechi.Enabled = false;
+                                    btnAcceseaza.Enabled = false;
                             }
-                        }
-
-                        if (cititor_populareDinBD.HasRows == false)
-                        {
-                            txtNrUAICVechi.Enabled = false;
-                            dpDataODDVeche.Enabled = false;
-                            panouContinutODD.Enabled = false;
-                            panouCheltuieliODD.Enabled = false;
-                            panouAlteDispuneriODD.Enabled = false;
-                            panouSemnatariODD.Enabled = false;
-
-                            MessageBox.Show("Numărul de înregistrare nu există !");
-
-                            txtNrInregistrare.Clear();
                         }
 
                         cititor_populareDinBD.Close();
@@ -801,9 +810,9 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 {
                     comanda_VerifExistentaODD.Connection = conexiune_VerifExistentaODD;
                     comanda_VerifExistentaODD.CommandType = CommandType.Text;
-                    comanda_VerifExistentaODD.CommandText = "SELECT nrinregistrareodc, oddi FROM ordinedeplasare WHERE nrinregistrareodc = ? AND oddi = ?";
+                    comanda_VerifExistentaODD.CommandText = "SELECT nrinregistrareodc, nrinregistrareod FROM ordinedeplasare WHERE nrinregistrareodc = ? AND nrinregistrareod = ?";
                     comanda_VerifExistentaODD.Parameters.AddWithValue("@nrinregistrareodc", OdbcType.Int).Value = vartxtNrInregistrare;
-                    comanda_VerifExistentaODD.Parameters.AddWithValue("@oddi", OdbcType.Bit).Value = true;
+                    comanda_VerifExistentaODD.Parameters.AddWithValue("@nrinregistrareod", OdbcType.Int).Value = vartxtNrUAICVechi;
 
                     OdbcDataReader cititor_VerifExistentaODD;
 
@@ -814,12 +823,15 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
                         if (cititor_VerifExistentaODD.HasRows)
                         {
-                            MessageBox.Show("              A mai fost introdus un \"Ordin de Deplasare\" pentru această cerere!\n\nVă rugăm introduceti MĂCAR o \"Cerere de deplasare\" nouă, ÎNAINTE de a introduce un \"Ordin de Deplasare\".");
-                            txtNrInregistrare.Clear();
+                            // Efectuam
+                            PopulareFormular();
                         }
                         else
                         {
-                            PopulareFormular();
+                            // Efectuam
+                            MessageBox.Show("Nu există ordinul de deplasare solicitat! Vă rugăm reluați completarea.");
+                            txtNrUAICVechi.Clear();
+                            txtNrInregistrare.Clear();
                         }
                     }
                     catch (Exception exVerifExistentaODD)
@@ -856,7 +868,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     comanda_inserareRelInt.CommandType = CommandType.Text;
                     comanda_inserareRelInt.CommandText = "INSERT into ordinedeplasare VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
                     comanda_inserareRelInt.Parameters.AddWithValue("@nrinregistrareodc", OdbcType.Int).Value = vartxtNrInregistrare;
-                    comanda_inserareRelInt.Parameters.AddWithValue("@nrinregistrareod", OdbcType.Int).Value = vartxtNrUAIC;
+                    comanda_inserareRelInt.Parameters.AddWithValue("@nrinregistrareod", OdbcType.Int).Value = vartxtNrUAICVechi;
                     comanda_inserareRelInt.Parameters.AddWithValue("@dataOD", OdbcType.DateTime).Value = dpDataODDVeche.Value;
                     comanda_inserareRelInt.Parameters.AddWithValue("@subsemnatulOD", OdbcType.NVarChar).Value = txtSubsemnatul.Text;
                     comanda_inserareRelInt.Parameters.AddWithValue("@graddidacticOD", OdbcType.NVarChar).Value = cmbGradDidactic.SelectedItem;

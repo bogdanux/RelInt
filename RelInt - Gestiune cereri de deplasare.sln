@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RelInt - Gestiune cereri de deplasare", "RelInt - Gestiune cereri de deplasare\RelInt - Gestiune cereri de deplasare.csproj", "{6D437A50-5998-49A4-8062-66A681466F26}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "InstalatorRelInt", "InstalatorRelInt\InstalatorRelInt.vdproj", "{283AED38-71DB-4077-BCCB-630DE40C5E67}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{6D437A50-5998-49A4-8062-66A681466F26}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6D437A50-5998-49A4-8062-66A681466F26}.Release|x86.ActiveCfg = Release|x86
 		{6D437A50-5998-49A4-8062-66A681466F26}.Release|x86.Build.0 = Release|x86
+		{283AED38-71DB-4077-BCCB-630DE40C5E67}.Debug|Any CPU.ActiveCfg = Debug
+		{283AED38-71DB-4077-BCCB-630DE40C5E67}.Debug|x86.ActiveCfg = Debug
+		{283AED38-71DB-4077-BCCB-630DE40C5E67}.Release|Any CPU.ActiveCfg = Release
+		{283AED38-71DB-4077-BCCB-630DE40C5E67}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

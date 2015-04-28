@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmODDModificare));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmODDIntroducere));
             this.mnuCerereBeca = new System.Windows.Forms.MenuStrip();
             this.btnFormular = new System.Windows.Forms.ToolStripMenuItem();
             this.btnSalvare = new System.Windows.Forms.ToolStripMenuItem();
@@ -39,7 +39,7 @@
             this.lblNota = new System.Windows.Forms.Label();
             this.btnAcceseaza = new System.Windows.Forms.Button();
             this.lblIdentificareODD = new System.Windows.Forms.Label();
-            this.dpDataBECA = new System.Windows.Forms.DateTimePicker();
+            this.dpDataODD = new System.Windows.Forms.DateTimePicker();
             this.lblDin = new System.Windows.Forms.Label();
             this.txtNrUAIC = new System.Windows.Forms.TextBox();
             this.lblNrInregistrare = new System.Windows.Forms.Label();
@@ -177,7 +177,7 @@
             this.panouIdentificareODD.Controls.Add(this.lblNota);
             this.panouIdentificareODD.Controls.Add(this.btnAcceseaza);
             this.panouIdentificareODD.Controls.Add(this.lblIdentificareODD);
-            this.panouIdentificareODD.Controls.Add(this.dpDataBECA);
+            this.panouIdentificareODD.Controls.Add(this.dpDataODD);
             this.panouIdentificareODD.Controls.Add(this.lblDin);
             this.panouIdentificareODD.Controls.Add(this.txtNrUAIC);
             this.panouIdentificareODD.Controls.Add(this.lblNrInregistrare);
@@ -218,13 +218,13 @@
             this.lblIdentificareODD.TabIndex = 0;
             this.lblIdentificareODD.Text = "I. Identificare Ordin de Deplasare";
             // 
-            // dpDataBECA
+            // dpDataODD
             // 
-            this.dpDataBECA.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpDataBECA.Location = new System.Drawing.Point(526, 32);
-            this.dpDataBECA.Name = "dpDataBECA";
-            this.dpDataBECA.Size = new System.Drawing.Size(93, 20);
-            this.dpDataBECA.TabIndex = 7;
+            this.dpDataODD.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dpDataODD.Location = new System.Drawing.Point(526, 32);
+            this.dpDataODD.Name = "dpDataODD";
+            this.dpDataODD.Size = new System.Drawing.Size(93, 20);
+            this.dpDataODD.TabIndex = 7;
             // 
             // lblDin
             // 
@@ -922,7 +922,7 @@
             this.panouFinal.Size = new System.Drawing.Size(642, 10);
             this.panouFinal.TabIndex = 34;
             // 
-            // frmOrdinDeDeplasare
+            // frmODDIntroducere
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -938,7 +938,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.mnuCerereBeca;
-            this.Name = "frmOrdinDeDeplasare";
+            this.Name = "frmODDIntroducere";
             this.Text = "Ordin de Deplasare";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmOrdinDeDeplasare_FormClosing);
             this.mnuCerereBeca.ResumeLayout(false);
@@ -968,7 +968,7 @@
         private System.Windows.Forms.Label lblNrInregistrare;
         private System.Windows.Forms.TextBox txtNrUAIC;
         private System.Windows.Forms.Label lblDin;
-        private System.Windows.Forms.DateTimePicker dpDataBECA;
+        private System.Windows.Forms.DateTimePicker dpDataODD;
         private System.Windows.Forms.Label lblIdentificareODD;
         private System.Windows.Forms.Panel panouContinutODD;
         private System.Windows.Forms.Label lblContinutODD;

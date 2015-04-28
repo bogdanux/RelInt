@@ -688,6 +688,29 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             frmEditareRector.Show();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
+        /* --------------------------------------------------------------------------------------------------------------- */
+        private void btnGCDReset_Click(object sender, EventArgs e)
+        {
+            // Apelam formularul "frmResetareAplicatie"
+            Form frmResetareAplicatie = new frmResetareAplicatie();
+
+            // Facem "frmResetareAplicatie" copil al "frmGCD"
+            frmResetareAplicatie.MdiParent = this;
+
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form.GetType() == typeof(frmResetareAplicatie))
+                {
+                    form.WindowState = FormWindowState.Normal;
+                    form.Activate();
+                    return;
+                }
+            }
+
+            // Afisam "frmEditareRector"
+            frmResetareAplicatie.Show();
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
 
 
 

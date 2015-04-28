@@ -33,27 +33,27 @@
             this.btnIesire = new System.Windows.Forms.ToolStripMenuItem();
             this.tabProrector = new System.Windows.Forms.TabControl();
             this.ptRector = new System.Windows.Forms.TabPage();
+            this.lblTelefonR = new System.Windows.Forms.Label();
+            this.txtTelefonR = new System.Windows.Forms.TextBox();
+            this.lblEmailR = new System.Windows.Forms.Label();
+            this.txtEmailR = new System.Windows.Forms.TextBox();
+            this.lblRector = new System.Windows.Forms.Label();
             this.btnStergeR = new System.Windows.Forms.Button();
             this.btnAdaugaR = new System.Windows.Forms.Button();
             this.txtRector = new System.Windows.Forms.TextBox();
             this.dgvRector = new System.Windows.Forms.DataGridView();
             this.ptProrector = new System.Windows.Forms.TabPage();
-            this.btnStergePR = new System.Windows.Forms.Button();
-            this.btnAdaugaPR = new System.Windows.Forms.Button();
-            this.txtProRector = new System.Windows.Forms.TextBox();
-            this.dgvProRector = new System.Windows.Forms.DataGridView();
-            this.lblRector = new System.Windows.Forms.Label();
-            this.lblEmailR = new System.Windows.Forms.Label();
-            this.txtEmailR = new System.Windows.Forms.TextBox();
-            this.lblTelefonR = new System.Windows.Forms.Label();
-            this.txtTelefonR = new System.Windows.Forms.TextBox();
+            this.lblTelefonPR2 = new System.Windows.Forms.Label();
+            this.txtTelefonPR2 = new System.Windows.Forms.TextBox();
             this.lblTelefonPR1 = new System.Windows.Forms.Label();
             this.txtTelefonPR1 = new System.Windows.Forms.TextBox();
             this.lblEMailPR = new System.Windows.Forms.Label();
             this.txtEMailPR = new System.Windows.Forms.TextBox();
             this.lblNumePR = new System.Windows.Forms.Label();
-            this.lblTelefonPR2 = new System.Windows.Forms.Label();
-            this.txtTelefonPR2 = new System.Windows.Forms.TextBox();
+            this.btnStergePR = new System.Windows.Forms.Button();
+            this.btnAdaugaPR = new System.Windows.Forms.Button();
+            this.txtProRector = new System.Windows.Forms.TextBox();
+            this.dgvProRector = new System.Windows.Forms.DataGridView();
             this.mnuEditareRector.SuspendLayout();
             this.tabProrector.SuspendLayout();
             this.ptRector.SuspendLayout();
@@ -110,12 +110,54 @@
             this.ptRector.Text = "Rector";
             this.ptRector.UseVisualStyleBackColor = true;
             // 
+            // lblTelefonR
+            // 
+            this.lblTelefonR.AutoSize = true;
+            this.lblTelefonR.Location = new System.Drawing.Point(28, 314);
+            this.lblTelefonR.Name = "lblTelefonR";
+            this.lblTelefonR.Size = new System.Drawing.Size(43, 13);
+            this.lblTelefonR.TabIndex = 8;
+            this.lblTelefonR.Text = "Telefon";
+            // 
+            // txtTelefonR
+            // 
+            this.txtTelefonR.Location = new System.Drawing.Point(77, 311);
+            this.txtTelefonR.Name = "txtTelefonR";
+            this.txtTelefonR.Size = new System.Drawing.Size(187, 20);
+            this.txtTelefonR.TabIndex = 3;
+            this.txtTelefonR.TextChanged += new System.EventHandler(this.txtTelefonR_TextChanged);
+            // 
+            // lblEmailR
+            // 
+            this.lblEmailR.AutoSize = true;
+            this.lblEmailR.Location = new System.Drawing.Point(35, 288);
+            this.lblEmailR.Name = "lblEmailR";
+            this.lblEmailR.Size = new System.Drawing.Size(36, 13);
+            this.lblEmailR.TabIndex = 6;
+            this.lblEmailR.Text = "E-Mail";
+            // 
+            // txtEmailR
+            // 
+            this.txtEmailR.Location = new System.Drawing.Point(77, 285);
+            this.txtEmailR.Name = "txtEmailR";
+            this.txtEmailR.Size = new System.Drawing.Size(187, 20);
+            this.txtEmailR.TabIndex = 2;
+            // 
+            // lblRector
+            // 
+            this.lblRector.AutoSize = true;
+            this.lblRector.Location = new System.Drawing.Point(6, 262);
+            this.lblRector.Name = "lblRector";
+            this.lblRector.Size = new System.Drawing.Size(65, 13);
+            this.lblRector.TabIndex = 4;
+            this.lblRector.Text = "Nume rector";
+            // 
             // btnStergeR
             // 
             this.btnStergeR.Location = new System.Drawing.Point(331, 258);
             this.btnStergeR.Name = "btnStergeR";
             this.btnStergeR.Size = new System.Drawing.Size(55, 73);
-            this.btnStergeR.TabIndex = 3;
+            this.btnStergeR.TabIndex = 5;
             this.btnStergeR.Text = "Șterge";
             this.btnStergeR.UseVisualStyleBackColor = true;
             this.btnStergeR.Click += new System.EventHandler(this.btnStergeR_Click);
@@ -125,7 +167,7 @@
             this.btnAdaugaR.Location = new System.Drawing.Point(270, 258);
             this.btnAdaugaR.Name = "btnAdaugaR";
             this.btnAdaugaR.Size = new System.Drawing.Size(55, 73);
-            this.btnAdaugaR.TabIndex = 2;
+            this.btnAdaugaR.TabIndex = 4;
             this.btnAdaugaR.Text = "Adaugă";
             this.btnAdaugaR.UseVisualStyleBackColor = true;
             this.btnAdaugaR.Click += new System.EventHandler(this.btnAdaugaR_Click);
@@ -168,6 +210,65 @@
             this.ptProrector.Text = "ProRector";
             this.ptProrector.UseVisualStyleBackColor = true;
             // 
+            // lblTelefonPR2
+            // 
+            this.lblTelefonPR2.AutoSize = true;
+            this.lblTelefonPR2.Location = new System.Drawing.Point(28, 340);
+            this.lblTelefonPR2.Name = "lblTelefonPR2";
+            this.lblTelefonPR2.Size = new System.Drawing.Size(43, 13);
+            this.lblTelefonPR2.TabIndex = 18;
+            this.lblTelefonPR2.Text = "Telefon";
+            // 
+            // txtTelefonPR2
+            // 
+            this.txtTelefonPR2.Location = new System.Drawing.Point(77, 337);
+            this.txtTelefonPR2.Name = "txtTelefonPR2";
+            this.txtTelefonPR2.Size = new System.Drawing.Size(187, 20);
+            this.txtTelefonPR2.TabIndex = 4;
+            this.txtTelefonPR2.TextChanged += new System.EventHandler(this.txtTelefonPR2_TextChanged);
+            // 
+            // lblTelefonPR1
+            // 
+            this.lblTelefonPR1.AutoSize = true;
+            this.lblTelefonPR1.Location = new System.Drawing.Point(28, 314);
+            this.lblTelefonPR1.Name = "lblTelefonPR1";
+            this.lblTelefonPR1.Size = new System.Drawing.Size(43, 13);
+            this.lblTelefonPR1.TabIndex = 16;
+            this.lblTelefonPR1.Text = "Telefon";
+            // 
+            // txtTelefonPR1
+            // 
+            this.txtTelefonPR1.Location = new System.Drawing.Point(77, 311);
+            this.txtTelefonPR1.Name = "txtTelefonPR1";
+            this.txtTelefonPR1.Size = new System.Drawing.Size(187, 20);
+            this.txtTelefonPR1.TabIndex = 3;
+            this.txtTelefonPR1.TextChanged += new System.EventHandler(this.txtTelefonPR1_TextChanged);
+            // 
+            // lblEMailPR
+            // 
+            this.lblEMailPR.AutoSize = true;
+            this.lblEMailPR.Location = new System.Drawing.Point(35, 288);
+            this.lblEMailPR.Name = "lblEMailPR";
+            this.lblEMailPR.Size = new System.Drawing.Size(36, 13);
+            this.lblEMailPR.TabIndex = 14;
+            this.lblEMailPR.Text = "E-Mail";
+            // 
+            // txtEMailPR
+            // 
+            this.txtEMailPR.Location = new System.Drawing.Point(77, 285);
+            this.txtEMailPR.Name = "txtEMailPR";
+            this.txtEMailPR.Size = new System.Drawing.Size(187, 20);
+            this.txtEMailPR.TabIndex = 2;
+            // 
+            // lblNumePR
+            // 
+            this.lblNumePR.AutoSize = true;
+            this.lblNumePR.Location = new System.Drawing.Point(6, 262);
+            this.lblNumePR.Name = "lblNumePR";
+            this.lblNumePR.Size = new System.Drawing.Size(80, 13);
+            this.lblNumePR.TabIndex = 12;
+            this.lblNumePR.Text = "Nume prorector";
+            // 
             // btnStergePR
             // 
             this.btnStergePR.Location = new System.Drawing.Point(331, 258);
@@ -193,7 +294,7 @@
             this.txtProRector.Location = new System.Drawing.Point(92, 259);
             this.txtProRector.Name = "txtProRector";
             this.txtProRector.Size = new System.Drawing.Size(172, 20);
-            this.txtProRector.TabIndex = 4;
+            this.txtProRector.TabIndex = 1;
             this.txtProRector.TextChanged += new System.EventHandler(this.txtProRector_TextChanged);
             // 
             // dgvProRector
@@ -205,108 +306,7 @@
             this.dgvProRector.Size = new System.Drawing.Size(393, 251);
             this.dgvProRector.TabIndex = 0;
             // 
-            // lblRector
-            // 
-            this.lblRector.AutoSize = true;
-            this.lblRector.Location = new System.Drawing.Point(6, 262);
-            this.lblRector.Name = "lblRector";
-            this.lblRector.Size = new System.Drawing.Size(65, 13);
-            this.lblRector.TabIndex = 4;
-            this.lblRector.Text = "Nume rector";
-            // 
-            // lblEmailR
-            // 
-            this.lblEmailR.AutoSize = true;
-            this.lblEmailR.Location = new System.Drawing.Point(35, 288);
-            this.lblEmailR.Name = "lblEmailR";
-            this.lblEmailR.Size = new System.Drawing.Size(36, 13);
-            this.lblEmailR.TabIndex = 6;
-            this.lblEmailR.Text = "E-Mail";
-            // 
-            // txtEmailR
-            // 
-            this.txtEmailR.Location = new System.Drawing.Point(77, 285);
-            this.txtEmailR.Name = "txtEmailR";
-            this.txtEmailR.Size = new System.Drawing.Size(187, 20);
-            this.txtEmailR.TabIndex = 5;
-            // 
-            // lblTelefonR
-            // 
-            this.lblTelefonR.AutoSize = true;
-            this.lblTelefonR.Location = new System.Drawing.Point(28, 314);
-            this.lblTelefonR.Name = "lblTelefonR";
-            this.lblTelefonR.Size = new System.Drawing.Size(43, 13);
-            this.lblTelefonR.TabIndex = 8;
-            this.lblTelefonR.Text = "Telefon";
-            // 
-            // txtTelefonR
-            // 
-            this.txtTelefonR.Location = new System.Drawing.Point(77, 311);
-            this.txtTelefonR.Name = "txtTelefonR";
-            this.txtTelefonR.Size = new System.Drawing.Size(187, 20);
-            this.txtTelefonR.TabIndex = 7;
-            this.txtTelefonR.TextChanged += new System.EventHandler(this.txtTelefonR_TextChanged);
-            // 
-            // lblTelefonPR1
-            // 
-            this.lblTelefonPR1.AutoSize = true;
-            this.lblTelefonPR1.Location = new System.Drawing.Point(28, 314);
-            this.lblTelefonPR1.Name = "lblTelefonPR1";
-            this.lblTelefonPR1.Size = new System.Drawing.Size(43, 13);
-            this.lblTelefonPR1.TabIndex = 16;
-            this.lblTelefonPR1.Text = "Telefon";
-            // 
-            // txtTelefonPR1
-            // 
-            this.txtTelefonPR1.Location = new System.Drawing.Point(77, 311);
-            this.txtTelefonPR1.Name = "txtTelefonPR1";
-            this.txtTelefonPR1.Size = new System.Drawing.Size(187, 20);
-            this.txtTelefonPR1.TabIndex = 15;
-            this.txtTelefonPR1.TextChanged += new System.EventHandler(this.txtTelefonPR1_TextChanged);
-            // 
-            // lblEMailPR
-            // 
-            this.lblEMailPR.AutoSize = true;
-            this.lblEMailPR.Location = new System.Drawing.Point(35, 288);
-            this.lblEMailPR.Name = "lblEMailPR";
-            this.lblEMailPR.Size = new System.Drawing.Size(36, 13);
-            this.lblEMailPR.TabIndex = 14;
-            this.lblEMailPR.Text = "E-Mail";
-            // 
-            // txtEMailPR
-            // 
-            this.txtEMailPR.Location = new System.Drawing.Point(77, 285);
-            this.txtEMailPR.Name = "txtEMailPR";
-            this.txtEMailPR.Size = new System.Drawing.Size(187, 20);
-            this.txtEMailPR.TabIndex = 13;
-            // 
-            // lblNumePR
-            // 
-            this.lblNumePR.AutoSize = true;
-            this.lblNumePR.Location = new System.Drawing.Point(6, 262);
-            this.lblNumePR.Name = "lblNumePR";
-            this.lblNumePR.Size = new System.Drawing.Size(80, 13);
-            this.lblNumePR.TabIndex = 12;
-            this.lblNumePR.Text = "Nume prorector";
-            // 
-            // lblTelefonPR2
-            // 
-            this.lblTelefonPR2.AutoSize = true;
-            this.lblTelefonPR2.Location = new System.Drawing.Point(28, 340);
-            this.lblTelefonPR2.Name = "lblTelefonPR2";
-            this.lblTelefonPR2.Size = new System.Drawing.Size(43, 13);
-            this.lblTelefonPR2.TabIndex = 18;
-            this.lblTelefonPR2.Text = "Telefon";
-            // 
-            // txtTelefonPR2
-            // 
-            this.txtTelefonPR2.Location = new System.Drawing.Point(77, 337);
-            this.txtTelefonPR2.Name = "txtTelefonPR2";
-            this.txtTelefonPR2.Size = new System.Drawing.Size(187, 20);
-            this.txtTelefonPR2.TabIndex = 17;
-            this.txtTelefonPR2.TextChanged += new System.EventHandler(this.txtTelefonPR2_TextChanged);
-            // 
-            // frmEditareRector
+            // frmEditRectoriProrectori
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -316,7 +316,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.mnuEditareRector;
-            this.Name = "frmEditareRector";
+            this.Name = "frmEditRectoriProrectori";
             this.Text = "Editare Rectori - ProRectori";
             this.mnuEditareRector.ResumeLayout(false);
             this.mnuEditareRector.PerformLayout();

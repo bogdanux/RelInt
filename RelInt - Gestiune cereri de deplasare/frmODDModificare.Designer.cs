@@ -40,7 +40,7 @@
             this.lblNrVechi = new System.Windows.Forms.Label();
             this.lblDataNoua = new System.Windows.Forms.Label();
             this.lblNrNou = new System.Windows.Forms.Label();
-            this.dpDataUAICNoua = new System.Windows.Forms.DateTimePicker();
+            this.dpDataODDNoua = new System.Windows.Forms.DateTimePicker();
             this.lblDin2 = new System.Windows.Forms.Label();
             this.lblNrUAICNou = new System.Windows.Forms.Label();
             this.txtNrUAICNou = new System.Windows.Forms.TextBox();
@@ -186,7 +186,7 @@
             this.panouIdentificareODD.Controls.Add(this.lblNrVechi);
             this.panouIdentificareODD.Controls.Add(this.lblDataNoua);
             this.panouIdentificareODD.Controls.Add(this.lblNrNou);
-            this.panouIdentificareODD.Controls.Add(this.dpDataUAICNoua);
+            this.panouIdentificareODD.Controls.Add(this.dpDataODDNoua);
             this.panouIdentificareODD.Controls.Add(this.lblDin2);
             this.panouIdentificareODD.Controls.Add(this.lblNrUAICNou);
             this.panouIdentificareODD.Controls.Add(this.txtNrUAICNou);
@@ -241,13 +241,13 @@
             this.lblNrNou.TabIndex = 13;
             this.lblNrNou.Text = "număr nou";
             // 
-            // dpDataUAICNoua
+            // dpDataODDNoua
             // 
-            this.dpDataUAICNoua.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpDataUAICNoua.Location = new System.Drawing.Point(445, 71);
-            this.dpDataUAICNoua.Name = "dpDataUAICNoua";
-            this.dpDataUAICNoua.Size = new System.Drawing.Size(93, 20);
-            this.dpDataUAICNoua.TabIndex = 12;
+            this.dpDataODDNoua.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dpDataODDNoua.Location = new System.Drawing.Point(445, 71);
+            this.dpDataODDNoua.Name = "dpDataODDNoua";
+            this.dpDataODDNoua.Size = new System.Drawing.Size(93, 20);
+            this.dpDataODDNoua.TabIndex = 12;
             // 
             // lblDin2
             // 
@@ -1135,7 +1135,7 @@
         private System.Windows.Forms.Label lblNrUAICNou;
         private System.Windows.Forms.TextBox txtNrUAICNou;
         private System.Windows.Forms.Label lblDin2;
-        private System.Windows.Forms.DateTimePicker dpDataUAICNoua;
+        private System.Windows.Forms.DateTimePicker dpDataODDNoua;
         private System.Windows.Forms.Label lblNrNou;
         private System.Windows.Forms.Label lblDataNoua;
         private System.Windows.Forms.Label lblDataVeche;
