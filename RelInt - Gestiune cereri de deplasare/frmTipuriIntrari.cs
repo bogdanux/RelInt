@@ -727,7 +727,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         /* ----------------- Eveniment de tip TextChanged pentru caseta txtMonezi ---------------------------------------- */
         private void txtMNoua_TextChanged(object sender, EventArgs e)
         {
-            if (txtIntroducereM.Text != string.Empty)
+            if (txtMNoua.Text != string.Empty)
             {
                 // Activam
                 btnModificareM.Enabled = true;
