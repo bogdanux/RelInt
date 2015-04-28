@@ -48,7 +48,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         /* ---------------- Variabile de lucru pentru dgvVizualizareTot -------------------------------------------------- */
         DataTable dt_dgvVizualizareTot;
         /* --------------- Metoda de populare a dgvVizualizareTot -------------------------------------------------------- */
-        private void PopularedgvVizualizareTot()
+        public void PopularedgvVizualizareTot()
         {
             using (OdbcConnection conexiune_dgvAfisareVT = new OdbcConnection(sircon_RelIntDB))
             {           // Comanda

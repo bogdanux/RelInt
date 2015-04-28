@@ -333,7 +333,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem btnGCDVizualizareTot;
         private System.Windows.Forms.ToolStripMenuItem mnuRapoarte;
-        private System.Windows.Forms.ToolStripMenuItem btnGCDRaportCereri;
         private System.Windows.Forms.ToolStripMenuItem btnGCDBeca;
         private System.Windows.Forms.ToolStripMenuItem mnuSetari;
         private System.Windows.Forms.ToolStripMenuItem btnGCDTipIntrari;
@@ -344,6 +343,7 @@
         private System.Windows.Forms.ToolStripMenuItem btnGCDModificareBECA;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripMenuItem btnGCDEditareRectori;
+        public System.Windows.Forms.ToolStripMenuItem btnGCDRaportCereri;
     }
 }
 

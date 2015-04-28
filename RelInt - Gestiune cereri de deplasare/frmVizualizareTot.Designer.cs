@@ -58,9 +58,10 @@
             // dgvVizualizareTot
             // 
             this.dgvVizualizareTot.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvVizualizareTot.Location = new System.Drawing.Point(9, 34);
+            this.dgvVizualizareTot.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvVizualizareTot.Location = new System.Drawing.Point(0, 24);
             this.dgvVizualizareTot.Name = "dgvVizualizareTot";
-            this.dgvVizualizareTot.Size = new System.Drawing.Size(1163, 415);
+            this.dgvVizualizareTot.Size = new System.Drawing.Size(1184, 437);
             this.dgvVizualizareTot.TabIndex = 1;
             // 
             // frmVizualizareTot
@@ -70,6 +71,7 @@
             this.ClientSize = new System.Drawing.Size(1184, 461);
             this.Controls.Add(this.dgvVizualizareTot);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmVizualizareTot";

@@ -22,7 +22,17 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         {
             InitializeComponent();
 
-            /* ------------------------- Evenimente pentru casetele de text folosite la afisare ------------------------------ */
+            // Apelam
+            PopulareDGV();
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+        /* ------------------------- Evenimente pentru casetele de text folosite la afisare ------------------------------ */
+        public void PopulareDGV()
+        {
             using (OdbcConnection conexiune_dgvAfisare = new OdbcConnection(sircon_RelIntDB))
             {           // Comanda
                 using (OdbcCommand comanda_dgvAfisare = new OdbcCommand())
@@ -39,7 +49,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                         da_dgvAfisare.SelectCommand = comanda_dgvAfisare;
 
                         dt_dgvAfisare = new DataTable();
-                        
+
                         BindingSource bs_dgvAfisare = new BindingSource();
                         bs_dgvAfisare.DataSource = dt_dgvAfisare;
 
@@ -49,22 +59,22 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                         da_dgvAfisare.Fill(dt_dgvAfisare);
                         da_dgvAfisare.Update(dt_dgvAfisare);
 
-                            if (dt_dgvAfisare.Rows.Count > 0)
-                            {
-                                // Activam "dgvObiecteOrdineZi"
-                                dgvObiecteOrdineZi.Enabled = true;
+                        if (dt_dgvAfisare.Rows.Count > 0)
+                        {
+                            // Activam "dgvObiecteOrdineZi"
+                            dgvObiecteOrdineZi.Enabled = true;
 
-                                // Activam "btnGenerarePDF"
-                                btnGenerarePDF.Enabled = true;
-                            }
-                                else
-                                {
-                                    // Dezactivam "dgvObiecteOrdineZi"
-                                    dgvObiecteOrdineZi.Enabled = false;
+                            // Activam "btnGenerarePDF"
+                            btnGenerarePDF.Enabled = true;
+                        }
+                        else
+                        {
+                            // Dezactivam "dgvObiecteOrdineZi"
+                            dgvObiecteOrdineZi.Enabled = false;
 
-                                    // Dezactivam "btnGenerarePDF"
-                                    btnGenerarePDF.Enabled = false;
-                                }
+                            // Dezactivam "btnGenerarePDF"
+                            btnGenerarePDF.Enabled = false;
+                        }
                     }
                     catch (Exception exdgvAfisare)
                     {
@@ -76,11 +86,8 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     }
                 }
             }
-            /* --------------------------------------------------------------------------------------------------------------- */
-
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-
 
         
 

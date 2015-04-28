@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Globalization;
 using System.Linq;
+using System.Net.Mime;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -674,6 +675,23 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     MessageBox.Show(
                         "               Nu ați selectat nici o moneda (-- Taxă de Viza + Asigurare Medicală --) ! \n                 Vă rugăm selectați o valoare.");
                 }
+            }
+
+            if (System.Windows.Forms.Application.OpenForms["frmVizualizareTot"] != null)
+            {
+                (System.Windows.Forms.Application.OpenForms["frmVizualizareTot"] as frmVizualizareTot).PopularedgvVizualizareTot();
+            }
+            if (System.Windows.Forms.Application.OpenForms["frmOrdineaDeZi"] != null)
+            {
+                (System.Windows.Forms.Application.OpenForms["frmOrdineaDeZi"] as frmOrdineaDeZi).PopulareDGV();
+            }
+            if (System.Windows.Forms.Application.OpenForms["frmGCD"] != null)
+            {
+                (System.Windows.Forms.Application.OpenForms["frmGCD"] as frmGCD).VerificareCereri();
+            }
+            if (System.Windows.Forms.Application.OpenForms["frmGCD"] != null)
+            {
+                (System.Windows.Forms.Application.OpenForms["frmGCD"] as frmGCD).MetodaScriereInStatus();
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */

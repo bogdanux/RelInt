@@ -674,6 +674,16 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                         "               Nu ați selectat nici o moneda (-- Taxă de Viza + Asigurare Medicală --) ! \n                 Vă rugăm selectați o valoare.");
                 }
             }
+
+            if (System.Windows.Forms.Application.OpenForms["frmVizualizareTot"] != null)
+            {
+                (System.Windows.Forms.Application.OpenForms["frmVizualizareTot"] as frmVizualizareTot).PopularedgvVizualizareTot();
+            }
+
+            if (System.Windows.Forms.Application.OpenForms["frmOrdineaDeZi"] != null)
+            {
+                (System.Windows.Forms.Application.OpenForms["frmOrdineaDeZi"] as frmOrdineaDeZi).PopulareDGV();
+            }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 

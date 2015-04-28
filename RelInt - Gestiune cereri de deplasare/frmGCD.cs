@@ -99,15 +99,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-
-
-
-
-
-
-
-
-
         /* ---------- Metoda de umplere a cmbFacultate cu date din RelIntDB ---------------------------------------------- */
         private void VerificareFacultati()
         {
@@ -155,16 +146,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-
-
-
-
-
-
-
-
-
-        /* ---------- Metoda de umplere a cmbFacultate cu date din RelIntDB --------------------------------------------- */
+        /* ---------- Metoda de umplere a cmbFacultate cu date din RelIntDB ---------------------------------------------- */
         private void VerificareMonezi()
         {
             using (OdbcConnection conexiune_cmbMonezi = new OdbcConnection(sircon_RelIntDB))
@@ -211,16 +193,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-
-
-
-
-
-
-
-
-
-        /* ---------- Metoda de umplere a cmbFacultate cu date din RelIntDB --------------------------------------------- */
+        /* ---------- Metoda de umplere a cmbFacultate cu date din RelIntDB ---------------------------------------------- */
         public void VerificareCereri()
         {
             using (OdbcConnection conexiune_cereri = new OdbcConnection(sircon_RelIntDB))
@@ -261,6 +234,43 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     finally
                     {
                         conexiune_cereri.Close();
+                    }
+                }
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* -------------------- MetodaScriereInStatus -------------------------------------------------------------------- */
+        public void MetodaScriereInStatus()
+        {
+            using (OdbcConnection conexiune_lblUCI = new OdbcConnection(sircon_RelIntDB))
+            {           // Comanda
+                using (OdbcCommand comanda_lblUCI = new OdbcCommand())
+                {
+                    comanda_lblUCI.Connection = conexiune_lblUCI;
+                    comanda_lblUCI.CommandType = CommandType.Text;
+                    comanda_lblUCI.CommandText = "SELECT MAX(nrinregistrarec) FROM cereri";
+
+                    try
+                    {
+                        conexiune_lblUCI.Open();
+                        OdbcDataReader reader_lblUCI = comanda_lblUCI.ExecuteReader();
+
+                        while (reader_lblUCI.Read())
+                        {
+                            if (reader_lblUCI[0].ToString() != "")
+                            {
+                                tsStatusUltimaInregistrare.Text = "Numărul ultimei cereri introduse: " + reader_lblUCI.GetDecimal(0).ToString();
+                            }
+                        }
+                        reader_lblUCI.Close();
+                    }
+                    catch (Exception exlblUCI)
+                    {
+                        MessageBox.Show(exlblUCI.Message);
+                    }
+                    finally
+                    {
+                        conexiune_lblUCI.Close();
                     }
                 }
             }
@@ -317,10 +327,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             frmCerereInregistrare.Show();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-        private void form2_DisableButton(object sender, EventArgs e)
-        {
-            btnGCDModificareFormular.Enabled = true;
-        }
 
 
 
@@ -645,51 +651,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
             // Afisam "frmEditareRector"
             frmEditareRector.Show();
-        }
-        /* --------------------------------------------------------------------------------------------------------------- */
-
-
-
-
-
-
-
-
-        /* -------------------- MetodaScriereInStatus -------------------------------------------------------------------- */
-        public void MetodaScriereInStatus()
-        {
-            using (OdbcConnection conexiune_lblUCI = new OdbcConnection(sircon_RelIntDB))
-            {           // Comanda
-                using (OdbcCommand comanda_lblUCI = new OdbcCommand())
-                {
-                    comanda_lblUCI.Connection = conexiune_lblUCI;
-                    comanda_lblUCI.CommandType = CommandType.Text;
-                    comanda_lblUCI.CommandText = "SELECT MAX(nrinregistrarec) FROM cereri";
-
-                    try
-                    {
-                        conexiune_lblUCI.Open();
-                        OdbcDataReader reader_lblUCI = comanda_lblUCI.ExecuteReader();
-
-                        while (reader_lblUCI.Read())
-                        {
-                            if (reader_lblUCI[0].ToString() != "")
-                            {
-                                tsStatusUltimaInregistrare.Text = "Numarul ultimei cereri introduse: " + reader_lblUCI.GetDecimal(0).ToString();
-                            }                            
-                        }
-                        reader_lblUCI.Close();
-                    } 
-                    catch (Exception exlblUCI) 
-                    {
-                        MessageBox.Show(exlblUCI.Message);
-                    }
-                    finally
-                    {
-                        conexiune_lblUCI.Close();
-                    }
-                }
-            }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
         
