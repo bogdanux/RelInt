@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace RelInt___Gestiune_cereri_de_deplasare
 {
-    public partial class frmEditareRector : Form
+    public partial class frmEditRectoriProrectori : Form
     {
-        public frmEditareRector() // Metoda de LOAD
+        public frmEditRectoriProrectori() // Metoda de LOAD
         {
             InitializeComponent();
 

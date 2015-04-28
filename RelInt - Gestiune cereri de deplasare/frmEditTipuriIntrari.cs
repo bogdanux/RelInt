@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace RelInt___Gestiune_cereri_de_deplasare
 {
-    public partial class frmTipuriIntrari : Form
+    public partial class frmEditTipuriIntrari : Form
     {
-        public frmTipuriIntrari() // Metoda de LOAD
+        public frmEditTipuriIntrari() // Metoda de LOAD
         {
             InitializeComponent();
 

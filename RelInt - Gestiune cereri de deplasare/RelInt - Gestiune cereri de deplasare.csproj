@@ -172,11 +172,11 @@
     <Compile Include="frmDespreApp.Designer.cs">
       <DependentUpon>frmDespreApp.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmEditareRector.cs">
+    <Compile Include="frmEditRectoriProrectori.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmEditareRector.Designer.cs">
-      <DependentUpon>frmEditareRector.cs</DependentUpon>
+    <Compile Include="frmEditRectoriProrectori.Designer.cs">
+      <DependentUpon>frmEditRectoriProrectori.cs</DependentUpon>
     </Compile>
     <Compile Include="frmGCD.cs">
       <SubType>Form</SubType>
@@ -208,11 +208,11 @@
     <Compile Include="frmRealizatori.Designer.cs">
       <DependentUpon>frmRealizatori.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmTipuriIntrari.cs">
+    <Compile Include="frmEditTipuriIntrari.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmTipuriIntrari.Designer.cs">
-      <DependentUpon>frmTipuriIntrari.cs</DependentUpon>
+    <Compile Include="frmEditTipuriIntrari.Designer.cs">
+      <DependentUpon>frmEditTipuriIntrari.cs</DependentUpon>
     </Compile>
     <Compile Include="frmVizualizareTot.cs">
       <SubType>Form</SubType>
@@ -237,8 +237,8 @@
     <EmbeddedResource Include="frmDespreApp.resx">
       <DependentUpon>frmDespreApp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmEditareRector.resx">
-      <DependentUpon>frmEditareRector.cs</DependentUpon>
+    <EmbeddedResource Include="frmEditRectoriProrectori.resx">
+      <DependentUpon>frmEditRectoriProrectori.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmGCD.resx">
       <DependentUpon>frmGCD.cs</DependentUpon>
@@ -252,8 +252,8 @@
     <EmbeddedResource Include="frmRealizatori.resx">
       <DependentUpon>frmRealizatori.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmTipuriIntrari.resx">
-      <DependentUpon>frmTipuriIntrari.cs</DependentUpon>
+    <EmbeddedResource Include="frmEditTipuriIntrari.resx">
+      <DependentUpon>frmEditTipuriIntrari.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmVizualizareTot.resx">
       <DependentUpon>frmVizualizareTot.cs</DependentUpon>

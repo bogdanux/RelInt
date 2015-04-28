@@ -1,6 +1,6 @@
 ﻿namespace RelInt___Gestiune_cereri_de_deplasare
 {
-    partial class frmEditareRector
+    partial class frmEditRectoriProrectori
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEditareRector));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEditRectoriProrectori));
             this.mnuEditareRector = new System.Windows.Forms.MenuStrip();
             this.btnIesire = new System.Windows.Forms.ToolStripMenuItem();
             this.tabProrector = new System.Windows.Forms.TabControl();

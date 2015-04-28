@@ -646,14 +646,14 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         private void btnGCDTipIntrari_Click(object sender, EventArgs e)
         {
             // Apelam formularul "frmTipuriIntrari"
-            Form frmTipuriIntrari = new frmTipuriIntrari();
+            Form frmTipuriIntrari = new frmEditTipuriIntrari();
 
             // Facem "frmTipuriIntrari" copil al "frmGCD"
             frmTipuriIntrari.MdiParent = this;
 
             foreach (Form form in Application.OpenForms)
             {
-                if (form.GetType() == typeof(frmTipuriIntrari))
+                if (form.GetType() == typeof(frmEditTipuriIntrari))
                 {
                     form.WindowState = FormWindowState.Normal;
                     form.Activate();
@@ -669,14 +669,14 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         private void btnGCDEditareRectori_Click(object sender, EventArgs e)
         {
             // Apelam formularul "frmEditareRector"
-            Form frmEditareRector = new frmEditareRector();
+            Form frmEditareRector = new frmEditRectoriProrectori();
 
             // Facem "frmEditareRector" copil al "frmGCD"
             frmEditareRector.MdiParent = this;
 
             foreach (Form form in Application.OpenForms)
             {
-                if (form.GetType() == typeof(frmEditareRector))
+                if (form.GetType() == typeof(frmEditRectoriProrectori))
                 {
                     form.WindowState = FormWindowState.Normal;
                     form.Activate();

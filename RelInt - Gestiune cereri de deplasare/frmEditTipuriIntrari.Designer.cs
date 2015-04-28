@@ -1,6 +1,6 @@
 ﻿namespace RelInt___Gestiune_cereri_de_deplasare
 {
-    partial class frmTipuriIntrari
+    partial class frmEditTipuriIntrari
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTipuriIntrari));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEditTipuriIntrari));
             this.mnuTipuriIntrari = new System.Windows.Forms.MenuStrip();
             this.btnIesire = new System.Windows.Forms.ToolStripMenuItem();
             this.tabGDFM = new System.Windows.Forms.TabControl();
