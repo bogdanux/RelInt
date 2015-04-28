@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace RelInt___Gestiune_cereri_de_deplasare
 {
-    public partial class frmODDModificare: Form
+    public partial class frmODDModificare : Form
     {
         public frmODDModificare() // Metoda de LOAD
         {
@@ -66,10 +66,10 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         {
             // Dezactivam urmatoarele
             btnAcceseaza.Enabled = false;
-            lblNrUAIC.Enabled = false;
-            txtNrUAIC.Enabled = false;
-            lblDin.Enabled = false;
-            dpDataBECA.Enabled = false;
+            lblNrUAICVechi.Enabled = false;
+            txtNrUAICVechi.Enabled = false;
+            lblDin1.Enabled = false;
+            dpDataODDVeche.Enabled = false;
 
             // dezactivam panourile urmatoare
             panouContinutODD.Enabled = false;
@@ -220,7 +220,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         {
             if (rdoRector.Checked == true)
             {
-
+                
                 using (OdbcConnection conexiune_cmbRectorProrector1 = new OdbcConnection(sircon_RelIntDB))
                 {           // Comanda
                     using (OdbcCommand comanda_cmbRectorProrector1 = new OdbcCommand())
@@ -315,23 +315,37 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         int vartxtNrUAIC;
         bool txtNrUAICSchimbat;
         /* --------------------- Eveniment pentru txtNrUAIC -------------------------------------------------------------- */
-        private void txtNrUAIC_TextChanged(object sender, EventArgs e)
+        private void txtNrUAICVechi_TextChanged(object sender, EventArgs e)
         {
             // Verificam daca valoarea din "txtNrUAIC" este de tip int si daca da, o inregistram in "vartxtNrUAIC"
-            bool vartxtNrInregistrareEsteNumar = Int32.TryParse(txtNrUAIC.Text, out vartxtNrUAIC);
+            bool vartxtNrInregistrareEsteNumar = Int32.TryParse(txtNrUAICVechi.Text, out vartxtNrUAIC);
 
             // Judecam si "sanctionam" la nevoie
-            switch (vartxtNrInregistrareEsteNumar || txtNrUAIC.Text == string.Empty)
+            switch (vartxtNrInregistrareEsteNumar || txtNrUAICVechi.Text == string.Empty)
             {
                 case false:
                     // Golim casuta si afisam mesaj de eroare
-                    txtNrUAIC.Clear();
+                    txtNrUAICVechi.Clear();
                     MessageBox.Show("        Vă rugăm introduceți doar numere în această casetă de text.");
                     break;
             }
 
             // Inregistram modificarea campului
             txtNrUAICSchimbat = true;
+
+            // Efectuam
+            if (txtNrUAICVechi.Text != string.Empty)
+            {
+                // Activam
+                lblDin1.Enabled = true;
+                btnAcceseaza.Enabled = true;
+            }
+            else
+            {
+                // Dezactivam
+                lblDin1.Enabled = false;
+                btnAcceseaza.Enabled = false;
+            }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
@@ -388,7 +402,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     MessageBox.Show("        Vă rugăm introduceți doar numere în această casetă de text.");
                     break;
             }
-
+            
             // Calculam
             MetodaCalculSubtotalCazare();
         }
@@ -585,11 +599,17 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             // Efectuam
             if (txtNrInregistrare.Text != string.Empty)
             {
-                btnAcceseaza.Enabled = true;
+                // Activam
+                lblNrUAICVechi.Enabled = true;
+                txtNrUAICVechi.Enabled = true;
+                lblNrVechi.Enabled = true;
             }
             else
             {
-                btnAcceseaza.Enabled = false;
+                // Dezactivam
+                lblNrUAICVechi.Enabled = false;
+                txtNrUAICVechi.Enabled = false;
+                lblNrVechi.Enabled = false;
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
@@ -608,7 +628,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             double varSubtotal = 0;
 
             // Calculam
-            varSubtotal = vartxtNrZileDiurna * vartxtDiurna;
+            varSubtotal = vartxtNrZileDiurna*vartxtDiurna;
 
             // Afisam
             txtSubtotalDiurna.Text = varSubtotal.ToString();
@@ -721,10 +741,10 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                                 cmbMoneda4.SelectedItem = cititor_populareDinBD.GetString(25);
                                 txtTotalDePlata.Text = cititor_populareDinBD.GetString(26);
 
-                                lblNrUAIC.Enabled = true;
-                                txtNrUAIC.Enabled = true;
-                                lblDin.Enabled = true;
-                                dpDataBECA.Enabled = true;
+                                lblNrUAICVechi.Enabled = true;
+                                txtNrUAICVechi.Enabled = true;
+                                lblDin1.Enabled = true;
+                                dpDataODDVeche.Enabled = true;
 
                                 panouContinutODD.Enabled = true;
                                 panouCheltuieliODD.Enabled = true;
@@ -738,8 +758,8 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
                         if (cititor_populareDinBD.HasRows == false)
                         {
-                            txtNrUAIC.Enabled = false;
-                            dpDataBECA.Enabled = false;
+                            txtNrUAICVechi.Enabled = false;
+                            dpDataODDVeche.Enabled = false;
                             panouContinutODD.Enabled = false;
                             panouCheltuieliODD.Enabled = false;
                             panouAlteDispuneriODD.Enabled = false;
@@ -837,7 +857,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     comanda_inserareRelInt.CommandText = "INSERT into ordinedeplasare VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
                     comanda_inserareRelInt.Parameters.AddWithValue("@nrinregistrareodc", OdbcType.Int).Value = vartxtNrInregistrare;
                     comanda_inserareRelInt.Parameters.AddWithValue("@nrinregistrareod", OdbcType.Int).Value = vartxtNrUAIC;
-                    comanda_inserareRelInt.Parameters.AddWithValue("@dataOD", OdbcType.DateTime).Value = dpDataBECA.Value;
+                    comanda_inserareRelInt.Parameters.AddWithValue("@dataOD", OdbcType.DateTime).Value = dpDataODDVeche.Value;
                     comanda_inserareRelInt.Parameters.AddWithValue("@subsemnatulOD", OdbcType.NVarChar).Value = txtSubsemnatul.Text;
                     comanda_inserareRelInt.Parameters.AddWithValue("@graddidacticOD", OdbcType.NVarChar).Value = cmbGradDidactic.SelectedItem;
                     comanda_inserareRelInt.Parameters.AddWithValue("@facultateaOD", OdbcType.NVarChar).Value = cmbFacultatea.SelectedItem;
@@ -990,7 +1010,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         private void SalvareFormular()
         {
             // Daca casetele urmatoare nu sunt goale
-            if (txtNrUAIC.Text != string.Empty && cmbGradDidactic.SelectedIndex != -1 && cmbFacultatea.SelectedIndex != -1 && cmbMoneda1.SelectedIndex != -1 && cmbMoneda2.SelectedIndex != -1 && cmbMoneda3.SelectedIndex != -1 && cmbMoneda4.SelectedIndex != -1 && cmbRectorProrector.SelectedIndex != -1 && txtDFC.Text != string.Empty)
+            if (txtNrUAICVechi.Text != string.Empty && cmbGradDidactic.SelectedIndex != -1 && cmbFacultatea.SelectedIndex != -1 && cmbMoneda1.SelectedIndex != -1 && cmbMoneda2.SelectedIndex != -1 && cmbMoneda3.SelectedIndex != -1 && cmbMoneda4.SelectedIndex != -1 && cmbRectorProrector.SelectedIndex != -1 && txtDFC.Text != string.Empty)
             {
                 // Lucreaza asta
                 txtTotalDePlata.Text = CalculTotal();
@@ -1032,7 +1052,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             // Daca urmatoarele
             else
             {
-                if (txtNrUAIC.Text == string.Empty)
+                if (txtNrUAICVechi.Text == string.Empty)
                 {
                     // Afiseaza eroarea
                     MessageBox.Show(

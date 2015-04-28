@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace RelInt___Gestiune_cereri_de_deplasare
 {
-    public partial class frmVizualizareTot : Form
+    public partial class frmListaCereriExistente : Form
     {
-        public frmVizualizareTot() // Metoda de LOAD
+        public frmListaCereriExistente() // Metoda de LOAD
         {
             InitializeComponent();
 

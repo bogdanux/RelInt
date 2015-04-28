@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace RelInt___Gestiune_cereri_de_deplasare
 {
-    public partial class frmODDIntroducere : Form
+    public partial class frmODDIntroducere: Form
     {
         public frmODDIntroducere() // Metoda de LOAD
         {
@@ -220,7 +220,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         {
             if (rdoRector.Checked == true)
             {
-                
+
                 using (OdbcConnection conexiune_cmbRectorProrector1 = new OdbcConnection(sircon_RelIntDB))
                 {           // Comanda
                     using (OdbcCommand comanda_cmbRectorProrector1 = new OdbcCommand())
@@ -388,7 +388,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     MessageBox.Show("        Vă rugăm introduceți doar numere în această casetă de text.");
                     break;
             }
-            
+
             // Calculam
             MetodaCalculSubtotalCazare();
         }
@@ -608,7 +608,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             double varSubtotal = 0;
 
             // Calculam
-            varSubtotal = vartxtNrZileDiurna*vartxtDiurna;
+            varSubtotal = vartxtNrZileDiurna * vartxtDiurna;
 
             // Afisam
             txtSubtotalDiurna.Text = varSubtotal.ToString();

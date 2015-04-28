@@ -554,14 +554,14 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         private void btnGCDVizualizareTot_Click(object sender, EventArgs e)
         {
             // Apelam formularul "frmVizualizareTot"
-            Form frmVizualizareTot = new frmVizualizareTot();
+            Form frmVizualizareTot = new frmListaCereriExistente();
 
             // Facem "frmVizualizareTot" copil al "frmGCD"
             frmVizualizareTot.MdiParent = this;
 
             foreach (Form form in Application.OpenForms)
             {
-                if (form.GetType() == typeof(frmVizualizareTot))
+                if (form.GetType() == typeof(frmListaCereriExistente))
                 {
                     form.WindowState = FormWindowState.Normal;
                     form.Activate();
@@ -600,10 +600,10 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         private void btnGCDIntroducereODD_Click(object sender, EventArgs e)
         {
             // Apelam formularul "frmCerereBECA"
-            Form frmCerereBECA = new frmODDIntroducere();
+            Form frmODDIntroducere = new frmODDIntroducere();
 
             // Facem "frmCerereBECA" copil al "frmGCD"
-            frmCerereBECA.MdiParent = this;
+            frmODDIntroducere.MdiParent = this;
 
             foreach (Form form in Application.OpenForms)
             {
@@ -616,7 +616,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             }
 
             // Afisam "frmCerereBECA"
-            frmCerereBECA.Show();
+            frmODDIntroducere.Show();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
         /* --------------------------------------------------------------------------------------------------------------- */

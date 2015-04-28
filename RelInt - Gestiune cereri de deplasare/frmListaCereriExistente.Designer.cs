@@ -1,6 +1,6 @@
 ﻿namespace RelInt___Gestiune_cereri_de_deplasare
 {
-    partial class frmVizualizareTot
+    partial class frmListaCereriExistente
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmVizualizareTot));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListaCereriExistente));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.btnIesire = new System.Windows.Forms.ToolStripMenuItem();
             this.dgvVizualizareTot = new System.Windows.Forms.DataGridView();

@@ -154,11 +154,11 @@
     <Compile Include="frmCerereModificare.Designer.cs">
       <DependentUpon>frmCerereModificare.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmODDIntroducere.cs">
+    <Compile Include="frmODDModificare.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmODDIntroducere.Designer.cs">
-      <DependentUpon>frmODDIntroducere.cs</DependentUpon>
+    <Compile Include="frmODDModificare.Designer.cs">
+      <DependentUpon>frmODDModificare.cs</DependentUpon>
     </Compile>
     <Compile Include="frmCerereInregistrare.cs">
       <SubType>Form</SubType>
@@ -184,11 +184,11 @@
     <Compile Include="frmGCD.Designer.cs">
       <DependentUpon>frmGCD.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmODDModificare.cs">
+    <Compile Include="frmODDIntroducere.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmODDModificare.Designer.cs">
-      <DependentUpon>frmODDModificare.cs</DependentUpon>
+    <Compile Include="frmODDIntroducere.Designer.cs">
+      <DependentUpon>frmODDIntroducere.cs</DependentUpon>
     </Compile>
     <Compile Include="frmOrdineaDeZi.cs">
       <SubType>Form</SubType>
@@ -214,11 +214,11 @@
     <Compile Include="frmEditTipuriIntrari.Designer.cs">
       <DependentUpon>frmEditTipuriIntrari.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmVizualizareTot.cs">
+    <Compile Include="frmListaCereriExistente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmVizualizareTot.Designer.cs">
-      <DependentUpon>frmVizualizareTot.cs</DependentUpon>
+    <Compile Include="frmListaCereriExistente.Designer.cs">
+      <DependentUpon>frmListaCereriExistente.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -228,8 +228,8 @@
     <EmbeddedResource Include="frmCerereModificare.resx">
       <DependentUpon>frmCerereModificare.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmODDIntroducere.resx">
-      <DependentUpon>frmODDIntroducere.cs</DependentUpon>
+    <EmbeddedResource Include="frmODDModificare.resx">
+      <DependentUpon>frmODDModificare.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCerereInregistrare.resx">
       <DependentUpon>frmCerereInregistrare.cs</DependentUpon>
@@ -255,8 +255,8 @@
     <EmbeddedResource Include="frmEditTipuriIntrari.resx">
       <DependentUpon>frmEditTipuriIntrari.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmVizualizareTot.resx">
-      <DependentUpon>frmVizualizareTot.cs</DependentUpon>
+    <EmbeddedResource Include="frmListaCereriExistente.resx">
+      <DependentUpon>frmListaCereriExistente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
