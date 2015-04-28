@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace RelInt___Gestiune_cereri_de_deplasare
 {
-    public partial class frmOrdinDeDeplasare : Form
+    public partial class frmODDIntroducere : Form
     {
-        public frmOrdinDeDeplasare() // Metoda de LOAD
+        public frmODDIntroducere() // Metoda de LOAD
         {
             InitializeComponent();
 

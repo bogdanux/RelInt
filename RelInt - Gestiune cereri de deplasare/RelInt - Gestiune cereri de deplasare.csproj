@@ -26,7 +26,7 @@
     <ProductName>RelInt - GCdD %28Gestiunea Cererilor de Deplasare%29</ProductName>
     <PublisherName>SIA - GCdD</PublisherName>
     <SuiteName>SIA - Sisteme Informationale pentru Birotica</SuiteName>
-    <ApplicationRevision>21</ApplicationRevision>
+    <ApplicationRevision>22</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -154,11 +154,11 @@
     <Compile Include="frmCerereModificare.Designer.cs">
       <DependentUpon>frmCerereModificare.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmOrdinDeDeplasare.cs">
+    <Compile Include="frmODDIntroducere.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmOrdinDeDeplasare.Designer.cs">
-      <DependentUpon>frmOrdinDeDeplasare.cs</DependentUpon>
+    <Compile Include="frmODDIntroducere.Designer.cs">
+      <DependentUpon>frmODDIntroducere.cs</DependentUpon>
     </Compile>
     <Compile Include="frmCerereInregistrare.cs">
       <SubType>Form</SubType>
@@ -183,6 +183,12 @@
     </Compile>
     <Compile Include="frmGCD.Designer.cs">
       <DependentUpon>frmGCD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmODDModificare.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmODDModificare.Designer.cs">
+      <DependentUpon>frmODDModificare.cs</DependentUpon>
     </Compile>
     <Compile Include="frmOrdineaDeZi.cs">
       <SubType>Form</SubType>
@@ -222,8 +228,8 @@
     <EmbeddedResource Include="frmCerereModificare.resx">
       <DependentUpon>frmCerereModificare.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmOrdinDeDeplasare.resx">
-      <DependentUpon>frmOrdinDeDeplasare.cs</DependentUpon>
+    <EmbeddedResource Include="frmODDIntroducere.resx">
+      <DependentUpon>frmODDIntroducere.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCerereInregistrare.resx">
       <DependentUpon>frmCerereInregistrare.cs</DependentUpon>

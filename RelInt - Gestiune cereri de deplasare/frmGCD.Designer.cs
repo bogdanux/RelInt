@@ -148,7 +148,7 @@
             this.btnGCDIntroducereODD.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B)));
             this.btnGCDIntroducereODD.Size = new System.Drawing.Size(313, 22);
             this.btnGCDIntroducereODD.Text = "Introducere Ordin de Deplasare";
-            this.btnGCDIntroducereODD.Click += new System.EventHandler(this.btnGCDBeca_Click);
+            this.btnGCDIntroducereODD.Click += new System.EventHandler(this.btnGCDIntroducereODD_Click);
             // 
             // btnGCDModificareODD
             // 
@@ -157,6 +157,7 @@
             | System.Windows.Forms.Keys.B)));
             this.btnGCDModificareODD.Size = new System.Drawing.Size(313, 22);
             this.btnGCDModificareODD.Text = "Modificare Ordine de Deplasare";
+            this.btnGCDModificareODD.Click += new System.EventHandler(this.btnGCDModificareODD_Click);
             // 
             // toolStripSeparator4
             // 
@@ -322,7 +323,6 @@
             this.Name = "frmGCD";
             this.Text = "Gestiune Cereri de Deplasare";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Activated += new System.EventHandler(this.frmGCD_Activated);
             this.Load += new System.EventHandler(this.frmGCD_Load);
             this.mnuBaraMeniu.ResumeLayout(false);
             this.mnuBaraMeniu.PerformLayout();

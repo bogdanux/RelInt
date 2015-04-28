@@ -1,6 +1,6 @@
 ﻿namespace RelInt___Gestiune_cereri_de_deplasare
 {
-    partial class frmOrdinDeDeplasare
+    partial class frmODDModificare
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOrdinDeDeplasare));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmODDIntroducere));
             this.mnuCerereBeca = new System.Windows.Forms.MenuStrip();
             this.btnFormular = new System.Windows.Forms.ToolStripMenuItem();
             this.btnSalvare = new System.Windows.Forms.ToolStripMenuItem();

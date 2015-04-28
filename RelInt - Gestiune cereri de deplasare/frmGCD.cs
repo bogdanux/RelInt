@@ -435,16 +435,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             frmCerereInregistrare.Show();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-
-
-
-
-
-
-
-
-
-
         /* ------------------ Deschiderea formularului de modificare ----------------------------------------------------- */
         private void btnGCDModificareFormular_Click(object sender, EventArgs e)
         {
@@ -468,17 +458,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             frmCerereModificare.Show();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-
-
-
-
-
-
-
-
-
-
-
         /* ------------------- Deschiderea formularului de cautare ------------------------------------------------------- */
         private void btnGCDcăutareCerere_Click(object sender, EventArgs e)
         {
@@ -502,18 +481,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             frmCautareCerere.Show();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-
-
-
-
-
-
-
-
-
-
-
-        /* ------------------- Deschiderea formularului "DespreApp" ------------------------------------------------------- */
+        /* ------------------- Deschiderea formularului "DespreApp" ------------------------------------------------------ */
         private void btnGCDDespreApp_Click(object sender, EventArgs e)
         {
             // Apelam formularul "frmDespreApp"
@@ -536,17 +504,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             frmDespreApp.Show();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-
-
-
-
-
-
-
-
-
-
-
         /* --------------------------------------------------------------------------------------------------------------- */
         private void btnGCDRealizatori_Click(object sender, EventArgs e)
         {
@@ -570,16 +527,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             frmRealizatori.Show();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-
-
-
-
-
-
-
-
-
-        /* ------------------ Deschiderea formularului "frmOrdineaDeZi" ------------------------------------------------------- */
+        /* ------------------ Deschiderea formularului "frmOrdineaDeZi" -------------------------------------------------- */
         private void btnGCDOrdineaDeZi_Click(object sender, EventArgs e)
         {
             // Apelam formularul "frmRealizatori"
@@ -602,12 +550,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             frmOrdineaDeZi.Show();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-
-
-
-
-
-
         /* ------------------------ Deschiderea formularului VizualizareTot ---------------------------------------------- */
         private void btnGCDVizualizareTot_Click(object sender, EventArgs e)
         {
@@ -631,17 +573,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             frmVizualizareTot.Show();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-
-
-
-
-
-
-
-
-
-        
-        
         /* --------------------- Deschiderea formularului frmRaportCereri ------------------------------------------------ */
         private void btnGCDRaportCereri_Click(object sender, EventArgs e)
         {
@@ -665,27 +596,18 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             frmRaportCereri.Show();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-
-
-
-
-
-
-
-
-
         /* ---------------------- Deschiderea formularului frmCerereBECA -------------------------------------- */
-        private void btnGCDBeca_Click(object sender, EventArgs e)
+        private void btnGCDIntroducereODD_Click(object sender, EventArgs e)
         {
             // Apelam formularul "frmCerereBECA"
-            Form frmCerereBECA = new frmOrdinDeDeplasare();
+            Form frmCerereBECA = new frmODDIntroducere();
 
             // Facem "frmCerereBECA" copil al "frmGCD"
             frmCerereBECA.MdiParent = this;
 
             foreach (Form form in Application.OpenForms)
             {
-                if (form.GetType() == typeof(frmOrdinDeDeplasare))
+                if (form.GetType() == typeof(frmODDIntroducere))
                 {
                     form.WindowState = FormWindowState.Normal;
                     form.Activate();
@@ -697,17 +619,30 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             frmCerereBECA.Show();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
+        /* --------------------------------------------------------------------------------------------------------------- */
+        private void btnGCDModificareODD_Click(object sender, EventArgs e)
+        {
+            // Apelam formularul "frmODDModificare"
+            Form frmODDModificare = new frmODDModificare();
 
+            // Facem "frmODDModificare" copil al "frmGCD"
+            frmODDModificare.MdiParent = this;
 
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form.GetType() == typeof(frmODDModificare))
+                {
+                    form.WindowState = FormWindowState.Normal;
+                    form.Activate();
+                    return;
+                }
+            }
 
-
-
-
-
-
-
-
-        /* ----------------- Deschiderea formularului frmTipuriIntrari ---------------------------------------------- */
+            // Afisam "frmCerereBECA"
+            frmODDModificare.Show();
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* ----------------- Deschiderea formularului frmTipuriIntrari --------------------------------------------------- */
         private void btnGCDTipIntrari_Click(object sender, EventArgs e)
         {
             // Apelam formularul "frmTipuriIntrari"
@@ -730,15 +665,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             frmTipuriIntrari.Show();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-
-
-
-
-
-
-
-
-        /* ------------------ Deschiderea formularului frmEditareRector ----------------------------------------- */
+        /* ------------------ Deschiderea formularului frmEditareRector -------------------------------------------------- */
         private void btnGCDEditareRectori_Click(object sender, EventArgs e)
         {
             // Apelam formularul "frmEditareRector"
@@ -759,21 +686,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
             // Afisam "frmEditareRector"
             frmEditareRector.Show();
-        }
-        /* --------------------------------------------------------------------------------------------------------------- */
-        
-
-
-
-
-
-
-
-
-        /* ------------------- Eveniment de tip "activated" am formularului curent --------------------------------------- */
-        private void frmGCD_Activated(object sender, EventArgs e)
-        {
-            MetodaScriereInStatus();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
