@@ -17,13 +17,11 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         {
             InitializeComponent();
 
-            MetodaScriereInStatus();
-
             VerificareGradeDidactice();
             VerificareFacultati();
             VerificareMonezi();
 
-            VerificareCereri();
+            MetodaScriereInStatus();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
@@ -51,9 +49,44 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
+        bool AprobareVerifGD = false;
+        bool AprobareVerifF = false;
+        bool AprobareVerifM = false;
+        bool ExistaCereri = false;
+        /* --------------------------------------------------------------------------------------------------------------- */
+        public void AprobareVerifDGFM()
+        {
+            if (AprobareVerifGD == true && AprobareVerifF == true && AprobareVerifM == true)
+            {
+                // Efectuam
+                VerificareCereri();
 
+                    // Apoi
+                    if (ExistaCereri == true)
+                    {
+                        // Activam
+                        btnGCDIntroducereFormular.Enabled = true;
+                        btnGCDModificareFormular.Enabled = true;
+                    }
+                    else
+                    {
+                        // Activam
+                        btnGCDIntroducereFormular.Enabled = true;
+
+                        // Dezactivam
+                        btnGCDModificareFormular.Enabled = false;
+                    }
+            }
+            else
+            {
+                // Dezactivam urmatoarele
+                btnGCDIntroducereFormular.Enabled = false;
+                btnGCDModificareFormular.Enabled = false;
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
         /* ------------------- Evenimentul click al butonului "mnuIesire" ------------------------------------------------ */
-        private void VerificareGradeDidactice()
+        public void VerificareGradeDidactice()
         {
             using (OdbcConnection conexiune_cmbGradDidactic = new OdbcConnection(sircon_RelIntDB))
             {           // Comanda
@@ -73,18 +106,19 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                         // Daca cititorul
                         if (cititor_cmbGradDidactic.HasRows == false)
                         {
-                            // Dezactivam urmatoarele
-                            btnGCDIntroducereFormular.Enabled = false;
-                            btnGCDModificareFormular.Enabled = false;
-
                             // Afisam de ce
-                            tsStatusDeCe.Text += " Nu sunt denumiri de GRADE DIDACTICE introduse în baza de date. Introduceți-le! ";
+                            tsStatusDeCeGD.Text = " Nu sunt denumiri de GRADE DIDACTICE introduse în baza de date. Introduceți-le! ";
+
+                            // Setam
+                            AprobareVerifGD = false;
                         }
                         else
                         {
-                            // Activam urmatoarele
-                            btnGCDIntroducereFormular.Enabled = true;
-                            btnGCDModificareFormular.Enabled = true;
+                            // Stergem afisarea
+                            tsStatusDeCeGD.Text = string.Empty;
+
+                            // Setam
+                            AprobareVerifGD = true;
                         }
                     }
                     catch (Exception excmbGradDidactic)
@@ -100,7 +134,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         }
         /* --------------------------------------------------------------------------------------------------------------- */
         /* ---------- Metoda de umplere a cmbFacultate cu date din RelIntDB ---------------------------------------------- */
-        private void VerificareFacultati()
+        public void VerificareFacultati()
         {
             using (OdbcConnection conexiune_cmbFacultate = new OdbcConnection(sircon_RelIntDB))
             {           // Comanda
@@ -108,7 +142,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 {
                     comanda_cmbFacultate.Connection = conexiune_cmbFacultate;
                     comanda_cmbFacultate.CommandType = CommandType.Text;
-                    comanda_cmbFacultate.CommandText = "SELECT * FROM facultati ORDER BY facultati ASC";
+                    comanda_cmbFacultate.CommandText = "SELECT * FROM facultati ORDER BY facultatif ASC";
 
                     OdbcDataReader cititor_cmbFacultate;
 
@@ -120,18 +154,19 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                         // Daca cititorul
                         if (cititor_cmbFacultate.HasRows == false)
                         {
-                            // Dezactivam urmatoarele
-                            btnGCDIntroducereFormular.Enabled = false;
-                            btnGCDModificareFormular.Enabled = false;
-
                             // Afisam de ce
-                            tsStatusDeCe.Text += " Nu sunt denumiri de FACULTĂȚI introduse în baza de date. Introduceți-le! ";
+                            tsStatusDeCeF.Text = " Nu sunt denumiri de FACULTĂȚI introduse în baza de date. Introduceți-le! ";
+
+                            // Setam
+                            AprobareVerifF = false;
                         }
                         else
                         {
-                            // Activam urmatoarele
-                            btnGCDIntroducereFormular.Enabled = true;
-                            btnGCDModificareFormular.Enabled = true;
+                            // Stergem afisarea
+                            tsStatusDeCeF.Text = string.Empty;
+
+                            // Setam
+                            AprobareVerifF = true;
                         }
                     }
                     catch (Exception excmbFacultate)
@@ -147,7 +182,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         }
         /* --------------------------------------------------------------------------------------------------------------- */
         /* ---------- Metoda de umplere a cmbFacultate cu date din RelIntDB ---------------------------------------------- */
-        private void VerificareMonezi()
+        public void VerificareMonezi()
         {
             using (OdbcConnection conexiune_cmbMonezi = new OdbcConnection(sircon_RelIntDB))
             {           // Comanda
@@ -167,18 +202,19 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                         // Daca cititorul
                         if (cititor_cmbMonezi.HasRows == false)
                         {
-                            // Dezactivam urmatoarele
-                            btnGCDIntroducereFormular.Enabled = false;
-                            btnGCDModificareFormular.Enabled = false;
-
                             // Afisam de ce
-                            tsStatusDeCe.Text += " Nu sunt denumiri de MONEDE introduse în baza de date. Introduceți-le! ";
+                            tsStatusDeCeF.Text = " Nu sunt denumiri de MONEDE introduse în baza de date. Introduceți-le! ";
+
+                            // Setam
+                            AprobareVerifM = false;
                         }
                         else
                         {
-                            // Activam urmatoarele
-                            btnGCDIntroducereFormular.Enabled = true;
-                            btnGCDModificareFormular.Enabled = true;
+                            // Stergem afisarea
+                            tsStatusDeCeF.Text = string.Empty;
+
+                            // Setam
+                            AprobareVerifM = true;
                         }
                     }
                     catch (Exception excmbMonezi)
@@ -215,16 +251,19 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                         // Daca cititorul
                         if (cititor_cereri.HasRows == false)
                         {
-                            // Dezactivam urmatoarele
-                            btnGCDModificareFormular.Enabled = false;
+                            // Setam
+                            ExistaCereri = false;
 
                             // Afisam de ce
-                            tsStatusDeCe.Text += " Nu sunt CERERI introduse în baza de date. Introduceți măcar una! ";
+                            tsStatusUltimaInregistrare.Text = " Nu sunt CERERI introduse în baza de date. Introduceți măcar una! ";
                         }
                         else
                         {
-                            // Activam urmatoarele
-                            btnGCDModificareFormular.Enabled = true;
+                            // Setam
+                            ExistaCereri = true;
+
+                            // Stergem afisarea
+                            tsStatusUltimaInregistrare.Text = string.Empty;
                         }
                     }
                     catch (Exception excmbMonezi)

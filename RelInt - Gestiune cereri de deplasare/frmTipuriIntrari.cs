@@ -26,13 +26,35 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             // Incarcare dgvMoneda
             IncarcaredgvMonezi();
 
-            // Dezactivam urmatoarele
+            // Dezactivam urmatoarele (GD)
+            lblIntroducereGD.Enabled = false;
+            txtIntroducereGD.Enabled = false;
+            lblGDVechi.Enabled = false;
+            lblGDNou.Enabled = false;
+            txtGDVechi.Enabled = false;
+            txtGDNou.Enabled = false;
             btnIntroducereGD.Enabled = false;
-            btnStergereGD.Enabled = false;
+            btnModificareGD.Enabled = false;
+
+            // Dezactivam urmatoarele (F)
+            lblIntroducereF.Enabled = false;
+            txtIntroducereF.Enabled = false;
+            lblFVeche.Enabled = false;
+            lblFNoua.Enabled = false;
+            txtFVeche.Enabled = false;
+            txtFNoua.Enabled = false;
             btnIntroducereF.Enabled = false;
-            btnStergereF.Enabled = false;
+            btnModificareF.Enabled = false;
+
+            // Dezactivam urmatoarele (M)
+            lblIntroducereM.Enabled = false;
+            txtIntroducereM.Enabled = false;
+            lblMVeche.Enabled = false;
+            lblMNoua.Enabled = false;
+            txtMVeche.Enabled = false;
+            txtMNoua.Enabled = false;
             btnIntroducereM.Enabled = false;
-            btnStergereM.Enabled = false;
+            btnModificareM.Enabled = false;
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
@@ -73,8 +95,59 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
+        /* ------------------- Activam Campurile prin rdoIntroducereGD --------------------------------------------------- */
+        private void rdoIntroducereGD_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdoIntroducereGD.Checked)
+            {
+                // Activam
+                lblIntroducereGD.Enabled = true;
+                txtIntroducereGD.Enabled = true;
 
-        /* -------------------- Functii pentru dgvGradDidactic ---------------------------------------------------------- */
+                // Dezactivam
+                lblGDVechi.Enabled = false;
+                lblGDNou.Enabled = false;
+                txtGDVechi.Enabled = false;
+                txtGDNou.Enabled = false;
+                btnModificareGD.Enabled = false;
+            }
+            else
+            {
+                // Dezactivam
+                lblIntroducereGD.Enabled = false;
+                txtIntroducereGD.Enabled = false;
+                btnIntroducereGD.Enabled = false;
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* ---------------------- Activam campurile prin rdoModificareGD ------------------------------------------------- */
+        private void rdoModificareGD_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdoModificareGD.Checked)
+            {
+                // Activam
+                lblGDVechi.Enabled = true;
+                lblGDNou.Enabled = true;
+                txtGDVechi.Enabled = true;
+                txtGDNou.Enabled = true;
+
+                // Dezactivam
+                lblIntroducereGD.Enabled = false;
+                txtIntroducereGD.Enabled = false;
+                btnIntroducereGD.Enabled = false;
+            }
+            else
+            {
+                // Dezactivam
+                lblGDVechi.Enabled = false;
+                lblGDNou.Enabled = false;
+                txtGDVechi.Enabled = false;
+                txtGDNou.Enabled = false;
+                btnModificareGD.Enabled = false;
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* -------------------- Functii pentru dgvGradDidactic ----------------------------------------------------------- */
         public void IncarcaredgvGradDidactic()
         {
             using (OdbcConnection conexiune_dgvGradDidactic = new OdbcConnection(sircon_RelIntDB))
@@ -112,9 +185,20 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     }
                 }
             }
+
+            // Efectuam metoda:
+            if (System.Windows.Forms.Application.OpenForms["frmGCD"] != null)
+            {
+                (System.Windows.Forms.Application.OpenForms["frmGCD"] as frmGCD).VerificareGradeDidactice();
+            }
+
+            // Apoi metoda:
+            if (System.Windows.Forms.Application.OpenForms["frmGCD"] != null)
+            {
+                (System.Windows.Forms.Application.OpenForms["frmGCD"] as frmGCD).AprobareVerifDGFM();
+            }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-
         /* ----------------- Eveniment de tip click pentru btnIntroducereGD ---------------------------------------------- */
         private void btnIntroducereGD_Click(object sender, EventArgs e)
         {
@@ -126,7 +210,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     comanda_dgvGradDidactic.Connection = conexiune_dgvGradDidactic;
                     comanda_dgvGradDidactic.CommandType = CommandType.Text;
                     comanda_dgvGradDidactic.CommandText = "INSERT INTO gradedidactice VALUES (?)";
-                    comanda_dgvGradDidactic.Parameters.AddWithValue("@graddidacticgd", OdbcType.NVarChar).Value = txtGradDidactic.Text;
+                    comanda_dgvGradDidactic.Parameters.AddWithValue("@graddidacticgd", OdbcType.NVarChar).Value = txtIntroducereGD.Text;
 
                     try
                     {
@@ -148,12 +232,11 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             IncarcaredgvGradDidactic();
 
             // Golim campul "txtGradDidactic"
-            txtGradDidactic.Clear();
+            txtIntroducereGD.Clear();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-
         /* ----------------- Eveniment de tip click pentru btnStergereGD ------------------------------------------------- */
-        private void btnStergereGD_Click(object sender, EventArgs e)
+        private void btnModificareGD_Click(object sender, EventArgs e)
         {
             using (OdbcConnection conexiune_dgvGradDidactic = new OdbcConnection(sircon_RelIntDB))
             {
@@ -162,8 +245,9 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 {
                     comanda_dgvGradDidactic.Connection = conexiune_dgvGradDidactic;
                     comanda_dgvGradDidactic.CommandType = CommandType.Text;
-                    comanda_dgvGradDidactic.CommandText = "DELETE FROM gradedidactice WHERE graddidacticgd = ?";
-                    comanda_dgvGradDidactic.Parameters.AddWithValue("@graddidacticgd", OdbcType.NVarChar).Value = txtGradDidactic.Text;
+                    comanda_dgvGradDidactic.CommandText = "UPDATE gradedidactice SET graddidacticgd = ? WHERE graddidacticgd = ?";
+                    comanda_dgvGradDidactic.Parameters.AddWithValue("@graddidacticgd", OdbcType.NVarChar).Value = txtGDNou.Text;
+                    comanda_dgvGradDidactic.Parameters.AddWithValue("@graddidacticgd", OdbcType.NVarChar).Value = txtGDVechi.Text;
 
                     try
                     {
@@ -181,28 +265,45 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 }
             }
 
-            // Actualizam "dgvGradDidactic"
+            // Actualizam
             IncarcaredgvGradDidactic();
 
-            // Golim campul "txtGradDidactic"
-            txtGradDidactic.Clear();
+            // Golim campurile
+            txtGDVechi.Clear();
+            txtGDNou.Clear();
+
+            // Actualizam statusul de pe "frmGCD"
+            if (System.Windows.Forms.Application.OpenForms["frmGCD"] != null)
+            {
+                (System.Windows.Forms.Application.OpenForms["frmGCD"] as frmGCD).VerificareGradeDidactice();
+            }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-
         /* ----------------- Eveniment de tip TextChanged pentru caseta txtGradDidactic ---------------------------------- */
-        private void txtGradDidactic_TextChanged(object sender, EventArgs e)
+        private void txtIntroducereGD_TextChanged(object sender, EventArgs e)
         {
-            if (txtGradDidactic.Text == string.Empty)
+            if (txtIntroducereGD.Text != string.Empty)
             {
-                // Dezactivam urmatoarele
-                btnIntroducereGD.Enabled = false;
-                btnStergereGD.Enabled = false;
+                // Activam
+                btnIntroducereGD.Enabled = true;
             }
             else
             {
-                // Activam urmatoarele
-                btnIntroducereGD.Enabled = true;
-                btnStergereGD.Enabled = true;
+                // Dezactivam
+                btnIntroducereGD.Enabled = false;
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* --------------------- Evenimentul casetei txtGDNou ------------------------------------------------------------ */
+        private void txtGDNou_TextChanged(object sender, EventArgs e)
+        {
+            if (txtGDNou.Text != string.Empty)
+            {
+                btnModificareGD.Enabled = true;
+            }
+            else
+            {
+                btnModificareGD.Enabled = false;
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
@@ -216,6 +317,58 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
+        /* ------------------- Activam Campurile prin rdoIntroducereGD --------------------------------------------------- */
+        private void rdoIntroducereF_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdoIntroducereF.Checked)
+            {
+                // Activam
+                lblIntroducereF.Enabled = true;
+                txtIntroducereF.Enabled = true;
+
+                // Dezactivam
+                lblFVeche.Enabled = false;
+                lblFNoua.Enabled = false;
+                txtFVeche.Enabled = false;
+                txtFNoua.Enabled = false;
+                btnModificareF.Enabled = false;
+            }
+            else
+            {
+                // Dezactivam
+                lblIntroducereF.Enabled = false;
+                txtIntroducereF.Enabled = false;
+                btnIntroducereF.Enabled = false;
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* ---------------------- Activam campurile prin rdoModificareGD ------------------------------------------------- */
+        private void rdoModificareF_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdoModificareF.Checked)
+            {
+                // Activam
+                lblFVeche.Enabled = true;
+                lblFNoua.Enabled = true;
+                txtFVeche.Enabled = true;
+                txtFNoua.Enabled = true;
+
+                // Dezactivam
+                lblIntroducereF.Enabled = false;
+                txtIntroducereF.Enabled = false;
+                btnIntroducereF.Enabled = false;
+            }
+            else
+            {
+                // Dezactivam
+                lblFVeche.Enabled = false;
+                lblFNoua.Enabled = false;
+                txtFVeche.Enabled = false;
+                txtFNoua.Enabled = false;
+                btnModificareF.Enabled = false;
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
         /* -------------------- Functii pentru dgvFacultati -------------------------------------------------------------- */
         public void IncarcaredgvFacultati()
         {
@@ -254,9 +407,20 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     }
                 }
             }
+
+            // Efectuam metoda:
+            if (System.Windows.Forms.Application.OpenForms["frmGCD"] != null)
+            {
+                (System.Windows.Forms.Application.OpenForms["frmGCD"] as frmGCD).VerificareFacultati();
+            }
+
+            // Apoi metoda:
+            if (System.Windows.Forms.Application.OpenForms["frmGCD"] != null)
+            {
+                (System.Windows.Forms.Application.OpenForms["frmGCD"] as frmGCD).AprobareVerifDGFM();
+            }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-
         /* ----------------- Eveniment de tip click pentru btnIntroducereF ----------------------------------------------- */
         private void btnIntroducereF_Click(object sender, EventArgs e)
         {
@@ -268,7 +432,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     comanda_dgvFacultate.Connection = conexiune_dgvFacultate;
                     comanda_dgvFacultate.CommandType = CommandType.Text;
                     comanda_dgvFacultate.CommandText = "INSERT INTO facultati VALUES (?)";
-                    comanda_dgvFacultate.Parameters.AddWithValue("@facultatif", OdbcType.NVarChar).Value = txtFacultate.Text;
+                    comanda_dgvFacultate.Parameters.AddWithValue("@facultatif", OdbcType.NVarChar).Value = txtIntroducereF.Text;
 
                     try
                     {
@@ -286,15 +450,14 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 }
             }
 
-            // Actualizam "IncarcaredgvFacultati"
+            // Actualizam
             IncarcaredgvFacultati();
 
-            // Golim campul "IncarcaredgvFacultati"
-            txtFacultate.Clear();
+            // Golim campul
+            txtIntroducereF.Clear();
         }
-
         /* ----------------- Eveniment de tip click pentru btnStergereF -------------------------------------------------- */
-        private void btnStergereF_Click(object sender, EventArgs e)
+        private void btnModificareF_Click(object sender, EventArgs e)
         {
             using (OdbcConnection conexiune_dgvFacultate = new OdbcConnection(sircon_RelIntDB))
             {
@@ -303,8 +466,10 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 {
                     comanda_dgvFacultate.Connection = conexiune_dgvFacultate;
                     comanda_dgvFacultate.CommandType = CommandType.Text;
-                    comanda_dgvFacultate.CommandText = "DELETE FROM facultati WHERE facultatif = ?";
-                    comanda_dgvFacultate.Parameters.AddWithValue("@facultatif", OdbcType.NVarChar).Value = txtFacultate.Text;
+                    //comanda_dgvFacultate.CommandText = "DELETE FROM facultati WHERE facultatif = ?";
+                    comanda_dgvFacultate.CommandText = "UPDATE facultati SET facultatif = ? WHERE facultatif = ?";
+                    comanda_dgvFacultate.Parameters.AddWithValue("@facultatif", OdbcType.NVarChar).Value = txtFNoua.Text;
+                    comanda_dgvFacultate.Parameters.AddWithValue("@facultatif", OdbcType.NVarChar).Value = txtFVeche.Text;
 
                     try
                     {
@@ -322,28 +487,39 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 }
             }
 
-            // Actualizam "dgvGradDidactic"
+            // Actualizam
             IncarcaredgvFacultati();
 
-            // Golim campul "txtGradDidactic"
-            txtFacultate.Clear();
+            // Golim campurile
+            txtFVeche.Clear();
+            txtFNoua.Clear();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-
         /* ----------------- Eveniment de tip TextChanged pentru caseta txtFacultate ------------------------------------- */
-        private void txtFacultate_TextChanged(object sender, EventArgs e)
+        private void txtIntroducereF_TextChanged(object sender, EventArgs e)
         {
-            if (txtFacultate.Text == string.Empty)
+            if (txtIntroducereF.Text != string.Empty)
             {
-                // Dezactivam urmatoarele
-                btnIntroducereF.Enabled = false;
-                btnStergereF.Enabled = false;
+                // Activam
+                btnIntroducereF.Enabled = true;
             }
             else
             {
-                // Activam urmatoarele
-                btnIntroducereF.Enabled = true;
-                btnStergereF.Enabled = true;
+                // Dezactivam
+                btnIntroducereF.Enabled = false;
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* --------------------- Evenimentul casetei txtFNoua ------------------------------------------------------------ */
+        private void txtFNoua_TextChanged(object sender, EventArgs e)
+        {
+            if (txtFNoua.Text != string.Empty)
+            {
+                btnModificareF.Enabled = true;
+            }
+            else
+            {
+                btnModificareF.Enabled = false;
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
@@ -356,8 +532,59 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
+        /* ------------------- Activam Campurile prin rdoIntroducereGD --------------------------------------------------- */
+        private void rdoIntroducereM_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdoIntroducereM.Checked)
+            {
+                // Activam
+                lblIntroducereM.Enabled = true;
+                txtIntroducereM.Enabled = true;
 
-        /* -------------------- Functii pentru dgvFacultati -------------------------------------------------------------- */
+                // Dezactivam
+                lblMVeche.Enabled = false;
+                lblMNoua.Enabled = false;
+                txtMVeche.Enabled = false;
+                txtMNoua.Enabled = false;
+                btnModificareM.Enabled = false;
+            }
+            else
+            {
+                // Dezactivam
+                lblIntroducereM.Enabled = false;
+                txtIntroducereM.Enabled = false;
+                btnIntroducereM.Enabled = false;
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* ---------------------- Activam campurile prin rdoModificareGD ------------------------------------------------- */
+        private void rdoModificareM_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdoModificareM.Checked)
+            {
+                // Activam
+                lblMVeche.Enabled = true;
+                lblMNoua.Enabled = true;
+                txtMVeche.Enabled = true;
+                txtMNoua.Enabled = true;
+
+                // Dezactivam
+                lblIntroducereM.Enabled = false;
+                txtIntroducereM.Enabled = false;
+                btnIntroducereM.Enabled = false;
+            }
+            else
+            {
+                // Dezactivam
+                lblMVeche.Enabled = false;
+                lblMNoua.Enabled = false;
+                txtMVeche.Enabled = false;
+                txtMNoua.Enabled = false;
+                btnModificareM.Enabled = false;
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* -------------------- Functii pentru dgvMonezi ----------------------------------------------------------------- */
         public void IncarcaredgvMonezi()
         {
             using (OdbcConnection conexiune_dgvMoneda = new OdbcConnection(sircon_RelIntDB))
@@ -395,10 +622,21 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     }
                 }
             }
+
+            // Efectuam metoda:
+            if (System.Windows.Forms.Application.OpenForms["frmGCD"] != null)
+            {
+                (System.Windows.Forms.Application.OpenForms["frmGCD"] as frmGCD).VerificareMonezi();
+            }
+
+            // Apoi metoda:
+            if (System.Windows.Forms.Application.OpenForms["frmGCD"] != null)
+            {
+                (System.Windows.Forms.Application.OpenForms["frmGCD"] as frmGCD).AprobareVerifDGFM();
+            }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-
-        /* ----------------- Eveniment de tip click pentru btnIntroducereF ----------------------------------------------- */
+        /* ----------------- Eveniment de tip click pentru btnIntroducereM ----------------------------------------------- */
         private void btnIntroducereM_Click(object sender, EventArgs e)
         {
             using (OdbcConnection conexiune_dgvMoneda = new OdbcConnection(sircon_RelIntDB))
@@ -409,7 +647,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     comanda_dgvMoneda.Connection = conexiune_dgvMoneda;
                     comanda_dgvMoneda.CommandType = CommandType.Text;
                     comanda_dgvMoneda.CommandText = "INSERT INTO monezi VALUES (?)";
-                    comanda_dgvMoneda.Parameters.AddWithValue("@monezim", OdbcType.NVarChar).Value = txtMoneda.Text;
+                    comanda_dgvMoneda.Parameters.AddWithValue("@monezim", OdbcType.NVarChar).Value = txtIntroducereM.Text;
 
                     try
                     {
@@ -431,11 +669,10 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             IncarcaredgvMonezi();
 
             // Golim campul "txtGradDidactic"
-            txtMoneda.Clear();
+            txtIntroducereM.Clear();
         }
-
-        /* ----------------- Eveniment de tip click pentru btnStergereF -------------------------------------------------- */
-        private void btnStergereM_Click(object sender, EventArgs e)
+        /* ----------------- Eveniment de tip click pentru btnStergereM -------------------------------------------------- */
+        private void btnModificareM_Click(object sender, EventArgs e)
         {
             using (OdbcConnection conexiune_dgvMoneda = new OdbcConnection(sircon_RelIntDB))
             {
@@ -444,8 +681,9 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 {
                     comanda_dgvMoneda.Connection = conexiune_dgvMoneda;
                     comanda_dgvMoneda.CommandType = CommandType.Text;
-                    comanda_dgvMoneda.CommandText = "DELETE FROM monezi WHERE monezim = ?";
-                    comanda_dgvMoneda.Parameters.AddWithValue("@monezim", OdbcType.NVarChar).Value = txtMoneda.Text;
+                    comanda_dgvMoneda.CommandText = "UPDATE monezi SET monezim = ? WHERE monezim = ?";
+                    comanda_dgvMoneda.Parameters.AddWithValue("@monezim", OdbcType.NVarChar).Value = txtMNoua.Text;
+                    comanda_dgvMoneda.Parameters.AddWithValue("@monezim", OdbcType.NVarChar).Value = txtMVeche.Text;
 
                     try
                     {
@@ -463,30 +701,49 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 }
             }
 
-            // Actualizam "dgvGradDidactic"
+            // Actualizam
             IncarcaredgvMonezi();
 
-            // Golim campul "txtGradDidactic"
-            txtMoneda.Clear();
+            // Golim campurile
+            txtMVeche.Clear();
+            txtMNoua.Clear();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-
-        /* ----------------- Eveniment de tip TextChanged pentru caseta txtFacultate ------------------------------------- */
-        private void txtMoneda_TextChanged(object sender, EventArgs e)
+        /* ----------------- Eveniment de tip TextChanged pentru caseta txtMonezi ---------------------------------------- */
+        private void txtIntroducereM_TextChanged(object sender, EventArgs e)
         {
-            if (txtMoneda.Text == string.Empty)
+            if (txtIntroducereM.Text != string.Empty)
             {
-                // Dezactivam urmatoarele
-                btnIntroducereM.Enabled = false;
-                btnStergereM.Enabled = false;
+                // Activam
+                btnIntroducereM.Enabled = true;
             }
             else
             {
-                // Activam urmatoarele
-                btnIntroducereM.Enabled = true;
-                btnStergereM.Enabled = true;
+                // Dezactivam
+                btnIntroducereM.Enabled = false;
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
+        /* ----------------- Eveniment de tip TextChanged pentru caseta txtMonezi ---------------------------------------- */
+        private void txtMNoua_TextChanged(object sender, EventArgs e)
+        {
+            if (txtIntroducereM.Text != string.Empty)
+            {
+                // Activam
+                btnModificareM.Enabled = true;
+            }
+            else
+            {
+                // Dezactivam
+                btnModificareM.Enabled = false;
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
     }
 }

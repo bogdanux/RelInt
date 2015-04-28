@@ -55,7 +55,9 @@
             this.btnGCDDespreApp = new System.Windows.Forms.ToolStripMenuItem();
             this.StatusGCD = new System.Windows.Forms.StatusStrip();
             this.tsStatusUltimaInregistrare = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tsStatusDeCe = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tsStatusDeCeGD = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tsStatusDeCeF = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tsStatusDeCeM = new System.Windows.Forms.ToolStripStatusLabel();
             this.mnuBaraMeniu.SuspendLayout();
             this.StatusGCD.SuspendLayout();
             this.SuspendLayout();
@@ -267,7 +269,9 @@
             // 
             this.StatusGCD.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsStatusUltimaInregistrare,
-            this.tsStatusDeCe});
+            this.tsStatusDeCeM,
+            this.tsStatusDeCeF,
+            this.tsStatusDeCeGD});
             this.StatusGCD.Location = new System.Drawing.Point(0, 439);
             this.StatusGCD.Name = "StatusGCD";
             this.StatusGCD.Size = new System.Drawing.Size(784, 22);
@@ -281,12 +285,26 @@
             this.tsStatusUltimaInregistrare.Name = "tsStatusUltimaInregistrare";
             this.tsStatusUltimaInregistrare.Size = new System.Drawing.Size(0, 17);
             // 
-            // tsStatusDeCe
+            // tsStatusDeCeGD
             // 
-            this.tsStatusDeCe.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.tsStatusDeCe.ForeColor = System.Drawing.Color.Purple;
-            this.tsStatusDeCe.Name = "tsStatusDeCe";
-            this.tsStatusDeCe.Size = new System.Drawing.Size(0, 17);
+            this.tsStatusDeCeGD.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.tsStatusDeCeGD.ForeColor = System.Drawing.Color.Purple;
+            this.tsStatusDeCeGD.Name = "tsStatusDeCeGD";
+            this.tsStatusDeCeGD.Size = new System.Drawing.Size(0, 17);
+            // 
+            // tsStatusDeCeF
+            // 
+            this.tsStatusDeCeF.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.tsStatusDeCeF.ForeColor = System.Drawing.Color.Purple;
+            this.tsStatusDeCeF.Name = "tsStatusDeCeF";
+            this.tsStatusDeCeF.Size = new System.Drawing.Size(0, 17);
+            // 
+            // tsStatusDeCeM
+            // 
+            this.tsStatusDeCeM.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.tsStatusDeCeM.ForeColor = System.Drawing.Color.Purple;
+            this.tsStatusDeCeM.Name = "tsStatusDeCeM";
+            this.tsStatusDeCeM.Size = new System.Drawing.Size(0, 17);
             // 
             // frmGCD
             // 
@@ -337,13 +355,15 @@
         private System.Windows.Forms.ToolStripMenuItem mnuSetari;
         private System.Windows.Forms.ToolStripMenuItem btnGCDTipIntrari;
         private System.Windows.Forms.ToolStripMenuItem btnManualUtilizare;
-        private System.Windows.Forms.ToolStripStatusLabel tsStatusDeCe;
+        private System.Windows.Forms.ToolStripStatusLabel tsStatusDeCeGD;
         public System.Windows.Forms.ToolStripMenuItem btnGCDIntroducereFormular;
         public System.Windows.Forms.ToolStripMenuItem btnGCDModificareFormular;
         private System.Windows.Forms.ToolStripMenuItem btnGCDModificareBECA;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripMenuItem btnGCDEditareRectori;
         public System.Windows.Forms.ToolStripMenuItem btnGCDRaportCereri;
+        private System.Windows.Forms.ToolStripStatusLabel tsStatusDeCeF;
+        private System.Windows.Forms.ToolStripStatusLabel tsStatusDeCeM;
     }
 }
 
