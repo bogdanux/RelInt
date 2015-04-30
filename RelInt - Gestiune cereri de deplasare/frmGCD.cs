@@ -688,8 +688,8 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             frmEditareRector.Show();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-        /* --------------------------------------------------------------------------------------------------------------- */
-        private void btnGCDReset_Click(object sender, EventArgs e)
+        /* ------------------- Deschiderea formularului frmResetareAplicatie --------------------------------------------- */
+        private void btnResetare_Click(object sender, EventArgs e)
         {
             // Apelam formularul "frmResetareAplicatie"
             Form frmResetareAplicatie = new frmResetareAplicatie();
@@ -709,6 +709,29 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
             // Afisam "frmEditareRector"
             frmResetareAplicatie.Show();
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* -------------------- Deschiderea formularului frmCopieDeSiguranta --------------------------------------------- */
+        private void btnCopieSiguranta_Click(object sender, EventArgs e)
+        {
+            // Apelam formularul "frmCopieDeSiguranta"
+            Form frmCopieDeSiguranta = new frmCopieDeSiguranta();
+
+            // Facem "frmResetareAplicatie" copil al "frmGCD"
+            frmCopieDeSiguranta.MdiParent = this;
+
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form.GetType() == typeof(frmCopieDeSiguranta))
+                {
+                    form.WindowState = FormWindowState.Normal;
+                    form.Activate();
+                    return;
+                }
+            }
+
+            // Afisam "frmEditareRector"
+            frmCopieDeSiguranta.Show();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 

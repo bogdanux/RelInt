@@ -53,12 +53,15 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.btnGCDRealizatori = new System.Windows.Forms.ToolStripMenuItem();
             this.btnGCDDespreApp = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnGCDAsistenta = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnResetare = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnCopieSiguranta = new System.Windows.Forms.ToolStripMenuItem();
             this.StatusGCD = new System.Windows.Forms.StatusStrip();
             this.tsStatusUltimaInregistrare = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsStatusDeCeGD = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsStatusDeCeF = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsStatusDeCeM = new System.Windows.Forms.ToolStripStatusLabel();
-            this.btnGCDReset = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuBaraMeniu.SuspendLayout();
             this.StatusGCD.SuspendLayout();
             this.SuspendLayout();
@@ -234,7 +237,9 @@
             this.btnManualUtilizare,
             this.toolStripSeparator2,
             this.btnGCDRealizatori,
-            this.btnGCDDespreApp});
+            this.btnGCDDespreApp,
+            this.toolStripSeparator5,
+            this.btnGCDAsistenta});
             this.mnuAjutor.Name = "mnuAjutor";
             this.mnuAjutor.Size = new System.Drawing.Size(52, 26);
             this.mnuAjutor.Text = "Ajut&or";
@@ -261,13 +266,40 @@
             // 
             // btnGCDDespreApp
             // 
-            this.btnGCDDespreApp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnGCDReset});
             this.btnGCDDespreApp.Name = "btnGCDDespreApp";
             this.btnGCDDespreApp.ShortcutKeys = System.Windows.Forms.Keys.F3;
             this.btnGCDDespreApp.Size = new System.Drawing.Size(204, 22);
             this.btnGCDDespreApp.Text = "&Despre RelInt - GCdD";
             this.btnGCDDespreApp.Click += new System.EventHandler(this.btnGCDDespreApp_Click);
+            // 
+            // btnGCDAsistenta
+            // 
+            this.btnGCDAsistenta.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnResetare,
+            this.btnCopieSiguranta});
+            this.btnGCDAsistenta.Name = "btnGCDAsistenta";
+            this.btnGCDAsistenta.Size = new System.Drawing.Size(204, 22);
+            this.btnGCDAsistenta.Text = "&Asistență";
+            // 
+            // btnResetare
+            // 
+            this.btnResetare.Name = "btnResetare";
+            this.btnResetare.ShortcutKeys = ((System.Windows.Forms.Keys)((((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
+            | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.Delete)));
+            this.btnResetare.Size = new System.Drawing.Size(293, 22);
+            this.btnResetare.Text = "Resetare bază de date";
+            this.btnResetare.Click += new System.EventHandler(this.btnResetare_Click);
+            // 
+            // btnCopieSiguranta
+            // 
+            this.btnCopieSiguranta.Name = "btnCopieSiguranta";
+            this.btnCopieSiguranta.ShortcutKeys = ((System.Windows.Forms.Keys)((((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
+            | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.C)));
+            this.btnCopieSiguranta.Size = new System.Drawing.Size(293, 22);
+            this.btnCopieSiguranta.Text = "Copie de siguranță";
+            this.btnCopieSiguranta.Click += new System.EventHandler(this.btnCopieSiguranta_Click);
             // 
             // StatusGCD
             // 
@@ -310,15 +342,10 @@
             this.tsStatusDeCeM.Name = "tsStatusDeCeM";
             this.tsStatusDeCeM.Size = new System.Drawing.Size(0, 17);
             // 
-            // btnGCDReset
+            // toolStripSeparator5
             // 
-            this.btnGCDReset.Name = "btnGCDReset";
-            this.btnGCDReset.ShortcutKeys = ((System.Windows.Forms.Keys)((((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
-            | System.Windows.Forms.Keys.Shift) 
-            | System.Windows.Forms.Keys.Delete)));
-            this.btnGCDReset.Size = new System.Drawing.Size(273, 22);
-            this.btnGCDReset.Text = "Resetare Aplicație";
-            this.btnGCDReset.Click += new System.EventHandler(this.btnGCDReset_Click);
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(201, 6);
             // 
             // frmGCD
             // 
@@ -377,7 +404,10 @@
         public System.Windows.Forms.ToolStripMenuItem btnGCDRaportCereri;
         private System.Windows.Forms.ToolStripStatusLabel tsStatusDeCeM;
         private System.Windows.Forms.ToolStripStatusLabel tsStatusDeCeF;
-        private System.Windows.Forms.ToolStripMenuItem btnGCDReset;
+        private System.Windows.Forms.ToolStripMenuItem btnGCDAsistenta;
+        private System.Windows.Forms.ToolStripMenuItem btnResetare;
+        private System.Windows.Forms.ToolStripMenuItem btnCopieSiguranta;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
     }
 }
 
