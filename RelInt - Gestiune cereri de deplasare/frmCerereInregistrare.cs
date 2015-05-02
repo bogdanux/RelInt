@@ -29,8 +29,70 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
             // Resetam controalele
             MetodaNegareControale();
+
+            // Preluam Numarul de inregistrare
+            MetodaPreluareNrInregistrare();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+        /* --------------------------------------------------------------------------------------------------------------- */
+        private void MetodaPreluareNrInregistrare()
+        {
+            // Dezactivam
+            txtNrInregistrare.Enabled = false;
+
+            // Verificam in BD si afisam
+            using (OdbcConnection conexiune_nrInregistrare = new OdbcConnection(sircon_RelIntDB))
+            {           // Comanda
+                using (OdbcCommand comanda_nrInregistrare = new OdbcCommand())
+                {
+                    comanda_nrInregistrare.Connection = conexiune_nrInregistrare;
+                    comanda_nrInregistrare.CommandType = CommandType.Text;
+                    comanda_nrInregistrare.CommandText = "SELECT MAX(nrinregistrarec) FROM cereri";
+
+                    OdbcDataReader cititor_nrInregistrare;
+
+                    try
+                    {
+                        conexiune_nrInregistrare.Open();
+                        cititor_nrInregistrare = comanda_nrInregistrare.ExecuteReader();
+
+                        while (cititor_nrInregistrare.Read())
+                        {
+                            if (cititor_nrInregistrare[0].ToString() == "")
+                            {
+                                // Afisam
+                                txtNrInregistrare.Text = "1";
+                            }
+                            else
+                            {
+                                // Calculam
+                                decimal nrinregistrarecalculat = cititor_nrInregistrare.GetDecimal(0) + 1;
+
+                                // Afisam
+                                txtNrInregistrare.Text = nrinregistrarecalculat.ToString();
+                            }
+                        }
+                    }
+                    catch (Exception exnrInregistrare)
+                    {
+                        MessageBox.Show(exnrInregistrare.Message);
+                    } // Ne deconectam
+                    finally
+                    {
+                        conexiune_nrInregistrare.Close();
+                    }
+                }
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
 
 
 
@@ -295,9 +357,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     MessageBox.Show("        Vă rugăm introduceți doar numere în această casetă de text.");
                     break;
             }
-
-            // Inregistram modificarea campului
-            txtNrInregistrareSchimbat = true;
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
@@ -584,7 +643,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         private void SalvareFormular()
         {
             // Daca caseta "txtNrInregistrare" nu este goala
-            if (txtNrInregistrare.Text != string.Empty && cmbGradDidactic.SelectedIndex != -1 && cmbFacultatea.SelectedIndex != -1 && cmbMoneda1.SelectedIndex != -1 && cmbMoneda2.SelectedIndex != -1 && cmbMoneda3.SelectedIndex != -1 && cmbMoneda4.SelectedIndex != -1)
+            if (cmbGradDidactic.SelectedIndex != -1 && cmbFacultatea.SelectedIndex != -1 && cmbMoneda1.SelectedIndex != -1 && cmbMoneda2.SelectedIndex != -1 && cmbMoneda3.SelectedIndex != -1 && cmbMoneda4.SelectedIndex != -1)
             {
                 // Lucreaza asta
                 txtTotalDePlata.Text = CalculTotal();
@@ -633,13 +692,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             // Daca caseta "txtNrInregistrare" este goala
             else 
             {
-                if (txtNrInregistrare.Text == string.Empty)
-                {
-                    // Afiseaza eroarea
-                    MessageBox.Show(
-                        "               Nu ați completat caseta \"Număr Înregistrare\"! \n                              Vă rugăm să o completați.");
-                }
-                else if (cmbGradDidactic.SelectedIndex == -1)
+                if (cmbGradDidactic.SelectedIndex == -1)
                 {
                     // Afiseaza eroarea
                     MessageBox.Show(
@@ -708,8 +761,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         private void CevaSchimbat()
         {
             // Daca vreuna din variabilele urmatoare este adevarata atunci
-            if (txtNrInregistrareSchimbat == true 
-                || txtSubsemnatulSchimbat == true 
+            if (txtSubsemnatulSchimbat == true 
                 || cmbGradDidacticSchimbat == true 
                 || cmbFacultateaSchimbat == true 
                 || txtDepartamentSchimbat == true 
