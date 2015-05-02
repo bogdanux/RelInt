@@ -53,6 +53,7 @@
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.btnGCDRealizatori = new System.Windows.Forms.ToolStripMenuItem();
             this.btnGCDDespreApp = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.btnGCDAsistenta = new System.Windows.Forms.ToolStripMenuItem();
             this.btnResetare = new System.Windows.Forms.ToolStripMenuItem();
             this.btnCopieSiguranta = new System.Windows.Forms.ToolStripMenuItem();
@@ -61,7 +62,6 @@
             this.tsStatusDeCeGD = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsStatusDeCeF = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsStatusDeCeM = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.mnuBaraMeniu.SuspendLayout();
             this.StatusGCD.SuspendLayout();
             this.SuspendLayout();
@@ -272,6 +272,11 @@
             this.btnGCDDespreApp.Text = "&Despre RelInt - GCdD";
             this.btnGCDDespreApp.Click += new System.EventHandler(this.btnGCDDespreApp_Click);
             // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(201, 6);
+            // 
             // btnGCDAsistenta
             // 
             this.btnGCDAsistenta.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -342,11 +347,6 @@
             this.tsStatusDeCeM.Name = "tsStatusDeCeM";
             this.tsStatusDeCeM.Size = new System.Drawing.Size(0, 17);
             // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(201, 6);
-            // 
             // frmGCD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -363,6 +363,7 @@
             this.Name = "frmGCD";
             this.Text = "Gestiune Cereri de Deplasare";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmGCD_FormClosing);
             this.Load += new System.EventHandler(this.frmGCD_Load);
             this.mnuBaraMeniu.ResumeLayout(false);
             this.mnuBaraMeniu.PerformLayout();

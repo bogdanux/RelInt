@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -387,12 +389,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
-
-
-
-
-
-
+        
 
 
         /* ------------------- Evenimentul click al butonului "mnuIesire" ------------------------------------------------ */
@@ -770,5 +767,53 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+        /* --------------------------------------------------------------------------------------------------------------- */
+        private void frmGCD_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //var locatie = "D:\\RelInt-CopiiDeSiguranta";
+
+            //if (!Directory.Exists(locatie))
+            //{
+            //    string comanda_crearedosar = "mkdir D:\\RelInt-CopiiDeSiguranta";
+            //    Process process_crearedosar = new Process();
+            //    ProcessStartInfo startInfo_crearedosar = new ProcessStartInfo();
+            //    startInfo_crearedosar.WindowStyle = ProcessWindowStyle.Hidden;
+            //    startInfo_crearedosar.FileName = "cmd.exe";
+            //    startInfo_crearedosar.Arguments = "/user:Administrator cmd /K" + comanda_crearedosar;
+            //    startInfo_crearedosar.CreateNoWindow = false;
+            //    process_crearedosar.StartInfo = startInfo_crearedosar;
+            //    process_crearedosar.Start();
+            //    Directory.CreateDirectory(locatie);
+
+            //    try
+            //    {
+            //        // Scriem Fisierul
+            //        string comanda_CopieDeSiguranta = "\"C:\\Program Files\\PostgreSQL\\9.4\\bin\\pg_dump.exe\" -U postgres RelIntDB > D:\\RelInt-CopiiDeSiguranta\\CopieSiguranta-RelIntDB.sql";
+            //        Process processCopieDeSiguranta = new Process();
+            //        ProcessStartInfo startInfo_CopieDeSiguranta = new ProcessStartInfo();
+            //        startInfo_CopieDeSiguranta.WindowStyle = ProcessWindowStyle.Hidden;
+            //        startInfo_CopieDeSiguranta.FileName = "cmd.exe";
+            //        startInfo_CopieDeSiguranta.Arguments = "/user:Administrator cmd /K" + comanda_CopieDeSiguranta;
+            //        startInfo_CopieDeSiguranta.CreateNoWindow = false;
+            //        processCopieDeSiguranta.StartInfo = startInfo_CopieDeSiguranta;
+            //        processCopieDeSiguranta.Start();
+            //    }
+            //    catch (Exception exCopieDeSiguranta)
+            //    {
+            //        MessageBox.Show(exCopieDeSiguranta.Message);
+            //    }
+            //}
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
     }
 }
