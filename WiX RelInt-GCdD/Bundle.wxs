@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
+  
+  <Bundle Name="WiXRelIntGCdD" Version="1.15" Manufacturer="SIA-FEAA" UpgradeCode="18f8f5f5-32e6-4181-9478-2468832bda80">
+    
+    <BootstrapperApplicationRef Id="WixStandardBootstrapperApplication.RtfLicense" />
+
+    <Chain>
+      <!-- TODO: Define the list of chained packages. -->
+      <!-- <MsiPackage SourceFile="path\to\your.msi" /> -->
+    </Chain>
+  </Bundle>
+  
+  <Fragment>
+
+    <PackageGroup Id="Netfx45Full">
+      <ExePackage Id="Netfx45Full"
+                  DisplayName="Microsoft .NET Framework 4.5"
+                  Cache="yes"
+                  Compressed="yes"
+                  PerMachine="yes"
+                  Permanent="yes"
+                  Protocol="netfx4"
+                  Vital="yes"
+                  SourceFile="D:\RelInt\resurse\dotNetFx45_Full_setup.exe"
+                  InstallCommand="/passive /norestart"
+                  DetectCondition="netfx45FullVersion AND (NOT VersionNT64 OR Netfx4x64fullversion)" />
+    </PackageGroup>
+    
+    <util:RegistrySearch Id="Path"
+              Variable="UniqueId"
+              Root="HKLM,SOFTWARE\Microsoft\MyProduct\Unique Id\"
+              Key="Product"
+              Result="Value" />
+    <util:RegistrySearch
+        Variable="patchLevel"
+        Root="HKLM,SOFTWARE\Microsoft\MyProduct\[UniqueId]\Setup"
+        Key="PatchLevel"
+        Result="Exists"
+        After="Path" />
+
+    <PackageGroup Id="MyPackage">
+      <ExePackage
+        SourceFile="[sources]\packages\shared\MyPackage.exe"
+        DownloadURL="http://mywebdomain.com/?mypackage.exe"
+        InstallCommand="/q /ACTION=Install"
+        RepairCommand="/q ACTION=Repair /hideconsole"
+        UninstallCommand="/q ACTION=Uninstall /hideconsole"
+        InstallCondition="x86 = 1 AND OSVersion >= v5.0.5121.0 AND patchLevel = 0" />
+    </PackageGroup>
+  </Fragment>
+  
+</Wix>

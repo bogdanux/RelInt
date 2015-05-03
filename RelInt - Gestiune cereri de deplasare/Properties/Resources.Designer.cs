@@ -61,34 +61,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to -- Script Creare BD
-        ///
-        ///DROP TABLE IF EXISTS OrdineDeplasare;
-        ///DROP TABLE IF EXISTS Rectori;
-        ///DROP TABLE IF EXISTS ProRectori;
-        ///DROP TABLE IF EXISTS OreRecuperate;
-        ///DROP TABLE IF EXISTS ConditiiDePlata;
-        ///DROP TABLE IF EXISTS Cereri;
-        ///DROP TABLE IF EXISTS GradeDidactice;
-        ///DROP TABLE IF EXISTS Facultati;
-        ///DROP TABLE IF EXISTS Monezi;
-        ///
-        ///-------------------------------------
-        ///
-        ///-- Creare tabela GradeDidactice
-        ///CREATE TABLE GradeDidactice (
-        ///GradDidacticGD VARCHAR(50) CONSTRAINT pk_GradDidacticGD PRIMARY KEY
-        ///);
-        ///
-        ///-- Creare tabel [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string RelIntBD_CRPO {
-            get {
-                return ResourceManager.GetString("RelIntBD_CRPO", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap UAIC_logo {
