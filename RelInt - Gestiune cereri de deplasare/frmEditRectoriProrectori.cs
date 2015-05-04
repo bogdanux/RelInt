@@ -23,9 +23,9 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
             // Dezactivam urmatoarele
             btnAdaugaR.Enabled = false;
-            btnStergeR.Enabled = false;
+            btnModificaR.Enabled = false;
             btnAdaugaPR.Enabled = false;
-            btnStergePR.Enabled = false;
+            btnModificaPR.Enabled = false;
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
@@ -62,11 +62,10 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
+        
 
 
-
-
-        /* --------------- Metoda de incarcare a dgvRector --------------------------------------------------------------- */
+        
         private void IncarcaredgvRector()
         {
             using (OdbcConnection conexiune_dgvRector = new OdbcConnection(sircon_RelIntDB))
@@ -106,7 +105,40 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-
+        /* --------------------------------------------------------------------------------------------------------------- */
+        private void rdoAdaugaR_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdoAdaugaR.Checked == true)
+            {
+                // Activam
+                lblNumeR.Enabled = true;
+                txtNumeR.Enabled = true;
+            }
+            else
+            {
+                // Dezactivam
+                lblNumeR.Enabled = false;
+                txtNumeR.Enabled = false;
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* --------------------------------------------------------------------------------------------------------------- */
+        private void rdoModificaR_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdoModificaR.Checked == true)
+            {
+                // Activam
+                lblNumeR.Enabled = true;
+                txtNumeR.Enabled = true;
+            }
+            else
+            {
+                // Dezactivam
+                lblNumeR.Enabled = false;
+                txtNumeR.Enabled = false;
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
         /* --------------------------------------------------------------------------------------------------------------- */
         private void btnAdaugaR_Click(object sender, EventArgs e)
         {
@@ -118,7 +150,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     comanda_dgvRector.Connection = conexiune_dgvRector;
                     comanda_dgvRector.CommandType = CommandType.Text;
                     comanda_dgvRector.CommandText = "INSERT INTO rectori VALUES (?, ?, ?)";
-                    comanda_dgvRector.Parameters.AddWithValue("@rector", OdbcType.NVarChar).Value = txtRector.Text;
+                    comanda_dgvRector.Parameters.AddWithValue("@rector", OdbcType.NVarChar).Value = txtNumeR.Text;
                     comanda_dgvRector.Parameters.AddWithValue("@emailr", OdbcType.NVarChar).Value = txtEmailR.Text;
                     comanda_dgvRector.Parameters.AddWithValue("@telefonr", OdbcType.Int).Value = txtTelefonR.Text;
 
@@ -138,18 +170,18 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 }
             }
 
-            // Actualizam "dgvGradDidactic"
+            // Actualizam
             IncarcaredgvRector();
 
-            // Golim campul "txtGradDidactic"
-            txtRector.Clear();
-            txtEmailR.Clear();
+            // Golim
             txtTelefonR.Clear();
+            txtEmailR.Clear();
+            txtNumeR.Clear();
+            rdoAdaugaR.Checked = false;
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-
         /* --------------------------------------------------------------------------------------------------------------- */
-        private void btnStergeR_Click(object sender, EventArgs e)
+        private void btnModificaR_Click(object sender, EventArgs e)
         {
             using (OdbcConnection conexiune_dgvRector = new OdbcConnection(sircon_RelIntDB))
             {
@@ -158,8 +190,11 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 {
                     comanda_dgvRector.Connection = conexiune_dgvRector;
                     comanda_dgvRector.CommandType = CommandType.Text;
-                    comanda_dgvRector.CommandText = "DELETE FROM rectori WHERE rector = ?";
-                    comanda_dgvRector.Parameters.AddWithValue("@rector", OdbcType.NVarChar).Value = txtRector.Text;
+                    comanda_dgvRector.CommandText = "UPDATE rectori SET rector = ?, emailr = ?, telefonr = ? WHERE rector = ?";
+                    comanda_dgvRector.Parameters.AddWithValue("@rector", OdbcType.NVarChar).Value = txtNumeRNou.Text;
+                    comanda_dgvRector.Parameters.AddWithValue("@emailr", OdbcType.NVarChar).Value = txtEMailRNou.Text;
+                    comanda_dgvRector.Parameters.AddWithValue("@telefonr", OdbcType.NVarChar).Value = vartxtTelefonRNou;
+                    comanda_dgvRector.Parameters.AddWithValue("@rector", OdbcType.NVarChar).Value = txtNumeR.Text;
 
                     try
                     {
@@ -177,34 +212,67 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 }
             }
 
-            // Actualizam "dgvGradDidactic"
+            // Actualizam
             IncarcaredgvRector();
 
-            // Golim campul "txtGradDidactic"
-            txtRector.Clear();
-            txtEmailR.Clear();
-            txtTelefonR.Clear();
+            // Efectuam
+            txtTelefonRNou.Clear();
+            txtEMailRNou.Clear();
+            txtNumeRNou.Clear();
+            txtNumeR.Clear();
+            rdoModificaR.Checked = false;
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-
         /* --------------------------------------------------------------------------------------------------------------- */
-        private void txtRector_TextChanged(object sender, EventArgs e)
+        private void txtNumeR_TextChanged(object sender, EventArgs e)
         {
-            if (txtRector.Text == string.Empty)
+            if (txtNumeR.Text != string.Empty && rdoModificaR.Checked == false)
             {
-                // Dezactivam urmatoarele
-                btnAdaugaR.Enabled = false;
-                btnStergeR.Enabled = false;
+                // Activam urmatoarele
+                lblEmailR.Enabled = true;
+                txtEmailR.Enabled = true;
             }
             else
             {
-                // Activam urmatoarele
-                btnAdaugaR.Enabled = true;
-                btnStergeR.Enabled = true;
+                // Dezactivam urmatoarele
+                lblEmailR.Enabled = false;
+                txtEmailR.Enabled = false;
+            }
+
+            if (rdoModificaR.Checked && txtNumeR.Text != string.Empty)
+            {
+                // Activam
+                lblNumeRNou.Enabled = true;
+                txtNumeRNou.Enabled = true;
+            }
+            else
+            {
+                // Dezactivam
+                lblNumeRNou.Enabled = false;
+                txtNumeRNou.Enabled = false;
             }
         }
-
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* --------------------------------------------------------------------------------------------------------------- */
+        private void txtEmailR_TextChanged(object sender, EventArgs e)
+        {
+            if (txtEmailR.Text != string.Empty)
+            {
+                // Activeaza
+                lblTelefonR.Enabled = true;
+                txtTelefonR.Enabled = true;
+            }
+            else
+            {
+                // Dezactiveaza
+                lblTelefonR.Enabled = false;
+                txtTelefonR.Enabled = false;
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* --------------------------------------------------------------------------------------------------------------- */
         int vartxtTelefonR;
+        /* --------------------------------------------------------------------------------------------------------------- */
         private void txtTelefonR_TextChanged(object sender, EventArgs e)
         {
             // Verificam daca valoarea din "txtNrInregistrare" este de tip int si daca da, o inregistram in "vartxtNrInregistrare"
@@ -219,8 +287,85 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     MessageBox.Show("        Vă rugăm introduceți doar numere în această casetă de text.");
                     break;
             }
+
+            if (txtTelefonR.Text != string.Empty)
+            {
+                // Activam
+                btnAdaugaR.Enabled = true;
+            }
+            else
+            {
+                // Dezactivam
+                btnAdaugaR.Enabled = false;
+            }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
+        /* --------------------------------------------------------------------------------------------------------------- */
+        private void txtNumeRNou_TextChanged(object sender, EventArgs e)
+        {
+            if (txtNumeRNou.Text != string.Empty)
+            {
+                // Activam
+                lblEMailRNou.Enabled = true;
+                txtEMailRNou.Enabled = true;
+            }
+            else
+            {
+                // Dezactivam
+                lblEMailRNou.Enabled = false;
+                txtEMailRNou.Enabled = false;
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* --------------------------------------------------------------------------------------------------------------- */
+        private void txtEMailRNou_TextChanged(object sender, EventArgs e)
+        {
+            if (txtEMailRNou.Text != string.Empty)
+            {
+                // Activam
+                lblTelefonRNou.Enabled = true;
+                txtTelefonRNou.Enabled = true;
+            }
+            else
+            {
+                // Dezactivam
+                lblTelefonRNou.Enabled = false;
+                txtTelefonRNou.Enabled = false;
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* --------------------------------------------------------------------------------------------------------------- */
+        int vartxtTelefonRNou;
+        /* --------------------------------------------------------------------------------------------------------------- */
+        private void txtTelefonRNou_TextChanged(object sender, EventArgs e)
+        {
+            // Verificam daca valoarea din "txtTelefonRNou" este de tip int si daca da, o inregistram in "vartxtTelefonRNou"
+            bool vartxtTelefonRNouEsteNumar = Int32.TryParse(txtTelefonRNou.Text, out vartxtTelefonRNou);
+
+            // Judecam si "sanctionam" la nevoie
+            switch (vartxtTelefonRNouEsteNumar || txtTelefonRNou.Text == string.Empty)
+            {
+                case false:
+                    // Golim casuta si afisam mesaj de eroare
+                    txtTelefonRNou.Clear();
+                    MessageBox.Show("        Vă rugăm introduceți doar numere în această casetă de text.");
+                    break;
+            }
+
+            if (txtTelefonRNou.Text != string.Empty)
+            {
+                // Activam
+                btnModificaR.Enabled = true;
+            }
+            else
+            {
+                // Dezactivam
+                btnModificaR.Enabled = false;
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
 
 
 
@@ -269,7 +414,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-
         /* --------------------------------------------------------------------------------------------------------------- */
         private void btnAdaugaPR_Click(object sender, EventArgs e)
         {
@@ -281,7 +425,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     comanda_dgvProRector.Connection = conexiune_dgvProRector;
                     comanda_dgvProRector.CommandType = CommandType.Text;
                     comanda_dgvProRector.CommandText = "INSERT INTO prorectori VALUES (?, ?, ?, ?)";
-                    comanda_dgvProRector.Parameters.AddWithValue("@prorector", OdbcType.NVarChar).Value = txtProRector.Text;
+                    comanda_dgvProRector.Parameters.AddWithValue("@prorector", OdbcType.NVarChar).Value = txtNumePR.Text;
                     comanda_dgvProRector.Parameters.AddWithValue("@emailp", OdbcType.NVarChar).Value = txtEMailPR.Text;
                     comanda_dgvProRector.Parameters.AddWithValue("@telefonp1", OdbcType.Int).Value = txtTelefonPR1.Text;
                     comanda_dgvProRector.Parameters.AddWithValue("@telefonp2", OdbcType.Int).Value = txtTelefonPR2.Text;
@@ -302,19 +446,19 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 }
             }
 
-            // Actualizam "dgvGradDidactic"
+            // Actualizam
             IncarcaredgvProRector();
 
-            // Golim campul "txtGradDidactic"
-            txtProRector.Clear();
-            txtEMailPR.Clear();
-            txtTelefonPR1.Clear();
+            // Golim
             txtTelefonPR2.Clear();
+            txtTelefonPR1.Clear();
+            txtEMailPR.Clear();
+            txtNumePR.Clear();
+            rdoAdaugaPR.Checked = false;
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-
         /* --------------------------------------------------------------------------------------------------------------- */
-        private void btnStergePR_Click(object sender, EventArgs e)
+        private void btnModificaPR_Click(object sender, EventArgs e)
         {
             using (OdbcConnection conexiune_dgvRector = new OdbcConnection(sircon_RelIntDB))
             {
@@ -323,8 +467,13 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 {
                     comanda_dgvRector.Connection = conexiune_dgvRector;
                     comanda_dgvRector.CommandType = CommandType.Text;
-                    comanda_dgvRector.CommandText = "DELETE FROM prorectori WHERE prorector = ?";
-                    comanda_dgvRector.Parameters.AddWithValue("@prorector", OdbcType.NVarChar).Value = txtProRector.Text;
+                    comanda_dgvRector.CommandText = "UPDATE prorectori SET prorector = ?, emailp = ?, telefonp1 = ?, telefonp2 = ? WHERE prorector = ?";
+                    comanda_dgvRector.Parameters.AddWithValue("@prorector", OdbcType.NVarChar).Value = txtNumePRNou.Text;
+                    comanda_dgvRector.Parameters.AddWithValue("@emailp", OdbcType.NVarChar).Value = txtEMailPRNou.Text;
+                    comanda_dgvRector.Parameters.AddWithValue("@telefonp1", OdbcType.Int).Value = vartxtTelefonPR1Nou;
+                    comanda_dgvRector.Parameters.AddWithValue("@telefonp2", OdbcType.Int).Value = vartxtTelefonPR2Nou;
+
+                    comanda_dgvRector.Parameters.AddWithValue("@prorector", OdbcType.NVarChar).Value = txtNumePR.Text;
 
                     try
                     {
@@ -342,35 +491,50 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 }
             }
 
-            // Actualizam "dgvGradDidactic"
+            // Actualizam
             IncarcaredgvProRector();
 
-            // Golim campul "txtGradDidactic"
-            txtProRector.Clear();
-            txtEMailPR.Clear();
-            txtTelefonPR1.Clear();
-            txtTelefonPR2.Clear();
+            // Golim
+            txtTelefonPR2Nou.Clear();
+            txtTelefonPR1Nou.Clear();
+            txtEMailPRNou.Clear();
+            txtNumePRNou.Clear();
+            rdoModificaPR.Checked = false;
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-
         /* --------------------------------------------------------------------------------------------------------------- */
-        private void txtProRector_TextChanged(object sender, EventArgs e)
+        private void txtNumePR_TextChanged(object sender, EventArgs e)
         {
-            if (txtProRector.Text == string.Empty)
+            if (txtNumePR.Text != string.Empty && rdoModificaPR.Checked == false)
             {
-                // Dezactivam urmatoarele
-                btnAdaugaPR.Enabled = false;
-                btnStergePR.Enabled = false;
+                // Activam urmatoarele
+                lblEMailPR.Enabled = true;
+                txtEMailPR.Enabled = true;
             }
             else
             {
-                // Activam urmatoarele
-                btnAdaugaPR.Enabled = true;
-                btnStergePR.Enabled = true;
+                // Dezactivam urmatoarele
+                lblEMailPR.Enabled = false;
+                txtEMailPR.Enabled = false;
+            }
+
+            if (txtNumePR.Text != string.Empty && rdoModificaPR.Checked)
+            {
+                // Activam
+                lblNumePRNou.Enabled = true;
+                txtNumePRNou.Enabled = true;
+            }
+            else
+            {
+                // Dezactivam
+                lblNumePRNou.Enabled = false;
+                txtNumePRNou.Enabled = false;
             }
         }
-
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* --------------------------------------------------------------------------------------------------------------- */
         int vartxtTelefonPR1;
+        /* --------------------------------------------------------------------------------------------------------------- */
         private void txtTelefonPR1_TextChanged(object sender, EventArgs e)
         {
             // Verificam daca valoarea din "txtNrInregistrare" este de tip int si daca da, o inregistram in "vartxtNrInregistrare"
@@ -385,9 +549,24 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     MessageBox.Show("        Vă rugăm introduceți doar numere în această casetă de text.");
                     break;
             }
-        }
 
+            if (txtTelefonPR1.Text != string.Empty)
+            {
+                // Activam
+                lblTelefonPR2.Enabled = true;
+                txtTelefonPR2.Enabled = true;
+            }
+            else
+            {
+                // Dezactivam
+                lblTelefonPR2.Enabled = false;
+                txtTelefonPR2.Enabled = false;
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* --------------------------------------------------------------------------------------------------------------- */
         int vartxtTelefonPR2;
+        /* --------------------------------------------------------------------------------------------------------------- */
         private void txtTelefonPR2_TextChanged(object sender, EventArgs e)
         {
             // Verificam daca valoarea din "txtNrInregistrare" este de tip int si daca da, o inregistram in "vartxtNrInregistrare"
@@ -402,7 +581,196 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     MessageBox.Show("        Vă rugăm introduceți doar numere în această casetă de text.");
                     break;
             }
+
+            if (txtTelefonPR2.Text != string.Empty)
+            {
+                // Activam
+                btnAdaugaPR.Enabled = true;
+            }
+            else
+            {
+                // Dezactivam
+                btnAdaugaPR.Enabled = false;
+            }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
+        /* --------------------------------------------------------------------------------------------------------------- */
+        private void rdoAdaugaPR_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdoAdaugaPR.Checked == true)
+            {
+                // Activeaza
+                lblNumePR.Enabled = true;
+                txtNumePR.Enabled = true;
+            }
+            else
+            {
+                // Dezactiveaza
+                txtNumePR.Clear();
+
+                lblEMailPR.Enabled = false;
+                txtEMailPR.Clear();
+                txtEMailPR.Enabled = false;
+
+                lblTelefonPR1.Enabled = false;
+                txtTelefonPR1.Clear();
+                txtTelefonPR1.Enabled = false;
+
+                lblTelefonPR2.Enabled = false;
+                txtTelefonPR2.Clear();
+                txtTelefonPR2.Enabled = false;
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* --------------------------------------------------------------------------------------------------------------- */
+        private void rdoModificaPR_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdoModificaPR.Checked == true)
+            {
+                // Activeaza
+                lblNumePR.Enabled = true;
+                txtNumePR.Enabled = true;
+            }
+            else
+            {
+                // Dezactiveaza
+                lblNumePRNou.Enabled = false;
+                txtNumePRNou.Clear();
+                txtNumePRNou.Enabled = false;
+
+                lblEMailPRNou.Enabled = false;
+                txtEMailPRNou.Clear();
+                txtEMailPRNou.Enabled = false;
+
+                lblTelefonPR1Nou.Enabled = false;
+                txtTelefonPR1Nou.Clear();
+                txtTelefonPR1Nou.Enabled = false;
+
+                lblTelefonPR2Nou.Enabled = false;
+                txtTelefonPR2Nou.Clear();
+                txtTelefonPR2Nou.Enabled = false;
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* --------------------------------------------------------------------------------------------------------------- */
+        private void txtEMailPR_TextChanged(object sender, EventArgs e)
+        {
+            if (txtEMailPR.Text != string.Empty)
+            {
+                // Activeaza
+                lblTelefonPR1.Enabled = true;
+                txtTelefonPR1.Enabled = true;
+            }
+            else
+            {
+                // Dezactiveaza
+                lblTelefonPR1.Enabled = false;
+                txtTelefonPR1.Enabled = false;
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* --------------------------------------------------------------------------------------------------------------- */
+        private void txtNumePRNou_TextChanged(object sender, EventArgs e)
+        {
+            if (txtNumePRNou.Text != string.Empty)
+            {
+                // Activeaza
+                lblEMailPRNou.Enabled = true;
+                txtEMailPRNou.Enabled = true;
+            }
+            else
+            {
+                // Dezactiveaza
+                lblEMailPRNou.Enabled = false;
+                txtEMailPRNou.Enabled = false;
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* --------------------------------------------------------------------------------------------------------------- */
+        private void txtEMailPRNou_TextChanged(object sender, EventArgs e)
+        {
+            if (txtEMailPRNou.Text != string.Empty)
+            {
+                // Activeaza
+                lblTelefonPR1Nou.Enabled = true;
+                txtTelefonPR1Nou.Enabled = true;
+            }
+            else
+            {
+                // Dezactiveaza
+                lblTelefonPR1Nou.Enabled = false;
+                txtTelefonPR1Nou.Enabled = false;
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* --------------------------------------------------------------------------------------------------------------- */
+        int vartxtTelefonPR1Nou;
+        /* --------------------------------------------------------------------------------------------------------------- */
+        private void txtTelefonPR1Nou_TextChanged(object sender, EventArgs e)
+        {
+            // Verificam daca valoarea din "txtTelefonPR1Nou" este de tip int si daca da, o inregistram in "vartxtTelefonPR1Nou"
+            bool vartxtTelefonPR1NouEsteNumar = Int32.TryParse(txtTelefonPR1Nou.Text, out vartxtTelefonPR1Nou);
+
+            // Judecam si "sanctionam" la nevoie
+            switch (vartxtTelefonPR1NouEsteNumar || txtTelefonPR1Nou.Text == string.Empty)
+            {
+                case false:
+                    // Golim casuta si afisam mesaj de eroare
+                    txtTelefonPR1Nou.Clear();
+                    MessageBox.Show("        Vă rugăm introduceți doar numere în această casetă de text.");
+                    break;
+            }
+
+            if (txtTelefonPR1Nou.Text != string.Empty)
+            {
+                // Activam
+                lblTelefonPR2Nou.Enabled = true;
+                txtTelefonPR2Nou.Enabled = true;
+            }
+            else
+            {
+                // Dezactivam
+                lblTelefonPR2Nou.Enabled = false;
+                txtTelefonPR2Nou.Enabled = false;
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* --------------------------------------------------------------------------------------------------------------- */
+        int vartxtTelefonPR2Nou;
+        /* --------------------------------------------------------------------------------------------------------------- */
+        private void txtTelefonPR2Nou_TextChanged(object sender, EventArgs e)
+        {
+            // Verificam daca valoarea din "txtTelefonPR1Nou" este de tip int si daca da, o inregistram in "vartxtTelefonPR2Nou"
+            bool vartxtTelefonPR2NouEsteNumar = Int32.TryParse(txtTelefonPR2Nou.Text, out vartxtTelefonPR2Nou);
+
+            // Judecam si "sanctionam" la nevoie
+            switch (vartxtTelefonPR2NouEsteNumar || txtTelefonPR2Nou.Text == string.Empty)
+            {
+                case false:
+                    // Golim casuta si afisam mesaj de eroare
+                    txtTelefonPR2Nou.Clear();
+                    MessageBox.Show("        Vă rugăm introduceți doar numere în această casetă de text.");
+                    break;
+            }
+
+            if (txtTelefonPR2Nou.Text != string.Empty)
+            {
+                // Activam
+                btnModificaPR.Enabled = true;
+            }
+            else
+            {
+                // Dezactivam
+                btnModificaPR.Enabled = false;
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
     }
 }

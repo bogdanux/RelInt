@@ -32,7 +32,6 @@
             this.mnuCerereBeca = new System.Windows.Forms.MenuStrip();
             this.btnFormular = new System.Windows.Forms.ToolStripMenuItem();
             this.btnSalvare = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnGenerarePDF = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.btnIesire = new System.Windows.Forms.ToolStripMenuItem();
             this.panouIdentificareODD = new System.Windows.Forms.Panel();
@@ -111,15 +110,19 @@
             this.txtDispunere1 = new System.Windows.Forms.TextBox();
             this.lblAlteDispuneriODD = new System.Windows.Forms.Label();
             this.panouSemnatariODD = new System.Windows.Forms.Panel();
+            this.lblCPNumeCoord = new System.Windows.Forms.Label();
+            this.lblCPNumeProj = new System.Windows.Forms.Label();
+            this.txtCPNumeCoord = new System.Windows.Forms.TextBox();
+            this.lblCoordProiect = new System.Windows.Forms.Label();
+            this.txtCPNumeProj = new System.Windows.Forms.TextBox();
             this.cmbRectorProrector = new System.Windows.Forms.ComboBox();
             this.rdoProRector = new System.Windows.Forms.RadioButton();
             this.rdoRector = new System.Windows.Forms.RadioButton();
-            this.lblCoordProiect = new System.Windows.Forms.Label();
-            this.txtCoordProiect = new System.Windows.Forms.TextBox();
             this.txtDFC = new System.Windows.Forms.TextBox();
             this.lblDFC = new System.Windows.Forms.Label();
             this.lblSemnatariODD = new System.Windows.Forms.Label();
             this.panouFinal = new System.Windows.Forms.Panel();
+            this.cmbCPGradDidactic = new System.Windows.Forms.ComboBox();
             this.mnuCerereBeca.SuspendLayout();
             this.panouIdentificareODD.SuspendLayout();
             this.panouContinutODD.SuspendLayout();
@@ -143,7 +146,6 @@
             // 
             this.btnFormular.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnSalvare,
-            this.btnGenerarePDF,
             this.toolStripSeparator1,
             this.btnIesire});
             this.btnFormular.Name = "btnFormular";
@@ -157,14 +159,6 @@
             this.btnSalvare.Size = new System.Drawing.Size(200, 22);
             this.btnSalvare.Text = "&Salvare formular";
             this.btnSalvare.Click += new System.EventHandler(this.btnSalvare_Click);
-            // 
-            // btnGenerarePDF
-            // 
-            this.btnGenerarePDF.Name = "btnGenerarePDF";
-            this.btnGenerarePDF.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-            this.btnGenerarePDF.Size = new System.Drawing.Size(200, 22);
-            this.btnGenerarePDF.Text = "&Generare PDF";
-            this.btnGenerarePDF.Click += new System.EventHandler(this.btnGenerarePDF_Click);
             // 
             // toolStripSeparator1
             // 
@@ -207,7 +201,6 @@
             // lblDataVeche
             // 
             this.lblDataVeche.AutoSize = true;
-            this.lblDataVeche.Enabled = false;
             this.lblDataVeche.Location = new System.Drawing.Point(459, 16);
             this.lblDataVeche.Name = "lblDataVeche";
             this.lblDataVeche.Size = new System.Drawing.Size(61, 13);
@@ -275,6 +268,7 @@
             this.txtNrUAICNou.Size = new System.Drawing.Size(100, 20);
             this.txtNrUAICNou.TabIndex = 9;
             this.txtNrUAICNou.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtNrUAICNou.TextChanged += new System.EventHandler(this.txtNrUAICNou_TextChanged);
             // 
             // lblNota
             // 
@@ -308,7 +302,6 @@
             // 
             // dpDataODDVeche
             // 
-            this.dpDataODDVeche.Enabled = false;
             this.dpDataODDVeche.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dpDataODDVeche.Location = new System.Drawing.Point(445, 32);
             this.dpDataODDVeche.Name = "dpDataODDVeche";
@@ -915,18 +908,63 @@
             // panouSemnatariODD
             // 
             this.panouSemnatariODD.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panouSemnatariODD.Controls.Add(this.cmbCPGradDidactic);
+            this.panouSemnatariODD.Controls.Add(this.lblCPNumeCoord);
+            this.panouSemnatariODD.Controls.Add(this.lblCPNumeProj);
+            this.panouSemnatariODD.Controls.Add(this.txtCPNumeCoord);
+            this.panouSemnatariODD.Controls.Add(this.lblCoordProiect);
+            this.panouSemnatariODD.Controls.Add(this.txtCPNumeProj);
             this.panouSemnatariODD.Controls.Add(this.cmbRectorProrector);
             this.panouSemnatariODD.Controls.Add(this.rdoProRector);
             this.panouSemnatariODD.Controls.Add(this.rdoRector);
-            this.panouSemnatariODD.Controls.Add(this.lblCoordProiect);
-            this.panouSemnatariODD.Controls.Add(this.txtCoordProiect);
             this.panouSemnatariODD.Controls.Add(this.txtDFC);
             this.panouSemnatariODD.Controls.Add(this.lblDFC);
             this.panouSemnatariODD.Controls.Add(this.lblSemnatariODD);
             this.panouSemnatariODD.Location = new System.Drawing.Point(12, 722);
             this.panouSemnatariODD.Name = "panouSemnatariODD";
-            this.panouSemnatariODD.Size = new System.Drawing.Size(642, 131);
+            this.panouSemnatariODD.Size = new System.Drawing.Size(642, 173);
             this.panouSemnatariODD.TabIndex = 33;
+            // 
+            // lblCPNumeCoord
+            // 
+            this.lblCPNumeCoord.AutoSize = true;
+            this.lblCPNumeCoord.Location = new System.Drawing.Point(213, 122);
+            this.lblCPNumeCoord.Name = "lblCPNumeCoord";
+            this.lblCPNumeCoord.Size = new System.Drawing.Size(252, 13);
+            this.lblCPNumeCoord.TabIndex = 15;
+            this.lblCPNumeCoord.Text = "Grad didactic                Nume Prenume Coordonator";
+            // 
+            // lblCPNumeProj
+            // 
+            this.lblCPNumeProj.AutoSize = true;
+            this.lblCPNumeProj.Location = new System.Drawing.Point(213, 77);
+            this.lblCPNumeProj.Name = "lblCPNumeProj";
+            this.lblCPNumeProj.Size = new System.Drawing.Size(87, 13);
+            this.lblCPNumeProj.TabIndex = 14;
+            this.lblCPNumeProj.Text = "Denumire proiect";
+            // 
+            // txtCPNumeCoord
+            // 
+            this.txtCPNumeCoord.Location = new System.Drawing.Point(312, 138);
+            this.txtCPNumeCoord.Name = "txtCPNumeCoord";
+            this.txtCPNumeCoord.Size = new System.Drawing.Size(169, 20);
+            this.txtCPNumeCoord.TabIndex = 13;
+            // 
+            // lblCoordProiect
+            // 
+            this.lblCoordProiect.AutoSize = true;
+            this.lblCoordProiect.Location = new System.Drawing.Point(109, 96);
+            this.lblCoordProiect.Name = "lblCoordProiect";
+            this.lblCoordProiect.Size = new System.Drawing.Size(101, 13);
+            this.lblCoordProiect.TabIndex = 11;
+            this.lblCoordProiect.Text = "Coordonator Proiect";
+            // 
+            // txtCPNumeProj
+            // 
+            this.txtCPNumeProj.Location = new System.Drawing.Point(216, 93);
+            this.txtCPNumeProj.Name = "txtCPNumeProj";
+            this.txtCPNumeProj.Size = new System.Drawing.Size(387, 20);
+            this.txtCPNumeProj.TabIndex = 12;
             // 
             // cmbRectorProrector
             // 
@@ -961,22 +999,6 @@
             this.rdoRector.UseVisualStyleBackColor = true;
             this.rdoRector.CheckedChanged += new System.EventHandler(this.rdoRector_CheckedChanged);
             // 
-            // lblCoordProiect
-            // 
-            this.lblCoordProiect.AutoSize = true;
-            this.lblCoordProiect.Location = new System.Drawing.Point(9, 82);
-            this.lblCoordProiect.Name = "lblCoordProiect";
-            this.lblCoordProiect.Size = new System.Drawing.Size(101, 13);
-            this.lblCoordProiect.TabIndex = 6;
-            this.lblCoordProiect.Text = "Coordonator Proiect";
-            // 
-            // txtCoordProiect
-            // 
-            this.txtCoordProiect.Location = new System.Drawing.Point(12, 98);
-            this.txtCoordProiect.Name = "txtCoordProiect";
-            this.txtCoordProiect.Size = new System.Drawing.Size(169, 20);
-            this.txtCoordProiect.TabIndex = 7;
-            // 
             // txtDFC
             // 
             this.txtDFC.Location = new System.Drawing.Point(427, 49);
@@ -1006,10 +1028,19 @@
             // panouFinal
             // 
             this.panouFinal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panouFinal.Location = new System.Drawing.Point(12, 867);
+            this.panouFinal.Location = new System.Drawing.Point(12, 912);
             this.panouFinal.Name = "panouFinal";
             this.panouFinal.Size = new System.Drawing.Size(642, 10);
             this.panouFinal.TabIndex = 34;
+            // 
+            // cmbCPGradDidactic
+            // 
+            this.cmbCPGradDidactic.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCPGradDidactic.FormattingEnabled = true;
+            this.cmbCPGradDidactic.Location = new System.Drawing.Point(215, 138);
+            this.cmbCPGradDidactic.Name = "cmbCPGradDidactic";
+            this.cmbCPGradDidactic.Size = new System.Drawing.Size(91, 21);
+            this.cmbCPGradDidactic.TabIndex = 16;
             // 
             // frmODDModificare
             // 
@@ -1096,8 +1127,6 @@
         private System.Windows.Forms.Label lblSemnatariODD;
         private System.Windows.Forms.Label lblDFC;
         private System.Windows.Forms.TextBox txtDFC;
-        private System.Windows.Forms.Label lblCoordProiect;
-        private System.Windows.Forms.TextBox txtCoordProiect;
         private System.Windows.Forms.RadioButton rdoRector;
         private System.Windows.Forms.RadioButton rdoProRector;
         private System.Windows.Forms.ComboBox cmbRectorProrector;
@@ -1105,7 +1134,6 @@
         private System.Windows.Forms.ToolStripMenuItem btnSalvare;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem btnIesire;
-        private System.Windows.Forms.ToolStripMenuItem btnGenerarePDF;
         private System.Windows.Forms.Button btnAcceseaza;
         private System.Windows.Forms.TextBox txtSubtotalCazare;
         private System.Windows.Forms.Label lblSubtotal;
@@ -1140,5 +1168,11 @@
         private System.Windows.Forms.Label lblDataNoua;
         private System.Windows.Forms.Label lblDataVeche;
         private System.Windows.Forms.Label lblNrVechi;
+        private System.Windows.Forms.Label lblCPNumeCoord;
+        private System.Windows.Forms.Label lblCPNumeProj;
+        private System.Windows.Forms.TextBox txtCPNumeCoord;
+        private System.Windows.Forms.Label lblCoordProiect;
+        private System.Windows.Forms.TextBox txtCPNumeProj;
+        private System.Windows.Forms.ComboBox cmbCPGradDidactic;
     }
 }

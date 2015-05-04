@@ -33,16 +33,34 @@
             this.btnIesire = new System.Windows.Forms.ToolStripMenuItem();
             this.tabProrector = new System.Windows.Forms.TabControl();
             this.ptRector = new System.Windows.Forms.TabPage();
+            this.lblTelefonRNou = new System.Windows.Forms.Label();
+            this.txtTelefonRNou = new System.Windows.Forms.TextBox();
+            this.lblEMailRNou = new System.Windows.Forms.Label();
+            this.txtEMailRNou = new System.Windows.Forms.TextBox();
+            this.lblNumeRNou = new System.Windows.Forms.Label();
+            this.txtNumeRNou = new System.Windows.Forms.TextBox();
+            this.rdoModificaR = new System.Windows.Forms.RadioButton();
+            this.rdoAdaugaR = new System.Windows.Forms.RadioButton();
             this.lblTelefonR = new System.Windows.Forms.Label();
             this.txtTelefonR = new System.Windows.Forms.TextBox();
             this.lblEmailR = new System.Windows.Forms.Label();
             this.txtEmailR = new System.Windows.Forms.TextBox();
-            this.lblRector = new System.Windows.Forms.Label();
-            this.btnStergeR = new System.Windows.Forms.Button();
+            this.lblNumeR = new System.Windows.Forms.Label();
+            this.btnModificaR = new System.Windows.Forms.Button();
             this.btnAdaugaR = new System.Windows.Forms.Button();
-            this.txtRector = new System.Windows.Forms.TextBox();
+            this.txtNumeR = new System.Windows.Forms.TextBox();
             this.dgvRector = new System.Windows.Forms.DataGridView();
             this.ptProrector = new System.Windows.Forms.TabPage();
+            this.rdoModificaPR = new System.Windows.Forms.RadioButton();
+            this.rdoAdaugaPR = new System.Windows.Forms.RadioButton();
+            this.lblTelefonPR2Nou = new System.Windows.Forms.Label();
+            this.txtTelefonPR2Nou = new System.Windows.Forms.TextBox();
+            this.lblTelefonPR1Nou = new System.Windows.Forms.Label();
+            this.txtTelefonPR1Nou = new System.Windows.Forms.TextBox();
+            this.lblEMailPRNou = new System.Windows.Forms.Label();
+            this.txtEMailPRNou = new System.Windows.Forms.TextBox();
+            this.lblNumePRNou = new System.Windows.Forms.Label();
+            this.txtNumePRNou = new System.Windows.Forms.TextBox();
             this.lblTelefonPR2 = new System.Windows.Forms.Label();
             this.txtTelefonPR2 = new System.Windows.Forms.TextBox();
             this.lblTelefonPR1 = new System.Windows.Forms.Label();
@@ -50,9 +68,9 @@
             this.lblEMailPR = new System.Windows.Forms.Label();
             this.txtEMailPR = new System.Windows.Forms.TextBox();
             this.lblNumePR = new System.Windows.Forms.Label();
-            this.btnStergePR = new System.Windows.Forms.Button();
+            this.btnModificaPR = new System.Windows.Forms.Button();
             this.btnAdaugaPR = new System.Windows.Forms.Button();
-            this.txtProRector = new System.Windows.Forms.TextBox();
+            this.txtNumePR = new System.Windows.Forms.TextBox();
             this.dgvProRector = new System.Windows.Forms.DataGridView();
             this.mnuEditareRector.SuspendLayout();
             this.tabProrector.SuspendLayout();
@@ -88,32 +106,120 @@
             this.tabProrector.Location = new System.Drawing.Point(4, 28);
             this.tabProrector.Name = "tabProrector";
             this.tabProrector.SelectedIndex = 0;
-            this.tabProrector.Size = new System.Drawing.Size(407, 388);
+            this.tabProrector.Size = new System.Drawing.Size(407, 521);
             this.tabProrector.TabIndex = 1;
             // 
             // ptRector
             // 
+            this.ptRector.Controls.Add(this.lblTelefonRNou);
+            this.ptRector.Controls.Add(this.txtTelefonRNou);
+            this.ptRector.Controls.Add(this.lblEMailRNou);
+            this.ptRector.Controls.Add(this.txtEMailRNou);
+            this.ptRector.Controls.Add(this.lblNumeRNou);
+            this.ptRector.Controls.Add(this.txtNumeRNou);
+            this.ptRector.Controls.Add(this.rdoModificaR);
+            this.ptRector.Controls.Add(this.rdoAdaugaR);
             this.ptRector.Controls.Add(this.lblTelefonR);
             this.ptRector.Controls.Add(this.txtTelefonR);
             this.ptRector.Controls.Add(this.lblEmailR);
             this.ptRector.Controls.Add(this.txtEmailR);
-            this.ptRector.Controls.Add(this.lblRector);
-            this.ptRector.Controls.Add(this.btnStergeR);
+            this.ptRector.Controls.Add(this.lblNumeR);
+            this.ptRector.Controls.Add(this.btnModificaR);
             this.ptRector.Controls.Add(this.btnAdaugaR);
-            this.ptRector.Controls.Add(this.txtRector);
+            this.ptRector.Controls.Add(this.txtNumeR);
             this.ptRector.Controls.Add(this.dgvRector);
             this.ptRector.Location = new System.Drawing.Point(4, 22);
             this.ptRector.Name = "ptRector";
             this.ptRector.Padding = new System.Windows.Forms.Padding(3);
-            this.ptRector.Size = new System.Drawing.Size(399, 362);
+            this.ptRector.Size = new System.Drawing.Size(399, 495);
             this.ptRector.TabIndex = 0;
             this.ptRector.Text = "Rector";
             this.ptRector.UseVisualStyleBackColor = true;
             // 
+            // lblTelefonRNou
+            // 
+            this.lblTelefonRNou.AutoSize = true;
+            this.lblTelefonRNou.Enabled = false;
+            this.lblTelefonRNou.Location = new System.Drawing.Point(62, 404);
+            this.lblTelefonRNou.Name = "lblTelefonRNou";
+            this.lblTelefonRNou.Size = new System.Drawing.Size(64, 13);
+            this.lblTelefonRNou.TabIndex = 16;
+            this.lblTelefonRNou.Text = "Telefon nou";
+            // 
+            // txtTelefonRNou
+            // 
+            this.txtTelefonRNou.Enabled = false;
+            this.txtTelefonRNou.Location = new System.Drawing.Point(132, 401);
+            this.txtTelefonRNou.Name = "txtTelefonRNou";
+            this.txtTelefonRNou.Size = new System.Drawing.Size(187, 20);
+            this.txtTelefonRNou.TabIndex = 13;
+            this.txtTelefonRNou.TextChanged += new System.EventHandler(this.txtTelefonRNou_TextChanged);
+            // 
+            // lblEMailRNou
+            // 
+            this.lblEMailRNou.AutoSize = true;
+            this.lblEMailRNou.Enabled = false;
+            this.lblEMailRNou.Location = new System.Drawing.Point(69, 378);
+            this.lblEMailRNou.Name = "lblEMailRNou";
+            this.lblEMailRNou.Size = new System.Drawing.Size(57, 13);
+            this.lblEMailRNou.TabIndex = 15;
+            this.lblEMailRNou.Text = "E-Mail nou";
+            // 
+            // txtEMailRNou
+            // 
+            this.txtEMailRNou.Enabled = false;
+            this.txtEMailRNou.Location = new System.Drawing.Point(132, 375);
+            this.txtEMailRNou.Name = "txtEMailRNou";
+            this.txtEMailRNou.Size = new System.Drawing.Size(187, 20);
+            this.txtEMailRNou.TabIndex = 12;
+            this.txtEMailRNou.TextChanged += new System.EventHandler(this.txtEMailRNou_TextChanged);
+            // 
+            // lblNumeRNou
+            // 
+            this.lblNumeRNou.AutoSize = true;
+            this.lblNumeRNou.Enabled = false;
+            this.lblNumeRNou.Location = new System.Drawing.Point(40, 352);
+            this.lblNumeRNou.Name = "lblNumeRNou";
+            this.lblNumeRNou.Size = new System.Drawing.Size(86, 13);
+            this.lblNumeRNou.TabIndex = 14;
+            this.lblNumeRNou.Text = "Nume rector nou";
+            // 
+            // txtNumeRNou
+            // 
+            this.txtNumeRNou.Enabled = false;
+            this.txtNumeRNou.Location = new System.Drawing.Point(132, 349);
+            this.txtNumeRNou.Name = "txtNumeRNou";
+            this.txtNumeRNou.Size = new System.Drawing.Size(187, 20);
+            this.txtNumeRNou.TabIndex = 11;
+            this.txtNumeRNou.TextChanged += new System.EventHandler(this.txtNumeRNou_TextChanged);
+            // 
+            // rdoModificaR
+            // 
+            this.rdoModificaR.AutoSize = true;
+            this.rdoModificaR.Location = new System.Drawing.Point(22, 378);
+            this.rdoModificaR.Name = "rdoModificaR";
+            this.rdoModificaR.Size = new System.Drawing.Size(14, 13);
+            this.rdoModificaR.TabIndex = 10;
+            this.rdoModificaR.TabStop = true;
+            this.rdoModificaR.UseVisualStyleBackColor = true;
+            this.rdoModificaR.CheckedChanged += new System.EventHandler(this.rdoModificaR_CheckedChanged);
+            // 
+            // rdoAdaugaR
+            // 
+            this.rdoAdaugaR.AutoSize = true;
+            this.rdoAdaugaR.Location = new System.Drawing.Point(22, 288);
+            this.rdoAdaugaR.Name = "rdoAdaugaR";
+            this.rdoAdaugaR.Size = new System.Drawing.Size(14, 13);
+            this.rdoAdaugaR.TabIndex = 9;
+            this.rdoAdaugaR.TabStop = true;
+            this.rdoAdaugaR.UseVisualStyleBackColor = true;
+            this.rdoAdaugaR.CheckedChanged += new System.EventHandler(this.rdoAdaugaR_CheckedChanged);
+            // 
             // lblTelefonR
             // 
             this.lblTelefonR.AutoSize = true;
-            this.lblTelefonR.Location = new System.Drawing.Point(28, 314);
+            this.lblTelefonR.Enabled = false;
+            this.lblTelefonR.Location = new System.Drawing.Point(83, 314);
             this.lblTelefonR.Name = "lblTelefonR";
             this.lblTelefonR.Size = new System.Drawing.Size(43, 13);
             this.lblTelefonR.TabIndex = 8;
@@ -121,7 +227,8 @@
             // 
             // txtTelefonR
             // 
-            this.txtTelefonR.Location = new System.Drawing.Point(77, 311);
+            this.txtTelefonR.Enabled = false;
+            this.txtTelefonR.Location = new System.Drawing.Point(132, 311);
             this.txtTelefonR.Name = "txtTelefonR";
             this.txtTelefonR.Size = new System.Drawing.Size(187, 20);
             this.txtTelefonR.TabIndex = 3;
@@ -130,7 +237,8 @@
             // lblEmailR
             // 
             this.lblEmailR.AutoSize = true;
-            this.lblEmailR.Location = new System.Drawing.Point(35, 288);
+            this.lblEmailR.Enabled = false;
+            this.lblEmailR.Location = new System.Drawing.Point(90, 288);
             this.lblEmailR.Name = "lblEmailR";
             this.lblEmailR.Size = new System.Drawing.Size(36, 13);
             this.lblEmailR.TabIndex = 6;
@@ -138,33 +246,38 @@
             // 
             // txtEmailR
             // 
-            this.txtEmailR.Location = new System.Drawing.Point(77, 285);
+            this.txtEmailR.Enabled = false;
+            this.txtEmailR.Location = new System.Drawing.Point(132, 285);
             this.txtEmailR.Name = "txtEmailR";
             this.txtEmailR.Size = new System.Drawing.Size(187, 20);
             this.txtEmailR.TabIndex = 2;
+            this.txtEmailR.TextChanged += new System.EventHandler(this.txtEmailR_TextChanged);
             // 
-            // lblRector
+            // lblNumeR
             // 
-            this.lblRector.AutoSize = true;
-            this.lblRector.Location = new System.Drawing.Point(6, 262);
-            this.lblRector.Name = "lblRector";
-            this.lblRector.Size = new System.Drawing.Size(65, 13);
-            this.lblRector.TabIndex = 4;
-            this.lblRector.Text = "Nume rector";
+            this.lblNumeR.AutoSize = true;
+            this.lblNumeR.Enabled = false;
+            this.lblNumeR.Location = new System.Drawing.Point(61, 262);
+            this.lblNumeR.Name = "lblNumeR";
+            this.lblNumeR.Size = new System.Drawing.Size(65, 13);
+            this.lblNumeR.TabIndex = 4;
+            this.lblNumeR.Text = "Nume rector";
             // 
-            // btnStergeR
+            // btnModificaR
             // 
-            this.btnStergeR.Location = new System.Drawing.Point(331, 258);
-            this.btnStergeR.Name = "btnStergeR";
-            this.btnStergeR.Size = new System.Drawing.Size(55, 73);
-            this.btnStergeR.TabIndex = 5;
-            this.btnStergeR.Text = "Șterge";
-            this.btnStergeR.UseVisualStyleBackColor = true;
-            this.btnStergeR.Click += new System.EventHandler(this.btnStergeR_Click);
+            this.btnModificaR.Enabled = false;
+            this.btnModificaR.Location = new System.Drawing.Point(325, 348);
+            this.btnModificaR.Name = "btnModificaR";
+            this.btnModificaR.Size = new System.Drawing.Size(55, 73);
+            this.btnModificaR.TabIndex = 5;
+            this.btnModificaR.Text = "Modifică";
+            this.btnModificaR.UseVisualStyleBackColor = true;
+            this.btnModificaR.Click += new System.EventHandler(this.btnModificaR_Click);
             // 
             // btnAdaugaR
             // 
-            this.btnAdaugaR.Location = new System.Drawing.Point(270, 258);
+            this.btnAdaugaR.Enabled = false;
+            this.btnAdaugaR.Location = new System.Drawing.Point(325, 258);
             this.btnAdaugaR.Name = "btnAdaugaR";
             this.btnAdaugaR.Size = new System.Drawing.Size(55, 73);
             this.btnAdaugaR.TabIndex = 4;
@@ -172,13 +285,14 @@
             this.btnAdaugaR.UseVisualStyleBackColor = true;
             this.btnAdaugaR.Click += new System.EventHandler(this.btnAdaugaR_Click);
             // 
-            // txtRector
+            // txtNumeR
             // 
-            this.txtRector.Location = new System.Drawing.Point(77, 259);
-            this.txtRector.Name = "txtRector";
-            this.txtRector.Size = new System.Drawing.Size(187, 20);
-            this.txtRector.TabIndex = 1;
-            this.txtRector.TextChanged += new System.EventHandler(this.txtRector_TextChanged);
+            this.txtNumeR.Enabled = false;
+            this.txtNumeR.Location = new System.Drawing.Point(132, 259);
+            this.txtNumeR.Name = "txtNumeR";
+            this.txtNumeR.Size = new System.Drawing.Size(187, 20);
+            this.txtNumeR.TabIndex = 1;
+            this.txtNumeR.TextChanged += new System.EventHandler(this.txtNumeR_TextChanged);
             // 
             // dgvRector
             // 
@@ -191,6 +305,16 @@
             // 
             // ptProrector
             // 
+            this.ptProrector.Controls.Add(this.rdoModificaPR);
+            this.ptProrector.Controls.Add(this.rdoAdaugaPR);
+            this.ptProrector.Controls.Add(this.lblTelefonPR2Nou);
+            this.ptProrector.Controls.Add(this.txtTelefonPR2Nou);
+            this.ptProrector.Controls.Add(this.lblTelefonPR1Nou);
+            this.ptProrector.Controls.Add(this.txtTelefonPR1Nou);
+            this.ptProrector.Controls.Add(this.lblEMailPRNou);
+            this.ptProrector.Controls.Add(this.txtEMailPRNou);
+            this.ptProrector.Controls.Add(this.lblNumePRNou);
+            this.ptProrector.Controls.Add(this.txtNumePRNou);
             this.ptProrector.Controls.Add(this.lblTelefonPR2);
             this.ptProrector.Controls.Add(this.txtTelefonPR2);
             this.ptProrector.Controls.Add(this.lblTelefonPR1);
@@ -198,30 +322,130 @@
             this.ptProrector.Controls.Add(this.lblEMailPR);
             this.ptProrector.Controls.Add(this.txtEMailPR);
             this.ptProrector.Controls.Add(this.lblNumePR);
-            this.ptProrector.Controls.Add(this.btnStergePR);
+            this.ptProrector.Controls.Add(this.btnModificaPR);
             this.ptProrector.Controls.Add(this.btnAdaugaPR);
-            this.ptProrector.Controls.Add(this.txtProRector);
+            this.ptProrector.Controls.Add(this.txtNumePR);
             this.ptProrector.Controls.Add(this.dgvProRector);
             this.ptProrector.Location = new System.Drawing.Point(4, 22);
             this.ptProrector.Name = "ptProrector";
             this.ptProrector.Padding = new System.Windows.Forms.Padding(3);
-            this.ptProrector.Size = new System.Drawing.Size(399, 362);
+            this.ptProrector.Size = new System.Drawing.Size(399, 495);
             this.ptProrector.TabIndex = 1;
             this.ptProrector.Text = "ProRector";
             this.ptProrector.UseVisualStyleBackColor = true;
             // 
+            // rdoModificaPR
+            // 
+            this.rdoModificaPR.AutoSize = true;
+            this.rdoModificaPR.Location = new System.Drawing.Point(17, 428);
+            this.rdoModificaPR.Name = "rdoModificaPR";
+            this.rdoModificaPR.Size = new System.Drawing.Size(14, 13);
+            this.rdoModificaPR.TabIndex = 28;
+            this.rdoModificaPR.TabStop = true;
+            this.rdoModificaPR.UseVisualStyleBackColor = true;
+            this.rdoModificaPR.CheckedChanged += new System.EventHandler(this.rdoModificaPR_CheckedChanged);
+            // 
+            // rdoAdaugaPR
+            // 
+            this.rdoAdaugaPR.AutoSize = true;
+            this.rdoAdaugaPR.Location = new System.Drawing.Point(17, 314);
+            this.rdoAdaugaPR.Name = "rdoAdaugaPR";
+            this.rdoAdaugaPR.Size = new System.Drawing.Size(14, 13);
+            this.rdoAdaugaPR.TabIndex = 27;
+            this.rdoAdaugaPR.TabStop = true;
+            this.rdoAdaugaPR.UseVisualStyleBackColor = true;
+            this.rdoAdaugaPR.CheckedChanged += new System.EventHandler(this.rdoAdaugaPR_CheckedChanged);
+            // 
+            // lblTelefonPR2Nou
+            // 
+            this.lblTelefonPR2Nou.AutoSize = true;
+            this.lblTelefonPR2Nou.Enabled = false;
+            this.lblTelefonPR2Nou.Location = new System.Drawing.Point(53, 454);
+            this.lblTelefonPR2Nou.Name = "lblTelefonPR2Nou";
+            this.lblTelefonPR2Nou.Size = new System.Drawing.Size(73, 13);
+            this.lblTelefonPR2Nou.TabIndex = 26;
+            this.lblTelefonPR2Nou.Text = "Telefon 2 nou";
+            // 
+            // txtTelefonPR2Nou
+            // 
+            this.txtTelefonPR2Nou.Enabled = false;
+            this.txtTelefonPR2Nou.Location = new System.Drawing.Point(132, 451);
+            this.txtTelefonPR2Nou.Name = "txtTelefonPR2Nou";
+            this.txtTelefonPR2Nou.Size = new System.Drawing.Size(187, 20);
+            this.txtTelefonPR2Nou.TabIndex = 22;
+            this.txtTelefonPR2Nou.TextChanged += new System.EventHandler(this.txtTelefonPR2Nou_TextChanged);
+            // 
+            // lblTelefonPR1Nou
+            // 
+            this.lblTelefonPR1Nou.AutoSize = true;
+            this.lblTelefonPR1Nou.Enabled = false;
+            this.lblTelefonPR1Nou.Location = new System.Drawing.Point(46, 428);
+            this.lblTelefonPR1Nou.Name = "lblTelefonPR1Nou";
+            this.lblTelefonPR1Nou.Size = new System.Drawing.Size(80, 13);
+            this.lblTelefonPR1Nou.TabIndex = 25;
+            this.lblTelefonPR1Nou.Text = "Telefon 1 nou *";
+            // 
+            // txtTelefonPR1Nou
+            // 
+            this.txtTelefonPR1Nou.Enabled = false;
+            this.txtTelefonPR1Nou.Location = new System.Drawing.Point(132, 425);
+            this.txtTelefonPR1Nou.Name = "txtTelefonPR1Nou";
+            this.txtTelefonPR1Nou.Size = new System.Drawing.Size(187, 20);
+            this.txtTelefonPR1Nou.TabIndex = 21;
+            this.txtTelefonPR1Nou.TextChanged += new System.EventHandler(this.txtTelefonPR1Nou_TextChanged);
+            // 
+            // lblEMailPRNou
+            // 
+            this.lblEMailPRNou.AutoSize = true;
+            this.lblEMailPRNou.Enabled = false;
+            this.lblEMailPRNou.Location = new System.Drawing.Point(69, 402);
+            this.lblEMailPRNou.Name = "lblEMailPRNou";
+            this.lblEMailPRNou.Size = new System.Drawing.Size(57, 13);
+            this.lblEMailPRNou.TabIndex = 24;
+            this.lblEMailPRNou.Text = "E-Mail nou";
+            // 
+            // txtEMailPRNou
+            // 
+            this.txtEMailPRNou.Enabled = false;
+            this.txtEMailPRNou.Location = new System.Drawing.Point(132, 399);
+            this.txtEMailPRNou.Name = "txtEMailPRNou";
+            this.txtEMailPRNou.Size = new System.Drawing.Size(187, 20);
+            this.txtEMailPRNou.TabIndex = 20;
+            this.txtEMailPRNou.TextChanged += new System.EventHandler(this.txtEMailPRNou_TextChanged);
+            // 
+            // lblNumePRNou
+            // 
+            this.lblNumePRNou.AutoSize = true;
+            this.lblNumePRNou.Enabled = false;
+            this.lblNumePRNou.Location = new System.Drawing.Point(25, 376);
+            this.lblNumePRNou.Name = "lblNumePRNou";
+            this.lblNumePRNou.Size = new System.Drawing.Size(101, 13);
+            this.lblNumePRNou.TabIndex = 23;
+            this.lblNumePRNou.Text = "Nume prorector nou";
+            // 
+            // txtNumePRNou
+            // 
+            this.txtNumePRNou.Enabled = false;
+            this.txtNumePRNou.Location = new System.Drawing.Point(132, 373);
+            this.txtNumePRNou.Name = "txtNumePRNou";
+            this.txtNumePRNou.Size = new System.Drawing.Size(187, 20);
+            this.txtNumePRNou.TabIndex = 19;
+            this.txtNumePRNou.TextChanged += new System.EventHandler(this.txtNumePRNou_TextChanged);
+            // 
             // lblTelefonPR2
             // 
             this.lblTelefonPR2.AutoSize = true;
-            this.lblTelefonPR2.Location = new System.Drawing.Point(28, 340);
+            this.lblTelefonPR2.Enabled = false;
+            this.lblTelefonPR2.Location = new System.Drawing.Point(74, 340);
             this.lblTelefonPR2.Name = "lblTelefonPR2";
-            this.lblTelefonPR2.Size = new System.Drawing.Size(43, 13);
+            this.lblTelefonPR2.Size = new System.Drawing.Size(52, 13);
             this.lblTelefonPR2.TabIndex = 18;
-            this.lblTelefonPR2.Text = "Telefon";
+            this.lblTelefonPR2.Text = "Telefon 2";
             // 
             // txtTelefonPR2
             // 
-            this.txtTelefonPR2.Location = new System.Drawing.Point(77, 337);
+            this.txtTelefonPR2.Enabled = false;
+            this.txtTelefonPR2.Location = new System.Drawing.Point(132, 337);
             this.txtTelefonPR2.Name = "txtTelefonPR2";
             this.txtTelefonPR2.Size = new System.Drawing.Size(187, 20);
             this.txtTelefonPR2.TabIndex = 4;
@@ -230,15 +454,17 @@
             // lblTelefonPR1
             // 
             this.lblTelefonPR1.AutoSize = true;
-            this.lblTelefonPR1.Location = new System.Drawing.Point(28, 314);
+            this.lblTelefonPR1.Enabled = false;
+            this.lblTelefonPR1.Location = new System.Drawing.Point(67, 314);
             this.lblTelefonPR1.Name = "lblTelefonPR1";
-            this.lblTelefonPR1.Size = new System.Drawing.Size(43, 13);
+            this.lblTelefonPR1.Size = new System.Drawing.Size(59, 13);
             this.lblTelefonPR1.TabIndex = 16;
-            this.lblTelefonPR1.Text = "Telefon";
+            this.lblTelefonPR1.Text = "Telefon 1 *";
             // 
             // txtTelefonPR1
             // 
-            this.txtTelefonPR1.Location = new System.Drawing.Point(77, 311);
+            this.txtTelefonPR1.Enabled = false;
+            this.txtTelefonPR1.Location = new System.Drawing.Point(132, 311);
             this.txtTelefonPR1.Name = "txtTelefonPR1";
             this.txtTelefonPR1.Size = new System.Drawing.Size(187, 20);
             this.txtTelefonPR1.TabIndex = 3;
@@ -247,7 +473,8 @@
             // lblEMailPR
             // 
             this.lblEMailPR.AutoSize = true;
-            this.lblEMailPR.Location = new System.Drawing.Point(35, 288);
+            this.lblEMailPR.Enabled = false;
+            this.lblEMailPR.Location = new System.Drawing.Point(90, 288);
             this.lblEMailPR.Name = "lblEMailPR";
             this.lblEMailPR.Size = new System.Drawing.Size(36, 13);
             this.lblEMailPR.TabIndex = 14;
@@ -255,33 +482,38 @@
             // 
             // txtEMailPR
             // 
-            this.txtEMailPR.Location = new System.Drawing.Point(77, 285);
+            this.txtEMailPR.Enabled = false;
+            this.txtEMailPR.Location = new System.Drawing.Point(132, 285);
             this.txtEMailPR.Name = "txtEMailPR";
             this.txtEMailPR.Size = new System.Drawing.Size(187, 20);
             this.txtEMailPR.TabIndex = 2;
+            this.txtEMailPR.TextChanged += new System.EventHandler(this.txtEMailPR_TextChanged);
             // 
             // lblNumePR
             // 
             this.lblNumePR.AutoSize = true;
-            this.lblNumePR.Location = new System.Drawing.Point(6, 262);
+            this.lblNumePR.Enabled = false;
+            this.lblNumePR.Location = new System.Drawing.Point(46, 262);
             this.lblNumePR.Name = "lblNumePR";
             this.lblNumePR.Size = new System.Drawing.Size(80, 13);
             this.lblNumePR.TabIndex = 12;
             this.lblNumePR.Text = "Nume prorector";
             // 
-            // btnStergePR
+            // btnModificaPR
             // 
-            this.btnStergePR.Location = new System.Drawing.Point(331, 258);
-            this.btnStergePR.Name = "btnStergePR";
-            this.btnStergePR.Size = new System.Drawing.Size(55, 99);
-            this.btnStergePR.TabIndex = 6;
-            this.btnStergePR.Text = "Șterge";
-            this.btnStergePR.UseVisualStyleBackColor = true;
-            this.btnStergePR.Click += new System.EventHandler(this.btnStergePR_Click);
+            this.btnModificaPR.Enabled = false;
+            this.btnModificaPR.Location = new System.Drawing.Point(325, 373);
+            this.btnModificaPR.Name = "btnModificaPR";
+            this.btnModificaPR.Size = new System.Drawing.Size(55, 99);
+            this.btnModificaPR.TabIndex = 6;
+            this.btnModificaPR.Text = "Șterge";
+            this.btnModificaPR.UseVisualStyleBackColor = true;
+            this.btnModificaPR.Click += new System.EventHandler(this.btnModificaPR_Click);
             // 
             // btnAdaugaPR
             // 
-            this.btnAdaugaPR.Location = new System.Drawing.Point(270, 258);
+            this.btnAdaugaPR.Enabled = false;
+            this.btnAdaugaPR.Location = new System.Drawing.Point(325, 258);
             this.btnAdaugaPR.Name = "btnAdaugaPR";
             this.btnAdaugaPR.Size = new System.Drawing.Size(55, 99);
             this.btnAdaugaPR.TabIndex = 5;
@@ -289,13 +521,14 @@
             this.btnAdaugaPR.UseVisualStyleBackColor = true;
             this.btnAdaugaPR.Click += new System.EventHandler(this.btnAdaugaPR_Click);
             // 
-            // txtProRector
+            // txtNumePR
             // 
-            this.txtProRector.Location = new System.Drawing.Point(92, 259);
-            this.txtProRector.Name = "txtProRector";
-            this.txtProRector.Size = new System.Drawing.Size(172, 20);
-            this.txtProRector.TabIndex = 1;
-            this.txtProRector.TextChanged += new System.EventHandler(this.txtProRector_TextChanged);
+            this.txtNumePR.Enabled = false;
+            this.txtNumePR.Location = new System.Drawing.Point(132, 259);
+            this.txtNumePR.Name = "txtNumePR";
+            this.txtNumePR.Size = new System.Drawing.Size(187, 20);
+            this.txtNumePR.TabIndex = 1;
+            this.txtNumePR.TextChanged += new System.EventHandler(this.txtNumePR_TextChanged);
             // 
             // dgvProRector
             // 
@@ -310,7 +543,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(411, 417);
+            this.ClientSize = new System.Drawing.Size(411, 551);
             this.Controls.Add(this.tabProrector);
             this.Controls.Add(this.mnuEditareRector);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -339,15 +572,15 @@
         private System.Windows.Forms.TabControl tabProrector;
         private System.Windows.Forms.TabPage ptRector;
         private System.Windows.Forms.DataGridView dgvRector;
-        private System.Windows.Forms.TextBox txtRector;
-        private System.Windows.Forms.Button btnStergeR;
+        private System.Windows.Forms.TextBox txtNumeR;
+        private System.Windows.Forms.Button btnModificaR;
         private System.Windows.Forms.Button btnAdaugaR;
         private System.Windows.Forms.TabPage ptProrector;
-        private System.Windows.Forms.Button btnStergePR;
+        private System.Windows.Forms.Button btnModificaPR;
         private System.Windows.Forms.Button btnAdaugaPR;
-        private System.Windows.Forms.TextBox txtProRector;
+        private System.Windows.Forms.TextBox txtNumePR;
         private System.Windows.Forms.DataGridView dgvProRector;
-        private System.Windows.Forms.Label lblRector;
+        private System.Windows.Forms.Label lblNumeR;
         private System.Windows.Forms.Label lblTelefonR;
         private System.Windows.Forms.TextBox txtTelefonR;
         private System.Windows.Forms.Label lblEmailR;
@@ -359,5 +592,23 @@
         private System.Windows.Forms.Label lblNumePR;
         private System.Windows.Forms.Label lblTelefonPR2;
         private System.Windows.Forms.TextBox txtTelefonPR2;
+        private System.Windows.Forms.RadioButton rdoAdaugaR;
+        private System.Windows.Forms.Label lblTelefonRNou;
+        private System.Windows.Forms.TextBox txtTelefonRNou;
+        private System.Windows.Forms.Label lblEMailRNou;
+        private System.Windows.Forms.TextBox txtEMailRNou;
+        private System.Windows.Forms.Label lblNumeRNou;
+        private System.Windows.Forms.TextBox txtNumeRNou;
+        private System.Windows.Forms.RadioButton rdoModificaR;
+        private System.Windows.Forms.Label lblTelefonPR2Nou;
+        private System.Windows.Forms.TextBox txtTelefonPR2Nou;
+        private System.Windows.Forms.Label lblTelefonPR1Nou;
+        private System.Windows.Forms.TextBox txtTelefonPR1Nou;
+        private System.Windows.Forms.Label lblEMailPRNou;
+        private System.Windows.Forms.TextBox txtEMailPRNou;
+        private System.Windows.Forms.Label lblNumePRNou;
+        private System.Windows.Forms.TextBox txtNumePRNou;
+        private System.Windows.Forms.RadioButton rdoAdaugaPR;
+        private System.Windows.Forms.RadioButton rdoModificaPR;
     }
 }

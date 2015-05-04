@@ -70,13 +70,10 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         {
             // Dezactivam urmatoarele
             btnAcceseaza.Enabled = false;
-            lblNrUAIC.Enabled = false;
             txtNrUAIC.Enabled = false;
-            lblDin.Enabled = false;
             dpDataODD.Enabled = false;
 
             // dezactivam panourile urmatoare
-            lblDin.Enabled = false;
             dpDataODD.Enabled = false;
             panouContinutODD.Enabled = false;
             panouCheltuieliODD.Enabled = false;
@@ -113,6 +110,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                         {
                             string str_cmbGradDidactic = cititor_cmbGradDidactic.GetString(0);
                             cmbGradDidactic.Items.Add(str_cmbGradDidactic);
+                            cmbCPGradDidactic.Items.Add(str_cmbGradDidactic);
                         }
                     }
                     catch (Exception excmbGradDidactic)
@@ -212,7 +210,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         {
             if (rdoRector.Checked == true)
             {
-
+                cmbRectorProrector.Items.Clear();
                 using (OdbcConnection conexiune_cmbRectorProrector1 = new OdbcConnection(sircon_RelIntDB))
                 {           // Comanda
                     using (OdbcCommand comanda_cmbRectorProrector1 = new OdbcCommand())
@@ -230,7 +228,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                             while (cititor_cmbRectorProrector1.Read())
                             {
                                 string str_cmbRectorProrector1 = cititor_cmbRectorProrector1.GetString(0);
-                                cmbRectorProrector.Items.Clear();
                                 cmbRectorProrector.Items.Add(str_cmbRectorProrector1);
                             }
                             cititor_cmbRectorProrector1.Close();
@@ -249,6 +246,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
             else if (rdoProRector.Checked == true)
             {
+                cmbRectorProrector.Items.Clear();
                 using (OdbcConnection conexiune_cmbRectorProrector2 = new OdbcConnection(sircon_RelIntDB))
                 {           // Comanda
                     using (OdbcCommand comanda_cmbRectorProrector2 = new OdbcCommand())
@@ -266,7 +264,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                             while (cititor_cmbRectorProrector2.Read())
                             {
                                 string str_cmbRectorProrector2 = cititor_cmbRectorProrector2.GetString(0);
-                                cmbRectorProrector.Items.Clear();
                                 cmbRectorProrector.Items.Add(str_cmbRectorProrector2);
                             }
                             cititor_cmbRectorProrector2.Close();
@@ -284,14 +281,12 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-
         /* ------------------- Eveniement pentru rdoRector --------------------------------------------------------------- */
         private void rdoRector_CheckedChanged(object sender, EventArgs e)
         {
             IncarcarecmbRectorProrector();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-
         /* ------------------- Eveniement pentru rdoProRector ------------------------------------------------------------ */
         private void rdoProRector_CheckedChanged(object sender, EventArgs e)
         {
@@ -606,7 +601,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             varSubtotal = vartxtNrZileDiurna * vartxtDiurna;
 
             // Afisam
-            txtSubtotalDiurna.Text = varSubtotal.ToString();
+            txtSubtotalDiurna.Text = varSubtotal.ToString() + " " + cmbMoneda1.SelectedItem;
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
@@ -625,7 +620,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             varSubtotal = vartxtNrZileCazare * vartxtCazare;
 
             // Afisam
-            txtSubtotalCazare.Text = varSubtotal.ToString();
+            txtSubtotalCazare.Text = varSubtotal.ToString() + " " + cmbMoneda2.SelectedItem;
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
@@ -684,7 +679,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 panouCheltuieliODD.Enabled = true;
                 panouAlteDispuneriODD.Enabled = true;
                 panouSemnatariODD.Enabled = true;
-                lblDin.Enabled = true;
                 dpDataODD.Enabled = true;
             }
             else
@@ -694,7 +688,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 panouCheltuieliODD.Enabled = false;
                 panouAlteDispuneriODD.Enabled = false;
                 panouSemnatariODD.Enabled = false;
-                lblDin.Enabled = false;
                 dpDataODD.Enabled = false;
             }
         }
@@ -754,15 +747,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                                 txtNrInregistrare.Enabled = false;
                                 btnAcceseaza.Enabled = false;
 
-                                lblNrUAIC.Enabled = true;
                                 txtNrUAIC.Enabled = true;
-                                //lblDin.Enabled = true;
-                                //dpDataODD.Enabled = true;
-
-                                //panouContinutODD.Enabled = true;
-                                //panouCheltuieliODD.Enabled = true;
-                                //panouAlteDispuneriODD.Enabled = true;
-                                //panouSemnatariODD.Enabled = true;
                             }
                         }
 
@@ -862,7 +847,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 {
                     comanda_inserareRelInt.Connection = conexiune_InserareCerereRelInt;
                     comanda_inserareRelInt.CommandType = CommandType.Text;
-                    comanda_inserareRelInt.CommandText = "INSERT into ordinedeplasare VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                    comanda_inserareRelInt.CommandText = "INSERT into ordinedeplasare VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
                     comanda_inserareRelInt.Parameters.AddWithValue("@nrinregistrareodc", OdbcType.Int).Value = vartxtNrInregistrare;
                     comanda_inserareRelInt.Parameters.AddWithValue("@nrinregistrareod", OdbcType.Int).Value = vartxtNrUAIC;
                     comanda_inserareRelInt.Parameters.AddWithValue("@nrinregistrareodNou", OdbcType.Int).Value = null;
@@ -891,15 +876,17 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     comanda_inserareRelInt.Parameters.AddWithValue("@taxadevizaetcOD", OdbcType.Double).Value = vartxtTaxaDeViza;
                     comanda_inserareRelInt.Parameters.AddWithValue("@monedataxadevizaetcOD", OdbcType.NVarChar).Value = cmbMoneda4.SelectedItem;
                     comanda_inserareRelInt.Parameters.AddWithValue("@totalOD", OdbcType.NVarChar).Value = CalculTotal();
-                    comanda_inserareRelInt.Parameters.AddWithValue("@altedispuneri1od", OdbcType.NVarChar).Value = txtDispunere1.Text;
-                    comanda_inserareRelInt.Parameters.AddWithValue("@altedispuneri2od", OdbcType.NVarChar).Value = txtDispunere2.Text;
-                    comanda_inserareRelInt.Parameters.AddWithValue("@altedispuneri3od", OdbcType.NVarChar).Value = txtDispunere3.Text;
-                    comanda_inserareRelInt.Parameters.AddWithValue("@altedispuneri4od", OdbcType.NVarChar).Value = txtDispunere4.Text;
-                    comanda_inserareRelInt.Parameters.AddWithValue("@rectorod", OdbcType.Bit).Value = rdoRector.Checked;
-                    comanda_inserareRelInt.Parameters.AddWithValue("@prorectorod", OdbcType.Bit).Value = rdoProRector.Checked;
-                    comanda_inserareRelInt.Parameters.AddWithValue("@numerpod", OdbcType.NVarChar).Value = cmbRectorProrector.SelectedItem;
-                    comanda_inserareRelInt.Parameters.AddWithValue("@dfcod", OdbcType.NVarChar).Value = txtDFC.Text;
-                    comanda_inserareRelInt.Parameters.AddWithValue("@coordprojod", OdbcType.NVarChar).Value = txtCoordProiect.Text;
+                    comanda_inserareRelInt.Parameters.AddWithValue("@altedispuneri1OD", OdbcType.NVarChar).Value = txtDispunere1.Text;
+                    comanda_inserareRelInt.Parameters.AddWithValue("@altedispuneri2OD", OdbcType.NVarChar).Value = txtDispunere2.Text;
+                    comanda_inserareRelInt.Parameters.AddWithValue("@altedispuneri3OD", OdbcType.NVarChar).Value = txtDispunere3.Text;
+                    comanda_inserareRelInt.Parameters.AddWithValue("@altedispuneri4OD", OdbcType.NVarChar).Value = txtDispunere4.Text;
+                    comanda_inserareRelInt.Parameters.AddWithValue("@rectorOD", OdbcType.Bit).Value = rdoRector.Checked;
+                    comanda_inserareRelInt.Parameters.AddWithValue("@prorectorOD", OdbcType.Bit).Value = rdoProRector.Checked;
+                    comanda_inserareRelInt.Parameters.AddWithValue("@numerpOD", OdbcType.NVarChar).Value = cmbRectorProrector.SelectedItem;
+                    comanda_inserareRelInt.Parameters.AddWithValue("@dfcOD", OdbcType.NVarChar).Value = txtDFC.Text;
+                    comanda_inserareRelInt.Parameters.AddWithValue("@cpnumeprojOD", OdbcType.NVarChar).Value = txtCPNumeProj.Text;
+                    comanda_inserareRelInt.Parameters.AddWithValue("@cpgraddidacticOD", OdbcType.NVarChar).Value = cmbCPGradDidactic.SelectedItem;
+                    comanda_inserareRelInt.Parameters.AddWithValue("@cpnumecoordOD", OdbcType.NVarChar).Value = txtCPNumeCoord.Text;
                     comanda_inserareRelInt.Parameters.AddWithValue("@oddi", OdbcType.Bit).Value = true;
 
                     // Incercam conexiunea si query-ul
@@ -1028,8 +1015,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 // Lucreaza asta
                 MetodaInserareDB();
 
-                GenerarePDF();
-
                 // Daca variabila "MetodaInserareSucces" este adevarata
                 if (MetodaInserareSucces == true)
                 {
@@ -1039,10 +1024,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     panouCheltuieliODD.Enabled = false;
                     panouAlteDispuneriODD.Enabled = false;
                     panouSemnatariODD.Enabled = false;
-
-                    // Generam PDF
-
-
+                    
                     // Notifica
                     SuccesSalvareFormular = true;
 
@@ -1050,7 +1032,10 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     btnSalvare.Enabled = false;
 
                     // Negam modificarile
-                    MetodaNegareControale();
+                    txtNrUAICSchimbat = false;
+
+                    // Generam PDF
+                    GenerarePDF();
                 }
                 else
                 {
@@ -1126,7 +1111,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
-        /* --------------------- Eveniment click pentru butonul "Salvare" ----------------------------------------- */
+        /* --------------------- Eveniment click pentru butonul "Salvare" ------------------------------------------------ */
         private void GenerarePDF()
         {
             // Create a MigraDoc document
@@ -1180,7 +1165,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             paragraf5.Format.Font.Size = 13;
             paragraf5.Format.Font.Name = "Times New Roman";
             paragraf5.Format.Font.Bold = true;
-            paragraf5.AddText("Nr. " + txtNrUAIC.Text + " / " + txtNrInregistrare.Text + dpDataODD.Value.ToString().Substring(0, DateTime.Today.ToString().IndexOf("00:")));
+            paragraf5.AddText("Nr. " + txtNrUAIC.Text + " / " + txtNrInregistrare.Text + " din " + dpDataODD.Value.ToString().Substring(0, DateTime.Today.ToString().IndexOf("00:")));
 
             // Paragraf 6
             Paragraph paragraf6 = section1.AddParagraph();
@@ -1190,7 +1175,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             paragraf6.Format.SpaceBefore = "1.0cm";
             paragraf6.Format.Alignment = ParagraphAlignment.Justify;
             paragraf6.AddText("În temeiul Ordinului M.Ed.C. nr. 4975/30.04.1992 și al Hotărârii Biroului Executiv al Consiliului de Administrație din data de ");
-            paragraf6.AddFormattedText("04.03.2-15", TextFormat.Bold);
+            paragraf6.AddFormattedText(dpDataODD.Value.ToString().Substring(0, DateTime.Today.ToString().IndexOf("00:")) + ".", TextFormat.Bold);
 
             // Paragraf 7
             Paragraph paragraf7 = section1.AddParagraph();
@@ -1219,8 +1204,9 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             paragraf9.Format.Font.Name = "Times New Roman";
             paragraf9.AddText("în localitatea: ");
             paragraf9.AddFormattedText(txtLocalitatea.Text, TextFormat.Bold);
-            paragraf9.AddFormattedText(" țara ");
+            paragraf9.AddFormattedText(", țara: ");
             paragraf9.AddFormattedText(txtTara.Text, TextFormat.Bold);
+            paragraf9.AddFormattedText(".");
 
             // Paragraf 10
             Paragraph paragraf10 = section1.AddParagraph();
@@ -1237,8 +1223,10 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             paragraf11.Format.Font.Size = 12;
             paragraf11.Format.SpaceBefore = "0.3cm";
             paragraf11.Format.Font.Name = "Times New Roman";
-            paragraf11.AddText("deplasarea are loc în perioada");
-            paragraf11.AddFormattedText(dpDataInceput.Value.ToString().Substring(0, DateTime.Today.ToString().IndexOf("00:")) + " - " + dpDataSfarsit.Value.ToString().Substring(0, DateTime.Today.ToString().IndexOf("00:")), TextFormat.Bold);
+            paragraf11.AddText("deplasarea are loc între ");
+            paragraf11.AddFormattedText(dpDataInceput.Value.ToString().Substring(0, DateTime.Today.ToString().IndexOf("00:")), TextFormat.Bold);
+            paragraf11.AddText(" și ");
+            paragraf11.AddFormattedText(dpDataSfarsit.Value.ToString().Substring(0, DateTime.Today.ToString().IndexOf("00:")), TextFormat.Bold);
 
             // Paragraf 12
             Paragraph paragraf12 = section1.AddParagraph();
@@ -1264,7 +1252,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             paragraf14.Format.Font.Size = 12;
             paragraf14.Format.SpaceBefore = "0.3cm";
             paragraf14.Format.Font.Name = "Times New Roman";
-            paragraf14.AddText("și cheltuielile de îintreținere în străinătate sunt suportate de la ");
+            paragraf14.AddText("și cheltuielile de întreținere în străinătate sunt suportate de la: ");
             paragraf14.AddFormattedText(txtPlatitorIntretinere.Text, TextFormat.Bold);
 
             // Paragraf 15
@@ -1273,28 +1261,32 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             paragraf15.Format.Font.Size = 12;
             paragraf15.Format.SpaceBefore = "0.3cm";
             paragraf15.Format.Font.Name = "Times New Roman";
-            paragraf15.AddText("diurna " + txtNrZileDiurna.Text + " X " + txtDiurna.Text + " " + cmbMoneda1.SelectedItem);
+            paragraf15.AddText("Diurna: ");
+            paragraf15.AddFormattedText(txtNrZileDiurna.Text + " x " + txtDiurna.Text + " " + cmbMoneda1.SelectedItem + " = " + txtSubtotalDiurna.Text, TextFormat.Bold);
 
             // Paragraf 16
             Paragraph paragraf16 = section1.AddParagraph();
             paragraf16.Format.Alignment = ParagraphAlignment.Justify;
             paragraf16.Format.Font.Size = 12;
             paragraf16.Format.Font.Name = "Times New Roman";
-            paragraf16.AddText("cazarea " + txtNrZileCazare.Text + " X " + txtCazare.Text + " " + cmbMoneda2.SelectedItem);
+            paragraf16.AddText("Cazare: ");
+            paragraf16.AddFormattedText(txtNrZileCazare.Text + " x " + txtCazare.Text + " " + cmbMoneda2.SelectedItem + " = " + txtSubtotalCazare.Text, TextFormat.Bold);
 
             // Paragraf 17
             Paragraph paragraf17 = section1.AddParagraph();
             paragraf17.Format.Alignment = ParagraphAlignment.Justify;
             paragraf17.Format.Font.Size = 12;
             paragraf17.Format.Font.Name = "Times New Roman";
-            paragraf17.AddText("taxă de participare " + txtTaxaDeParticipare.Text + " " + cmbMoneda3.SelectedItem);
+            paragraf17.AddText("Taxă de participare: ");
+            paragraf17.AddFormattedText(txtTaxaDeParticipare.Text + " " + cmbMoneda3.SelectedItem, TextFormat.Bold);
 
             // Paragraf 18
             Paragraph paragraf18 = section1.AddParagraph();
             paragraf18.Format.Alignment = ParagraphAlignment.Justify;
             paragraf18.Format.Font.Size = 12;
             paragraf18.Format.Font.Name = "Times New Roman";
-            paragraf18.AddText("asigurare medicală și taxe consulare " + txtTaxaDeViza.Text + " " + cmbMoneda4.SelectedItem);
+            paragraf18.AddText("Asigurare medicală și taxe consulare: ");
+            paragraf18.AddFormattedText(txtTaxaDeViza.Text + " " + cmbMoneda4.SelectedItem, TextFormat.Bold);
 
             // Paragraf 19
             Paragraph paragraf19 = section1.AddParagraph();
@@ -1303,7 +1295,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             paragraf19.Format.SpaceBefore = "0.5cm";
             paragraf19.Format.Font.Name = "Times New Roman";
             paragraf19.Format.Font.Bold = true;
-            paragraf19.AddText("Total: " + txtTotalDePlata.Text);
+            paragraf19.AddFormattedText("Total: în limita sumei de " + txtTotalDePlata.Text, TextFormat.Bold);
 
             // Paragraf 20
             Paragraph paragraf20 = section1.AddParagraph();
@@ -1341,13 +1333,30 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             table2.AddColumn("8cm");
 
             var row2 = table2.AddRow();
-            var paragraph23 = row2.Cells[0].AddParagraph(cmbRectorProrector.Text + " " + txtCoordProiect.Text);
+            var paragraph23 = row2.Cells[0].AddParagraph(cmbRectorProrector.Text + "");
             paragraph23.AddTab();
             paragraph23.Format.ClearAll();
             // TabStop at column width minus inner margins and borders:
             paragraph23.Format.AddTabStop("7.7cm", TabAlignment.Right);
             row2.Cells[1].AddParagraph(txtDFC.Text);
             table2.Borders.Width = 0;
+
+            // Paragraf 22
+            Paragraph paragraf22 = section1.AddParagraph();
+            paragraf22.Format.Alignment = ParagraphAlignment.Center;
+            paragraf22.Format.Font.Size = 12;
+            paragraf22.Format.SpaceBefore = "1cm";
+            paragraf22.Format.Font.Name = "Times New Roman";
+            paragraf22.AddText("Coordonator " + txtCPNumeProj.Text);
+
+            // Paragraf 23
+            Paragraph paragraf23 = section1.AddParagraph();
+            paragraf23.Format.Alignment = ParagraphAlignment.Center;
+            paragraf23.Format.Font.Size = 12;
+            paragraf23.Format.SpaceBefore = "0.3cm";
+            paragraf23.Format.Font.Name = "Times New Roman";
+            paragraf23.AddText("" + cmbCPGradDidactic.SelectedItem);
+            paragraf23.AddFormattedText(" " + txtCPNumeCoord.Text, TextFormat.Bold);
 
 
             PdfDocumentRenderer pdfRenderer = new PdfDocumentRenderer(true);
@@ -1387,19 +1396,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
-        /* -------------------- Negam controalele urmatoare -------------------------------------------------------------- */
-        private void MetodaNegareControale()
-        {
-            txtNrUAICSchimbat = false;
-        }
-        /* --------------------------------------------------------------------------------------------------------------- */
-
-
-
-
-
-
-
 
         /* ----------------- Variabila de lucru pentru metoda "CevaSchimbat" --------------------------------------------- */
         bool DacaCevaSchimbat;
@@ -1424,6 +1420,20 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
+
+        /* --------------------- Evenimentul butonului btnSalvare -------------------------------------------------------- */
+        private void btnSalvare_Click(object sender, EventArgs e)
+        {
+            SalvareFormular();
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
         /* ----------------------- Evenimentul inchiderii formularului --------------------------------------------------- */
         private void frmOrdinDeDeplasare_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -1434,7 +1444,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             if (DacaCevaSchimbat == true)
             {
                 // Verificam daca formularul a fost salvat deja
-
                 // Daca formularul nu a fost salvat
                 if (SuccesSalvareFormular == false)
                 {
@@ -1451,8 +1460,8 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                         // Daca S-A salvat
                         if (SuccesSalvareFormular == true)
                         {
-                            // Apelam "MetodaNegareControale" si inchidem formularul
-                            MetodaNegareControale();
+                            // Efectuam
+                            txtNrUAICSchimbat = false;
                         }
 
                         // Daca NU s-a salvat
@@ -1466,8 +1475,8 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     // Daca NU DORESTE sa salveze
                     else if (DialogSalvare == DialogResult.No)
                     {
-                        // Apelam "MetodaNegareControale" si inchidem formularul
-                        MetodaNegareControale();
+                        // Efectuam
+                        txtNrUAICSchimbat = false;
                     }
 
                     // Daca utilizatorul apasa cancel
@@ -1481,29 +1490,17 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 // Daca formularul a fost salvat
                 else if (SuccesSalvareFormular == true)
                 {
-                    // Apelam "MetodaNegareControale" si inchidem formularul
-                    MetodaNegareControale();
+                    // Efectuam
+                    txtNrUAICSchimbat = false;
                 }
             }
 
             // Daca nu a fost modificat nici un camp, inchidem formularul
             else if (DacaCevaSchimbat == false)
             {
-                // Apelam "MetodaNegareControale" si inchidem formularul
-                MetodaNegareControale();
+                // Efectuam
+                txtNrUAICSchimbat = false;
             }
-        }
-        /* --------------------------------------------------------------------------------------------------------------- */
-
-
-
-
-
-
-        /* --------------------- Evenimentul butonului btnSalvare -------------------------------------------------------- */
-        private void btnSalvare_Click(object sender, EventArgs e)
-        {
-            SalvareFormular();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
