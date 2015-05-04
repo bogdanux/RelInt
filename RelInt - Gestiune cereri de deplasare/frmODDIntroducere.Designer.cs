@@ -32,7 +32,6 @@
             this.mnuCerereBeca = new System.Windows.Forms.MenuStrip();
             this.btnFormular = new System.Windows.Forms.ToolStripMenuItem();
             this.btnSalvare = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnGenerarePDF = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.btnIesire = new System.Windows.Forms.ToolStripMenuItem();
             this.panouIdentificareODD = new System.Windows.Forms.Panel();
@@ -135,7 +134,6 @@
             // 
             this.btnFormular.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnSalvare,
-            this.btnGenerarePDF,
             this.toolStripSeparator1,
             this.btnIesire});
             this.btnFormular.Name = "btnFormular";
@@ -149,14 +147,6 @@
             this.btnSalvare.Size = new System.Drawing.Size(200, 22);
             this.btnSalvare.Text = "&Salvare formular";
             this.btnSalvare.Click += new System.EventHandler(this.btnSalvare_Click);
-            // 
-            // btnGenerarePDF
-            // 
-            this.btnGenerarePDF.Name = "btnGenerarePDF";
-            this.btnGenerarePDF.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-            this.btnGenerarePDF.Size = new System.Drawing.Size(200, 22);
-            this.btnGenerarePDF.Text = "&Generare PDF";
-            this.btnGenerarePDF.Click += new System.EventHandler(this.btnGenerarePDF_Click);
             // 
             // toolStripSeparator1
             // 
@@ -1016,7 +1006,6 @@
         private System.Windows.Forms.ToolStripMenuItem btnSalvare;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem btnIesire;
-        private System.Windows.Forms.ToolStripMenuItem btnGenerarePDF;
         private System.Windows.Forms.Button btnAcceseaza;
         private System.Windows.Forms.TextBox txtSubtotalCazare;
         private System.Windows.Forms.Label lblSubtotal;

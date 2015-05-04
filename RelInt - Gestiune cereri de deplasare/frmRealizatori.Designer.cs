@@ -41,14 +41,10 @@
             this.lblDespreDezvoltatori3 = new System.Windows.Forms.Label();
             this.lblDespreDezvoltatori2 = new System.Windows.Forms.Label();
             this.lblDespreDezvoltatori1 = new System.Windows.Forms.Label();
-            this.llblDezvoltator3 = new System.Windows.Forms.LinkLabel();
-            this.lblNrTelDezv3 = new System.Windows.Forms.Label();
-            this.llblMailDezv3 = new System.Windows.Forms.LinkLabel();
             this.lblTeamleader = new System.Windows.Forms.Label();
             this.mnuRealizatori = new System.Windows.Forms.MenuStrip();
             this.btnIesire = new System.Windows.Forms.ToolStripMenuItem();
             this.lblAsistent1 = new System.Windows.Forms.Label();
-            this.lblAsistent2 = new System.Windows.Forms.Label();
             this.mnuRealizatori.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -180,40 +176,6 @@
             this.lblDespreDezvoltatori1.TabIndex = 12;
             this.lblDespreDezvoltatori1.Text = "Echipa care a facut posibilă realizarea acestui proiect este compusă din";
             // 
-            // llblDezvoltator3
-            // 
-            this.llblDezvoltator3.AutoSize = true;
-            this.llblDezvoltator3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.llblDezvoltator3.Location = new System.Drawing.Point(130, 339);
-            this.llblDezvoltator3.Name = "llblDezvoltator3";
-            this.llblDezvoltator3.Size = new System.Drawing.Size(131, 15);
-            this.llblDezvoltator3.TabIndex = 13;
-            this.llblDezvoltator3.TabStop = true;
-            this.llblDezvoltator3.Text = "VÂZDOAGĂ Carmen";
-            this.llblDezvoltator3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llblDezvoltator3_LinkClicked);
-            // 
-            // lblNrTelDezv3
-            // 
-            this.lblNrTelDezv3.AutoSize = true;
-            this.lblNrTelDezv3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNrTelDezv3.Location = new System.Drawing.Point(133, 358);
-            this.lblNrTelDezv3.Name = "lblNrTelDezv3";
-            this.lblNrTelDezv3.Size = new System.Drawing.Size(95, 15);
-            this.lblNrTelDezv3.TabIndex = 15;
-            this.lblNrTelDezv3.Text = "0751 428 426";
-            // 
-            // llblMailDezv3
-            // 
-            this.llblMailDezv3.AutoSize = true;
-            this.llblMailDezv3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.llblMailDezv3.Location = new System.Drawing.Point(234, 359);
-            this.llblMailDezv3.Name = "llblMailDezv3";
-            this.llblMailDezv3.Size = new System.Drawing.Size(168, 13);
-            this.llblMailDezv3.TabIndex = 17;
-            this.llblMailDezv3.TabStop = true;
-            this.llblMailDezv3.Text = "carmen.vzdoaga@gmail.com";
-            this.llblMailDezv3.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llblMailDezv3_LinkClicked);
-            // 
             // lblTeamleader
             // 
             this.lblTeamleader.AutoSize = true;
@@ -252,29 +214,16 @@
             this.lblAsistent1.TabIndex = 21;
             this.lblAsistent1.Text = "Asistent";
             // 
-            // lblAsistent2
-            // 
-            this.lblAsistent2.AutoSize = true;
-            this.lblAsistent2.Location = new System.Drawing.Point(80, 341);
-            this.lblAsistent2.Name = "lblAsistent2";
-            this.lblAsistent2.Size = new System.Drawing.Size(44, 13);
-            this.lblAsistent2.TabIndex = 22;
-            this.lblAsistent2.Text = "Asistent";
-            // 
             // frmRealizatori
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(484, 423);
-            this.Controls.Add(this.lblAsistent2);
+            this.ClientSize = new System.Drawing.Size(484, 350);
             this.Controls.Add(this.lblAsistent1);
             this.Controls.Add(this.lblTeamleader);
-            this.Controls.Add(this.llblMailDezv3);
             this.Controls.Add(this.llblMailDezv2);
             this.Controls.Add(this.llblMailDezv1);
-            this.Controls.Add(this.lblNrTelDezv3);
             this.Controls.Add(this.lblNrTelDezv2);
-            this.Controls.Add(this.llblDezvoltator3);
             this.Controls.Add(this.lblNrTelDevz1);
             this.Controls.Add(this.llblDezvoltator2);
             this.Controls.Add(this.llblDezvoltator1);
@@ -310,13 +259,9 @@
         private System.Windows.Forms.Label lblDespreDezvoltatori3;
         private System.Windows.Forms.Label lblDespreDezvoltatori2;
         private System.Windows.Forms.Label lblDespreDezvoltatori1;
-        private System.Windows.Forms.LinkLabel llblDezvoltator3;
-        private System.Windows.Forms.Label lblNrTelDezv3;
-        private System.Windows.Forms.LinkLabel llblMailDezv3;
         private System.Windows.Forms.Label lblTeamleader;
         private System.Windows.Forms.MenuStrip mnuRealizatori;
         private System.Windows.Forms.ToolStripMenuItem btnIesire;
         private System.Windows.Forms.Label lblAsistent1;
-        private System.Windows.Forms.Label lblAsistent2;
     }
 }

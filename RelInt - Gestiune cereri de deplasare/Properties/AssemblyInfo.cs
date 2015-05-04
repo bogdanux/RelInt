@@ -6,11 +6,11 @@ using System.Resources;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("RelInt - Gestiune cereri de deplasare")]
+[assembly: AssemblyTitle("RelInt - Gestiune Cereri de Deplasare")]
 [assembly: AssemblyDescription("Aplicatie pentru gestionarea cererilor de deplasare in strainatate si a documentelor aferente acestora")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("UAIC-FEAA")]
-[assembly: AssemblyProduct("RelInt - Gestiune cereri de deplasare")]
+[assembly: AssemblyCompany("SIA-FEAA")]
+[assembly: AssemblyProduct("RelInt - Gestiune Cereri de Deplasare")]
 [assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

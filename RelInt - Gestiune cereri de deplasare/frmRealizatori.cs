@@ -52,19 +52,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         {
             System.Diagnostics.Process.Start("mailto:vioreln5@gmail.com");
         }
-
-        private void llblDezvoltator3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            // Legatura catre VAZDOAGA Carmen
-            System.Diagnostics.Process.Start("https://www.facebook.com/carmen.vazdoaga");
-
-            // Specificam daca legatura URL a fost vizitata
-            this.llblDezvoltator1.LinkVisited = true;
-        }
-        private void llblMailDezv3_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            // System.Diagnostics.Process.Start("mailto:carmen.vzdoaga@gmail.com");
-        }
         /* --------------------------------------------------------------------------------------------------------------- */
 
 

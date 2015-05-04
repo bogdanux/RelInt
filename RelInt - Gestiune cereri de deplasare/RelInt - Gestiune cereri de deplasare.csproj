@@ -28,7 +28,7 @@
     <ProductName>RelInt - GCdD %28Gestiunea Cererilor de Deplasare%29</ProductName>
     <PublisherName>SIA - GCdD</PublisherName>
     <SuiteName>SIA - Sisteme Informationale pentru Birotica</SuiteName>
-    <ApplicationRevision>5</ApplicationRevision>
+    <ApplicationRevision>18</ApplicationRevision>
     <ApplicationVersion>1.0.1.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -311,6 +311,11 @@
     <BootstrapperPackage Include=".NETFramework,Version=v4.0,KB2468871">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29 and Update for .NET Framework 4 %28KB2468871%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Custom.Bootstrapper.Package">
+      <Visible>False</Visible>
+      <ProductName>PostgreSQL 9.4 %28x86 si x64%29</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

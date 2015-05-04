@@ -85,20 +85,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
-        /* ----------------- Eveniment de tip click pentru btnGenerare --------------------------------------------------- */
-        private void btnGenerarePDF_Click(object sender, EventArgs e)
-        {
-
-        }
-        /* --------------------------------------------------------------------------------------------------------------- */
-
-
-
-
-
-
-
-
 
         /* ---------- Metoda de umplere a cmbGradDidactic cu date din RelIntDB ------------------------------------------- */
         private void UmplereGradDidactic()
