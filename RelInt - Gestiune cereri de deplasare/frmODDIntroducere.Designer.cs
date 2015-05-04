@@ -210,6 +210,7 @@
             // 
             // dpDataODD
             // 
+            this.dpDataODD.Enabled = false;
             this.dpDataODD.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dpDataODD.Location = new System.Drawing.Point(526, 32);
             this.dpDataODD.Name = "dpDataODD";
@@ -219,6 +220,7 @@
             // lblDin
             // 
             this.lblDin.AutoSize = true;
+            this.lblDin.Enabled = false;
             this.lblDin.Location = new System.Drawing.Point(499, 36);
             this.lblDin.Name = "lblDin";
             this.lblDin.Size = new System.Drawing.Size(21, 13);
@@ -285,6 +287,7 @@
             this.panouContinutODD.Controls.Add(this.txtSubsemnatul);
             this.panouContinutODD.Controls.Add(this.lblSubsemnatul);
             this.panouContinutODD.Controls.Add(this.lblContinutODD);
+            this.panouContinutODD.Enabled = false;
             this.panouContinutODD.Location = new System.Drawing.Point(12, 129);
             this.panouContinutODD.Name = "panouContinutODD";
             this.panouContinutODD.Size = new System.Drawing.Size(642, 131);
@@ -475,6 +478,7 @@
             this.panouCheltuieliODD.Controls.Add(this.txtRuta);
             this.panouCheltuieliODD.Controls.Add(this.lblRuta);
             this.panouCheltuieliODD.Controls.Add(this.lblCheltuieliODD);
+            this.panouCheltuieliODD.Enabled = false;
             this.panouCheltuieliODD.Location = new System.Drawing.Point(12, 266);
             this.panouCheltuieliODD.Name = "panouCheltuieliODD";
             this.panouCheltuieliODD.Size = new System.Drawing.Size(642, 252);
@@ -770,6 +774,7 @@
             this.panouAlteDispuneriODD.Controls.Add(this.txtDispunere2);
             this.panouAlteDispuneriODD.Controls.Add(this.txtDispunere1);
             this.panouAlteDispuneriODD.Controls.Add(this.lblAlteDispuneriODD);
+            this.panouAlteDispuneriODD.Enabled = false;
             this.panouAlteDispuneriODD.Location = new System.Drawing.Point(12, 524);
             this.panouAlteDispuneriODD.Name = "panouAlteDispuneriODD";
             this.panouAlteDispuneriODD.Size = new System.Drawing.Size(642, 149);
@@ -824,6 +829,7 @@
             this.panouSemnatariODD.Controls.Add(this.txtDFC);
             this.panouSemnatariODD.Controls.Add(this.lblDFC);
             this.panouSemnatariODD.Controls.Add(this.lblSemnatariODD);
+            this.panouSemnatariODD.Enabled = false;
             this.panouSemnatariODD.Location = new System.Drawing.Point(12, 679);
             this.panouSemnatariODD.Name = "panouSemnatariODD";
             this.panouSemnatariODD.Size = new System.Drawing.Size(642, 131);

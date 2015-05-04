@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.Odbc;
+using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MigraDoc.DocumentObjectModel;
+using MigraDoc.Rendering;
+using TabAlignment = MigraDoc.DocumentObjectModel.TabAlignment;
 
 namespace RelInt___Gestiune_cereri_de_deplasare
 {
@@ -72,6 +76,8 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             dpDataODD.Enabled = false;
 
             // dezactivam panourile urmatoare
+            lblDin.Enabled = false;
+            dpDataODD.Enabled = false;
             panouContinutODD.Enabled = false;
             panouCheltuieliODD.Enabled = false;
             panouAlteDispuneriODD.Enabled = false;
@@ -318,6 +324,9 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
             // Inregistram modificarea campului
             txtNrUAICSchimbat = true;
+
+            // Efectuam
+            ActivarePanouri25();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
@@ -652,8 +661,43 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         {
             // Efectuam
             VerifExistentaODD();
+
+            //// Activam
+            //txtNrUAIC.Enabled = true;
+            //dpDataODD.Enabled = true;
         }
         /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+        private void ActivarePanouri25()
+        {
+            if (txtNrUAIC.Text != string.Empty)
+            {
+                // Activeaza
+                
+                panouContinutODD.Enabled = true;
+                panouCheltuieliODD.Enabled = true;
+                panouAlteDispuneriODD.Enabled = true;
+                panouSemnatariODD.Enabled = true;
+                lblDin.Enabled = true;
+                dpDataODD.Enabled = true;
+            }
+            else
+            {
+                // Dezactiveaza
+                panouContinutODD.Enabled = false;
+                panouCheltuieliODD.Enabled = false;
+                panouAlteDispuneriODD.Enabled = false;
+                panouSemnatariODD.Enabled = false;
+                lblDin.Enabled = false;
+                dpDataODD.Enabled = false;
+            }
+        }
 
 
 
@@ -707,25 +751,23 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                                 cmbMoneda4.SelectedItem = cititor_populareDinBD.GetString(25);
                                 txtTotalDePlata.Text = cititor_populareDinBD.GetString(26);
 
-                                lblNrUAIC.Enabled = true;
-                                txtNrUAIC.Enabled = true;
-                                lblDin.Enabled = true;
-                                dpDataODD.Enabled = true;
-
-                                panouContinutODD.Enabled = true;
-                                panouCheltuieliODD.Enabled = true;
-                                panouAlteDispuneriODD.Enabled = true;
-                                panouSemnatariODD.Enabled = true;
-
                                 txtNrInregistrare.Enabled = false;
                                 btnAcceseaza.Enabled = false;
+
+                                lblNrUAIC.Enabled = true;
+                                txtNrUAIC.Enabled = true;
+                                //lblDin.Enabled = true;
+                                //dpDataODD.Enabled = true;
+
+                                //panouContinutODD.Enabled = true;
+                                //panouCheltuieliODD.Enabled = true;
+                                //panouAlteDispuneriODD.Enabled = true;
+                                //panouSemnatariODD.Enabled = true;
                             }
                         }
 
                         if (cititor_populareDinBD.HasRows == false)
                         {
-                            txtNrUAIC.Enabled = false;
-                            dpDataODD.Enabled = false;
                             panouContinutODD.Enabled = false;
                             panouCheltuieliODD.Enabled = false;
                             panouAlteDispuneriODD.Enabled = false;
@@ -820,10 +862,12 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 {
                     comanda_inserareRelInt.Connection = conexiune_InserareCerereRelInt;
                     comanda_inserareRelInt.CommandType = CommandType.Text;
-                    comanda_inserareRelInt.CommandText = "INSERT into ordinedeplasare VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                    comanda_inserareRelInt.CommandText = "INSERT into ordinedeplasare VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
                     comanda_inserareRelInt.Parameters.AddWithValue("@nrinregistrareodc", OdbcType.Int).Value = vartxtNrInregistrare;
                     comanda_inserareRelInt.Parameters.AddWithValue("@nrinregistrareod", OdbcType.Int).Value = vartxtNrUAIC;
+                    comanda_inserareRelInt.Parameters.AddWithValue("@nrinregistrareodNou", OdbcType.Int).Value = null;
                     comanda_inserareRelInt.Parameters.AddWithValue("@dataOD", OdbcType.DateTime).Value = dpDataODD.Value;
+                    comanda_inserareRelInt.Parameters.AddWithValue("@dataODNoua", OdbcType.DateTime).Value = null;
                     comanda_inserareRelInt.Parameters.AddWithValue("@subsemnatulOD", OdbcType.NVarChar).Value = txtSubsemnatul.Text;
                     comanda_inserareRelInt.Parameters.AddWithValue("@graddidacticOD", OdbcType.NVarChar).Value = cmbGradDidactic.SelectedItem;
                     comanda_inserareRelInt.Parameters.AddWithValue("@facultateaOD", OdbcType.NVarChar).Value = cmbFacultatea.SelectedItem;
@@ -984,6 +1028,8 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 // Lucreaza asta
                 MetodaInserareDB();
 
+                GenerarePDF();
+
                 // Daca variabila "MetodaInserareSucces" este adevarata
                 if (MetodaInserareSucces == true)
                 {
@@ -1072,6 +1118,265 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     MessageBox.Show(
                         "               Nu ați introdus nici un Director Financiar Contabil (-- Director Financiar-Contabil --) ! \n                 Vă rugăm introduceți o valoare.");
                 }
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+        /* --------------------- Eveniment click pentru butonul "Salvare" ----------------------------------------- */
+        private void GenerarePDF()
+        {
+            // Create a MigraDoc document
+            Document documentPDF = new Document();
+            documentPDF.Info.Author = "Departamentul Relatii Internationale";
+            documentPDF.Info.Keywords = "Generare, PDF";
+            Unit width, height;
+            PageSetup.GetPageSize(PageFormat.A4, out width, out height);
+
+            Section section1 = documentPDF.AddSection();
+            section1.PageSetup.PageHeight = height;
+            section1.PageSetup.PageWidth = width;
+            section1.PageSetup.LeftMargin = 60;
+            section1.PageSetup.RightMargin = 60;
+            section1.PageSetup.TopMargin = 40;
+            section1.PageSetup.BottomMargin = 40;
+            section1.PageSetup.OddAndEvenPagesHeaderFooter = true;
+            section1.PageSetup.StartingNumber = 1;
+
+            // Paragraf 1
+            Paragraph paragraf1 = section1.AddParagraph();
+            paragraf1.Format.Alignment = ParagraphAlignment.Center;
+            paragraf1.Format.Font.Size = 14;
+            paragraf1.Format.Font.Name = "Times New Roman";
+            paragraf1.AddText("ROMÂNIA");
+
+            // Paragraf 2
+            Paragraph paragraf2 = section1.AddParagraph();
+            paragraf2.Format.Alignment = ParagraphAlignment.Center;
+            paragraf2.Format.Font.Size = 14;
+            paragraf2.Format.Font.Name = "Times New Roman";
+            paragraf2.AddText("MINISTERUL EDUCAȚIEI ȘI CERCETĂRII ȘTIINȚIFICE");
+
+            // Paragraf 3
+            Paragraph paragraf3 = section1.AddParagraph();
+            paragraf3.Format.Alignment = ParagraphAlignment.Center;
+            paragraf3.Format.Font.Size = 14;
+            paragraf3.Format.Font.Name = "Times New Roman";
+            paragraf3.AddText("UNIVERSITATEA \"ALEXANDRU IOAN CUZA\" DIN IAȘI");
+
+            // Paragraf 4
+            Paragraph paragraf4 = section1.AddParagraph();
+            paragraf4.Format.Alignment = ParagraphAlignment.Center;
+            paragraf4.Format.Font.Size = 14;
+            paragraf4.Format.Font.Name = "Times New Roman";
+            paragraf4.AddText("DISPOZIȚIA");
+
+            // Paragraf 5
+            Paragraph paragraf5 = section1.AddParagraph();
+            paragraf5.Format.Alignment = ParagraphAlignment.Center;
+            paragraf5.Format.Font.Size = 13;
+            paragraf5.Format.Font.Name = "Times New Roman";
+            paragraf5.Format.Font.Bold = true;
+            paragraf5.AddText("Nr. " + txtNrUAIC.Text + " / " + txtNrInregistrare.Text + dpDataODD.Value.ToString().Substring(0, DateTime.Today.ToString().IndexOf("00:")));
+
+            // Paragraf 6
+            Paragraph paragraf6 = section1.AddParagraph();
+            paragraf6.Format.Alignment = ParagraphAlignment.Center;
+            paragraf6.Format.Font.Size = 13;
+            paragraf6.Format.Font.Name = "Times New Roman";
+            paragraf6.Format.SpaceBefore = "1.0cm";
+            paragraf6.Format.Alignment = ParagraphAlignment.Justify;
+            paragraf6.AddText("În temeiul Ordinului M.Ed.C. nr. 4975/30.04.1992 și al Hotărârii Biroului Executiv al Consiliului de Administrație din data de ");
+            paragraf6.AddFormattedText("04.03.2-15", TextFormat.Bold);
+
+            // Paragraf 7
+            Paragraph paragraf7 = section1.AddParagraph();
+            paragraf7.Format.Alignment = ParagraphAlignment.Center;
+            paragraf7.Format.Font.Size = 13;
+            paragraf7.Format.Font.Name = "Times New Roman";
+            paragraf7.Format.SpaceBefore = "1.0cm";
+            paragraf7.AddText("RECTORUL dispune:");
+
+            // Paragraf 8
+            Paragraph paragraf8 = section1.AddParagraph();
+            paragraf8.Format.Font.Size = 13;
+            paragraf8.Format.Font.Name = "Times New Roman";
+            paragraf8.Format.Alignment = ParagraphAlignment.Justify;
+            paragraf8.Format.SpaceBefore = "1.0cm";
+            paragraf8.AddText("1. Deplasarea D-lui/ D-nei ");
+            paragraf8.AddFormattedText(txtSubsemnatul.Text, TextFormat.Bold);
+            paragraf8.AddFormattedText(", " + cmbGradDidactic.SelectedItem + " la " + cmbFacultatea.SelectedItem + ",");
+
+
+            // Paragraf 9
+            Paragraph paragraf9 = section1.AddParagraph();
+            paragraf9.Format.Alignment = ParagraphAlignment.Justify;
+            paragraf9.Format.Font.Size = 12;
+            paragraf9.Format.SpaceBefore = "0.5cm";
+            paragraf9.Format.Font.Name = "Times New Roman";
+            paragraf9.AddText("în localitatea: ");
+            paragraf9.AddFormattedText(txtLocalitatea.Text, TextFormat.Bold);
+            paragraf9.AddFormattedText(" țara ");
+            paragraf9.AddFormattedText(txtTara.Text, TextFormat.Bold);
+
+            // Paragraf 10
+            Paragraph paragraf10 = section1.AddParagraph();
+            paragraf10.Format.Alignment = ParagraphAlignment.Justify;
+            paragraf10.Format.Font.Size = 12;
+            paragraf10.Format.SpaceBefore = "0.5cm";
+            paragraf10.Format.Font.Name = "Times New Roman";
+            paragraf10.AddText("Scopul: ");
+            paragraf10.AddFormattedText(txtScop.Text, TextFormat.Bold);
+
+            // Paragraf 11
+            Paragraph paragraf11 = section1.AddParagraph();
+            paragraf11.Format.Alignment = ParagraphAlignment.Justify;
+            paragraf11.Format.Font.Size = 12;
+            paragraf11.Format.SpaceBefore = "0.3cm";
+            paragraf11.Format.Font.Name = "Times New Roman";
+            paragraf11.AddText("deplasarea are loc în perioada");
+            paragraf11.AddFormattedText(dpDataInceput.Value.ToString().Substring(0, DateTime.Today.ToString().IndexOf("00:")) + " - " + dpDataSfarsit.Value.ToString().Substring(0, DateTime.Today.ToString().IndexOf("00:")), TextFormat.Bold);
+
+            // Paragraf 12
+            Paragraph paragraf12 = section1.AddParagraph();
+            paragraf12.Format.Alignment = ParagraphAlignment.Justify;
+            paragraf12.Format.Font.Size = 12;
+            paragraf12.Format.SpaceBefore = "0.3cm";
+            paragraf12.Format.Font.Name = "Times New Roman";
+            paragraf12.AddText("2. Cheltuielile de transport internațional pe ruta: ");
+            paragraf12.AddFormattedText(txtRuta.Text, TextFormat.Bold);
+
+            // Paragraf 13
+            Paragraph paragraf13 = section1.AddParagraph();
+            paragraf13.Format.Alignment = ParagraphAlignment.Justify;
+            paragraf13.Format.Font.Size = 12;
+            paragraf13.Format.SpaceBefore = "0.3cm";
+            paragraf13.Format.Font.Name = "Times New Roman";
+            paragraf13.AddText("sunt suportate: ");
+            paragraf13.AddFormattedText(txtPlatitorTransport.Text, TextFormat.Bold);
+
+            // Paragraf 14
+            Paragraph paragraf14 = section1.AddParagraph();
+            paragraf14.Format.Alignment = ParagraphAlignment.Justify;
+            paragraf14.Format.Font.Size = 12;
+            paragraf14.Format.SpaceBefore = "0.3cm";
+            paragraf14.Format.Font.Name = "Times New Roman";
+            paragraf14.AddText("și cheltuielile de îintreținere în străinătate sunt suportate de la ");
+            paragraf14.AddFormattedText(txtPlatitorIntretinere.Text, TextFormat.Bold);
+
+            // Paragraf 15
+            Paragraph paragraf15 = section1.AddParagraph();
+            paragraf15.Format.Alignment = ParagraphAlignment.Justify;
+            paragraf15.Format.Font.Size = 12;
+            paragraf15.Format.SpaceBefore = "0.3cm";
+            paragraf15.Format.Font.Name = "Times New Roman";
+            paragraf15.AddText("diurna " + txtNrZileDiurna.Text + " X " + txtDiurna.Text + " " + cmbMoneda1.SelectedItem);
+
+            // Paragraf 16
+            Paragraph paragraf16 = section1.AddParagraph();
+            paragraf16.Format.Alignment = ParagraphAlignment.Justify;
+            paragraf16.Format.Font.Size = 12;
+            paragraf16.Format.Font.Name = "Times New Roman";
+            paragraf16.AddText("cazarea " + txtNrZileCazare.Text + " X " + txtCazare.Text + " " + cmbMoneda2.SelectedItem);
+
+            // Paragraf 17
+            Paragraph paragraf17 = section1.AddParagraph();
+            paragraf17.Format.Alignment = ParagraphAlignment.Justify;
+            paragraf17.Format.Font.Size = 12;
+            paragraf17.Format.Font.Name = "Times New Roman";
+            paragraf17.AddText("taxă de participare " + txtTaxaDeParticipare.Text + " " + cmbMoneda3.SelectedItem);
+
+            // Paragraf 18
+            Paragraph paragraf18 = section1.AddParagraph();
+            paragraf18.Format.Alignment = ParagraphAlignment.Justify;
+            paragraf18.Format.Font.Size = 12;
+            paragraf18.Format.Font.Name = "Times New Roman";
+            paragraf18.AddText("asigurare medicală și taxe consulare " + txtTaxaDeViza.Text + " " + cmbMoneda4.SelectedItem);
+
+            // Paragraf 19
+            Paragraph paragraf19 = section1.AddParagraph();
+            paragraf19.Format.Alignment = ParagraphAlignment.Justify;
+            paragraf19.Format.Font.Size = 12;
+            paragraf19.Format.SpaceBefore = "0.5cm";
+            paragraf19.Format.Font.Name = "Times New Roman";
+            paragraf19.Format.Font.Bold = true;
+            paragraf19.AddText("Total: " + txtTotalDePlata.Text);
+
+            // Paragraf 20
+            Paragraph paragraf20 = section1.AddParagraph();
+            paragraf20.Format.Alignment = ParagraphAlignment.Justify;
+            paragraf20.Format.Font.Size = 12;
+            paragraf20.Format.SpaceBefore = "0.3cm";
+            paragraf20.Format.Font.Name = "Times New Roman";
+            paragraf20.AddText("3. Pe perioada deplasării, se asigură salariul în țară conform normelor în vigoare.");
+
+            // Paragraf 21
+            Paragraph paragraf21 = section1.AddParagraph();
+            paragraf21.Format.Alignment = ParagraphAlignment.Justify;
+            paragraf21.Format.Font.Size = 12;
+            paragraf21.Format.Font.Name = "Times New Roman";
+            paragraf21.AddText("4. Serviciile CONTABILITATE și ORGANIZARE - SALARIZARE vor duce la îndeplinire prevederile prezentei dispoziții.");
+
+
+            var table1 = section1.AddTable();
+            table1.Format.SpaceBefore = "1.0cm";
+            table1.AddColumn("11cm");
+            table1.AddColumn("8cm");
+
+            var row1 = table1.AddRow();
+            var paragraph22 = row1.Cells[0].AddParagraph("RECTOR,");
+            paragraph22.AddTab();
+            paragraph22.Format.ClearAll();
+            // TabStop at column width minus inner margins and borders:
+            paragraph22.Format.AddTabStop("7.7cm", TabAlignment.Right);
+            row1.Cells[1].AddParagraph("DIRECTOR FINANCIAR CONTABIL,");
+            table1.Borders.Width = 0;
+
+            var table2 = section1.AddTable();
+            table2.Format.SpaceBefore = "1.0cm";
+            table2.AddColumn("11cm");
+            table2.AddColumn("8cm");
+
+            var row2 = table2.AddRow();
+            var paragraph23 = row2.Cells[0].AddParagraph(cmbRectorProrector.Text + " " + txtCoordProiect.Text);
+            paragraph23.AddTab();
+            paragraph23.Format.ClearAll();
+            // TabStop at column width minus inner margins and borders:
+            paragraph23.Format.AddTabStop("7.7cm", TabAlignment.Right);
+            row2.Cells[1].AddParagraph(txtDFC.Text);
+            table2.Borders.Width = 0;
+
+
+            PdfDocumentRenderer pdfRenderer = new PdfDocumentRenderer(true);
+            pdfRenderer.Document = documentPDF;
+            pdfRenderer.RenderDocument();
+
+            string NumeFisierPDF = string.Empty;
+
+            SaveFileDialog dlgPDFSalvat = new SaveFileDialog();
+            dlgPDFSalvat.FileName = "Document";
+            dlgPDFSalvat.DefaultExt = ".pdf";
+            dlgPDFSalvat.Filter = "PDF documents (.pdf)|*.pdf";
+
+
+            if (dlgPDFSalvat.ShowDialog() == DialogResult.OK)
+            {
+                // Atribuim numele standard
+                NumeFisierPDF = dlgPDFSalvat.FileName;
+
+                // Salvam fisierul PDF
+                pdfRenderer.PdfDocument.Save(NumeFisierPDF);
+
+                // Deschidem fisierul dupa ce l-am salvat
+                Process.Start(NumeFisierPDF);
+            }
+            else
+            {
+                // Inchidem formularul curent
+                this.Close();
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */

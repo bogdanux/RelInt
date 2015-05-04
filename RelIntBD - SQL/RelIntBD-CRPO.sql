@@ -105,7 +105,9 @@ TelefonP2 NUMERIC(12)
 CREATE TABLE OrdineDeplasare (
 NrInregistrareODC NUMERIC(5) CONSTRAINT fk_NrInregistrareBC REFERENCES Cereri(NrInregistrareC),
 NrInregistrareOD NUMERIC(10),
+NrInregistrareODNou NUMERIC(10),
 DataOD DATE,
+DataODNoua DATE,
 SubsemnatulOD VARCHAR(70),
 GradDidacticOD VARCHAR(30) CONSTRAINT fk_GradDidacticC REFERENCES GradeDidactice(GradDidacticGD) ON UPDATE CASCADE,
 FacultateaOD VARCHAR(30) CONSTRAINT fk_FacultateaC REFERENCES Facultati(FacultatiF) ON UPDATE CASCADE,
@@ -141,6 +143,7 @@ CoordProjOD VARCHAR(100),
 ODDI BOOLEAN
 );
 
+-- Inserari
 INSERT INTO gradedidactice(graddidacticgd) values ('asistent');
 INSERT INTO gradedidactice(graddidacticgd) values ('decan');
 INSERT INTO gradedidactice(graddidacticgd) values ('lect. univ.');

@@ -90,7 +90,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             {           // Comanda
                 using (OdbcCommand comanda_inserareRelInt = new OdbcCommand())
                 {
-                    string scriptresetare = File.ReadAllText(@"C:\Program Files (x86)\SIA - FEAA\RelInt - GCdD\RelIntBD-CRPO.sql");
+                    string scriptresetare = File.ReadAllText(@"C:\Program Files (x86)\SIA-FEAA\RelInt-GCdD\RelIntBD-CRPO.sql");
                     comanda_inserareRelInt.Connection = conexiune_InserareCerereRelInt;
                     comanda_inserareRelInt.CommandType = CommandType.Text;
                     comanda_inserareRelInt.CommandText = scriptresetare;

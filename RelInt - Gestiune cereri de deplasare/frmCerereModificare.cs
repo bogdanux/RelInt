@@ -699,8 +699,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         private void CevaSchimbat()
         {
             // Daca vreuna din variabilele urmatoare este adevarata atunci
-            if (txtNrInregistrareSchimbat == true 
-                || txtSubsemnatulSchimbat == true 
+            if (txtSubsemnatulSchimbat == true 
                 || cmbGradDidacticSchimbat == true 
                 || cmbFacultateaSchimbat == true 
                 || txtDepartamentSchimbat == true 
@@ -1949,64 +1948,74 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
                         OdbcDataReader cititor_populareDinBD = comanda_populareDinBD.ExecuteReader();
 
-                        while (cititor_populareDinBD.Read())
+                        if (cititor_populareDinBD.HasRows)
                         {
-                            dpDataFormular.Value = cititor_populareDinBD.GetDateTime(1);
-                            txtSubsemnatul.Text = cititor_populareDinBD.GetString(2);
-                            cmbGradDidactic.SelectedIndex = cititor_populareDinBD.GetInt32(3);
-                            cmbFacultatea.SelectedIndex = cititor_populareDinBD.GetInt32(4);
-                            txtDepartament.Text = cititor_populareDinBD.GetString(5);
-                            txtLocalitatea.Text = cititor_populareDinBD.GetString(6);
-                            txtTara.Text = cititor_populareDinBD.GetString(7);
-                            txtScop.Text = cititor_populareDinBD.GetString(8);
-                            txtInstitutia.Text = cititor_populareDinBD.GetString(9);
-                            dpDataInceput.Value = cititor_populareDinBD.GetDateTime(10);
-                            dpDataSfarsit.Value = cititor_populareDinBD.GetDateTime(11);
-                            txtRuta.Text = cititor_populareDinBD.GetString(12);
-                            txtMijTrans.Text = cititor_populareDinBD.GetString(13);
-                            txtPlatitorTransport.Text = cititor_populareDinBD.GetString(14);
-                            txtPlatitorIntretinere.Text = cititor_populareDinBD.GetString(15);
-                            txtNrZileDiurna.Text = cititor_populareDinBD.GetString(16);
-                            txtDiurna.Text = cititor_populareDinBD.GetString(17);
-                            cmbMoneda1.SelectedItem = cititor_populareDinBD.GetString(18);
-                            txtNrZileCazare.Text = cititor_populareDinBD.GetString(19);
-                            txtCazare.Text = cititor_populareDinBD.GetString(20);
-                            cmbMoneda2.SelectedItem = cititor_populareDinBD.GetString(21);
-                            txtTaxaDeParticipare.Text = cititor_populareDinBD.GetString(22);
-                            cmbMoneda3.SelectedItem = cititor_populareDinBD.GetString(23);
-                            txtTaxaDeViza.Text = cititor_populareDinBD.GetString(24);
-                            cmbMoneda4.SelectedItem = cititor_populareDinBD.GetString(25);
-                            txtTotalDePlata.Text = cititor_populareDinBD.GetString(26);
-                            txtAmbasada.Text = cititor_populareDinBD.GetString(27);
-                            rdoPerNedeterminata.Checked = cititor_populareDinBD.GetBoolean(28);
-                            rdoPerDeterminata.Checked = cititor_populareDinBD.GetBoolean(29);
-                            txtDecan.Text = cititor_populareDinBD.GetString(30);
-                            txtVizaConta.Text = cititor_populareDinBD.GetString(31);
-                            txtAdministratorSef.Text = cititor_populareDinBD.GetString(32);
-                            txtSefDepartament.Text = cititor_populareDinBD.GetString(33);
-                            txtVizaRU.Text = cititor_populareDinBD.GetString(34);
 
-                            SuccesCitire = true;
+                            while (cititor_populareDinBD.Read())
+                            {
+                                dpDataFormular.Value = cititor_populareDinBD.GetDateTime(1);
+                                txtSubsemnatul.Text = cititor_populareDinBD.GetString(2);
+                                cmbGradDidactic.SelectedIndex = cititor_populareDinBD.GetInt32(3);
+                                cmbFacultatea.SelectedIndex = cititor_populareDinBD.GetInt32(4);
+                                txtDepartament.Text = cititor_populareDinBD.GetString(5);
+                                txtLocalitatea.Text = cititor_populareDinBD.GetString(6);
+                                txtTara.Text = cititor_populareDinBD.GetString(7);
+                                txtScop.Text = cititor_populareDinBD.GetString(8);
+                                txtInstitutia.Text = cititor_populareDinBD.GetString(9);
+                                dpDataInceput.Value = cititor_populareDinBD.GetDateTime(10);
+                                dpDataSfarsit.Value = cititor_populareDinBD.GetDateTime(11);
+                                txtRuta.Text = cititor_populareDinBD.GetString(12);
+                                txtMijTrans.Text = cititor_populareDinBD.GetString(13);
+                                txtPlatitorTransport.Text = cititor_populareDinBD.GetString(14);
+                                txtPlatitorIntretinere.Text = cititor_populareDinBD.GetString(15);
+                                txtNrZileDiurna.Text = cititor_populareDinBD.GetString(16);
+                                txtDiurna.Text = cititor_populareDinBD.GetString(17);
+                                cmbMoneda1.SelectedItem = cititor_populareDinBD.GetString(18);
+                                txtNrZileCazare.Text = cititor_populareDinBD.GetString(19);
+                                txtCazare.Text = cititor_populareDinBD.GetString(20);
+                                cmbMoneda2.SelectedItem = cititor_populareDinBD.GetString(21);
+                                txtTaxaDeParticipare.Text = cititor_populareDinBD.GetString(22);
+                                cmbMoneda3.SelectedItem = cititor_populareDinBD.GetString(23);
+                                txtTaxaDeViza.Text = cititor_populareDinBD.GetString(24);
+                                cmbMoneda4.SelectedItem = cititor_populareDinBD.GetString(25);
+                                txtTotalDePlata.Text = cititor_populareDinBD.GetString(26);
+                                txtAmbasada.Text = cititor_populareDinBD.GetString(27);
+                                rdoPerNedeterminata.Checked = cititor_populareDinBD.GetBoolean(28);
+                                rdoPerDeterminata.Checked = cititor_populareDinBD.GetBoolean(29);
+                                txtDecan.Text = cititor_populareDinBD.GetString(30);
+                                txtVizaConta.Text = cititor_populareDinBD.GetString(31);
+                                txtAdministratorSef.Text = cititor_populareDinBD.GetString(32);
+                                txtSefDepartament.Text = cititor_populareDinBD.GetString(33);
+                                txtVizaRU.Text = cititor_populareDinBD.GetString(34);
+
+                                SuccesCitire = true;
+                            }
+
+                            // Aranjam Formularul
+                            if (txtNrInregistrare.Enabled == true && SuccesCitire == true)
+                            {
+                                // Dezactivam urmatoarele
+                                lblNrInregistrare.Enabled = false;
+                                txtNrInregistrare.Enabled = false;
+                                btnAcceseaza.Enabled = false;
+
+                                // Activam urmatoarele
+                                lblDataFormular.Enabled = true;
+                                dpDataFormular.Enabled = true;
+                                panouContinut.Enabled = true;
+                                panouCheltuieliPlecare.Enabled = true;
+                                panouMentiuniLegale.Enabled = true;
+                                panouORCDP.Enabled = true;
+                                chkORCDP.Checked = true;
+                                rdoORInserare.Checked = true;
+                                rdoCDPInserare.Checked = true;
+                            }
                         }
-
-                        // Aranjam Formularul
-                        if (txtNrInregistrare.Enabled == true && SuccesCitire == true)
+                        else
                         {
-                            // Dezactivam urmatoarele
-                            lblNrInregistrare.Enabled = false;
-                            txtNrInregistrare.Enabled = false;
-                            btnAcceseaza.Enabled = false;
-
-                            // Activam urmatoarele
-                            lblDataFormular.Enabled = true;
-                            dpDataFormular.Enabled = true;
-                            panouContinut.Enabled = true;
-                            panouCheltuieliPlecare.Enabled = true;
-                            panouMentiuniLegale.Enabled = true;
-                            panouORCDP.Enabled = true;
-                            chkORCDP.Checked = true;
-                            rdoORInserare.Checked = true;
-                            rdoCDPInserare.Checked = true;
+                            MessageBox.Show("       Numărul de înregistrare solicitat de dvs. nu exista!\n\n            Vă rugăm verificați lista de cereri existente.");
+                            txtNrInregistrare.Clear();
+                            txtNrInregistrare.Focus();
                         }
 
                         cititor_populareDinBD.Close();

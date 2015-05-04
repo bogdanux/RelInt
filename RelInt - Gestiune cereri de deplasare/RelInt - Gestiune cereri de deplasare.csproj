@@ -24,10 +24,11 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <SupportUrl>https://www.facebook.com/tkooficial</SupportUrl>
+    <ErrorReportUrl>https://www.facebook.com/tkooficial</ErrorReportUrl>
     <TargetCulture>ro-RO</TargetCulture>
-    <ProductName>RelInt - GCdD %28Gestiunea Cererilor de Deplasare%29</ProductName>
-    <PublisherName>SIA - GCdD</PublisherName>
-    <SuiteName>SIA - Sisteme Informationale pentru Birotica</SuiteName>
+    <ProductName>RelInt-GCdD %28Gestiunea Cererilor de Deplasare%29</ProductName>
+    <PublisherName>SIA-FEAA</PublisherName>
+    <SuiteName>SIA-SIB</SuiteName>
     <ApplicationRevision>18</ApplicationRevision>
     <ApplicationVersion>1.0.1.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
@@ -114,6 +115,10 @@
     <StartupObject>
     </StartupObject>
   </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationManifest>RelInt-GCdD.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
@@ -157,6 +162,12 @@
     </Compile>
     <Compile Include="frmCerereModificare.Designer.cs">
       <DependentUpon>frmCerereModificare.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmListaODDExistente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListaODDExistente.Designer.cs">
+      <DependentUpon>frmListaODDExistente.cs</DependentUpon>
     </Compile>
     <Compile Include="frmODDModificare.cs">
       <SubType>Form</SubType>
@@ -243,6 +254,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCerereModificare.resx">
       <DependentUpon>frmCerereModificare.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListaODDExistente.resx">
+      <DependentUpon>frmListaODDExistente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmODDIntroducere.resx">
       <DependentUpon>frmODDIntroducere.cs</DependentUpon>
@@ -335,16 +349,19 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="RelIntBD-CRPO.sql">
+    <None Include="RelInt-GCdD.manifest" />
+    <Content Include="RelIntBD-CRPO.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    </Content>
     <Content Include="UAIC_icon.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="UAIC_logo.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <None Include="UAIC_logo_bw_1024.png" />
+    <Content Include="UAIC_logo_bw_1024.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <PublishFile Include="Microsoft.ReportViewer.Common">
