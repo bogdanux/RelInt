@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListaCereriExistente));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListaODDExistente));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.btnIesire = new System.Windows.Forms.ToolStripMenuItem();
             this.dgvVizualizareTot = new System.Windows.Forms.DataGridView();
@@ -64,7 +64,7 @@
             this.dgvVizualizareTot.Size = new System.Drawing.Size(1184, 437);
             this.dgvVizualizareTot.TabIndex = 1;
             // 
-            // frmVizualizareTot
+            // frmListaODDExistente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -74,8 +74,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "frmVizualizareTot";
-            this.Text = "Lista Cereri Existente";
+            this.Name = "frmListaODDExistente";
+            this.Text = "Listă ordine de deplasare existente";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVizualizareTot)).EndInit();

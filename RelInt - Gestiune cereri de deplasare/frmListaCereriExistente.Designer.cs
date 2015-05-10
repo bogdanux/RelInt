@@ -64,7 +64,7 @@
             this.dgvVizualizareTot.Size = new System.Drawing.Size(1184, 437);
             this.dgvVizualizareTot.TabIndex = 1;
             // 
-            // frmVizualizareTot
+            // frmListaCereriExistente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -74,8 +74,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "frmVizualizareTot";
-            this.Text = "Lista Cereri Existente";
+            this.Name = "frmListaCereriExistente";
+            this.Text = "Listă cereri existente";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVizualizareTot)).EndInit();
