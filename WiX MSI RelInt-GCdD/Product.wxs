@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
-  <Product Id="*" Name="RelInt - Gestiunea Cererilor de Deplasare" Language="1048" Version="1.0.1.20" Manufacturer="SIA-FEAA" UpgradeCode="11163168-b0a4-4b26-a553-404359b0d84f">
-    <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+  <Product Id="*" Name="RelInt - Gestiunea Cererilor de Deplasare" Language="1048" Version="1.0.1.21" Manufacturer="SIA-FEAA" UpgradeCode="11163168-B0A4-4B26-A553-404359B0D84F">
+    <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine"/>
 
     <MajorUpgrade DowngradeErrorMessage="O versiune mai noua a produsului [ProductName] este deja instalata." />
     <MediaTemplate EmbedCab="yes" />
@@ -31,101 +31,113 @@
                 <File Id="RelInt.exe" Source="D:\RelInt\RelInt - Gestiune cereri de deplasare\bin\x86\Debug\RelInt - Gestiune cereri de deplasare.exe" KeyPath="yes" Checksum="yes"/>
             </Component>
             <Component Id="RelInt.exe.config" Guid="A6EF52BA-0EF0-489E-96A5-11F32FEBDBF1">
-                <File Id="RelInt.exe.config" Source="D:\RelInt\RelInt - Gestiune cereri de deplasare\bin\x86\Debug\RelInt - Gestiune cereri de deplasare.exe.config" KeyPath="yes" Checksum="yes"/>
+                <File Id="RelInt.exe.config" Source="D:\RelInt\RelInt - Gestiune cereri de deplasare\bin\x86\Debug\RelInt - Gestiune cereri de deplasare.exe.config" KeyPath="yes"/>
             </Component>
             <Component Id="RelInt.exe.manifest" Guid="AAE4F273-D9D1-4410-88A2-1FB6B3D7A157">
-                <File Id="RelInt.exe.manifest" Source="D:\RelInt\RelInt - Gestiune cereri de deplasare\bin\x86\Debug\RelInt - Gestiune cereri de deplasare.exe.manifest" KeyPath="yes" Checksum="yes"/>
+                <File Id="RelInt.exe.manifest" Source="D:\RelInt\RelInt - Gestiune cereri de deplasare\bin\x86\Debug\RelInt - Gestiune cereri de deplasare.exe.manifest" KeyPath="yes"/>
             </Component>
           <!-- Resurse -->
             <Component Id="RelInt.CRPO.sql" Guid="A0902D73-030A-4AB6-BAAE-7CE7E926F7A0">
-                <File Id="RelInt.CRPO.sql" Source="D:\RelInt\RelInt - Gestiune cereri de deplasare\bin\x86\Debug\RelIntBD-CRPO.sql" KeyPath="yes" Checksum="yes"/>
+                <File Id="RelInt.CRPO.sql" Source="D:\RelInt\RelInt - Gestiune cereri de deplasare\bin\x86\Debug\RelIntBD-CRPO.sql" KeyPath="yes"/>
             </Component>
             <Component Id="UAIC_icon.ico" Guid="C98449B2-BC4F-4DB1-9C81-E659CC7155EB">
-                <File Id="UAIC_icon.ico" Source="D:\RelInt\RelInt - Gestiune cereri de deplasare\bin\x86\Debug\UAIC_icon.ico" KeyPath="yes" Checksum="yes"/>
+                <File Id="UAIC_icon.ico" Source="D:\RelInt\RelInt - Gestiune cereri de deplasare\bin\x86\Debug\UAIC_icon.ico" KeyPath="yes"/>
             </Component>
             <Component Id="UAIC_logo.png" Guid="7B36DBCA-B3C0-49D4-A875-62C45AD73301">
-                <File Id="UAIC_logo.png" Source="D:\RelInt\RelInt - Gestiune cereri de deplasare\bin\x86\Debug\UAIC_logo.png" KeyPath="yes" Checksum="yes"/>
+                <File Id="UAIC_logo.png" Source="D:\RelInt\RelInt - Gestiune cereri de deplasare\bin\x86\Debug\UAIC_logo.png" KeyPath="yes"/>
             </Component>
             <Component Id="UAIC_logo_bw_1024.png" Guid="2A3B9FE5-7EB2-4153-A8FA-716964375B68">
-                <File Id="UAIC_logo_bw_1024.png" Source="D:\RelInt\RelInt - Gestiune cereri de deplasare\bin\x86\Debug\UAIC_logo_bw_1024.png" KeyPath="yes" Checksum="yes"/>
+                <File Id="UAIC_logo_bw_1024.png" Source="D:\RelInt\RelInt - Gestiune cereri de deplasare\bin\x86\Debug\UAIC_logo_bw_1024.png" KeyPath="yes"/>
             </Component>
           <Component Id="UAIC_logo_mic.png" Guid="F7A3BC23-8DA2-4055-879D-7E0A23105A12">
-            <File Id="UAIC_logo_mic.png" Source="D:\RelInt\RelInt - Gestiune cereri de deplasare\bin\x86\Debug\UAIC_logo_mic.png" KeyPath="yes" Checksum="yes"/>
+            <File Id="UAIC_logo_mic.png" Source="D:\RelInt\RelInt - Gestiune cereri de deplasare\bin\x86\Debug\UAIC_logo_mic.png" KeyPath="yes"/>
           </Component>
           <Component Id="RelInt_GCdDLicentiere.html" Guid="50D9EF53-F0C9-429F-BE0E-75927386D733">
-            <File Id="RelInt_GCdDLicentiere.html" Source="D:\RelInt\RelInt - Gestiune cereri de deplasare\bin\x86\Debug\RelInt-GCdDLicentiere.html" KeyPath="yes" Checksum="yes"/>
+            <File Id="RelInt_GCdDLicentiere.html" Source="D:\RelInt\RelInt - Gestiune cereri de deplasare\bin\x86\Debug\RelInt-GCdDLicentiere.html" KeyPath="yes"/>
           </Component>
           <Component Id="RelInt_GCdDLicentiere.rtf" Guid="3BC0C1D5-58B5-4760-B638-ADEFB26B9A90">
-            <File Id="RelInt_GCdDLicentiere.rtf" Source="D:\RelInt\RelInt - Gestiune cereri de deplasare\bin\x86\Debug\RelInt-GCdDLicentiere.rtf" KeyPath="yes" Checksum="yes"/>
+            <File Id="RelInt_GCdDLicentiere.rtf" Source="D:\RelInt\RelInt - Gestiune cereri de deplasare\bin\x86\Debug\RelInt-GCdDLicentiere.rtf" KeyPath="yes"/>
           </Component>
           <!-- Biblioteci PDFSharp & Migradoc -->
             <Component Id="PdfSharp.dll" Guid="CBC5305B-0E02-41EE-B71E-46EDB82746D4">
-                <File Id="PdfSharp.dll" Source="D:\RelInt\RelInt - Gestiune cereri de deplasare\bin\x86\Debug\PdfSharp.dll" KeyPath="yes" Checksum="yes"/>
+                <File Id="PdfSharp.dll" Source="D:\RelInt\RelInt - Gestiune cereri de deplasare\bin\x86\Debug\PdfSharp.dll" KeyPath="yes"/>
             </Component>
             <Component Id="PdfSharp.Charting.dll" Guid="9C52F161-37E9-4BEC-81AB-5C56FF9315EB">
-                <File Id="PdfSharp.Charting.dll" Source="D:\RelInt\RelInt - Gestiune cereri de deplasare\bin\x86\Debug\PdfSharp.Charting.dll" KeyPath="yes" Checksum="yes"/>
+                <File Id="PdfSharp.Charting.dll" Source="D:\RelInt\RelInt - Gestiune cereri de deplasare\bin\x86\Debug\PdfSharp.Charting.dll" KeyPath="yes"/>
             </Component>
             <Component Id="MigraDoc.RtfRendering.dll" Guid="4FBD9743-02BB-4505-ACF5-99423A60C212">
-                <File Id="MigraDoc.RtfRendering.dll" Source="D:\RelInt\RelInt - Gestiune cereri de deplasare\bin\x86\Debug\MigraDoc.RtfRendering.dll" KeyPath="yes" Checksum="yes"/>
+                <File Id="MigraDoc.RtfRendering.dll" Source="D:\RelInt\RelInt - Gestiune cereri de deplasare\bin\x86\Debug\MigraDoc.RtfRendering.dll" KeyPath="yes"/>
             </Component>
             <Component Id="MigraDoc.Rendering.dll" Guid="9D711DE6-078C-4A10-A69E-CEF867FEE03C">
-                <File Id="MigraDoc.Rendering.dll" Source="D:\RelInt\RelInt - Gestiune cereri de deplasare\bin\x86\Debug\MigraDoc.Rendering.dll" KeyPath="yes" Checksum="yes"/>
+                <File Id="MigraDoc.Rendering.dll" Source="D:\RelInt\RelInt - Gestiune cereri de deplasare\bin\x86\Debug\MigraDoc.Rendering.dll" KeyPath="yes"/>
             </Component>
             <Component Id="MigraDoc.DocumentObjectModel.dll" Guid="0CF35F89-C251-47AD-B16A-F392404B1F3C">
-                <File Id="MigraDoc.DocumentObjectModel.dll" Source="D:\RelInt\RelInt - Gestiune cereri de deplasare\bin\x86\Debug\MigraDoc.DocumentObjectModel.dll" KeyPath="yes" Checksum="yes"/>
+                <File Id="MigraDoc.DocumentObjectModel.dll" Source="D:\RelInt\RelInt - Gestiune cereri de deplasare\bin\x86\Debug\MigraDoc.DocumentObjectModel.dll" KeyPath="yes"/>
             </Component>
           <!-- Biblioteci Microsoft -->
             <Component Id="Microsoft.ReportViewer.Common.dll" Guid="A2E871E8-296B-40A4-9272-C502F643F6B5">
-                <File Id="Microsoft.ReportViewer.Common.dll" Source="C:\Windows\assembly\GAC_MSIL\Microsoft.ReportViewer.Common\11.0.0.0__89845dcd8080cc91\Microsoft.ReportViewer.Common.dll" KeyPath="yes" Checksum="yes"/>
+                <File Id="Microsoft.ReportViewer.Common.dll" Source="C:\Windows\assembly\GAC_MSIL\Microsoft.ReportViewer.Common\11.0.0.0__89845dcd8080cc91\Microsoft.ReportViewer.Common.dll" KeyPath="yes"/>
             </Component>
             <Component Id="Microsoft.ReportViewer.WinForms.DLL" Guid="A11372F2-AB09-4BF3-A072-68783C52D2D0">
-                <File Id="Microsoft.ReportViewer.WinForms.DLL" Source="C:\Windows\assembly\GAC_MSIL\Microsoft.ReportViewer.WinForms\11.0.0.0__89845dcd8080cc91\Microsoft.ReportViewer.WinForms.DLL" KeyPath="yes" Checksum="yes"/>
+                <File Id="Microsoft.ReportViewer.WinForms.DLL" Source="C:\Windows\assembly\GAC_MSIL\Microsoft.ReportViewer.WinForms\11.0.0.0__89845dcd8080cc91\Microsoft.ReportViewer.WinForms.DLL" KeyPath="yes"/>
             </Component>
             <Component Id="Microsoft.SqlServer.Types.dll" Guid="02B8DBCE-A65F-48A3-960F-318060201D96">
-                <File Id="Microsoft.SqlServer.Types.dll" Source="C:\Windows\assembly\GAC_MSIL\Microsoft.SqlServer.Types\11.0.0.0__89845dcd8080cc91\Microsoft.SqlServer.Types.dll" KeyPath="yes" Checksum="yes"/>
+                <File Id="Microsoft.SqlServer.Types.dll" Source="C:\Windows\assembly\GAC_MSIL\Microsoft.SqlServer.Types\11.0.0.0__89845dcd8080cc91\Microsoft.SqlServer.Types.dll" KeyPath="yes"/>
             </Component>
             <Component Id="Microsoft.ReportViewer.DataVisualization.DLL" Guid="F910E3A1-97D0-408A-9487-3A81F99635A5">
-                <File Id="Microsoft.ReportViewer.DataVisualization.DLL" Source="C:\Windows\assembly\GAC_MSIL\Microsoft.ReportViewer.DataVisualization\11.0.0.0__89845dcd8080cc91\Microsoft.ReportViewer.DataVisualization.DLL" KeyPath="yes" Checksum="yes"/>
+                <File Id="Microsoft.ReportViewer.DataVisualization.DLL" Source="C:\Windows\assembly\GAC_MSIL\Microsoft.ReportViewer.DataVisualization\11.0.0.0__89845dcd8080cc91\Microsoft.ReportViewer.DataVisualization.DLL" KeyPath="yes"/>
             </Component>
             <Component Id="Microsoft.ReportViewer.ProcessingObjectModel.DLL" Guid="7030A085-167F-4BE8-B98F-FC93B564BFCA">
-                <File Id="Microsoft.ReportViewer.ProcessingObjectModel.DLL" Source="C:\Windows\assembly\GAC_MSIL\Microsoft.ReportViewer.ProcessingObjectModel\11.0.0.0__89845dcd8080cc91\Microsoft.ReportViewer.ProcessingObjectModel.DLL" KeyPath="yes" Checksum="yes"/>
+                <File Id="Microsoft.ReportViewer.ProcessingObjectModel.DLL" Source="C:\Windows\assembly\GAC_MSIL\Microsoft.ReportViewer.ProcessingObjectModel\11.0.0.0__89845dcd8080cc91\Microsoft.ReportViewer.ProcessingObjectModel.DLL" KeyPath="yes"/>
             </Component>
         </DirectoryRef>
     
         <!-- Cream scurtatura ptr executabil in START -->
         <DirectoryRef Id="ApplicationProgramsFolder">
             <Component Id="IconitaRelIntSTART" Guid="865C1AB8-615A-4609-970A-9AF7B0BC72C0">
+              
+                <!-- Scurtatura pentru aplicatie -->
                 <Shortcut Id="ApplicationStartMenuShortcut" 
                           Name="RelInt-GCdD" 
                           Description="RelInt - Gestiunea Cererilor de Deplasare"
                           Target="[#RelInt.exe]"
                           WorkingDirectory="APPLICATIONROOTDIRECTORY"/>
-                      <!-- Scurtatura pentru dezinstalarea aplicatiei -->
-                          <Shortcut Id="DezinstaleazaRelInt"
+              
+                <!-- Scurtatura catre o pagina web a dezvoltatorului -->
+                <util:InternetShortcut Id="IconitaDezvoltator" Name="Dezolvator" Target="https://www.facebook.com/tkooficial" Type="url"/>
+              
+                <!-- Scurtatura pentru dezinstalarea aplicatiei -->
+                <Shortcut Id="DezinstaleazaRelInt"
                           Name="Dezinstalare RelInt-GCdD"
                           Description="Dezinstaleaza programul RelInt-GCdD"
                           Target="[SystemFolder]msiexec.exe"
-                          Arguments="/x [ProductCode]"/>
-                      <!-- Scurtatura catre o pagina web a dezvoltatorului -->
-                          <util:InternetShortcut Id="IconitaDezvoltator" Name="Dezolvator" Target="https://www.facebook.com/tkooficial" Type="url"/>
+                          Arguments="/x [ProductCode] /l*v"/>
+              
+                <!-- Stergem dosarul din START -->
                 <!--<RemoveFolder Id="StergeSIA_FEAAPMF" Directory="SIA_FEAAPMF" On="uninstall"/>-->
                 <RemoveFolder Id="StergeApplicationProgramsFolder" Directory="ApplicationProgramsFolder" On="uninstall"/>
+            
            </Component>
         </DirectoryRef>
     
         <!-- Cream scurtatura pe Desktop -->
         <DirectoryRef Id="DesktopFolder">
             <Component Id="IconitaRelIntDesktop" Guid="0F85971D-4C8D-403F-81C6-0F38B246117C">
+                
+                <!-- Iconita catre aplicatie -->
                 <Shortcut Id="ApplicationDesktopShortcut" 
                           Name="RelInt-GCdD" 
                           Description="RelInt - Gestiunea Cererilor de Deplasare"
                           Target="[#RelInt.exe]"
                           WorkingDirectory="APPLICATIONROOTDIRECTORY"/>
+            
+                <!-- Stergem iconita la dezinstalare -->
                 <RemoveFolder Id="StergeDesktopFolder" Directory="DesktopFolder" On="uninstall"/>
+            
             </Component>
         </DirectoryRef>
     
-        <!-- Scriem Cheia in Registru --><!--
+        <!-- Scriem chei in Registru --><!--
         <DirectoryRef Id="TARGETDIR">
             <Component Id="RegistruVersiune" Guid="FF912648-274C-423F-BC69-626E75B2245E">
                 <RegistryKey Root="HKLM"
