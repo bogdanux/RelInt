@@ -24,6 +24,8 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             VerificareGradeDidactice();
             VerificareFacultati();
             VerificareMonezi();
+            VerificareRector();
+            VerificareProrector();
 
             MetodaScriereInStatus();
         }
@@ -56,8 +58,10 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         bool AprobareVerifGD = false;
         bool AprobareVerifF = false;
         bool AprobareVerifM = false;
+        bool AprobareVerifR = false;
+        bool AprobareVerifPR = false;
         bool ExistaCereri = false;
-        /* ------------------- Evenimentul click al butonului "mnuIesire" ------------------------------------------------ */
+        /* ------------------- Metoda verificare gradedidactice ---------------------------------------------------------- */
         public void VerificareGradeDidactice()
         {
             using (OdbcConnection conexiune_cmbGradDidactic = new OdbcConnection(sircon_RelIntDB))
@@ -105,7 +109,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-        /* ---------- Metoda de umplere a cmbFacultate cu date din RelIntDB ---------------------------------------------- */
+        /* ---------- Metoda verificare facultati ------------------------------------------------------------------------ */
         public void VerificareFacultati()
         {
             using (OdbcConnection conexiune_cmbFacultati = new OdbcConnection(sircon_RelIntDB))
@@ -153,7 +157,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-        /* ---------- Metoda de umplere a cmbFacultate cu date din RelIntDB ---------------------------------------------- */
+        /* ---------- Metoda verificare monezi --------------------------------------------------------------------------- */
         public void VerificareMonezi()
         {
             using (OdbcConnection conexiune_cmbMonezi = new OdbcConnection(sircon_RelIntDB))
@@ -223,6 +227,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                         btnGCDODZ.Enabled = true;
 
                         btnGCDListaCereriExistente.Enabled = true;
+                        btnGCDListaOrdineDeDeplasare.Enabled = true;
 
                         // Stergem afisarea
                         tsStatusUltimaInregistrare.Text = string.Empty;
@@ -245,6 +250,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                         btnGCDODZ.Enabled = false;
 
                         btnGCDListaCereriExistente.Enabled = false;
+                        btnGCDListaOrdineDeDeplasare.Enabled = false;
                     }
             }
             else
@@ -272,6 +278,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                         btnGCDODZ.Enabled = true;
 
                         btnGCDListaCereriExistente.Enabled = true;
+                        btnGCDListaOrdineDeDeplasare.Enabled = true;
 
                         // Stergem afisarea
                         tsStatusUltimaInregistrare.Text = string.Empty;
@@ -294,6 +301,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                         btnGCDODZ.Enabled = false;
 
                         btnGCDListaCereriExistente.Enabled = false;
+                        btnGCDListaOrdineDeDeplasare.Enabled = false;
                     }
                 }
                 else
@@ -306,7 +314,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-        /* ---------- Metoda de umplere a cmbFacultate cu date din RelIntDB ---------------------------------------------- */
+        /* ---------- Metoda verificare cereri --------------------------------------------------------------------------- */
         public void VerificareCereri()
         {
             using (OdbcConnection conexiune_cereri = new OdbcConnection(sircon_RelIntDB))
@@ -344,6 +352,102 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     finally
                     {
                         conexiune_cereri.Close();
+                    }
+                }
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* ------------ Metoda de verificare daca sunt introdusi Rectori ------------------------------------------------- */
+        public void VerificareRector()
+        {
+            using (OdbcConnection conexiune_Rectori = new OdbcConnection(sircon_RelIntDB))
+            {           // Comanda
+                using (OdbcCommand comanda_Rectori = new OdbcCommand())
+                {
+                    comanda_Rectori.Connection = conexiune_Rectori;
+                    comanda_Rectori.CommandType = CommandType.Text;
+                    comanda_Rectori.CommandText = "SELECT * FROM rectori";
+
+                    OdbcDataReader cititor_Rectori;
+
+                    try
+                    {
+                        conexiune_Rectori.Open();
+                        cititor_Rectori = comanda_Rectori.ExecuteReader();
+
+                        // Daca cititorul
+                        if (cititor_Rectori.HasRows == false)
+                        {
+                            // Afisam de ce
+                            tsStatusDeCeM.Text = " Nu sunt RECTORI introduși în baza de date. Introduceți-i! ";
+
+                            // Setam
+                            AprobareVerifR = false;
+                        }
+                        else
+                        {
+                            // Stergem afisarea
+                            tsStatusDeCeR.Text = string.Empty;
+
+                            // Setam
+                            AprobareVerifR = true;
+                        }
+                    }
+                    catch (Exception exRectori)
+                    {
+                        MessageBox.Show(exRectori.Message);
+                    } // Ne deconectam
+                    finally
+                    {
+                        conexiune_Rectori.Close();
+                    }
+                }
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* ------------ Metoda de verificare daca sunt introdusi Prorectori ---------------------------------------------- */
+        public void VerificareProrector()
+        {
+            using (OdbcConnection conexiune_Prorectori = new OdbcConnection(sircon_RelIntDB))
+            {           // Comanda
+                using (OdbcCommand comanda_Prorectori = new OdbcCommand())
+                {
+                    comanda_Prorectori.Connection = conexiune_Prorectori;
+                    comanda_Prorectori.CommandType = CommandType.Text;
+                    comanda_Prorectori.CommandText = "SELECT * FROM prorectori";
+
+                    OdbcDataReader cititor_Prorectori;
+
+                    try
+                    {
+                        conexiune_Prorectori.Open();
+                        cititor_Prorectori = comanda_Prorectori.ExecuteReader();
+
+                        // Daca cititorul
+                        if (cititor_Prorectori.HasRows == false)
+                        {
+                            // Afisam de ce
+                            tsStatusDeCePR.Text = " Nu sunt PRORECTORI introduși în baza de date. Introduceți-i! ";
+
+                            // Setam
+                            AprobareVerifPR = false;
+                        }
+                        else
+                        {
+                            // Stergem afisarea
+                            tsStatusDeCeR.Text = string.Empty;
+
+                            // Setam
+                            AprobareVerifPR = true;
+                        }
+                    }
+                    catch (Exception exProrectori)
+                    {
+                        MessageBox.Show(exProrectori.Message);
+                    } // Ne deconectam
+                    finally
+                    {
+                        conexiune_Prorectori.Close();
                     }
                 }
             }

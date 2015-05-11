@@ -32,7 +32,7 @@ CREATE TABLE Cereri (
 NrInregistrareC NUMERIC(5) CONSTRAINT pk_NrInregistrareC PRIMARY KEY,
 DataC DATE,
 SubsemnatulC VARCHAR(70),
-GradDidacticC VARCHAR(30) CONSTRAINT fk_GradDidacticC REFERENCES GradeDidactice(GradDidacticGD) ON UPDATE CASCADE,
+GradDidacticC VARCHAR(50) CONSTRAINT fk_GradDidacticC REFERENCES GradeDidactice(GradDidacticGD) ON UPDATE CASCADE,
 FacultateaC VARCHAR(30) CONSTRAINT fk_FacultateaC REFERENCES Facultati(FacultatiF) ON UPDATE CASCADE,
 DepartamentulC VARCHAR(50),
 LocalitateaC VARCHAR(30),
@@ -105,9 +105,11 @@ TelefonP2 NUMERIC(12)
 CREATE TABLE OrdineDeplasare (
 NrInregistrareODC NUMERIC(5) CONSTRAINT fk_NrInregistrareBC REFERENCES Cereri(NrInregistrareC),
 NrInregistrareOD NUMERIC(10),
+NrInregistrareODNou NUMERIC(10),
 DataOD DATE,
+DataODNoua DATE,
 SubsemnatulOD VARCHAR(70),
-GradDidacticOD VARCHAR(30) CONSTRAINT fk_GradDidacticC REFERENCES GradeDidactice(GradDidacticGD) ON UPDATE CASCADE,
+GradDidacticOD VARCHAR(50) CONSTRAINT fk_GradDidacticC REFERENCES GradeDidactice(GradDidacticGD) ON UPDATE CASCADE,
 FacultateaOD VARCHAR(30) CONSTRAINT fk_FacultateaC REFERENCES Facultati(FacultatiF) ON UPDATE CASCADE,
 LocalitateaOD VARCHAR(30),
 TaraOD VARCHAR(20),
@@ -137,10 +139,13 @@ RectorOD BOOLEAN,
 ProrectorOD BOOLEAN,
 NumeRPOD VARCHAR(100),
 DFCOD VARCHAR(100),
-CoordProjOD VARCHAR(100),
+CPNumeProjOD VARCHAR(300),
+CPGradDidacticOD VARCHAR(50),
+CPNumeCoordOD VARCHAR(100),
 ODDI BOOLEAN
 );
 
+-- Inserari
 INSERT INTO gradedidactice(graddidacticgd) values ('asistent');
 INSERT INTO gradedidactice(graddidacticgd) values ('decan');
 INSERT INTO gradedidactice(graddidacticgd) values ('lect. univ.');

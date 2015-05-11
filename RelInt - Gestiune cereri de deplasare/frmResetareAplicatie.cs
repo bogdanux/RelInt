@@ -85,44 +85,94 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         /* --------------------------------------------------------------------------------------------------------------- */
         private void btnResetare_Click(object sender, EventArgs e)
         {
-            // Conexiunea
-            using (OdbcConnection conexiune_InserareCerereRelInt = new OdbcConnection(sircon_RelIntDB))
-            {           // Comanda
-                using (OdbcCommand comanda_inserareRelInt = new OdbcCommand())
+            // Verificam daca computerul este de tip x86 sau x64
+            if (Directory.Exists("C:\\Program Files (x86)"))
+            {
+                // Conexiunea
+                using (OdbcConnection conexiune_InserareCerereRelInt = new OdbcConnection(sircon_RelIntDB))
                 {
-                    string scriptresetare = File.ReadAllText(@"C:\Program Files (x86)\SIA-FEAA\RelInt-GCdD\RelIntBD-CRPO.sql");
-                    comanda_inserareRelInt.Connection = conexiune_InserareCerereRelInt;
-                    comanda_inserareRelInt.CommandType = CommandType.Text;
-                    comanda_inserareRelInt.CommandText = scriptresetare;
-
-                    // Incercam conexiunea si query-ul
-                    try
+                    // Comanda
+                    using (OdbcCommand comanda_inserareRelInt = new OdbcCommand())
                     {
-                        conexiune_InserareCerereRelInt.Open();
-                        int recordsAffected = comanda_inserareRelInt.ExecuteNonQuery();
+                        string scriptresetare =
+                            File.ReadAllText(@"C:\Program Files (x86)\SIA-FEAA\RelInt-GCdD\RelIntBD-CRPO.sql");
+                        comanda_inserareRelInt.Connection = conexiune_InserareCerereRelInt;
+                        comanda_inserareRelInt.CommandType = CommandType.Text;
+                        comanda_inserareRelInt.CommandText = scriptresetare;
 
-                        // Afisam mesaj informativ
-                        MessageBox.Show("Baza de Date \"RelIntDB\" a fost reinițializată cu succes!", "Succes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        // Incercam conexiunea si query-ul
+                        try
+                        {
+                            conexiune_InserareCerereRelInt.Open();
+                            int recordsAffected = comanda_inserareRelInt.ExecuteNonQuery();
 
-                        // Dezactivam
-                        panouAtentie.Enabled = false;
-                        panouActiuni.Enabled = false;
-                    }
+                            // Afisam mesaj informativ
+                            MessageBox.Show("Baza de Date \"RelIntDB\" a fost reinițializată cu succes!", "Succes",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    // Captam eventualele erori
-                    catch (OdbcException exInserare)
-                    {
-                        // Afisam eroarea
-                        MessageBox.Show(exInserare.Message);
-                    }
+                            // Dezactivam
+                            panouAtentie.Enabled = false;
+                            panouActiuni.Enabled = false;
+                        }
 
-                    // Ne deconectam
-                    finally
-                    {
-                        conexiune_InserareCerereRelInt.Close();
+                            // Captam eventualele erori
+                        catch (OdbcException exInserare)
+                        {
+                            // Afisam eroarea
+                            MessageBox.Show(exInserare.Message);
+                        }
+
+                            // Ne deconectam
+                        finally
+                        {
+                            conexiune_InserareCerereRelInt.Close();
+                        }
                     }
                 }
             }
+            else
+            {
+                // Conexiunea
+                using (OdbcConnection conexiune_InserareCerereRelInt = new OdbcConnection(sircon_RelIntDB))
+                {           // Comanda
+                    using (OdbcCommand comanda_inserareRelInt = new OdbcCommand())
+                    {
+                        string scriptresetare = File.ReadAllText(@"C:\Program Files\SIA-FEAA\RelInt-GCdD\RelIntBD-CRPO.sql");
+                        comanda_inserareRelInt.Connection = conexiune_InserareCerereRelInt;
+                        comanda_inserareRelInt.CommandType = CommandType.Text;
+                        comanda_inserareRelInt.CommandText = scriptresetare;
+
+                        // Incercam conexiunea si query-ul
+                        try
+                        {
+                            conexiune_InserareCerereRelInt.Open();
+                            int recordsAffected = comanda_inserareRelInt.ExecuteNonQuery();
+
+                            // Afisam mesaj informativ
+                            MessageBox.Show("Baza de Date \"RelIntDB\" a fost reinițializată cu succes!", "Succes", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            // Dezactivam
+                            panouAtentie.Enabled = false;
+                            panouActiuni.Enabled = false;
+                        }
+
+                        // Captam eventualele erori
+                        catch (OdbcException exInserare)
+                        {
+                            // Afisam eroarea
+                            MessageBox.Show(exInserare.Message);
+                        }
+
+                        // Ne deconectam
+                        finally
+                        {
+                            conexiune_InserareCerereRelInt.Close();
+                        }
+                    }
+                }
+            }
+
+            
             
             // Efectuam
             if (System.Windows.Forms.Application.OpenForms["frmGCD"] != null)

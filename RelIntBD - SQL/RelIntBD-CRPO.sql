@@ -8,6 +8,7 @@ DROP TABLE IF EXISTS ConditiiDePlata;
 DROP TABLE IF EXISTS Cereri;
 DROP TABLE IF EXISTS GradeDidactice;
 DROP TABLE IF EXISTS Facultati;
+DROP TABLE IF EXISTS Tari;
 DROP TABLE IF EXISTS Monezi;
 
 -------------------------------------
@@ -27,6 +28,11 @@ CREATE TABLE Monezi (
 MoneziM VARCHAR(50) CONSTRAINT pk_MoneziM PRIMARY KEY
 );
 
+-- Creare tabela Tari
+CREATE TABLE Tari (
+TariT VARCHAR(150) CONSTRAINT pk_TariT PRIMARY KEY
+);
+
 -- Creare tabela Cereri
 CREATE TABLE Cereri (
 NrInregistrareC NUMERIC(5) CONSTRAINT pk_NrInregistrareC PRIMARY KEY,
@@ -36,7 +42,7 @@ GradDidacticC VARCHAR(50) CONSTRAINT fk_GradDidacticC REFERENCES GradeDidactice(
 FacultateaC VARCHAR(30) CONSTRAINT fk_FacultateaC REFERENCES Facultati(FacultatiF) ON UPDATE CASCADE,
 DepartamentulC VARCHAR(50),
 LocalitateaC VARCHAR(30),
-TaraC VARCHAR(20),
+TaraC VARCHAR(20) CONSTRAINT fk_TaraC REFERENCES Tari(TariT) ON UPDATE CASCADE,
 ScopC VARCHAR(100),
 InstitutiaC VARCHAR(70),
 DataInceputC DATE,
@@ -112,7 +118,7 @@ SubsemnatulOD VARCHAR(70),
 GradDidacticOD VARCHAR(50) CONSTRAINT fk_GradDidacticC REFERENCES GradeDidactice(GradDidacticGD) ON UPDATE CASCADE,
 FacultateaOD VARCHAR(30) CONSTRAINT fk_FacultateaC REFERENCES Facultati(FacultatiF) ON UPDATE CASCADE,
 LocalitateaOD VARCHAR(30),
-TaraOD VARCHAR(20),
+TaraOD VARCHAR(20) CONSTRAINT fk_TaraOD REFERENCES Tari(TariT) ON UPDATE CASCADE,
 ScopOD VARCHAR(100),
 InstitutiaOD VARCHAR(70),
 DataInceputOD DATE,
@@ -180,3 +186,195 @@ INSERT INTO rectori(rector, emailr, telefonr) values ('Rector', 'rector@uaic.ro'
 
 INSERT INTO prorectori(prorector, emailp, telefonp1, telefonp2) values ('prorector1', 'prorector1@uaic.ro', 0123456789, 1234567890);
 INSERT INTO prorectori(prorector, emailp, telefonp1, telefonp2) values ('prorector2', 'prorector2@uaic.ro', 0123456789, 1234567890);
+
+INSERT INTO tari(tarit) values ('Afganistan');
+INSERT INTO tari(tarit) values ('Africa de Sud');
+INSERT INTO tari(tarit) values ('Albania');
+INSERT INTO tari(tarit) values ('Algeria');
+INSERT INTO tari(tarit) values ('Andorra');
+INSERT INTO tari(tarit) values ('Angola');
+INSERT INTO tari(tarit) values ('Antigua si Barbuda');
+INSERT INTO tari(tarit) values ('Argentina');
+INSERT INTO tari(tarit) values ('Armenia');
+INSERT INTO tari(tarit) values ('Australia');
+INSERT INTO tari(tarit) values ('Austria');
+INSERT INTO tari(tarit) values ('Azerbaijan');
+INSERT INTO tari(tarit) values ('Bahamas');
+INSERT INTO tari(tarit) values ('Bahrain');
+INSERT INTO tari(tarit) values ('Bangladesh');
+INSERT INTO tari(tarit) values ('Barbados');
+INSERT INTO tari(tarit) values ('Belarus');
+INSERT INTO tari(tarit) values ('Belgia');
+INSERT INTO tari(tarit) values ('Belize');
+INSERT INTO tari(tarit) values ('Benin');
+INSERT INTO tari(tarit) values ('Bhutan');
+INSERT INTO tari(tarit) values ('Bolivia');
+INSERT INTO tari(tarit) values ('Bosnia si Herzegovina');
+INSERT INTO tari(tarit) values ('Botswana');
+INSERT INTO tari(tarit) values ('Brazilia');
+INSERT INTO tari(tarit) values ('Brunei');
+INSERT INTO tari(tarit) values ('Bulgaria');
+INSERT INTO tari(tarit) values ('Burkina Faso');
+INSERT INTO tari(tarit) values ('Burma/Myanmar');
+INSERT INTO tari(tarit) values ('Burundi');
+INSERT INTO tari(tarit) values ('Cambogia');
+INSERT INTO tari(tarit) values ('Camerun');
+INSERT INTO tari(tarit) values ('Canada');
+INSERT INTO tari(tarit) values ('Cape Verde');
+INSERT INTO tari(tarit) values ('Republica Central Africană');
+INSERT INTO tari(tarit) values ('Chad');
+INSERT INTO tari(tarit) values ('Chile');
+INSERT INTO tari(tarit) values ('China');
+INSERT INTO tari(tarit) values ('Columbia');
+INSERT INTO tari(tarit) values ('Comoros');
+INSERT INTO tari(tarit) values ('Congo');
+INSERT INTO tari(tarit) values ('Republica Democratica Congo');
+INSERT INTO tari(tarit) values ('Coreea de Nord');
+INSERT INTO tari(tarit) values ('Coreea de Sud');
+INSERT INTO tari(tarit) values ('Costa Rica');
+INSERT INTO tari(tarit) values ('Coasta de Fildes');
+INSERT INTO tari(tarit) values ('Croatia');
+INSERT INTO tari(tarit) values ('Cuba');
+INSERT INTO tari(tarit) values ('Cipru');
+INSERT INTO tari(tarit) values ('Republica Cehia');
+INSERT INTO tari(tarit) values ('Danemarca');
+INSERT INTO tari(tarit) values ('Djibouti');
+INSERT INTO tari(tarit) values ('Dominica');
+INSERT INTO tari(tarit) values ('Republica Dominicana');
+INSERT INTO tari(tarit) values ('Timorul de Est');
+INSERT INTO tari(tarit) values ('Ecuador');
+INSERT INTO tari(tarit) values ('Egipt');
+INSERT INTO tari(tarit) values ('El Salvador');
+INSERT INTO tari(tarit) values ('Elvetia');
+INSERT INTO tari(tarit) values ('Emiratele Arabe Unite');
+INSERT INTO tari(tarit) values ('Eritrea');
+INSERT INTO tari(tarit) values ('Estonia');
+INSERT INTO tari(tarit) values ('Etiopia');
+INSERT INTO tari(tarit) values ('Fiji');
+INSERT INTO tari(tarit) values ('Filipine');
+INSERT INTO tari(tarit) values ('Finlanda');
+INSERT INTO tari(tarit) values ('Franța');
+INSERT INTO tari(tarit) values ('Gambia');
+INSERT INTO tari(tarit) values ('Georgia');
+INSERT INTO tari(tarit) values ('Germania');
+INSERT INTO tari(tarit) values ('Ghana');
+INSERT INTO tari(tarit) values ('Grecia');
+INSERT INTO tari(tarit) values ('Grenada');
+INSERT INTO tari(tarit) values ('Guatemala');
+INSERT INTO tari(tarit) values ('Guineea');
+INSERT INTO tari(tarit) values ('Guineea-Bissau');
+INSERT INTO tari(tarit) values ('Guineea Ecuatoriala');
+INSERT INTO tari(tarit) values ('Guyana');
+INSERT INTO tari(tarit) values ('Haiti');
+INSERT INTO tari(tarit) values ('Honduras');
+INSERT INTO tari(tarit) values ('Islanda');
+INSERT INTO tari(tarit) values ('India');
+INSERT INTO tari(tarit) values ('Indonezia');
+INSERT INTO tari(tarit) values ('Iordania');
+INSERT INTO tari(tarit) values ('Insulele Solomon');
+INSERT INTO tari(tarit) values ('Iran');
+INSERT INTO tari(tarit) values ('Iraq');
+INSERT INTO tari(tarit) values ('Irlanda');
+INSERT INTO tari(tarit) values ('Israel');
+INSERT INTO tari(tarit) values ('Italia');
+INSERT INTO tari(tarit) values ('Jamaica');
+INSERT INTO tari(tarit) values ('Japonia');
+INSERT INTO tari(tarit) values ('Kazahstan');
+INSERT INTO tari(tarit) values ('Kenia');
+INSERT INTO tari(tarit) values ('Kiribati');
+INSERT INTO tari(tarit) values ('Kuweit');
+INSERT INTO tari(tarit) values ('Kârgâzstan');
+INSERT INTO tari(tarit) values ('Laos');
+INSERT INTO tari(tarit) values ('Letonia');
+INSERT INTO tari(tarit) values ('Liban');
+INSERT INTO tari(tarit) values ('Lesotho');
+INSERT INTO tari(tarit) values ('Liberia');
+INSERT INTO tari(tarit) values ('Libia');
+INSERT INTO tari(tarit) values ('Lichtenstein');
+INSERT INTO tari(tarit) values ('Lithuania');
+INSERT INTO tari(tarit) values ('Luxemburg');
+INSERT INTO tari(tarit) values ('Macedonia');
+INSERT INTO tari(tarit) values ('Madagascar');
+INSERT INTO tari(tarit) values ('Malawi');
+INSERT INTO tari(tarit) values ('Malaezia');
+INSERT INTO tari(tarit) values ('Maldive');
+INSERT INTO tari(tarit) values ('Mali');
+INSERT INTO tari(tarit) values ('Malta');
+INSERT INTO tari(tarit) values ('Insulele Marshall');
+INSERT INTO tari(tarit) values ('Mauritania');
+INSERT INTO tari(tarit) values ('Mexic');
+INSERT INTO tari(tarit) values ('Micronezia');
+INSERT INTO tari(tarit) values ('Republica Moldova');
+INSERT INTO tari(tarit) values ('Monaco');
+INSERT INTO tari(tarit) values ('Mongolia');
+INSERT INTO tari(tarit) values ('Muntenegru');
+INSERT INTO tari(tarit) values ('Maroc');
+INSERT INTO tari(tarit) values ('Mozambic');
+INSERT INTO tari(tarit) values ('Namibia');
+INSERT INTO tari(tarit) values ('Nauru');
+INSERT INTO tari(tarit) values ('Nepal');
+INSERT INTO tari(tarit) values ('Noua Zeelanda');
+INSERT INTO tari(tarit) values ('Nicaragua');
+INSERT INTO tari(tarit) values ('Nigeri');
+INSERT INTO tari(tarit) values ('Nigeria');
+INSERT INTO tari(tarit) values ('Norvegia');
+INSERT INTO tari(tarit) values ('Oman');
+INSERT INTO tari(tarit) values ('Olanda');
+INSERT INTO tari(tarit) values ('Pakistan');
+INSERT INTO tari(tarit) values ('Palau');
+INSERT INTO tari(tarit) values ('Panama');
+INSERT INTO tari(tarit) values ('Papua noua Guinee');
+INSERT INTO tari(tarit) values ('Paraguai');
+INSERT INTO tari(tarit) values ('Peru');
+INSERT INTO tari(tarit) values ('Polonia');
+INSERT INTO tari(tarit) values ('Portugalia');
+INSERT INTO tari(tarit) values ('Qatar');
+INSERT INTO tari(tarit) values ('Regatul Unit');
+INSERT INTO tari(tarit) values ('Romania');
+INSERT INTO tari(tarit) values ('Federatia Rusa');
+INSERT INTO tari(tarit) values ('Rwanda');
+INSERT INTO tari(tarit) values ('Saint Kitts and Nevis');
+INSERT INTO tari(tarit) values ('Saint Lucia');
+INSERT INTO tari(tarit) values ('Saint Vincent and the Grenadines');
+INSERT INTO tari(tarit) values ('Samoa');
+INSERT INTO tari(tarit) values ('San Marino');
+INSERT INTO tari(tarit) values ('Sao Tome and Principe');
+INSERT INTO tari(tarit) values ('Saudi Arabia');
+INSERT INTO tari(tarit) values ('Senegal');
+INSERT INTO tari(tarit) values ('Serbia');
+INSERT INTO tari(tarit) values ('Seychelles');
+INSERT INTO tari(tarit) values ('Singapore');
+INSERT INTO tari(tarit) values ('Slovacia');
+INSERT INTO tari(tarit) values ('Slovenia');
+INSERT INTO tari(tarit) values ('Somalia');
+INSERT INTO tari(tarit) values ('Statele Unite Ale Americii');
+INSERT INTO tari(tarit) values ('Sudanul de Sud');
+INSERT INTO tari(tarit) values ('Spania');
+INSERT INTO tari(tarit) values ('Sri Lanka');
+INSERT INTO tari(tarit) values ('Sudan');
+INSERT INTO tari(tarit) values ('Surinam');
+INSERT INTO tari(tarit) values ('Swaziland');
+INSERT INTO tari(tarit) values ('Suedia');
+INSERT INTO tari(tarit) values ('Siria');
+INSERT INTO tari(tarit) values ('Tadjikistan');
+INSERT INTO tari(tarit) values ('Tanzania');
+INSERT INTO tari(tarit) values ('Tailanda');
+INSERT INTO tari(tarit) values ('Togo');
+INSERT INTO tari(tarit) values ('Tonga');
+INSERT INTO tari(tarit) values ('Trinidad si Tobago');
+INSERT INTO tari(tarit) values ('Tunisia');
+INSERT INTO tari(tarit) values ('Turcia');
+INSERT INTO tari(tarit) values ('Turkmenistan');
+INSERT INTO tari(tarit) values ('Tuvalu');
+INSERT INTO tari(tarit) values ('Uganda');
+INSERT INTO tari(tarit) values ('Ucraina');
+INSERT INTO tari(tarit) values ('Ungaria');
+INSERT INTO tari(tarit) values ('Uruguai');
+INSERT INTO tari(tarit) values ('Uzbekistan');
+INSERT INTO tari(tarit) values ('Vanuatu');
+INSERT INTO tari(tarit) values ('Vatican');
+INSERT INTO tari(tarit) values ('Venezuela');
+INSERT INTO tari(tarit) values ('Vietnam');
+INSERT INTO tari(tarit) values ('Yemen');
+INSERT INTO tari(tarit) values ('Zambia');
+INSERT INTO tari(tarit) values ('Zimbabwe');

@@ -63,6 +63,8 @@
             this.tsStatusDeCeGD = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsStatusDeCeF = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsStatusDeCeM = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tsStatusDeCeR = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tsStatusDeCePR = new System.Windows.Forms.ToolStripStatusLabel();
             this.mnuBaraMeniu.SuspendLayout();
             this.StatusGCD.SuspendLayout();
             this.SuspendLayout();
@@ -325,6 +327,8 @@
             this.tsStatusUltimaInregistrare,
             this.tsStatusDeCeGD,
             this.tsStatusDeCeF,
+            this.tsStatusDeCePR,
+            this.tsStatusDeCeR,
             this.tsStatusDeCeM});
             this.StatusGCD.Location = new System.Drawing.Point(0, 439);
             this.StatusGCD.Name = "StatusGCD";
@@ -359,6 +363,20 @@
             this.tsStatusDeCeM.ForeColor = System.Drawing.Color.Purple;
             this.tsStatusDeCeM.Name = "tsStatusDeCeM";
             this.tsStatusDeCeM.Size = new System.Drawing.Size(0, 17);
+            // 
+            // tsStatusDeCeR
+            // 
+            this.tsStatusDeCeR.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.tsStatusDeCeR.ForeColor = System.Drawing.Color.Purple;
+            this.tsStatusDeCeR.Name = "tsStatusDeCeR";
+            this.tsStatusDeCeR.Size = new System.Drawing.Size(0, 17);
+            // 
+            // tsStatusDeCePR
+            // 
+            this.tsStatusDeCePR.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.tsStatusDeCePR.ForeColor = System.Drawing.Color.Purple;
+            this.tsStatusDeCePR.Name = "tsStatusDeCePR";
+            this.tsStatusDeCePR.Size = new System.Drawing.Size(0, 17);
             // 
             // frmGCD
             // 
@@ -423,6 +441,8 @@
         private System.Windows.Forms.ToolStripMenuItem btnCopieSiguranta;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripMenuItem btnGCDListaOrdineDeDeplasare;
+        private System.Windows.Forms.ToolStripStatusLabel tsStatusDeCePR;
+        private System.Windows.Forms.ToolStripStatusLabel tsStatusDeCeR;
     }
 }
 

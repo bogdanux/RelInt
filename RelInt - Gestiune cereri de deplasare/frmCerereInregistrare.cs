@@ -22,6 +22,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             UmplereGradDidactic();
             UmplereFacultate();
             UmplereMonezi();
+            UmplereTari();
             /* --------------------------------------------------------------------------------------------------------------- */
             
             // Pregatim formularul
@@ -155,7 +156,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         bool cmbFacultateaSchimbat = false;
         bool txtDepartamentSchimbat = false;
         bool txtLocalitateaSchimbat = false;
-        bool txtTaraSchimbat = false;
+        bool cmbTaraSchimbat = false;
         bool txtScopSchimbat = false;
         bool txtInstitutiaSchimbat = false;
         bool txtRutaSchimbat = false;
@@ -227,15 +228,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-
-
-
-
-
-
-
-
-
         /* ---------- Metoda de umplere a cmbFacultate cu date din RelIntDB ---------------------------------------------- */
         private void UmplereFacultate()
         {
@@ -271,16 +263,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-
-
-
-
-
-
-
-
-
-        /* ---------- Metoda de umplere a cmbFacultate cu date din RelIntDB --------------------------------------------- */
+        /* ---------- Metoda de umplere a cmbFacultate cu date din RelIntDB ---------------------------------------------- */
         private void UmplereMonezi()
         {
             using (OdbcConnection conexiune_cmbMonezi = new OdbcConnection(sircon_RelIntDB))
@@ -313,6 +296,41 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     finally
                     {
                         conexiune_cmbMonezi.Close();
+                    }
+                }
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* ---------- Metoda de umplere a cmbFacultate cu date din RelIntDB ---------------------------------------------- */
+        private void UmplereTari()
+        {
+            using (OdbcConnection conexiune_cmbTari = new OdbcConnection(sircon_RelIntDB))
+            {           // Comanda
+                using (OdbcCommand comanda_cmbTari = new OdbcCommand())
+                {
+                    comanda_cmbTari.Connection = conexiune_cmbTari;
+                    comanda_cmbTari.CommandType = CommandType.Text;
+                    comanda_cmbTari.CommandText = "SELECT * FROM tari ORDER BY tarit ASC";
+
+                    OdbcDataReader cititor_cmbTari;
+
+                    try
+                    {
+                        conexiune_cmbTari.Open();
+                        cititor_cmbTari = comanda_cmbTari.ExecuteReader();
+                        while (cititor_cmbTari.Read())
+                        {
+                            string str_cmbTari = cititor_cmbTari.GetString(0);
+                            cmbTara.Items.Add(str_cmbTari);
+                        }
+                    }
+                    catch (Exception excmbTari)
+                    {
+                        MessageBox.Show(excmbTari.Message);
+                    } // Ne deconectam
+                    finally
+                    {
+                        conexiune_cmbTari.Close();
                     }
                 }
             }
@@ -502,8 +520,8 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     comanda_inserareRelInt.Parameters.AddWithValue("@facultateac", OdbcType.NVarChar).Value = cmbFacultatea.SelectedItem;
                     comanda_inserareRelInt.Parameters.AddWithValue("@departamentulc", OdbcType.NVarChar).Value = txtDepartament.Text;
                     comanda_inserareRelInt.Parameters.AddWithValue("@localitateac", OdbcType.NVarChar).Value = txtLocalitatea.Text;
-                    comanda_inserareRelInt.Parameters.AddWithValue("@tarac", OdbcType.NVarChar).Value = txtTara.Text;
-                    comanda_inserareRelInt.Parameters.AddWithValue("@scopc", OdbcType.NVarChar).Value = txtScop.Text;
+                    comanda_inserareRelInt.Parameters.AddWithValue("@tarac", OdbcType.NVarChar).Value = cmbTara.SelectedItem;
+                    comanda_inserareRelInt.Parameters.AddWithValue("@scopc", OdbcType.NVarChar).Value = cmbScop.SelectedItem;
                     comanda_inserareRelInt.Parameters.AddWithValue("@institutiac", OdbcType.NVarChar).Value = txtInstitutia.Text;
                     comanda_inserareRelInt.Parameters.AddWithValue("@datainceputc", OdbcType.DateTime).Value = dpDataInceput.Value;
                     comanda_inserareRelInt.Parameters.AddWithValue("@datasfarsitc", OdbcType.DateTime).Value = dpDataSfarsit.Value;
@@ -614,7 +632,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             cmbFacultateaSchimbat = false;
             txtDepartamentSchimbat = false;
             txtLocalitateaSchimbat = false;
-            txtTaraSchimbat = false;
+            cmbTaraSchimbat = false;
             txtScopSchimbat = false;
             txtInstitutiaSchimbat = false;
             txtRutaSchimbat = false;
@@ -643,7 +661,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         private void SalvareFormular()
         {
             // Daca caseta "txtNrInregistrare" nu este goala
-            if (cmbGradDidactic.SelectedIndex != -1 && cmbFacultatea.SelectedIndex != -1 && cmbMoneda1.SelectedIndex != -1 && cmbMoneda2.SelectedIndex != -1 && cmbMoneda3.SelectedIndex != -1 && cmbMoneda4.SelectedIndex != -1)
+            if (cmbGradDidactic.SelectedIndex != -1 && cmbScop.SelectedIndex != -1 && cmbTara.SelectedIndex != -1 && cmbFacultatea.SelectedIndex != -1 && cmbMoneda1.SelectedIndex != -1 && cmbMoneda2.SelectedIndex != -1 && cmbMoneda3.SelectedIndex != -1 && cmbMoneda4.SelectedIndex != -1)
             {
                 // Lucreaza asta
                 txtTotalDePlata.Text = CalculTotal();
@@ -703,6 +721,18 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     // Afiseaza eroarea
                     MessageBox.Show(
                         "               Nu ați selectat nici o facultate (-- Facultatea --) ! \n                 Vă rugăm selectați o valoare.");
+                }
+                if (cmbTara.SelectedIndex == -1)
+                {
+                    // Afiseaza eroarea
+                    MessageBox.Show(
+                        "               Nu ați selectat nici un o țară (-- Țara --) ! \n                 Vă rugăm selectați o valoare.");
+                }
+                if (cmbScop.SelectedIndex == -1)
+                {
+                    // Afiseaza eroarea
+                    MessageBox.Show(
+                        "               Nu ați selectat nici un Scop (-- Scop (acțiunea) --) ! \n                 Vă rugăm selectați o valoare.");
                 }
                 else if (cmbMoneda1.SelectedIndex == -1)
                 {
@@ -766,7 +796,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 || cmbFacultateaSchimbat == true 
                 || txtDepartamentSchimbat == true 
                 || txtLocalitateaSchimbat == true 
-                || txtTaraSchimbat == true 
+                || cmbTaraSchimbat == true 
                 || txtScopSchimbat == true 
                 || txtInstitutiaSchimbat == true 
                 || txtRutaSchimbat == true 
@@ -1524,14 +1554,21 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             // Daca textul selectat se schimba atunci
             txtLocalitateaSchimbat = true;
         }
-
-        private void txtTara_TextChanged(object sender, EventArgs e)
+        private void cmbTara_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Daca textul selectat se schimba atunci
-            txtTaraSchimbat = true;
+            if (cmbTara.SelectedIndex != -1)
+            {
+                txtLocalitatea.Enabled = true;
+                cmbTaraSchimbat = true;
+            }
+            else
+            {
+                txtLocalitatea.Enabled = false;
+                cmbTaraSchimbat = false;
+            }
         }
 
-        private void txtScop_TextChanged(object sender, EventArgs e)
+        private void cmbScop_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Daca textul selectat se schimba atunci
             txtScopSchimbat = true;
@@ -1578,7 +1615,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             // Daca textul selectat se schimba atunci
             txtDecanSchimbat = true;
         }
-
+        
         private void txtVizaConta_TextChanged(object sender, EventArgs e)
         {
             // Daca textul selectat se schimba atunci

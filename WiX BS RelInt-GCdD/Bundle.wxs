@@ -5,7 +5,7 @@
   
       <!-- Identificare Bundle -->
 	    <Bundle Name="RelInt - Gestiunea Cererilor de Deplasare"
-              Version="1.0.1.20"
+              Version="1.0.1.21"
               Manufacturer="SIA-FEAA"
               UpgradeCode="f3e47dc9-23f0-4fd2-9e0a-f736e5860002"
               IconSourceFile="D:\RelInt\RelInt - Gestiune cereri de deplasare\bin\x86\Debug\UAIC_icon.ico"
@@ -20,7 +20,8 @@
                   LicenseUrl="D:\RelInt\RelInt - Gestiune cereri de deplasare\RelInt-GCdDLicentiere.rtf"
                   LogoSideFile="D:\RelInt\RelInt - Gestiune cereri de deplasare\UAIC_Logo_BS_stanga.png"
                   LogoFile="D:\RelInt\RelInt - Gestiune cereri de deplasare\UAIC_Logo_BS_mic.png"
-                  ShowVersion="yes" />
+                  ShowVersion="yes"
+                  SuppressOptionsUI="yes" />
         </BootstrapperApplicationRef>
 
         <!-- Cautam in registru -->

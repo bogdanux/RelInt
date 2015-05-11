@@ -21,6 +21,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             UmplereGradDidactic();
             UmplereFacultate();
             UmplereMonezi();
+            UmplereTari();
             /* --------------------------------------------------------------------------------------------------------------- */
             
             // Pregatim formularul
@@ -169,15 +170,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-
-
-
-
-
-
-
-
-
         /* ---------- Metoda de umplere a cmbFacultate cu date din RelIntDB ---------------------------------------------- */
         private void UmplereFacultate()
         {
@@ -213,16 +205,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-
-
-
-
-
-
-
-
-
-        /* ---------- Metoda de umplere a cmbFacultate cu date din RelIntDB --------------------------------------------- */
+        /* ---------- Metoda de umplere a cmbFacultate cu date din RelIntDB ---------------------------------------------- */
         private void UmplereMonezi()
         {
             using (OdbcConnection conexiune_cmbMonezi = new OdbcConnection(sircon_RelIntDB))
@@ -260,6 +243,41 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
+        /* ---------- Metoda de umplere a cmbFacultate cu date din RelIntDB ---------------------------------------------- */
+        private void UmplereTari()
+        {
+            using (OdbcConnection conexiune_cmbTari = new OdbcConnection(sircon_RelIntDB))
+            {           // Comanda
+                using (OdbcCommand comanda_cmbTari = new OdbcCommand())
+                {
+                    comanda_cmbTari.Connection = conexiune_cmbTari;
+                    comanda_cmbTari.CommandType = CommandType.Text;
+                    comanda_cmbTari.CommandText = "SELECT * FROM tari ORDER BY tarit ASC";
+
+                    OdbcDataReader cititor_cmbTari;
+
+                    try
+                    {
+                        conexiune_cmbTari.Open();
+                        cititor_cmbTari = comanda_cmbTari.ExecuteReader();
+                        while (cititor_cmbTari.Read())
+                        {
+                            string str_cmbTari = cititor_cmbTari.GetString(0);
+                            cmbTara.Items.Add(str_cmbTari);
+                        }
+                    }
+                    catch (Exception excmbTari)
+                    {
+                        MessageBox.Show(excmbTari.Message);
+                    } // Ne deconectam
+                    finally
+                    {
+                        conexiune_cmbTari.Close();
+                    }
+                }
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
 
 
 
@@ -276,6 +294,8 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             this.Close();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
+
+
 
 
 
@@ -442,8 +462,8 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     comanda_inserareRelInt.Parameters.AddWithValue("@facultateac", OdbcType.NVarChar).Value = cmbFacultatea.SelectedItem;
                     comanda_inserareRelInt.Parameters.AddWithValue("@departamentulc", OdbcType.NVarChar).Value = txtDepartament.Text;
                     comanda_inserareRelInt.Parameters.AddWithValue("@localitateac", OdbcType.NVarChar).Value = txtLocalitatea.Text;
-                    comanda_inserareRelInt.Parameters.AddWithValue("@tarac", OdbcType.NVarChar).Value = txtTara.Text;
-                    comanda_inserareRelInt.Parameters.AddWithValue("@scopc", OdbcType.NVarChar).Value = txtScop.Text;
+                    comanda_inserareRelInt.Parameters.AddWithValue("@tarac", OdbcType.NVarChar).Value = cmbTara.SelectedItem;
+                    comanda_inserareRelInt.Parameters.AddWithValue("@scopc", OdbcType.NVarChar).Value = cmbScop.SelectedItem;
                     comanda_inserareRelInt.Parameters.AddWithValue("@institutiac", OdbcType.NVarChar).Value = txtInstitutia.Text;
                     comanda_inserareRelInt.Parameters.AddWithValue("@datainceputc", OdbcType.DateTime).Value = dpDataInceput.Value;
                     comanda_inserareRelInt.Parameters.AddWithValue("@datasfarsitc", OdbcType.DateTime).Value = dpDataSfarsit.Value;
@@ -585,7 +605,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         private void SalvareFormular()
         {
             // Daca caseta "txtNrInregistrare" nu este goala
-            if (txtNrInregistrare.Text != string.Empty && cmbGradDidactic.SelectedIndex != -1 && cmbFacultatea.SelectedIndex != -1 && cmbMoneda1.SelectedIndex != -1 && cmbMoneda2.SelectedIndex != -1 && cmbMoneda3.SelectedIndex != -1 && cmbMoneda4.SelectedIndex != -1)
+            if (txtNrInregistrare.Text != string.Empty && cmbTara.SelectedIndex != -1 && cmbGradDidactic.SelectedIndex != -1 && cmbFacultatea.SelectedIndex != -1 && cmbMoneda1.SelectedIndex != -1 && cmbMoneda2.SelectedIndex != -1 && cmbMoneda3.SelectedIndex != -1 && cmbMoneda4.SelectedIndex != -1)
             {
                 // Lucreaza asta
                 txtTotalDePlata.Text = CalculTotal();
@@ -1959,8 +1979,8 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                                 cmbFacultatea.SelectedIndex = cititor_populareDinBD.GetInt32(4);
                                 txtDepartament.Text = cititor_populareDinBD.GetString(5);
                                 txtLocalitatea.Text = cititor_populareDinBD.GetString(6);
-                                txtTara.Text = cititor_populareDinBD.GetString(7);
-                                txtScop.Text = cititor_populareDinBD.GetString(8);
+                                cmbTara.SelectedItem = cititor_populareDinBD.GetString(7);
+                                cmbScop.SelectedItem = cititor_populareDinBD.GetString(8);
                                 txtInstitutia.Text = cititor_populareDinBD.GetString(9);
                                 dpDataInceput.Value = cititor_populareDinBD.GetDateTime(10);
                                 dpDataSfarsit.Value = cititor_populareDinBD.GetDateTime(11);
@@ -2043,6 +2063,116 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         private void btnAcceseaza_Click(object sender, EventArgs e)
         {
             MetodaAccesareCerere();
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblScop2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbScop_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPlatitorTransport_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblSuportatDe_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtMijTrans_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblMijTrans_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtRuta_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblRuta_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblCheltuieliDeplasare_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dpDataSfarsit_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblDataSfarsit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dpDataInceput_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblDataInceput_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtInstitutia_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblInstitutia_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblScop1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblTara_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtLocalitatea_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblLocalitatea_Click(object sender, EventArgs e)
+        {
+
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
