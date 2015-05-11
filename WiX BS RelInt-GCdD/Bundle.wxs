@@ -3,6 +3,7 @@
      xmlns:util="http://schemas.microsoft.com/wix/UtilExtension"
      xmlns:bal="http://schemas.microsoft.com/wix/BalExtension">
   
+      <!-- Identificare Bundle -->
 	    <Bundle Name="RelInt - Gestiunea Cererilor de Deplasare"
               Version="1.0.1.20"
               Manufacturer="SIA-FEAA"
@@ -13,11 +14,13 @@
               HelpTelephone="0752 567 129"
               Copyright="Drepturi de autor (c) TIMOFTE Bogdan-Alexandru @ SIA-FEAA. Toate drepturile rezervate.">
 
-        <BootstrapperApplicationRef Id="WixStandardBootstrapperApplication.RtfLicense">
-            <bal:WixStandardBootstrapperApplication
-              LicenseFile="D:\RelInt\RelInt - Gestiune cereri de deplasare\bin\x86\Debug\RelInt-GCdDLicentiere.rtf"
-              LogoFile="D:\RelInt\RelInt - Gestiune cereri de deplasare\UAIC_logo_mic.png"
-              />
+        <!-- Cateva elemente de grafica -->
+        <BootstrapperApplicationRef Id="WixStandardBootstrapperApplication.HyperlinkSidebarLicense">
+          <bal:WixStandardBootstrapperApplication 
+                  LicenseUrl="D:\RelInt\RelInt - Gestiune cereri de deplasare\RelInt-GCdDLicentiere.rtf"
+                  LogoSideFile="D:\RelInt\RelInt - Gestiune cereri de deplasare\UAIC_Logo_BS_stanga.png"
+                  LogoFile="D:\RelInt\RelInt - Gestiune cereri de deplasare\UAIC_Logo_BS_mic.png"
+                  ShowVersion="yes" />
         </BootstrapperApplicationRef>
 
         <!-- Cautam in registru -->

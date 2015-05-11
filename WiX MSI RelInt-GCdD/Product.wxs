@@ -111,7 +111,7 @@
                           Name="Dezinstalare RelInt-GCdD"
                           Description="Dezinstaleaza programul RelInt-GCdD"
                           Target="[SystemFolder]msiexec.exe"
-                          Arguments="/x [ProductCode] /l*v"/>
+                          Arguments="/x [ProductCode]"/>
               
                 <!-- Stergem dosarul din START -->
                 <!--<RemoveFolder Id="StergeSIA_FEAAPMF" Directory="SIA_FEAAPMF" On="uninstall"/>-->
