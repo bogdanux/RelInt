@@ -181,5 +181,5 @@ UpgradeLog*.htm
 
 # Microsoft Fakes
 FakesAssemblies/
-/D:\RelInt\WiX BS RelInt-GCdD\bin\Debug
-/D:\RelInt\WiX MSI RelInt-GCdD\bin\Debug
+/WiX BS RelInt-GCdD/bin/Debug
+/WiX MSI RelInt-GCdD/bin/Debug
