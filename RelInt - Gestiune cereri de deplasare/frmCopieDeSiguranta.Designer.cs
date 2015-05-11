@@ -32,12 +32,13 @@
             this.mnuResetare = new System.Windows.Forms.MenuStrip();
             this.btnIesire = new System.Windows.Forms.ToolStripMenuItem();
             this.panouInformatie = new System.Windows.Forms.Panel();
+            this.llblInformatie4 = new System.Windows.Forms.LinkLabel();
+            this.lblInformatie3 = new System.Windows.Forms.Label();
+            this.lblInformatie2 = new System.Windows.Forms.Label();
             this.lblInformatie1 = new System.Windows.Forms.Label();
             this.panouActiuni = new System.Windows.Forms.Panel();
             this.btnSalvare = new System.Windows.Forms.Button();
-            this.lblInformatie2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.llblInformatie4 = new System.Windows.Forms.LinkLabel();
+            this.lblInformatie5 = new System.Windows.Forms.Label();
             this.mnuResetare.SuspendLayout();
             this.panouInformatie.SuspendLayout();
             this.panouActiuni.SuspendLayout();
@@ -65,14 +66,44 @@
             // panouInformatie
             // 
             this.panouInformatie.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panouInformatie.Controls.Add(this.lblInformatie5);
             this.panouInformatie.Controls.Add(this.llblInformatie4);
-            this.panouInformatie.Controls.Add(this.label1);
+            this.panouInformatie.Controls.Add(this.lblInformatie3);
             this.panouInformatie.Controls.Add(this.lblInformatie2);
             this.panouInformatie.Controls.Add(this.lblInformatie1);
             this.panouInformatie.Location = new System.Drawing.Point(12, 38);
             this.panouInformatie.Name = "panouInformatie";
             this.panouInformatie.Size = new System.Drawing.Size(460, 197);
             this.panouInformatie.TabIndex = 1;
+            // 
+            // llblInformatie4
+            // 
+            this.llblInformatie4.AutoSize = true;
+            this.llblInformatie4.Location = new System.Drawing.Point(49, 97);
+            this.llblInformatie4.Name = "llblInformatie4";
+            this.llblInformatie4.Size = new System.Drawing.Size(250, 13);
+            this.llblInformatie4.TabIndex = 3;
+            this.llblInformatie4.TabStop = true;
+            this.llblInformatie4.Text = "Deschide dosarul în care se află copia de siguranță";
+            this.llblInformatie4.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llblInformatie4_LinkClicked);
+            // 
+            // lblInformatie3
+            // 
+            this.lblInformatie3.AutoSize = true;
+            this.lblInformatie3.Location = new System.Drawing.Point(52, 71);
+            this.lblInformatie3.Name = "lblInformatie3";
+            this.lblInformatie3.Size = new System.Drawing.Size(208, 13);
+            this.lblInformatie3.TabIndex = 2;
+            this.lblInformatie3.Text = "a tuturor datelor introduse până în prezent.";
+            // 
+            // lblInformatie2
+            // 
+            this.lblInformatie2.AutoSize = true;
+            this.lblInformatie2.Location = new System.Drawing.Point(52, 46);
+            this.lblInformatie2.Name = "lblInformatie2";
+            this.lblInformatie2.Size = new System.Drawing.Size(353, 13);
+            this.lblInformatie2.TabIndex = 1;
+            this.lblInformatie2.Text = "Acest meniu are ca scop efectuarea unei copii de siguranță, cu o imagine";
             // 
             // lblInformatie1
             // 
@@ -103,34 +134,14 @@
             this.btnSalvare.UseVisualStyleBackColor = true;
             this.btnSalvare.Click += new System.EventHandler(this.button1_Click);
             // 
-            // lblInformatie2
+            // lblInformatie5
             // 
-            this.lblInformatie2.AutoSize = true;
-            this.lblInformatie2.Location = new System.Drawing.Point(52, 46);
-            this.lblInformatie2.Name = "lblInformatie2";
-            this.lblInformatie2.Size = new System.Drawing.Size(353, 13);
-            this.lblInformatie2.TabIndex = 1;
-            this.lblInformatie2.Text = "Acest meniu are ca scop efectuarea unei copii de siguranță, cu o imagine";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(52, 71);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(208, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "a tuturor datelor introduse până în prezent.";
-            // 
-            // llblInformatie4
-            // 
-            this.llblInformatie4.AutoSize = true;
-            this.llblInformatie4.Location = new System.Drawing.Point(49, 97);
-            this.llblInformatie4.Name = "llblInformatie4";
-            this.llblInformatie4.Size = new System.Drawing.Size(250, 13);
-            this.llblInformatie4.TabIndex = 3;
-            this.llblInformatie4.TabStop = true;
-            this.llblInformatie4.Text = "Deschide dosarul în care se află copia de siguranță";
-            this.llblInformatie4.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llblInformatie4_LinkClicked);
+            this.lblInformatie5.AutoSize = true;
+            this.lblInformatie5.Location = new System.Drawing.Point(52, 127);
+            this.lblInformatie5.Name = "lblInformatie5";
+            this.lblInformatie5.Size = new System.Drawing.Size(326, 13);
+            this.lblInformatie5.TabIndex = 4;
+            this.lblInformatie5.Text = "Pentru a efectua o copie de siguranță, apăsați pe butonul salvează.";
             // 
             // frmCopieDeSiguranta
             // 
@@ -165,7 +176,8 @@
         private System.Windows.Forms.Label lblInformatie1;
         private System.Windows.Forms.Button btnSalvare;
         private System.Windows.Forms.Label lblInformatie2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblInformatie3;
         private System.Windows.Forms.LinkLabel llblInformatie4;
+        private System.Windows.Forms.Label lblInformatie5;
     }
 }

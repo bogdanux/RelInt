@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" 
+     xmlns:util="http://schemas.microsoft.com/wix/UtilExtension"
+     xmlns:bal="http://schemas.microsoft.com/wix/BalExtension">
+  
+	    <Bundle Name="RelInt - Gestiunea Cererilor de Deplasare"
+              Version="1.0.1.20"
+              Manufacturer="SIA-FEAA"
+              UpgradeCode="f3e47dc9-23f0-4fd2-9e0a-f736e5860002"
+              IconSourceFile="D:\RelInt\RelInt - Gestiune cereri de deplasare\bin\x86\Debug\UAIC_icon.ico"
+              HelpUrl="https://www.facebok.com/tkooficial"
+              AboutUrl="https://www.facebok.com/tkooficial"
+              HelpTelephone="0752 567 129"
+              Copyright="Drepturi de autor (c) TIMOFTE Bogdan-Alexandru @ SIA-FEAA. Toate drepturile rezervate.">
+
+        <BootstrapperApplicationRef Id="WixStandardBootstrapperApplication.RtfLicense">
+            <bal:WixStandardBootstrapperApplication
+              LicenseFile="D:\RelInt\RelInt - Gestiune cereri de deplasare\bin\x86\Debug\RelInt-GCdDLicentiere.rtf"
+              LogoFile="D:\RelInt\RelInt - Gestiune cereri de deplasare\UAIC_logo_mic.png"
+              />
+        </BootstrapperApplicationRef>
+
+        <!-- Cautam in registru -->
+        <util:RegistrySearch Root="HKLM" Key="SOFTWARE\Microsoft\Net Framework Setup\NDP\v4\Full" Value="Version" Variable="Net4FullVersion" />
+        <util:RegistrySearch Root="HKLM" Key="SOFTWARE\Microsoft\Net Framework Setup\NDP\v4\Full" Value="Version" Variable="Net4x64FullVersion" Win64="yes"/>
+    
+        <!-- Cautam in fisiere -->
+        <util:FileSearch Id="VerificaPostgreSQL94x86" Path="[ProgramFilesFolder]\PostgreSQL\9.4\bin\pg_ctl.exe" Variable="Versiune_PostgreSQL94x86" Result="version"/>
+        <util:FileSearch Id="VerificaPostgreSQL94x64" Path="[ProgramFiles64Folder]\PostgreSQL\9.4\bin\pg_ctl.exe" Variable="Versiune_PostgreSQL94x64" Result="version"/>
+        <util:FileSearch Id="VerificaPostgreSQL90x86" Path="[ProgramFilesFolder]\PostgreSQL\9.0\bin\pg_ctl.exe" Variable="Versiune_PostgreSQL90x86" Result="version"/>
+        <util:FileSearch Id="VerificaPostgreSQL90x64" Path="[ProgramFiles64Folder]\PostgreSQL\9.0\bin\pg_ctl.exe" Variable="Versiune_PostgreSQL90x64" Result="version"/>
+
+        <Chain>
+          <!-- Verificam si instalam versiunea corespunzatoare de .NET Framework -->
+          <ExePackage Id="Net45" Name="Microsoft .NET Framework 4.5.1 Setup" Cache="no" Compressed="yes" PerMachine="yes" Permanent="yes" Vital="yes" InstallCommand="/q"
+            SourceFile="D:\RelInt\resurse\NDP451-KB2858728-x86-x64-AllOS-ENU.exe"
+            DetectCondition="(Net4FullVersion = &quot;4.5.50938&quot;) AND (NOT VersionNT64 OR (Net4x64FullVersion = &quot;4.5.50938&quot;))"
+            InstallCondition="(VersionNT >= v6.0 OR VersionNT64 >= v6.0) AND (NOT (Net4FullVersion = &quot;4.5.50938&quot; OR Net4x64FullVersion = &quot;4.5.50938&quot;))"/>
+
+          <ExePackage Id="Net4Full" Name="Microsoft .NET Framework 4.0 Setup" Cache="no" Compressed="yes" PerMachine="yes" Permanent="yes" Vital="yes" InstallCommand="/q"
+            SourceFile="D:\RelInt\resurse\dotNetFx40_Full_x86_x64.exe"
+            DetectCondition="Net4FullVersion AND (NOT VersionNT64 OR Net4x64FullVersion)"
+            InstallCondition="(VersionNT &lt; v6.0 OR VersionNT64 &lt; v6.0) AND (NOT (Net4FullVersion OR Net4x64FullVersion))"/>
+
+          <!-- Verificam si instalam versiunea corespunzatoare PostgreSQL -->
+          <ExePackage Id="PostgreSQL94x86" Name="PostgreSQL 9.4.1-3 x86 (32-bit) Full" Cache="no" Compressed="yes" PerMachine="yes" Vital="yes"
+                      SourceFile="C:\Program Files (x86)\Microsoft SDKs\Windows\v8.1A\Bootstrapper\Packages\PostgreSQL94\postgresql-9.4.1-3-windows.exe"
+                      DetectCondition="NOT VersionNT64 AND (NOT Installed OR Versiune_PostgreSQL94x86 &lt; v9.4.1.15083)"
+                      InstallCondition="VersionNT &gt; v6.0 AND Versiune_PostgreSQL94x86 &lt; v9.4.1.15083" />
+
+          <ExePackage Id="PostgreSQL94x64" Name="PostgreSQL 9.4.1-3 x64 (64-bit) Full" Cache="no" Compressed="yes" PerMachine="yes" Vital="yes"
+                      SourceFile="C:\Program Files (x86)\Microsoft SDKs\Windows\v8.1A\Bootstrapper\Packages\PostgreSQL94\postgresql-9.4.1-3-windows-x64.exe"
+                      DetectCondition="NOT VersionNT AND (NOT Installed OR Versiune_PostgreSQL94x64 &lt; v9.4.1.15083)"
+                      InstallCondition="VersionNT64 &gt; v6.0 AND Versiune_PostgreSQL94x64 &lt; v9.4.1.15083" />
+
+          <ExePackage Id="PostgreSQL90x86" Name="PostgreSQL 9.0.19-2 x86 (32-bit) Full" Cache="no" Compressed="yes" PerMachine="yes" Vital="yes"
+                      SourceFile="C:\Program Files (x86)\Microsoft SDKs\Windows\v8.1A\Bootstrapper\Packages\PostgreSQL94\postgresql-9.0.19-2-windows.exe"
+                      DetectCondition="NOT VersionNT64 AND (NOT Installed OR Versiune_PostgreSQL90x86 &lt; v9.0.19.15083)"
+                      InstallCondition="(VersionNT &gt; v5.1.1 AND VersionNT &lt; v6.0) AND Versiune_PostgreSQL90x86 &lt; v9.0.19.15083" />
+
+          <ExePackage Id="PostgreSQL90x64" Name="PostgreSQL 9.0.19-2 x64 (64-bit) Full" Cache="no" Compressed="yes" PerMachine="yes" Vital="yes"
+                      SourceFile="C:\Program Files (x86)\Microsoft SDKs\Windows\v8.1A\Bootstrapper\Packages\PostgreSQL94\postgresql-9.0.19-2-windows-x64.exe"
+                      DetectCondition="NOT VersionNT AND (NOT Installed OR Versiune_PostgreSQL90x64 &lt; v9.0.19.15083)"
+                      InstallCondition="(VersionNT64 &gt; v5.1.1 AND VersionNT64 &lt; v6.0) AND Versiune_PostgreSQL90x64 &lt; v9.0.19.15083" />
+      
+          <RollbackBoundary />
+
+          <!-- Instalam pachetul RelInt-GCdD -->
+          <MsiPackage Id="RelInt_GCdD" Cache="no" Compressed="yes" Permanent="yes" Vital="yes"
+                      SourceFile="D:\RelInt\WiX MSI RelInt-GCdD\bin\Debug\WiX MSI RelInt-GCdD.msi"
+                      InstallCondition="VersionNT >= v5.1.2 OR VersionNT64 >= v5.1.2" />
+      
+        </Chain>
+    
+	    </Bundle>
+</Wix>

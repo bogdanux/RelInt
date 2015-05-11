@@ -152,7 +152,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     comanda_dgvRector.CommandText = "INSERT INTO rectori VALUES (?, ?, ?)";
                     comanda_dgvRector.Parameters.AddWithValue("@rector", OdbcType.NVarChar).Value = txtNumeR.Text;
                     comanda_dgvRector.Parameters.AddWithValue("@emailr", OdbcType.NVarChar).Value = txtEmailR.Text;
-                    comanda_dgvRector.Parameters.AddWithValue("@telefonr", OdbcType.Int).Value = txtTelefonR.Text;
+                    comanda_dgvRector.Parameters.AddWithValue("@telefonr", OdbcType.Int).Value = vartxtTelefonR;
 
                     try
                     {
@@ -427,8 +427,8 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     comanda_dgvProRector.CommandText = "INSERT INTO prorectori VALUES (?, ?, ?, ?)";
                     comanda_dgvProRector.Parameters.AddWithValue("@prorector", OdbcType.NVarChar).Value = txtNumePR.Text;
                     comanda_dgvProRector.Parameters.AddWithValue("@emailp", OdbcType.NVarChar).Value = txtEMailPR.Text;
-                    comanda_dgvProRector.Parameters.AddWithValue("@telefonp1", OdbcType.Int).Value = txtTelefonPR1.Text;
-                    comanda_dgvProRector.Parameters.AddWithValue("@telefonp2", OdbcType.Int).Value = txtTelefonPR2.Text;
+                    comanda_dgvProRector.Parameters.AddWithValue("@telefonp1", OdbcType.Int).Value = vartxtTelefonPR1;
+                    comanda_dgvProRector.Parameters.AddWithValue("@telefonp2", OdbcType.Int).Value = vartxtTelefonPR2;
 
                     try
                     {
@@ -555,12 +555,16 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 // Activam
                 lblTelefonPR2.Enabled = true;
                 txtTelefonPR2.Enabled = true;
+
+                btnAdaugaPR.Enabled = true;
             }
             else
             {
                 // Dezactivam
                 lblTelefonPR2.Enabled = false;
                 txtTelefonPR2.Enabled = false;
+
+                btnAdaugaPR.Enabled = false;
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
@@ -580,17 +584,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     txtTelefonPR2.Clear();
                     MessageBox.Show("        Vă rugăm introduceți doar numere în această casetă de text.");
                     break;
-            }
-
-            if (txtTelefonPR2.Text != string.Empty)
-            {
-                // Activam
-                btnAdaugaPR.Enabled = true;
-            }
-            else
-            {
-                // Dezactivam
-                btnAdaugaPR.Enabled = false;
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
@@ -726,12 +719,16 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 // Activam
                 lblTelefonPR2Nou.Enabled = true;
                 txtTelefonPR2Nou.Enabled = true;
+
+                btnModificaPR.Enabled = true;
             }
             else
             {
                 // Dezactivam
                 lblTelefonPR2Nou.Enabled = false;
                 txtTelefonPR2Nou.Enabled = false;
+
+                btnModificaPR.Enabled = false;
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
@@ -751,17 +748,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     txtTelefonPR2Nou.Clear();
                     MessageBox.Show("        Vă rugăm introduceți doar numere în această casetă de text.");
                     break;
-            }
-
-            if (txtTelefonPR2Nou.Text != string.Empty)
-            {
-                // Activam
-                btnModificaPR.Enabled = true;
-            }
-            else
-            {
-                // Dezactivam
-                btnModificaPR.Enabled = false;
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */

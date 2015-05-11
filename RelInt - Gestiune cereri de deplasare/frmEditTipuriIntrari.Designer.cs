@@ -474,7 +474,7 @@
             this.dgvMoneda.Size = new System.Drawing.Size(380, 415);
             this.dgvMoneda.TabIndex = 0;
             // 
-            // frmTipuriIntrari
+            // frmEditTipuriIntrari
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -484,8 +484,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.mnuTipuriIntrari;
-            this.Name = "frmTipuriIntrari";
-            this.Text = "Tipuri Intrări";
+            this.Name = "frmEditTipuriIntrari";
+            this.Text = "Tipuri intrări";
             this.mnuTipuriIntrari.ResumeLayout(false);
             this.mnuTipuriIntrari.PerformLayout();
             this.tabGDFM.ResumeLayout(false);

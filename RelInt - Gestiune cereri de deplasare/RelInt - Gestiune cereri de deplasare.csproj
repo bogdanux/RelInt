@@ -317,6 +317,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
     <None Include="RelInt - Gestiune cereri de deplasare_TemporaryKey.pfx" />
+    <None Include="RelInt-GCdDLicentiere.rtf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -349,7 +350,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="UAIC_logo_mic.png" />
     <None Include="RelInt-GCdD.manifest" />
+    <Content Include="RelInt-GCdDLicentiere.html" />
     <Content Include="RelIntBD-CRPO.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
