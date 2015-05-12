@@ -45,15 +45,19 @@
             this.txtNrInregistrare = new System.Windows.Forms.TextBox();
             this.lblNrUAIC = new System.Windows.Forms.Label();
             this.panouContinutODD = new System.Windows.Forms.Panel();
+            this.cmbTara = new System.Windows.Forms.ComboBox();
+            this.cmbAltele = new System.Windows.Forms.ComboBox();
+            this.cmbConferinte = new System.Windows.Forms.ComboBox();
+            this.lblAltele = new System.Windows.Forms.Label();
+            this.lblConferinte = new System.Windows.Forms.Label();
+            this.cmbScop = new System.Windows.Forms.ComboBox();
             this.dpDataSfarsit = new System.Windows.Forms.DateTimePicker();
             this.lblDataSfarsit = new System.Windows.Forms.Label();
             this.dpDataInceput = new System.Windows.Forms.DateTimePicker();
             this.lblDataInceput = new System.Windows.Forms.Label();
             this.txtInstitutia = new System.Windows.Forms.TextBox();
             this.lblInstitutia = new System.Windows.Forms.Label();
-            this.txtScop = new System.Windows.Forms.TextBox();
             this.lblScop = new System.Windows.Forms.Label();
-            this.txtTara = new System.Windows.Forms.TextBox();
             this.lblTara = new System.Windows.Forms.Label();
             this.txtLocalitatea = new System.Windows.Forms.TextBox();
             this.lblLocalitatea = new System.Windows.Forms.Label();
@@ -64,6 +68,11 @@
             this.lblSubsemnatul = new System.Windows.Forms.Label();
             this.lblContinutODD = new System.Windows.Forms.Label();
             this.panouCheltuieliODD = new System.Windows.Forms.Panel();
+            this.lblIntroduceri = new System.Windows.Forms.Label();
+            this.chkTaxaDeViza = new System.Windows.Forms.CheckBox();
+            this.chkTaxaDeParticipare = new System.Windows.Forms.CheckBox();
+            this.chkCazare = new System.Windows.Forms.CheckBox();
+            this.chkDiurna = new System.Windows.Forms.CheckBox();
             this.txtSubtotalCazare = new System.Windows.Forms.TextBox();
             this.lblSubtotal = new System.Windows.Forms.Label();
             this.txtSubtotalDiurna = new System.Windows.Forms.TextBox();
@@ -102,6 +111,9 @@
             this.txtDispunere1 = new System.Windows.Forms.TextBox();
             this.lblAlteDispuneriODD = new System.Windows.Forms.Label();
             this.panouSemnatariODD = new System.Windows.Forms.Panel();
+            this.cmbCPGradDidactic = new System.Windows.Forms.ComboBox();
+            this.lblCPNumeCoord = new System.Windows.Forms.Label();
+            this.txtCPNumeCoord = new System.Windows.Forms.TextBox();
             this.lblCPNumeProj = new System.Windows.Forms.Label();
             this.cmbRectorProrector = new System.Windows.Forms.ComboBox();
             this.rdoProRector = new System.Windows.Forms.RadioButton();
@@ -112,9 +124,6 @@
             this.lblDFC = new System.Windows.Forms.Label();
             this.lblSemnatariODD = new System.Windows.Forms.Label();
             this.panouFinal = new System.Windows.Forms.Panel();
-            this.cmbCPGradDidactic = new System.Windows.Forms.ComboBox();
-            this.lblCPNumeCoord = new System.Windows.Forms.Label();
-            this.txtCPNumeCoord = new System.Windows.Forms.TextBox();
             this.mnuCerereBeca.SuspendLayout();
             this.panouIdentificareODD.SuspendLayout();
             this.panouContinutODD.SuspendLayout();
@@ -130,7 +139,7 @@
             this.btnFormular});
             this.mnuCerereBeca.Location = new System.Drawing.Point(0, 0);
             this.mnuCerereBeca.Name = "mnuCerereBeca";
-            this.mnuCerereBeca.Size = new System.Drawing.Size(682, 24);
+            this.mnuCerereBeca.Size = new System.Drawing.Size(699, 24);
             this.mnuCerereBeca.TabIndex = 0;
             this.mnuCerereBeca.Text = "menuStrip1";
             // 
@@ -272,15 +281,19 @@
             // panouContinutODD
             // 
             this.panouContinutODD.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panouContinutODD.Controls.Add(this.cmbTara);
+            this.panouContinutODD.Controls.Add(this.cmbAltele);
+            this.panouContinutODD.Controls.Add(this.cmbConferinte);
+            this.panouContinutODD.Controls.Add(this.lblAltele);
+            this.panouContinutODD.Controls.Add(this.lblConferinte);
+            this.panouContinutODD.Controls.Add(this.cmbScop);
             this.panouContinutODD.Controls.Add(this.dpDataSfarsit);
             this.panouContinutODD.Controls.Add(this.lblDataSfarsit);
             this.panouContinutODD.Controls.Add(this.dpDataInceput);
             this.panouContinutODD.Controls.Add(this.lblDataInceput);
             this.panouContinutODD.Controls.Add(this.txtInstitutia);
             this.panouContinutODD.Controls.Add(this.lblInstitutia);
-            this.panouContinutODD.Controls.Add(this.txtScop);
             this.panouContinutODD.Controls.Add(this.lblScop);
-            this.panouContinutODD.Controls.Add(this.txtTara);
             this.panouContinutODD.Controls.Add(this.lblTara);
             this.panouContinutODD.Controls.Add(this.txtLocalitatea);
             this.panouContinutODD.Controls.Add(this.lblLocalitatea);
@@ -293,106 +306,161 @@
             this.panouContinutODD.Enabled = false;
             this.panouContinutODD.Location = new System.Drawing.Point(12, 129);
             this.panouContinutODD.Name = "panouContinutODD";
-            this.panouContinutODD.Size = new System.Drawing.Size(642, 131);
+            this.panouContinutODD.Size = new System.Drawing.Size(642, 190);
             this.panouContinutODD.TabIndex = 7;
+            // 
+            // cmbTara
+            // 
+            this.cmbTara.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbTara.FormattingEnabled = true;
+            this.cmbTara.Location = new System.Drawing.Point(43, 53);
+            this.cmbTara.Name = "cmbTara";
+            this.cmbTara.Size = new System.Drawing.Size(186, 21);
+            this.cmbTara.TabIndex = 56;
+            // 
+            // cmbAltele
+            // 
+            this.cmbAltele.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbAltele.Enabled = false;
+            this.cmbAltele.FormattingEnabled = true;
+            this.cmbAltele.Location = new System.Drawing.Point(159, 133);
+            this.cmbAltele.Name = "cmbAltele";
+            this.cmbAltele.Size = new System.Drawing.Size(463, 21);
+            this.cmbAltele.TabIndex = 55;
+            // 
+            // cmbConferinte
+            // 
+            this.cmbConferinte.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbConferinte.Enabled = false;
+            this.cmbConferinte.FormattingEnabled = true;
+            this.cmbConferinte.Location = new System.Drawing.Point(159, 106);
+            this.cmbConferinte.Name = "cmbConferinte";
+            this.cmbConferinte.Size = new System.Drawing.Size(463, 21);
+            this.cmbConferinte.TabIndex = 54;
+            // 
+            // lblAltele
+            // 
+            this.lblAltele.AutoSize = true;
+            this.lblAltele.Location = new System.Drawing.Point(121, 137);
+            this.lblAltele.Name = "lblAltele";
+            this.lblAltele.Size = new System.Drawing.Size(33, 13);
+            this.lblAltele.TabIndex = 53;
+            this.lblAltele.Text = "Altele";
+            // 
+            // lblConferinte
+            // 
+            this.lblConferinte.AutoSize = true;
+            this.lblConferinte.Location = new System.Drawing.Point(99, 109);
+            this.lblConferinte.Name = "lblConferinte";
+            this.lblConferinte.Size = new System.Drawing.Size(55, 13);
+            this.lblConferinte.TabIndex = 52;
+            this.lblConferinte.Text = "Conferința";
+            // 
+            // cmbScop
+            // 
+            this.cmbScop.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbScop.FormattingEnabled = true;
+            this.cmbScop.Items.AddRange(new object[] {
+            "a",
+            "b",
+            "c",
+            "d",
+            "e",
+            "f"});
+            this.cmbScop.Location = new System.Drawing.Point(159, 80);
+            this.cmbScop.Name = "cmbScop";
+            this.cmbScop.Size = new System.Drawing.Size(463, 21);
+            this.cmbScop.TabIndex = 51;
             // 
             // dpDataSfarsit
             // 
             this.dpDataSfarsit.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpDataSfarsit.Location = new System.Drawing.Point(539, 100);
+            this.dpDataSfarsit.Location = new System.Drawing.Point(531, 160);
+            this.dpDataSfarsit.MaxDate = new System.DateTime(2040, 12, 31, 0, 0, 0, 0);
+            this.dpDataSfarsit.MinDate = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
             this.dpDataSfarsit.Name = "dpDataSfarsit";
-            this.dpDataSfarsit.Size = new System.Drawing.Size(93, 20);
-            this.dpDataSfarsit.TabIndex = 17;
+            this.dpDataSfarsit.Size = new System.Drawing.Size(91, 20);
+            this.dpDataSfarsit.TabIndex = 43;
             // 
             // lblDataSfarsit
             // 
             this.lblDataSfarsit.AutoSize = true;
-            this.lblDataSfarsit.Location = new System.Drawing.Point(492, 103);
+            this.lblDataSfarsit.Location = new System.Drawing.Point(481, 163);
             this.lblDataSfarsit.Name = "lblDataSfarsit";
-            this.lblDataSfarsit.Size = new System.Drawing.Size(41, 13);
-            this.lblDataSfarsit.TabIndex = 16;
-            this.lblDataSfarsit.Text = "și data:";
+            this.lblDataSfarsit.Size = new System.Drawing.Size(44, 13);
+            this.lblDataSfarsit.TabIndex = 42;
+            this.lblDataSfarsit.Text = "și (data)";
             // 
             // dpDataInceput
             // 
             this.dpDataInceput.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpDataInceput.Location = new System.Drawing.Point(393, 100);
+            this.dpDataInceput.Location = new System.Drawing.Point(384, 160);
+            this.dpDataInceput.MaxDate = new System.DateTime(2040, 12, 31, 0, 0, 0, 0);
+            this.dpDataInceput.MinDate = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
             this.dpDataInceput.Name = "dpDataInceput";
-            this.dpDataInceput.Size = new System.Drawing.Size(93, 20);
-            this.dpDataInceput.TabIndex = 15;
+            this.dpDataInceput.Size = new System.Drawing.Size(92, 20);
+            this.dpDataInceput.TabIndex = 41;
             // 
             // lblDataInceput
             // 
             this.lblDataInceput.AutoSize = true;
-            this.lblDataInceput.Location = new System.Drawing.Point(331, 103);
+            this.lblDataInceput.Location = new System.Drawing.Point(319, 163);
             this.lblDataInceput.Name = "lblDataInceput";
-            this.lblDataInceput.Size = new System.Drawing.Size(56, 13);
-            this.lblDataInceput.TabIndex = 14;
-            this.lblDataInceput.Text = "între data:";
+            this.lblDataInceput.Size = new System.Drawing.Size(59, 13);
+            this.lblDataInceput.TabIndex = 40;
+            this.lblDataInceput.Text = "între (data)";
             // 
             // txtInstitutia
             // 
-            this.txtInstitutia.Location = new System.Drawing.Point(30, 100);
+            this.txtInstitutia.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtInstitutia.Location = new System.Drawing.Point(72, 160);
             this.txtInstitutia.Name = "txtInstitutia";
-            this.txtInstitutia.Size = new System.Drawing.Size(295, 20);
-            this.txtInstitutia.TabIndex = 13;
+            this.txtInstitutia.Size = new System.Drawing.Size(241, 20);
+            this.txtInstitutia.TabIndex = 39;
             // 
             // lblInstitutia
             // 
             this.lblInstitutia.AutoSize = true;
-            this.lblInstitutia.Location = new System.Drawing.Point(9, 103);
+            this.lblInstitutia.Location = new System.Drawing.Point(9, 163);
             this.lblInstitutia.Name = "lblInstitutia";
-            this.lblInstitutia.Size = new System.Drawing.Size(18, 13);
-            this.lblInstitutia.TabIndex = 12;
-            this.lblInstitutia.Text = "la:";
-            // 
-            // txtScop
-            // 
-            this.txtScop.Location = new System.Drawing.Point(58, 76);
-            this.txtScop.Name = "txtScop";
-            this.txtScop.Size = new System.Drawing.Size(565, 20);
-            this.txtScop.TabIndex = 11;
+            this.lblInstitutia.Size = new System.Drawing.Size(56, 13);
+            this.lblInstitutia.TabIndex = 38;
+            this.lblInstitutia.Text = "la instituția";
             // 
             // lblScop
             // 
             this.lblScop.AutoSize = true;
-            this.lblScop.Location = new System.Drawing.Point(9, 79);
+            this.lblScop.Location = new System.Drawing.Point(27, 83);
             this.lblScop.Name = "lblScop";
-            this.lblScop.Size = new System.Drawing.Size(43, 13);
-            this.lblScop.TabIndex = 10;
-            this.lblScop.Text = "Scopul:";
-            // 
-            // txtTara
-            // 
-            this.txtTara.Location = new System.Drawing.Point(266, 51);
-            this.txtTara.Name = "txtTara";
-            this.txtTara.Size = new System.Drawing.Size(140, 20);
-            this.txtTara.TabIndex = 9;
+            this.lblScop.Size = new System.Drawing.Size(127, 13);
+            this.lblScop.TabIndex = 37;
+            this.lblScop.Text = "pentru (acțiunea - scopul)";
             // 
             // lblTara
             // 
             this.lblTara.AutoSize = true;
-            this.lblTara.Location = new System.Drawing.Point(232, 55);
+            this.lblTara.Location = new System.Drawing.Point(9, 56);
             this.lblTara.Name = "lblTara";
             this.lblTara.Size = new System.Drawing.Size(28, 13);
-            this.lblTara.TabIndex = 8;
+            this.lblTara.TabIndex = 36;
             this.lblTara.Text = "țara:";
             // 
             // txtLocalitatea
             // 
-            this.txtLocalitatea.Location = new System.Drawing.Point(86, 51);
+            this.txtLocalitatea.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLocalitatea.Location = new System.Drawing.Point(296, 53);
             this.txtLocalitatea.Name = "txtLocalitatea";
-            this.txtLocalitatea.Size = new System.Drawing.Size(140, 20);
-            this.txtLocalitatea.TabIndex = 7;
+            this.txtLocalitatea.Size = new System.Drawing.Size(186, 20);
+            this.txtLocalitatea.TabIndex = 35;
             // 
             // lblLocalitatea
             // 
             this.lblLocalitatea.AutoSize = true;
-            this.lblLocalitatea.Location = new System.Drawing.Point(9, 55);
+            this.lblLocalitatea.Location = new System.Drawing.Point(235, 56);
             this.lblLocalitatea.Name = "lblLocalitatea";
-            this.lblLocalitatea.Size = new System.Drawing.Size(71, 13);
-            this.lblLocalitatea.TabIndex = 6;
-            this.lblLocalitatea.Text = "în localitatea:";
+            this.lblLocalitatea.Size = new System.Drawing.Size(58, 13);
+            this.lblLocalitatea.TabIndex = 34;
+            this.lblLocalitatea.Text = "localitatea:";
             // 
             // cmbFacultatea
             // 
@@ -450,6 +518,11 @@
             // panouCheltuieliODD
             // 
             this.panouCheltuieliODD.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panouCheltuieliODD.Controls.Add(this.lblIntroduceri);
+            this.panouCheltuieliODD.Controls.Add(this.chkTaxaDeViza);
+            this.panouCheltuieliODD.Controls.Add(this.chkTaxaDeParticipare);
+            this.panouCheltuieliODD.Controls.Add(this.chkCazare);
+            this.panouCheltuieliODD.Controls.Add(this.chkDiurna);
             this.panouCheltuieliODD.Controls.Add(this.txtSubtotalCazare);
             this.panouCheltuieliODD.Controls.Add(this.lblSubtotal);
             this.panouCheltuieliODD.Controls.Add(this.txtSubtotalDiurna);
@@ -482,16 +555,65 @@
             this.panouCheltuieliODD.Controls.Add(this.lblRuta);
             this.panouCheltuieliODD.Controls.Add(this.lblCheltuieliODD);
             this.panouCheltuieliODD.Enabled = false;
-            this.panouCheltuieliODD.Location = new System.Drawing.Point(12, 266);
+            this.panouCheltuieliODD.Location = new System.Drawing.Point(12, 325);
             this.panouCheltuieliODD.Name = "panouCheltuieliODD";
             this.panouCheltuieliODD.Size = new System.Drawing.Size(642, 252);
             this.panouCheltuieliODD.TabIndex = 8;
+            // 
+            // lblIntroduceri
+            // 
+            this.lblIntroduceri.AutoSize = true;
+            this.lblIntroduceri.Location = new System.Drawing.Point(9, 104);
+            this.lblIntroduceri.Name = "lblIntroduceri";
+            this.lblIntroduceri.Size = new System.Drawing.Size(85, 13);
+            this.lblIntroduceri.TabIndex = 39;
+            this.lblIntroduceri.Text = "activare câmpuri";
+            // 
+            // chkTaxaDeViza
+            // 
+            this.chkTaxaDeViza.AutoSize = true;
+            this.chkTaxaDeViza.Location = new System.Drawing.Point(38, 196);
+            this.chkTaxaDeViza.Name = "chkTaxaDeViza";
+            this.chkTaxaDeViza.Size = new System.Drawing.Size(15, 14);
+            this.chkTaxaDeViza.TabIndex = 38;
+            this.chkTaxaDeViza.UseVisualStyleBackColor = true;
+            this.chkTaxaDeViza.CheckedChanged += new System.EventHandler(this.chkTaxaDeViza_CheckedChanged);
+            // 
+            // chkTaxaDeParticipare
+            // 
+            this.chkTaxaDeParticipare.AutoSize = true;
+            this.chkTaxaDeParticipare.Location = new System.Drawing.Point(38, 171);
+            this.chkTaxaDeParticipare.Name = "chkTaxaDeParticipare";
+            this.chkTaxaDeParticipare.Size = new System.Drawing.Size(15, 14);
+            this.chkTaxaDeParticipare.TabIndex = 37;
+            this.chkTaxaDeParticipare.UseVisualStyleBackColor = true;
+            this.chkTaxaDeParticipare.CheckedChanged += new System.EventHandler(this.chkTaxaDeParticipare_CheckedChanged);
+            // 
+            // chkCazare
+            // 
+            this.chkCazare.AutoSize = true;
+            this.chkCazare.Location = new System.Drawing.Point(38, 147);
+            this.chkCazare.Name = "chkCazare";
+            this.chkCazare.Size = new System.Drawing.Size(15, 14);
+            this.chkCazare.TabIndex = 36;
+            this.chkCazare.UseVisualStyleBackColor = true;
+            this.chkCazare.CheckedChanged += new System.EventHandler(this.chkCazare_CheckedChanged);
+            // 
+            // chkDiurna
+            // 
+            this.chkDiurna.AutoSize = true;
+            this.chkDiurna.Location = new System.Drawing.Point(38, 123);
+            this.chkDiurna.Name = "chkDiurna";
+            this.chkDiurna.Size = new System.Drawing.Size(15, 14);
+            this.chkDiurna.TabIndex = 35;
+            this.chkDiurna.UseVisualStyleBackColor = true;
+            this.chkDiurna.CheckedChanged += new System.EventHandler(this.chkDiurna_CheckedChanged);
             // 
             // txtSubtotalCazare
             // 
             this.txtSubtotalCazare.Enabled = false;
             this.txtSubtotalCazare.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSubtotalCazare.Location = new System.Drawing.Point(360, 144);
+            this.txtSubtotalCazare.Location = new System.Drawing.Point(410, 144);
             this.txtSubtotalCazare.Name = "txtSubtotalCazare";
             this.txtSubtotalCazare.Size = new System.Drawing.Size(102, 20);
             this.txtSubtotalCazare.TabIndex = 22;
@@ -501,7 +623,7 @@
             // lblSubtotal
             // 
             this.lblSubtotal.AutoSize = true;
-            this.lblSubtotal.Location = new System.Drawing.Point(371, 104);
+            this.lblSubtotal.Location = new System.Drawing.Point(421, 104);
             this.lblSubtotal.Name = "lblSubtotal";
             this.lblSubtotal.Size = new System.Drawing.Size(44, 13);
             this.lblSubtotal.TabIndex = 10;
@@ -511,7 +633,7 @@
             // 
             this.txtSubtotalDiurna.Enabled = false;
             this.txtSubtotalDiurna.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSubtotalDiurna.Location = new System.Drawing.Point(360, 120);
+            this.txtSubtotalDiurna.Location = new System.Drawing.Point(410, 120);
             this.txtSubtotalDiurna.Name = "txtSubtotalDiurna";
             this.txtSubtotalDiurna.Size = new System.Drawing.Size(102, 20);
             this.txtSubtotalDiurna.TabIndex = 16;
@@ -521,7 +643,7 @@
             // lblMoneda
             // 
             this.lblMoneda.AutoSize = true;
-            this.lblMoneda.Location = new System.Drawing.Point(299, 104);
+            this.lblMoneda.Location = new System.Drawing.Point(349, 104);
             this.lblMoneda.Name = "lblMoneda";
             this.lblMoneda.Size = new System.Drawing.Size(45, 13);
             this.lblMoneda.TabIndex = 9;
@@ -530,7 +652,7 @@
             // lblSuma
             // 
             this.lblSuma.AutoSize = true;
-            this.lblSuma.Location = new System.Drawing.Point(213, 104);
+            this.lblSuma.Location = new System.Drawing.Point(263, 104);
             this.lblSuma.Name = "lblSuma";
             this.lblSuma.Size = new System.Drawing.Size(32, 13);
             this.lblSuma.TabIndex = 8;
@@ -539,7 +661,8 @@
             // lblX2
             // 
             this.lblX2.AutoSize = true;
-            this.lblX2.Location = new System.Drawing.Point(166, 148);
+            this.lblX2.Enabled = false;
+            this.lblX2.Location = new System.Drawing.Point(216, 148);
             this.lblX2.Name = "lblX2";
             this.lblX2.Size = new System.Drawing.Size(14, 13);
             this.lblX2.TabIndex = 19;
@@ -548,7 +671,8 @@
             // lblX1
             // 
             this.lblX1.AutoSize = true;
-            this.lblX1.Location = new System.Drawing.Point(166, 123);
+            this.lblX1.Enabled = false;
+            this.lblX1.Location = new System.Drawing.Point(216, 123);
             this.lblX1.Name = "lblX1";
             this.lblX1.Size = new System.Drawing.Size(14, 13);
             this.lblX1.TabIndex = 13;
@@ -556,7 +680,8 @@
             // 
             // txtNrZileCazare
             // 
-            this.txtNrZileCazare.Location = new System.Drawing.Point(124, 145);
+            this.txtNrZileCazare.Enabled = false;
+            this.txtNrZileCazare.Location = new System.Drawing.Point(174, 145);
             this.txtNrZileCazare.Name = "txtNrZileCazare";
             this.txtNrZileCazare.Size = new System.Drawing.Size(38, 20);
             this.txtNrZileCazare.TabIndex = 18;
@@ -565,7 +690,8 @@
             // 
             // txtNrZileDiurna
             // 
-            this.txtNrZileDiurna.Location = new System.Drawing.Point(124, 120);
+            this.txtNrZileDiurna.Enabled = false;
+            this.txtNrZileDiurna.Location = new System.Drawing.Point(174, 120);
             this.txtNrZileDiurna.Name = "txtNrZileDiurna";
             this.txtNrZileDiurna.Size = new System.Drawing.Size(38, 20);
             this.txtNrZileDiurna.TabIndex = 12;
@@ -575,7 +701,7 @@
             // lblNrZile
             // 
             this.lblNrZile.AutoSize = true;
-            this.lblNrZile.Location = new System.Drawing.Point(125, 104);
+            this.lblNrZile.Location = new System.Drawing.Point(175, 104);
             this.lblNrZile.Name = "lblNrZile";
             this.lblNrZile.Size = new System.Drawing.Size(37, 13);
             this.lblNrZile.TabIndex = 7;
@@ -584,15 +710,17 @@
             // cmbMoneda4
             // 
             this.cmbMoneda4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbMoneda4.Enabled = false;
             this.cmbMoneda4.FormattingEnabled = true;
-            this.cmbMoneda4.Location = new System.Drawing.Point(288, 193);
+            this.cmbMoneda4.Location = new System.Drawing.Point(338, 193);
             this.cmbMoneda4.Name = "cmbMoneda4";
             this.cmbMoneda4.Size = new System.Drawing.Size(66, 21);
             this.cmbMoneda4.TabIndex = 28;
             // 
             // txtTaxaDeViza
             // 
-            this.txtTaxaDeViza.Location = new System.Drawing.Point(183, 194);
+            this.txtTaxaDeViza.Enabled = false;
+            this.txtTaxaDeViza.Location = new System.Drawing.Point(233, 194);
             this.txtTaxaDeViza.Name = "txtTaxaDeViza";
             this.txtTaxaDeViza.Size = new System.Drawing.Size(99, 20);
             this.txtTaxaDeViza.TabIndex = 27;
@@ -602,7 +730,8 @@
             // lblTaxaDeVizaEtc
             // 
             this.lblTaxaDeVizaEtc.AutoSize = true;
-            this.lblTaxaDeVizaEtc.Location = new System.Drawing.Point(9, 197);
+            this.lblTaxaDeVizaEtc.Enabled = false;
+            this.lblTaxaDeVizaEtc.Location = new System.Drawing.Point(59, 197);
             this.lblTaxaDeVizaEtc.Name = "lblTaxaDeVizaEtc";
             this.lblTaxaDeVizaEtc.Size = new System.Drawing.Size(172, 13);
             this.lblTaxaDeVizaEtc.TabIndex = 26;
@@ -611,15 +740,17 @@
             // cmbMoneda3
             // 
             this.cmbMoneda3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbMoneda3.Enabled = false;
             this.cmbMoneda3.FormattingEnabled = true;
-            this.cmbMoneda3.Location = new System.Drawing.Point(288, 168);
+            this.cmbMoneda3.Location = new System.Drawing.Point(338, 168);
             this.cmbMoneda3.Name = "cmbMoneda3";
             this.cmbMoneda3.Size = new System.Drawing.Size(66, 21);
             this.cmbMoneda3.TabIndex = 25;
             // 
             // txtTaxaDeParticipare
             // 
-            this.txtTaxaDeParticipare.Location = new System.Drawing.Point(183, 169);
+            this.txtTaxaDeParticipare.Enabled = false;
+            this.txtTaxaDeParticipare.Location = new System.Drawing.Point(233, 169);
             this.txtTaxaDeParticipare.Name = "txtTaxaDeParticipare";
             this.txtTaxaDeParticipare.Size = new System.Drawing.Size(99, 20);
             this.txtTaxaDeParticipare.TabIndex = 24;
@@ -629,7 +760,8 @@
             // lblTaxaDeParticipare
             // 
             this.lblTaxaDeParticipare.AutoSize = true;
-            this.lblTaxaDeParticipare.Location = new System.Drawing.Point(80, 173);
+            this.lblTaxaDeParticipare.Enabled = false;
+            this.lblTaxaDeParticipare.Location = new System.Drawing.Point(130, 173);
             this.lblTaxaDeParticipare.Name = "lblTaxaDeParticipare";
             this.lblTaxaDeParticipare.Size = new System.Drawing.Size(101, 13);
             this.lblTaxaDeParticipare.TabIndex = 23;
@@ -638,8 +770,9 @@
             // cmbMoneda2
             // 
             this.cmbMoneda2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbMoneda2.Enabled = false;
             this.cmbMoneda2.FormattingEnabled = true;
-            this.cmbMoneda2.Location = new System.Drawing.Point(288, 144);
+            this.cmbMoneda2.Location = new System.Drawing.Point(338, 144);
             this.cmbMoneda2.Name = "cmbMoneda2";
             this.cmbMoneda2.Size = new System.Drawing.Size(66, 21);
             this.cmbMoneda2.TabIndex = 21;
@@ -647,7 +780,8 @@
             // 
             // txtCazare
             // 
-            this.txtCazare.Location = new System.Drawing.Point(183, 145);
+            this.txtCazare.Enabled = false;
+            this.txtCazare.Location = new System.Drawing.Point(233, 145);
             this.txtCazare.Name = "txtCazare";
             this.txtCazare.Size = new System.Drawing.Size(99, 20);
             this.txtCazare.TabIndex = 20;
@@ -657,7 +791,8 @@
             // lblCazare
             // 
             this.lblCazare.AutoSize = true;
-            this.lblCazare.Location = new System.Drawing.Point(74, 148);
+            this.lblCazare.Enabled = false;
+            this.lblCazare.Location = new System.Drawing.Point(124, 148);
             this.lblCazare.Name = "lblCazare";
             this.lblCazare.Size = new System.Drawing.Size(49, 13);
             this.lblCazare.TabIndex = 17;
@@ -666,8 +801,9 @@
             // cmbMoneda1
             // 
             this.cmbMoneda1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbMoneda1.Enabled = false;
             this.cmbMoneda1.FormattingEnabled = true;
-            this.cmbMoneda1.Location = new System.Drawing.Point(288, 119);
+            this.cmbMoneda1.Location = new System.Drawing.Point(338, 119);
             this.cmbMoneda1.Name = "cmbMoneda1";
             this.cmbMoneda1.Size = new System.Drawing.Size(66, 21);
             this.cmbMoneda1.TabIndex = 15;
@@ -675,7 +811,8 @@
             // 
             // txtDiurna
             // 
-            this.txtDiurna.Location = new System.Drawing.Point(183, 120);
+            this.txtDiurna.Enabled = false;
+            this.txtDiurna.Location = new System.Drawing.Point(233, 120);
             this.txtDiurna.Name = "txtDiurna";
             this.txtDiurna.Size = new System.Drawing.Size(99, 20);
             this.txtDiurna.TabIndex = 14;
@@ -685,7 +822,8 @@
             // lblDiurna
             // 
             this.lblDiurna.AutoSize = true;
-            this.lblDiurna.Location = new System.Drawing.Point(82, 123);
+            this.lblDiurna.Enabled = false;
+            this.lblDiurna.Location = new System.Drawing.Point(132, 123);
             this.lblDiurna.Name = "lblDiurna";
             this.lblDiurna.Size = new System.Drawing.Size(41, 13);
             this.lblDiurna.TabIndex = 11;
@@ -695,7 +833,7 @@
             // 
             this.txtTotalDePlata.Enabled = false;
             this.txtTotalDePlata.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotalDePlata.Location = new System.Drawing.Point(168, 224);
+            this.txtTotalDePlata.Location = new System.Drawing.Point(218, 224);
             this.txtTotalDePlata.Name = "txtTotalDePlata";
             this.txtTotalDePlata.Size = new System.Drawing.Size(294, 20);
             this.txtTotalDePlata.TabIndex = 30;
@@ -705,7 +843,7 @@
             // 
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.Location = new System.Drawing.Point(9, 228);
+            this.lblTotal.Location = new System.Drawing.Point(59, 228);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(157, 13);
             this.lblTotal.TabIndex = 29;
@@ -778,7 +916,7 @@
             this.panouAlteDispuneriODD.Controls.Add(this.txtDispunere1);
             this.panouAlteDispuneriODD.Controls.Add(this.lblAlteDispuneriODD);
             this.panouAlteDispuneriODD.Enabled = false;
-            this.panouAlteDispuneriODD.Location = new System.Drawing.Point(12, 524);
+            this.panouAlteDispuneriODD.Location = new System.Drawing.Point(12, 583);
             this.panouAlteDispuneriODD.Name = "panouAlteDispuneriODD";
             this.panouAlteDispuneriODD.Size = new System.Drawing.Size(642, 149);
             this.panouAlteDispuneriODD.TabIndex = 9;
@@ -837,10 +975,35 @@
             this.panouSemnatariODD.Controls.Add(this.lblDFC);
             this.panouSemnatariODD.Controls.Add(this.lblSemnatariODD);
             this.panouSemnatariODD.Enabled = false;
-            this.panouSemnatariODD.Location = new System.Drawing.Point(12, 679);
+            this.panouSemnatariODD.Location = new System.Drawing.Point(12, 738);
             this.panouSemnatariODD.Name = "panouSemnatariODD";
             this.panouSemnatariODD.Size = new System.Drawing.Size(642, 169);
             this.panouSemnatariODD.TabIndex = 33;
+            // 
+            // cmbCPGradDidactic
+            // 
+            this.cmbCPGradDidactic.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCPGradDidactic.FormattingEnabled = true;
+            this.cmbCPGradDidactic.Location = new System.Drawing.Point(218, 134);
+            this.cmbCPGradDidactic.Name = "cmbCPGradDidactic";
+            this.cmbCPGradDidactic.Size = new System.Drawing.Size(91, 21);
+            this.cmbCPGradDidactic.TabIndex = 19;
+            // 
+            // lblCPNumeCoord
+            // 
+            this.lblCPNumeCoord.AutoSize = true;
+            this.lblCPNumeCoord.Location = new System.Drawing.Point(216, 118);
+            this.lblCPNumeCoord.Name = "lblCPNumeCoord";
+            this.lblCPNumeCoord.Size = new System.Drawing.Size(252, 13);
+            this.lblCPNumeCoord.TabIndex = 18;
+            this.lblCPNumeCoord.Text = "Grad didactic                Nume Prenume Coordonator";
+            // 
+            // txtCPNumeCoord
+            // 
+            this.txtCPNumeCoord.Location = new System.Drawing.Point(315, 134);
+            this.txtCPNumeCoord.Name = "txtCPNumeCoord";
+            this.txtCPNumeCoord.Size = new System.Drawing.Size(169, 20);
+            this.txtCPNumeCoord.TabIndex = 17;
             // 
             // lblCPNumeProj
             // 
@@ -929,42 +1092,17 @@
             // panouFinal
             // 
             this.panouFinal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panouFinal.Location = new System.Drawing.Point(12, 863);
+            this.panouFinal.Location = new System.Drawing.Point(12, 920);
             this.panouFinal.Name = "panouFinal";
             this.panouFinal.Size = new System.Drawing.Size(642, 10);
             this.panouFinal.TabIndex = 34;
-            // 
-            // cmbCPGradDidactic
-            // 
-            this.cmbCPGradDidactic.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCPGradDidactic.FormattingEnabled = true;
-            this.cmbCPGradDidactic.Location = new System.Drawing.Point(218, 134);
-            this.cmbCPGradDidactic.Name = "cmbCPGradDidactic";
-            this.cmbCPGradDidactic.Size = new System.Drawing.Size(91, 21);
-            this.cmbCPGradDidactic.TabIndex = 19;
-            // 
-            // lblCPNumeCoord
-            // 
-            this.lblCPNumeCoord.AutoSize = true;
-            this.lblCPNumeCoord.Location = new System.Drawing.Point(216, 118);
-            this.lblCPNumeCoord.Name = "lblCPNumeCoord";
-            this.lblCPNumeCoord.Size = new System.Drawing.Size(252, 13);
-            this.lblCPNumeCoord.TabIndex = 18;
-            this.lblCPNumeCoord.Text = "Grad didactic                Nume Prenume Coordonator";
-            // 
-            // txtCPNumeCoord
-            // 
-            this.txtCPNumeCoord.Location = new System.Drawing.Point(315, 134);
-            this.txtCPNumeCoord.Name = "txtCPNumeCoord";
-            this.txtCPNumeCoord.Size = new System.Drawing.Size(169, 20);
-            this.txtCPNumeCoord.TabIndex = 17;
             // 
             // frmODDIntroducere
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(699, 667);
+            this.ClientSize = new System.Drawing.Size(716, 667);
             this.Controls.Add(this.panouFinal);
             this.Controls.Add(this.panouSemnatariODD);
             this.Controls.Add(this.panouAlteDispuneriODD);
@@ -1009,18 +1147,6 @@
         private System.Windows.Forms.Label lblIdentificareODD;
         private System.Windows.Forms.Panel panouContinutODD;
         private System.Windows.Forms.Label lblContinutODD;
-        private System.Windows.Forms.DateTimePicker dpDataSfarsit;
-        private System.Windows.Forms.Label lblDataSfarsit;
-        private System.Windows.Forms.DateTimePicker dpDataInceput;
-        private System.Windows.Forms.Label lblDataInceput;
-        private System.Windows.Forms.TextBox txtInstitutia;
-        private System.Windows.Forms.Label lblInstitutia;
-        private System.Windows.Forms.TextBox txtScop;
-        private System.Windows.Forms.Label lblScop;
-        private System.Windows.Forms.TextBox txtTara;
-        private System.Windows.Forms.Label lblTara;
-        private System.Windows.Forms.TextBox txtLocalitatea;
-        private System.Windows.Forms.Label lblLocalitatea;
         private System.Windows.Forms.ComboBox cmbFacultatea;
         private System.Windows.Forms.Label lblFacultatea;
         private System.Windows.Forms.ComboBox cmbGradDidactic;
@@ -1083,5 +1209,26 @@
         private System.Windows.Forms.ComboBox cmbCPGradDidactic;
         private System.Windows.Forms.Label lblCPNumeCoord;
         private System.Windows.Forms.TextBox txtCPNumeCoord;
+        private System.Windows.Forms.ComboBox cmbTara;
+        private System.Windows.Forms.ComboBox cmbAltele;
+        private System.Windows.Forms.ComboBox cmbConferinte;
+        private System.Windows.Forms.Label lblAltele;
+        private System.Windows.Forms.Label lblConferinte;
+        private System.Windows.Forms.ComboBox cmbScop;
+        private System.Windows.Forms.DateTimePicker dpDataSfarsit;
+        private System.Windows.Forms.Label lblDataSfarsit;
+        private System.Windows.Forms.DateTimePicker dpDataInceput;
+        private System.Windows.Forms.Label lblDataInceput;
+        private System.Windows.Forms.TextBox txtInstitutia;
+        private System.Windows.Forms.Label lblInstitutia;
+        private System.Windows.Forms.Label lblScop;
+        private System.Windows.Forms.Label lblTara;
+        private System.Windows.Forms.TextBox txtLocalitatea;
+        private System.Windows.Forms.Label lblLocalitatea;
+        private System.Windows.Forms.CheckBox chkTaxaDeViza;
+        private System.Windows.Forms.CheckBox chkTaxaDeParticipare;
+        private System.Windows.Forms.CheckBox chkCazare;
+        private System.Windows.Forms.CheckBox chkDiurna;
+        private System.Windows.Forms.Label lblIntroduceri;
     }
 }

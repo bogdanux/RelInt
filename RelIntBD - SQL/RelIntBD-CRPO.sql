@@ -8,6 +8,9 @@ DROP TABLE IF EXISTS ConditiiDePlata;
 DROP TABLE IF EXISTS Cereri;
 DROP TABLE IF EXISTS GradeDidactice;
 DROP TABLE IF EXISTS Facultati;
+DROP TABLE IF EXISTS Scopuri;
+DROP TABLE IF EXISTS ScopuriConferinte;
+DROP TABLE IF EXISTS ScopuriAltele;
 DROP TABLE IF EXISTS Tari;
 DROP TABLE IF EXISTS Monezi;
 
@@ -33,32 +36,53 @@ CREATE TABLE Tari (
 TariT VARCHAR(150) CONSTRAINT pk_TariT PRIMARY KEY
 );
 
+-- Creare tabela Scopuri
+CREATE TABLE Scopuri (
+ScopuriS VARCHAR(150) CONSTRAINT pk_ScopuriS PRIMARY KEY
+);
+
+-- Creare tabela Scopuri
+CREATE TABLE ScopuriConferinte (
+ScopuriConferinteSC VARCHAR(150) CONSTRAINT pk_ScopuriConferinteSC PRIMARY KEY
+);
+
+-- Creare tabela Scopuri
+CREATE TABLE ScopuriAltele (
+ScopuriAlteleSA VARCHAR(150) CONSTRAINT pk_ScopuriAlteleSA PRIMARY KEY
+);
+
 -- Creare tabela Cereri
 CREATE TABLE Cereri (
 NrInregistrareC NUMERIC(5) CONSTRAINT pk_NrInregistrareC PRIMARY KEY,
 DataC DATE,
 SubsemnatulC VARCHAR(70),
 GradDidacticC VARCHAR(50) CONSTRAINT fk_GradDidacticC REFERENCES GradeDidactice(GradDidacticGD) ON UPDATE CASCADE,
-FacultateaC VARCHAR(30) CONSTRAINT fk_FacultateaC REFERENCES Facultati(FacultatiF) ON UPDATE CASCADE,
+FacultateaC VARCHAR(50) CONSTRAINT fk_FacultateaC REFERENCES Facultati(FacultatiF) ON UPDATE CASCADE,
 DepartamentulC VARCHAR(50),
-LocalitateaC VARCHAR(30),
-TaraC VARCHAR(20) CONSTRAINT fk_TaraC REFERENCES Tari(TariT) ON UPDATE CASCADE,
-ScopC VARCHAR(100),
-InstitutiaC VARCHAR(70),
+TaraC VARCHAR(100) CONSTRAINT fk_TaraC REFERENCES Tari(TariT) ON UPDATE CASCADE,
+LocalitateaC VARCHAR(100),
+ScopC VARCHAR(200) CONSTRAINT fk_ScopC REFERENCES Scopuri(ScopuriS) ON UPDATE CASCADE,
+ScopConferintaC VARCHAR(200) CONSTRAINT fk_ScopConferintaC REFERENCES ScopuriConferinte(ScopuriConferinteSC) ON UPDATE CASCADE,
+ScopAlteleC VARCHAR(200) CONSTRAINT fk_ScopAlteleC REFERENCES ScopuriAltele(ScopuriAlteleSA) ON UPDATE CASCADE,
+InstitutiaC VARCHAR(300),
 DataInceputC DATE,
 DataSfarsitC DATE,
 RutaC VARCHAR(30),
 MijTransC VARCHAR(30),
 PlatitorTranspC VARCHAR(30),
 PlatitorIntretinereC VARCHAR(30),
+BifaDiurnaC BOOLEAN,
 NrZileDiurnaC NUMERIC(3),
 DiurnaC NUMERIC(7,2),
 MonedaDiurnaC VARCHAR(50) CONSTRAINT fk_MonedaDiurnaC REFERENCES Monezi(MoneziM) ON UPDATE CASCADE,
+BifaCazareC BOOLEAN,
 NrZileCazareC NUMERIC(3),
 CazareC NUMERIC(7,2),
 MonedaCazareC VARCHAR(50) CONSTRAINT fk_MonedaCazareC REFERENCES Monezi(MoneziM) ON UPDATE CASCADE,
+BifaTaxaDeParticipareC BOOLEAN,
 TaxaDeParticipareC NUMERIC(7,2),
 MonedaTaxaDeParticipareC VARCHAR(50) CONSTRAINT fk_MonedaTaxaDeParticipareC REFERENCES Monezi(MoneziM) ON UPDATE CASCADE,
+BifaTaxaDeVizaEtcC BOOLEAN,
 TaxaDeVizaEtcC NUMERIC(7,2),
 MonedaTaxaDeVizaEtcC VARCHAR(50) CONSTRAINT fk_MonedaTaxaDeVizaEtcC REFERENCES Monezi(MoneziM) ON UPDATE CASCADE,
 TotalC VARCHAR(50),
@@ -116,24 +140,30 @@ DataOD DATE,
 DataODNoua DATE,
 SubsemnatulOD VARCHAR(70),
 GradDidacticOD VARCHAR(50) CONSTRAINT fk_GradDidacticC REFERENCES GradeDidactice(GradDidacticGD) ON UPDATE CASCADE,
-FacultateaOD VARCHAR(30) CONSTRAINT fk_FacultateaC REFERENCES Facultati(FacultatiF) ON UPDATE CASCADE,
-LocalitateaOD VARCHAR(30),
-TaraOD VARCHAR(20) CONSTRAINT fk_TaraOD REFERENCES Tari(TariT) ON UPDATE CASCADE,
-ScopOD VARCHAR(100),
-InstitutiaOD VARCHAR(70),
+FacultateaOD VARCHAR(50) CONSTRAINT fk_FacultateaC REFERENCES Facultati(FacultatiF) ON UPDATE CASCADE,
+TaraOD VARCHAR(100) CONSTRAINT fk_TaraOD REFERENCES Tari(TariT) ON UPDATE CASCADE,
+LocalitateaOD VARCHAR(100),
+ScopOD VARCHAR(200) CONSTRAINT fk_ScopOD REFERENCES Scopuri(ScopuriS) ON UPDATE CASCADE,
+ScopConferintaOD VARCHAR(200) CONSTRAINT fk_ScopConferintaOD REFERENCES ScopuriConferinte(ScopuriConferinteSC) ON UPDATE CASCADE,
+ScopAlteleOD VARCHAR(200) CONSTRAINT fk_ScopAlteleOD REFERENCES ScopuriAltele(ScopuriAlteleSA) ON UPDATE CASCADE,
+InstitutiaOD VARCHAR(300),
 DataInceputOD DATE,
 DataSfarsitOD DATE,
 RutaOD VARCHAR(30),
 PlatitorTranspOD VARCHAR(30),
 PlatitorIntretinereOD VARCHAR(30),
+BifaDiurnaOD BOOLEAN,
 NrZileDiurnaOD NUMERIC(3),
 DiurnaOD NUMERIC(7,2),
 MonedaDiurnaOD VARCHAR(50) CONSTRAINT fk_MonedaDiurnaC REFERENCES Monezi(MoneziM) ON UPDATE CASCADE,
+BifaCazareOD BOOLEAN,
 NrZileCazareOD NUMERIC(3),
 CazareOD NUMERIC(7,2),
 MonedaCazareOD VARCHAR(50) CONSTRAINT fk_MonedaCazareC REFERENCES Monezi(MoneziM) ON UPDATE CASCADE,
+BifaTaxaDeParticipareOD BOOLEAN,
 TaxaDeParticipareOD NUMERIC(7,2),
 MonedaTaxaDeParticipareOD VARCHAR(50) CONSTRAINT fk_MonedaTaxaDeParticipareC REFERENCES Monezi(MoneziM) ON UPDATE CASCADE,
+BifaTaxaDeVizaEtcOD BOOLEAN,
 TaxaDeVizaEtcOD NUMERIC(7,2),
 MonedaTaxaDeVizaEtcOD VARCHAR(50) CONSTRAINT fk_MonedaTaxaDeVizaEtcC REFERENCES Monezi(MoneziM) ON UPDATE CASCADE,
 TotalOD VARCHAR(50),
@@ -182,7 +212,7 @@ INSERT INTO monezi(monezim) values ('USD');
 INSERT INTO monezi(monezim) values ('GBP');
 INSERT INTO monezi(monezim) values ('CHF');
 
-INSERT INTO rectori(rector, emailr, telefonr) values ('Rector', 'rector@uaic.ro', 0123456789);
+INSERT INTO rectori(rector, emailr, telefonr) values ('Vasile IȘAN', 'vasileisan@uaic.ro', 0123456789);
 
 INSERT INTO prorectori(prorector, emailp, telefonp1, telefonp2) values ('prorector1', 'prorector1@uaic.ro', 0123456789, 1234567890);
 INSERT INTO prorectori(prorector, emailp, telefonp1, telefonp2) values ('prorector2', 'prorector2@uaic.ro', 0123456789, 1234567890);
@@ -378,3 +408,12 @@ INSERT INTO tari(tarit) values ('Vietnam');
 INSERT INTO tari(tarit) values ('Yemen');
 INSERT INTO tari(tarit) values ('Zambia');
 INSERT INTO tari(tarit) values ('Zimbabwe');
+
+INSERT INTO scopuri(scopuris) values ('Scop A');
+INSERT INTO scopuri(scopuris) values ('Scop B');
+INSERT INTO scopuri(scopuris) values ('Scop C');
+INSERT INTO scopuri(scopuris) values ('Scop D');
+INSERT INTO scopuri(scopuris) values ('Scop E');
+INSERT INTO scopuri(scopuris) values ('Scop F');
+INSERT INTO scopuri(scopuris) values ('Scop G');
+INSERT INTO scopuri(scopuris) values ('Scop H');

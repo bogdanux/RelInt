@@ -225,8 +225,14 @@ INSERT INTO tari(tarit) values ('Yemen');
 INSERT INTO tari(tarit) values ('Zambia');
 INSERT INTO tari(tarit) values ('Zimbabwe');
 
-
-
+INSERT INTO scopuri(scopuris) values ('Scop A');
+INSERT INTO scopuri(scopuris) values ('Scop B');
+INSERT INTO scopuri(scopuris) values ('Scop C');
+INSERT INTO scopuri(scopuris) values ('Scop D');
+INSERT INTO scopuri(scopuris) values ('Scop E');
+INSERT INTO scopuri(scopuris) values ('Scop F');
+INSERT INTO scopuri(scopuris) values ('Scop G');
+INSERT INTO scopuri(scopuris) values ('Scop H');
 
 
 
