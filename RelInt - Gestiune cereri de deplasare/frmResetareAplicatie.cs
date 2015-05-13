@@ -174,12 +174,205 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
             
             
-            // Efectuam
+            // Efectuam (pentru frmGCD)
             if (System.Windows.Forms.Application.OpenForms["frmGCD"] != null)
             {
-                (System.Windows.Forms.Application.OpenForms["frmGCD"] as frmGCD).AprobareVerifGDFMTSCA();
+                (System.Windows.Forms.Application.OpenForms["frmGCD"] as frmGCD).VerificareGradeDidactice();
             }
 
+            if (System.Windows.Forms.Application.OpenForms["frmGCD"] != null)
+            {
+                (System.Windows.Forms.Application.OpenForms["frmGCD"] as frmGCD).VerificareFacultati();
+            }
+
+            if (System.Windows.Forms.Application.OpenForms["frmGCD"] != null)
+            {
+                (System.Windows.Forms.Application.OpenForms["frmGCD"] as frmGCD).VerificareMonezi();
+            }
+
+            if (System.Windows.Forms.Application.OpenForms["frmGCD"] != null)
+            {
+                (System.Windows.Forms.Application.OpenForms["frmGCD"] as frmGCD).VerificareTari();
+            }
+
+            if (System.Windows.Forms.Application.OpenForms["frmGCD"] != null)
+            {
+                (System.Windows.Forms.Application.OpenForms["frmGCD"] as frmGCD).VerificareScopuri();
+            }
+
+            if (System.Windows.Forms.Application.OpenForms["frmGCD"] != null)
+            {
+                (System.Windows.Forms.Application.OpenForms["frmGCD"] as frmGCD).VerificareScopuriConferinte();
+            }
+
+            if (System.Windows.Forms.Application.OpenForms["frmGCD"] != null)
+            {
+                (System.Windows.Forms.Application.OpenForms["frmGCD"] as frmGCD).VerificareScopuriAltele();
+            }
+
+            if (System.Windows.Forms.Application.OpenForms["frmGCD"] != null)
+            {
+                (System.Windows.Forms.Application.OpenForms["frmGCD"] as frmGCD).MetodaScriereInStatusUC();
+            }
+
+            if (System.Windows.Forms.Application.OpenForms["frmGCD"] != null)
+            {
+                (System.Windows.Forms.Application.OpenForms["frmGCD"] as frmGCD).VerificareRector();
+            }
+
+            if (System.Windows.Forms.Application.OpenForms["frmGCD"] != null)
+            {
+                (System.Windows.Forms.Application.OpenForms["frmGCD"] as frmGCD).VerificareProrector();
+            }
+
+            if (System.Windows.Forms.Application.OpenForms["frmGCD"] != null)
+            {
+                (System.Windows.Forms.Application.OpenForms["frmGCD"] as frmGCD).MetodaScriereInStatusR();
+            }
+
+                // Efectuam (pentru frmCerereInregistrare)
+                if (System.Windows.Forms.Application.OpenForms["frmCerereInregistrare"] != null)
+                {
+                    (System.Windows.Forms.Application.OpenForms["frmCerereInregistrare"] as frmCerereInregistrare).UmplereGradDidactic();
+                }
+
+                if (System.Windows.Forms.Application.OpenForms["frmCerereInregistrare"] != null)
+                {
+                    (System.Windows.Forms.Application.OpenForms["frmCerereInregistrare"] as frmCerereInregistrare).UmplereFacultate();
+                }
+
+                if (System.Windows.Forms.Application.OpenForms["frmCerereInregistrare"] != null)
+                {
+                    (System.Windows.Forms.Application.OpenForms["frmCerereInregistrare"] as frmCerereInregistrare).UmplereMonezi();
+                }
+
+                if (System.Windows.Forms.Application.OpenForms["frmCerereInregistrare"] != null)
+                {
+                    (System.Windows.Forms.Application.OpenForms["frmCerereInregistrare"] as frmCerereInregistrare).UmplereTari();
+                }
+
+                if (System.Windows.Forms.Application.OpenForms["frmCerereInregistrare"] != null)
+                {
+                    (System.Windows.Forms.Application.OpenForms["frmCerereInregistrare"] as frmCerereInregistrare).UmplereScop();
+                }
+
+                if (System.Windows.Forms.Application.OpenForms["frmCerereInregistrare"] != null)
+                {
+                    (System.Windows.Forms.Application.OpenForms["frmCerereInregistrare"] as frmCerereInregistrare).UmplereScopConferinte();
+                }
+
+                if (System.Windows.Forms.Application.OpenForms["frmCerereInregistrare"] != null)
+                {
+                    (System.Windows.Forms.Application.OpenForms["frmCerereInregistrare"] as frmCerereInregistrare).UmplereScopAltele();
+                }
+
+                    // Efectuam (pentru frmCerereModificare)
+                    if (System.Windows.Forms.Application.OpenForms["frmCerereModificare"] != null)
+                    {
+                        (System.Windows.Forms.Application.OpenForms["frmCerereModificare"] as frmCerereModificare).UmplereGradDidactic();
+                    }
+
+                    if (System.Windows.Forms.Application.OpenForms["frmCerereModificare"] != null)
+                    {
+                        (System.Windows.Forms.Application.OpenForms["frmCerereModificare"] as frmCerereModificare).UmplereFacultate();
+                    }
+
+                    if (System.Windows.Forms.Application.OpenForms["frmCerereModificare"] != null)
+                    {
+                        (System.Windows.Forms.Application.OpenForms["frmCerereModificare"] as frmCerereModificare).UmplereMonezi();
+                    }
+
+                    if (System.Windows.Forms.Application.OpenForms["frmCerereModificare"] != null)
+                    {
+                        (System.Windows.Forms.Application.OpenForms["frmCerereModificare"] as frmCerereModificare).UmplereTari();
+                    }
+
+                    if (System.Windows.Forms.Application.OpenForms["frmCerereModificare"] != null)
+                    {
+                        (System.Windows.Forms.Application.OpenForms["frmCerereModificare"] as frmCerereModificare).UmplereScop();
+                    }
+
+                    if (System.Windows.Forms.Application.OpenForms["frmCerereModificare"] != null)
+                    {
+                        (System.Windows.Forms.Application.OpenForms["frmCerereModificare"] as frmCerereModificare).UmplereScopConferinte();
+                    }
+
+                    if (System.Windows.Forms.Application.OpenForms["frmCerereModificare"] != null)
+                    {
+                        (System.Windows.Forms.Application.OpenForms["frmCerereModificare"] as frmCerereModificare).UmplereScopAltele();
+                    }
+
+                        // Efectuam (pentru frmODDIntroducere)
+                        if (System.Windows.Forms.Application.OpenForms["frmODDIntroducere"] != null)
+                        {
+                            (System.Windows.Forms.Application.OpenForms["frmODDIntroducere"] as frmODDIntroducere).UmplereGradDidactic();
+                        }
+
+                        if (System.Windows.Forms.Application.OpenForms["frmODDIntroducere"] != null)
+                        {
+                            (System.Windows.Forms.Application.OpenForms["frmODDIntroducere"] as frmODDIntroducere).UmplereFacultate();
+                        }
+
+                        if (System.Windows.Forms.Application.OpenForms["frmODDIntroducere"] != null)
+                        {
+                            (System.Windows.Forms.Application.OpenForms["frmODDIntroducere"] as frmODDIntroducere).UmplereMonezi();
+                        }
+
+                        if (System.Windows.Forms.Application.OpenForms["frmODDIntroducere"] != null)
+                        {
+                            (System.Windows.Forms.Application.OpenForms["frmODDIntroducere"] as frmODDIntroducere).UmplereTari();
+                        }
+
+                        if (System.Windows.Forms.Application.OpenForms["frmODDIntroducere"] != null)
+                        {
+                            (System.Windows.Forms.Application.OpenForms["frmODDIntroducere"] as frmODDIntroducere).UmplereScop();
+                        }
+
+                        if (System.Windows.Forms.Application.OpenForms["frmODDIntroducere"] != null)
+                        {
+                            (System.Windows.Forms.Application.OpenForms["frmODDIntroducere"] as frmODDIntroducere).UmplereScopConferinte();
+                        }
+
+                        if (System.Windows.Forms.Application.OpenForms["frmODDIntroducere"] != null)
+                        {
+                            (System.Windows.Forms.Application.OpenForms["frmODDIntroducere"] as frmODDIntroducere).UmplereScopAltele();
+                        }
+
+                            // Efectuam (pentru frmODDModificare)
+                            if (System.Windows.Forms.Application.OpenForms["frmODDModificare"] != null)
+                            {
+                                (System.Windows.Forms.Application.OpenForms["frmODDModificare"] as frmODDModificare).UmplereGradDidactic();
+                            }
+
+                            if (System.Windows.Forms.Application.OpenForms["frmODDModificare"] != null)
+                            {
+                                (System.Windows.Forms.Application.OpenForms["frmODDModificare"] as frmODDModificare).UmplereFacultate();
+                            }
+
+                            if (System.Windows.Forms.Application.OpenForms["frmODDModificare"] != null)
+                            {
+                                (System.Windows.Forms.Application.OpenForms["frmODDModificare"] as frmODDModificare).UmplereMonezi();
+                            }
+
+                            if (System.Windows.Forms.Application.OpenForms["frmODDModificare"] != null)
+                            {
+                                (System.Windows.Forms.Application.OpenForms["frmODDModificare"] as frmODDModificare).UmplereTari();
+                            }
+
+                            if (System.Windows.Forms.Application.OpenForms["frmODDModificare"] != null)
+                            {
+                                (System.Windows.Forms.Application.OpenForms["frmODDModificare"] as frmODDModificare).UmplereScop();
+                            }
+
+                            if (System.Windows.Forms.Application.OpenForms["frmODDModificare"] != null)
+                            {
+                                (System.Windows.Forms.Application.OpenForms["frmODDModificare"] as frmODDModificare).UmplereScopConferinte();
+                            }
+
+                            if (System.Windows.Forms.Application.OpenForms["frmODDModificare"] != null)
+                            {
+                                (System.Windows.Forms.Application.OpenForms["frmODDModificare"] as frmODDModificare).UmplereScopAltele();
+                            }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
