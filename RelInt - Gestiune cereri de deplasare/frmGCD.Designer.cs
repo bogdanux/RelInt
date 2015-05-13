@@ -59,6 +59,7 @@
             this.btnResetare = new System.Windows.Forms.ToolStripMenuItem();
             this.btnCopieSiguranta = new System.Windows.Forms.ToolStripMenuItem();
             this.StatusGCD = new System.Windows.Forms.StatusStrip();
+            this.tsStatusRectorCurent = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsStatusUltimaInregistrare = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsStatusDeCeGD = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsStatusDeCeF = new System.Windows.Forms.ToolStripStatusLabel();
@@ -69,7 +70,6 @@
             this.tsStatusDeCeT = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsStatusDeCeR = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsStatusDeCeM = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tsStatusRectorCurent = new System.Windows.Forms.ToolStripStatusLabel();
             this.mnuBaraMeniu.SuspendLayout();
             this.StatusGCD.SuspendLayout();
             this.SuspendLayout();
@@ -239,7 +239,7 @@
             // 
             this.btnGCDTipIntrari.Name = "btnGCDTipIntrari";
             this.btnGCDTipIntrari.ShortcutKeys = System.Windows.Forms.Keys.F4;
-            this.btnGCDTipIntrari.Size = new System.Drawing.Size(232, 22);
+            this.btnGCDTipIntrari.Size = new System.Drawing.Size(229, 22);
             this.btnGCDTipIntrari.Text = "Editare tipuri de intrări";
             this.btnGCDTipIntrari.Click += new System.EventHandler(this.btnGCDTipIntrari_Click);
             // 
@@ -247,8 +247,8 @@
             // 
             this.btnGCDEditareRectori.Name = "btnGCDEditareRectori";
             this.btnGCDEditareRectori.ShortcutKeys = System.Windows.Forms.Keys.F5;
-            this.btnGCDEditareRectori.Size = new System.Drawing.Size(232, 22);
-            this.btnGCDEditareRectori.Text = "Editare Rectori / Prorectori";
+            this.btnGCDEditareRectori.Size = new System.Drawing.Size(229, 22);
+            this.btnGCDEditareRectori.Text = "Editare rectori / prorectori";
             this.btnGCDEditareRectori.Click += new System.EventHandler(this.btnGCDEditareRectori_Click);
             // 
             // mnuAjutor
@@ -346,6 +346,13 @@
             this.StatusGCD.TabIndex = 5;
             this.StatusGCD.Text = "statusStrip1";
             // 
+            // tsStatusRectorCurent
+            // 
+            this.tsStatusRectorCurent.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.tsStatusRectorCurent.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.tsStatusRectorCurent.Name = "tsStatusRectorCurent";
+            this.tsStatusRectorCurent.Size = new System.Drawing.Size(0, 17);
+            // 
             // tsStatusUltimaInregistrare
             // 
             this.tsStatusUltimaInregistrare.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
@@ -415,13 +422,6 @@
             this.tsStatusDeCeM.ForeColor = System.Drawing.Color.Purple;
             this.tsStatusDeCeM.Name = "tsStatusDeCeM";
             this.tsStatusDeCeM.Size = new System.Drawing.Size(0, 17);
-            // 
-            // tsStatusRectorCurent
-            // 
-            this.tsStatusRectorCurent.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.tsStatusRectorCurent.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.tsStatusRectorCurent.Name = "tsStatusRectorCurent";
-            this.tsStatusRectorCurent.Size = new System.Drawing.Size(0, 17);
             // 
             // frmGCD
             // 

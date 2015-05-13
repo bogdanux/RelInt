@@ -1,13 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Diagnostics;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Odbc;
 
@@ -408,6 +400,49 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
+        /* ---------- Metoda verificare cereri --------------------------------------------------------------------------- */
+        public void VerificareCereri()
+        {
+            using (OdbcConnection conexiune_cereri = new OdbcConnection(sircon_RelIntDB))
+            {           // Comanda
+                using (OdbcCommand comanda_cereri = new OdbcCommand())
+                {
+                    comanda_cereri.Connection = conexiune_cereri;
+                    comanda_cereri.CommandType = CommandType.Text;
+                    comanda_cereri.CommandText = "SELECT nrinregistrarec FROM cereri";
+
+                    OdbcDataReader cititor_cereri;
+
+                    try
+                    {
+                        conexiune_cereri.Open();
+
+                        cititor_cereri = comanda_cereri.ExecuteReader();
+
+                        // Daca cititorul
+                        if (cititor_cereri.HasRows == false)
+                        {
+                            // Setam
+                            ExistaCereri = false;
+                        }
+                        else
+                        {
+                            // Setam
+                            ExistaCereri = true;
+                        }
+                    }
+                    catch (Exception exCereri)
+                    {
+                        MessageBox.Show(exCereri.Message);
+                    } // Ne deconectam
+                    finally
+                    {
+                        conexiune_cereri.Close();
+                    }
+                }
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
         /* --------------------------------------------------------------------------------------------------------------- */
         public void AprobareVerifGDFMTSCA()
         {
@@ -464,49 +499,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 btnGCDIntroducereODD.Enabled = false;
                 btnGCDModificareODD.Enabled = false;
                 btnGCDListaOrdineDeDeplasare.Enabled = false;
-            }
-        }
-        /* --------------------------------------------------------------------------------------------------------------- */
-        /* ---------- Metoda verificare cereri --------------------------------------------------------------------------- */
-        public void VerificareCereri()
-        {
-            using (OdbcConnection conexiune_cereri = new OdbcConnection(sircon_RelIntDB))
-            {           // Comanda
-                using (OdbcCommand comanda_cereri = new OdbcCommand())
-                {
-                    comanda_cereri.Connection = conexiune_cereri;
-                    comanda_cereri.CommandType = CommandType.Text;
-                    comanda_cereri.CommandText = "SELECT nrinregistrarec FROM cereri";
-
-                    OdbcDataReader cititor_cereri;
-
-                    try
-                    {
-                        conexiune_cereri.Open();
-
-                        cititor_cereri = comanda_cereri.ExecuteReader();
-
-                        // Daca cititorul
-                        if (cititor_cereri.HasRows == false)
-                        {
-                            // Setam
-                            ExistaCereri = false;
-                        }
-                        else
-                        {
-                            // Setam
-                            ExistaCereri = true;
-                        }
-                    }
-                    catch (Exception exCereri)
-                    {
-                        MessageBox.Show(exCereri.Message);
-                    } // Ne deconectam
-                    finally
-                    {
-                        conexiune_cereri.Close();
-                    }
-                }
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */

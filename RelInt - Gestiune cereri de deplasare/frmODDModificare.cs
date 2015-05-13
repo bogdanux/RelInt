@@ -1,18 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.Odbc;
 using System.Diagnostics;
-using System.Drawing;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using MigraDoc.DocumentObjectModel;
 using MigraDoc.Rendering;
-using TabAlignment = System.Windows.Forms.TabAlignment;
 
 namespace RelInt___Gestiune_cereri_de_deplasare
 {

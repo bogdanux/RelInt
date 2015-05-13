@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.Odbc;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace RelInt___Gestiune_cereri_de_deplasare
@@ -53,7 +47,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         /* --------------- Eveniment de tip click pentru btnIesire ------------------------------------------------------- */
         private void btnIesire_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
@@ -1726,12 +1720,5 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-
-
-
-
-
-
-
     }
 }
