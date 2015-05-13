@@ -107,7 +107,7 @@
             this.tpScopuriAltele = new System.Windows.Forms.TabPage();
             this.lblIntroducereSA = new System.Windows.Forms.Label();
             this.lblSANou = new System.Windows.Forms.Label();
-            this.lblASCVechi = new System.Windows.Forms.Label();
+            this.lblSAVechi = new System.Windows.Forms.Label();
             this.txtSANou = new System.Windows.Forms.TextBox();
             this.rdoModificareSA = new System.Windows.Forms.RadioButton();
             this.rdoIntroducereSA = new System.Windows.Forms.RadioButton();
@@ -192,6 +192,7 @@
             // lblIntroducereGD
             // 
             this.lblIntroducereGD.AutoSize = true;
+            this.lblIntroducereGD.Enabled = false;
             this.lblIntroducereGD.Location = new System.Drawing.Point(35, 421);
             this.lblIntroducereGD.Name = "lblIntroducereGD";
             this.lblIntroducereGD.Size = new System.Drawing.Size(85, 13);
@@ -201,6 +202,7 @@
             // lblGDNou
             // 
             this.lblGDNou.AutoSize = true;
+            this.lblGDNou.Enabled = false;
             this.lblGDNou.Location = new System.Drawing.Point(155, 463);
             this.lblGDNou.Name = "lblGDNou";
             this.lblGDNou.Size = new System.Drawing.Size(53, 13);
@@ -210,6 +212,7 @@
             // lblGDVechi
             // 
             this.lblGDVechi.AutoSize = true;
+            this.lblGDVechi.Enabled = false;
             this.lblGDVechi.Location = new System.Drawing.Point(47, 463);
             this.lblGDVechi.Name = "lblGDVechi";
             this.lblGDVechi.Size = new System.Drawing.Size(59, 13);
@@ -218,6 +221,7 @@
             // 
             // txtGDNou
             // 
+            this.txtGDNou.Enabled = false;
             this.txtGDNou.Location = new System.Drawing.Point(133, 479);
             this.txtGDNou.Name = "txtGDNou";
             this.txtGDNou.Size = new System.Drawing.Size(100, 20);
@@ -248,6 +252,7 @@
             // 
             // txtGDVechi
             // 
+            this.txtGDVechi.Enabled = false;
             this.txtGDVechi.Location = new System.Drawing.Point(27, 479);
             this.txtGDVechi.Name = "txtGDVechi";
             this.txtGDVechi.Size = new System.Drawing.Size(100, 20);
@@ -264,6 +269,7 @@
             // 
             // btnModificareGD
             // 
+            this.btnModificareGD.Enabled = false;
             this.btnModificareGD.Location = new System.Drawing.Point(239, 477);
             this.btnModificareGD.Name = "btnModificareGD";
             this.btnModificareGD.Size = new System.Drawing.Size(75, 23);
@@ -274,6 +280,7 @@
             // 
             // btnIntroducereGD
             // 
+            this.btnIntroducereGD.Enabled = false;
             this.btnIntroducereGD.Location = new System.Drawing.Point(133, 435);
             this.btnIntroducereGD.Name = "btnIntroducereGD";
             this.btnIntroducereGD.Size = new System.Drawing.Size(75, 23);
@@ -284,6 +291,7 @@
             // 
             // txtIntroducereGD
             // 
+            this.txtIntroducereGD.Enabled = false;
             this.txtIntroducereGD.Location = new System.Drawing.Point(27, 437);
             this.txtIntroducereGD.Name = "txtIntroducereGD";
             this.txtIntroducereGD.Size = new System.Drawing.Size(100, 20);
@@ -314,6 +322,7 @@
             // lblIntroducereF
             // 
             this.lblIntroducereF.AutoSize = true;
+            this.lblIntroducereF.Enabled = false;
             this.lblIntroducereF.Location = new System.Drawing.Point(35, 421);
             this.lblIntroducereF.Name = "lblIntroducereF";
             this.lblIntroducereF.Size = new System.Drawing.Size(82, 13);
@@ -323,6 +332,7 @@
             // lblFNoua
             // 
             this.lblFNoua.AutoSize = true;
+            this.lblFNoua.Enabled = false;
             this.lblFNoua.Location = new System.Drawing.Point(155, 463);
             this.lblFNoua.Name = "lblFNoua";
             this.lblFNoua.Size = new System.Drawing.Size(55, 13);
@@ -332,6 +342,7 @@
             // lblFVeche
             // 
             this.lblFVeche.AutoSize = true;
+            this.lblFVeche.Enabled = false;
             this.lblFVeche.Location = new System.Drawing.Point(47, 463);
             this.lblFVeche.Name = "lblFVeche";
             this.lblFVeche.Size = new System.Drawing.Size(61, 13);
@@ -340,6 +351,7 @@
             // 
             // txtFNoua
             // 
+            this.txtFNoua.Enabled = false;
             this.txtFNoua.Location = new System.Drawing.Point(133, 479);
             this.txtFNoua.Name = "txtFNoua";
             this.txtFNoua.Size = new System.Drawing.Size(100, 20);
@@ -370,6 +382,7 @@
             // 
             // txtFVeche
             // 
+            this.txtFVeche.Enabled = false;
             this.txtFVeche.Location = new System.Drawing.Point(27, 479);
             this.txtFVeche.Name = "txtFVeche";
             this.txtFVeche.Size = new System.Drawing.Size(100, 20);
@@ -377,6 +390,7 @@
             // 
             // btnModificareF
             // 
+            this.btnModificareF.Enabled = false;
             this.btnModificareF.Location = new System.Drawing.Point(239, 477);
             this.btnModificareF.Name = "btnModificareF";
             this.btnModificareF.Size = new System.Drawing.Size(75, 23);
@@ -387,6 +401,7 @@
             // 
             // btnIntroducereF
             // 
+            this.btnIntroducereF.Enabled = false;
             this.btnIntroducereF.Location = new System.Drawing.Point(133, 435);
             this.btnIntroducereF.Name = "btnIntroducereF";
             this.btnIntroducereF.Size = new System.Drawing.Size(75, 23);
@@ -397,6 +412,7 @@
             // 
             // txtIntroducereF
             // 
+            this.txtIntroducereF.Enabled = false;
             this.txtIntroducereF.Location = new System.Drawing.Point(27, 437);
             this.txtIntroducereF.Name = "txtIntroducereF";
             this.txtIntroducereF.Size = new System.Drawing.Size(100, 20);
@@ -436,6 +452,7 @@
             // lblIntroducereM
             // 
             this.lblIntroducereM.AutoSize = true;
+            this.lblIntroducereM.Enabled = false;
             this.lblIntroducereM.Location = new System.Drawing.Point(27, 421);
             this.lblIntroducereM.Name = "lblIntroducereM";
             this.lblIntroducereM.Size = new System.Drawing.Size(102, 13);
@@ -445,6 +462,7 @@
             // lblMNoua
             // 
             this.lblMNoua.AutoSize = true;
+            this.lblMNoua.Enabled = false;
             this.lblMNoua.Location = new System.Drawing.Point(148, 463);
             this.lblMNoua.Name = "lblMNoua";
             this.lblMNoua.Size = new System.Drawing.Size(73, 13);
@@ -454,6 +472,7 @@
             // lblMVeche
             // 
             this.lblMVeche.AutoSize = true;
+            this.lblMVeche.Enabled = false;
             this.lblMVeche.Location = new System.Drawing.Point(38, 463);
             this.lblMVeche.Name = "lblMVeche";
             this.lblMVeche.Size = new System.Drawing.Size(79, 13);
@@ -462,6 +481,7 @@
             // 
             // txtMNoua
             // 
+            this.txtMNoua.Enabled = false;
             this.txtMNoua.Location = new System.Drawing.Point(133, 479);
             this.txtMNoua.Name = "txtMNoua";
             this.txtMNoua.Size = new System.Drawing.Size(100, 20);
@@ -492,6 +512,7 @@
             // 
             // txtMVeche
             // 
+            this.txtMVeche.Enabled = false;
             this.txtMVeche.Location = new System.Drawing.Point(27, 479);
             this.txtMVeche.Name = "txtMVeche";
             this.txtMVeche.Size = new System.Drawing.Size(100, 20);
@@ -499,6 +520,7 @@
             // 
             // btnModificareM
             // 
+            this.btnModificareM.Enabled = false;
             this.btnModificareM.Location = new System.Drawing.Point(239, 477);
             this.btnModificareM.Name = "btnModificareM";
             this.btnModificareM.Size = new System.Drawing.Size(75, 23);
@@ -509,6 +531,7 @@
             // 
             // btnIntroducereM
             // 
+            this.btnIntroducereM.Enabled = false;
             this.btnIntroducereM.Location = new System.Drawing.Point(133, 435);
             this.btnIntroducereM.Name = "btnIntroducereM";
             this.btnIntroducereM.Size = new System.Drawing.Size(75, 23);
@@ -519,6 +542,7 @@
             // 
             // txtIntroducereM
             // 
+            this.txtIntroducereM.Enabled = false;
             this.txtIntroducereM.Location = new System.Drawing.Point(27, 437);
             this.txtIntroducereM.Name = "txtIntroducereM";
             this.txtIntroducereM.Size = new System.Drawing.Size(100, 20);
@@ -558,15 +582,17 @@
             // lblIntroducereT
             // 
             this.lblIntroducereT.AutoSize = true;
-            this.lblIntroducereT.Location = new System.Drawing.Point(37, 421);
+            this.lblIntroducereT.Enabled = false;
+            this.lblIntroducereT.Location = new System.Drawing.Point(36, 421);
             this.lblIntroducereT.Name = "lblIntroducereT";
-            this.lblIntroducereT.Size = new System.Drawing.Size(78, 13);
+            this.lblIntroducereT.Size = new System.Drawing.Size(82, 13);
             this.lblIntroducereT.TabIndex = 11;
-            this.lblIntroducereT.Text = "Introducere țări";
+            this.lblIntroducereT.Text = "Introducere țară";
             // 
             // lblTNoua
             // 
             this.lblTNoua.AutoSize = true;
+            this.lblTNoua.Enabled = false;
             this.lblTNoua.Location = new System.Drawing.Point(157, 463);
             this.lblTNoua.Name = "lblTNoua";
             this.lblTNoua.Size = new System.Drawing.Size(56, 13);
@@ -576,6 +602,7 @@
             // lblTVeche
             // 
             this.lblTVeche.AutoSize = true;
+            this.lblTVeche.Enabled = false;
             this.lblTVeche.Location = new System.Drawing.Point(47, 463);
             this.lblTVeche.Name = "lblTVeche";
             this.lblTVeche.Size = new System.Drawing.Size(62, 13);
@@ -584,6 +611,7 @@
             // 
             // txtTNoua
             // 
+            this.txtTNoua.Enabled = false;
             this.txtTNoua.Location = new System.Drawing.Point(133, 479);
             this.txtTNoua.Name = "txtTNoua";
             this.txtTNoua.Size = new System.Drawing.Size(100, 20);
@@ -614,6 +642,7 @@
             // 
             // txtTVeche
             // 
+            this.txtTVeche.Enabled = false;
             this.txtTVeche.Location = new System.Drawing.Point(27, 479);
             this.txtTVeche.Name = "txtTVeche";
             this.txtTVeche.Size = new System.Drawing.Size(100, 20);
@@ -621,6 +650,7 @@
             // 
             // btnModificareT
             // 
+            this.btnModificareT.Enabled = false;
             this.btnModificareT.Location = new System.Drawing.Point(239, 477);
             this.btnModificareT.Name = "btnModificareT";
             this.btnModificareT.Size = new System.Drawing.Size(75, 23);
@@ -631,6 +661,7 @@
             // 
             // btnIntroducereT
             // 
+            this.btnIntroducereT.Enabled = false;
             this.btnIntroducereT.Location = new System.Drawing.Point(133, 435);
             this.btnIntroducereT.Name = "btnIntroducereT";
             this.btnIntroducereT.Size = new System.Drawing.Size(75, 23);
@@ -641,6 +672,7 @@
             // 
             // txtIntroducereT
             // 
+            this.txtIntroducereT.Enabled = false;
             this.txtIntroducereT.Location = new System.Drawing.Point(27, 437);
             this.txtIntroducereT.Name = "txtIntroducereT";
             this.txtIntroducereT.Size = new System.Drawing.Size(100, 20);
@@ -678,6 +710,7 @@
             // lblIntroducereS
             // 
             this.lblIntroducereS.AutoSize = true;
+            this.lblIntroducereS.Enabled = false;
             this.lblIntroducereS.Location = new System.Drawing.Point(34, 421);
             this.lblIntroducereS.Name = "lblIntroducereS";
             this.lblIntroducereS.Size = new System.Drawing.Size(87, 13);
@@ -687,6 +720,7 @@
             // lblSNou
             // 
             this.lblSNou.AutoSize = true;
+            this.lblSNou.Enabled = false;
             this.lblSNou.Location = new System.Drawing.Point(157, 463);
             this.lblSNou.Name = "lblSNou";
             this.lblSNou.Size = new System.Drawing.Size(53, 13);
@@ -696,6 +730,7 @@
             // lblSVechi
             // 
             this.lblSVechi.AutoSize = true;
+            this.lblSVechi.Enabled = false;
             this.lblSVechi.Location = new System.Drawing.Point(47, 463);
             this.lblSVechi.Name = "lblSVechi";
             this.lblSVechi.Size = new System.Drawing.Size(61, 13);
@@ -704,10 +739,12 @@
             // 
             // txtSNou
             // 
+            this.txtSNou.Enabled = false;
             this.txtSNou.Location = new System.Drawing.Point(133, 479);
             this.txtSNou.Name = "txtSNou";
             this.txtSNou.Size = new System.Drawing.Size(100, 20);
             this.txtSNou.TabIndex = 29;
+            this.txtSNou.TextChanged += new System.EventHandler(this.txtSNou_TextChanged);
             // 
             // rdoModificareS
             // 
@@ -718,6 +755,7 @@
             this.rdoModificareS.TabIndex = 27;
             this.rdoModificareS.TabStop = true;
             this.rdoModificareS.UseVisualStyleBackColor = true;
+            this.rdoModificareS.CheckedChanged += new System.EventHandler(this.rdoModificareS_CheckedChanged);
             // 
             // rdoIntroducereS
             // 
@@ -728,9 +766,11 @@
             this.rdoIntroducereS.TabIndex = 22;
             this.rdoIntroducereS.TabStop = true;
             this.rdoIntroducereS.UseVisualStyleBackColor = true;
+            this.rdoIntroducereS.CheckedChanged += new System.EventHandler(this.rdoIntroducereS_CheckedChanged);
             // 
             // txtSVechi
             // 
+            this.txtSVechi.Enabled = false;
             this.txtSVechi.Location = new System.Drawing.Point(27, 479);
             this.txtSVechi.Name = "txtSVechi";
             this.txtSVechi.Size = new System.Drawing.Size(100, 20);
@@ -738,28 +778,34 @@
             // 
             // btnModificareS
             // 
+            this.btnModificareS.Enabled = false;
             this.btnModificareS.Location = new System.Drawing.Point(239, 477);
             this.btnModificareS.Name = "btnModificareS";
             this.btnModificareS.Size = new System.Drawing.Size(75, 23);
             this.btnModificareS.TabIndex = 30;
             this.btnModificareS.Text = "Modificare";
             this.btnModificareS.UseVisualStyleBackColor = true;
+            this.btnModificareS.Click += new System.EventHandler(this.btnModificareS_Click);
             // 
             // btnIntroducereS
             // 
+            this.btnIntroducereS.Enabled = false;
             this.btnIntroducereS.Location = new System.Drawing.Point(133, 435);
             this.btnIntroducereS.Name = "btnIntroducereS";
             this.btnIntroducereS.Size = new System.Drawing.Size(75, 23);
             this.btnIntroducereS.TabIndex = 24;
             this.btnIntroducereS.Text = "Introducere";
             this.btnIntroducereS.UseVisualStyleBackColor = true;
+            this.btnIntroducereS.Click += new System.EventHandler(this.btnIntroducereS_Click);
             // 
             // txtIntroducereS
             // 
+            this.txtIntroducereS.Enabled = false;
             this.txtIntroducereS.Location = new System.Drawing.Point(27, 437);
             this.txtIntroducereS.Name = "txtIntroducereS";
             this.txtIntroducereS.Size = new System.Drawing.Size(100, 20);
             this.txtIntroducereS.TabIndex = 23;
+            this.txtIntroducereS.TextChanged += new System.EventHandler(this.txtIntroducereS_TextChanged);
             // 
             // dgvScopuri
             // 
@@ -792,6 +838,7 @@
             // lblIntroducereSC
             // 
             this.lblIntroducereSC.AutoSize = true;
+            this.lblIntroducereSC.Enabled = false;
             this.lblIntroducereSC.Location = new System.Drawing.Point(23, 421);
             this.lblIntroducereSC.Name = "lblIntroducereSC";
             this.lblIntroducereSC.Size = new System.Drawing.Size(111, 13);
@@ -801,6 +848,7 @@
             // lblSCNou
             // 
             this.lblSCNou.AutoSize = true;
+            this.lblSCNou.Enabled = false;
             this.lblSCNou.Location = new System.Drawing.Point(144, 463);
             this.lblSCNou.Name = "lblSCNou";
             this.lblSCNou.Size = new System.Drawing.Size(82, 13);
@@ -810,6 +858,7 @@
             // lblSCVechi
             // 
             this.lblSCVechi.AutoSize = true;
+            this.lblSCVechi.Enabled = false;
             this.lblSCVechi.Location = new System.Drawing.Point(34, 463);
             this.lblSCVechi.Name = "lblSCVechi";
             this.lblSCVechi.Size = new System.Drawing.Size(88, 13);
@@ -818,10 +867,12 @@
             // 
             // txtSCNou
             // 
+            this.txtSCNou.Enabled = false;
             this.txtSCNou.Location = new System.Drawing.Point(133, 479);
             this.txtSCNou.Name = "txtSCNou";
             this.txtSCNou.Size = new System.Drawing.Size(100, 20);
             this.txtSCNou.TabIndex = 39;
+            this.txtSCNou.TextChanged += new System.EventHandler(this.txtSCNou_TextChanged);
             // 
             // rdoModificareSC
             // 
@@ -832,6 +883,7 @@
             this.rdoModificareSC.TabIndex = 37;
             this.rdoModificareSC.TabStop = true;
             this.rdoModificareSC.UseVisualStyleBackColor = true;
+            this.rdoModificareSC.CheckedChanged += new System.EventHandler(this.rdoModificareSC_CheckedChanged);
             // 
             // rdoIntroducereSC
             // 
@@ -842,9 +894,11 @@
             this.rdoIntroducereSC.TabIndex = 32;
             this.rdoIntroducereSC.TabStop = true;
             this.rdoIntroducereSC.UseVisualStyleBackColor = true;
+            this.rdoIntroducereSC.CheckedChanged += new System.EventHandler(this.rdoIntroducereSC_CheckedChanged);
             // 
             // txtSCVechi
             // 
+            this.txtSCVechi.Enabled = false;
             this.txtSCVechi.Location = new System.Drawing.Point(27, 479);
             this.txtSCVechi.Name = "txtSCVechi";
             this.txtSCVechi.Size = new System.Drawing.Size(100, 20);
@@ -852,28 +906,34 @@
             // 
             // btnModificareSC
             // 
+            this.btnModificareSC.Enabled = false;
             this.btnModificareSC.Location = new System.Drawing.Point(239, 477);
             this.btnModificareSC.Name = "btnModificareSC";
             this.btnModificareSC.Size = new System.Drawing.Size(75, 23);
             this.btnModificareSC.TabIndex = 40;
             this.btnModificareSC.Text = "Modificare";
             this.btnModificareSC.UseVisualStyleBackColor = true;
+            this.btnModificareSC.Click += new System.EventHandler(this.btnModificareSC_Click);
             // 
             // btnIntroducereSC
             // 
+            this.btnIntroducereSC.Enabled = false;
             this.btnIntroducereSC.Location = new System.Drawing.Point(133, 435);
             this.btnIntroducereSC.Name = "btnIntroducereSC";
             this.btnIntroducereSC.Size = new System.Drawing.Size(75, 23);
             this.btnIntroducereSC.TabIndex = 34;
             this.btnIntroducereSC.Text = "Introducere";
             this.btnIntroducereSC.UseVisualStyleBackColor = true;
+            this.btnIntroducereSC.Click += new System.EventHandler(this.btnIntroducereSC_Click);
             // 
             // txtIntroducereSC
             // 
+            this.txtIntroducereSC.Enabled = false;
             this.txtIntroducereSC.Location = new System.Drawing.Point(27, 437);
             this.txtIntroducereSC.Name = "txtIntroducereSC";
             this.txtIntroducereSC.Size = new System.Drawing.Size(100, 20);
             this.txtIntroducereSC.TabIndex = 33;
+            this.txtIntroducereSC.TextChanged += new System.EventHandler(this.txtIntroducereSC_TextChanged);
             // 
             // dgvScopConferinte
             // 
@@ -887,7 +947,7 @@
             // 
             this.tpScopuriAltele.Controls.Add(this.lblIntroducereSA);
             this.tpScopuriAltele.Controls.Add(this.lblSANou);
-            this.tpScopuriAltele.Controls.Add(this.lblASCVechi);
+            this.tpScopuriAltele.Controls.Add(this.lblSAVechi);
             this.tpScopuriAltele.Controls.Add(this.txtSANou);
             this.tpScopuriAltele.Controls.Add(this.rdoModificareSA);
             this.tpScopuriAltele.Controls.Add(this.rdoIntroducereSA);
@@ -906,6 +966,7 @@
             // lblIntroducereSA
             // 
             this.lblIntroducereSA.AutoSize = true;
+            this.lblIntroducereSA.Enabled = false;
             this.lblIntroducereSA.Location = new System.Drawing.Point(46, 421);
             this.lblIntroducereSA.Name = "lblIntroducereSA";
             this.lblIntroducereSA.Size = new System.Drawing.Size(61, 13);
@@ -915,27 +976,31 @@
             // lblSANou
             // 
             this.lblSANou.AutoSize = true;
+            this.lblSANou.Enabled = false;
             this.lblSANou.Location = new System.Drawing.Point(148, 463);
             this.lblSANou.Name = "lblSANou";
             this.lblSANou.Size = new System.Drawing.Size(70, 13);
             this.lblSANou.TabIndex = 36;
             this.lblSANou.Text = "Valoare nouă";
             // 
-            // lblASCVechi
+            // lblSAVechi
             // 
-            this.lblASCVechi.AutoSize = true;
-            this.lblASCVechi.Location = new System.Drawing.Point(40, 463);
-            this.lblASCVechi.Name = "lblASCVechi";
-            this.lblASCVechi.Size = new System.Drawing.Size(76, 13);
-            this.lblASCVechi.TabIndex = 35;
-            this.lblASCVechi.Text = "Valoare veche";
+            this.lblSAVechi.AutoSize = true;
+            this.lblSAVechi.Enabled = false;
+            this.lblSAVechi.Location = new System.Drawing.Point(40, 463);
+            this.lblSAVechi.Name = "lblSAVechi";
+            this.lblSAVechi.Size = new System.Drawing.Size(76, 13);
+            this.lblSAVechi.TabIndex = 35;
+            this.lblSAVechi.Text = "Valoare veche";
             // 
             // txtSANou
             // 
+            this.txtSANou.Enabled = false;
             this.txtSANou.Location = new System.Drawing.Point(133, 479);
             this.txtSANou.Name = "txtSANou";
             this.txtSANou.Size = new System.Drawing.Size(100, 20);
             this.txtSANou.TabIndex = 39;
+            this.txtSANou.TextChanged += new System.EventHandler(this.txtSANou_TextChanged);
             // 
             // rdoModificareSA
             // 
@@ -946,6 +1011,7 @@
             this.rdoModificareSA.TabIndex = 37;
             this.rdoModificareSA.TabStop = true;
             this.rdoModificareSA.UseVisualStyleBackColor = true;
+            this.rdoModificareSA.CheckedChanged += new System.EventHandler(this.rdoModificareSA_CheckedChanged);
             // 
             // rdoIntroducereSA
             // 
@@ -956,9 +1022,11 @@
             this.rdoIntroducereSA.TabIndex = 32;
             this.rdoIntroducereSA.TabStop = true;
             this.rdoIntroducereSA.UseVisualStyleBackColor = true;
+            this.rdoIntroducereSA.CheckedChanged += new System.EventHandler(this.rdoIntroducereSA_CheckedChanged);
             // 
             // txtSAVechi
             // 
+            this.txtSAVechi.Enabled = false;
             this.txtSAVechi.Location = new System.Drawing.Point(27, 479);
             this.txtSAVechi.Name = "txtSAVechi";
             this.txtSAVechi.Size = new System.Drawing.Size(100, 20);
@@ -966,28 +1034,34 @@
             // 
             // btnModificareSA
             // 
+            this.btnModificareSA.Enabled = false;
             this.btnModificareSA.Location = new System.Drawing.Point(239, 477);
             this.btnModificareSA.Name = "btnModificareSA";
             this.btnModificareSA.Size = new System.Drawing.Size(75, 23);
             this.btnModificareSA.TabIndex = 40;
             this.btnModificareSA.Text = "Modificare";
             this.btnModificareSA.UseVisualStyleBackColor = true;
+            this.btnModificareSA.Click += new System.EventHandler(this.btnModificareSA_Click);
             // 
             // btnIntroducereSA
             // 
+            this.btnIntroducereSA.Enabled = false;
             this.btnIntroducereSA.Location = new System.Drawing.Point(133, 435);
             this.btnIntroducereSA.Name = "btnIntroducereSA";
             this.btnIntroducereSA.Size = new System.Drawing.Size(75, 23);
             this.btnIntroducereSA.TabIndex = 34;
             this.btnIntroducereSA.Text = "Introducere";
             this.btnIntroducereSA.UseVisualStyleBackColor = true;
+            this.btnIntroducereSA.Click += new System.EventHandler(this.btnIntroducereSA_Click);
             // 
             // txtIntroducereSA
             // 
+            this.txtIntroducereSA.Enabled = false;
             this.txtIntroducereSA.Location = new System.Drawing.Point(27, 437);
             this.txtIntroducereSA.Name = "txtIntroducereSA";
             this.txtIntroducereSA.Size = new System.Drawing.Size(100, 20);
             this.txtIntroducereSA.TabIndex = 33;
+            this.txtIntroducereSA.TextChanged += new System.EventHandler(this.txtIntroducereSA_TextChanged);
             // 
             // dgvScopAltele
             // 
@@ -1120,7 +1194,7 @@
         private System.Windows.Forms.TextBox txtIntroducereSC;
         private System.Windows.Forms.Label lblIntroducereSA;
         private System.Windows.Forms.Label lblSANou;
-        private System.Windows.Forms.Label lblASCVechi;
+        private System.Windows.Forms.Label lblSAVechi;
         private System.Windows.Forms.TextBox txtSANou;
         private System.Windows.Forms.RadioButton rdoModificareSA;
         private System.Windows.Forms.RadioButton rdoIntroducereSA;

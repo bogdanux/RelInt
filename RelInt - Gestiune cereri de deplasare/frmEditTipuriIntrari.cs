@@ -17,44 +17,14 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         {
             InitializeComponent();
 
-            // Incarcare dgvGradDidactic
+            // Incarcam
             IncarcaredgvGradDidactic();
-
-            // Incarcare dgvFacultati
             IncarcaredgvFacultati();
-
-            // Incarcare dgvMoneda
             IncarcaredgvMonezi();
-
-            // Dezactivam urmatoarele (GD)
-            lblIntroducereGD.Enabled = false;
-            txtIntroducereGD.Enabled = false;
-            lblGDVechi.Enabled = false;
-            lblGDNou.Enabled = false;
-            txtGDVechi.Enabled = false;
-            txtGDNou.Enabled = false;
-            btnIntroducereGD.Enabled = false;
-            btnModificareGD.Enabled = false;
-
-            // Dezactivam urmatoarele (F)
-            lblIntroducereF.Enabled = false;
-            txtIntroducereF.Enabled = false;
-            lblFVeche.Enabled = false;
-            lblFNoua.Enabled = false;
-            txtFVeche.Enabled = false;
-            txtFNoua.Enabled = false;
-            btnIntroducereF.Enabled = false;
-            btnModificareF.Enabled = false;
-
-            // Dezactivam urmatoarele (M)
-            lblIntroducereM.Enabled = false;
-            txtIntroducereM.Enabled = false;
-            lblMVeche.Enabled = false;
-            lblMNoua.Enabled = false;
-            txtMVeche.Enabled = false;
-            txtMNoua.Enabled = false;
-            btnIntroducereM.Enabled = false;
-            btnModificareM.Enabled = false;
+            IncarcaredgvTari();
+            IncarcaredgvScopuri();
+            IncarcaredgvSC();
+            IncarcaredgvSA();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
@@ -228,11 +198,12 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 }
             }
 
-            // Actualizam "dgvGradDidactic"
+            // Actualizam
             IncarcaredgvGradDidactic();
 
-            // Golim campul "txtGradDidactic"
+            // Golim
             txtIntroducereGD.Clear();
+            txtIntroducereGD.Focus();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
         /* ----------------- Eveniment de tip click pentru btnStergereGD ------------------------------------------------- */
@@ -271,6 +242,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             // Golim campurile
             txtGDVechi.Clear();
             txtGDNou.Clear();
+            txtGDVechi.Focus();
 
             // Actualizam statusul de pe "frmGCD"
             if (System.Windows.Forms.Application.OpenForms["frmGCD"] != null)
@@ -455,6 +427,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
             // Golim campul
             txtIntroducereF.Clear();
+            txtIntroducereF.Focus();
         }
         /* ----------------- Eveniment de tip click pentru btnStergereF -------------------------------------------------- */
         private void btnModificareF_Click(object sender, EventArgs e)
@@ -493,6 +466,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             // Golim campurile
             txtFVeche.Clear();
             txtFNoua.Clear();
+            txtFVeche.Focus();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
         /* ----------------- Eveniment de tip TextChanged pentru caseta txtFacultate ------------------------------------- */
@@ -665,11 +639,12 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 }
             }
 
-            // Actualizam "dgvGradDidactic"
+            // Actualizam
             IncarcaredgvMonezi();
 
-            // Golim campul "txtGradDidactic"
+            // Golim campul
             txtIntroducereM.Clear();
+            txtIntroducereM.Focus();
         }
         /* ----------------- Eveniment de tip click pentru btnStergereM -------------------------------------------------- */
         private void btnModificareM_Click(object sender, EventArgs e)
@@ -707,6 +682,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             // Golim campurile
             txtMVeche.Clear();
             txtMNoua.Clear();
+            txtMVeche.Focus();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
         /* ----------------- Eveniment de tip TextChanged pentru caseta txtMonezi ---------------------------------------- */
@@ -824,7 +800,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                         BindingSource bs_dgvTari = new BindingSource();
                         bs_dgvTari.DataSource = dt_dgvTari;
 
-                        dgvMoneda.DataSource = bs_dgvTari;
+                        dgvTari.DataSource = bs_dgvTari;
 
                         da_dgvTari.Update(dt_dgvTari);
                     }
@@ -855,88 +831,90 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         /* ----------------- Eveniment de tip click pentru btnIntroducerT ------------------------------------------------ */
         private void btnIntroducereT_Click(object sender, EventArgs e)
         {
-            using (OdbcConnection conexiune_dgvMoneda = new OdbcConnection(sircon_RelIntDB))
+            using (OdbcConnection conexiune_dgvTari = new OdbcConnection(sircon_RelIntDB))
             {
                 // Comanda
-                using (OdbcCommand comanda_dgvMoneda = new OdbcCommand())
+                using (OdbcCommand comanda_dgvTari = new OdbcCommand())
                 {
-                    comanda_dgvMoneda.Connection = conexiune_dgvMoneda;
-                    comanda_dgvMoneda.CommandType = CommandType.Text;
-                    comanda_dgvMoneda.CommandText = "INSERT INTO monezi VALUES (?)";
-                    comanda_dgvMoneda.Parameters.AddWithValue("@monezim", OdbcType.NVarChar).Value = txtIntroducereM.Text;
+                    comanda_dgvTari.Connection = conexiune_dgvTari;
+                    comanda_dgvTari.CommandType = CommandType.Text;
+                    comanda_dgvTari.CommandText = "INSERT INTO tari VALUES (?)";
+                    comanda_dgvTari.Parameters.AddWithValue("@tarit", OdbcType.NVarChar).Value = txtIntroducereT.Text;
 
                     try
                     {
-                        conexiune_dgvMoneda.Open();
-                        int recordsAffected = comanda_dgvMoneda.ExecuteNonQuery();
+                        conexiune_dgvTari.Open();
+                        int recordsAffected = comanda_dgvTari.ExecuteNonQuery();
                     }
-                    catch (Exception dgvMoneda)
+                    catch (Exception dgvTari)
                     {
-                        MessageBox.Show(dgvMoneda.Message);
+                        MessageBox.Show(dgvTari.Message);
                     } // Ne deconectam
                     finally
                     {
-                        conexiune_dgvMoneda.Close();
-                    }
-                }
-            }
-
-            // Actualizam "dgvGradDidactic"
-            IncarcaredgvMonezi();
-
-            // Golim campul "txtGradDidactic"
-            txtIntroducereM.Clear();
-        }
-        /* ----------------- Eveniment de tip click pentru btnModificareT ------------------------------------------------ */
-        private void btnModificareT_Click(object sender, EventArgs e)
-        {
-            using (OdbcConnection conexiune_dgvMoneda = new OdbcConnection(sircon_RelIntDB))
-            {
-                // Comanda
-                using (OdbcCommand comanda_dgvMoneda = new OdbcCommand())
-                {
-                    comanda_dgvMoneda.Connection = conexiune_dgvMoneda;
-                    comanda_dgvMoneda.CommandType = CommandType.Text;
-                    comanda_dgvMoneda.CommandText = "UPDATE monezi SET monezim = ? WHERE monezim = ?";
-                    comanda_dgvMoneda.Parameters.AddWithValue("@monezim", OdbcType.NVarChar).Value = txtMNoua.Text;
-                    comanda_dgvMoneda.Parameters.AddWithValue("@monezim", OdbcType.NVarChar).Value = txtMVeche.Text;
-
-                    try
-                    {
-                        conexiune_dgvMoneda.Open();
-                        int recordsAffected = comanda_dgvMoneda.ExecuteNonQuery();
-                    }
-                    catch (Exception dgvMoneda)
-                    {
-                        MessageBox.Show(dgvMoneda.Message);
-                    } // Ne deconectam
-                    finally
-                    {
-                        conexiune_dgvMoneda.Close();
+                        conexiune_dgvTari.Close();
                     }
                 }
             }
 
             // Actualizam
-            IncarcaredgvMonezi();
+            IncarcaredgvTari();
+
+            // Golim
+            txtIntroducereT.Clear();
+            txtIntroducereT.Focus();
+        }
+        /* ----------------- Eveniment de tip click pentru btnModificareT ------------------------------------------------ */
+        private void btnModificareT_Click(object sender, EventArgs e)
+        {
+            using (OdbcConnection conexiune_dgvTari = new OdbcConnection(sircon_RelIntDB))
+            {
+                // Comanda
+                using (OdbcCommand comanda_dgvTari = new OdbcCommand())
+                {
+                    comanda_dgvTari.Connection = conexiune_dgvTari;
+                    comanda_dgvTari.CommandType = CommandType.Text;
+                    comanda_dgvTari.CommandText = "UPDATE tari SET tarit = ? WHERE tarit = ?";
+                    comanda_dgvTari.Parameters.AddWithValue("@tarit", OdbcType.NVarChar).Value = txtTNoua.Text;
+                    comanda_dgvTari.Parameters.AddWithValue("@tarit", OdbcType.NVarChar).Value = txtTVeche.Text;
+
+                    try
+                    {
+                        conexiune_dgvTari.Open();
+                        int recordsAffected = comanda_dgvTari.ExecuteNonQuery();
+                    }
+                    catch (Exception dgvTari)
+                    {
+                        MessageBox.Show(dgvTari.Message);
+                    } // Ne deconectam
+                    finally
+                    {
+                        conexiune_dgvTari.Close();
+                    }
+                }
+            }
+
+            // Actualizam
+            IncarcaredgvTari();
 
             // Golim campurile
-            txtMVeche.Clear();
-            txtMNoua.Clear();
+            txtTVeche.Clear();
+            txtTNoua.Clear();
+            txtTVeche.Focus();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
         /* ----------------- Eveniment de tip TextChanged pentru caseta txtTari ------------------------------------------ */
         private void txtIntroducereT_TextChanged(object sender, EventArgs e)
         {
-            if (txtIntroducereM.Text != string.Empty)
+            if (txtIntroducereT.Text != string.Empty)
             {
                 // Activam
-                btnIntroducereM.Enabled = true;
+                btnIntroducereT.Enabled = true;
             }
             else
             {
                 // Dezactivam
-                btnIntroducereM.Enabled = false;
+                btnIntroducereT.Enabled = false;
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
@@ -955,6 +933,661 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+
+        /* ------------------- Activam Campurile prin rdoIntroducereS ---------------------------------------------------- */
+        private void rdoIntroducereS_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdoIntroducereS.Checked)
+            {
+                // Activam
+                lblIntroducereS.Enabled = true;
+                txtIntroducereS.Enabled = true;
+
+                // Dezactivam
+                lblSCVechi.Enabled = false;
+                lblSNou.Enabled = false;
+                txtSVechi.Enabled = false;
+                txtSNou.Enabled = false;
+                btnModificareS.Enabled = false;
+            }
+            else
+            {
+                // Dezactivam
+                lblIntroducereS.Enabled = false;
+                txtIntroducereS.Enabled = false;
+                btnIntroducereS.Enabled = false;
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* ---------------------- Activam campurile prin rdoModificareS -------------------------------------------------- */
+        private void rdoModificareS_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdoModificareS.Checked)
+            {
+                // Activam
+                lblSVechi.Enabled = true;
+                lblSNou.Enabled = true;
+                txtSVechi.Enabled = true;
+                txtSNou.Enabled = true;
+
+                // Dezactivam
+                lblIntroducereS.Enabled = false;
+                txtIntroducereS.Enabled = false;
+                btnIntroducereS.Enabled = false;
+            }
+            else
+            {
+                // Dezactivam
+                lblSVechi.Enabled = false;
+                lblSNou.Enabled = false;
+                txtSVechi.Enabled = false;
+                txtSNou.Enabled = false;
+                btnModificareS.Enabled = false;
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* -------------------- Functii pentru dgvScopuri ---------------------------------------------------------------- */
+        public void IncarcaredgvScopuri()
+        {
+            using (OdbcConnection conexiune_dgvScopuri = new OdbcConnection(sircon_RelIntDB))
+            {
+                // Comanda
+                using (OdbcCommand comanda_dgvScopuri = new OdbcCommand())
+                {
+                    comanda_dgvScopuri.Connection = conexiune_dgvScopuri;
+                    comanda_dgvScopuri.CommandType = CommandType.Text;
+                    comanda_dgvScopuri.CommandText = "SELECT scopuris AS \"Scopuri\" FROM scopuri";
+
+                    try
+                    {
+                        conexiune_dgvScopuri.Open();
+                        OdbcDataAdapter da_dgvScopuri = new OdbcDataAdapter();
+                        da_dgvScopuri.SelectCommand = comanda_dgvScopuri;
+
+                        DataTable dt_dgvScopuri = new DataTable();
+                        da_dgvScopuri.Fill(dt_dgvScopuri);
+
+                        BindingSource bs_dgvTari = new BindingSource();
+                        bs_dgvTari.DataSource = dt_dgvScopuri;
+
+                        dgvScopuri.DataSource = bs_dgvTari;
+
+                        da_dgvScopuri.Update(dt_dgvScopuri);
+                    }
+                    catch (Exception exdgvScopuri)
+                    {
+                        MessageBox.Show(exdgvScopuri.Message);
+                    } // Ne deconectam
+                    finally
+                    {
+                        conexiune_dgvScopuri.Close();
+                    }
+                }
+            }
+
+            // Efectuam metoda:
+            if (System.Windows.Forms.Application.OpenForms["frmGCD"] != null)
+            {
+                (System.Windows.Forms.Application.OpenForms["frmGCD"] as frmGCD).VerificareScopuri();
+            }
+
+            // Apoi metoda:
+            if (System.Windows.Forms.Application.OpenForms["frmGCD"] != null)
+            {
+                (System.Windows.Forms.Application.OpenForms["frmGCD"] as frmGCD).AprobareVerifGDFMTSCA();
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* ----------------- Eveniment de tip click pentru btnIntroducerS ------------------------------------------------ */
+        private void btnIntroducereS_Click(object sender, EventArgs e)
+        {
+            using (OdbcConnection conexiune_dgvScopuri = new OdbcConnection(sircon_RelIntDB))
+            {
+                // Comanda
+                using (OdbcCommand comanda_dgvScopuri = new OdbcCommand())
+                {
+                    comanda_dgvScopuri.Connection = conexiune_dgvScopuri;
+                    comanda_dgvScopuri.CommandType = CommandType.Text;
+                    comanda_dgvScopuri.CommandText = "INSERT INTO scopuri VALUES (?)";
+                    comanda_dgvScopuri.Parameters.AddWithValue("@scopuris", OdbcType.NVarChar).Value = txtIntroducereS.Text;
+
+                    try
+                    {
+                        conexiune_dgvScopuri.Open();
+                        int recordsAffected = comanda_dgvScopuri.ExecuteNonQuery();
+                    }
+                    catch (Exception dgvScopuri)
+                    {
+                        MessageBox.Show(dgvScopuri.Message);
+                    } // Ne deconectam
+                    finally
+                    {
+                        conexiune_dgvScopuri.Close();
+                    }
+                }
+            }
+
+            // Actualizam
+            IncarcaredgvScopuri();
+
+            // Golim
+            txtIntroducereS.Clear();
+            txtIntroducereS.Focus();
+        }
+        /* ----------------- Eveniment de tip click pentru btnModificareS ------------------------------------------------ */
+        private void btnModificareS_Click(object sender, EventArgs e)
+        {
+            using (OdbcConnection conexiune_dgvScopuri = new OdbcConnection(sircon_RelIntDB))
+            {
+                // Comanda
+                using (OdbcCommand comanda_dgvScopuri = new OdbcCommand())
+                {
+                    comanda_dgvScopuri.Connection = conexiune_dgvScopuri;
+                    comanda_dgvScopuri.CommandType = CommandType.Text;
+                    comanda_dgvScopuri.CommandText = "UPDATE scopuri SET scopuris = ? WHERE scopuris = ?";
+                    comanda_dgvScopuri.Parameters.AddWithValue("@scopuris", OdbcType.NVarChar).Value = txtSNou.Text;
+                    comanda_dgvScopuri.Parameters.AddWithValue("@scopuris", OdbcType.NVarChar).Value = txtSVechi.Text;
+
+                    try
+                    {
+                        conexiune_dgvScopuri.Open();
+                        int recordsAffected = comanda_dgvScopuri.ExecuteNonQuery();
+                    }
+                    catch (Exception dgvTari)
+                    {
+                        MessageBox.Show(dgvTari.Message);
+                    } // Ne deconectam
+                    finally
+                    {
+                        conexiune_dgvScopuri.Close();
+                    }
+                }
+            }
+
+            // Actualizam
+            IncarcaredgvScopuri();
+
+            // Golim campurile
+            txtSVechi.Clear();
+            txtSNou.Clear();
+            txtSVechi.Focus();
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* ----------------- Eveniment de tip TextChanged pentru caseta txtScopuri --------------------------------------- */
+        private void txtIntroducereS_TextChanged(object sender, EventArgs e)
+        {
+            if (txtIntroducereS.Text != string.Empty)
+            {
+                // Activam
+                btnIntroducereS.Enabled = true;
+            }
+            else
+            {
+                // Dezactivam
+                btnIntroducereS.Enabled = false;
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* ----------------- Eveniment de tip TextChanged pentru caseta txtScopuri --------------------------------------- */
+        private void txtSNou_TextChanged(object sender, EventArgs e)
+        {
+            if (txtSNou.Text != string.Empty)
+            {
+                // Activam
+                btnModificareS.Enabled = true;
+            }
+            else
+            {
+                // Dezactivam
+                btnModificareS.Enabled = false;
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+
+        /* ------------------- Activam Campurile prin rdoIntroducereSC --------------------------------------------------- */
+        private void rdoIntroducereSC_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdoIntroducereSC.Checked)
+            {
+                // Activam
+                lblIntroducereSC.Enabled = true;
+                txtIntroducereSC.Enabled = true;
+
+                // Dezactivam
+                lblSCVechi.Enabled = false;
+                lblSCNou.Enabled = false;
+                txtSCVechi.Enabled = false;
+                txtSCNou.Enabled = false;
+                btnModificareSC.Enabled = false;
+            }
+            else
+            {
+                // Dezactivam
+                lblIntroducereSC.Enabled = false;
+                txtIntroducereSC.Enabled = false;
+                btnIntroducereSC.Enabled = false;
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* ---------------------- Activam campurile prin rdoModificareSC ------------------------------------------------- */
+        private void rdoModificareSC_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdoModificareSC.Checked)
+            {
+                // Activam
+                lblSCVechi.Enabled = true;
+                lblSCNou.Enabled = true;
+                txtSCVechi.Enabled = true;
+                txtSCNou.Enabled = true;
+
+                // Dezactivam
+                lblIntroducereSC.Enabled = false;
+                txtIntroducereSC.Enabled = false;
+                btnIntroducereSC.Enabled = false;
+            }
+            else
+            {
+                // Dezactivam
+                lblSCVechi.Enabled = false;
+                lblSCNou.Enabled = false;
+                txtSCVechi.Enabled = false;
+                txtSCNou.Enabled = false;
+                btnModificareSC.Enabled = false;
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* -------------------- Functii pentru dgvScopuri-Conferinte ----------------------------------------------------- */
+        public void IncarcaredgvSC()
+        {
+            using (OdbcConnection conexiune_dgvScopuriConferinte = new OdbcConnection(sircon_RelIntDB))
+            {
+                // Comanda
+                using (OdbcCommand comanda_dgvScopuriConferinte = new OdbcCommand())
+                {
+                    comanda_dgvScopuriConferinte.Connection = conexiune_dgvScopuriConferinte;
+                    comanda_dgvScopuriConferinte.CommandType = CommandType.Text;
+                    comanda_dgvScopuriConferinte.CommandText = "SELECT scopuriconferintesc AS \"Scop - Conferințe\" FROM scopuriconferinte";
+
+                    try
+                    {
+                        conexiune_dgvScopuriConferinte.Open();
+                        OdbcDataAdapter da_dgvScopuriConferinte = new OdbcDataAdapter();
+                        da_dgvScopuriConferinte.SelectCommand = comanda_dgvScopuriConferinte;
+
+                        DataTable dt_dgvScopuriConferinte = new DataTable();
+                        da_dgvScopuriConferinte.Fill(dt_dgvScopuriConferinte);
+
+                        BindingSource bs_dgvScopuriConferinte = new BindingSource();
+                        bs_dgvScopuriConferinte.DataSource = dt_dgvScopuriConferinte;
+
+                        dgvScopConferinte.DataSource = bs_dgvScopuriConferinte;
+
+                        da_dgvScopuriConferinte.Update(dt_dgvScopuriConferinte);
+                    }
+                    catch (Exception exdgvScopConferinte)
+                    {
+                        MessageBox.Show(exdgvScopConferinte.Message);
+                    } // Ne deconectam
+                    finally
+                    {
+                        conexiune_dgvScopuriConferinte.Close();
+                    }
+                }
+            }
+
+            // Efectuam metoda:
+            if (System.Windows.Forms.Application.OpenForms["frmGCD"] != null)
+            {
+                (System.Windows.Forms.Application.OpenForms["frmGCD"] as frmGCD).VerificareScopuriConferinte();
+            }
+
+            // Apoi metoda:
+            if (System.Windows.Forms.Application.OpenForms["frmGCD"] != null)
+            {
+                (System.Windows.Forms.Application.OpenForms["frmGCD"] as frmGCD).AprobareVerifGDFMTSCA();
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* ----------------- Eveniment de tip click pentru btnIntroducerSC ----------------------------------------------- */
+        private void btnIntroducereSC_Click(object sender, EventArgs e)
+        {
+            using (OdbcConnection conexiune_dgvScopuriConferinte = new OdbcConnection(sircon_RelIntDB))
+            {
+                // Comanda
+                using (OdbcCommand comanda_dgvScopuriConferinte = new OdbcCommand())
+                {
+                    comanda_dgvScopuriConferinte.Connection = conexiune_dgvScopuriConferinte;
+                    comanda_dgvScopuriConferinte.CommandType = CommandType.Text;
+                    comanda_dgvScopuriConferinte.CommandText = "INSERT INTO scopuriconferinte VALUES (?)";
+                    comanda_dgvScopuriConferinte.Parameters.AddWithValue("@scopuriconferintesc", OdbcType.NVarChar).Value = txtIntroducereSC.Text;
+
+                    try
+                    {
+                        conexiune_dgvScopuriConferinte.Open();
+                        int recordsAffected = comanda_dgvScopuriConferinte.ExecuteNonQuery();
+                    }
+                    catch (Exception dgvScopuriConferinte)
+                    {
+                        MessageBox.Show(dgvScopuriConferinte.Message);
+                    } // Ne deconectam
+                    finally
+                    {
+                        conexiune_dgvScopuriConferinte.Close();
+                    }
+                }
+            }
+
+            // Actualizam
+            IncarcaredgvSC();
+
+            // Golim
+            txtIntroducereSC.Clear();
+            txtIntroducereSC.Focus();
+        }
+        /* ----------------- Eveniment de tip click pentru btnModificareSC ----------------------------------------------- */
+        private void btnModificareSC_Click(object sender, EventArgs e)
+        {
+            using (OdbcConnection conexiune_dgvScopuriConferinte = new OdbcConnection(sircon_RelIntDB))
+            {
+                // Comanda
+                using (OdbcCommand comanda_dgvScopuriConferinte = new OdbcCommand())
+                {
+                    comanda_dgvScopuriConferinte.Connection = conexiune_dgvScopuriConferinte;
+                    comanda_dgvScopuriConferinte.CommandType = CommandType.Text;
+                    comanda_dgvScopuriConferinte.CommandText = "UPDATE scopuriconferinte SET scopuriconferintesc = ? WHERE scopuriconferintesc = ?";
+                    comanda_dgvScopuriConferinte.Parameters.AddWithValue("@scopuriconferintesc", OdbcType.NVarChar).Value = txtSCNou.Text;
+                    comanda_dgvScopuriConferinte.Parameters.AddWithValue("@scopuriconferintesc", OdbcType.NVarChar).Value = txtSCVechi.Text;
+
+                    try
+                    {
+                        conexiune_dgvScopuriConferinte.Open();
+                        int recordsAffected = comanda_dgvScopuriConferinte.ExecuteNonQuery();
+                    }
+                    catch (Exception dgvScopuriConferinte)
+                    {
+                        MessageBox.Show(dgvScopuriConferinte.Message);
+                    } // Ne deconectam
+                    finally
+                    {
+                        conexiune_dgvScopuriConferinte.Close();
+                    }
+                }
+            }
+
+            // Actualizam
+            IncarcaredgvSC();
+
+            // Golim campurile
+            txtSCVechi.Clear();
+            txtSCNou.Clear();
+            txtSCVechi.Focus();
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* ----------------- Eveniment de tip TextChanged pentru caseta txtScopuriConferinte ----------------------------- */
+        private void txtIntroducereSC_TextChanged(object sender, EventArgs e)
+        {
+            if (txtIntroducereSC.Text != string.Empty)
+            {
+                // Activam
+                btnIntroducereSC.Enabled = true;
+            }
+            else
+            {
+                // Dezactivam
+                btnIntroducereSC.Enabled = false;
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* ----------------- Eveniment de tip TextChanged pentru caseta txtScopuriConferinte ----------------------------- */
+        private void txtSCNou_TextChanged(object sender, EventArgs e)
+        {
+            if (txtSCNou.Text != string.Empty)
+            {
+                // Activam
+                btnModificareSC.Enabled = true;
+            }
+            else
+            {
+                // Dezactivam
+                btnModificareSC.Enabled = false;
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+
+        /* ------------------- Activam Campurile prin rdoIntroducereSC --------------------------------------------------- */
+        private void rdoIntroducereSA_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdoIntroducereSA.Checked)
+            {
+                // Activam
+                lblIntroducereSA.Enabled = true;
+                txtIntroducereSA.Enabled = true;
+
+                // Dezactivam
+                lblSAVechi.Enabled = false;
+                lblSANou.Enabled = false;
+                txtSAVechi.Enabled = false;
+                txtSANou.Enabled = false;
+                btnModificareSA.Enabled = false;
+            }
+            else
+            {
+                // Dezactivam
+                lblIntroducereSA.Enabled = false;
+                txtIntroducereSA.Enabled = false;
+                btnIntroducereSA.Enabled = false;
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* ---------------------- Activam campurile prin rdoModificareSC ------------------------------------------------- */
+        private void rdoModificareSA_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdoModificareSA.Checked)
+            {
+                // Activam
+                lblSAVechi.Enabled = true;
+                lblSANou.Enabled = true;
+                txtSAVechi.Enabled = true;
+                txtSANou.Enabled = true;
+
+                // Dezactivam
+                lblIntroducereSA.Enabled = false;
+                txtIntroducereSA.Enabled = false;
+                btnIntroducereSA.Enabled = false;
+            }
+            else
+            {
+                // Dezactivam
+                lblSAVechi.Enabled = false;
+                lblSANou.Enabled = false;
+                txtSAVechi.Enabled = false;
+                txtSANou.Enabled = false;
+                btnModificareSA.Enabled = false;
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* -------------------- Functii pentru dgvScopuri-Conferinte ----------------------------------------------------- */
+        public void IncarcaredgvSA()
+        {
+            using (OdbcConnection conexiune_dgvScopuriAltele = new OdbcConnection(sircon_RelIntDB))
+            {
+                // Comanda
+                using (OdbcCommand comanda_dgvScopuriAltele = new OdbcCommand())
+                {
+                    comanda_dgvScopuriAltele.Connection = conexiune_dgvScopuriAltele;
+                    comanda_dgvScopuriAltele.CommandType = CommandType.Text;
+                    comanda_dgvScopuriAltele.CommandText = "SELECT scopurialtelesa AS \"Scop - Altele\" FROM scopurialtele";
+
+                    try
+                    {
+                        conexiune_dgvScopuriAltele.Open();
+                        OdbcDataAdapter da_dgvScopuriAltele = new OdbcDataAdapter();
+                        da_dgvScopuriAltele.SelectCommand = comanda_dgvScopuriAltele;
+
+                        DataTable dt_dgvScopuriAltele = new DataTable();
+                        da_dgvScopuriAltele.Fill(dt_dgvScopuriAltele);
+
+                        BindingSource bs_dgvScopuriAltele = new BindingSource();
+                        bs_dgvScopuriAltele.DataSource = dt_dgvScopuriAltele;
+
+                        dgvScopAltele.DataSource = bs_dgvScopuriAltele;
+
+                        da_dgvScopuriAltele.Update(dt_dgvScopuriAltele);
+                    }
+                    catch (Exception exdgvScopAltele)
+                    {
+                        MessageBox.Show(exdgvScopAltele.Message);
+                    } // Ne deconectam
+                    finally
+                    {
+                        conexiune_dgvScopuriAltele.Close();
+                    }
+                }
+            }
+
+            // Efectuam metoda:
+            if (System.Windows.Forms.Application.OpenForms["frmGCD"] != null)
+            {
+                (System.Windows.Forms.Application.OpenForms["frmGCD"] as frmGCD).VerificareScopuriAltele();
+            }
+
+            // Apoi metoda:
+            if (System.Windows.Forms.Application.OpenForms["frmGCD"] != null)
+            {
+                (System.Windows.Forms.Application.OpenForms["frmGCD"] as frmGCD).AprobareVerifGDFMTSCA();
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* ----------------- Eveniment de tip click pentru btnIntroducerSC ----------------------------------------------- */
+        private void btnIntroducereSA_Click(object sender, EventArgs e)
+        {
+            using (OdbcConnection conexiune_dgvScopuriAltele = new OdbcConnection(sircon_RelIntDB))
+            {
+                // Comanda
+                using (OdbcCommand comanda_dgvScopuriAltele = new OdbcCommand())
+                {
+                    comanda_dgvScopuriAltele.Connection = conexiune_dgvScopuriAltele;
+                    comanda_dgvScopuriAltele.CommandType = CommandType.Text;
+                    comanda_dgvScopuriAltele.CommandText = "INSERT INTO scopurialtele VALUES (?)";
+                    comanda_dgvScopuriAltele.Parameters.AddWithValue("@scopurialtelesa", OdbcType.NVarChar).Value = txtIntroducereSA.Text;
+
+                    try
+                    {
+                        conexiune_dgvScopuriAltele.Open();
+                        int recordsAffected = comanda_dgvScopuriAltele.ExecuteNonQuery();
+                    }
+                    catch (Exception dgvScopuriAltele)
+                    {
+                        MessageBox.Show(dgvScopuriAltele.Message);
+                    } // Ne deconectam
+                    finally
+                    {
+                        conexiune_dgvScopuriAltele.Close();
+                    }
+                }
+            }
+
+            // Actualizam
+            IncarcaredgvSA();
+
+            // Golim
+            txtIntroducereSA.Clear();
+            txtIntroducereSA.Focus();
+        }
+        /* ----------------- Eveniment de tip click pentru btnModificareSC ----------------------------------------------- */
+        private void btnModificareSA_Click(object sender, EventArgs e)
+        {
+            using (OdbcConnection conexiune_dgvScopuriAltele = new OdbcConnection(sircon_RelIntDB))
+            {
+                // Comanda
+                using (OdbcCommand comanda_dgvScopuriAltele = new OdbcCommand())
+                {
+                    comanda_dgvScopuriAltele.Connection = conexiune_dgvScopuriAltele;
+                    comanda_dgvScopuriAltele.CommandType = CommandType.Text;
+                    comanda_dgvScopuriAltele.CommandText = "UPDATE scopurialtele SET scopurialtelesa = ? WHERE scopurialtelesa = ?";
+                    comanda_dgvScopuriAltele.Parameters.AddWithValue("@scopurialtelesa", OdbcType.NVarChar).Value = txtSANou.Text;
+                    comanda_dgvScopuriAltele.Parameters.AddWithValue("@scopurialtelesa", OdbcType.NVarChar).Value = txtSAVechi.Text;
+
+                    try
+                    {
+                        conexiune_dgvScopuriAltele.Open();
+                        int recordsAffected = comanda_dgvScopuriAltele.ExecuteNonQuery();
+                    }
+                    catch (Exception dgvScopuriAltele)
+                    {
+                        MessageBox.Show(dgvScopuriAltele.Message);
+                    } // Ne deconectam
+                    finally
+                    {
+                        conexiune_dgvScopuriAltele.Close();
+                    }
+                }
+            }
+
+            // Actualizam
+            IncarcaredgvSA();
+
+            // Golim campurile
+            txtSAVechi.Clear();
+            txtSANou.Clear();
+            txtSAVechi.Focus();
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* ----------------- Eveniment de tip TextChanged pentru caseta txtScopuriConferinte ----------------------------- */
+        private void txtIntroducereSA_TextChanged(object sender, EventArgs e)
+        {
+            if (txtIntroducereSA.Text != string.Empty)
+            {
+                // Activam
+                btnIntroducereSA.Enabled = true;
+            }
+            else
+            {
+                // Dezactivam
+                btnIntroducereSA.Enabled = false;
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* ----------------- Eveniment de tip TextChanged pentru caseta txtScopuriConferinte ----------------------------- */
+        private void txtSANou_TextChanged(object sender, EventArgs e)
+        {
+            if (txtSANou.Text != string.Empty)
+            {
+                // Activam
+                btnModificareSA.Enabled = true;
+            }
+            else
+            {
+                // Dezactivam
+                btnModificareSA.Enabled = false;
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
 
 
 
