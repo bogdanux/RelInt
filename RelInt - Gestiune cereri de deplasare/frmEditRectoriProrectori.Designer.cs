@@ -72,6 +72,14 @@
             this.btnAdaugaPR = new System.Windows.Forms.Button();
             this.txtNumePR = new System.Windows.Forms.TextBox();
             this.dgvProRector = new System.Windows.Forms.DataGridView();
+            this.lblActivR = new System.Windows.Forms.Label();
+            this.lblActivRNou = new System.Windows.Forms.Label();
+            this.chkActivR = new System.Windows.Forms.CheckBox();
+            this.chkActivRNou = new System.Windows.Forms.CheckBox();
+            this.lblSectorPR = new System.Windows.Forms.Label();
+            this.txtSectorPR = new System.Windows.Forms.TextBox();
+            this.txtSectorPRNou = new System.Windows.Forms.TextBox();
+            this.lblSectorPRNou = new System.Windows.Forms.Label();
             this.mnuEditareRector.SuspendLayout();
             this.tabProrector.SuspendLayout();
             this.ptRector.SuspendLayout();
@@ -106,11 +114,15 @@
             this.tabProrector.Location = new System.Drawing.Point(4, 28);
             this.tabProrector.Name = "tabProrector";
             this.tabProrector.SelectedIndex = 0;
-            this.tabProrector.Size = new System.Drawing.Size(461, 511);
+            this.tabProrector.Size = new System.Drawing.Size(461, 567);
             this.tabProrector.TabIndex = 1;
             // 
             // ptRector
             // 
+            this.ptRector.Controls.Add(this.chkActivRNou);
+            this.ptRector.Controls.Add(this.chkActivR);
+            this.ptRector.Controls.Add(this.lblActivRNou);
+            this.ptRector.Controls.Add(this.lblActivR);
             this.ptRector.Controls.Add(this.lblTelefonRNou);
             this.ptRector.Controls.Add(this.txtTelefonRNou);
             this.ptRector.Controls.Add(this.lblEMailRNou);
@@ -140,7 +152,7 @@
             // 
             this.lblTelefonRNou.AutoSize = true;
             this.lblTelefonRNou.Enabled = false;
-            this.lblTelefonRNou.Location = new System.Drawing.Point(127, 404);
+            this.lblTelefonRNou.Location = new System.Drawing.Point(127, 428);
             this.lblTelefonRNou.Name = "lblTelefonRNou";
             this.lblTelefonRNou.Size = new System.Drawing.Size(64, 13);
             this.lblTelefonRNou.TabIndex = 16;
@@ -149,7 +161,7 @@
             // txtTelefonRNou
             // 
             this.txtTelefonRNou.Enabled = false;
-            this.txtTelefonRNou.Location = new System.Drawing.Point(197, 401);
+            this.txtTelefonRNou.Location = new System.Drawing.Point(197, 425);
             this.txtTelefonRNou.Name = "txtTelefonRNou";
             this.txtTelefonRNou.Size = new System.Drawing.Size(187, 20);
             this.txtTelefonRNou.TabIndex = 13;
@@ -159,7 +171,7 @@
             // 
             this.lblEMailRNou.AutoSize = true;
             this.lblEMailRNou.Enabled = false;
-            this.lblEMailRNou.Location = new System.Drawing.Point(134, 378);
+            this.lblEMailRNou.Location = new System.Drawing.Point(134, 402);
             this.lblEMailRNou.Name = "lblEMailRNou";
             this.lblEMailRNou.Size = new System.Drawing.Size(57, 13);
             this.lblEMailRNou.TabIndex = 15;
@@ -168,7 +180,7 @@
             // txtEMailRNou
             // 
             this.txtEMailRNou.Enabled = false;
-            this.txtEMailRNou.Location = new System.Drawing.Point(197, 375);
+            this.txtEMailRNou.Location = new System.Drawing.Point(197, 399);
             this.txtEMailRNou.Name = "txtEMailRNou";
             this.txtEMailRNou.Size = new System.Drawing.Size(187, 20);
             this.txtEMailRNou.TabIndex = 12;
@@ -178,7 +190,7 @@
             // 
             this.lblNumeRNou.AutoSize = true;
             this.lblNumeRNou.Enabled = false;
-            this.lblNumeRNou.Location = new System.Drawing.Point(105, 352);
+            this.lblNumeRNou.Location = new System.Drawing.Point(105, 376);
             this.lblNumeRNou.Name = "lblNumeRNou";
             this.lblNumeRNou.Size = new System.Drawing.Size(86, 13);
             this.lblNumeRNou.TabIndex = 14;
@@ -187,7 +199,7 @@
             // txtNumeRNou
             // 
             this.txtNumeRNou.Enabled = false;
-            this.txtNumeRNou.Location = new System.Drawing.Point(197, 349);
+            this.txtNumeRNou.Location = new System.Drawing.Point(197, 373);
             this.txtNumeRNou.Name = "txtNumeRNou";
             this.txtNumeRNou.Size = new System.Drawing.Size(187, 20);
             this.txtNumeRNou.TabIndex = 11;
@@ -196,7 +208,7 @@
             // rdoModificaR
             // 
             this.rdoModificaR.AutoSize = true;
-            this.rdoModificaR.Location = new System.Drawing.Point(22, 378);
+            this.rdoModificaR.Location = new System.Drawing.Point(22, 402);
             this.rdoModificaR.Name = "rdoModificaR";
             this.rdoModificaR.Size = new System.Drawing.Size(65, 17);
             this.rdoModificaR.TabIndex = 10;
@@ -268,9 +280,9 @@
             // btnModificaR
             // 
             this.btnModificaR.Enabled = false;
-            this.btnModificaR.Location = new System.Drawing.Point(390, 348);
+            this.btnModificaR.Location = new System.Drawing.Point(390, 373);
             this.btnModificaR.Name = "btnModificaR";
-            this.btnModificaR.Size = new System.Drawing.Size(55, 73);
+            this.btnModificaR.Size = new System.Drawing.Size(55, 99);
             this.btnModificaR.TabIndex = 5;
             this.btnModificaR.Text = "Modifică";
             this.btnModificaR.UseVisualStyleBackColor = true;
@@ -281,7 +293,7 @@
             this.btnAdaugaR.Enabled = false;
             this.btnAdaugaR.Location = new System.Drawing.Point(390, 258);
             this.btnAdaugaR.Name = "btnAdaugaR";
-            this.btnAdaugaR.Size = new System.Drawing.Size(55, 73);
+            this.btnAdaugaR.Size = new System.Drawing.Size(55, 99);
             this.btnAdaugaR.TabIndex = 4;
             this.btnAdaugaR.Text = "Adaugă";
             this.btnAdaugaR.UseVisualStyleBackColor = true;
@@ -307,6 +319,10 @@
             // 
             // ptProrector
             // 
+            this.ptProrector.Controls.Add(this.txtSectorPRNou);
+            this.ptProrector.Controls.Add(this.lblSectorPRNou);
+            this.ptProrector.Controls.Add(this.txtSectorPR);
+            this.ptProrector.Controls.Add(this.lblSectorPR);
             this.ptProrector.Controls.Add(this.rdoModificaPR);
             this.ptProrector.Controls.Add(this.rdoAdaugaPR);
             this.ptProrector.Controls.Add(this.lblTelefonPR2Nou);
@@ -331,7 +347,7 @@
             this.ptProrector.Location = new System.Drawing.Point(4, 22);
             this.ptProrector.Name = "ptProrector";
             this.ptProrector.Padding = new System.Windows.Forms.Padding(3);
-            this.ptProrector.Size = new System.Drawing.Size(453, 485);
+            this.ptProrector.Size = new System.Drawing.Size(453, 541);
             this.ptProrector.TabIndex = 1;
             this.ptProrector.Text = "ProRector";
             this.ptProrector.UseVisualStyleBackColor = true;
@@ -339,7 +355,7 @@
             // rdoModificaPR
             // 
             this.rdoModificaPR.AutoSize = true;
-            this.rdoModificaPR.Location = new System.Drawing.Point(17, 428);
+            this.rdoModificaPR.Location = new System.Drawing.Point(17, 462);
             this.rdoModificaPR.Name = "rdoModificaPR";
             this.rdoModificaPR.Size = new System.Drawing.Size(65, 17);
             this.rdoModificaPR.TabIndex = 28;
@@ -364,7 +380,7 @@
             // 
             this.lblTelefonPR2Nou.AutoSize = true;
             this.lblTelefonPR2Nou.Enabled = false;
-            this.lblTelefonPR2Nou.Location = new System.Drawing.Point(118, 454);
+            this.lblTelefonPR2Nou.Location = new System.Drawing.Point(118, 488);
             this.lblTelefonPR2Nou.Name = "lblTelefonPR2Nou";
             this.lblTelefonPR2Nou.Size = new System.Drawing.Size(73, 13);
             this.lblTelefonPR2Nou.TabIndex = 26;
@@ -373,7 +389,7 @@
             // txtTelefonPR2Nou
             // 
             this.txtTelefonPR2Nou.Enabled = false;
-            this.txtTelefonPR2Nou.Location = new System.Drawing.Point(197, 451);
+            this.txtTelefonPR2Nou.Location = new System.Drawing.Point(197, 485);
             this.txtTelefonPR2Nou.Name = "txtTelefonPR2Nou";
             this.txtTelefonPR2Nou.Size = new System.Drawing.Size(187, 20);
             this.txtTelefonPR2Nou.TabIndex = 22;
@@ -383,7 +399,7 @@
             // 
             this.lblTelefonPR1Nou.AutoSize = true;
             this.lblTelefonPR1Nou.Enabled = false;
-            this.lblTelefonPR1Nou.Location = new System.Drawing.Point(111, 428);
+            this.lblTelefonPR1Nou.Location = new System.Drawing.Point(111, 462);
             this.lblTelefonPR1Nou.Name = "lblTelefonPR1Nou";
             this.lblTelefonPR1Nou.Size = new System.Drawing.Size(80, 13);
             this.lblTelefonPR1Nou.TabIndex = 25;
@@ -392,7 +408,7 @@
             // txtTelefonPR1Nou
             // 
             this.txtTelefonPR1Nou.Enabled = false;
-            this.txtTelefonPR1Nou.Location = new System.Drawing.Point(197, 425);
+            this.txtTelefonPR1Nou.Location = new System.Drawing.Point(197, 459);
             this.txtTelefonPR1Nou.Name = "txtTelefonPR1Nou";
             this.txtTelefonPR1Nou.Size = new System.Drawing.Size(187, 20);
             this.txtTelefonPR1Nou.TabIndex = 21;
@@ -402,7 +418,7 @@
             // 
             this.lblEMailPRNou.AutoSize = true;
             this.lblEMailPRNou.Enabled = false;
-            this.lblEMailPRNou.Location = new System.Drawing.Point(134, 402);
+            this.lblEMailPRNou.Location = new System.Drawing.Point(134, 436);
             this.lblEMailPRNou.Name = "lblEMailPRNou";
             this.lblEMailPRNou.Size = new System.Drawing.Size(57, 13);
             this.lblEMailPRNou.TabIndex = 24;
@@ -411,7 +427,7 @@
             // txtEMailPRNou
             // 
             this.txtEMailPRNou.Enabled = false;
-            this.txtEMailPRNou.Location = new System.Drawing.Point(197, 399);
+            this.txtEMailPRNou.Location = new System.Drawing.Point(197, 433);
             this.txtEMailPRNou.Name = "txtEMailPRNou";
             this.txtEMailPRNou.Size = new System.Drawing.Size(187, 20);
             this.txtEMailPRNou.TabIndex = 20;
@@ -421,7 +437,7 @@
             // 
             this.lblNumePRNou.AutoSize = true;
             this.lblNumePRNou.Enabled = false;
-            this.lblNumePRNou.Location = new System.Drawing.Point(90, 376);
+            this.lblNumePRNou.Location = new System.Drawing.Point(90, 410);
             this.lblNumePRNou.Name = "lblNumePRNou";
             this.lblNumePRNou.Size = new System.Drawing.Size(101, 13);
             this.lblNumePRNou.TabIndex = 23;
@@ -430,7 +446,7 @@
             // txtNumePRNou
             // 
             this.txtNumePRNou.Enabled = false;
-            this.txtNumePRNou.Location = new System.Drawing.Point(197, 373);
+            this.txtNumePRNou.Location = new System.Drawing.Point(197, 407);
             this.txtNumePRNou.Name = "txtNumePRNou";
             this.txtNumePRNou.Size = new System.Drawing.Size(187, 20);
             this.txtNumePRNou.TabIndex = 19;
@@ -506,9 +522,9 @@
             // btnModificaPR
             // 
             this.btnModificaPR.Enabled = false;
-            this.btnModificaPR.Location = new System.Drawing.Point(390, 373);
+            this.btnModificaPR.Location = new System.Drawing.Point(390, 407);
             this.btnModificaPR.Name = "btnModificaPR";
-            this.btnModificaPR.Size = new System.Drawing.Size(55, 99);
+            this.btnModificaPR.Size = new System.Drawing.Size(55, 124);
             this.btnModificaPR.TabIndex = 6;
             this.btnModificaPR.Text = "Modifică";
             this.btnModificaPR.UseVisualStyleBackColor = true;
@@ -519,7 +535,7 @@
             this.btnAdaugaPR.Enabled = false;
             this.btnAdaugaPR.Location = new System.Drawing.Point(390, 258);
             this.btnAdaugaPR.Name = "btnAdaugaPR";
-            this.btnAdaugaPR.Size = new System.Drawing.Size(55, 99);
+            this.btnAdaugaPR.Size = new System.Drawing.Size(55, 125);
             this.btnAdaugaPR.TabIndex = 5;
             this.btnAdaugaPR.Text = "Adaugă";
             this.btnAdaugaPR.UseVisualStyleBackColor = true;
@@ -543,16 +559,93 @@
             this.dgvProRector.Size = new System.Drawing.Size(447, 251);
             this.dgvProRector.TabIndex = 0;
             // 
+            // lblActivR
+            // 
+            this.lblActivR.AutoSize = true;
+            this.lblActivR.Enabled = false;
+            this.lblActivR.Location = new System.Drawing.Point(106, 340);
+            this.lblActivR.Name = "lblActivR";
+            this.lblActivR.Size = new System.Drawing.Size(85, 13);
+            this.lblActivR.TabIndex = 17;
+            this.lblActivR.Text = "Activ (în funcție)";
+            // 
+            // lblActivRNou
+            // 
+            this.lblActivRNou.AutoSize = true;
+            this.lblActivRNou.Enabled = false;
+            this.lblActivRNou.Location = new System.Drawing.Point(106, 454);
+            this.lblActivRNou.Name = "lblActivRNou";
+            this.lblActivRNou.Size = new System.Drawing.Size(85, 13);
+            this.lblActivRNou.TabIndex = 19;
+            this.lblActivRNou.Text = "Activ (în funcție)";
+            // 
+            // chkActivR
+            // 
+            this.chkActivR.AutoSize = true;
+            this.chkActivR.Enabled = false;
+            this.chkActivR.Location = new System.Drawing.Point(197, 340);
+            this.chkActivR.Name = "chkActivR";
+            this.chkActivR.Size = new System.Drawing.Size(15, 14);
+            this.chkActivR.TabIndex = 20;
+            this.chkActivR.UseVisualStyleBackColor = true;
+            // 
+            // chkActivRNou
+            // 
+            this.chkActivRNou.AutoSize = true;
+            this.chkActivRNou.Enabled = false;
+            this.chkActivRNou.Location = new System.Drawing.Point(197, 455);
+            this.chkActivRNou.Name = "chkActivRNou";
+            this.chkActivRNou.Size = new System.Drawing.Size(15, 14);
+            this.chkActivRNou.TabIndex = 21;
+            this.chkActivRNou.UseVisualStyleBackColor = true;
+            // 
+            // lblSectorPR
+            // 
+            this.lblSectorPR.AutoSize = true;
+            this.lblSectorPR.Enabled = false;
+            this.lblSectorPR.Location = new System.Drawing.Point(92, 366);
+            this.lblSectorPR.Name = "lblSectorPR";
+            this.lblSectorPR.Size = new System.Drawing.Size(99, 13);
+            this.lblSectorPR.TabIndex = 29;
+            this.lblSectorPR.Text = "Activitate principală";
+            // 
+            // txtSectorPR
+            // 
+            this.txtSectorPR.Enabled = false;
+            this.txtSectorPR.Location = new System.Drawing.Point(197, 363);
+            this.txtSectorPR.Name = "txtSectorPR";
+            this.txtSectorPR.Size = new System.Drawing.Size(187, 20);
+            this.txtSectorPR.TabIndex = 30;
+            // 
+            // txtSectorPRNou
+            // 
+            this.txtSectorPRNou.Enabled = false;
+            this.txtSectorPRNou.Location = new System.Drawing.Point(197, 511);
+            this.txtSectorPRNou.Name = "txtSectorPRNou";
+            this.txtSectorPRNou.Size = new System.Drawing.Size(187, 20);
+            this.txtSectorPRNou.TabIndex = 32;
+            // 
+            // lblSectorPRNou
+            // 
+            this.lblSectorPRNou.AutoSize = true;
+            this.lblSectorPRNou.Enabled = false;
+            this.lblSectorPRNou.Location = new System.Drawing.Point(92, 514);
+            this.lblSectorPRNou.Name = "lblSectorPRNou";
+            this.lblSectorPRNou.Size = new System.Drawing.Size(99, 13);
+            this.lblSectorPRNou.TabIndex = 31;
+            this.lblSectorPRNou.Text = "Activitate principală";
+            // 
             // frmEditRectoriProrectori
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(466, 541);
+            this.ClientSize = new System.Drawing.Size(466, 596);
             this.Controls.Add(this.tabProrector);
             this.Controls.Add(this.mnuEditareRector);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.mnuEditareRector;
+            this.MaximizeBox = false;
             this.Name = "frmEditRectoriProrectori";
             this.Text = "Editare rectori - prorectori";
             this.mnuEditareRector.ResumeLayout(false);
@@ -614,5 +707,13 @@
         private System.Windows.Forms.TextBox txtNumePRNou;
         private System.Windows.Forms.RadioButton rdoAdaugaPR;
         private System.Windows.Forms.RadioButton rdoModificaPR;
+        private System.Windows.Forms.Label lblActivR;
+        private System.Windows.Forms.Label lblActivRNou;
+        private System.Windows.Forms.CheckBox chkActivRNou;
+        private System.Windows.Forms.CheckBox chkActivR;
+        private System.Windows.Forms.Label lblSectorPR;
+        private System.Windows.Forms.TextBox txtSectorPR;
+        private System.Windows.Forms.TextBox txtSectorPRNou;
+        private System.Windows.Forms.Label lblSectorPRNou;
     }
 }

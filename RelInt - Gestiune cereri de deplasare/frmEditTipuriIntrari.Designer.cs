@@ -1007,6 +1007,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.mnuTipuriIntrari;
+            this.MaximizeBox = false;
             this.Name = "frmEditTipuriIntrari";
             this.Text = "Tipuri intrări";
             this.mnuTipuriIntrari.ResumeLayout(false);

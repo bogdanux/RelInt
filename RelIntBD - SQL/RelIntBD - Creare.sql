@@ -129,7 +129,8 @@ CREATE TABLE ProRectori (
 ProRector VARCHAR(50) CONSTRAINT pk_ProRector PRIMARY KEY,
 EMailP VARCHAR(50),
 TelefonP1 NUMERIC(12) NOT NULL,
-TelefonP2 NUMERIC(12)
+TelefonP2 NUMERIC(12),
+SectorP VARCHAR(400)
 );
 
 -- Creare tabela CereriBECA

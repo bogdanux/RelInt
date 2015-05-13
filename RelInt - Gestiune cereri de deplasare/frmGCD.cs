@@ -36,8 +36,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             VerificareRector();
             VerificareProrector();
 
-            AprobareVerifRP();
-
             MetodaScriereInStatusR();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
@@ -421,6 +419,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 && AprobareVerifSC
                 && AprobareVerifSA)
             {
+                AprobareVerifRP();
                 VerificareCereri();
 
                 if (ExistaCereri)
@@ -461,6 +460,10 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 btnGCDODZ.Enabled = false;
 
                 btnGCDListaCereriExistente.Enabled = false;
+
+                btnGCDIntroducereODD.Enabled = false;
+                btnGCDModificareODD.Enabled = false;
+                btnGCDListaOrdineDeDeplasare.Enabled = false;
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
@@ -674,7 +677,8 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 {
                     comanda_ScriereStatusR.Connection = conexiune_ScriereStatusR;
                     comanda_ScriereStatusR.CommandType = CommandType.Text;
-                    comanda_ScriereStatusR.CommandText = "SELECT rector FROM rectori";
+                    comanda_ScriereStatusR.CommandText = "SELECT rector FROM rectori WHERE rectorcurent = ?";
+                    comanda_ScriereStatusR.Parameters.AddWithValue("@rectorcurent", OdbcType.Bit).Value = true;
 
                     OdbcDataReader cititor_ScriereStatusR;
 
@@ -685,7 +689,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
                         while (cititor_ScriereStatusR.Read())
                         {
-                            tsStatusRectorCurent.Text = cititor_ScriereStatusR.GetString(0);
+                            tsStatusRectorCurent.Text = "Rector curent: " + cititor_ScriereStatusR.GetString(0);
                         }
                     }
                     catch (Exception exProrectori)

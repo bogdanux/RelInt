@@ -129,7 +129,8 @@ CREATE TABLE ProRectori (
 ProRector VARCHAR(50) CONSTRAINT pk_ProRector PRIMARY KEY,
 EMailP VARCHAR(50),
 TelefonP1 NUMERIC(12) NOT NULL,
-TelefonP2 NUMERIC(12)
+TelefonP2 NUMERIC(12),
+SectorP VARCHAR(400)
 );
 
 -- Creare tabela CereriBECA
@@ -215,8 +216,8 @@ INSERT INTO monezi(monezim) values ('CHF');
 
 INSERT INTO rectori(rector, emailr, telefonr, rectorcurent) values ('Vasile IȘAN', 'vasileisan@uaic.ro', 0123456789, true);
 
-INSERT INTO prorectori(prorector, emailp, telefonp1, telefonp2) values ('prorector1', 'prorector1@uaic.ro', 0123456789, 1234567890);
-INSERT INTO prorectori(prorector, emailp, telefonp1, telefonp2) values ('prorector2', 'prorector2@uaic.ro', 0123456789, 1234567890);
+INSERT INTO prorectori(prorector, emailp, telefonp1, telefonp2, sectorp) values ('prorector1', 'prorector1@uaic.ro', 0123456789, 1234567890, 'activitate în cadrul departamentului XXX');
+INSERT INTO prorectori(prorector, emailp, telefonp1, telefonp2, sectorp) values ('prorector2', 'prorector2@uaic.ro', 0123456789, 1234567890, 'activitate în cadrul departamentului ZZZ');
 
 INSERT INTO tari(tarit) values ('Afganistan');
 INSERT INTO tari(tarit) values ('Africa de Sud');
