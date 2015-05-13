@@ -532,7 +532,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 {
                     comanda_dgvProRector.Connection = conexiune_dgvProRector;
                     comanda_dgvProRector.CommandType = CommandType.Text;
-                    comanda_dgvProRector.CommandText = "SELECT prorector AS \"ProRectori\", emailp AS \"E-Mail\", telefonp1 AS \"Telefon 1\", telefonp2 AS \"Telefon 2\" FROM prorectori";
+                    comanda_dgvProRector.CommandText = "SELECT prorector AS \"ProRectori\", emailp AS \"E-Mail\", telefonp1 AS \"Telefon 1\", telefonp2 AS \"Telefon 2\", sectorp AS \"Activitate principală\" FROM prorectori";
 
                     try
                     {
@@ -615,6 +615,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             txtTelefonPR1.Clear();
             txtEMailPR.Clear();
             txtNumePR.Clear();
+            txtSectorPR.Clear();
             rdoAdaugaPR.Checked = false;
         }
         /* --------------------------------------------------------------------------------------------------------------- */
@@ -661,6 +662,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             txtTelefonPR1Nou.Clear();
             txtEMailPRNou.Clear();
             txtNumePRNou.Clear();
+            txtSectorPRNou.Clear();
             rdoModificaPR.Checked = false;
         }
         /* --------------------------------------------------------------------------------------------------------------- */
