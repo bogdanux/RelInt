@@ -28,6 +28,8 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             UmplereMonezi();
             UmplereTari();
             UmplereScop();
+            UmplereScopConferinte();
+            UmplereScopAltele();
 
             // Pregatim formularul
             PregatireFormular();
@@ -92,7 +94,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
         /* ---------- Metoda de umplere a cmbGradDidactic cu date din RelIntDB ------------------------------------------- */
-        private void UmplereGradDidactic()
+        public void UmplereGradDidactic()
         {
             using (OdbcConnection conexiune_cmbGradDidactic = new OdbcConnection(sircon_RelIntDB))
             {           // Comanda
@@ -128,7 +130,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         }
         /* --------------------------------------------------------------------------------------------------------------- */
         /* ---------- Metoda de umplere a cmbFacultate cu date din RelIntDB ---------------------------------------------- */
-        private void UmplereFacultate()
+        public void UmplereFacultate()
         {
             using (OdbcConnection conexiune_cmbFacultate = new OdbcConnection(sircon_RelIntDB))
             {           // Comanda
@@ -163,7 +165,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         }
         /* --------------------------------------------------------------------------------------------------------------- */
         /* ---------- Metoda de umplere a cmbMonezi cu date din RelIntDB ------------------------------------------------- */
-        private void UmplereMonezi()
+        public void UmplereMonezi()
         {
             using (OdbcConnection conexiune_cmbMonezi = new OdbcConnection(sircon_RelIntDB))
             {           // Comanda
@@ -201,7 +203,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         }
         /* --------------------------------------------------------------------------------------------------------------- */
         /* ---------- Metoda de umplere a cmbTari cu date din RelIntDB --------------------------------------------------- */
-        private void UmplereTari()
+        public void UmplereTari()
         {
             using (OdbcConnection conexiune_cmbTari = new OdbcConnection(sircon_RelIntDB))
             {           // Comanda
@@ -236,7 +238,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         }
         /* --------------------------------------------------------------------------------------------------------------- */
         /* ---------- Metoda de umplere a cmbScop cu date din RelIntDB --------------------------------------------------- */
-        private void UmplereScop()
+        public void UmplereScop()
         {
             using (OdbcConnection conexiune_cmbScop = new OdbcConnection(sircon_RelIntDB))
             {           // Comanda
@@ -270,6 +272,76 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
+        /* ---------- Metoda de umplere a cmbScop cu date din RelIntDB --------------------------------------------------- */
+        public void UmplereScopConferinte()
+        {
+            using (OdbcConnection conexiune_cmbScopConferinte = new OdbcConnection(sircon_RelIntDB))
+            {           // Comanda
+                using (OdbcCommand comanda_cmbScopConferinte = new OdbcCommand())
+                {
+                    comanda_cmbScopConferinte.Connection = conexiune_cmbScopConferinte;
+                    comanda_cmbScopConferinte.CommandType = CommandType.Text;
+                    comanda_cmbScopConferinte.CommandText = "SELECT * FROM scopuriconferinte ORDER BY scopuriconferintesc ASC";
+
+                    OdbcDataReader cititor_cmbScopConferinte;
+
+                    try
+                    {
+                        conexiune_cmbScopConferinte.Open();
+                        cititor_cmbScopConferinte = comanda_cmbScopConferinte.ExecuteReader();
+                        while (cititor_cmbScopConferinte.Read())
+                        {
+                            string str_cmbScopConferinte = cititor_cmbScopConferinte.GetString(0);
+                            cmbScop.Items.Add(str_cmbScopConferinte);
+                        }
+                    }
+                    catch (Exception excmbScopConferinte)
+                    {
+                        MessageBox.Show(excmbScopConferinte.Message);
+                    } // Ne deconectam
+                    finally
+                    {
+                        conexiune_cmbScopConferinte.Close();
+                    }
+                }
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* ---------- Metoda de umplere a cmbScop cu date din RelIntDB --------------------------------------------------- */
+        public void UmplereScopAltele()
+        {
+            using (OdbcConnection conexiune_cmbScopAltele = new OdbcConnection(sircon_RelIntDB))
+            {           // Comanda
+                using (OdbcCommand comanda_cmbScopAltele = new OdbcCommand())
+                {
+                    comanda_cmbScopAltele.Connection = conexiune_cmbScopAltele;
+                    comanda_cmbScopAltele.CommandType = CommandType.Text;
+                    comanda_cmbScopAltele.CommandText = "SELECT * FROM scopurialtele ORDER BY scopurialtelesa ASC";
+
+                    OdbcDataReader cititor_cmbScopAltele;
+
+                    try
+                    {
+                        conexiune_cmbScopAltele.Open();
+                        cititor_cmbScopAltele = comanda_cmbScopAltele.ExecuteReader();
+                        while (cititor_cmbScopAltele.Read())
+                        {
+                            string str_cmbScopAltele = cititor_cmbScopAltele.GetString(0);
+                            cmbScop.Items.Add(str_cmbScopAltele);
+                        }
+                    }
+                    catch (Exception excmbScopAltele)
+                    {
+                        MessageBox.Show(excmbScopAltele.Message);
+                    } // Ne deconectam
+                    finally
+                    {
+                        conexiune_cmbScopAltele.Close();
+                    }
+                }
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
 
 
 
@@ -278,7 +350,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
         /* ------------------ Metoda de incarcare a cmbRectorProrector --------------------------------------------------- */
-        private void IncarcarecmbRectorProrector()
+        public void IncarcarecmbRectorProrector()
         {
             cmbRectorProrector.Items.Clear();
             if (rdoRector.Checked == true)
