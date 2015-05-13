@@ -120,7 +120,8 @@ CondDePlataCDP VARCHAR(70)
 CREATE TABLE Rectori (
 Rector VARCHAR(50) CONSTRAINT pk_Rector PRIMARY KEY,
 EMailR VARCHAR(50),
-TelefonR NUMERIC(12)
+TelefonR NUMERIC(12),
+RectorCurent BOOLEAN
 );
 
 -- Creare tabela ProRectori

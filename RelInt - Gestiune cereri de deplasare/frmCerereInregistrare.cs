@@ -841,11 +841,11 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             }
             if (System.Windows.Forms.Application.OpenForms["frmGCD"] != null)
             {
-                (System.Windows.Forms.Application.OpenForms["frmGCD"] as frmGCD).AprobareVerifDGFM();
+                (System.Windows.Forms.Application.OpenForms["frmGCD"] as frmGCD).AprobareVerifGDFMTSCA();
             }
             if (System.Windows.Forms.Application.OpenForms["frmGCD"] != null)
             {
-                (System.Windows.Forms.Application.OpenForms["frmGCD"] as frmGCD).MetodaScriereInStatus();
+                (System.Windows.Forms.Application.OpenForms["frmGCD"] as frmGCD).MetodaScriereInStatusUC();
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */

@@ -177,7 +177,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             // Efectuam
             if (System.Windows.Forms.Application.OpenForms["frmGCD"] != null)
             {
-                (System.Windows.Forms.Application.OpenForms["frmGCD"] as frmGCD).AprobareVerifDGFM();
+                (System.Windows.Forms.Application.OpenForms["frmGCD"] as frmGCD).AprobareVerifGDFMTSCA();
             }
 
         }

@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEditTipuriIntrari));
             this.mnuTipuriIntrari = new System.Windows.Forms.MenuStrip();
             this.btnIesire = new System.Windows.Forms.ToolStripMenuItem();
-            this.tabGDFM = new System.Windows.Forms.TabControl();
+            this.tabGDFMTSCA = new System.Windows.Forms.TabControl();
             this.tpGradDidactic = new System.Windows.Forms.TabPage();
             this.lblIntroducereGD = new System.Windows.Forms.Label();
             this.lblGDNou = new System.Windows.Forms.Label();
@@ -56,7 +56,7 @@
             this.btnIntroducereF = new System.Windows.Forms.Button();
             this.txtIntroducereF = new System.Windows.Forms.TextBox();
             this.dgvFacultate = new System.Windows.Forms.DataGridView();
-            this.tpMoneda = new System.Windows.Forms.TabPage();
+            this.tpMonezi = new System.Windows.Forms.TabPage();
             this.lblIntroducereM = new System.Windows.Forms.Label();
             this.lblMNoua = new System.Windows.Forms.Label();
             this.lblMVeche = new System.Windows.Forms.Label();
@@ -68,14 +68,70 @@
             this.btnIntroducereM = new System.Windows.Forms.Button();
             this.txtIntroducereM = new System.Windows.Forms.TextBox();
             this.dgvMoneda = new System.Windows.Forms.DataGridView();
+            this.tpTari = new System.Windows.Forms.TabPage();
+            this.lblIntroducereT = new System.Windows.Forms.Label();
+            this.lblTNoua = new System.Windows.Forms.Label();
+            this.lblTVeche = new System.Windows.Forms.Label();
+            this.txtTNoua = new System.Windows.Forms.TextBox();
+            this.rdoModificareT = new System.Windows.Forms.RadioButton();
+            this.rdoIntroducereT = new System.Windows.Forms.RadioButton();
+            this.txtTVeche = new System.Windows.Forms.TextBox();
+            this.btnModificareT = new System.Windows.Forms.Button();
+            this.btnIntroducereT = new System.Windows.Forms.Button();
+            this.txtIntroducereT = new System.Windows.Forms.TextBox();
+            this.dgvTari = new System.Windows.Forms.DataGridView();
+            this.tpScopuri = new System.Windows.Forms.TabPage();
+            this.lblIntroducereS = new System.Windows.Forms.Label();
+            this.lblSNou = new System.Windows.Forms.Label();
+            this.lblSVechi = new System.Windows.Forms.Label();
+            this.txtSNou = new System.Windows.Forms.TextBox();
+            this.rdoModificareS = new System.Windows.Forms.RadioButton();
+            this.rdoIntroducereS = new System.Windows.Forms.RadioButton();
+            this.txtSVechi = new System.Windows.Forms.TextBox();
+            this.btnModificareS = new System.Windows.Forms.Button();
+            this.btnIntroducereS = new System.Windows.Forms.Button();
+            this.txtIntroducereS = new System.Windows.Forms.TextBox();
+            this.dgvScopuri = new System.Windows.Forms.DataGridView();
+            this.tpScopuriConferinte = new System.Windows.Forms.TabPage();
+            this.lblIntroducereSC = new System.Windows.Forms.Label();
+            this.lblSCNou = new System.Windows.Forms.Label();
+            this.lblSCVechi = new System.Windows.Forms.Label();
+            this.txtSCNou = new System.Windows.Forms.TextBox();
+            this.rdoModificareSC = new System.Windows.Forms.RadioButton();
+            this.rdoIntroducereSC = new System.Windows.Forms.RadioButton();
+            this.txtSCVechi = new System.Windows.Forms.TextBox();
+            this.btnModificareSC = new System.Windows.Forms.Button();
+            this.btnIntroducereSC = new System.Windows.Forms.Button();
+            this.txtIntroducereSC = new System.Windows.Forms.TextBox();
+            this.dgvScopConferinte = new System.Windows.Forms.DataGridView();
+            this.tpScopuriAltele = new System.Windows.Forms.TabPage();
+            this.lblIntroducereSA = new System.Windows.Forms.Label();
+            this.lblSANou = new System.Windows.Forms.Label();
+            this.lblASCVechi = new System.Windows.Forms.Label();
+            this.txtSANou = new System.Windows.Forms.TextBox();
+            this.rdoModificareSA = new System.Windows.Forms.RadioButton();
+            this.rdoIntroducereSA = new System.Windows.Forms.RadioButton();
+            this.txtSAVechi = new System.Windows.Forms.TextBox();
+            this.btnModificareSA = new System.Windows.Forms.Button();
+            this.btnIntroducereSA = new System.Windows.Forms.Button();
+            this.txtIntroducereSA = new System.Windows.Forms.TextBox();
+            this.dgvScopAltele = new System.Windows.Forms.DataGridView();
             this.mnuTipuriIntrari.SuspendLayout();
-            this.tabGDFM.SuspendLayout();
+            this.tabGDFMTSCA.SuspendLayout();
             this.tpGradDidactic.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGradDidactic)).BeginInit();
             this.tpFacultate.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFacultate)).BeginInit();
-            this.tpMoneda.SuspendLayout();
+            this.tpMonezi.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMoneda)).BeginInit();
+            this.tpTari.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTari)).BeginInit();
+            this.tpScopuri.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvScopuri)).BeginInit();
+            this.tpScopuriConferinte.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvScopConferinte)).BeginInit();
+            this.tpScopuriAltele.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvScopAltele)).BeginInit();
             this.SuspendLayout();
             // 
             // mnuTipuriIntrari
@@ -85,7 +141,7 @@
             this.btnIesire});
             this.mnuTipuriIntrari.Location = new System.Drawing.Point(0, 0);
             this.mnuTipuriIntrari.Name = "mnuTipuriIntrari";
-            this.mnuTipuriIntrari.Size = new System.Drawing.Size(398, 24);
+            this.mnuTipuriIntrari.Size = new System.Drawing.Size(684, 24);
             this.mnuTipuriIntrari.TabIndex = 0;
             this.mnuTipuriIntrari.Text = "menuStrip1";
             // 
@@ -97,16 +153,20 @@
             this.btnIesire.Text = "I&eșire";
             this.btnIesire.Click += new System.EventHandler(this.btnIesire_Click);
             // 
-            // tabGDFM
+            // tabGDFMTSCA
             // 
-            this.tabGDFM.Controls.Add(this.tpGradDidactic);
-            this.tabGDFM.Controls.Add(this.tpFacultate);
-            this.tabGDFM.Controls.Add(this.tpMoneda);
-            this.tabGDFM.Location = new System.Drawing.Point(3, 27);
-            this.tabGDFM.Name = "tabGDFM";
-            this.tabGDFM.SelectedIndex = 0;
-            this.tabGDFM.Size = new System.Drawing.Size(394, 536);
-            this.tabGDFM.TabIndex = 1;
+            this.tabGDFMTSCA.Controls.Add(this.tpGradDidactic);
+            this.tabGDFMTSCA.Controls.Add(this.tpFacultate);
+            this.tabGDFMTSCA.Controls.Add(this.tpMonezi);
+            this.tabGDFMTSCA.Controls.Add(this.tpTari);
+            this.tabGDFMTSCA.Controls.Add(this.tpScopuri);
+            this.tabGDFMTSCA.Controls.Add(this.tpScopuriConferinte);
+            this.tabGDFMTSCA.Controls.Add(this.tpScopuriAltele);
+            this.tabGDFMTSCA.Location = new System.Drawing.Point(3, 27);
+            this.tabGDFMTSCA.Name = "tabGDFMTSCA";
+            this.tabGDFMTSCA.SelectedIndex = 0;
+            this.tabGDFMTSCA.Size = new System.Drawing.Size(681, 536);
+            this.tabGDFMTSCA.TabIndex = 1;
             // 
             // tpGradDidactic
             // 
@@ -124,7 +184,7 @@
             this.tpGradDidactic.Location = new System.Drawing.Point(4, 22);
             this.tpGradDidactic.Name = "tpGradDidactic";
             this.tpGradDidactic.Padding = new System.Windows.Forms.Padding(3);
-            this.tpGradDidactic.Size = new System.Drawing.Size(386, 510);
+            this.tpGradDidactic.Size = new System.Drawing.Size(673, 510);
             this.tpGradDidactic.TabIndex = 0;
             this.tpGradDidactic.Text = "Grade didactice";
             this.tpGradDidactic.UseVisualStyleBackColor = true;
@@ -199,7 +259,7 @@
             this.dgvGradDidactic.Location = new System.Drawing.Point(3, 3);
             this.dgvGradDidactic.Name = "dgvGradDidactic";
             this.dgvGradDidactic.ReadOnly = true;
-            this.dgvGradDidactic.Size = new System.Drawing.Size(380, 415);
+            this.dgvGradDidactic.Size = new System.Drawing.Size(667, 415);
             this.dgvGradDidactic.TabIndex = 0;
             // 
             // btnModificareGD
@@ -246,7 +306,7 @@
             this.tpFacultate.Location = new System.Drawing.Point(4, 22);
             this.tpFacultate.Name = "tpFacultate";
             this.tpFacultate.Padding = new System.Windows.Forms.Padding(3);
-            this.tpFacultate.Size = new System.Drawing.Size(386, 510);
+            this.tpFacultate.Size = new System.Drawing.Size(673, 510);
             this.tpFacultate.TabIndex = 1;
             this.tpFacultate.Text = "Facultăți";
             this.tpFacultate.UseVisualStyleBackColor = true;
@@ -349,29 +409,29 @@
             this.dgvFacultate.Location = new System.Drawing.Point(3, 3);
             this.dgvFacultate.Name = "dgvFacultate";
             this.dgvFacultate.ReadOnly = true;
-            this.dgvFacultate.Size = new System.Drawing.Size(380, 415);
+            this.dgvFacultate.Size = new System.Drawing.Size(667, 415);
             this.dgvFacultate.TabIndex = 0;
             // 
-            // tpMoneda
+            // tpMonezi
             // 
-            this.tpMoneda.Controls.Add(this.lblIntroducereM);
-            this.tpMoneda.Controls.Add(this.lblMNoua);
-            this.tpMoneda.Controls.Add(this.lblMVeche);
-            this.tpMoneda.Controls.Add(this.txtMNoua);
-            this.tpMoneda.Controls.Add(this.rdoModificareM);
-            this.tpMoneda.Controls.Add(this.rdoIntroducereM);
-            this.tpMoneda.Controls.Add(this.txtMVeche);
-            this.tpMoneda.Controls.Add(this.btnModificareM);
-            this.tpMoneda.Controls.Add(this.btnIntroducereM);
-            this.tpMoneda.Controls.Add(this.txtIntroducereM);
-            this.tpMoneda.Controls.Add(this.dgvMoneda);
-            this.tpMoneda.Location = new System.Drawing.Point(4, 22);
-            this.tpMoneda.Name = "tpMoneda";
-            this.tpMoneda.Padding = new System.Windows.Forms.Padding(3);
-            this.tpMoneda.Size = new System.Drawing.Size(386, 510);
-            this.tpMoneda.TabIndex = 2;
-            this.tpMoneda.Text = "Monezi";
-            this.tpMoneda.UseVisualStyleBackColor = true;
+            this.tpMonezi.Controls.Add(this.lblIntroducereM);
+            this.tpMonezi.Controls.Add(this.lblMNoua);
+            this.tpMonezi.Controls.Add(this.lblMVeche);
+            this.tpMonezi.Controls.Add(this.txtMNoua);
+            this.tpMonezi.Controls.Add(this.rdoModificareM);
+            this.tpMonezi.Controls.Add(this.rdoIntroducereM);
+            this.tpMonezi.Controls.Add(this.txtMVeche);
+            this.tpMonezi.Controls.Add(this.btnModificareM);
+            this.tpMonezi.Controls.Add(this.btnIntroducereM);
+            this.tpMonezi.Controls.Add(this.txtIntroducereM);
+            this.tpMonezi.Controls.Add(this.dgvMoneda);
+            this.tpMonezi.Location = new System.Drawing.Point(4, 22);
+            this.tpMonezi.Name = "tpMonezi";
+            this.tpMonezi.Padding = new System.Windows.Forms.Padding(3);
+            this.tpMonezi.Size = new System.Drawing.Size(673, 510);
+            this.tpMonezi.TabIndex = 2;
+            this.tpMonezi.Text = "Monezi";
+            this.tpMonezi.UseVisualStyleBackColor = true;
             // 
             // lblIntroducereM
             // 
@@ -471,15 +531,478 @@
             this.dgvMoneda.Location = new System.Drawing.Point(3, 3);
             this.dgvMoneda.Name = "dgvMoneda";
             this.dgvMoneda.ReadOnly = true;
-            this.dgvMoneda.Size = new System.Drawing.Size(380, 415);
+            this.dgvMoneda.Size = new System.Drawing.Size(667, 415);
             this.dgvMoneda.TabIndex = 0;
+            // 
+            // tpTari
+            // 
+            this.tpTari.Controls.Add(this.lblIntroducereT);
+            this.tpTari.Controls.Add(this.lblTNoua);
+            this.tpTari.Controls.Add(this.lblTVeche);
+            this.tpTari.Controls.Add(this.txtTNoua);
+            this.tpTari.Controls.Add(this.rdoModificareT);
+            this.tpTari.Controls.Add(this.rdoIntroducereT);
+            this.tpTari.Controls.Add(this.txtTVeche);
+            this.tpTari.Controls.Add(this.btnModificareT);
+            this.tpTari.Controls.Add(this.btnIntroducereT);
+            this.tpTari.Controls.Add(this.txtIntroducereT);
+            this.tpTari.Controls.Add(this.dgvTari);
+            this.tpTari.Location = new System.Drawing.Point(4, 22);
+            this.tpTari.Name = "tpTari";
+            this.tpTari.Padding = new System.Windows.Forms.Padding(3);
+            this.tpTari.Size = new System.Drawing.Size(673, 510);
+            this.tpTari.TabIndex = 3;
+            this.tpTari.Text = "Țări";
+            this.tpTari.UseVisualStyleBackColor = true;
+            // 
+            // lblIntroducereT
+            // 
+            this.lblIntroducereT.AutoSize = true;
+            this.lblIntroducereT.Location = new System.Drawing.Point(37, 421);
+            this.lblIntroducereT.Name = "lblIntroducereT";
+            this.lblIntroducereT.Size = new System.Drawing.Size(78, 13);
+            this.lblIntroducereT.TabIndex = 11;
+            this.lblIntroducereT.Text = "Introducere țări";
+            // 
+            // lblTNoua
+            // 
+            this.lblTNoua.AutoSize = true;
+            this.lblTNoua.Location = new System.Drawing.Point(157, 463);
+            this.lblTNoua.Name = "lblTNoua";
+            this.lblTNoua.Size = new System.Drawing.Size(56, 13);
+            this.lblTNoua.TabIndex = 16;
+            this.lblTNoua.Text = "Țară nouă";
+            // 
+            // lblTVeche
+            // 
+            this.lblTVeche.AutoSize = true;
+            this.lblTVeche.Location = new System.Drawing.Point(47, 463);
+            this.lblTVeche.Name = "lblTVeche";
+            this.lblTVeche.Size = new System.Drawing.Size(62, 13);
+            this.lblTVeche.TabIndex = 15;
+            this.lblTVeche.Text = "Țară veche";
+            // 
+            // txtTNoua
+            // 
+            this.txtTNoua.Location = new System.Drawing.Point(133, 479);
+            this.txtTNoua.Name = "txtTNoua";
+            this.txtTNoua.Size = new System.Drawing.Size(100, 20);
+            this.txtTNoua.TabIndex = 19;
+            this.txtTNoua.TextChanged += new System.EventHandler(this.txtTNoua_TextChanged);
+            // 
+            // rdoModificareT
+            // 
+            this.rdoModificareT.AutoSize = true;
+            this.rdoModificareT.Location = new System.Drawing.Point(7, 482);
+            this.rdoModificareT.Name = "rdoModificareT";
+            this.rdoModificareT.Size = new System.Drawing.Size(14, 13);
+            this.rdoModificareT.TabIndex = 17;
+            this.rdoModificareT.TabStop = true;
+            this.rdoModificareT.UseVisualStyleBackColor = true;
+            this.rdoModificareT.CheckedChanged += new System.EventHandler(this.rdoModificareT_CheckedChanged);
+            // 
+            // rdoIntroducereT
+            // 
+            this.rdoIntroducereT.AutoSize = true;
+            this.rdoIntroducereT.Location = new System.Drawing.Point(7, 440);
+            this.rdoIntroducereT.Name = "rdoIntroducereT";
+            this.rdoIntroducereT.Size = new System.Drawing.Size(14, 13);
+            this.rdoIntroducereT.TabIndex = 12;
+            this.rdoIntroducereT.TabStop = true;
+            this.rdoIntroducereT.UseVisualStyleBackColor = true;
+            this.rdoIntroducereT.CheckedChanged += new System.EventHandler(this.rdoIntroducereT_CheckedChanged);
+            // 
+            // txtTVeche
+            // 
+            this.txtTVeche.Location = new System.Drawing.Point(27, 479);
+            this.txtTVeche.Name = "txtTVeche";
+            this.txtTVeche.Size = new System.Drawing.Size(100, 20);
+            this.txtTVeche.TabIndex = 18;
+            // 
+            // btnModificareT
+            // 
+            this.btnModificareT.Location = new System.Drawing.Point(239, 477);
+            this.btnModificareT.Name = "btnModificareT";
+            this.btnModificareT.Size = new System.Drawing.Size(75, 23);
+            this.btnModificareT.TabIndex = 20;
+            this.btnModificareT.Text = "Modificare";
+            this.btnModificareT.UseVisualStyleBackColor = true;
+            this.btnModificareT.Click += new System.EventHandler(this.btnModificareT_Click);
+            // 
+            // btnIntroducereT
+            // 
+            this.btnIntroducereT.Location = new System.Drawing.Point(133, 435);
+            this.btnIntroducereT.Name = "btnIntroducereT";
+            this.btnIntroducereT.Size = new System.Drawing.Size(75, 23);
+            this.btnIntroducereT.TabIndex = 14;
+            this.btnIntroducereT.Text = "Introducere";
+            this.btnIntroducereT.UseVisualStyleBackColor = true;
+            this.btnIntroducereT.Click += new System.EventHandler(this.btnIntroducereT_Click);
+            // 
+            // txtIntroducereT
+            // 
+            this.txtIntroducereT.Location = new System.Drawing.Point(27, 437);
+            this.txtIntroducereT.Name = "txtIntroducereT";
+            this.txtIntroducereT.Size = new System.Drawing.Size(100, 20);
+            this.txtIntroducereT.TabIndex = 13;
+            this.txtIntroducereT.TextChanged += new System.EventHandler(this.txtIntroducereT_TextChanged);
+            // 
+            // dgvTari
+            // 
+            this.dgvTari.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTari.Location = new System.Drawing.Point(3, 3);
+            this.dgvTari.Name = "dgvTari";
+            this.dgvTari.Size = new System.Drawing.Size(667, 415);
+            this.dgvTari.TabIndex = 0;
+            // 
+            // tpScopuri
+            // 
+            this.tpScopuri.Controls.Add(this.lblIntroducereS);
+            this.tpScopuri.Controls.Add(this.lblSNou);
+            this.tpScopuri.Controls.Add(this.lblSVechi);
+            this.tpScopuri.Controls.Add(this.txtSNou);
+            this.tpScopuri.Controls.Add(this.rdoModificareS);
+            this.tpScopuri.Controls.Add(this.rdoIntroducereS);
+            this.tpScopuri.Controls.Add(this.txtSVechi);
+            this.tpScopuri.Controls.Add(this.btnModificareS);
+            this.tpScopuri.Controls.Add(this.btnIntroducereS);
+            this.tpScopuri.Controls.Add(this.txtIntroducereS);
+            this.tpScopuri.Controls.Add(this.dgvScopuri);
+            this.tpScopuri.Location = new System.Drawing.Point(4, 22);
+            this.tpScopuri.Name = "tpScopuri";
+            this.tpScopuri.Size = new System.Drawing.Size(673, 510);
+            this.tpScopuri.TabIndex = 4;
+            this.tpScopuri.Text = "Scopuri";
+            this.tpScopuri.UseVisualStyleBackColor = true;
+            // 
+            // lblIntroducereS
+            // 
+            this.lblIntroducereS.AutoSize = true;
+            this.lblIntroducereS.Location = new System.Drawing.Point(34, 421);
+            this.lblIntroducereS.Name = "lblIntroducereS";
+            this.lblIntroducereS.Size = new System.Drawing.Size(87, 13);
+            this.lblIntroducereS.TabIndex = 21;
+            this.lblIntroducereS.Text = "Introducere scop";
+            // 
+            // lblSNou
+            // 
+            this.lblSNou.AutoSize = true;
+            this.lblSNou.Location = new System.Drawing.Point(157, 463);
+            this.lblSNou.Name = "lblSNou";
+            this.lblSNou.Size = new System.Drawing.Size(53, 13);
+            this.lblSNou.TabIndex = 26;
+            this.lblSNou.Text = "Scop nou";
+            // 
+            // lblSVechi
+            // 
+            this.lblSVechi.AutoSize = true;
+            this.lblSVechi.Location = new System.Drawing.Point(47, 463);
+            this.lblSVechi.Name = "lblSVechi";
+            this.lblSVechi.Size = new System.Drawing.Size(61, 13);
+            this.lblSVechi.TabIndex = 25;
+            this.lblSVechi.Text = "Scop vechi";
+            // 
+            // txtSNou
+            // 
+            this.txtSNou.Location = new System.Drawing.Point(133, 479);
+            this.txtSNou.Name = "txtSNou";
+            this.txtSNou.Size = new System.Drawing.Size(100, 20);
+            this.txtSNou.TabIndex = 29;
+            // 
+            // rdoModificareS
+            // 
+            this.rdoModificareS.AutoSize = true;
+            this.rdoModificareS.Location = new System.Drawing.Point(7, 482);
+            this.rdoModificareS.Name = "rdoModificareS";
+            this.rdoModificareS.Size = new System.Drawing.Size(14, 13);
+            this.rdoModificareS.TabIndex = 27;
+            this.rdoModificareS.TabStop = true;
+            this.rdoModificareS.UseVisualStyleBackColor = true;
+            // 
+            // rdoIntroducereS
+            // 
+            this.rdoIntroducereS.AutoSize = true;
+            this.rdoIntroducereS.Location = new System.Drawing.Point(7, 440);
+            this.rdoIntroducereS.Name = "rdoIntroducereS";
+            this.rdoIntroducereS.Size = new System.Drawing.Size(14, 13);
+            this.rdoIntroducereS.TabIndex = 22;
+            this.rdoIntroducereS.TabStop = true;
+            this.rdoIntroducereS.UseVisualStyleBackColor = true;
+            // 
+            // txtSVechi
+            // 
+            this.txtSVechi.Location = new System.Drawing.Point(27, 479);
+            this.txtSVechi.Name = "txtSVechi";
+            this.txtSVechi.Size = new System.Drawing.Size(100, 20);
+            this.txtSVechi.TabIndex = 28;
+            // 
+            // btnModificareS
+            // 
+            this.btnModificareS.Location = new System.Drawing.Point(239, 477);
+            this.btnModificareS.Name = "btnModificareS";
+            this.btnModificareS.Size = new System.Drawing.Size(75, 23);
+            this.btnModificareS.TabIndex = 30;
+            this.btnModificareS.Text = "Modificare";
+            this.btnModificareS.UseVisualStyleBackColor = true;
+            // 
+            // btnIntroducereS
+            // 
+            this.btnIntroducereS.Location = new System.Drawing.Point(133, 435);
+            this.btnIntroducereS.Name = "btnIntroducereS";
+            this.btnIntroducereS.Size = new System.Drawing.Size(75, 23);
+            this.btnIntroducereS.TabIndex = 24;
+            this.btnIntroducereS.Text = "Introducere";
+            this.btnIntroducereS.UseVisualStyleBackColor = true;
+            // 
+            // txtIntroducereS
+            // 
+            this.txtIntroducereS.Location = new System.Drawing.Point(27, 437);
+            this.txtIntroducereS.Name = "txtIntroducereS";
+            this.txtIntroducereS.Size = new System.Drawing.Size(100, 20);
+            this.txtIntroducereS.TabIndex = 23;
+            // 
+            // dgvScopuri
+            // 
+            this.dgvScopuri.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvScopuri.Location = new System.Drawing.Point(3, 3);
+            this.dgvScopuri.Name = "dgvScopuri";
+            this.dgvScopuri.Size = new System.Drawing.Size(667, 415);
+            this.dgvScopuri.TabIndex = 1;
+            // 
+            // tpScopuriConferinte
+            // 
+            this.tpScopuriConferinte.Controls.Add(this.lblIntroducereSC);
+            this.tpScopuriConferinte.Controls.Add(this.lblSCNou);
+            this.tpScopuriConferinte.Controls.Add(this.lblSCVechi);
+            this.tpScopuriConferinte.Controls.Add(this.txtSCNou);
+            this.tpScopuriConferinte.Controls.Add(this.rdoModificareSC);
+            this.tpScopuriConferinte.Controls.Add(this.rdoIntroducereSC);
+            this.tpScopuriConferinte.Controls.Add(this.txtSCVechi);
+            this.tpScopuriConferinte.Controls.Add(this.btnModificareSC);
+            this.tpScopuriConferinte.Controls.Add(this.btnIntroducereSC);
+            this.tpScopuriConferinte.Controls.Add(this.txtIntroducereSC);
+            this.tpScopuriConferinte.Controls.Add(this.dgvScopConferinte);
+            this.tpScopuriConferinte.Location = new System.Drawing.Point(4, 22);
+            this.tpScopuriConferinte.Name = "tpScopuriConferinte";
+            this.tpScopuriConferinte.Size = new System.Drawing.Size(673, 510);
+            this.tpScopuriConferinte.TabIndex = 5;
+            this.tpScopuriConferinte.Text = "Scop - Conferințe";
+            this.tpScopuriConferinte.UseVisualStyleBackColor = true;
+            // 
+            // lblIntroducereSC
+            // 
+            this.lblIntroducereSC.AutoSize = true;
+            this.lblIntroducereSC.Location = new System.Drawing.Point(23, 421);
+            this.lblIntroducereSC.Name = "lblIntroducereSC";
+            this.lblIntroducereSC.Size = new System.Drawing.Size(111, 13);
+            this.lblIntroducereSC.TabIndex = 31;
+            this.lblIntroducereSC.Text = "Introducere conferință";
+            // 
+            // lblSCNou
+            // 
+            this.lblSCNou.AutoSize = true;
+            this.lblSCNou.Location = new System.Drawing.Point(144, 463);
+            this.lblSCNou.Name = "lblSCNou";
+            this.lblSCNou.Size = new System.Drawing.Size(82, 13);
+            this.lblSCNou.TabIndex = 36;
+            this.lblSCNou.Text = "Conferință nouă";
+            // 
+            // lblSCVechi
+            // 
+            this.lblSCVechi.AutoSize = true;
+            this.lblSCVechi.Location = new System.Drawing.Point(34, 463);
+            this.lblSCVechi.Name = "lblSCVechi";
+            this.lblSCVechi.Size = new System.Drawing.Size(88, 13);
+            this.lblSCVechi.TabIndex = 35;
+            this.lblSCVechi.Text = "Conferință veche";
+            // 
+            // txtSCNou
+            // 
+            this.txtSCNou.Location = new System.Drawing.Point(133, 479);
+            this.txtSCNou.Name = "txtSCNou";
+            this.txtSCNou.Size = new System.Drawing.Size(100, 20);
+            this.txtSCNou.TabIndex = 39;
+            // 
+            // rdoModificareSC
+            // 
+            this.rdoModificareSC.AutoSize = true;
+            this.rdoModificareSC.Location = new System.Drawing.Point(7, 482);
+            this.rdoModificareSC.Name = "rdoModificareSC";
+            this.rdoModificareSC.Size = new System.Drawing.Size(14, 13);
+            this.rdoModificareSC.TabIndex = 37;
+            this.rdoModificareSC.TabStop = true;
+            this.rdoModificareSC.UseVisualStyleBackColor = true;
+            // 
+            // rdoIntroducereSC
+            // 
+            this.rdoIntroducereSC.AutoSize = true;
+            this.rdoIntroducereSC.Location = new System.Drawing.Point(7, 440);
+            this.rdoIntroducereSC.Name = "rdoIntroducereSC";
+            this.rdoIntroducereSC.Size = new System.Drawing.Size(14, 13);
+            this.rdoIntroducereSC.TabIndex = 32;
+            this.rdoIntroducereSC.TabStop = true;
+            this.rdoIntroducereSC.UseVisualStyleBackColor = true;
+            // 
+            // txtSCVechi
+            // 
+            this.txtSCVechi.Location = new System.Drawing.Point(27, 479);
+            this.txtSCVechi.Name = "txtSCVechi";
+            this.txtSCVechi.Size = new System.Drawing.Size(100, 20);
+            this.txtSCVechi.TabIndex = 38;
+            // 
+            // btnModificareSC
+            // 
+            this.btnModificareSC.Location = new System.Drawing.Point(239, 477);
+            this.btnModificareSC.Name = "btnModificareSC";
+            this.btnModificareSC.Size = new System.Drawing.Size(75, 23);
+            this.btnModificareSC.TabIndex = 40;
+            this.btnModificareSC.Text = "Modificare";
+            this.btnModificareSC.UseVisualStyleBackColor = true;
+            // 
+            // btnIntroducereSC
+            // 
+            this.btnIntroducereSC.Location = new System.Drawing.Point(133, 435);
+            this.btnIntroducereSC.Name = "btnIntroducereSC";
+            this.btnIntroducereSC.Size = new System.Drawing.Size(75, 23);
+            this.btnIntroducereSC.TabIndex = 34;
+            this.btnIntroducereSC.Text = "Introducere";
+            this.btnIntroducereSC.UseVisualStyleBackColor = true;
+            // 
+            // txtIntroducereSC
+            // 
+            this.txtIntroducereSC.Location = new System.Drawing.Point(27, 437);
+            this.txtIntroducereSC.Name = "txtIntroducereSC";
+            this.txtIntroducereSC.Size = new System.Drawing.Size(100, 20);
+            this.txtIntroducereSC.TabIndex = 33;
+            // 
+            // dgvScopConferinte
+            // 
+            this.dgvScopConferinte.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvScopConferinte.Location = new System.Drawing.Point(3, 3);
+            this.dgvScopConferinte.Name = "dgvScopConferinte";
+            this.dgvScopConferinte.Size = new System.Drawing.Size(667, 415);
+            this.dgvScopConferinte.TabIndex = 1;
+            // 
+            // tpScopuriAltele
+            // 
+            this.tpScopuriAltele.Controls.Add(this.lblIntroducereSA);
+            this.tpScopuriAltele.Controls.Add(this.lblSANou);
+            this.tpScopuriAltele.Controls.Add(this.lblASCVechi);
+            this.tpScopuriAltele.Controls.Add(this.txtSANou);
+            this.tpScopuriAltele.Controls.Add(this.rdoModificareSA);
+            this.tpScopuriAltele.Controls.Add(this.rdoIntroducereSA);
+            this.tpScopuriAltele.Controls.Add(this.txtSAVechi);
+            this.tpScopuriAltele.Controls.Add(this.btnModificareSA);
+            this.tpScopuriAltele.Controls.Add(this.btnIntroducereSA);
+            this.tpScopuriAltele.Controls.Add(this.txtIntroducereSA);
+            this.tpScopuriAltele.Controls.Add(this.dgvScopAltele);
+            this.tpScopuriAltele.Location = new System.Drawing.Point(4, 22);
+            this.tpScopuriAltele.Name = "tpScopuriAltele";
+            this.tpScopuriAltele.Size = new System.Drawing.Size(673, 510);
+            this.tpScopuriAltele.TabIndex = 6;
+            this.tpScopuriAltele.Text = "Scop - Altele";
+            this.tpScopuriAltele.UseVisualStyleBackColor = true;
+            // 
+            // lblIntroducereSA
+            // 
+            this.lblIntroducereSA.AutoSize = true;
+            this.lblIntroducereSA.Location = new System.Drawing.Point(46, 421);
+            this.lblIntroducereSA.Name = "lblIntroducereSA";
+            this.lblIntroducereSA.Size = new System.Drawing.Size(61, 13);
+            this.lblIntroducereSA.TabIndex = 31;
+            this.lblIntroducereSA.Text = "Introducere";
+            // 
+            // lblSANou
+            // 
+            this.lblSANou.AutoSize = true;
+            this.lblSANou.Location = new System.Drawing.Point(148, 463);
+            this.lblSANou.Name = "lblSANou";
+            this.lblSANou.Size = new System.Drawing.Size(70, 13);
+            this.lblSANou.TabIndex = 36;
+            this.lblSANou.Text = "Valoare nouă";
+            // 
+            // lblASCVechi
+            // 
+            this.lblASCVechi.AutoSize = true;
+            this.lblASCVechi.Location = new System.Drawing.Point(40, 463);
+            this.lblASCVechi.Name = "lblASCVechi";
+            this.lblASCVechi.Size = new System.Drawing.Size(76, 13);
+            this.lblASCVechi.TabIndex = 35;
+            this.lblASCVechi.Text = "Valoare veche";
+            // 
+            // txtSANou
+            // 
+            this.txtSANou.Location = new System.Drawing.Point(133, 479);
+            this.txtSANou.Name = "txtSANou";
+            this.txtSANou.Size = new System.Drawing.Size(100, 20);
+            this.txtSANou.TabIndex = 39;
+            // 
+            // rdoModificareSA
+            // 
+            this.rdoModificareSA.AutoSize = true;
+            this.rdoModificareSA.Location = new System.Drawing.Point(7, 482);
+            this.rdoModificareSA.Name = "rdoModificareSA";
+            this.rdoModificareSA.Size = new System.Drawing.Size(14, 13);
+            this.rdoModificareSA.TabIndex = 37;
+            this.rdoModificareSA.TabStop = true;
+            this.rdoModificareSA.UseVisualStyleBackColor = true;
+            // 
+            // rdoIntroducereSA
+            // 
+            this.rdoIntroducereSA.AutoSize = true;
+            this.rdoIntroducereSA.Location = new System.Drawing.Point(7, 440);
+            this.rdoIntroducereSA.Name = "rdoIntroducereSA";
+            this.rdoIntroducereSA.Size = new System.Drawing.Size(14, 13);
+            this.rdoIntroducereSA.TabIndex = 32;
+            this.rdoIntroducereSA.TabStop = true;
+            this.rdoIntroducereSA.UseVisualStyleBackColor = true;
+            // 
+            // txtSAVechi
+            // 
+            this.txtSAVechi.Location = new System.Drawing.Point(27, 479);
+            this.txtSAVechi.Name = "txtSAVechi";
+            this.txtSAVechi.Size = new System.Drawing.Size(100, 20);
+            this.txtSAVechi.TabIndex = 38;
+            // 
+            // btnModificareSA
+            // 
+            this.btnModificareSA.Location = new System.Drawing.Point(239, 477);
+            this.btnModificareSA.Name = "btnModificareSA";
+            this.btnModificareSA.Size = new System.Drawing.Size(75, 23);
+            this.btnModificareSA.TabIndex = 40;
+            this.btnModificareSA.Text = "Modificare";
+            this.btnModificareSA.UseVisualStyleBackColor = true;
+            // 
+            // btnIntroducereSA
+            // 
+            this.btnIntroducereSA.Location = new System.Drawing.Point(133, 435);
+            this.btnIntroducereSA.Name = "btnIntroducereSA";
+            this.btnIntroducereSA.Size = new System.Drawing.Size(75, 23);
+            this.btnIntroducereSA.TabIndex = 34;
+            this.btnIntroducereSA.Text = "Introducere";
+            this.btnIntroducereSA.UseVisualStyleBackColor = true;
+            // 
+            // txtIntroducereSA
+            // 
+            this.txtIntroducereSA.Location = new System.Drawing.Point(27, 437);
+            this.txtIntroducereSA.Name = "txtIntroducereSA";
+            this.txtIntroducereSA.Size = new System.Drawing.Size(100, 20);
+            this.txtIntroducereSA.TabIndex = 33;
+            // 
+            // dgvScopAltele
+            // 
+            this.dgvScopAltele.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvScopAltele.Location = new System.Drawing.Point(3, 3);
+            this.dgvScopAltele.Name = "dgvScopAltele";
+            this.dgvScopAltele.Size = new System.Drawing.Size(667, 415);
+            this.dgvScopAltele.TabIndex = 1;
             // 
             // frmEditTipuriIntrari
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(398, 564);
-            this.Controls.Add(this.tabGDFM);
+            this.ClientSize = new System.Drawing.Size(684, 564);
+            this.Controls.Add(this.tabGDFMTSCA);
             this.Controls.Add(this.mnuTipuriIntrari);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -488,16 +1011,28 @@
             this.Text = "Tipuri intrări";
             this.mnuTipuriIntrari.ResumeLayout(false);
             this.mnuTipuriIntrari.PerformLayout();
-            this.tabGDFM.ResumeLayout(false);
+            this.tabGDFMTSCA.ResumeLayout(false);
             this.tpGradDidactic.ResumeLayout(false);
             this.tpGradDidactic.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvGradDidactic)).EndInit();
             this.tpFacultate.ResumeLayout(false);
             this.tpFacultate.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFacultate)).EndInit();
-            this.tpMoneda.ResumeLayout(false);
-            this.tpMoneda.PerformLayout();
+            this.tpMonezi.ResumeLayout(false);
+            this.tpMonezi.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMoneda)).EndInit();
+            this.tpTari.ResumeLayout(false);
+            this.tpTari.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTari)).EndInit();
+            this.tpScopuri.ResumeLayout(false);
+            this.tpScopuri.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvScopuri)).EndInit();
+            this.tpScopuriConferinte.ResumeLayout(false);
+            this.tpScopuriConferinte.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvScopConferinte)).EndInit();
+            this.tpScopuriAltele.ResumeLayout(false);
+            this.tpScopuriAltele.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvScopAltele)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -507,10 +1042,10 @@
 
         private System.Windows.Forms.MenuStrip mnuTipuriIntrari;
         private System.Windows.Forms.ToolStripMenuItem btnIesire;
-        private System.Windows.Forms.TabControl tabGDFM;
+        private System.Windows.Forms.TabControl tabGDFMTSCA;
         private System.Windows.Forms.TabPage tpGradDidactic;
         private System.Windows.Forms.TabPage tpFacultate;
-        private System.Windows.Forms.TabPage tpMoneda;
+        private System.Windows.Forms.TabPage tpMonezi;
         private System.Windows.Forms.Button btnIntroducereGD;
         private System.Windows.Forms.TextBox txtIntroducereGD;
         private System.Windows.Forms.Button btnModificareGD;
@@ -544,5 +1079,53 @@
         private System.Windows.Forms.Button btnModificareM;
         private System.Windows.Forms.Button btnIntroducereM;
         private System.Windows.Forms.TextBox txtIntroducereM;
+        private System.Windows.Forms.TabPage tpTari;
+        private System.Windows.Forms.TabPage tpScopuri;
+        private System.Windows.Forms.TabPage tpScopuriConferinte;
+        private System.Windows.Forms.TabPage tpScopuriAltele;
+        private System.Windows.Forms.DataGridView dgvTari;
+        private System.Windows.Forms.DataGridView dgvScopuri;
+        private System.Windows.Forms.DataGridView dgvScopConferinte;
+        private System.Windows.Forms.DataGridView dgvScopAltele;
+        private System.Windows.Forms.Label lblIntroducereT;
+        private System.Windows.Forms.Label lblTNoua;
+        private System.Windows.Forms.Label lblTVeche;
+        private System.Windows.Forms.TextBox txtTNoua;
+        private System.Windows.Forms.RadioButton rdoModificareT;
+        private System.Windows.Forms.RadioButton rdoIntroducereT;
+        private System.Windows.Forms.TextBox txtTVeche;
+        private System.Windows.Forms.Button btnModificareT;
+        private System.Windows.Forms.Button btnIntroducereT;
+        private System.Windows.Forms.TextBox txtIntroducereT;
+        private System.Windows.Forms.Label lblIntroducereS;
+        private System.Windows.Forms.Label lblSNou;
+        private System.Windows.Forms.Label lblSVechi;
+        private System.Windows.Forms.TextBox txtSNou;
+        private System.Windows.Forms.RadioButton rdoModificareS;
+        private System.Windows.Forms.RadioButton rdoIntroducereS;
+        private System.Windows.Forms.TextBox txtSVechi;
+        private System.Windows.Forms.Button btnModificareS;
+        private System.Windows.Forms.Button btnIntroducereS;
+        private System.Windows.Forms.TextBox txtIntroducereS;
+        private System.Windows.Forms.Label lblIntroducereSC;
+        private System.Windows.Forms.Label lblSCNou;
+        private System.Windows.Forms.Label lblSCVechi;
+        private System.Windows.Forms.TextBox txtSCNou;
+        private System.Windows.Forms.RadioButton rdoModificareSC;
+        private System.Windows.Forms.RadioButton rdoIntroducereSC;
+        private System.Windows.Forms.TextBox txtSCVechi;
+        private System.Windows.Forms.Button btnModificareSC;
+        private System.Windows.Forms.Button btnIntroducereSC;
+        private System.Windows.Forms.TextBox txtIntroducereSC;
+        private System.Windows.Forms.Label lblIntroducereSA;
+        private System.Windows.Forms.Label lblSANou;
+        private System.Windows.Forms.Label lblASCVechi;
+        private System.Windows.Forms.TextBox txtSANou;
+        private System.Windows.Forms.RadioButton rdoModificareSA;
+        private System.Windows.Forms.RadioButton rdoIntroducereSA;
+        private System.Windows.Forms.TextBox txtSAVechi;
+        private System.Windows.Forms.Button btnModificareSA;
+        private System.Windows.Forms.Button btnIntroducereSA;
+        private System.Windows.Forms.TextBox txtIntroducereSA;
     }
 }

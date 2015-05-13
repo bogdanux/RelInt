@@ -112,6 +112,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                         {
                             string str_cmbGradDidactic = cititor_cmbGradDidactic.GetString(0);
                             cmbGradDidactic.Items.Add(str_cmbGradDidactic);
+                            cmbCPGradDidactic.Items.Add(str_cmbGradDidactic);
                         }
                     }
                     catch (Exception excmbGradDidactic)
@@ -910,8 +911,8 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                                 cmbTara.SelectedItem = cititor_populareDinBD.GetString(6);
                                 txtLocalitatea.Text = cititor_populareDinBD.GetString(7);
                                 cmbScop.SelectedItem = cititor_populareDinBD.GetString(8);
-                                cmbConferinte.SelectedItem = cititor_populareDinBD.GetString(9);
-                                cmbAltele.SelectedItem = cititor_populareDinBD.GetString(10);
+                                cmbConferinte.SelectedItem = cititor_populareDinBD.IsDBNull(9) ? cmbConferinte.SelectedItem = string.Empty : cmbConferinte.SelectedItem = cititor_populareDinBD.GetString(9);
+                                cmbAltele.SelectedItem = cititor_populareDinBD.IsDBNull(10) ? cmbAltele.SelectedItem = string.Empty : cmbAltele.SelectedItem = cititor_populareDinBD.GetString(10);
                                 txtInstitutia.Text = cititor_populareDinBD.GetString(11);
                                 dpDataInceput.Value = cititor_populareDinBD.GetDateTime(12);
                                 dpDataSfarsit.Value = cititor_populareDinBD.GetDate(13);
@@ -921,17 +922,17 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                                 chkDiurna.Checked = cititor_populareDinBD.GetBoolean(18);
                                 txtNrZileDiurna.Text = cititor_populareDinBD.GetString(19);
                                 txtDiurna.Text = cititor_populareDinBD.GetString(20);
-                                cmbMoneda1.SelectedItem = cititor_populareDinBD.GetString(21);
+                                cmbMoneda1.SelectedItem = cititor_populareDinBD.IsDBNull(21) ? cmbMoneda1.SelectedItem = string.Empty : cmbMoneda1.SelectedItem = cititor_populareDinBD.GetString(21);
                                 chkCazare.Checked = cititor_populareDinBD.GetBoolean(22);
                                 txtNrZileCazare.Text = cititor_populareDinBD.GetString(23);
                                 txtCazare.Text = cititor_populareDinBD.GetString(24);
-                                cmbMoneda2.SelectedItem = cititor_populareDinBD.GetString(25);
+                                cmbMoneda2.SelectedItem = cititor_populareDinBD.IsDBNull(25) ? cmbMoneda2.SelectedItem = string.Empty : cmbMoneda2.SelectedItem = cititor_populareDinBD.GetString(25);
                                 chkTaxaDeParticipare.Checked = cititor_populareDinBD.GetBoolean(26);
                                 txtTaxaDeParticipare.Text = cititor_populareDinBD.GetString(27);
-                                cmbMoneda3.SelectedItem = cititor_populareDinBD.GetString(28);
+                                cmbMoneda3.SelectedItem = cititor_populareDinBD.IsDBNull(28) ? cmbMoneda3.SelectedItem = string.Empty : cmbMoneda3.SelectedItem = cititor_populareDinBD.GetString(28);
                                 chkTaxaDeViza.Checked = cititor_populareDinBD.GetBoolean(29);
                                 txtTaxaDeViza.Text = cititor_populareDinBD.GetString(30);
-                                cmbMoneda4.SelectedItem = cititor_populareDinBD.GetString(31);
+                                cmbMoneda4.SelectedItem = cititor_populareDinBD.IsDBNull(31) ? cmbMoneda4.SelectedItem = string.Empty : cmbMoneda4.SelectedItem = cititor_populareDinBD.GetString(31);
                                 txtTotalDePlata.Text = cititor_populareDinBD.GetString(32);
 
                                 txtNrInregistrare.Enabled = false;
@@ -1422,7 +1423,8 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             paragraf6.Format.SpaceBefore = "1.0cm";
             paragraf6.Format.Alignment = ParagraphAlignment.Justify;
             paragraf6.AddText("În temeiul Ordinului M.Ed.C. nr. 4975/30.04.1992 și al Hotărârii Biroului Executiv al Consiliului de Administrație din data de ");
-            paragraf6.AddFormattedText(dpDataODD.Value.ToString().Substring(0, DateTime.Today.ToString().IndexOf("00:")) + ".", TextFormat.Bold);
+            paragraf6.AddFormattedText(dpDataODD.Value.ToString().Substring(0, DateTime.Today.ToString().IndexOf("00:")), TextFormat.Bold);
+            paragraf6.AddText(".");
 
             // Paragraf 7
             Paragraph paragraf7 = section1.AddParagraph();
@@ -1538,7 +1540,8 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             // Paragraf 19
             Paragraph paragraf19 = section1.AddParagraph();
             paragraf19.Format.Alignment = ParagraphAlignment.Justify;
-            paragraf19.Format.Font.Size = 12;
+            paragraf19.Format.Font.Size = 13;
+            paragraf19.Format.Font.Underline = Underline.Single;
             paragraf19.Format.SpaceBefore = "0.5cm";
             paragraf19.Format.Font.Name = "Times New Roman";
             paragraf19.Format.Font.Bold = true;

@@ -139,7 +139,7 @@
             this.btnFormular});
             this.mnuCerereBeca.Location = new System.Drawing.Point(0, 0);
             this.mnuCerereBeca.Name = "mnuCerereBeca";
-            this.mnuCerereBeca.Size = new System.Drawing.Size(699, 24);
+            this.mnuCerereBeca.Size = new System.Drawing.Size(682, 24);
             this.mnuCerereBeca.TabIndex = 0;
             this.mnuCerereBeca.Text = "menuStrip1";
             // 
@@ -1102,7 +1102,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(716, 667);
+            this.ClientSize = new System.Drawing.Size(699, 667);
             this.Controls.Add(this.panouFinal);
             this.Controls.Add(this.panouSemnatariODD);
             this.Controls.Add(this.panouAlteDispuneriODD);

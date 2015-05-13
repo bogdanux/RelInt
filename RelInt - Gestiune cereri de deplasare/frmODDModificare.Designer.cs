@@ -76,6 +76,7 @@
             this.lblSubsemnatul = new System.Windows.Forms.Label();
             this.lblContinutODD = new System.Windows.Forms.Label();
             this.panouCheltuieliODD = new System.Windows.Forms.Panel();
+            this.lblIntroduceri = new System.Windows.Forms.Label();
             this.chkTaxaDeViza = new System.Windows.Forms.CheckBox();
             this.chkTaxaDeParticipare = new System.Windows.Forms.CheckBox();
             this.chkCazare = new System.Windows.Forms.CheckBox();
@@ -131,7 +132,6 @@
             this.lblDFC = new System.Windows.Forms.Label();
             this.lblSemnatariODD = new System.Windows.Forms.Label();
             this.panouFinal = new System.Windows.Forms.Panel();
-            this.lblIntroduceri = new System.Windows.Forms.Label();
             this.mnuCerereBeca.SuspendLayout();
             this.panouIdentificareODD.SuspendLayout();
             this.panouContinutODD.SuspendLayout();
@@ -645,6 +645,15 @@
             this.panouCheltuieliODD.Size = new System.Drawing.Size(642, 252);
             this.panouCheltuieliODD.TabIndex = 8;
             // 
+            // lblIntroduceri
+            // 
+            this.lblIntroduceri.AutoSize = true;
+            this.lblIntroduceri.Location = new System.Drawing.Point(9, 104);
+            this.lblIntroduceri.Name = "lblIntroduceri";
+            this.lblIntroduceri.Size = new System.Drawing.Size(85, 13);
+            this.lblIntroduceri.TabIndex = 39;
+            this.lblIntroduceri.Text = "activare câmpuri";
+            // 
             // chkTaxaDeViza
             // 
             this.chkTaxaDeViza.AutoSize = true;
@@ -653,6 +662,7 @@
             this.chkTaxaDeViza.Size = new System.Drawing.Size(15, 14);
             this.chkTaxaDeViza.TabIndex = 38;
             this.chkTaxaDeViza.UseVisualStyleBackColor = true;
+            this.chkTaxaDeViza.CheckedChanged += new System.EventHandler(this.chkTaxaDeViza_CheckedChanged);
             // 
             // chkTaxaDeParticipare
             // 
@@ -662,6 +672,7 @@
             this.chkTaxaDeParticipare.Size = new System.Drawing.Size(15, 14);
             this.chkTaxaDeParticipare.TabIndex = 37;
             this.chkTaxaDeParticipare.UseVisualStyleBackColor = true;
+            this.chkTaxaDeParticipare.CheckedChanged += new System.EventHandler(this.chkTaxaDeParticipare_CheckedChanged);
             // 
             // chkCazare
             // 
@@ -671,6 +682,7 @@
             this.chkCazare.Size = new System.Drawing.Size(15, 14);
             this.chkCazare.TabIndex = 36;
             this.chkCazare.UseVisualStyleBackColor = true;
+            this.chkCazare.CheckedChanged += new System.EventHandler(this.chkCazare_CheckedChanged);
             // 
             // chkDiurna
             // 
@@ -680,6 +692,7 @@
             this.chkDiurna.Size = new System.Drawing.Size(15, 14);
             this.chkDiurna.TabIndex = 35;
             this.chkDiurna.UseVisualStyleBackColor = true;
+            this.chkDiurna.CheckedChanged += new System.EventHandler(this.chkDiurna_CheckedChanged);
             // 
             // txtSubtotalCazare
             // 
@@ -733,6 +746,7 @@
             // lblX2
             // 
             this.lblX2.AutoSize = true;
+            this.lblX2.Enabled = false;
             this.lblX2.Location = new System.Drawing.Point(216, 148);
             this.lblX2.Name = "lblX2";
             this.lblX2.Size = new System.Drawing.Size(14, 13);
@@ -742,6 +756,7 @@
             // lblX1
             // 
             this.lblX1.AutoSize = true;
+            this.lblX1.Enabled = false;
             this.lblX1.Location = new System.Drawing.Point(216, 123);
             this.lblX1.Name = "lblX1";
             this.lblX1.Size = new System.Drawing.Size(14, 13);
@@ -750,6 +765,7 @@
             // 
             // txtNrZileCazare
             // 
+            this.txtNrZileCazare.Enabled = false;
             this.txtNrZileCazare.Location = new System.Drawing.Point(174, 145);
             this.txtNrZileCazare.Name = "txtNrZileCazare";
             this.txtNrZileCazare.Size = new System.Drawing.Size(38, 20);
@@ -759,6 +775,7 @@
             // 
             // txtNrZileDiurna
             // 
+            this.txtNrZileDiurna.Enabled = false;
             this.txtNrZileDiurna.Location = new System.Drawing.Point(174, 120);
             this.txtNrZileDiurna.Name = "txtNrZileDiurna";
             this.txtNrZileDiurna.Size = new System.Drawing.Size(38, 20);
@@ -778,6 +795,7 @@
             // cmbMoneda4
             // 
             this.cmbMoneda4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbMoneda4.Enabled = false;
             this.cmbMoneda4.FormattingEnabled = true;
             this.cmbMoneda4.Location = new System.Drawing.Point(338, 193);
             this.cmbMoneda4.Name = "cmbMoneda4";
@@ -786,6 +804,7 @@
             // 
             // txtTaxaDeViza
             // 
+            this.txtTaxaDeViza.Enabled = false;
             this.txtTaxaDeViza.Location = new System.Drawing.Point(233, 194);
             this.txtTaxaDeViza.Name = "txtTaxaDeViza";
             this.txtTaxaDeViza.Size = new System.Drawing.Size(99, 20);
@@ -796,6 +815,7 @@
             // lblTaxaDeVizaEtc
             // 
             this.lblTaxaDeVizaEtc.AutoSize = true;
+            this.lblTaxaDeVizaEtc.Enabled = false;
             this.lblTaxaDeVizaEtc.Location = new System.Drawing.Point(59, 197);
             this.lblTaxaDeVizaEtc.Name = "lblTaxaDeVizaEtc";
             this.lblTaxaDeVizaEtc.Size = new System.Drawing.Size(172, 13);
@@ -805,6 +825,7 @@
             // cmbMoneda3
             // 
             this.cmbMoneda3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbMoneda3.Enabled = false;
             this.cmbMoneda3.FormattingEnabled = true;
             this.cmbMoneda3.Location = new System.Drawing.Point(338, 168);
             this.cmbMoneda3.Name = "cmbMoneda3";
@@ -813,6 +834,7 @@
             // 
             // txtTaxaDeParticipare
             // 
+            this.txtTaxaDeParticipare.Enabled = false;
             this.txtTaxaDeParticipare.Location = new System.Drawing.Point(233, 169);
             this.txtTaxaDeParticipare.Name = "txtTaxaDeParticipare";
             this.txtTaxaDeParticipare.Size = new System.Drawing.Size(99, 20);
@@ -823,6 +845,7 @@
             // lblTaxaDeParticipare
             // 
             this.lblTaxaDeParticipare.AutoSize = true;
+            this.lblTaxaDeParticipare.Enabled = false;
             this.lblTaxaDeParticipare.Location = new System.Drawing.Point(130, 173);
             this.lblTaxaDeParticipare.Name = "lblTaxaDeParticipare";
             this.lblTaxaDeParticipare.Size = new System.Drawing.Size(101, 13);
@@ -832,6 +855,7 @@
             // cmbMoneda2
             // 
             this.cmbMoneda2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbMoneda2.Enabled = false;
             this.cmbMoneda2.FormattingEnabled = true;
             this.cmbMoneda2.Location = new System.Drawing.Point(338, 144);
             this.cmbMoneda2.Name = "cmbMoneda2";
@@ -841,6 +865,7 @@
             // 
             // txtCazare
             // 
+            this.txtCazare.Enabled = false;
             this.txtCazare.Location = new System.Drawing.Point(233, 145);
             this.txtCazare.Name = "txtCazare";
             this.txtCazare.Size = new System.Drawing.Size(99, 20);
@@ -851,6 +876,7 @@
             // lblCazare
             // 
             this.lblCazare.AutoSize = true;
+            this.lblCazare.Enabled = false;
             this.lblCazare.Location = new System.Drawing.Point(124, 148);
             this.lblCazare.Name = "lblCazare";
             this.lblCazare.Size = new System.Drawing.Size(49, 13);
@@ -860,6 +886,7 @@
             // cmbMoneda1
             // 
             this.cmbMoneda1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbMoneda1.Enabled = false;
             this.cmbMoneda1.FormattingEnabled = true;
             this.cmbMoneda1.Location = new System.Drawing.Point(338, 119);
             this.cmbMoneda1.Name = "cmbMoneda1";
@@ -869,6 +896,7 @@
             // 
             // txtDiurna
             // 
+            this.txtDiurna.Enabled = false;
             this.txtDiurna.Location = new System.Drawing.Point(233, 120);
             this.txtDiurna.Name = "txtDiurna";
             this.txtDiurna.Size = new System.Drawing.Size(99, 20);
@@ -879,6 +907,7 @@
             // lblDiurna
             // 
             this.lblDiurna.AutoSize = true;
+            this.lblDiurna.Enabled = false;
             this.lblDiurna.Location = new System.Drawing.Point(132, 123);
             this.lblDiurna.Name = "lblDiurna";
             this.lblDiurna.Size = new System.Drawing.Size(41, 13);
@@ -1150,15 +1179,6 @@
             this.panouFinal.Name = "panouFinal";
             this.panouFinal.Size = new System.Drawing.Size(642, 10);
             this.panouFinal.TabIndex = 34;
-            // 
-            // lblIntroduceri
-            // 
-            this.lblIntroduceri.AutoSize = true;
-            this.lblIntroduceri.Location = new System.Drawing.Point(9, 104);
-            this.lblIntroduceri.Name = "lblIntroduceri";
-            this.lblIntroduceri.Size = new System.Drawing.Size(85, 13);
-            this.lblIntroduceri.TabIndex = 39;
-            this.lblIntroduceri.Text = "activare câmpuri";
             // 
             // frmODDModificare
             // 

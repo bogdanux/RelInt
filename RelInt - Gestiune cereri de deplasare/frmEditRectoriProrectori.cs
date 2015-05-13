@@ -20,12 +20,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             // Incarcam urmatoarele
             IncarcaredgvRector();
             IncarcaredgvProRector();
-
-            // Dezactivam urmatoarele
-            btnAdaugaR.Enabled = false;
-            btnModificaR.Enabled = false;
-            btnAdaugaPR.Enabled = false;
-            btnModificaPR.Enabled = false;
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
@@ -103,6 +97,18 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     }
                 }
             }
+
+            // Efectuam metoda:
+            if (System.Windows.Forms.Application.OpenForms["frmGCD"] != null)
+            {
+                (System.Windows.Forms.Application.OpenForms["frmGCD"] as frmGCD).VerificareRector();
+            }
+
+            // Apoi metoda:
+            if (System.Windows.Forms.Application.OpenForms["frmGCD"] != null)
+            {
+                (System.Windows.Forms.Application.OpenForms["frmGCD"] as frmGCD).AprobareVerifRP();
+            }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
         /* --------------------------------------------------------------------------------------------------------------- */
@@ -149,10 +155,37 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 {
                     comanda_dgvRector.Connection = conexiune_dgvRector;
                     comanda_dgvRector.CommandType = CommandType.Text;
-                    comanda_dgvRector.CommandText = "INSERT INTO rectori VALUES (?, ?, ?)";
+                    comanda_dgvRector.CommandText = "UPDATE rectori SET rectorcurent = ?";
+                    comanda_dgvRector.Parameters.AddWithValue("@rectorcurent", OdbcType.Bit).Value = false;
+
+                    try
+                    {
+                        conexiune_dgvRector.Open();
+                        int recordsAffected = comanda_dgvRector.ExecuteNonQuery();
+                    }
+                    catch (Exception exdgvRector)
+                    {
+                        MessageBox.Show(exdgvRector.Message);
+                    } // Ne deconectam
+                    finally
+                    {
+                        conexiune_dgvRector.Close();
+                    }
+                }
+            }
+
+            using (OdbcConnection conexiune_dgvRector = new OdbcConnection(sircon_RelIntDB))
+            {
+                // Comanda
+                using (OdbcCommand comanda_dgvRector = new OdbcCommand())
+                {
+                    comanda_dgvRector.Connection = conexiune_dgvRector;
+                    comanda_dgvRector.CommandType = CommandType.Text;
+                    comanda_dgvRector.CommandText = "INSERT INTO rectori VALUES (?, ?, ?, ?)";
                     comanda_dgvRector.Parameters.AddWithValue("@rector", OdbcType.NVarChar).Value = txtNumeR.Text;
                     comanda_dgvRector.Parameters.AddWithValue("@emailr", OdbcType.NVarChar).Value = txtEmailR.Text;
                     comanda_dgvRector.Parameters.AddWithValue("@telefonr", OdbcType.Int).Value = vartxtTelefonR;
+                    comanda_dgvRector.Parameters.AddWithValue("@rectorcurent", OdbcType.Bit).Value = true;
 
                     try
                     {
@@ -194,6 +227,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     comanda_dgvRector.Parameters.AddWithValue("@rector", OdbcType.NVarChar).Value = txtNumeRNou.Text;
                     comanda_dgvRector.Parameters.AddWithValue("@emailr", OdbcType.NVarChar).Value = txtEMailRNou.Text;
                     comanda_dgvRector.Parameters.AddWithValue("@telefonr", OdbcType.NVarChar).Value = vartxtTelefonRNou;
+
                     comanda_dgvRector.Parameters.AddWithValue("@rector", OdbcType.NVarChar).Value = txtNumeR.Text;
 
                     try
@@ -411,6 +445,18 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                         conexiune_dgvProRector.Close();
                     }
                 }
+            }
+
+            // Efectuam metoda:
+            if (System.Windows.Forms.Application.OpenForms["frmGCD"] != null)
+            {
+                (System.Windows.Forms.Application.OpenForms["frmGCD"] as frmGCD).VerificareProrector();
+            }
+
+            // Apoi metoda:
+            if (System.Windows.Forms.Application.OpenForms["frmGCD"] != null)
+            {
+                (System.Windows.Forms.Application.OpenForms["frmGCD"] as frmGCD).AprobareVerifRP();
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */

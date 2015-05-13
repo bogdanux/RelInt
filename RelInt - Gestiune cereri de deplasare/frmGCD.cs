@@ -19,15 +19,26 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         {
             InitializeComponent();
 
-            AprobareVerifDGFM();
-
+            // Necesare pentru Cereri
             VerificareGradeDidactice();
             VerificareFacultati();
             VerificareMonezi();
+            VerificareTari();
+            VerificareScopuri();
+            VerificareScopuriConferinte();
+            VerificareScopuriAltele();
+
+            AprobareVerifGDFMTSCA();
+
+            MetodaScriereInStatusUC();
+
+            // Necesare pentru ODD
             VerificareRector();
             VerificareProrector();
 
-            MetodaScriereInStatus();
+            AprobareVerifRP();
+
+            MetodaScriereInStatusR();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
@@ -58,8 +69,10 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         bool AprobareVerifGD = false;
         bool AprobareVerifF = false;
         bool AprobareVerifM = false;
-        bool AprobareVerifR = false;
-        bool AprobareVerifPR = false;
+        bool AprobareVerifT = false;
+        bool AprobareVerifS = false;
+        bool AprobareVerifSC = false;
+        bool AprobareVerifSA = false;
         bool ExistaCereri = false;
         /* ------------------- Metoda verificare gradedidactice ---------------------------------------------------------- */
         public void VerificareGradeDidactice()
@@ -205,112 +218,249 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-        /* --------------------------------------------------------------------------------------------------------------- */
-        public void AprobareVerifDGFM()
+        /* ------------ Metoda de verificare daca sunt introduse tari ---------------------------------------------------- */
+        public void VerificareTari()
         {
-            if (AprobareVerifGD == true && AprobareVerifF == true && AprobareVerifM == true)
+            using (OdbcConnection conexiune_Tari = new OdbcConnection(sircon_RelIntDB))
+            {           // Comanda
+                using (OdbcCommand comanda_Tari = new OdbcCommand())
+                {
+                    comanda_Tari.Connection = conexiune_Tari;
+                    comanda_Tari.CommandType = CommandType.Text;
+                    comanda_Tari.CommandText = "SELECT * FROM tari";
+
+                    OdbcDataReader cititor_Tari;
+
+                    try
+                    {
+                        conexiune_Tari.Open();
+                        cititor_Tari = comanda_Tari.ExecuteReader();
+
+                        // Daca cititorul
+                        if (cititor_Tari.HasRows == false)
+                        {
+                            // Afisam de ce
+                            tsStatusDeCeT.Text = " Nu sunt ȚĂRI introduse în baza de date. Introduceți-le! ";
+
+                            // Setam
+                            AprobareVerifT = false;
+                        }
+                        else
+                        {
+                            // Stergem afisarea
+                            tsStatusDeCeT.Text = string.Empty;
+
+                            // Setam
+                            AprobareVerifT = true;
+                        }
+                    }
+                    catch (Exception exTari)
+                    {
+                        MessageBox.Show(exTari.Message);
+                    } // Ne deconectam
+                    finally
+                    {
+                        conexiune_Tari.Close();
+                    }
+                }
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* ------------ Metoda de verificare daca sunt introduse scopuri ------------------------------------------------- */
+        public void VerificareScopuri()
+        {
+            using (OdbcConnection conexiune_Scopuri = new OdbcConnection(sircon_RelIntDB))
+            {           // Comanda
+                using (OdbcCommand comanda_Scopuri = new OdbcCommand())
+                {
+                    comanda_Scopuri.Connection = conexiune_Scopuri;
+                    comanda_Scopuri.CommandType = CommandType.Text;
+                    comanda_Scopuri.CommandText = "SELECT * FROM scopuri";
+
+                    OdbcDataReader cititor_Scopuri;
+
+                    try
+                    {
+                        conexiune_Scopuri.Open();
+                        cititor_Scopuri = comanda_Scopuri.ExecuteReader();
+
+                        // Daca cititorul
+                        if (cititor_Scopuri.HasRows == false)
+                        {
+                            // Afisam de ce
+                            tsStatusDeCeS.Text = " Nu sunt SCOPURI introduse în baza de date. Introduceți-le! ";
+
+                            // Setam
+                            AprobareVerifS = false;
+                        }
+                        else
+                        {
+                            // Stergem afisarea
+                            tsStatusDeCeS.Text = string.Empty;
+
+                            // Setam
+                            AprobareVerifS = true;
+                        }
+                    }
+                    catch (Exception exScopuri)
+                    {
+                        MessageBox.Show(exScopuri.Message);
+                    } // Ne deconectam
+                    finally
+                    {
+                        conexiune_Scopuri.Close();
+                    }
+                }
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* ------------ Metoda de verificare daca sunt introduse scopur-conferinte --------------------------------------- */
+        public void VerificareScopuriConferinte()
+        {
+            using (OdbcConnection conexiune_SC = new OdbcConnection(sircon_RelIntDB))
+            {           // Comanda
+                using (OdbcCommand comanda_SC = new OdbcCommand())
+                {
+                    comanda_SC.Connection = conexiune_SC;
+                    comanda_SC.CommandType = CommandType.Text;
+                    comanda_SC.CommandText = "SELECT * FROM scopuriconferinte";
+
+                    OdbcDataReader cititor_SC;
+
+                    try
+                    {
+                        conexiune_SC.Open();
+                        cititor_SC = comanda_SC.ExecuteReader();
+
+                        // Daca cititorul
+                        if (cititor_SC.HasRows == false)
+                        {
+                            // Afisam de ce
+                            tsStatusDeCeSC.Text = " Nu sunt SCOPURI - CONFERINȚE introduse în baza de date. Introduceți-le! ";
+
+                            // Setam
+                            AprobareVerifSC = false;
+                        }
+                        else
+                        {
+                            // Stergem afisarea
+                            tsStatusDeCeSC.Text = string.Empty;
+
+                            // Setam
+                            AprobareVerifSC = true;
+                        }
+                    }
+                    catch (Exception exSC)
+                    {
+                        MessageBox.Show(exSC.Message);
+                    } // Ne deconectam
+                    finally
+                    {
+                        conexiune_SC.Close();
+                    }
+                }
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* ------------ Metoda de verificare daca sunt introduse scopuri-altele ------------------------------------------ */
+        public void VerificareScopuriAltele()
+        {
+            using (OdbcConnection conexiune_SA = new OdbcConnection(sircon_RelIntDB))
+            {           // Comanda
+                using (OdbcCommand comanda_SA = new OdbcCommand())
+                {
+                    comanda_SA.Connection = conexiune_SA;
+                    comanda_SA.CommandType = CommandType.Text;
+                    comanda_SA.CommandText = "SELECT * FROM scopurialtele";
+
+                    OdbcDataReader cititor_SA;
+
+                    try
+                    {
+                        conexiune_SA.Open();
+                        cititor_SA = comanda_SA.ExecuteReader();
+
+                        // Daca cititorul
+                        if (cititor_SA.HasRows == false)
+                        {
+                            // Afisam de ce
+                            tsStatusDeCeSA.Text = " Nu sunt SCOPURI - ALTELE introduse în baza de date. Introduceți-le! ";
+
+                            // Setam
+                            AprobareVerifSA = false;
+                        }
+                        else
+                        {
+                            // Stergem afisarea
+                            tsStatusDeCeSA.Text = string.Empty;
+
+                            // Setam
+                            AprobareVerifSA = true;
+                        }
+                    }
+                    catch (Exception exSA)
+                    {
+                        MessageBox.Show(exSA.Message);
+                    } // Ne deconectam
+                    finally
+                    {
+                        conexiune_SA.Close();
+                    }
+                }
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* --------------------------------------------------------------------------------------------------------------- */
+        public void AprobareVerifGDFMTSCA()
+        {
+            if (AprobareVerifGD
+                && AprobareVerifF
+                && AprobareVerifM
+                && AprobareVerifT
+                && AprobareVerifS
+                && AprobareVerifSC
+                && AprobareVerifSA)
             {
-                // Efectuam
                 VerificareCereri();
 
-                    // Apoi
-                    if (ExistaCereri == true)
-                    {
-                        // Activam
-                        btnGCDIntroducereFormular.Enabled = true;
-                        btnGCDCautareCerere.Enabled = true;
-                        btnGCDModificareFormular.Enabled = true;
-
-                        btnGCDIntroducereODD.Enabled = true;
-                        btnGCDModificareODD.Enabled = true;
-
-                        btnGCDODZ.Enabled = true;
-
-                        btnGCDListaCereriExistente.Enabled = true;
-                        btnGCDListaOrdineDeDeplasare.Enabled = true;
-
-                        // Stergem afisarea
-                        tsStatusUltimaInregistrare.Text = string.Empty;
-                    }
-                    else
-                    {
-                        // Afisam de ce
-                        tsStatusUltimaInregistrare.Text = " Nu sunt CERERI introduse în baza de date. Introduceți măcar una! ";
-
-                        // Activam
-                        btnGCDIntroducereFormular.Enabled = true;
-
-                        // Dezactivam
-                        btnGCDCautareCerere.Enabled = false;
-                        btnGCDModificareFormular.Enabled = false;
-
-                        btnGCDIntroducereODD.Enabled = false;
-                        btnGCDModificareODD.Enabled = false;
-
-                        btnGCDODZ.Enabled = false;
-
-                        btnGCDListaCereriExistente.Enabled = false;
-                        btnGCDListaOrdineDeDeplasare.Enabled = false;
-                    }
-            }
-            else
-            {
-                VerificareGradeDidactice();
-                VerificareFacultati();
-                VerificareMonezi();
-
-                if (AprobareVerifGD == true && AprobareVerifF == true && AprobareVerifM == true)
+                if (ExistaCereri)
                 {
-                    // Efectuam
-                    VerificareCereri();
+                    // Activam
+                    btnGCDCautareCerere.Enabled = true;
+                    btnGCDModificareFormular.Enabled = true;
 
-                    // Apoi
-                    if (ExistaCereri == true)
-                    {
-                        // Activam
-                        btnGCDIntroducereFormular.Enabled = true;
-                        btnGCDCautareCerere.Enabled = true;
-                        btnGCDModificareFormular.Enabled = true;
+                    btnGCDODZ.Enabled = true;
 
-                        btnGCDIntroducereODD.Enabled = true;
-                        btnGCDModificareODD.Enabled = true;
+                    btnGCDListaCereriExistente.Enabled = true;
 
-                        btnGCDODZ.Enabled = true;
-
-                        btnGCDListaCereriExistente.Enabled = true;
-                        btnGCDListaOrdineDeDeplasare.Enabled = true;
-
-                        // Stergem afisarea
-                        tsStatusUltimaInregistrare.Text = string.Empty;
-                    }
-                    else
-                    {
-                        // Afisam de ce
-                        tsStatusUltimaInregistrare.Text = " Nu sunt CERERI introduse în baza de date. Introduceți măcar una! ";
-
-                        // Activam
-                        btnGCDIntroducereFormular.Enabled = true;
-
-                        // Dezactivam
-                        btnGCDCautareCerere.Enabled = false;
-                        btnGCDModificareFormular.Enabled = false;
-
-                        btnGCDIntroducereODD.Enabled = false;
-                        btnGCDModificareODD.Enabled = false;
-
-                        btnGCDODZ.Enabled = false;
-
-                        btnGCDListaCereriExistente.Enabled = false;
-                        btnGCDListaOrdineDeDeplasare.Enabled = false;
-                    }
+                    // Stergem afisarea
+                    tsStatusUltimaInregistrare.Text = string.Empty;
                 }
                 else
                 {
-                    // Activam
-                    btnGCDIntroducereFormular.Enabled = false;
+                    // Dezactivam
                     btnGCDCautareCerere.Enabled = false;
                     btnGCDModificareFormular.Enabled = false;
+
+                    btnGCDODZ.Enabled = false;
+
+                    btnGCDListaCereriExistente.Enabled = false;
+
+                    // Afisam de ce
+                    tsStatusUltimaInregistrare.Text =
+                        " Nu sunt CERERI introduse în baza de date. Introduceți măcar una! ";
                 }
+            }
+            else
+            {
+                // Dezactivam
+                btnGCDIntroducereFormular.Enabled = false;
+                btnGCDCautareCerere.Enabled = false;
+                btnGCDModificareFormular.Enabled = false;
+
+                btnGCDODZ.Enabled = false;
+
+                btnGCDListaCereriExistente.Enabled = false;
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
@@ -345,9 +495,9 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                             ExistaCereri = true;
                         }
                     }
-                    catch (Exception excmbMonezi)
+                    catch (Exception exCereri)
                     {
-                        MessageBox.Show(excmbMonezi.Message);
+                        MessageBox.Show(exCereri.Message);
                     } // Ne deconectam
                     finally
                     {
@@ -357,6 +507,47 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
+        /* -------------------- MetodaScriereInStatus -------------------------------------------------------------------- */
+        public void MetodaScriereInStatusUC()
+        {
+            using (OdbcConnection conexiune_lblUCI = new OdbcConnection(sircon_RelIntDB))
+            {           // Comanda
+                using (OdbcCommand comanda_lblUCI = new OdbcCommand())
+                {
+                    comanda_lblUCI.Connection = conexiune_lblUCI;
+                    comanda_lblUCI.CommandType = CommandType.Text;
+                    comanda_lblUCI.CommandText = "SELECT MAX(nrinregistrarec) FROM cereri";
+
+                    try
+                    {
+                        conexiune_lblUCI.Open();
+                        OdbcDataReader reader_lblUCI = comanda_lblUCI.ExecuteReader();
+
+                        while (reader_lblUCI.Read())
+                        {
+                            if (reader_lblUCI[0].ToString() != "")
+                            {
+                                tsStatusUltimaInregistrare.Text = "Numărul ultimei cereri introduse: " + reader_lblUCI.GetDecimal(0).ToString();
+                            }
+                        }
+                        reader_lblUCI.Close();
+                    }
+                    catch (Exception exlblUCI)
+                    {
+                        MessageBox.Show(exlblUCI.Message);
+                    }
+                    finally
+                    {
+                        conexiune_lblUCI.Close();
+                    }
+                }
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+        bool AprobareVerifR = false;
+        bool AprobareVerifPR = false;
         /* ------------ Metoda de verificare daca sunt introdusi Rectori ------------------------------------------------- */
         public void VerificareRector()
         {
@@ -453,43 +644,64 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-        /* -------------------- MetodaScriereInStatus -------------------------------------------------------------------- */
-        public void MetodaScriereInStatus()
+        /* --------------------------------------------------------------------------------------------------------------- */
+        public void AprobareVerifRP()
         {
-            using (OdbcConnection conexiune_lblUCI = new OdbcConnection(sircon_RelIntDB))
+            if (AprobareVerifR && AprobareVerifPR)
+            {
+                // Activam
+                btnGCDIntroducereODD.Enabled = true;
+                btnGCDModificareODD.Enabled = true;
+
+                btnGCDListaOrdineDeDeplasare.Enabled = true;
+            }
+            else
+            {
+                // Dezactivam
+                btnGCDIntroducereODD.Enabled = false;
+                btnGCDModificareODD.Enabled = false;
+
+                btnGCDListaOrdineDeDeplasare.Enabled = false;
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* -------------------- Scriem in status numele rectorului curent in functie ------------------------------------- */
+        public void MetodaScriereInStatusR()
+        {
+            using (OdbcConnection conexiune_ScriereStatusR = new OdbcConnection(sircon_RelIntDB))
             {           // Comanda
-                using (OdbcCommand comanda_lblUCI = new OdbcCommand())
+                using (OdbcCommand comanda_ScriereStatusR = new OdbcCommand())
                 {
-                    comanda_lblUCI.Connection = conexiune_lblUCI;
-                    comanda_lblUCI.CommandType = CommandType.Text;
-                    comanda_lblUCI.CommandText = "SELECT MAX(nrinregistrarec) FROM cereri";
+                    comanda_ScriereStatusR.Connection = conexiune_ScriereStatusR;
+                    comanda_ScriereStatusR.CommandType = CommandType.Text;
+                    comanda_ScriereStatusR.CommandText = "SELECT rector FROM rectori";
+
+                    OdbcDataReader cititor_ScriereStatusR;
 
                     try
                     {
-                        conexiune_lblUCI.Open();
-                        OdbcDataReader reader_lblUCI = comanda_lblUCI.ExecuteReader();
+                        conexiune_ScriereStatusR.Open();
+                        cititor_ScriereStatusR = comanda_ScriereStatusR.ExecuteReader();
 
-                        while (reader_lblUCI.Read())
+                        while (cititor_ScriereStatusR.Read())
                         {
-                            if (reader_lblUCI[0].ToString() != "")
-                            {
-                                tsStatusUltimaInregistrare.Text = "Numărul ultimei cereri introduse: " + reader_lblUCI.GetDecimal(0).ToString();
-                            }
+                            tsStatusRectorCurent.Text = cititor_ScriereStatusR.GetString(0);
                         }
-                        reader_lblUCI.Close();
                     }
-                    catch (Exception exlblUCI)
+                    catch (Exception exProrectori)
                     {
-                        MessageBox.Show(exlblUCI.Message);
-                    }
+                        MessageBox.Show(exProrectori.Message);
+                    } // Ne deconectam
                     finally
                     {
-                        conexiune_lblUCI.Close();
+                        conexiune_ScriereStatusR.Close();
                     }
                 }
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
+
+
 
 
 

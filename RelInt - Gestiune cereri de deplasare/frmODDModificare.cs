@@ -112,6 +112,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                         {
                             string str_cmbGradDidactic = cititor_cmbGradDidactic.GetString(0);
                             cmbGradDidactic.Items.Add(str_cmbGradDidactic);
+                            cmbCPGradDidactic.Items.Add(str_cmbGradDidactic);
                         }
                     }
                     catch (Exception excmbGradDidactic)
@@ -641,6 +642,119 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
+
+        /* ----------------------- Eveniment chkDiurna ------------------------------------------------------------------- */
+        private void chkDiurna_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkDiurna.Checked)
+            {
+                // Activam
+                lblDiurna.Enabled = true;
+                txtNrZileDiurna.Enabled = true;
+                lblX1.Enabled = true;
+                txtDiurna.Enabled = true;
+                cmbMoneda1.Enabled = true;
+            }
+            else
+            {
+                // Efectuam
+                txtNrZileDiurna.Clear();
+                txtDiurna.Clear();
+                cmbMoneda1.SelectedIndex = -1;
+                txtSubtotalDiurna.Clear();
+
+                // Dezactivam
+                lblDiurna.Enabled = false;
+                txtNrZileDiurna.Enabled = false;
+                lblX1.Enabled = false;
+                txtDiurna.Enabled = false;
+                cmbMoneda1.Enabled = false;
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* ----------------------- Eveniment chkCazare ------------------------------------------------------------------- */
+        private void chkCazare_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkCazare.Checked)
+            {
+                // Activam
+                lblCazare.Enabled = true;
+                txtNrZileCazare.Enabled = true;
+                lblX2.Enabled = true;
+                txtCazare.Enabled = true;
+                cmbMoneda2.Enabled = true;
+            }
+            else
+            {
+                // Efectuam
+                txtNrZileCazare.Clear();
+                txtCazare.Clear();
+                cmbMoneda2.SelectedIndex = -1;
+                txtSubtotalCazare.Clear();
+
+                // Dezactivam
+                lblCazare.Enabled = false;
+                txtNrZileCazare.Enabled = false;
+                lblX2.Enabled = false;
+                txtCazare.Enabled = false;
+                cmbMoneda2.Enabled = false;
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* ----------------------- Eveniment chkTaxaDeParticipare -------------------------------------------------------- */
+        private void chkTaxaDeParticipare_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkTaxaDeParticipare.Checked)
+            {
+                // Activam
+                lblTaxaDeParticipare.Enabled = true;
+                txtTaxaDeParticipare.Enabled = true;
+                cmbMoneda3.Enabled = true;
+            }
+            else
+            {
+                // Efectuam
+                txtTaxaDeParticipare.Clear();
+                cmbMoneda3.SelectedIndex = -1;
+
+                // Dezactivam
+                lblTaxaDeParticipare.Enabled = false;
+                txtTaxaDeParticipare.Enabled = false;
+                cmbMoneda3.Enabled = false;
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* ----------------------- Eveniment chkTaxaDeViza --------------------------------------------------------------- */
+        private void chkTaxaDeViza_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkTaxaDeViza.Checked)
+            {
+                // Activam
+                lblTaxaDeVizaEtc.Enabled = true;
+                txtTaxaDeViza.Enabled = true;
+                cmbMoneda4.Enabled = true;
+            }
+            else
+            {
+                // Efectuam
+                txtTaxaDeViza.Clear();
+                cmbMoneda4.SelectedIndex = -1;
+
+                // Dezactivam
+                lblTaxaDeVizaEtc.Enabled = false;
+                txtTaxaDeViza.Enabled = false;
+                cmbMoneda4.Enabled = false;
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
         /* --------------------------------------------------------------------------------------------------------------- */
         private void MetodaCalculSubtotalDiurna()
         {
@@ -729,37 +843,43 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                                 txtSubsemnatul.Text = cititor_populareDinBD.GetString(5);
                                 cmbGradDidactic.SelectedItem = cititor_populareDinBD.GetString(6);
                                 cmbFacultatea.SelectedItem = cititor_populareDinBD.GetString(7);
-                                txtLocalitatea.Text = cititor_populareDinBD.GetString(8);
-                                cmbTara.SelectedItem = cititor_populareDinBD.GetString(9);
+                                cmbTara.SelectedItem = cititor_populareDinBD.GetString(8);
+                                txtLocalitatea.Text = cititor_populareDinBD.GetString(9);
                                 cmbScop.SelectedItem = cititor_populareDinBD.GetString(10);
-                                txtInstitutia.Text = cititor_populareDinBD.GetString(11);
-                                dpDataInceput.Value = cititor_populareDinBD.GetDateTime(12);
-                                dpDataSfarsit.Value = cititor_populareDinBD.GetDateTime(13);
-                                txtRuta.Text = cititor_populareDinBD.GetString(14);
-                                txtPlatitorTransport.Text = cititor_populareDinBD.GetString(15);
-                                txtPlatitorIntretinere.Text = cititor_populareDinBD.GetString(16);
-                                txtNrZileDiurna.Text = cititor_populareDinBD.GetString(17);
-                                txtDiurna.Text = cititor_populareDinBD.GetString(18);
-                                cmbMoneda1.SelectedItem = cititor_populareDinBD.GetString(19);
-                                txtNrZileCazare.Text = cititor_populareDinBD.GetString(20);
-                                txtCazare.Text = cititor_populareDinBD.GetString(21);
-                                cmbMoneda2.SelectedItem = cititor_populareDinBD.GetString(22);
-                                txtTaxaDeParticipare.Text = cititor_populareDinBD.GetString(23);
-                                cmbMoneda3.SelectedItem = cititor_populareDinBD.GetString(24);
-                                txtTaxaDeViza.Text = cititor_populareDinBD.GetString(25);
-                                cmbMoneda4.SelectedItem = cititor_populareDinBD.GetString(26);
-                                txtTotalDePlata.Text = cititor_populareDinBD.GetString(27);
-                                txtDispunere1.Text = cititor_populareDinBD.GetString(28);
-                                txtDispunere2.Text = cititor_populareDinBD.GetString(29);
-                                txtDispunere3.Text = cititor_populareDinBD.GetString(30);
-                                txtDispunere4.Text = cititor_populareDinBD.GetString(31);
-                                rdoRector.Checked = cititor_populareDinBD.GetBoolean(32);
-                                rdoProRector.Checked = cititor_populareDinBD.GetBoolean(33);
-                                cmbRectorProrector.SelectedItem = cititor_populareDinBD.GetString(34);
-                                txtDFC.Text = cititor_populareDinBD.GetString(35);
-                                txtCPNumeProj.Text = cititor_populareDinBD.GetString(36);
-                                cmbCPGradDidactic.SelectedItem = cititor_populareDinBD.GetString(37);
-                                txtCPNumeCoord.Text = cititor_populareDinBD.GetString(38);
+                                cmbConferinte.SelectedItem = cititor_populareDinBD.IsDBNull(11) ? cmbConferinte.SelectedItem = string.Empty : cmbConferinte.SelectedItem = cititor_populareDinBD.GetString(9);
+                                cmbAltele.SelectedItem = cititor_populareDinBD.IsDBNull(12) ? cmbAltele.SelectedItem = string.Empty : cmbAltele.SelectedItem = cititor_populareDinBD.GetString(10);
+                                txtInstitutia.Text = cititor_populareDinBD.GetString(13);
+                                dpDataInceput.Value = cititor_populareDinBD.GetDateTime(14);
+                                dpDataSfarsit.Value = cititor_populareDinBD.GetDateTime(15);
+                                txtRuta.Text = cititor_populareDinBD.GetString(16);
+                                txtPlatitorTransport.Text = cititor_populareDinBD.GetString(17);
+                                txtPlatitorIntretinere.Text = cititor_populareDinBD.GetString(18);
+                                chkDiurna.Checked = cititor_populareDinBD.GetBoolean(19);
+                                txtNrZileDiurna.Text = cititor_populareDinBD.GetString(20);
+                                txtDiurna.Text = cititor_populareDinBD.GetString(21);
+                                cmbMoneda1.SelectedItem = cititor_populareDinBD.IsDBNull(22) ? cmbMoneda1.SelectedItem = string.Empty : cmbMoneda1.SelectedItem = cititor_populareDinBD.GetString(22);
+                                chkCazare.Checked = cititor_populareDinBD.GetBoolean(23);
+                                txtNrZileCazare.Text = cititor_populareDinBD.GetString(24);
+                                txtCazare.Text = cititor_populareDinBD.GetString(25);
+                                cmbMoneda2.SelectedItem = cititor_populareDinBD.IsDBNull(26) ? cmbMoneda2.SelectedItem = string.Empty : cmbMoneda2.SelectedItem = cititor_populareDinBD.GetString(26);
+                                chkTaxaDeParticipare.Checked = cititor_populareDinBD.GetBoolean(27);
+                                txtTaxaDeParticipare.Text = cititor_populareDinBD.GetString(28);
+                                cmbMoneda3.SelectedItem = cititor_populareDinBD.IsDBNull(29) ? cmbMoneda3.SelectedItem = string.Empty : cmbMoneda3.SelectedItem = cititor_populareDinBD.GetString(29);
+                                chkTaxaDeViza.Checked = cititor_populareDinBD.GetBoolean(30);
+                                txtTaxaDeViza.Text = cititor_populareDinBD.GetString(31);
+                                cmbMoneda4.SelectedItem = cititor_populareDinBD.IsDBNull(32) ? cmbMoneda4.SelectedItem = string.Empty : cmbMoneda4.SelectedItem = cititor_populareDinBD.GetString(32);
+                                txtTotalDePlata.Text = cititor_populareDinBD.GetString(33);
+                                txtDispunere1.Text = cititor_populareDinBD.GetString(34);
+                                txtDispunere2.Text = cititor_populareDinBD.GetString(35);
+                                txtDispunere3.Text = cititor_populareDinBD.GetString(36);
+                                txtDispunere4.Text = cititor_populareDinBD.GetString(37);
+                                rdoRector.Checked = cititor_populareDinBD.GetBoolean(38);
+                                rdoProRector.Checked = cititor_populareDinBD.GetBoolean(39);
+                                cmbRectorProrector.SelectedItem = cititor_populareDinBD.GetString(40);
+                                txtDFC.Text = cititor_populareDinBD.GetString(41);
+                                txtCPNumeProj.Text = cititor_populareDinBD.GetString(42);
+                                cmbCPGradDidactic.SelectedItem = cititor_populareDinBD.GetString(43);
+                                txtCPNumeCoord.Text = cititor_populareDinBD.GetString(44);
 
                                 // Activam
                                 txtNrUAICNou.Enabled = true;
@@ -867,7 +987,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 {
                     comanda_inserareRelInt.Connection = conexiune_InserareCerereRelInt;
                     comanda_inserareRelInt.CommandType = CommandType.Text;
-                    comanda_inserareRelInt.CommandText = "UPDATE ordinedeplasare SET nrinregistrareod = ?, nrinregistrareodnou = ?, dataOD = ?, dataODNoua = ?, subsemnatulOD = ?, graddidacticOD = ?, facultateaOD = ?, localitateaOD = ?, taraOD = ?, scopod = ?, institutiaOD = ?, datainceputOD = ?, datasfarsitOD = ?, rutaOD = ?, platitortranspOD = ?, platitorintretinereOD = ?, nrzilediurnaOD = ?, diurnaOD = ?, monedadiurnaOD = ?, nrzilecazareOD = ?, cazareOD = ?, monedacazareOD = ?, taxadeparticipareOD = ?, monedataxadeparticipareOD = ?, taxadevizaetcOD = ?, monedataxadevizaetcOD = ?, totalOD = ?, altedispuneri1OD = ?, altedispuneri2OD = ?, altedispuneri3OD = ?, altedispuneri4OD = ?, rectorOD = ?, prorectorOD = ?, numerpOD = ?, dfcOD = ?, cpnumeprojOD = ?, cpgraddidacticOD = ?, cpnumecoordOD = ?, oddi = ? WHERE nrinregistrareodc = ?";
+                    comanda_inserareRelInt.CommandText = "UPDATE ordinedeplasare SET nrinregistrareod = ?, nrinregistrareodnou = ?, dataOD = ?, dataODNoua = ?, subsemnatulOD = ?, graddidacticOD = ?, facultateaOD = ?, taraOD = ?, localitateaOD = ?, scopod = ?, scopconferintaOD = ?, scopalteleOD = ?, institutiaOD = ?, datainceputOD = ?, datasfarsitOD = ?, rutaOD = ?, platitortranspOD = ?, platitorintretinereOD = ?, bifadiurnaOD = ?, nrzilediurnaOD = ?, diurnaOD = ?, monedadiurnaOD = ?, bifacazareOD = ?, nrzilecazareOD = ?, cazareOD = ?, monedacazareOD = ?, bifataxadeparticipareOD = ?, taxadeparticipareOD = ?, monedataxadeparticipareOD = ?, bifataxadevizaetcOD =?, taxadevizaetcOD = ?, monedataxadevizaetcOD = ?, totalOD = ?, altedispuneri1OD = ?, altedispuneri2OD = ?, altedispuneri3OD = ?, altedispuneri4OD = ?, rectorOD = ?, prorectorOD = ?, numerpOD = ?, dfcOD = ?, cpnumeprojOD = ?, cpgraddidacticOD = ?, cpnumecoordOD = ?, oddi = ? WHERE nrinregistrareodc = ?";
                     comanda_inserareRelInt.Parameters.AddWithValue("@nrinregistrareod", OdbcType.Int).Value = vartxtNrUAICVechi;
                     comanda_inserareRelInt.Parameters.AddWithValue("@nrinregistrareodnou", OdbcType.Int).Value = vartxtNrUAICNou;
                     comanda_inserareRelInt.Parameters.AddWithValue("@dataOD", OdbcType.DateTime).Value = dpDataODDVeche.Value;
@@ -875,23 +995,29 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     comanda_inserareRelInt.Parameters.AddWithValue("@subsemnatulOD", OdbcType.NVarChar).Value = txtSubsemnatul.Text;
                     comanda_inserareRelInt.Parameters.AddWithValue("@graddidacticOD", OdbcType.NVarChar).Value = cmbGradDidactic.SelectedItem;
                     comanda_inserareRelInt.Parameters.AddWithValue("@facultateaOD", OdbcType.NVarChar).Value = cmbFacultatea.SelectedItem;
-                    comanda_inserareRelInt.Parameters.AddWithValue("@localitateaOD", OdbcType.NVarChar).Value = txtLocalitatea.Text;
                     comanda_inserareRelInt.Parameters.AddWithValue("@taraOD", OdbcType.NVarChar).Value = cmbTara.SelectedItem;
+                    comanda_inserareRelInt.Parameters.AddWithValue("@localitateaOD", OdbcType.NVarChar).Value = txtLocalitatea.Text;
                     comanda_inserareRelInt.Parameters.AddWithValue("@scopOD", OdbcType.NVarChar).Value = cmbScop.SelectedItem;
+                    comanda_inserareRelInt.Parameters.AddWithValue("@scopconferintaOD", OdbcType.NVarChar).Value = cmbConferinte.SelectedItem;
+                    comanda_inserareRelInt.Parameters.AddWithValue("@scopalteleOD", OdbcType.NVarChar).Value = cmbAltele.SelectedItem;
                     comanda_inserareRelInt.Parameters.AddWithValue("@institutiaOD", OdbcType.NVarChar).Value = txtInstitutia.Text;
                     comanda_inserareRelInt.Parameters.AddWithValue("@datainceputOD", OdbcType.DateTime).Value = dpDataInceput.Value;
                     comanda_inserareRelInt.Parameters.AddWithValue("@datasfarsitOD", OdbcType.DateTime).Value = dpDataSfarsit.Value;
                     comanda_inserareRelInt.Parameters.AddWithValue("@rutaOD", OdbcType.NVarChar).Value = txtRuta.Text;
                     comanda_inserareRelInt.Parameters.AddWithValue("@platitortranspOD", OdbcType.NVarChar).Value = txtPlatitorTransport.Text;
                     comanda_inserareRelInt.Parameters.AddWithValue("@platitorintretinereOD", OdbcType.NVarChar).Value = txtPlatitorIntretinere.Text;
+                    comanda_inserareRelInt.Parameters.AddWithValue("@bifadiurnaOD", OdbcType.Bit).Value = chkDiurna.Checked;
                     comanda_inserareRelInt.Parameters.AddWithValue("@nrzilediurnaOD", OdbcType.Int).Value = vartxtNrZileDiurna;
                     comanda_inserareRelInt.Parameters.AddWithValue("@diurnaOD", OdbcType.Double).Value = vartxtDiurna;
                     comanda_inserareRelInt.Parameters.AddWithValue("@monedadiurnaOD", OdbcType.NVarChar).Value = cmbMoneda1.SelectedItem;
+                    comanda_inserareRelInt.Parameters.AddWithValue("@bifacazareOD", OdbcType.Bit).Value = chkCazare.Checked;
                     comanda_inserareRelInt.Parameters.AddWithValue("@nrzilecazareOD", OdbcType.Int).Value = vartxtNrZileCazare;
                     comanda_inserareRelInt.Parameters.AddWithValue("@cazareOD", OdbcType.Double).Value = vartxtCazare;
                     comanda_inserareRelInt.Parameters.AddWithValue("@monedacazareOD", OdbcType.NVarChar).Value = cmbMoneda2.SelectedItem;
+                    comanda_inserareRelInt.Parameters.AddWithValue("@bifataxadeparticipareOD", OdbcType.Bit).Value = chkTaxaDeParticipare.Checked;
                     comanda_inserareRelInt.Parameters.AddWithValue("@taxadeparticipareOD", OdbcType.Double).Value = vartxtTaxaDeParticipare;
                     comanda_inserareRelInt.Parameters.AddWithValue("@monedataxadeparticipareOD", OdbcType.NVarChar).Value = cmbMoneda3.SelectedItem;
+                    comanda_inserareRelInt.Parameters.AddWithValue("@bifataxadevizaetcOD", OdbcType.Bit).Value = chkTaxaDeViza.Checked;
                     comanda_inserareRelInt.Parameters.AddWithValue("@taxadevizaetcOD", OdbcType.Double).Value = vartxtTaxaDeViza;
                     comanda_inserareRelInt.Parameters.AddWithValue("@monedataxadevizaetcOD", OdbcType.NVarChar).Value = cmbMoneda4.SelectedItem;
                     comanda_inserareRelInt.Parameters.AddWithValue("@totalOD", OdbcType.NVarChar).Value = CalculTotal();
@@ -954,61 +1080,59 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             }
 
             double cazare;
-            bool cazareEsteNumar = double.TryParse(txtDiurna.Text, out cazare);
+            bool cazareEsteNumar = double.TryParse(txtCazare.Text, out cazare);
             if (cazareEsteNumar != false)
             {
                 cazare = double.Parse(txtCazare.Text, CultureInfo.InvariantCulture);
             }
 
             double taxaParticipare;
-            bool taxaParticipareEsteNumar = double.TryParse(txtDiurna.Text, out taxaParticipare);
+            bool taxaParticipareEsteNumar = double.TryParse(txtTaxaDeParticipare.Text, out taxaParticipare);
             if (taxaParticipareEsteNumar != false)
             {
                 taxaParticipare = double.Parse(txtTaxaDeParticipare.Text, CultureInfo.InvariantCulture);
             }
 
             double taxaDeViza;
-            bool taxaDeVizaEsteNumar = double.TryParse(txtDiurna.Text, out taxaDeViza);
+            bool taxaDeVizaEsteNumar = double.TryParse(txtTaxaDeViza.Text, out taxaDeViza);
             if (taxaDeVizaEsteNumar != false)
             {
                 taxaDeViza = double.Parse(txtTaxaDeViza.Text, CultureInfo.InvariantCulture);
             }
 
-
             string total = string.Empty;
 
-            string moneda1 = cmbMoneda1.SelectedItem.ToString();
-            string moneda2 = cmbMoneda2.SelectedItem.ToString();
-            string moneda3 = cmbMoneda3.SelectedItem.ToString();
-            string moneda4 = cmbMoneda4.SelectedItem.ToString();
-
             Dictionary<string, double> valoriIntroduse = new Dictionary<string, double>();
-            valoriIntroduse.Add(moneda1, diurna * vartxtNrZileDiurna);
-            if (valoriIntroduse.ContainsKey(moneda2))
+            if (cmbMoneda1.SelectedIndex != -1)
             {
-                valoriIntroduse[moneda2] = valoriIntroduse[moneda2] + cazare * vartxtNrZileCazare;
-            }
-            else
-            {
-                valoriIntroduse.Add(moneda2, cazare * vartxtNrZileCazare);
+                valoriIntroduse.Add(cmbMoneda1.SelectedItem.ToString(), diurna * vartxtNrZileDiurna);
             }
 
-            if (valoriIntroduse.ContainsKey(moneda3))
+            if (cmbMoneda2.SelectedIndex != -1 && valoriIntroduse.ContainsKey(cmbMoneda2.SelectedItem.ToString()))
             {
-                valoriIntroduse[moneda3] = valoriIntroduse[moneda3] + taxaParticipare;
+                valoriIntroduse[cmbMoneda2.SelectedItem.ToString()] = valoriIntroduse[cmbMoneda2.SelectedItem.ToString()] + cazare * vartxtNrZileCazare;
             }
-            else
+            else if (cmbMoneda2.SelectedIndex != -1)
             {
-                valoriIntroduse.Add(moneda3, taxaParticipare);
+                valoriIntroduse.Add(cmbMoneda2.SelectedItem.ToString(), cazare * vartxtNrZileCazare);
             }
 
-            if (valoriIntroduse.ContainsKey(moneda4))
+            if (cmbMoneda3.SelectedIndex != -1 && valoriIntroduse.ContainsKey(cmbMoneda3.SelectedItem.ToString()))
             {
-                valoriIntroduse[moneda4] = valoriIntroduse[moneda4] + taxaDeViza;
+                valoriIntroduse[cmbMoneda3.SelectedItem.ToString()] = valoriIntroduse[cmbMoneda3.SelectedItem.ToString()] + taxaParticipare;
             }
-            else
+            else if (cmbMoneda3.SelectedIndex != -1)
             {
-                valoriIntroduse.Add(moneda4, taxaDeViza);
+                valoriIntroduse.Add(cmbMoneda3.SelectedItem.ToString(), taxaParticipare);
+            }
+
+            if (cmbMoneda4.SelectedIndex != -1 && valoriIntroduse.ContainsKey(cmbMoneda4.SelectedItem.ToString()))
+            {
+                valoriIntroduse[cmbMoneda4.SelectedItem.ToString()] = valoriIntroduse[cmbMoneda4.SelectedItem.ToString()] + taxaDeViza;
+            }
+            else if (cmbMoneda4.SelectedIndex != -1)
+            {
+                valoriIntroduse.Add(cmbMoneda4.SelectedItem.ToString(), taxaDeViza);
             }
 
             foreach (var pereche in valoriIntroduse)
@@ -1023,12 +1147,63 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
+
+
+
+        /* --------------------------------------------------------------------------------------------------------------- */
+        private bool VerifMoneziCheltuieli()
+        {
+            bool ok = true;
+            if (cmbMoneda1.SelectedIndex == -1 && chkDiurna.Checked)
+            {
+                // Setam
+                ok = false;
+
+                // Afisam
+                MessageBox.Show("               Nu ați selectat nici o monedă (-- Diurnă --) ! \n                       Vă rugăm selectați o valoare.");
+            }
+            if (cmbMoneda2.SelectedIndex == -1 && chkCazare.Checked)
+            {
+                // Setam
+                ok = false;
+
+                // Afisam
+                MessageBox.Show("               Nu ați selectat nici o monedă (-- Cazare --) ! \n                       Vă rugăm selectați o valoare.");
+            }
+            if (cmbMoneda3.SelectedIndex == -1 && chkTaxaDeParticipare.Checked)
+            {
+                // Setam
+                ok = false;
+
+                // Afisam
+                MessageBox.Show("               Nu ați selectat nici o monedă (-- Taxă de participare --) ! \n                             Vă rugăm selectați o valoare.");
+            }
+            if (cmbMoneda4.SelectedIndex == -1 && chkTaxaDeViza.Checked)
+            {
+                // Setam
+                ok = false;
+
+                // Afisam
+                MessageBox.Show("               Nu ați selectat nici o monedă (-- Taxă de Viză --) ! \n                           Vă rugăm selectați o valoare.");
+            }
+            return ok;
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
         bool SuccesSalvareFormular = false;
         /* -------------- Actiunile ce iau loc la salvare ---------------------------------------------------------------- */
         private void SalvareFormular()
         {
             // Daca casetele urmatoare nu sunt goale
-            if (txtNrUAICVechi.Text != string.Empty && cmbGradDidactic.SelectedIndex != -1 && cmbFacultatea.SelectedIndex != -1 && cmbMoneda1.SelectedIndex != -1 && cmbMoneda2.SelectedIndex != -1 && cmbMoneda3.SelectedIndex != -1 && cmbMoneda4.SelectedIndex != -1 && cmbRectorProrector.SelectedIndex != -1)
+            if (cmbGradDidactic.SelectedIndex != -1
+                && cmbFacultatea.SelectedIndex != -1
+                && cmbTara.SelectedIndex != -1
+                && cmbScop.SelectedIndex != -1
+                && VerifMoneziCheltuieli())
             {
                 // Lucreaza asta
                 txtTotalDePlata.Text = CalculTotal();
@@ -1198,7 +1373,8 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             paragraf6.AddText("În temeiul Ordinului M.Ed.C. nr. 4975/30.04.1992 și al Hotărârii Biroului Executiv al Consiliului de Administrație din data de ");
             paragraf6.AddFormattedText(dpDataODDVeche.Value.ToString().Substring(0, DateTime.Today.ToString().IndexOf("00:")), TextFormat.Bold);
             paragraf6.AddText(" și ");
-            paragraf6.AddFormattedText(dpDataODDNoua.Value.ToString().Substring(0, DateTime.Today.ToString().IndexOf("00:")) + ".", TextFormat.Bold);
+            paragraf6.AddFormattedText(dpDataODDNoua.Value.ToString().Substring(0, DateTime.Today.ToString().IndexOf("00:")), TextFormat.Bold);
+            paragraf6.AddText(".");
 
             // Paragraf 7
             Paragraph paragraf7 = section1.AddParagraph();

@@ -2152,7 +2152,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
         /* --------------------------------------------------------------------------------------------------------------- */
-        private void MetodaAccesareCerere()
+        private void PopulareFormular()
         {
             // Variabila locala
             bool SuccesCitire = false;
@@ -2187,8 +2187,8 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                                 cmbTara.SelectedItem = cititor_populareDinBD.GetString(6);
                                 txtLocalitatea.Text = cititor_populareDinBD.GetString(7);
                                 cmbScop.SelectedItem = cititor_populareDinBD.GetString(8);
-                                //cmbConferinte.SelectedItem = cititor_populareDinBD.GetString(9);
-                                //cmbAltele.SelectedItem = cititor_populareDinBD.GetString(10);
+                                cmbConferinte.SelectedItem = cititor_populareDinBD.IsDBNull(9) ? cmbConferinte.SelectedItem = string.Empty : cmbConferinte.SelectedItem = cititor_populareDinBD.GetString(9);
+                                cmbAltele.SelectedItem = cititor_populareDinBD.IsDBNull(10) ? cmbAltele.SelectedItem = string.Empty : cmbAltele.SelectedItem = cititor_populareDinBD.GetString(10);
                                 txtInstitutia.Text = cititor_populareDinBD.GetString(11);
                                 dpDataInceput.Value = cititor_populareDinBD.GetDateTime(12);
                                 dpDataSfarsit.Value = cititor_populareDinBD.GetDateTime(13);
@@ -2199,17 +2199,17 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                                 chkDiurna.Checked = cititor_populareDinBD.GetBoolean(18);
                                 txtNrZileDiurna.Text = cititor_populareDinBD.GetString(19);
                                 txtDiurna.Text = cititor_populareDinBD.GetString(20);
-                                cmbMoneda1.SelectedItem = cititor_populareDinBD.GetString(21);
+                                cmbMoneda1.SelectedItem = cititor_populareDinBD.IsDBNull(21) ? cmbMoneda1.SelectedItem = string.Empty : cmbMoneda1.SelectedItem = cititor_populareDinBD.GetString(21);
                                 chkCazare.Checked = cititor_populareDinBD.GetBoolean(22);
                                 txtNrZileCazare.Text = cititor_populareDinBD.GetString(23);
                                 txtCazare.Text = cititor_populareDinBD.GetString(24);
-                                cmbMoneda2.SelectedItem = cititor_populareDinBD.GetString(25);
+                                cmbMoneda2.SelectedItem = cititor_populareDinBD.IsDBNull(25) ? cmbMoneda2.SelectedItem = string.Empty : cmbMoneda2.SelectedItem = cititor_populareDinBD.GetString(25);
                                 chkTaxaDeParticipare.Checked = cititor_populareDinBD.GetBoolean(26);
                                 txtTaxaDeParticipare.Text = cititor_populareDinBD.GetString(27);
-                                cmbMoneda3.SelectedItem = cititor_populareDinBD.GetString(28);
+                                cmbMoneda3.SelectedItem = cititor_populareDinBD.IsDBNull(28) ? cmbMoneda3.SelectedItem = string.Empty : cmbMoneda3.SelectedItem = cititor_populareDinBD.GetString(28);
                                 chkTaxaDeViza.Checked = cititor_populareDinBD.GetBoolean(29);
                                 txtTaxaDeViza.Text = cititor_populareDinBD.GetString(30);
-                                cmbMoneda4.SelectedItem = cititor_populareDinBD.GetString(31);
+                                cmbMoneda4.SelectedItem = cititor_populareDinBD.IsDBNull(31) ? cmbMoneda4.SelectedItem = string.Empty : cmbMoneda4.SelectedItem = cititor_populareDinBD.GetString(31);
                                 txtTotalDePlata.Text = cititor_populareDinBD.GetString(32);
                                 txtAmbasada.Text = cititor_populareDinBD.GetString(33);
                                 rdoPerNedeterminata.Checked = cititor_populareDinBD.GetBoolean(34);
@@ -2274,7 +2274,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         /* --------------------------------------------------------------------------------------------------------------- */
         private void btnAcceseaza_Click(object sender, EventArgs e)
         {
-            MetodaAccesareCerere();
+            PopulareFormular();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
