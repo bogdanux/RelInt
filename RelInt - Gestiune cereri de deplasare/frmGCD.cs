@@ -472,6 +472,9 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 }
                 else
                 {
+                    // Activam
+                    btnGCDIntroducereFormular.Enabled = true;
+
                     // Dezactivam
                     btnGCDCautareCerere.Enabled = false;
                     btnGCDModificareFormular.Enabled = false;
