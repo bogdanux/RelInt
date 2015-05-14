@@ -41,11 +41,9 @@
             this.panouIdentificareCerere = new System.Windows.Forms.Panel();
             this.lblIdentficareFormular = new System.Windows.Forms.Label();
             this.panouContinut = new System.Windows.Forms.Panel();
+            this.txtPrecizariScop = new System.Windows.Forms.TextBox();
             this.cmbTara = new System.Windows.Forms.ComboBox();
-            this.cmbAltele = new System.Windows.Forms.ComboBox();
-            this.cmbConferinte = new System.Windows.Forms.ComboBox();
-            this.lblAltele = new System.Windows.Forms.Label();
-            this.lblConferinte = new System.Windows.Forms.Label();
+            this.lblPrecizariScop = new System.Windows.Forms.Label();
             this.cmbScop = new System.Windows.Forms.ComboBox();
             this.txtPlatitorTransport = new System.Windows.Forms.TextBox();
             this.lblPlatitorTransport = new System.Windows.Forms.Label();
@@ -288,11 +286,9 @@
             // panouContinut
             // 
             this.panouContinut.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panouContinut.Controls.Add(this.txtPrecizariScop);
             this.panouContinut.Controls.Add(this.cmbTara);
-            this.panouContinut.Controls.Add(this.cmbAltele);
-            this.panouContinut.Controls.Add(this.cmbConferinte);
-            this.panouContinut.Controls.Add(this.lblAltele);
-            this.panouContinut.Controls.Add(this.lblConferinte);
+            this.panouContinut.Controls.Add(this.lblPrecizariScop);
             this.panouContinut.Controls.Add(this.cmbScop);
             this.panouContinut.Controls.Add(this.txtPlatitorTransport);
             this.panouContinut.Controls.Add(this.lblPlatitorTransport);
@@ -322,8 +318,17 @@
             this.panouContinut.Controls.Add(this.lblDescriere);
             this.panouContinut.Location = new System.Drawing.Point(13, 104);
             this.panouContinut.Name = "panouContinut";
-            this.panouContinut.Size = new System.Drawing.Size(642, 332);
+            this.panouContinut.Size = new System.Drawing.Size(642, 304);
             this.panouContinut.TabIndex = 6;
+            // 
+            // txtPrecizariScop
+            // 
+            this.txtPrecizariScop.Enabled = false;
+            this.txtPrecizariScop.Location = new System.Drawing.Point(164, 150);
+            this.txtPrecizariScop.Name = "txtPrecizariScop";
+            this.txtPrecizariScop.Size = new System.Drawing.Size(463, 20);
+            this.txtPrecizariScop.TabIndex = 34;
+            this.txtPrecizariScop.TextChanged += new System.EventHandler(this.txtPrecizariScop_TextChanged);
             // 
             // cmbTara
             // 
@@ -335,45 +340,14 @@
             this.cmbTara.TabIndex = 33;
             this.cmbTara.SelectedIndexChanged += new System.EventHandler(this.cmbTara_SelectedIndexChanged);
             // 
-            // cmbAltele
+            // lblPrecizariScop
             // 
-            this.cmbAltele.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbAltele.Enabled = false;
-            this.cmbAltele.FormattingEnabled = true;
-            this.cmbAltele.Location = new System.Drawing.Point(164, 177);
-            this.cmbAltele.Name = "cmbAltele";
-            this.cmbAltele.Size = new System.Drawing.Size(463, 21);
-            this.cmbAltele.TabIndex = 32;
-            this.cmbAltele.SelectedIndexChanged += new System.EventHandler(this.cmbAltele_SelectedIndexChanged);
-            // 
-            // cmbConferinte
-            // 
-            this.cmbConferinte.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbConferinte.Enabled = false;
-            this.cmbConferinte.FormattingEnabled = true;
-            this.cmbConferinte.Location = new System.Drawing.Point(164, 150);
-            this.cmbConferinte.Name = "cmbConferinte";
-            this.cmbConferinte.Size = new System.Drawing.Size(463, 21);
-            this.cmbConferinte.TabIndex = 31;
-            this.cmbConferinte.SelectedIndexChanged += new System.EventHandler(this.cmbConferinte_SelectedIndexChanged);
-            // 
-            // lblAltele
-            // 
-            this.lblAltele.AutoSize = true;
-            this.lblAltele.Location = new System.Drawing.Point(126, 181);
-            this.lblAltele.Name = "lblAltele";
-            this.lblAltele.Size = new System.Drawing.Size(33, 13);
-            this.lblAltele.TabIndex = 30;
-            this.lblAltele.Text = "Altele";
-            // 
-            // lblConferinte
-            // 
-            this.lblConferinte.AutoSize = true;
-            this.lblConferinte.Location = new System.Drawing.Point(104, 153);
-            this.lblConferinte.Name = "lblConferinte";
-            this.lblConferinte.Size = new System.Drawing.Size(55, 13);
-            this.lblConferinte.TabIndex = 29;
-            this.lblConferinte.Text = "Conferința";
+            this.lblPrecizariScop.AutoSize = true;
+            this.lblPrecizariScop.Location = new System.Drawing.Point(61, 153);
+            this.lblPrecizariScop.Name = "lblPrecizariScop";
+            this.lblPrecizariScop.Size = new System.Drawing.Size(98, 13);
+            this.lblPrecizariScop.TabIndex = 29;
+            this.lblPrecizariScop.Text = "alte precizări (scop)";
             // 
             // cmbScop
             // 
@@ -388,7 +362,7 @@
             // txtPlatitorTransport
             // 
             this.txtPlatitorTransport.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPlatitorTransport.Location = new System.Drawing.Point(176, 302);
+            this.txtPlatitorTransport.Location = new System.Drawing.Point(176, 274);
             this.txtPlatitorTransport.Name = "txtPlatitorTransport";
             this.txtPlatitorTransport.Size = new System.Drawing.Size(279, 20);
             this.txtPlatitorTransport.TabIndex = 27;
@@ -397,7 +371,7 @@
             // lblPlatitorTransport
             // 
             this.lblPlatitorTransport.AutoSize = true;
-            this.lblPlatitorTransport.Location = new System.Drawing.Point(88, 305);
+            this.lblPlatitorTransport.Location = new System.Drawing.Point(88, 277);
             this.lblPlatitorTransport.Name = "lblPlatitorTransport";
             this.lblPlatitorTransport.Size = new System.Drawing.Size(83, 13);
             this.lblPlatitorTransport.TabIndex = 26;
@@ -406,7 +380,7 @@
             // txtMijTrans
             // 
             this.txtMijTrans.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMijTrans.Location = new System.Drawing.Point(176, 276);
+            this.txtMijTrans.Location = new System.Drawing.Point(176, 248);
             this.txtMijTrans.Name = "txtMijTrans";
             this.txtMijTrans.Size = new System.Drawing.Size(279, 20);
             this.txtMijTrans.TabIndex = 25;
@@ -415,7 +389,7 @@
             // lblMijTrans
             // 
             this.lblMijTrans.AutoSize = true;
-            this.lblMijTrans.Location = new System.Drawing.Point(36, 279);
+            this.lblMijTrans.Location = new System.Drawing.Point(36, 251);
             this.lblMijTrans.Name = "lblMijTrans";
             this.lblMijTrans.Size = new System.Drawing.Size(134, 13);
             this.lblMijTrans.TabIndex = 24;
@@ -424,7 +398,7 @@
             // txtRuta
             // 
             this.txtRuta.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRuta.Location = new System.Drawing.Point(176, 250);
+            this.txtRuta.Location = new System.Drawing.Point(176, 222);
             this.txtRuta.Name = "txtRuta";
             this.txtRuta.Size = new System.Drawing.Size(279, 20);
             this.txtRuta.TabIndex = 23;
@@ -433,7 +407,7 @@
             // lblRuta
             // 
             this.lblRuta.AutoSize = true;
-            this.lblRuta.Location = new System.Drawing.Point(14, 253);
+            this.lblRuta.Location = new System.Drawing.Point(14, 225);
             this.lblRuta.Name = "lblRuta";
             this.lblRuta.Size = new System.Drawing.Size(156, 13);
             this.lblRuta.TabIndex = 22;
@@ -442,7 +416,7 @@
             // lblCheltuieliDeplasare
             // 
             this.lblCheltuieliDeplasare.AutoSize = true;
-            this.lblCheltuieliDeplasare.Location = new System.Drawing.Point(14, 232);
+            this.lblCheltuieliDeplasare.Location = new System.Drawing.Point(14, 204);
             this.lblCheltuieliDeplasare.Name = "lblCheltuieliDeplasare";
             this.lblCheltuieliDeplasare.Size = new System.Drawing.Size(366, 13);
             this.lblCheltuieliDeplasare.TabIndex = 21;
@@ -451,7 +425,7 @@
             // dpDataSfarsit
             // 
             this.dpDataSfarsit.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpDataSfarsit.Location = new System.Drawing.Point(536, 204);
+            this.dpDataSfarsit.Location = new System.Drawing.Point(536, 176);
             this.dpDataSfarsit.MaxDate = new System.DateTime(2040, 12, 31, 0, 0, 0, 0);
             this.dpDataSfarsit.MinDate = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
             this.dpDataSfarsit.Name = "dpDataSfarsit";
@@ -461,7 +435,7 @@
             // lblDataSfarsit
             // 
             this.lblDataSfarsit.AutoSize = true;
-            this.lblDataSfarsit.Location = new System.Drawing.Point(486, 207);
+            this.lblDataSfarsit.Location = new System.Drawing.Point(486, 179);
             this.lblDataSfarsit.Name = "lblDataSfarsit";
             this.lblDataSfarsit.Size = new System.Drawing.Size(44, 13);
             this.lblDataSfarsit.TabIndex = 19;
@@ -470,7 +444,7 @@
             // dpDataInceput
             // 
             this.dpDataInceput.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpDataInceput.Location = new System.Drawing.Point(389, 204);
+            this.dpDataInceput.Location = new System.Drawing.Point(389, 176);
             this.dpDataInceput.MaxDate = new System.DateTime(2040, 12, 31, 0, 0, 0, 0);
             this.dpDataInceput.MinDate = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
             this.dpDataInceput.Name = "dpDataInceput";
@@ -480,7 +454,7 @@
             // lblDataInceput
             // 
             this.lblDataInceput.AutoSize = true;
-            this.lblDataInceput.Location = new System.Drawing.Point(324, 207);
+            this.lblDataInceput.Location = new System.Drawing.Point(324, 179);
             this.lblDataInceput.Name = "lblDataInceput";
             this.lblDataInceput.Size = new System.Drawing.Size(59, 13);
             this.lblDataInceput.TabIndex = 17;
@@ -489,7 +463,7 @@
             // txtInstitutia
             // 
             this.txtInstitutia.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtInstitutia.Location = new System.Drawing.Point(77, 204);
+            this.txtInstitutia.Location = new System.Drawing.Point(77, 176);
             this.txtInstitutia.Name = "txtInstitutia";
             this.txtInstitutia.Size = new System.Drawing.Size(241, 20);
             this.txtInstitutia.TabIndex = 16;
@@ -498,7 +472,7 @@
             // lblInstitutia
             // 
             this.lblInstitutia.AutoSize = true;
-            this.lblInstitutia.Location = new System.Drawing.Point(14, 207);
+            this.lblInstitutia.Location = new System.Drawing.Point(14, 179);
             this.lblInstitutia.Name = "lblInstitutia";
             this.lblInstitutia.Size = new System.Drawing.Size(56, 13);
             this.lblInstitutia.TabIndex = 15;
@@ -659,7 +633,7 @@
             this.panouCheltuieliPlecare.Controls.Add(this.txtPlatitorIntretinere);
             this.panouCheltuieliPlecare.Controls.Add(this.lblCheltuielileVorFi);
             this.panouCheltuieliPlecare.Controls.Add(this.lblCheltuieliPlecare);
-            this.panouCheltuieliPlecare.Location = new System.Drawing.Point(13, 442);
+            this.panouCheltuieliPlecare.Location = new System.Drawing.Point(13, 414);
             this.panouCheltuieliPlecare.Name = "panouCheltuieliPlecare";
             this.panouCheltuieliPlecare.Size = new System.Drawing.Size(642, 196);
             this.panouCheltuieliPlecare.TabIndex = 7;
@@ -992,7 +966,7 @@
             this.panouMentiuniLegale.Controls.Add(this.txtAmbasada);
             this.panouMentiuniLegale.Controls.Add(this.lblAdresaAmbasada);
             this.panouMentiuniLegale.Controls.Add(this.lblAdministrativ);
-            this.panouMentiuniLegale.Location = new System.Drawing.Point(13, 644);
+            this.panouMentiuniLegale.Location = new System.Drawing.Point(13, 616);
             this.panouMentiuniLegale.Margin = new System.Windows.Forms.Padding(3, 3, 3, 15);
             this.panouMentiuniLegale.Name = "panouMentiuniLegale";
             this.panouMentiuniLegale.Size = new System.Drawing.Size(642, 287);
@@ -1240,7 +1214,7 @@
             // panouFinal
             // 
             this.panouFinal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panouFinal.Location = new System.Drawing.Point(13, 1559);
+            this.panouFinal.Location = new System.Drawing.Point(13, 1535);
             this.panouFinal.Name = "panouFinal";
             this.panouFinal.Size = new System.Drawing.Size(642, 10);
             this.panouFinal.TabIndex = 9;
@@ -1273,7 +1247,7 @@
             this.panouORCDP.Controls.Add(this.dgvOreRecuperate);
             this.panouORCDP.Controls.Add(this.chkORCDP);
             this.panouORCDP.Controls.Add(this.lblOreRecuperate);
-            this.panouORCDP.Location = new System.Drawing.Point(13, 938);
+            this.panouORCDP.Location = new System.Drawing.Point(13, 910);
             this.panouORCDP.Name = "panouORCDP";
             this.panouORCDP.Size = new System.Drawing.Size(642, 608);
             this.panouORCDP.TabIndex = 10;
@@ -1739,16 +1713,14 @@
         private System.Windows.Forms.Label lblEnuntObligPlata2;
         private System.Windows.Forms.Label lblEnuntObligPlata1;
         private System.Windows.Forms.ComboBox cmbScop;
-        private System.Windows.Forms.Label lblConferinte;
-        private System.Windows.Forms.Label lblAltele;
-        private System.Windows.Forms.ComboBox cmbAltele;
-        private System.Windows.Forms.ComboBox cmbConferinte;
+        private System.Windows.Forms.Label lblPrecizariScop;
         private System.Windows.Forms.ComboBox cmbTara;
         private System.Windows.Forms.CheckBox chkDiurna;
         private System.Windows.Forms.CheckBox chkCazare;
         private System.Windows.Forms.CheckBox chkTaxaDeViza;
         private System.Windows.Forms.CheckBox chkTaxaDeParticipare;
         private System.Windows.Forms.Label lblIntroduceri;
+        private System.Windows.Forms.TextBox txtPrecizariScop;
 
     }
 }

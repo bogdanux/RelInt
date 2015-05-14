@@ -265,18 +265,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     .UmplereScop();
             }
 
-            if (System.Windows.Forms.Application.OpenForms["frmCerereInregistrare"] != null)
-            {
-                (System.Windows.Forms.Application.OpenForms["frmCerereInregistrare"] as frmCerereInregistrare)
-                    .UmplereScopConferinte();
-            }
-
-            if (System.Windows.Forms.Application.OpenForms["frmCerereInregistrare"] != null)
-            {
-                (System.Windows.Forms.Application.OpenForms["frmCerereInregistrare"] as frmCerereInregistrare)
-                    .UmplereScopAltele();
-            }
-
             // Efectuam (pentru frmCerereModificare)
             if (System.Windows.Forms.Application.OpenForms["frmCerereModificare"] != null)
             {
@@ -306,18 +294,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 (System.Windows.Forms.Application.OpenForms["frmCerereModificare"] as frmCerereModificare).UmplereScop();
             }
 
-            if (System.Windows.Forms.Application.OpenForms["frmCerereModificare"] != null)
-            {
-                (System.Windows.Forms.Application.OpenForms["frmCerereModificare"] as frmCerereModificare)
-                    .UmplereScopConferinte();
-            }
-
-            if (System.Windows.Forms.Application.OpenForms["frmCerereModificare"] != null)
-            {
-                (System.Windows.Forms.Application.OpenForms["frmCerereModificare"] as frmCerereModificare)
-                    .UmplereScopAltele();
-            }
-
             // Efectuam (pentru frmODDIntroducere)
             if (System.Windows.Forms.Application.OpenForms["frmODDIntroducere"] != null)
             {
@@ -345,18 +321,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 (System.Windows.Forms.Application.OpenForms["frmODDIntroducere"] as frmODDIntroducere).UmplereScop();
             }
 
-            if (System.Windows.Forms.Application.OpenForms["frmODDIntroducere"] != null)
-            {
-                (System.Windows.Forms.Application.OpenForms["frmODDIntroducere"] as frmODDIntroducere)
-                    .UmplereScopConferinte();
-            }
-
-            if (System.Windows.Forms.Application.OpenForms["frmODDIntroducere"] != null)
-            {
-                (System.Windows.Forms.Application.OpenForms["frmODDIntroducere"] as frmODDIntroducere).UmplereScopAltele
-                    ();
-            }
-
             // Efectuam (pentru frmODDModificare)
             if (System.Windows.Forms.Application.OpenForms["frmODDModificare"] != null)
             {
@@ -382,17 +346,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             if (System.Windows.Forms.Application.OpenForms["frmODDModificare"] != null)
             {
                 (System.Windows.Forms.Application.OpenForms["frmODDModificare"] as frmODDModificare).UmplereScop();
-            }
-
-            if (System.Windows.Forms.Application.OpenForms["frmODDModificare"] != null)
-            {
-                (System.Windows.Forms.Application.OpenForms["frmODDModificare"] as frmODDModificare)
-                    .UmplereScopConferinte();
-            }
-
-            if (System.Windows.Forms.Application.OpenForms["frmODDModificare"] != null)
-            {
-                (System.Windows.Forms.Application.OpenForms["frmODDModificare"] as frmODDModificare).UmplereScopAltele();
             }
         }
 

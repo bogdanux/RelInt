@@ -1355,26 +1355,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             {
                 (System.Windows.Forms.Application.OpenForms["frmGCD"] as frmGCD).AprobareVerifGDFMTSCA();
             }
-
-            if (System.Windows.Forms.Application.OpenForms["frmCerereInregistrare"] != null)
-            {
-                (System.Windows.Forms.Application.OpenForms["frmCerereInregistrare"] as frmCerereInregistrare).UmplereScopConferinte();
-            }
-
-            if (System.Windows.Forms.Application.OpenForms["frmCerereModificare"] != null)
-            {
-                (System.Windows.Forms.Application.OpenForms["frmCerereModificare"] as frmCerereModificare).UmplereScopConferinte();
-            }
-
-            if (System.Windows.Forms.Application.OpenForms["frmODDIntroducere"] != null)
-            {
-                (System.Windows.Forms.Application.OpenForms["frmODDIntroducere"] as frmODDIntroducere).UmplereScopConferinte();
-            }
-
-            if (System.Windows.Forms.Application.OpenForms["frmODDModificare"] != null)
-            {
-                (System.Windows.Forms.Application.OpenForms["frmODDModificare"] as frmODDModificare).UmplereScopConferinte();
-            }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
         /* ----------------- Eveniment de tip click pentru btnIntroducerSC ----------------------------------------------- */
@@ -1592,26 +1572,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             if (System.Windows.Forms.Application.OpenForms["frmGCD"] != null)
             {
                 (System.Windows.Forms.Application.OpenForms["frmGCD"] as frmGCD).AprobareVerifGDFMTSCA();
-            }
-
-            if (System.Windows.Forms.Application.OpenForms["frmCerereInregistrare"] != null)
-            {
-                (System.Windows.Forms.Application.OpenForms["frmCerereInregistrare"] as frmCerereInregistrare).UmplereScopAltele();
-            }
-
-            if (System.Windows.Forms.Application.OpenForms["frmCerereModificare"] != null)
-            {
-                (System.Windows.Forms.Application.OpenForms["frmCerereModificare"] as frmCerereModificare).UmplereScopAltele();
-            }
-
-            if (System.Windows.Forms.Application.OpenForms["frmODDIntroducere"] != null)
-            {
-                (System.Windows.Forms.Application.OpenForms["frmODDIntroducere"] as frmODDIntroducere).UmplereScopAltele();
-            }
-
-            if (System.Windows.Forms.Application.OpenForms["frmODDModificare"] != null)
-            {
-                (System.Windows.Forms.Application.OpenForms["frmODDModificare"] as frmODDModificare).UmplereScopAltele();
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */

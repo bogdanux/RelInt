@@ -19,8 +19,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             UmplereMonezi();
             UmplereTari();
             UmplereScop();
-            UmplereScopConferinte();
-            UmplereScopAltele();
             /* --------------------------------------------------------------------------------------------------------------- */
             
             // Pregatim formularul
@@ -97,8 +95,9 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         bool cmbFacultateaSchimbat = false;
         bool txtDepartamentSchimbat = false;
         bool txtLocalitateaSchimbat = false;
-        bool txtTaraSchimbat = false;
-        bool txtScopSchimbat = false;
+        bool cmbTaraSchimbat = false;
+        bool cmbScopSchimbat = false;
+        bool txtPrecizariScopSchimbat = false;
         bool txtInstitutiaSchimbat = false;
         bool txtRutaSchimbat = false;
         bool txtMijTransSchimbat = false;
@@ -312,76 +311,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-        /* ---------- Metoda de umplere a cmbScop cu date din RelIntDB --------------------------------------------------- */
-        public void UmplereScopConferinte()
-        {
-            using (OdbcConnection conexiune_cmbScopConferinte = new OdbcConnection(sircon_RelIntDB))
-            {           // Comanda
-                using (OdbcCommand comanda_cmbScopConferinte = new OdbcCommand())
-                {
-                    comanda_cmbScopConferinte.Connection = conexiune_cmbScopConferinte;
-                    comanda_cmbScopConferinte.CommandType = CommandType.Text;
-                    comanda_cmbScopConferinte.CommandText = "SELECT * FROM scopuriconferinte ORDER BY scopuriconferintesc ASC";
-
-                    OdbcDataReader cititor_cmbScopConferinte;
-
-                    try
-                    {
-                        conexiune_cmbScopConferinte.Open();
-                        cititor_cmbScopConferinte = comanda_cmbScopConferinte.ExecuteReader();
-                        while (cititor_cmbScopConferinte.Read())
-                        {
-                            string str_cmbScopConferinte = cititor_cmbScopConferinte.GetString(0);
-                            cmbScop.Items.Add(str_cmbScopConferinte);
-                        }
-                    }
-                    catch (Exception excmbScopConferinte)
-                    {
-                        MessageBox.Show(excmbScopConferinte.Message);
-                    } // Ne deconectam
-                    finally
-                    {
-                        conexiune_cmbScopConferinte.Close();
-                    }
-                }
-            }
-        }
-        /* --------------------------------------------------------------------------------------------------------------- */
-        /* ---------- Metoda de umplere a cmbScop cu date din RelIntDB --------------------------------------------------- */
-        public void UmplereScopAltele()
-        {
-            using (OdbcConnection conexiune_cmbScopAltele = new OdbcConnection(sircon_RelIntDB))
-            {           // Comanda
-                using (OdbcCommand comanda_cmbScopAltele = new OdbcCommand())
-                {
-                    comanda_cmbScopAltele.Connection = conexiune_cmbScopAltele;
-                    comanda_cmbScopAltele.CommandType = CommandType.Text;
-                    comanda_cmbScopAltele.CommandText = "SELECT * FROM scopurialtele ORDER BY scopurialtelesa ASC";
-
-                    OdbcDataReader cititor_cmbScopAltele;
-
-                    try
-                    {
-                        conexiune_cmbScopAltele.Open();
-                        cititor_cmbScopAltele = comanda_cmbScopAltele.ExecuteReader();
-                        while (cititor_cmbScopAltele.Read())
-                        {
-                            string str_cmbScopAltele = cititor_cmbScopAltele.GetString(0);
-                            cmbScop.Items.Add(str_cmbScopAltele);
-                        }
-                    }
-                    catch (Exception excmbScopAltele)
-                    {
-                        MessageBox.Show(excmbScopAltele.Message);
-                    } // Ne deconectam
-                    finally
-                    {
-                        conexiune_cmbScopAltele.Close();
-                    }
-                }
-            }
-        }
-        /* --------------------------------------------------------------------------------------------------------------- */
 
 
 
@@ -557,7 +486,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 {
                     comanda_inserareRelInt.Connection = conexiune_InserareCerereRelInt;
                     comanda_inserareRelInt.CommandType = CommandType.Text;
-                    comanda_inserareRelInt.CommandText = "UPDATE cereri SET datac = ?, subsemnatulc = ?, graddidacticc = ?, facultateac = ?, departamentulc = ?, tarac = ?, localitateac = ?, scopc = ?, scopconferintac = ?, scopaltelec = ?, institutiac = ?, datainceputc = ?, datasfarsitc = ?, rutac = ?, mijtransc = ?, platitortranspc = ?, platitorintretinerec = ?, bifadiurnac = ?, nrzilediurnac = ?, diurnac = ?, monedadiurnac = ?, bifacazarec = ?, nrzilecazarec = ?, cazarec = ?, monedacazarec = ?, bifataxadeparticiparec = ?, taxadeparticiparec = ?, monedataxadeparticiparec = ?, bifataxadevizaetcc = ?, taxadevizaetcc = ?, monedataxadevizaetcc = ?, totalc = ?, ambasadac = ?, nedeterminatac = ?, determinatac = ?, decanc = ?, vizacontac = ?, admsefbirouc = ?, sefdepartamentdirc = ?, vizaruc = ?, tiozc = ? WHERE nrinregistrarec = ?";
+                    comanda_inserareRelInt.CommandText = "UPDATE cereri SET datac = ?, subsemnatulc = ?, graddidacticc = ?, facultateac = ?, departamentulc = ?, tarac = ?, localitateac = ?, scopc = ?, precizariscopc = ?, institutiac = ?, datainceputc = ?, datasfarsitc = ?, rutac = ?, mijtransc = ?, platitortranspc = ?, platitorintretinerec = ?, bifadiurnac = ?, nrzilediurnac = ?, diurnac = ?, monedadiurnac = ?, bifacazarec = ?, nrzilecazarec = ?, cazarec = ?, monedacazarec = ?, bifataxadeparticiparec = ?, taxadeparticiparec = ?, monedataxadeparticiparec = ?, bifataxadevizaetcc = ?, taxadevizaetcc = ?, monedataxadevizaetcc = ?, totalc = ?, ambasadac = ?, nedeterminatac = ?, determinatac = ?, decanc = ?, vizacontac = ?, admsefbirouc = ?, sefdepartamentdirc = ?, vizaruc = ?, tiozc = ? WHERE nrinregistrarec = ?";
                     comanda_inserareRelInt.Parameters.AddWithValue("@datac", OdbcType.DateTime).Value = dpDataFormular.Value;
                     comanda_inserareRelInt.Parameters.AddWithValue("@subsemnatulc", OdbcType.NVarChar).Value = txtSubsemnatul.Text;
                     comanda_inserareRelInt.Parameters.AddWithValue("@graddidacticc", OdbcType.NVarChar).Value = cmbGradDidactic.SelectedItem;
@@ -566,8 +495,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     comanda_inserareRelInt.Parameters.AddWithValue("@tarac", OdbcType.NVarChar).Value = cmbTara.SelectedItem;
                     comanda_inserareRelInt.Parameters.AddWithValue("@localitateac", OdbcType.NVarChar).Value = txtLocalitatea.Text;
                     comanda_inserareRelInt.Parameters.AddWithValue("@scopc", OdbcType.NVarChar).Value = cmbScop.SelectedItem;
-                    comanda_inserareRelInt.Parameters.AddWithValue("@scopconferintac", OdbcType.NVarChar).Value = cmbConferinte.SelectedItem;
-                    comanda_inserareRelInt.Parameters.AddWithValue("@scopaltelec", OdbcType.NVarChar).Value = cmbAltele.SelectedItem;
+                    comanda_inserareRelInt.Parameters.AddWithValue("@precizariscopc", OdbcType.NVarChar).Value = txtPrecizariScop.Text;
                     comanda_inserareRelInt.Parameters.AddWithValue("@institutiac", OdbcType.NVarChar).Value = txtInstitutia.Text;
                     comanda_inserareRelInt.Parameters.AddWithValue("@datainceputc", OdbcType.DateTime).Value = dpDataInceput.Value;
                     comanda_inserareRelInt.Parameters.AddWithValue("@datasfarsitc", OdbcType.DateTime).Value = dpDataSfarsit.Value;
@@ -665,42 +593,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         private void btnCISalvareFormular_Click(object sender, EventArgs e)
         {
             SalvareFormular();
-        }
-        /* --------------------------------------------------------------------------------------------------------------- */
-
-
-
-
-
-
-
-
-        /* ----------------------- Metoda MetodaNegareControale ---------------------------------------------------------- */
-        private void MetodaNegareControale()
-        {
-            // Variabile de negat (resetat)
-            txtSubsemnatulSchimbat = false;
-            cmbGradDidacticSchimbat = false;
-            cmbFacultateaSchimbat = false;
-            txtDepartamentSchimbat = false;
-            txtLocalitateaSchimbat = false;
-            txtTaraSchimbat = false;
-            txtScopSchimbat = false;
-            txtInstitutiaSchimbat = false;
-            txtRutaSchimbat = false;
-            txtMijTransSchimbat = false;
-            txtPlatitorTransportSchimbat = false;
-            txtPlatitorIntretinereSchimbat = false;
-            txtDiurnaSchimbat = false;
-            txtCazareSchimbat = false;
-            txtTaxaDeParticipareSchimbat = false;
-            txtTaxaDeVizaSchimbat = false;
-            txtAmbasadaSchimbat = false;
-            txtDecanSchimbat = false;
-            txtVizaContaSchimbat = false;
-            txtAdministratorSefSchimbat = false;
-            txtSefDepartamentSchimbat = false;
-            txtVizaRUSchimbat = false;
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
@@ -880,32 +772,31 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         private void CevaSchimbat()
         {
             // Daca vreuna din variabilele urmatoare este adevarata atunci
-            if (txtSubsemnatulSchimbat == true 
-                || cmbGradDidacticSchimbat == true 
-                || cmbFacultateaSchimbat == true 
-                || txtDepartamentSchimbat == true 
-                || txtLocalitateaSchimbat == true 
-                || txtTaraSchimbat == true 
-                || txtScopSchimbat == true 
-                || txtInstitutiaSchimbat == true 
-                || txtRutaSchimbat == true 
-                || txtMijTransSchimbat == true
-                || txtPlatitorTransportSchimbat == true 
-                || txtPlatitorIntretinereSchimbat == true 
-                || txtNrZileDiurnaSchimbat == true
-                || txtDiurnaSchimbat == true 
-                || txtNrZileCazareSchimbat == true
-                || txtCazareSchimbat == true 
-                || txtTaxaDeParticipareSchimbat == true 
-                || txtTaxaDeVizaSchimbat == true 
-                || txtAmbasadaSchimbat == true 
-                || rdoPerNedeterminataBifat == true
-                || rdoPerDeterminataBifat == true
-                || txtDecanSchimbat == true 
-                || txtVizaContaSchimbat == true 
-                || txtAdministratorSefSchimbat == true 
-                || txtSefDepartamentSchimbat == true 
-                || txtVizaRUSchimbat == true)
+            if (txtSubsemnatulSchimbat
+                || cmbGradDidacticSchimbat
+                || cmbFacultateaSchimbat
+                || txtDepartamentSchimbat
+                || cmbTaraSchimbat
+                || txtLocalitateaSchimbat
+                || cmbScopSchimbat
+                || txtPrecizariScopSchimbat
+                || txtInstitutiaSchimbat
+                || txtRutaSchimbat 
+                || txtMijTransSchimbat
+                || txtPlatitorTransportSchimbat
+                || txtPlatitorIntretinereSchimbat
+                || chkDiurnaSchimbat
+                || chkCazareSchimbat
+                || chkTaxaDeParticipareSchimbat
+                || chkTaxaDeVizaSchimbat
+                || txtAmbasadaSchimbat
+                || rdoPerNedeterminataBifat
+                || rdoPerDeterminataBifat
+                || txtDecanSchimbat
+                || txtVizaContaSchimbat
+                || txtAdministratorSefSchimbat
+                || txtSefDepartamentSchimbat
+                || txtVizaRUSchimbat)
 
                 {
                     DacaCevaSchimbat = true;
@@ -915,6 +806,37 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 else {
                 DacaCevaSchimbat = false;
                 }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* ----------------------- Metoda MetodaNegareControale ---------------------------------------------------------- */
+        private void MetodaNegareControale()
+        {
+            // Variabile de negat (resetat)
+            txtSubsemnatulSchimbat = false;
+            cmbGradDidacticSchimbat = false;
+            cmbFacultateaSchimbat = false;
+            txtDepartamentSchimbat = false;
+            cmbTaraSchimbat = false;
+            txtLocalitateaSchimbat = false;
+            cmbScopSchimbat = false;
+            txtPrecizariScopSchimbat = false;
+            txtInstitutiaSchimbat = false;
+            txtRutaSchimbat = false;
+            txtMijTransSchimbat = false;
+            txtPlatitorTransportSchimbat = false;
+            txtPlatitorIntretinereSchimbat = false;
+            chkDiurnaSchimbat = false;
+            chkCazareSchimbat = false;
+            chkTaxaDeParticipareSchimbat = false;
+            chkTaxaDeVizaSchimbat = false;
+            txtAmbasadaSchimbat = false;
+            rdoPerNedeterminataBifat = false;
+            rdoPerDeterminataBifat = false;
+            txtDecanSchimbat = false;
+            txtVizaContaSchimbat = false;
+            txtAdministratorSefSchimbat = false;
+            txtSefDepartamentSchimbat = false;
+            txtVizaRUSchimbat = false;
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
@@ -1646,16 +1568,16 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             txtLocalitateaSchimbat = true;
         }
 
-        private void txtTara_TextChanged(object sender, EventArgs e)
+        private void cmbTara_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Daca textul selectat se schimba atunci
-            txtTaraSchimbat = true;
+            cmbTaraSchimbat = true;
         }
 
-        private void txtScop_TextChanged(object sender, EventArgs e)
+        private void cmbScop_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Daca textul selectat se schimba atunci
-            txtScopSchimbat = true;
+            cmbScopSchimbat = true;
         }
 
         private void txtInstitutia_TextChanged(object sender, EventArgs e)
@@ -1738,86 +1660,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         /* --------------------------------------------------------------------------------------------------------------- */
 
 
-        
-
-
-
-
-
-
-
-        /* ---------- Intrebam utilizatorul daca vrea sa salveze formularul cand actionam butonul "X" -------------------- */
-        private void frmCerereInregistrare_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            // Executam verificarea starii de modificare a campurilor din formular
-            CevaSchimbat();
-
-            // Verificam daca a fost modificat vreun camp
-            if (DacaCevaSchimbat == true)
-            {
-                // Verificam daca formularul a fost salvat deja
-
-                        // Daca formularul nu a fost salvat
-                        if (IesireDinProgram == false)
-                        {
-
-                            // Intrebam utilizatorul daca doreste sa-l salveze
-                            DialogResult DialogSalvare = MessageBox.Show("Doriți sa salvați formularul curent?", "Salvare formular", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
-
-                                    // Daca DORESTE sa salveze
-                                    if (DialogSalvare == DialogResult.Yes)
-                                    {
-                                        // Salvam formularul
-                                        SalvareFormular();
-
-                                                // Daca S-A salvat
-                                                if (IesireDinProgram == true)
-                                                {
-                                                    // Apelam "MetodaNegareControale" si inchidem formularul
-                                                    MetodaNegareControale();
-                                                }
-
-                                                // Daca NU s-a salvat
-                                                else if (IesireDinProgram == false)
-                                                {
-                                                    // Anulam inchiderea
-                                                    e.Cancel = true;
-                                                }
-                                    }
-
-                                    // Daca NU DORESTE sa salveze
-                                    else if (DialogSalvare == DialogResult.No)
-                                    {
-                                        // Apelam "MetodaNegareControale" si inchidem formularul
-                                        MetodaNegareControale();
-                                    }
-
-                                    // Daca utilizatorul apasa cancel
-                                    else if (DialogSalvare == DialogResult.Cancel)
-                                    {
-                                        // Anulam inchiderea
-                                        e.Cancel = true;
-                                    }
-                        }
-
-                        // Daca formularul a fost salvat
-                        else if (IesireDinProgram == true)
-                        {
-                            // Apelam "MetodaNegareControale" si inchidem formularul
-                            MetodaNegareControale();
-                        }
-            }
-
-            // Daca nu a fost modificat nici un camp, inchidem formularul
-            else if (DacaCevaSchimbat == false)
-            {
-                // Apelam "MetodaNegareControale" si inchidem formularul
-                MetodaNegareControale();
-            }
-        }
-        /* --------------------------------------------------------------------------------------------------------------- */
-
-
 
 
 
@@ -1863,6 +1705,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
+        
         /* --------------------- variabile de lucru pentru eveniment txtNrZileDiurna ------------------------------------- */
         int vartxtNrZileDiurna;
         /* ------------------------- Eveniment pentru txtNrZileDiurna ---------------------------------------------------- */
@@ -1888,48 +1731,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             txtNrZileDiurnaSchimbat = true;
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-
-
-
-
-
-
-
-
-        /* --------------------- variabile de lucru pentru eveniment txtNrZileCazare ------------------------------------- */
-        int vartxtNrZileCazare;
-        /* ------------------------- Eveniment pentru txtNrZileCazare ---------------------------------------------------- */
-        private void txtNrZileCazare_TextChanged(object sender, EventArgs e)
-        {
-            // Verificam daca valoarea din "txtNrZileCazare" este de tip int si daca da, o inregistram in "vartxtNrZileCazare"
-            bool vartxtNrZileCazareEsteNumar = Int32.TryParse(txtNrZileCazare.Text, out vartxtNrZileCazare);
-
-            // Judecam si "sanctionam" la nevoie
-            switch (vartxtNrZileCazareEsteNumar || txtNrZileCazare.Text == string.Empty)
-            {
-                case false:
-                    // Golim casuta si afisam mesaj de eroare
-                    txtNrZileCazare.Clear();
-                    MessageBox.Show("        Vă rugăm introduceți doar numere în această casetă de text.");
-                    break;
-            }
-
-            // Calculam
-            MetodaCalculSubtotalCazare();
-
-            // Inregistram modificarea campului
-            txtNrZileCazareSchimbat = true;
-        }
-        /* --------------------------------------------------------------------------------------------------------------- */
-
-
-
-
-
-
-
-
-
         /* --------------------- variabile de lucru pentru eveniment txtDiurna ------------------------------------- */
         double vartxtDiurna;
         /* ------------------------- Eveniment pentru txtDiurna ---------------------------------------------------------- */
@@ -1967,13 +1768,31 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             txtDiurnaSchimbat = true;
         }
         /* --------------------------------------------------------------------------------------------------------------- */
+        /* --------------------- variabile de lucru pentru eveniment txtNrZileCazare ------------------------------------- */
+        int vartxtNrZileCazare;
+        /* ------------------------- Eveniment pentru txtNrZileCazare ---------------------------------------------------- */
+        private void txtNrZileCazare_TextChanged(object sender, EventArgs e)
+        {
+            // Verificam daca valoarea din "txtNrZileCazare" este de tip int si daca da, o inregistram in "vartxtNrZileCazare"
+            bool vartxtNrZileCazareEsteNumar = Int32.TryParse(txtNrZileCazare.Text, out vartxtNrZileCazare);
 
+            // Judecam si "sanctionam" la nevoie
+            switch (vartxtNrZileCazareEsteNumar || txtNrZileCazare.Text == string.Empty)
+            {
+                case false:
+                    // Golim casuta si afisam mesaj de eroare
+                    txtNrZileCazare.Clear();
+                    MessageBox.Show("        Vă rugăm introduceți doar numere în această casetă de text.");
+                    break;
+            }
 
+            // Calculam
+            MetodaCalculSubtotalCazare();
 
-
-
-
-
+            // Inregistram modificarea campului
+            txtNrZileCazareSchimbat = true;
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
         /* ------------------------- Variabile de lucru pentru txtCazare ------------------------------------------------- */
         double vartxtCazare;
         /* ------------------------- Eveniment pentru txtCazare ---------------------------------------------------------- */
@@ -2012,14 +1831,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             txtCazareSchimbat = true;
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-
-
-
-
-
-
-
-
         /* ------------------------ Variabile de lucru pentru txtTaxaDeParticipare --------------------------------------- */
         double vartxtTaxaDeParticipare;
         /* ------------------------- Eveniment pentru txtTaxaDeParticipare ----------------------------------------------- */
@@ -2055,15 +1866,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             txtTaxaDeParticipareSchimbat = true;
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-
-
-
-
-
-
-
-
-
         /* -------------------------- Variabile de lucru pentru txtTaxaDeViza -------------------------------------------- */
         double vartxtTaxaDeViza;
         /* ------------------------- Eveniment pentru txtTaxaDeViza ------------------------------------------------------ */
@@ -2104,9 +1906,12 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
-        
 
 
+        bool chkDiurnaSchimbat;
+        bool chkCazareSchimbat;
+        bool chkTaxaDeParticipareSchimbat;
+        bool chkTaxaDeVizaSchimbat;
         /* ----------------------- Eveniment chkDiurna ------------------------------------------------------------------- */
         private void chkDiurna_CheckedChanged(object sender, EventArgs e)
         {
@@ -2134,6 +1939,9 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 txtDiurna.Enabled = false;
                 cmbMoneda1.Enabled = false;
             }
+
+            // Setam
+            chkDiurnaSchimbat = true;
         }
         /* --------------------------------------------------------------------------------------------------------------- */
         /* ----------------------- Eveniment chkCazare ------------------------------------------------------------------- */
@@ -2163,6 +1971,9 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 txtCazare.Enabled = false;
                 cmbMoneda2.Enabled = false;
             }
+
+            // Setam
+            chkCazareSchimbat = true;
         }
         /* --------------------------------------------------------------------------------------------------------------- */
         /* ----------------------- Eveniment chkTaxaDeParticipare -------------------------------------------------------- */
@@ -2186,6 +1997,9 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 txtTaxaDeParticipare.Enabled = false;
                 cmbMoneda3.Enabled = false;
             }
+
+            // Setam
+            chkTaxaDeParticipareSchimbat = true;
         }
         /* --------------------------------------------------------------------------------------------------------------- */
         /* ----------------------- Eveniment chkTaxaDeViza --------------------------------------------------------------- */
@@ -2209,6 +2023,9 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 txtTaxaDeViza.Enabled = false;
                 cmbMoneda4.Enabled = false;
             }
+
+            // Setam
+            chkTaxaDeVizaSchimbat = true;
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
@@ -2255,40 +2072,41 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                                 cmbTara.SelectedItem = cititor_populareDinBD.GetString(6);
                                 txtLocalitatea.Text = cititor_populareDinBD.GetString(7);
                                 cmbScop.SelectedItem = cititor_populareDinBD.GetString(8);
-                                cmbConferinte.SelectedItem = cititor_populareDinBD.IsDBNull(9) ? cmbConferinte.SelectedItem = string.Empty : cmbConferinte.SelectedItem = cititor_populareDinBD.GetString(9);
-                                cmbAltele.SelectedItem = cititor_populareDinBD.IsDBNull(10) ? cmbAltele.SelectedItem = string.Empty : cmbAltele.SelectedItem = cititor_populareDinBD.GetString(10);
-                                txtInstitutia.Text = cititor_populareDinBD.GetString(11);
-                                dpDataInceput.Value = cititor_populareDinBD.GetDateTime(12);
-                                dpDataSfarsit.Value = cititor_populareDinBD.GetDateTime(13);
-                                txtRuta.Text = cititor_populareDinBD.GetString(14);
-                                txtMijTrans.Text = cititor_populareDinBD.GetString(15);
-                                txtPlatitorTransport.Text = cititor_populareDinBD.GetString(16);
-                                txtPlatitorIntretinere.Text = cititor_populareDinBD.GetString(17);
-                                chkDiurna.Checked = cititor_populareDinBD.GetBoolean(18);
-                                txtNrZileDiurna.Text = cititor_populareDinBD.GetString(19);
-                                txtDiurna.Text = cititor_populareDinBD.GetString(20);
-                                cmbMoneda1.SelectedItem = cititor_populareDinBD.IsDBNull(21) ? cmbMoneda1.SelectedItem = string.Empty : cmbMoneda1.SelectedItem = cititor_populareDinBD.GetString(21);
-                                chkCazare.Checked = cititor_populareDinBD.GetBoolean(22);
-                                txtNrZileCazare.Text = cititor_populareDinBD.GetString(23);
-                                txtCazare.Text = cititor_populareDinBD.GetString(24);
-                                cmbMoneda2.SelectedItem = cititor_populareDinBD.IsDBNull(25) ? cmbMoneda2.SelectedItem = string.Empty : cmbMoneda2.SelectedItem = cititor_populareDinBD.GetString(25);
-                                chkTaxaDeParticipare.Checked = cititor_populareDinBD.GetBoolean(26);
-                                txtTaxaDeParticipare.Text = cititor_populareDinBD.GetString(27);
-                                cmbMoneda3.SelectedItem = cititor_populareDinBD.IsDBNull(28) ? cmbMoneda3.SelectedItem = string.Empty : cmbMoneda3.SelectedItem = cititor_populareDinBD.GetString(28);
-                                chkTaxaDeViza.Checked = cititor_populareDinBD.GetBoolean(29);
-                                txtTaxaDeViza.Text = cititor_populareDinBD.GetString(30);
-                                cmbMoneda4.SelectedItem = cititor_populareDinBD.IsDBNull(31) ? cmbMoneda4.SelectedItem = string.Empty : cmbMoneda4.SelectedItem = cititor_populareDinBD.GetString(31);
-                                txtTotalDePlata.Text = cititor_populareDinBD.GetString(32);
-                                txtAmbasada.Text = cititor_populareDinBD.GetString(33);
-                                rdoPerNedeterminata.Checked = cititor_populareDinBD.GetBoolean(34);
-                                rdoPerDeterminata.Checked = cititor_populareDinBD.GetBoolean(35);
-                                txtDecan.Text = cititor_populareDinBD.GetString(36);
-                                txtVizaConta.Text = cititor_populareDinBD.GetString(37);
-                                txtAdministratorSef.Text = cititor_populareDinBD.GetString(38);
-                                txtSefDepartament.Text = cititor_populareDinBD.GetString(39);
-                                txtVizaRU.Text = cititor_populareDinBD.GetString(40);
+                                txtPrecizariScop.Text = cititor_populareDinBD.GetString(9);
+                                txtInstitutia.Text = cititor_populareDinBD.GetString(10);
+                                dpDataInceput.Value = cititor_populareDinBD.GetDateTime(11);
+                                dpDataSfarsit.Value = cititor_populareDinBD.GetDateTime(12);
+                                txtRuta.Text = cititor_populareDinBD.GetString(13);
+                                txtMijTrans.Text = cititor_populareDinBD.GetString(14);
+                                txtPlatitorTransport.Text = cititor_populareDinBD.GetString(15);
+                                txtPlatitorIntretinere.Text = cititor_populareDinBD.GetString(16);
+                                chkDiurna.Checked = cititor_populareDinBD.GetBoolean(17);
+                                txtNrZileDiurna.Text = cititor_populareDinBD.GetString(18);
+                                txtDiurna.Text = cititor_populareDinBD.GetString(19);
+                                cmbMoneda1.SelectedItem = cititor_populareDinBD.IsDBNull(20) ? cmbMoneda1.SelectedItem = string.Empty : cmbMoneda1.SelectedItem = cititor_populareDinBD.GetString(20);
+                                chkCazare.Checked = cititor_populareDinBD.GetBoolean(21);
+                                txtNrZileCazare.Text = cititor_populareDinBD.GetString(22);
+                                txtCazare.Text = cititor_populareDinBD.GetString(23);
+                                cmbMoneda2.SelectedItem = cititor_populareDinBD.IsDBNull(24) ? cmbMoneda2.SelectedItem = string.Empty : cmbMoneda2.SelectedItem = cititor_populareDinBD.GetString(24);
+                                chkTaxaDeParticipare.Checked = cititor_populareDinBD.GetBoolean(25);
+                                txtTaxaDeParticipare.Text = cititor_populareDinBD.GetString(26);
+                                cmbMoneda3.SelectedItem = cititor_populareDinBD.IsDBNull(27) ? cmbMoneda3.SelectedItem = string.Empty : cmbMoneda3.SelectedItem = cititor_populareDinBD.GetString(27);
+                                chkTaxaDeViza.Checked = cititor_populareDinBD.GetBoolean(28);
+                                txtTaxaDeViza.Text = cititor_populareDinBD.GetString(29);
+                                cmbMoneda4.SelectedItem = cititor_populareDinBD.IsDBNull(30) ? cmbMoneda4.SelectedItem = string.Empty : cmbMoneda4.SelectedItem = cititor_populareDinBD.GetString(30);
+                                txtTotalDePlata.Text = cititor_populareDinBD.GetString(31);
+                                txtAmbasada.Text = cititor_populareDinBD.GetString(32);
+                                rdoPerNedeterminata.Checked = cititor_populareDinBD.GetBoolean(33);
+                                rdoPerDeterminata.Checked = cititor_populareDinBD.GetBoolean(34);
+                                txtDecan.Text = cititor_populareDinBD.GetString(35);
+                                txtVizaConta.Text = cititor_populareDinBD.GetString(36);
+                                txtAdministratorSef.Text = cititor_populareDinBD.GetString(37);
+                                txtSefDepartament.Text = cititor_populareDinBD.GetString(38);
+                                txtVizaRU.Text = cititor_populareDinBD.GetString(39);
 
                                 SuccesCitire = true;
+
+                                MetodaNegareControale();
                             }
 
                             // Aranjam Formularul
@@ -2343,6 +2161,92 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         private void btnAcceseaza_Click(object sender, EventArgs e)
         {
             PopulareFormular();
+        }
+
+        
+        private void txtLocalitatea_TextChanged_1(object sender, EventArgs e)
+        {
+            txtPrecizariScopSchimbat = true;
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+
+
+        /* ---------- Intrebam utilizatorul daca vrea sa salveze formularul cand actionam butonul "X" -------------------- */
+        private void frmCerereModificare_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // Executam verificarea starii de modificare a campurilor din formular
+            CevaSchimbat();
+
+            // Verificam daca a fost modificat vreun camp
+            if (DacaCevaSchimbat == true)
+            {
+                // Verificam daca formularul a fost salvat deja
+
+                // Daca formularul nu a fost salvat
+                if (IesireDinProgram == false)
+                {
+
+                    // Intrebam utilizatorul daca doreste sa-l salveze
+                    DialogResult DialogSalvare = MessageBox.Show("Doriți sa salvați formularul curent?", "Salvare formular", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+
+                    // Daca DORESTE sa salveze
+                    if (DialogSalvare == DialogResult.Yes)
+                    {
+                        // Salvam formularul
+                        SalvareFormular();
+
+                        // Daca S-A salvat
+                        if (IesireDinProgram == true)
+                        {
+                            // Apelam "MetodaNegareControale" si inchidem formularul
+                            MetodaNegareControale();
+                        }
+
+                        // Daca NU s-a salvat
+                        else if (IesireDinProgram == false)
+                        {
+                            // Anulam inchiderea
+                            e.Cancel = true;
+                        }
+                    }
+
+                    // Daca NU DORESTE sa salveze
+                    else if (DialogSalvare == DialogResult.No)
+                    {
+                        // Apelam "MetodaNegareControale" si inchidem formularul
+                        MetodaNegareControale();
+                    }
+
+                    // Daca utilizatorul apasa cancel
+                    else if (DialogSalvare == DialogResult.Cancel)
+                    {
+                        // Anulam inchiderea
+                        e.Cancel = true;
+                    }
+                }
+
+                // Daca formularul a fost salvat
+                else if (IesireDinProgram == true)
+                {
+                    // Apelam "MetodaNegareControale" si inchidem formularul
+                    MetodaNegareControale();
+                }
+            }
+
+            // Daca nu a fost modificat nici un camp, inchidem formularul
+            else if (DacaCevaSchimbat == false)
+            {
+                // Apelam "MetodaNegareControale" si inchidem formularul
+                MetodaNegareControale();
+            }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 

@@ -9,8 +9,6 @@ DROP TABLE IF EXISTS Cereri;
 DROP TABLE IF EXISTS GradeDidactice;
 DROP TABLE IF EXISTS Facultati;
 DROP TABLE IF EXISTS Scopuri;
-DROP TABLE IF EXISTS ScopuriConferinte;
-DROP TABLE IF EXISTS ScopuriAltele;
 DROP TABLE IF EXISTS Tari;
 DROP TABLE IF EXISTS Monezi;
 
@@ -41,16 +39,6 @@ CREATE TABLE Scopuri (
 ScopuriS VARCHAR(150) CONSTRAINT pk_ScopuriS PRIMARY KEY
 );
 
--- Creare tabela Scopuri
-CREATE TABLE ScopuriConferinte (
-ScopuriConferinteSC VARCHAR(150) CONSTRAINT pk_ScopuriConferinteSC PRIMARY KEY
-);
-
--- Creare tabela Scopuri
-CREATE TABLE ScopuriAltele (
-ScopuriAlteleSA VARCHAR(150) CONSTRAINT pk_ScopuriAlteleSA PRIMARY KEY
-);
-
 -- Creare tabela Cereri
 CREATE TABLE Cereri (
 NrInregistrareC NUMERIC(5) CONSTRAINT pk_NrInregistrareC PRIMARY KEY,
@@ -61,9 +49,8 @@ FacultateaC VARCHAR(50) CONSTRAINT fk_FacultateaC REFERENCES Facultati(Facultati
 DepartamentulC VARCHAR(50),
 TaraC VARCHAR(100) CONSTRAINT fk_TaraC REFERENCES Tari(TariT) ON UPDATE CASCADE,
 LocalitateaC VARCHAR(100),
-ScopC VARCHAR(200) CONSTRAINT fk_ScopC REFERENCES Scopuri(ScopuriS) ON UPDATE CASCADE,
-ScopConferintaC VARCHAR(200) CONSTRAINT fk_ScopConferintaC REFERENCES ScopuriConferinte(ScopuriConferinteSC) ON UPDATE CASCADE,
-ScopAlteleC VARCHAR(200) CONSTRAINT fk_ScopAlteleC REFERENCES ScopuriAltele(ScopuriAlteleSA) ON UPDATE CASCADE,
+ScopC VARCHAR(300) CONSTRAINT fk_ScopC REFERENCES Scopuri(ScopuriS) ON UPDATE CASCADE,
+PrecizariScopC VARCHAR(300),
 InstitutiaC VARCHAR(300),
 DataInceputC DATE,
 DataSfarsitC DATE,
@@ -145,9 +132,8 @@ GradDidacticOD VARCHAR(50) CONSTRAINT fk_GradDidacticC REFERENCES GradeDidactice
 FacultateaOD VARCHAR(50) CONSTRAINT fk_FacultateaC REFERENCES Facultati(FacultatiF) ON UPDATE CASCADE,
 TaraOD VARCHAR(100) CONSTRAINT fk_TaraOD REFERENCES Tari(TariT) ON UPDATE CASCADE,
 LocalitateaOD VARCHAR(100),
-ScopOD VARCHAR(200) CONSTRAINT fk_ScopOD REFERENCES Scopuri(ScopuriS) ON UPDATE CASCADE,
-ScopConferintaOD VARCHAR(200) CONSTRAINT fk_ScopConferintaOD REFERENCES ScopuriConferinte(ScopuriConferinteSC) ON UPDATE CASCADE,
-ScopAlteleOD VARCHAR(200) CONSTRAINT fk_ScopAlteleOD REFERENCES ScopuriAltele(ScopuriAlteleSA) ON UPDATE CASCADE,
+ScopOD VARCHAR(300) CONSTRAINT fk_ScopC REFERENCES Scopuri(ScopuriS) ON UPDATE CASCADE,
+PrecizariScopOD VARCHAR(300),
 InstitutiaOD VARCHAR(300),
 DataInceputOD DATE,
 DataSfarsitOD DATE,
