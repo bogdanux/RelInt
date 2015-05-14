@@ -33,6 +33,10 @@
             this.btnIesire = new System.Windows.Forms.ToolStripMenuItem();
             this.tabProrector = new System.Windows.Forms.TabControl();
             this.ptRector = new System.Windows.Forms.TabPage();
+            this.chkActivRNou = new System.Windows.Forms.CheckBox();
+            this.chkActivR = new System.Windows.Forms.CheckBox();
+            this.lblActivRNou = new System.Windows.Forms.Label();
+            this.lblActivR = new System.Windows.Forms.Label();
             this.lblTelefonRNou = new System.Windows.Forms.Label();
             this.txtTelefonRNou = new System.Windows.Forms.TextBox();
             this.lblEMailRNou = new System.Windows.Forms.Label();
@@ -51,6 +55,10 @@
             this.txtNumeR = new System.Windows.Forms.TextBox();
             this.dgvRector = new System.Windows.Forms.DataGridView();
             this.ptProrector = new System.Windows.Forms.TabPage();
+            this.txtSectorPRNou = new System.Windows.Forms.TextBox();
+            this.lblSectorPRNou = new System.Windows.Forms.Label();
+            this.txtSectorPR = new System.Windows.Forms.TextBox();
+            this.lblSectorPR = new System.Windows.Forms.Label();
             this.rdoModificaPR = new System.Windows.Forms.RadioButton();
             this.rdoAdaugaPR = new System.Windows.Forms.RadioButton();
             this.lblTelefonPR2Nou = new System.Windows.Forms.Label();
@@ -72,14 +80,6 @@
             this.btnAdaugaPR = new System.Windows.Forms.Button();
             this.txtNumePR = new System.Windows.Forms.TextBox();
             this.dgvProRector = new System.Windows.Forms.DataGridView();
-            this.lblActivR = new System.Windows.Forms.Label();
-            this.lblActivRNou = new System.Windows.Forms.Label();
-            this.chkActivR = new System.Windows.Forms.CheckBox();
-            this.chkActivRNou = new System.Windows.Forms.CheckBox();
-            this.lblSectorPR = new System.Windows.Forms.Label();
-            this.txtSectorPR = new System.Windows.Forms.TextBox();
-            this.txtSectorPRNou = new System.Windows.Forms.TextBox();
-            this.lblSectorPRNou = new System.Windows.Forms.Label();
             this.mnuEditareRector.SuspendLayout();
             this.tabProrector.SuspendLayout();
             this.ptRector.SuspendLayout();
@@ -143,10 +143,50 @@
             this.ptRector.Location = new System.Drawing.Point(4, 22);
             this.ptRector.Name = "ptRector";
             this.ptRector.Padding = new System.Windows.Forms.Padding(3);
-            this.ptRector.Size = new System.Drawing.Size(453, 485);
+            this.ptRector.Size = new System.Drawing.Size(453, 541);
             this.ptRector.TabIndex = 0;
             this.ptRector.Text = "Rector";
             this.ptRector.UseVisualStyleBackColor = true;
+            // 
+            // chkActivRNou
+            // 
+            this.chkActivRNou.AutoSize = true;
+            this.chkActivRNou.Enabled = false;
+            this.chkActivRNou.Location = new System.Drawing.Point(197, 455);
+            this.chkActivRNou.Name = "chkActivRNou";
+            this.chkActivRNou.Size = new System.Drawing.Size(15, 14);
+            this.chkActivRNou.TabIndex = 21;
+            this.chkActivRNou.UseVisualStyleBackColor = true;
+            // 
+            // chkActivR
+            // 
+            this.chkActivR.AutoSize = true;
+            this.chkActivR.Enabled = false;
+            this.chkActivR.Location = new System.Drawing.Point(197, 340);
+            this.chkActivR.Name = "chkActivR";
+            this.chkActivR.Size = new System.Drawing.Size(15, 14);
+            this.chkActivR.TabIndex = 20;
+            this.chkActivR.UseVisualStyleBackColor = true;
+            // 
+            // lblActivRNou
+            // 
+            this.lblActivRNou.AutoSize = true;
+            this.lblActivRNou.Enabled = false;
+            this.lblActivRNou.Location = new System.Drawing.Point(106, 454);
+            this.lblActivRNou.Name = "lblActivRNou";
+            this.lblActivRNou.Size = new System.Drawing.Size(85, 13);
+            this.lblActivRNou.TabIndex = 19;
+            this.lblActivRNou.Text = "Activ (în funcție)";
+            // 
+            // lblActivR
+            // 
+            this.lblActivR.AutoSize = true;
+            this.lblActivR.Enabled = false;
+            this.lblActivR.Location = new System.Drawing.Point(106, 340);
+            this.lblActivR.Name = "lblActivR";
+            this.lblActivR.Size = new System.Drawing.Size(85, 13);
+            this.lblActivR.TabIndex = 17;
+            this.lblActivR.Text = "Activ (în funcție)";
             // 
             // lblTelefonRNou
             // 
@@ -310,6 +350,7 @@
             // 
             // dgvRector
             // 
+            this.dgvRector.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.dgvRector.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvRector.Location = new System.Drawing.Point(3, 3);
             this.dgvRector.Name = "dgvRector";
@@ -351,6 +392,42 @@
             this.ptProrector.TabIndex = 1;
             this.ptProrector.Text = "ProRector";
             this.ptProrector.UseVisualStyleBackColor = true;
+            // 
+            // txtSectorPRNou
+            // 
+            this.txtSectorPRNou.Enabled = false;
+            this.txtSectorPRNou.Location = new System.Drawing.Point(197, 511);
+            this.txtSectorPRNou.Name = "txtSectorPRNou";
+            this.txtSectorPRNou.Size = new System.Drawing.Size(187, 20);
+            this.txtSectorPRNou.TabIndex = 32;
+            // 
+            // lblSectorPRNou
+            // 
+            this.lblSectorPRNou.AutoSize = true;
+            this.lblSectorPRNou.Enabled = false;
+            this.lblSectorPRNou.Location = new System.Drawing.Point(92, 514);
+            this.lblSectorPRNou.Name = "lblSectorPRNou";
+            this.lblSectorPRNou.Size = new System.Drawing.Size(99, 13);
+            this.lblSectorPRNou.TabIndex = 31;
+            this.lblSectorPRNou.Text = "Activitate principală";
+            // 
+            // txtSectorPR
+            // 
+            this.txtSectorPR.Enabled = false;
+            this.txtSectorPR.Location = new System.Drawing.Point(197, 363);
+            this.txtSectorPR.Name = "txtSectorPR";
+            this.txtSectorPR.Size = new System.Drawing.Size(187, 20);
+            this.txtSectorPR.TabIndex = 30;
+            // 
+            // lblSectorPR
+            // 
+            this.lblSectorPR.AutoSize = true;
+            this.lblSectorPR.Enabled = false;
+            this.lblSectorPR.Location = new System.Drawing.Point(92, 366);
+            this.lblSectorPR.Name = "lblSectorPR";
+            this.lblSectorPR.Size = new System.Drawing.Size(99, 13);
+            this.lblSectorPR.TabIndex = 29;
+            this.lblSectorPR.Text = "Activitate principală";
             // 
             // rdoModificaPR
             // 
@@ -552,88 +629,13 @@
             // 
             // dgvProRector
             // 
+            this.dgvProRector.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dgvProRector.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProRector.Location = new System.Drawing.Point(3, 3);
             this.dgvProRector.Name = "dgvProRector";
             this.dgvProRector.ReadOnly = true;
             this.dgvProRector.Size = new System.Drawing.Size(447, 251);
             this.dgvProRector.TabIndex = 0;
-            // 
-            // lblActivR
-            // 
-            this.lblActivR.AutoSize = true;
-            this.lblActivR.Enabled = false;
-            this.lblActivR.Location = new System.Drawing.Point(106, 340);
-            this.lblActivR.Name = "lblActivR";
-            this.lblActivR.Size = new System.Drawing.Size(85, 13);
-            this.lblActivR.TabIndex = 17;
-            this.lblActivR.Text = "Activ (în funcție)";
-            // 
-            // lblActivRNou
-            // 
-            this.lblActivRNou.AutoSize = true;
-            this.lblActivRNou.Enabled = false;
-            this.lblActivRNou.Location = new System.Drawing.Point(106, 454);
-            this.lblActivRNou.Name = "lblActivRNou";
-            this.lblActivRNou.Size = new System.Drawing.Size(85, 13);
-            this.lblActivRNou.TabIndex = 19;
-            this.lblActivRNou.Text = "Activ (în funcție)";
-            // 
-            // chkActivR
-            // 
-            this.chkActivR.AutoSize = true;
-            this.chkActivR.Enabled = false;
-            this.chkActivR.Location = new System.Drawing.Point(197, 340);
-            this.chkActivR.Name = "chkActivR";
-            this.chkActivR.Size = new System.Drawing.Size(15, 14);
-            this.chkActivR.TabIndex = 20;
-            this.chkActivR.UseVisualStyleBackColor = true;
-            // 
-            // chkActivRNou
-            // 
-            this.chkActivRNou.AutoSize = true;
-            this.chkActivRNou.Enabled = false;
-            this.chkActivRNou.Location = new System.Drawing.Point(197, 455);
-            this.chkActivRNou.Name = "chkActivRNou";
-            this.chkActivRNou.Size = new System.Drawing.Size(15, 14);
-            this.chkActivRNou.TabIndex = 21;
-            this.chkActivRNou.UseVisualStyleBackColor = true;
-            // 
-            // lblSectorPR
-            // 
-            this.lblSectorPR.AutoSize = true;
-            this.lblSectorPR.Enabled = false;
-            this.lblSectorPR.Location = new System.Drawing.Point(92, 366);
-            this.lblSectorPR.Name = "lblSectorPR";
-            this.lblSectorPR.Size = new System.Drawing.Size(99, 13);
-            this.lblSectorPR.TabIndex = 29;
-            this.lblSectorPR.Text = "Activitate principală";
-            // 
-            // txtSectorPR
-            // 
-            this.txtSectorPR.Enabled = false;
-            this.txtSectorPR.Location = new System.Drawing.Point(197, 363);
-            this.txtSectorPR.Name = "txtSectorPR";
-            this.txtSectorPR.Size = new System.Drawing.Size(187, 20);
-            this.txtSectorPR.TabIndex = 30;
-            // 
-            // txtSectorPRNou
-            // 
-            this.txtSectorPRNou.Enabled = false;
-            this.txtSectorPRNou.Location = new System.Drawing.Point(197, 511);
-            this.txtSectorPRNou.Name = "txtSectorPRNou";
-            this.txtSectorPRNou.Size = new System.Drawing.Size(187, 20);
-            this.txtSectorPRNou.TabIndex = 32;
-            // 
-            // lblSectorPRNou
-            // 
-            this.lblSectorPRNou.AutoSize = true;
-            this.lblSectorPRNou.Enabled = false;
-            this.lblSectorPRNou.Location = new System.Drawing.Point(92, 514);
-            this.lblSectorPRNou.Name = "lblSectorPRNou";
-            this.lblSectorPRNou.Size = new System.Drawing.Size(99, 13);
-            this.lblSectorPRNou.TabIndex = 31;
-            this.lblSectorPRNou.Text = "Activitate principală";
             // 
             // frmEditRectoriProrectori
             // 

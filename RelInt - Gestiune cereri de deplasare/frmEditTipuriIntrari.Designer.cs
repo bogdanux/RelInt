@@ -92,30 +92,6 @@
             this.btnIntroducereS = new System.Windows.Forms.Button();
             this.txtIntroducereS = new System.Windows.Forms.TextBox();
             this.dgvScopuri = new System.Windows.Forms.DataGridView();
-            this.tpScopuriConferinte = new System.Windows.Forms.TabPage();
-            this.lblIntroducereSC = new System.Windows.Forms.Label();
-            this.lblSCNou = new System.Windows.Forms.Label();
-            this.lblSCVechi = new System.Windows.Forms.Label();
-            this.txtSCNou = new System.Windows.Forms.TextBox();
-            this.rdoModificareSC = new System.Windows.Forms.RadioButton();
-            this.rdoIntroducereSC = new System.Windows.Forms.RadioButton();
-            this.txtSCVechi = new System.Windows.Forms.TextBox();
-            this.btnModificareSC = new System.Windows.Forms.Button();
-            this.btnIntroducereSC = new System.Windows.Forms.Button();
-            this.txtIntroducereSC = new System.Windows.Forms.TextBox();
-            this.dgvScopConferinte = new System.Windows.Forms.DataGridView();
-            this.tpScopuriAltele = new System.Windows.Forms.TabPage();
-            this.lblIntroducereSA = new System.Windows.Forms.Label();
-            this.lblSANou = new System.Windows.Forms.Label();
-            this.lblSAVechi = new System.Windows.Forms.Label();
-            this.txtSANou = new System.Windows.Forms.TextBox();
-            this.rdoModificareSA = new System.Windows.Forms.RadioButton();
-            this.rdoIntroducereSA = new System.Windows.Forms.RadioButton();
-            this.txtSAVechi = new System.Windows.Forms.TextBox();
-            this.btnModificareSA = new System.Windows.Forms.Button();
-            this.btnIntroducereSA = new System.Windows.Forms.Button();
-            this.txtIntroducereSA = new System.Windows.Forms.TextBox();
-            this.dgvScopAltele = new System.Windows.Forms.DataGridView();
             this.mnuTipuriIntrari.SuspendLayout();
             this.tabGDFMTSCA.SuspendLayout();
             this.tpGradDidactic.SuspendLayout();
@@ -128,10 +104,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvTari)).BeginInit();
             this.tpScopuri.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvScopuri)).BeginInit();
-            this.tpScopuriConferinte.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvScopConferinte)).BeginInit();
-            this.tpScopuriAltele.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvScopAltele)).BeginInit();
             this.SuspendLayout();
             // 
             // mnuTipuriIntrari
@@ -160,8 +132,6 @@
             this.tabGDFMTSCA.Controls.Add(this.tpMonezi);
             this.tabGDFMTSCA.Controls.Add(this.tpTari);
             this.tabGDFMTSCA.Controls.Add(this.tpScopuri);
-            this.tabGDFMTSCA.Controls.Add(this.tpScopuriConferinte);
-            this.tabGDFMTSCA.Controls.Add(this.tpScopuriAltele);
             this.tabGDFMTSCA.Location = new System.Drawing.Point(3, 27);
             this.tabGDFMTSCA.Name = "tabGDFMTSCA";
             this.tabGDFMTSCA.SelectedIndex = 0;
@@ -260,6 +230,7 @@
             // 
             // dgvGradDidactic
             // 
+            this.dgvGradDidactic.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dgvGradDidactic.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvGradDidactic.Location = new System.Drawing.Point(3, 3);
             this.dgvGradDidactic.Name = "dgvGradDidactic";
@@ -421,6 +392,7 @@
             // 
             // dgvFacultate
             // 
+            this.dgvFacultate.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dgvFacultate.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFacultate.Location = new System.Drawing.Point(3, 3);
             this.dgvFacultate.Name = "dgvFacultate";
@@ -551,6 +523,7 @@
             // 
             // dgvMoneda
             // 
+            this.dgvMoneda.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dgvMoneda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMoneda.Location = new System.Drawing.Point(3, 3);
             this.dgvMoneda.Name = "dgvMoneda";
@@ -681,6 +654,7 @@
             // 
             // dgvTari
             // 
+            this.dgvTari.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dgvTari.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTari.Location = new System.Drawing.Point(3, 3);
             this.dgvTari.Name = "dgvTari";
@@ -809,267 +783,12 @@
             // 
             // dgvScopuri
             // 
+            this.dgvScopuri.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dgvScopuri.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvScopuri.Location = new System.Drawing.Point(3, 3);
             this.dgvScopuri.Name = "dgvScopuri";
             this.dgvScopuri.Size = new System.Drawing.Size(667, 415);
             this.dgvScopuri.TabIndex = 1;
-            // 
-            // tpScopuriConferinte
-            // 
-            this.tpScopuriConferinte.Controls.Add(this.lblIntroducereSC);
-            this.tpScopuriConferinte.Controls.Add(this.lblSCNou);
-            this.tpScopuriConferinte.Controls.Add(this.lblSCVechi);
-            this.tpScopuriConferinte.Controls.Add(this.txtSCNou);
-            this.tpScopuriConferinte.Controls.Add(this.rdoModificareSC);
-            this.tpScopuriConferinte.Controls.Add(this.rdoIntroducereSC);
-            this.tpScopuriConferinte.Controls.Add(this.txtSCVechi);
-            this.tpScopuriConferinte.Controls.Add(this.btnModificareSC);
-            this.tpScopuriConferinte.Controls.Add(this.btnIntroducereSC);
-            this.tpScopuriConferinte.Controls.Add(this.txtIntroducereSC);
-            this.tpScopuriConferinte.Controls.Add(this.dgvScopConferinte);
-            this.tpScopuriConferinte.Location = new System.Drawing.Point(4, 22);
-            this.tpScopuriConferinte.Name = "tpScopuriConferinte";
-            this.tpScopuriConferinte.Size = new System.Drawing.Size(673, 510);
-            this.tpScopuriConferinte.TabIndex = 5;
-            this.tpScopuriConferinte.Text = "Scop - Conferințe";
-            this.tpScopuriConferinte.UseVisualStyleBackColor = true;
-            // 
-            // lblIntroducereSC
-            // 
-            this.lblIntroducereSC.AutoSize = true;
-            this.lblIntroducereSC.Enabled = false;
-            this.lblIntroducereSC.Location = new System.Drawing.Point(23, 421);
-            this.lblIntroducereSC.Name = "lblIntroducereSC";
-            this.lblIntroducereSC.Size = new System.Drawing.Size(111, 13);
-            this.lblIntroducereSC.TabIndex = 31;
-            this.lblIntroducereSC.Text = "Introducere conferință";
-            // 
-            // lblSCNou
-            // 
-            this.lblSCNou.AutoSize = true;
-            this.lblSCNou.Enabled = false;
-            this.lblSCNou.Location = new System.Drawing.Point(144, 463);
-            this.lblSCNou.Name = "lblSCNou";
-            this.lblSCNou.Size = new System.Drawing.Size(82, 13);
-            this.lblSCNou.TabIndex = 36;
-            this.lblSCNou.Text = "Conferință nouă";
-            // 
-            // lblSCVechi
-            // 
-            this.lblSCVechi.AutoSize = true;
-            this.lblSCVechi.Enabled = false;
-            this.lblSCVechi.Location = new System.Drawing.Point(34, 463);
-            this.lblSCVechi.Name = "lblSCVechi";
-            this.lblSCVechi.Size = new System.Drawing.Size(88, 13);
-            this.lblSCVechi.TabIndex = 35;
-            this.lblSCVechi.Text = "Conferință veche";
-            // 
-            // txtSCNou
-            // 
-            this.txtSCNou.Enabled = false;
-            this.txtSCNou.Location = new System.Drawing.Point(133, 479);
-            this.txtSCNou.Name = "txtSCNou";
-            this.txtSCNou.Size = new System.Drawing.Size(100, 20);
-            this.txtSCNou.TabIndex = 39;
-            this.txtSCNou.TextChanged += new System.EventHandler(this.txtSCNou_TextChanged);
-            // 
-            // rdoModificareSC
-            // 
-            this.rdoModificareSC.AutoSize = true;
-            this.rdoModificareSC.Location = new System.Drawing.Point(7, 482);
-            this.rdoModificareSC.Name = "rdoModificareSC";
-            this.rdoModificareSC.Size = new System.Drawing.Size(14, 13);
-            this.rdoModificareSC.TabIndex = 37;
-            this.rdoModificareSC.TabStop = true;
-            this.rdoModificareSC.UseVisualStyleBackColor = true;
-            this.rdoModificareSC.CheckedChanged += new System.EventHandler(this.rdoModificareSC_CheckedChanged);
-            // 
-            // rdoIntroducereSC
-            // 
-            this.rdoIntroducereSC.AutoSize = true;
-            this.rdoIntroducereSC.Location = new System.Drawing.Point(7, 440);
-            this.rdoIntroducereSC.Name = "rdoIntroducereSC";
-            this.rdoIntroducereSC.Size = new System.Drawing.Size(14, 13);
-            this.rdoIntroducereSC.TabIndex = 32;
-            this.rdoIntroducereSC.TabStop = true;
-            this.rdoIntroducereSC.UseVisualStyleBackColor = true;
-            this.rdoIntroducereSC.CheckedChanged += new System.EventHandler(this.rdoIntroducereSC_CheckedChanged);
-            // 
-            // txtSCVechi
-            // 
-            this.txtSCVechi.Enabled = false;
-            this.txtSCVechi.Location = new System.Drawing.Point(27, 479);
-            this.txtSCVechi.Name = "txtSCVechi";
-            this.txtSCVechi.Size = new System.Drawing.Size(100, 20);
-            this.txtSCVechi.TabIndex = 38;
-            // 
-            // btnModificareSC
-            // 
-            this.btnModificareSC.Enabled = false;
-            this.btnModificareSC.Location = new System.Drawing.Point(239, 477);
-            this.btnModificareSC.Name = "btnModificareSC";
-            this.btnModificareSC.Size = new System.Drawing.Size(75, 23);
-            this.btnModificareSC.TabIndex = 40;
-            this.btnModificareSC.Text = "Modificare";
-            this.btnModificareSC.UseVisualStyleBackColor = true;
-            this.btnModificareSC.Click += new System.EventHandler(this.btnModificareSC_Click);
-            // 
-            // btnIntroducereSC
-            // 
-            this.btnIntroducereSC.Enabled = false;
-            this.btnIntroducereSC.Location = new System.Drawing.Point(133, 435);
-            this.btnIntroducereSC.Name = "btnIntroducereSC";
-            this.btnIntroducereSC.Size = new System.Drawing.Size(75, 23);
-            this.btnIntroducereSC.TabIndex = 34;
-            this.btnIntroducereSC.Text = "Introducere";
-            this.btnIntroducereSC.UseVisualStyleBackColor = true;
-            this.btnIntroducereSC.Click += new System.EventHandler(this.btnIntroducereSC_Click);
-            // 
-            // txtIntroducereSC
-            // 
-            this.txtIntroducereSC.Enabled = false;
-            this.txtIntroducereSC.Location = new System.Drawing.Point(27, 437);
-            this.txtIntroducereSC.Name = "txtIntroducereSC";
-            this.txtIntroducereSC.Size = new System.Drawing.Size(100, 20);
-            this.txtIntroducereSC.TabIndex = 33;
-            this.txtIntroducereSC.TextChanged += new System.EventHandler(this.txtIntroducereSC_TextChanged);
-            // 
-            // dgvScopConferinte
-            // 
-            this.dgvScopConferinte.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvScopConferinte.Location = new System.Drawing.Point(3, 3);
-            this.dgvScopConferinte.Name = "dgvScopConferinte";
-            this.dgvScopConferinte.Size = new System.Drawing.Size(667, 415);
-            this.dgvScopConferinte.TabIndex = 1;
-            // 
-            // tpScopuriAltele
-            // 
-            this.tpScopuriAltele.Controls.Add(this.lblIntroducereSA);
-            this.tpScopuriAltele.Controls.Add(this.lblSANou);
-            this.tpScopuriAltele.Controls.Add(this.lblSAVechi);
-            this.tpScopuriAltele.Controls.Add(this.txtSANou);
-            this.tpScopuriAltele.Controls.Add(this.rdoModificareSA);
-            this.tpScopuriAltele.Controls.Add(this.rdoIntroducereSA);
-            this.tpScopuriAltele.Controls.Add(this.txtSAVechi);
-            this.tpScopuriAltele.Controls.Add(this.btnModificareSA);
-            this.tpScopuriAltele.Controls.Add(this.btnIntroducereSA);
-            this.tpScopuriAltele.Controls.Add(this.txtIntroducereSA);
-            this.tpScopuriAltele.Controls.Add(this.dgvScopAltele);
-            this.tpScopuriAltele.Location = new System.Drawing.Point(4, 22);
-            this.tpScopuriAltele.Name = "tpScopuriAltele";
-            this.tpScopuriAltele.Size = new System.Drawing.Size(673, 510);
-            this.tpScopuriAltele.TabIndex = 6;
-            this.tpScopuriAltele.Text = "Scop - Altele";
-            this.tpScopuriAltele.UseVisualStyleBackColor = true;
-            // 
-            // lblIntroducereSA
-            // 
-            this.lblIntroducereSA.AutoSize = true;
-            this.lblIntroducereSA.Enabled = false;
-            this.lblIntroducereSA.Location = new System.Drawing.Point(46, 421);
-            this.lblIntroducereSA.Name = "lblIntroducereSA";
-            this.lblIntroducereSA.Size = new System.Drawing.Size(61, 13);
-            this.lblIntroducereSA.TabIndex = 31;
-            this.lblIntroducereSA.Text = "Introducere";
-            // 
-            // lblSANou
-            // 
-            this.lblSANou.AutoSize = true;
-            this.lblSANou.Enabled = false;
-            this.lblSANou.Location = new System.Drawing.Point(148, 463);
-            this.lblSANou.Name = "lblSANou";
-            this.lblSANou.Size = new System.Drawing.Size(70, 13);
-            this.lblSANou.TabIndex = 36;
-            this.lblSANou.Text = "Valoare nouă";
-            // 
-            // lblSAVechi
-            // 
-            this.lblSAVechi.AutoSize = true;
-            this.lblSAVechi.Enabled = false;
-            this.lblSAVechi.Location = new System.Drawing.Point(40, 463);
-            this.lblSAVechi.Name = "lblSAVechi";
-            this.lblSAVechi.Size = new System.Drawing.Size(76, 13);
-            this.lblSAVechi.TabIndex = 35;
-            this.lblSAVechi.Text = "Valoare veche";
-            // 
-            // txtSANou
-            // 
-            this.txtSANou.Enabled = false;
-            this.txtSANou.Location = new System.Drawing.Point(133, 479);
-            this.txtSANou.Name = "txtSANou";
-            this.txtSANou.Size = new System.Drawing.Size(100, 20);
-            this.txtSANou.TabIndex = 39;
-            this.txtSANou.TextChanged += new System.EventHandler(this.txtSANou_TextChanged);
-            // 
-            // rdoModificareSA
-            // 
-            this.rdoModificareSA.AutoSize = true;
-            this.rdoModificareSA.Location = new System.Drawing.Point(7, 482);
-            this.rdoModificareSA.Name = "rdoModificareSA";
-            this.rdoModificareSA.Size = new System.Drawing.Size(14, 13);
-            this.rdoModificareSA.TabIndex = 37;
-            this.rdoModificareSA.TabStop = true;
-            this.rdoModificareSA.UseVisualStyleBackColor = true;
-            this.rdoModificareSA.CheckedChanged += new System.EventHandler(this.rdoModificareSA_CheckedChanged);
-            // 
-            // rdoIntroducereSA
-            // 
-            this.rdoIntroducereSA.AutoSize = true;
-            this.rdoIntroducereSA.Location = new System.Drawing.Point(7, 440);
-            this.rdoIntroducereSA.Name = "rdoIntroducereSA";
-            this.rdoIntroducereSA.Size = new System.Drawing.Size(14, 13);
-            this.rdoIntroducereSA.TabIndex = 32;
-            this.rdoIntroducereSA.TabStop = true;
-            this.rdoIntroducereSA.UseVisualStyleBackColor = true;
-            this.rdoIntroducereSA.CheckedChanged += new System.EventHandler(this.rdoIntroducereSA_CheckedChanged);
-            // 
-            // txtSAVechi
-            // 
-            this.txtSAVechi.Enabled = false;
-            this.txtSAVechi.Location = new System.Drawing.Point(27, 479);
-            this.txtSAVechi.Name = "txtSAVechi";
-            this.txtSAVechi.Size = new System.Drawing.Size(100, 20);
-            this.txtSAVechi.TabIndex = 38;
-            // 
-            // btnModificareSA
-            // 
-            this.btnModificareSA.Enabled = false;
-            this.btnModificareSA.Location = new System.Drawing.Point(239, 477);
-            this.btnModificareSA.Name = "btnModificareSA";
-            this.btnModificareSA.Size = new System.Drawing.Size(75, 23);
-            this.btnModificareSA.TabIndex = 40;
-            this.btnModificareSA.Text = "Modificare";
-            this.btnModificareSA.UseVisualStyleBackColor = true;
-            this.btnModificareSA.Click += new System.EventHandler(this.btnModificareSA_Click);
-            // 
-            // btnIntroducereSA
-            // 
-            this.btnIntroducereSA.Enabled = false;
-            this.btnIntroducereSA.Location = new System.Drawing.Point(133, 435);
-            this.btnIntroducereSA.Name = "btnIntroducereSA";
-            this.btnIntroducereSA.Size = new System.Drawing.Size(75, 23);
-            this.btnIntroducereSA.TabIndex = 34;
-            this.btnIntroducereSA.Text = "Introducere";
-            this.btnIntroducereSA.UseVisualStyleBackColor = true;
-            this.btnIntroducereSA.Click += new System.EventHandler(this.btnIntroducereSA_Click);
-            // 
-            // txtIntroducereSA
-            // 
-            this.txtIntroducereSA.Enabled = false;
-            this.txtIntroducereSA.Location = new System.Drawing.Point(27, 437);
-            this.txtIntroducereSA.Name = "txtIntroducereSA";
-            this.txtIntroducereSA.Size = new System.Drawing.Size(100, 20);
-            this.txtIntroducereSA.TabIndex = 33;
-            this.txtIntroducereSA.TextChanged += new System.EventHandler(this.txtIntroducereSA_TextChanged);
-            // 
-            // dgvScopAltele
-            // 
-            this.dgvScopAltele.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvScopAltele.Location = new System.Drawing.Point(3, 3);
-            this.dgvScopAltele.Name = "dgvScopAltele";
-            this.dgvScopAltele.Size = new System.Drawing.Size(667, 415);
-            this.dgvScopAltele.TabIndex = 1;
             // 
             // frmEditTipuriIntrari
             // 
@@ -1102,12 +821,6 @@
             this.tpScopuri.ResumeLayout(false);
             this.tpScopuri.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvScopuri)).EndInit();
-            this.tpScopuriConferinte.ResumeLayout(false);
-            this.tpScopuriConferinte.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvScopConferinte)).EndInit();
-            this.tpScopuriAltele.ResumeLayout(false);
-            this.tpScopuriAltele.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvScopAltele)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1156,12 +869,8 @@
         private System.Windows.Forms.TextBox txtIntroducereM;
         private System.Windows.Forms.TabPage tpTari;
         private System.Windows.Forms.TabPage tpScopuri;
-        private System.Windows.Forms.TabPage tpScopuriConferinte;
-        private System.Windows.Forms.TabPage tpScopuriAltele;
         private System.Windows.Forms.DataGridView dgvTari;
         private System.Windows.Forms.DataGridView dgvScopuri;
-        private System.Windows.Forms.DataGridView dgvScopConferinte;
-        private System.Windows.Forms.DataGridView dgvScopAltele;
         private System.Windows.Forms.Label lblIntroducereT;
         private System.Windows.Forms.Label lblTNoua;
         private System.Windows.Forms.Label lblTVeche;
@@ -1182,25 +891,5 @@
         private System.Windows.Forms.Button btnModificareS;
         private System.Windows.Forms.Button btnIntroducereS;
         private System.Windows.Forms.TextBox txtIntroducereS;
-        private System.Windows.Forms.Label lblIntroducereSC;
-        private System.Windows.Forms.Label lblSCNou;
-        private System.Windows.Forms.Label lblSCVechi;
-        private System.Windows.Forms.TextBox txtSCNou;
-        private System.Windows.Forms.RadioButton rdoModificareSC;
-        private System.Windows.Forms.RadioButton rdoIntroducereSC;
-        private System.Windows.Forms.TextBox txtSCVechi;
-        private System.Windows.Forms.Button btnModificareSC;
-        private System.Windows.Forms.Button btnIntroducereSC;
-        private System.Windows.Forms.TextBox txtIntroducereSC;
-        private System.Windows.Forms.Label lblIntroducereSA;
-        private System.Windows.Forms.Label lblSANou;
-        private System.Windows.Forms.Label lblSAVechi;
-        private System.Windows.Forms.TextBox txtSANou;
-        private System.Windows.Forms.RadioButton rdoModificareSA;
-        private System.Windows.Forms.RadioButton rdoIntroducereSA;
-        private System.Windows.Forms.TextBox txtSAVechi;
-        private System.Windows.Forms.Button btnModificareSA;
-        private System.Windows.Forms.Button btnIntroducereSA;
-        private System.Windows.Forms.TextBox txtIntroducereSA;
     }
 }

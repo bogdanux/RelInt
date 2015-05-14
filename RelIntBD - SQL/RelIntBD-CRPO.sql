@@ -36,7 +36,7 @@ TariT VARCHAR(150) CONSTRAINT pk_TariT PRIMARY KEY
 
 -- Creare tabela Scopuri
 CREATE TABLE Scopuri (
-ScopuriS VARCHAR(150) CONSTRAINT pk_ScopuriS PRIMARY KEY
+ScopuriS VARCHAR(1000) CONSTRAINT pk_ScopuriS PRIMARY KEY
 );
 
 -- Creare tabela Cereri
@@ -397,11 +397,17 @@ INSERT INTO tari(tarit) values ('Yemen');
 INSERT INTO tari(tarit) values ('Zambia');
 INSERT INTO tari(tarit) values ('Zimbabwe');
 
-INSERT INTO scopuri(scopuris) values ('Scop A');
-INSERT INTO scopuri(scopuris) values ('Scop B');
-INSERT INTO scopuri(scopuris) values ('Scop C');
-INSERT INTO scopuri(scopuris) values ('Scop D');
-INSERT INTO scopuri(scopuris) values ('Scop E');
-INSERT INTO scopuri(scopuris) values ('Scop F');
-INSERT INTO scopuri(scopuris) values ('Scop G');
-INSERT INTO scopuri(scopuris) values ('Scop H');
+INSERT INTO scopuri(scopuris) values ('vizite de reprezentare la instituţii din străinătate');
+INSERT INTO scopuri(scopuris) values ('participarea la adunări generale / întâlniri de lucru organizate în cadrul  asociațiilor universitare / parteneriatelor internaționale multiple în care UAIC este membră');
+INSERT INTO scopuri(scopuris) values ('încheieri de convenţii, acorduri, parteneriate cu instituţii din străinătate');
+INSERT INTO scopuri(scopuris) values ('participări la târguri / expoziţii');
+INSERT INTO scopuri(scopuris) values ('acţiuni de cooperare instituţională şi tehnico-ştiinţifică');
+INSERT INTO scopuri(scopuris) values ('stagiu de studii / practică / practică itinerantă');
+INSERT INTO scopuri(scopuris) values ('stagiu de cercetare / documentare');
+INSERT INTO scopuri(scopuris) values ('schimb de experienţă');
+INSERT INTO scopuri(scopuris) values ('participarea la întâlniri organizate în cadrul unui proiect în care Universitatea este partener');
+INSERT INTO scopuri(scopuris) values ('participarea la cursuri şi stagii de specializare / perfecţionare / formare');
+INSERT INTO scopuri(scopuris) values ('participarea cadrelor didactice ca însoţitori ai studenţilor la olimpiade şi concursuri în domeniul învăţământului');
+INSERT INTO scopuri(scopuris) values ('participări la congrese /conferinţe / simpozioane / seminarii / colocvii sau alte reuniuni de interes pentru activitatea specifică a Universităţii, sau la manifestări ştiinţifice, culturale, artistice, sportive etc');
+INSERT INTO scopuri(scopuris) values ('primiri de titluri / grade profesionale / distincţii sau premii conferite pentru realizări ştiinţifice, culturale, artistice sau sportive');
+INSERT INTO scopuri(scopuris) values ('desfăşurarea unei activităţi ştiinţifice, culturale, artistice sau sportive, temporare, precum şi pentru ţinerea de cursuri în calitate de profesor / cercetător vizitator / invitat');
