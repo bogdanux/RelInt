@@ -236,6 +236,8 @@
             this.Controls.Add(this.mnuRealizatori);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.mnuRealizatori;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmRealizatori";
             this.Text = "Realizatori";
             this.mnuRealizatori.ResumeLayout(false);

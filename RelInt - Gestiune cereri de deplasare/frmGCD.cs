@@ -908,18 +908,18 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             frmListaODDExistente.Show();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-        /* --------------------- Deschiderea formularului frmRaportCereri ------------------------------------------------ */
-        private void btnGCDRaportCereri_Click(object sender, EventArgs e)
+        /* --------------------- Deschiderea formularului frmRapoarte ---------------------------------------------------- */
+        private void mnuRapoarte_Click(object sender, EventArgs e)
         {
             // Apelam formularul "frmRaportCereri"
-            Form frmRaportCereri = new frmRaportCereri();
+            Form frmRapoarte = new frmRapoarte();
 
             // Facem "frmRaportCereri" copil al "frmGCD"
-            frmRaportCereri.MdiParent = this;
+            frmRapoarte.MdiParent = this;
 
             foreach (Form form in Application.OpenForms)
             {
-                if (form.GetType() == typeof(frmRaportCereri))
+                if (form.GetType() == typeof(frmRapoarte))
                 {
                     form.WindowState = FormWindowState.Normal;
                     form.Activate();
@@ -928,7 +928,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             }
 
             // Afisam "frmRaportCereri"
-            frmRaportCereri.Show();
+            frmRapoarte.Show();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
         /* ---------------------- Deschiderea formularului frmCerereBECA ------------------------------------------------- */

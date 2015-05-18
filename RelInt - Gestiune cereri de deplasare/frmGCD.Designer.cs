@@ -45,7 +45,6 @@
             this.btnGCDListaCereriExistente = new System.Windows.Forms.ToolStripMenuItem();
             this.btnGCDListaOrdineDeDeplasare = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuRapoarte = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnGCDRaportCereri = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuSetari = new System.Windows.Forms.ToolStripMenuItem();
             this.btnGCDTipIntrari = new System.Windows.Forms.ToolStripMenuItem();
             this.btnGCDEditareRectori = new System.Windows.Forms.ToolStripMenuItem();
@@ -210,21 +209,10 @@
             // 
             // mnuRapoarte
             // 
-            this.mnuRapoarte.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnGCDRaportCereri});
             this.mnuRapoarte.Name = "mnuRapoarte";
             this.mnuRapoarte.Size = new System.Drawing.Size(66, 26);
             this.mnuRapoarte.Text = "&Rapoarte";
-            // 
-            // btnGCDRaportCereri
-            // 
-            this.btnGCDRaportCereri.Enabled = false;
-            this.btnGCDRaportCereri.Name = "btnGCDRaportCereri";
-            this.btnGCDRaportCereri.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
-            | System.Windows.Forms.Keys.R)));
-            this.btnGCDRaportCereri.Size = new System.Drawing.Size(207, 22);
-            this.btnGCDRaportCereri.Text = "Raport &Cereri";
-            this.btnGCDRaportCereri.Click += new System.EventHandler(this.btnGCDRaportCereri_Click);
+            this.mnuRapoarte.Click += new System.EventHandler(this.mnuRapoarte_Click);
             // 
             // mnuSetari
             // 
@@ -268,19 +256,19 @@
             // 
             this.btnManualUtilizare.Name = "btnManualUtilizare";
             this.btnManualUtilizare.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.btnManualUtilizare.Size = new System.Drawing.Size(204, 22);
+            this.btnManualUtilizare.Size = new System.Drawing.Size(178, 22);
             this.btnManualUtilizare.Text = "Manual Utilizare";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(201, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(175, 6);
             // 
             // btnGCDRealizatori
             // 
             this.btnGCDRealizatori.Name = "btnGCDRealizatori";
             this.btnGCDRealizatori.ShortcutKeys = System.Windows.Forms.Keys.F2;
-            this.btnGCDRealizatori.Size = new System.Drawing.Size(204, 22);
+            this.btnGCDRealizatori.Size = new System.Drawing.Size(178, 22);
             this.btnGCDRealizatori.Text = "&Realizatori";
             this.btnGCDRealizatori.Click += new System.EventHandler(this.btnGCDRealizatori_Click);
             // 
@@ -288,14 +276,14 @@
             // 
             this.btnGCDDespreApp.Name = "btnGCDDespreApp";
             this.btnGCDDespreApp.ShortcutKeys = System.Windows.Forms.Keys.F3;
-            this.btnGCDDespreApp.Size = new System.Drawing.Size(204, 22);
-            this.btnGCDDespreApp.Text = "&Despre RelInt - GCdD";
+            this.btnGCDDespreApp.Size = new System.Drawing.Size(178, 22);
+            this.btnGCDDespreApp.Text = "&Despre";
             this.btnGCDDespreApp.Click += new System.EventHandler(this.btnGCDDespreApp_Click);
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(201, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(175, 6);
             // 
             // btnGCDAsistenta
             // 
@@ -303,7 +291,7 @@
             this.btnResetare,
             this.btnCopieSiguranta});
             this.btnGCDAsistenta.Name = "btnGCDAsistenta";
-            this.btnGCDAsistenta.Size = new System.Drawing.Size(204, 22);
+            this.btnGCDAsistenta.Size = new System.Drawing.Size(178, 22);
             this.btnGCDAsistenta.Text = "&Asistență";
             // 
             // btnResetare
@@ -478,7 +466,6 @@
         private System.Windows.Forms.ToolStripMenuItem btnGCDModificareODD;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripMenuItem btnGCDEditareRectori;
-        public System.Windows.Forms.ToolStripMenuItem btnGCDRaportCereri;
         private System.Windows.Forms.ToolStripStatusLabel tsStatusDeCeM;
         private System.Windows.Forms.ToolStripStatusLabel tsStatusDeCeF;
         private System.Windows.Forms.ToolStripMenuItem btnGCDAsistenta;

@@ -211,11 +211,11 @@
     <Compile Include="frmOrdineaDeZi.Designer.cs">
       <DependentUpon>frmOrdineaDeZi.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmRaportCereri.cs">
+    <Compile Include="frmRapoarte.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmRaportCereri.Designer.cs">
-      <DependentUpon>frmRaportCereri.cs</DependentUpon>
+    <Compile Include="frmRapoarte.Designer.cs">
+      <DependentUpon>frmRapoarte.cs</DependentUpon>
     </Compile>
     <Compile Include="frmRealizatori.cs">
       <SubType>Form</SubType>
@@ -279,8 +279,8 @@
     <EmbeddedResource Include="frmOrdineaDeZi.resx">
       <DependentUpon>frmOrdineaDeZi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmRaportCereri.resx">
-      <DependentUpon>frmRaportCereri.cs</DependentUpon>
+    <EmbeddedResource Include="frmRapoarte.resx">
+      <DependentUpon>frmRapoarte.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRealizatori.resx">
       <DependentUpon>frmRealizatori.cs</DependentUpon>
