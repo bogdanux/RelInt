@@ -324,10 +324,11 @@
             // txtPrecizariScop
             // 
             this.txtPrecizariScop.Enabled = false;
+            this.txtPrecizariScop.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPrecizariScop.Location = new System.Drawing.Point(164, 150);
             this.txtPrecizariScop.Name = "txtPrecizariScop";
             this.txtPrecizariScop.Size = new System.Drawing.Size(463, 20);
-            this.txtPrecizariScop.TabIndex = 34;
+            this.txtPrecizariScop.TabIndex = 12;
             this.txtPrecizariScop.TextChanged += new System.EventHandler(this.txtPrecizariScop_TextChanged);
             // 
             // cmbTara
@@ -337,7 +338,7 @@
             this.cmbTara.Location = new System.Drawing.Point(270, 72);
             this.cmbTara.Name = "cmbTara";
             this.cmbTara.Size = new System.Drawing.Size(186, 21);
-            this.cmbTara.TabIndex = 33;
+            this.cmbTara.TabIndex = 9;
             this.cmbTara.SelectedIndexChanged += new System.EventHandler(this.cmbTara_SelectedIndexChanged);
             // 
             // lblPrecizariScop
@@ -356,7 +357,7 @@
             this.cmbScop.Location = new System.Drawing.Point(164, 124);
             this.cmbScop.Name = "cmbScop";
             this.cmbScop.Size = new System.Drawing.Size(463, 21);
-            this.cmbScop.TabIndex = 28;
+            this.cmbScop.TabIndex = 11;
             this.cmbScop.SelectedIndexChanged += new System.EventHandler(this.cmbScop_SelectedIndexChanged);
             // 
             // txtPlatitorTransport
@@ -365,7 +366,7 @@
             this.txtPlatitorTransport.Location = new System.Drawing.Point(176, 274);
             this.txtPlatitorTransport.Name = "txtPlatitorTransport";
             this.txtPlatitorTransport.Size = new System.Drawing.Size(279, 20);
-            this.txtPlatitorTransport.TabIndex = 27;
+            this.txtPlatitorTransport.TabIndex = 18;
             this.txtPlatitorTransport.TextChanged += new System.EventHandler(this.txtPlatitorTransport_TextChanged);
             // 
             // lblPlatitorTransport
@@ -383,7 +384,7 @@
             this.txtMijTrans.Location = new System.Drawing.Point(176, 248);
             this.txtMijTrans.Name = "txtMijTrans";
             this.txtMijTrans.Size = new System.Drawing.Size(279, 20);
-            this.txtMijTrans.TabIndex = 25;
+            this.txtMijTrans.TabIndex = 17;
             this.txtMijTrans.TextChanged += new System.EventHandler(this.txtMijTrans_TextChanged);
             // 
             // lblMijTrans
@@ -401,7 +402,7 @@
             this.txtRuta.Location = new System.Drawing.Point(176, 222);
             this.txtRuta.Name = "txtRuta";
             this.txtRuta.Size = new System.Drawing.Size(279, 20);
-            this.txtRuta.TabIndex = 23;
+            this.txtRuta.TabIndex = 16;
             this.txtRuta.TextChanged += new System.EventHandler(this.txtRuta_TextChanged);
             // 
             // lblRuta
@@ -430,7 +431,7 @@
             this.dpDataSfarsit.MinDate = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
             this.dpDataSfarsit.Name = "dpDataSfarsit";
             this.dpDataSfarsit.Size = new System.Drawing.Size(91, 20);
-            this.dpDataSfarsit.TabIndex = 20;
+            this.dpDataSfarsit.TabIndex = 15;
             // 
             // lblDataSfarsit
             // 
@@ -449,7 +450,7 @@
             this.dpDataInceput.MinDate = new System.DateTime(2015, 1, 1, 0, 0, 0, 0);
             this.dpDataInceput.Name = "dpDataInceput";
             this.dpDataInceput.Size = new System.Drawing.Size(92, 20);
-            this.dpDataInceput.TabIndex = 18;
+            this.dpDataInceput.TabIndex = 14;
             // 
             // lblDataInceput
             // 
@@ -466,7 +467,7 @@
             this.txtInstitutia.Location = new System.Drawing.Point(77, 176);
             this.txtInstitutia.Name = "txtInstitutia";
             this.txtInstitutia.Size = new System.Drawing.Size(241, 20);
-            this.txtInstitutia.TabIndex = 16;
+            this.txtInstitutia.TabIndex = 13;
             this.txtInstitutia.TextChanged += new System.EventHandler(this.txtInstitutia_TextChanged);
             // 
             // lblInstitutia

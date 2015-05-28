@@ -393,6 +393,7 @@
             // 
             // txtPrecizariScop
             // 
+            this.txtPrecizariScop.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPrecizariScop.Location = new System.Drawing.Point(159, 106);
             this.txtPrecizariScop.Name = "txtPrecizariScop";
             this.txtPrecizariScop.Size = new System.Drawing.Size(464, 20);
@@ -558,6 +559,7 @@
             // 
             // txtSubsemnatul
             // 
+            this.txtSubsemnatul.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSubsemnatul.Location = new System.Drawing.Point(138, 27);
             this.txtSubsemnatul.Name = "txtSubsemnatul";
             this.txtSubsemnatul.Size = new System.Drawing.Size(187, 20);
@@ -748,6 +750,7 @@
             // txtNrZileCazare
             // 
             this.txtNrZileCazare.Enabled = false;
+            this.txtNrZileCazare.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNrZileCazare.Location = new System.Drawing.Point(174, 145);
             this.txtNrZileCazare.Name = "txtNrZileCazare";
             this.txtNrZileCazare.Size = new System.Drawing.Size(38, 20);
@@ -758,6 +761,7 @@
             // txtNrZileDiurna
             // 
             this.txtNrZileDiurna.Enabled = false;
+            this.txtNrZileDiurna.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNrZileDiurna.Location = new System.Drawing.Point(174, 120);
             this.txtNrZileDiurna.Name = "txtNrZileDiurna";
             this.txtNrZileDiurna.Size = new System.Drawing.Size(38, 20);
@@ -787,6 +791,7 @@
             // txtTaxaDeViza
             // 
             this.txtTaxaDeViza.Enabled = false;
+            this.txtTaxaDeViza.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTaxaDeViza.Location = new System.Drawing.Point(233, 194);
             this.txtTaxaDeViza.Name = "txtTaxaDeViza";
             this.txtTaxaDeViza.Size = new System.Drawing.Size(99, 20);
@@ -817,6 +822,7 @@
             // txtTaxaDeParticipare
             // 
             this.txtTaxaDeParticipare.Enabled = false;
+            this.txtTaxaDeParticipare.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTaxaDeParticipare.Location = new System.Drawing.Point(233, 169);
             this.txtTaxaDeParticipare.Name = "txtTaxaDeParticipare";
             this.txtTaxaDeParticipare.Size = new System.Drawing.Size(99, 20);
@@ -848,6 +854,7 @@
             // txtCazare
             // 
             this.txtCazare.Enabled = false;
+            this.txtCazare.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCazare.Location = new System.Drawing.Point(233, 145);
             this.txtCazare.Name = "txtCazare";
             this.txtCazare.Size = new System.Drawing.Size(99, 20);
@@ -879,6 +886,7 @@
             // txtDiurna
             // 
             this.txtDiurna.Enabled = false;
+            this.txtDiurna.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDiurna.Location = new System.Drawing.Point(233, 120);
             this.txtDiurna.Name = "txtDiurna";
             this.txtDiurna.Size = new System.Drawing.Size(99, 20);
@@ -918,6 +926,7 @@
             // 
             // txtPlatitorIntretinere
             // 
+            this.txtPlatitorIntretinere.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPlatitorIntretinere.Location = new System.Drawing.Point(300, 78);
             this.txtPlatitorIntretinere.Name = "txtPlatitorIntretinere";
             this.txtPlatitorIntretinere.Size = new System.Drawing.Size(320, 20);
@@ -935,6 +944,7 @@
             // 
             // txtPlatitorTransport
             // 
+            this.txtPlatitorTransport.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPlatitorTransport.Location = new System.Drawing.Point(107, 54);
             this.txtPlatitorTransport.Name = "txtPlatitorTransport";
             this.txtPlatitorTransport.Size = new System.Drawing.Size(513, 20);
@@ -952,6 +962,7 @@
             // 
             // txtRuta
             // 
+            this.txtRuta.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRuta.Location = new System.Drawing.Point(239, 30);
             this.txtRuta.Name = "txtRuta";
             this.txtRuta.Size = new System.Drawing.Size(381, 20);
@@ -992,6 +1003,7 @@
             // 
             // txtDispunere4
             // 
+            this.txtDispunere4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDispunere4.Location = new System.Drawing.Point(12, 113);
             this.txtDispunere4.Name = "txtDispunere4";
             this.txtDispunere4.Size = new System.Drawing.Size(608, 20);
@@ -1000,6 +1012,7 @@
             // 
             // txtDispunere3
             // 
+            this.txtDispunere3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDispunere3.Location = new System.Drawing.Point(12, 87);
             this.txtDispunere3.Name = "txtDispunere3";
             this.txtDispunere3.Size = new System.Drawing.Size(608, 20);
@@ -1008,6 +1021,7 @@
             // 
             // txtDispunere2
             // 
+            this.txtDispunere2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDispunere2.Location = new System.Drawing.Point(12, 61);
             this.txtDispunere2.Name = "txtDispunere2";
             this.txtDispunere2.Size = new System.Drawing.Size(608, 20);
@@ -1016,6 +1030,7 @@
             // 
             // txtDispunere1
             // 
+            this.txtDispunere1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDispunere1.Location = new System.Drawing.Point(12, 35);
             this.txtDispunere1.Name = "txtDispunere1";
             this.txtDispunere1.Size = new System.Drawing.Size(608, 20);
@@ -1099,6 +1114,7 @@
             // 
             // txtCPNumeProj
             // 
+            this.txtCPNumeProj.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCPNumeProj.Location = new System.Drawing.Point(216, 93);
             this.txtCPNumeProj.Name = "txtCPNumeProj";
             this.txtCPNumeProj.Size = new System.Drawing.Size(387, 20);
@@ -1141,6 +1157,7 @@
             // 
             // txtDFC
             // 
+            this.txtDFC.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDFC.Location = new System.Drawing.Point(427, 49);
             this.txtDFC.Name = "txtDFC";
             this.txtDFC.Size = new System.Drawing.Size(176, 20);

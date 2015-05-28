@@ -17,8 +17,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             VerificareMonezi();
             VerificareTari();
             VerificareScopuri();
-            VerificareScopuriConferinte();
-            VerificareScopuriAltele();
 
             AprobareVerifGDFMTSCA();
 
@@ -27,6 +25,8 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             // Necesare pentru ODD
             VerificareRector();
             VerificareProrector();
+
+            AprobareVerifRP();
 
             MetodaScriereInStatusR();
         }
@@ -61,8 +61,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         bool AprobareVerifM = false;
         bool AprobareVerifT = false;
         bool AprobareVerifS = false;
-        bool AprobareVerifSC = false;
-        bool AprobareVerifSA = false;
         bool ExistaCereri = false;
         /* ------------------- Metoda verificare gradedidactice ---------------------------------------------------------- */
         public void VerificareGradeDidactice()
@@ -304,102 +302,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-        /* ------------ Metoda de verificare daca sunt introduse scopur-conferinte --------------------------------------- */
-        public void VerificareScopuriConferinte()
-        {
-            using (OdbcConnection conexiune_SC = new OdbcConnection(sircon_RelIntDB))
-            {           // Comanda
-                using (OdbcCommand comanda_SC = new OdbcCommand())
-                {
-                    comanda_SC.Connection = conexiune_SC;
-                    comanda_SC.CommandType = CommandType.Text;
-                    comanda_SC.CommandText = "SELECT * FROM scopuriconferinte";
-
-                    OdbcDataReader cititor_SC;
-
-                    try
-                    {
-                        conexiune_SC.Open();
-                        cititor_SC = comanda_SC.ExecuteReader();
-
-                        // Daca cititorul
-                        if (cititor_SC.HasRows == false)
-                        {
-                            // Afisam de ce
-                            tsStatusDeCeSC.Text = " Nu sunt SCOPURI - CONFERINȚE introduse în baza de date. Introduceți-le! ";
-
-                            // Setam
-                            AprobareVerifSC = false;
-                        }
-                        else
-                        {
-                            // Stergem afisarea
-                            tsStatusDeCeSC.Text = string.Empty;
-
-                            // Setam
-                            AprobareVerifSC = true;
-                        }
-                    }
-                    catch (Exception exSC)
-                    {
-                        MessageBox.Show(exSC.Message);
-                    } // Ne deconectam
-                    finally
-                    {
-                        conexiune_SC.Close();
-                    }
-                }
-            }
-        }
-        /* --------------------------------------------------------------------------------------------------------------- */
-        /* ------------ Metoda de verificare daca sunt introduse scopuri-altele ------------------------------------------ */
-        public void VerificareScopuriAltele()
-        {
-            using (OdbcConnection conexiune_SA = new OdbcConnection(sircon_RelIntDB))
-            {           // Comanda
-                using (OdbcCommand comanda_SA = new OdbcCommand())
-                {
-                    comanda_SA.Connection = conexiune_SA;
-                    comanda_SA.CommandType = CommandType.Text;
-                    comanda_SA.CommandText = "SELECT * FROM scopurialtele";
-
-                    OdbcDataReader cititor_SA;
-
-                    try
-                    {
-                        conexiune_SA.Open();
-                        cititor_SA = comanda_SA.ExecuteReader();
-
-                        // Daca cititorul
-                        if (cititor_SA.HasRows == false)
-                        {
-                            // Afisam de ce
-                            tsStatusDeCeSA.Text = " Nu sunt SCOPURI - ALTELE introduse în baza de date. Introduceți-le! ";
-
-                            // Setam
-                            AprobareVerifSA = false;
-                        }
-                        else
-                        {
-                            // Stergem afisarea
-                            tsStatusDeCeSA.Text = string.Empty;
-
-                            // Setam
-                            AprobareVerifSA = true;
-                        }
-                    }
-                    catch (Exception exSA)
-                    {
-                        MessageBox.Show(exSA.Message);
-                    } // Ne deconectam
-                    finally
-                    {
-                        conexiune_SA.Close();
-                    }
-                }
-            }
-        }
-        /* --------------------------------------------------------------------------------------------------------------- */
         /* ---------- Metoda verificare cereri --------------------------------------------------------------------------- */
         public void VerificareCereri()
         {
@@ -450,9 +352,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 && AprobareVerifF
                 && AprobareVerifM
                 && AprobareVerifT
-                && AprobareVerifS
-                && AprobareVerifSC
-                && AprobareVerifSA)
+                && AprobareVerifS)
             {
                 AprobareVerifRP();
                 VerificareCereri();

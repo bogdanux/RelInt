@@ -63,8 +63,6 @@
             this.tsStatusDeCeGD = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsStatusDeCeF = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsStatusDeCePR = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tsStatusDeCeSA = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tsStatusDeCeSC = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsStatusDeCeS = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsStatusDeCeT = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsStatusDeCeR = new System.Windows.Forms.ToolStripStatusLabel();
@@ -322,8 +320,6 @@
             this.tsStatusDeCeGD,
             this.tsStatusDeCeF,
             this.tsStatusDeCePR,
-            this.tsStatusDeCeSA,
-            this.tsStatusDeCeSC,
             this.tsStatusDeCeS,
             this.tsStatusDeCeT,
             this.tsStatusDeCeR,
@@ -368,20 +364,6 @@
             this.tsStatusDeCePR.ForeColor = System.Drawing.Color.Purple;
             this.tsStatusDeCePR.Name = "tsStatusDeCePR";
             this.tsStatusDeCePR.Size = new System.Drawing.Size(0, 17);
-            // 
-            // tsStatusDeCeSA
-            // 
-            this.tsStatusDeCeSA.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.tsStatusDeCeSA.ForeColor = System.Drawing.Color.Purple;
-            this.tsStatusDeCeSA.Name = "tsStatusDeCeSA";
-            this.tsStatusDeCeSA.Size = new System.Drawing.Size(0, 17);
-            // 
-            // tsStatusDeCeSC
-            // 
-            this.tsStatusDeCeSC.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.tsStatusDeCeSC.ForeColor = System.Drawing.Color.Purple;
-            this.tsStatusDeCeSC.Name = "tsStatusDeCeSC";
-            this.tsStatusDeCeSC.Size = new System.Drawing.Size(0, 17);
             // 
             // tsStatusDeCeS
             // 
@@ -477,8 +459,6 @@
         private System.Windows.Forms.ToolStripStatusLabel tsStatusDeCeR;
         private System.Windows.Forms.ToolStripStatusLabel tsStatusDeCeT;
         private System.Windows.Forms.ToolStripStatusLabel tsStatusDeCeS;
-        private System.Windows.Forms.ToolStripStatusLabel tsStatusDeCeSA;
-        private System.Windows.Forms.ToolStripStatusLabel tsStatusDeCeSC;
         public System.Windows.Forms.ToolStripStatusLabel tsStatusRectorCurent;
     }
 }

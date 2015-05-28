@@ -756,9 +756,9 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
             }
 
-            if (System.Windows.Forms.Application.OpenForms["frmVizualizareTot"] != null)
+            if (System.Windows.Forms.Application.OpenForms["frmListaCereriExistente"] != null)
             {
-                (System.Windows.Forms.Application.OpenForms["frmVizualizareTot"] as frmListaCereriExistente).PopularedgvVizualizareTot();
+                (System.Windows.Forms.Application.OpenForms["frmListaCereriExistente"] as frmListaCereriExistente).PopularedgvVizualizareTot();
             }
             if (System.Windows.Forms.Application.OpenForms["frmOrdineaDeZi"] != null)
             {

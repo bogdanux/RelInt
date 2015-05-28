@@ -206,16 +206,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
             if (System.Windows.Forms.Application.OpenForms["frmGCD"] != null)
             {
-                (System.Windows.Forms.Application.OpenForms["frmGCD"] as frmGCD).VerificareScopuriConferinte();
-            }
-
-            if (System.Windows.Forms.Application.OpenForms["frmGCD"] != null)
-            {
-                (System.Windows.Forms.Application.OpenForms["frmGCD"] as frmGCD).VerificareScopuriAltele();
-            }
-
-            if (System.Windows.Forms.Application.OpenForms["frmGCD"] != null)
-            {
                 (System.Windows.Forms.Application.OpenForms["frmGCD"] as frmGCD).MetodaScriereInStatusUC();
             }
 

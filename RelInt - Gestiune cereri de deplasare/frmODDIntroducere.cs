@@ -933,17 +933,17 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                                 chkDiurna.Checked = cititor_populareDinBD.GetBoolean(17);
                                 txtNrZileDiurna.Text = cititor_populareDinBD.GetString(18);
                                 txtDiurna.Text = cititor_populareDinBD.GetString(19);
-                                cmbMoneda1.SelectedItem = cititor_populareDinBD.IsDBNull(20) ? cmbMoneda1.SelectedItem = string.Empty : cmbMoneda1.SelectedItem = cititor_populareDinBD.GetString(21);
+                                cmbMoneda1.SelectedItem = cititor_populareDinBD.IsDBNull(20) ? cmbMoneda1.SelectedItem = string.Empty : cmbMoneda1.SelectedItem = cititor_populareDinBD.GetString(20);
                                 chkCazare.Checked = cititor_populareDinBD.GetBoolean(21);
                                 txtNrZileCazare.Text = cititor_populareDinBD.GetString(22);
                                 txtCazare.Text = cititor_populareDinBD.GetString(23);
-                                cmbMoneda2.SelectedItem = cititor_populareDinBD.IsDBNull(24) ? cmbMoneda2.SelectedItem = string.Empty : cmbMoneda2.SelectedItem = cititor_populareDinBD.GetString(25);
+                                cmbMoneda2.SelectedItem = cititor_populareDinBD.IsDBNull(24) ? cmbMoneda2.SelectedItem = string.Empty : cmbMoneda2.SelectedItem = cititor_populareDinBD.GetString(24);
                                 chkTaxaDeParticipare.Checked = cititor_populareDinBD.GetBoolean(25);
                                 txtTaxaDeParticipare.Text = cititor_populareDinBD.GetString(26);
-                                cmbMoneda3.SelectedItem = cititor_populareDinBD.IsDBNull(27) ? cmbMoneda3.SelectedItem = string.Empty : cmbMoneda3.SelectedItem = cititor_populareDinBD.GetString(28);
+                                cmbMoneda3.SelectedItem = cititor_populareDinBD.IsDBNull(27) ? cmbMoneda3.SelectedItem = string.Empty : cmbMoneda3.SelectedItem = cititor_populareDinBD.GetString(27);
                                 chkTaxaDeViza.Checked = cititor_populareDinBD.GetBoolean(28);
                                 txtTaxaDeViza.Text = cititor_populareDinBD.GetString(29);
-                                cmbMoneda4.SelectedItem = cititor_populareDinBD.IsDBNull(30) ? cmbMoneda4.SelectedItem = string.Empty : cmbMoneda4.SelectedItem = cititor_populareDinBD.GetString(31);
+                                cmbMoneda4.SelectedItem = cititor_populareDinBD.IsDBNull(30) ? cmbMoneda4.SelectedItem = string.Empty : cmbMoneda4.SelectedItem = cititor_populareDinBD.GetString(30);
                                 txtTotalDePlata.Text = cititor_populareDinBD.GetString(31);
 
                                 txtNrInregistrare.Enabled = false;
@@ -1264,6 +1264,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         {
             // Daca casetele urmatoare nu sunt goale
             if (cmbGradDidactic.SelectedIndex != -1
+                && cmbCPGradDidactic.SelectedIndex != -1
                 && cmbFacultatea.SelectedIndex != -1
                 && cmbTara.SelectedIndex != -1
                 && cmbScop.SelectedIndex != -1
@@ -1320,6 +1321,12 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     // Afiseaza eroarea
                     MessageBox.Show(
                         "               Nu ați selectat nici un grad didactic (-- Grad didactic --) ! \n                 Vă rugăm selectați o valoare.");
+                }
+                else if (cmbCPGradDidactic.SelectedIndex == -1)
+                {
+                    // Afiseaza eroarea
+                    MessageBox.Show(
+                        "               Nu ați selectat nici un grad didactic (-- Coordonator Proiect Grad didactic --) ! \n                         Vă rugăm selectați o valoare.");
                 }
                 else if (cmbFacultatea.SelectedIndex == -1)
                 {

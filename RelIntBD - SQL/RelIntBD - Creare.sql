@@ -16,12 +16,12 @@ DROP TABLE IF EXISTS Monezi;
 
 -- Creare tabela GradeDidactice
 CREATE TABLE GradeDidactice (
-GradDidacticGD VARCHAR(50) CONSTRAINT pk_GradDidacticGD PRIMARY KEY
+GradDidacticGD VARCHAR(150) CONSTRAINT pk_GradDidacticGD PRIMARY KEY
 );
 
 -- Creare tabela Facultati
 CREATE TABLE Facultati (
-FacultatiF VARCHAR(50) CONSTRAINT pk_FacultatiF PRIMARY KEY
+FacultatiF VARCHAR(150) CONSTRAINT pk_FacultatiF PRIMARY KEY
 );
 
 -- Creare tabela Facultati
@@ -36,7 +36,7 @@ TariT VARCHAR(150) CONSTRAINT pk_TariT PRIMARY KEY
 
 -- Creare tabela Scopuri
 CREATE TABLE Scopuri (
-ScopuriS VARCHAR(150) CONSTRAINT pk_ScopuriS PRIMARY KEY
+ScopuriS VARCHAR(1000) CONSTRAINT pk_ScopuriS PRIMARY KEY
 );
 
 -- Creare tabela Cereri
@@ -45,7 +45,7 @@ NrInregistrareC NUMERIC(5) CONSTRAINT pk_NrInregistrareC PRIMARY KEY,
 DataC DATE,
 SubsemnatulC VARCHAR(70),
 GradDidacticC VARCHAR(50) CONSTRAINT fk_GradDidacticC REFERENCES GradeDidactice(GradDidacticGD) ON UPDATE CASCADE,
-FacultateaC VARCHAR(50) CONSTRAINT fk_FacultateaC REFERENCES Facultati(FacultatiF) ON UPDATE CASCADE,
+FacultateaC VARCHAR(150) CONSTRAINT fk_FacultateaC REFERENCES Facultati(FacultatiF) ON UPDATE CASCADE,
 DepartamentulC VARCHAR(50),
 TaraC VARCHAR(100) CONSTRAINT fk_TaraC REFERENCES Tari(TariT) ON UPDATE CASCADE,
 LocalitateaC VARCHAR(100),
@@ -129,7 +129,7 @@ DataOD DATE,
 DataODNoua DATE,
 SubsemnatulOD VARCHAR(70),
 GradDidacticOD VARCHAR(50) CONSTRAINT fk_GradDidacticC REFERENCES GradeDidactice(GradDidacticGD) ON UPDATE CASCADE,
-FacultateaOD VARCHAR(50) CONSTRAINT fk_FacultateaC REFERENCES Facultati(FacultatiF) ON UPDATE CASCADE,
+FacultateaOD VARCHAR(150) CONSTRAINT fk_FacultateaC REFERENCES Facultati(FacultatiF) ON UPDATE CASCADE,
 TaraOD VARCHAR(100) CONSTRAINT fk_TaraOD REFERENCES Tari(TariT) ON UPDATE CASCADE,
 LocalitateaOD VARCHAR(100),
 ScopOD VARCHAR(300) CONSTRAINT fk_ScopC REFERENCES Scopuri(ScopuriS) ON UPDATE CASCADE,
