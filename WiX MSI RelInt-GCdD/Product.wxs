@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
-  <Product Id="*" Name="RelInt - Gestiunea Cererilor de Deplasare" Language="1048" Version="1.0.1.21" Manufacturer="SIA-FEAA" UpgradeCode="11163168-B0A4-4B26-A553-404359B0D84F">
+  <Product Id="*" Name="RelInt - Gestiunea Cererilor de Deplasare" Language="1048" Version="1.0.1.25" Manufacturer="SIA-FEAA" UpgradeCode="11163168-B0A4-4B26-A553-404359B0D84F">
     <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine"/>
 
     <MajorUpgrade DowngradeErrorMessage="O versiune mai noua a produsului [ProductName] este deja instalata." />

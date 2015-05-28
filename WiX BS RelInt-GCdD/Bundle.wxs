@@ -5,7 +5,7 @@
   
       <!-- Identificare Bundle -->
 	    <Bundle Name="RelInt - Gestiunea Cererilor de Deplasare"
-              Version="1.0.1.21"
+              Version="1.0.1.25"
               Manufacturer="SIA-FEAA"
               UpgradeCode="f3e47dc9-23f0-4fd2-9e0a-f736e5860002"
               IconSourceFile="D:\RelInt\RelInt - Gestiune cereri de deplasare\bin\x86\Debug\UAIC_icon.ico"
