@@ -117,9 +117,22 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         {
             if (rdoAdaugaR.Checked == true)
             {
+                txtNumeRNou.Clear();
+                lblNumeRNou.Enabled = false;
+                txtNumeRNou.Enabled = false;
+                lblEMailRNou.Enabled = false;
+                txtEMailRNou.Clear();
+                txtEMailRNou.Enabled = false;
+                lblTelefonRNou.Enabled = false;
+                txtTelefonRNou.Clear();
+                txtTelefonRNou.Enabled = false;
+                chkActivRNou.Checked = false;
+                chkActivRNou.Enabled = false;
+
                 // Activam
                 lblNumeR.Enabled = true;
                 txtNumeR.Enabled = true;
+                txtNumeR.Clear();
             }
             else
             {
@@ -134,6 +147,16 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         {
             if (rdoModificaR.Checked == true)
             {
+                txtNumeR.Clear();
+                lblEmailR.Enabled = false;
+                txtEmailR.Clear();
+                txtEmailR.Enabled = false;
+                lblTelefonR.Enabled = false;
+                txtTelefonR.Clear();
+                txtTelefonR.Enabled = false;
+                chkActivR.Checked = false;
+                chkActivR.Enabled = false;
+
                 // Activam
                 lblNumeR.Enabled = true;
                 txtNumeR.Enabled = true;
@@ -762,9 +785,26 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         {
             if (rdoAdaugaPR.Checked == true)
             {
+                lblNumePRNou.Enabled = false;
+                txtNumePRNou.Clear();
+                txtNumePRNou.Enabled = false;
+                lblEMailPRNou.Enabled = false;
+                txtEMailPRNou.Clear();
+                txtEMailPRNou.Enabled = false;
+                lblTelefonPR1Nou.Enabled = false;
+                txtTelefonPR1Nou.Clear();
+                txtTelefonPR1Nou.Enabled = false;
+                lblTelefonPR2Nou.Enabled = false;
+                txtTelefonPR2Nou.Clear();
+                txtTelefonPR2Nou.Enabled = false;
+                lblSectorPRNou.Enabled = false;
+                txtSectorPRNou.Clear();
+                txtSectorPRNou.Enabled = false;
+
                 // Activeaza
                 lblNumePR.Enabled = true;
                 txtNumePR.Enabled = true;
+                txtNumePR.Clear();
             }
             else
             {
@@ -790,6 +830,19 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         {
             if (rdoModificaPR.Checked == true)
             {
+                lblEMailPR.Enabled = false;
+                txtEMailPR.Clear();
+                txtEMailPR.Enabled = false;
+                lblTelefonPR1.Enabled = false;
+                txtTelefonPR1.Clear();
+                txtTelefonPR1.Enabled = false;
+                lblTelefonPR2.Enabled = false;
+                txtTelefonPR2.Clear();
+                txtTelefonPR2.Enabled = false;
+                lblSectorPR.Enabled = false;
+                txtSectorPR.Clear();
+                txtSectorPR.Enabled = false;
+
                 // Activeaza
                 lblNumePR.Enabled = true;
                 txtNumePR.Enabled = true;
