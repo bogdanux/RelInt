@@ -524,7 +524,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                         else
                         {
                             // Stergem afisarea
-                            tsStatusDeCeR.Text = string.Empty;
+                            tsStatusDeCePR.Text = string.Empty;
 
                             // Setam
                             AprobareVerifPR = true;
