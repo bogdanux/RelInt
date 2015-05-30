@@ -423,13 +423,6 @@
             // 
             this.cmbScop.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbScop.FormattingEnabled = true;
-            this.cmbScop.Items.AddRange(new object[] {
-            "a",
-            "b",
-            "c",
-            "d",
-            "e",
-            "f"});
             this.cmbScop.Location = new System.Drawing.Point(159, 80);
             this.cmbScop.Name = "cmbScop";
             this.cmbScop.Size = new System.Drawing.Size(463, 21);

@@ -468,7 +468,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                         if (cititor_Rectori.HasRows == false)
                         {
                             // Afisam de ce
-                            tsStatusDeCeM.Text = " Nu sunt RECTORI introduși în baza de date. Introduceți-i! ";
+                            tsStatusDeCeR.Text = " Nu sunt RECTORI introduși în baza de date. Introduceți-i! ";
 
                             // Setam
                             AprobareVerifR = false;

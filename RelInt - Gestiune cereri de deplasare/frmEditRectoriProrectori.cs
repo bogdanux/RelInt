@@ -43,7 +43,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         /* --------------------------------------------------------------------------------------------------------------- */
         private void btnIesire_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
@@ -94,21 +94,21 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             }
 
             // Efectuam metoda:
-            if (System.Windows.Forms.Application.OpenForms["frmGCD"] != null)
+            if (Application.OpenForms["frmGCD"] != null)
             {
-                (System.Windows.Forms.Application.OpenForms["frmGCD"] as frmGCD).VerificareRector();
+                (Application.OpenForms["frmGCD"] as frmGCD).VerificareRector();
             }
 
             // Apoi metoda:
-            if (System.Windows.Forms.Application.OpenForms["frmGCD"] != null)
+            if (Application.OpenForms["frmGCD"] != null)
             {
-                (System.Windows.Forms.Application.OpenForms["frmGCD"] as frmGCD).AprobareVerifRP();
+                (Application.OpenForms["frmGCD"] as frmGCD).AprobareVerifRP();
             }
 
             // Apoi metoda:
-            if (System.Windows.Forms.Application.OpenForms["frmGCD"] != null)
+            if (Application.OpenForms["frmGCD"] != null)
             {
-                (System.Windows.Forms.Application.OpenForms["frmGCD"] as frmGCD).MetodaScriereInStatusR();
+                (Application.OpenForms["frmGCD"] as frmGCD).MetodaScriereInStatusR();
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
@@ -556,15 +556,21 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             }
 
             // Efectuam metoda:
-            if (System.Windows.Forms.Application.OpenForms["frmGCD"] != null)
+            if (Application.OpenForms["frmGCD"] != null)
             {
-                (System.Windows.Forms.Application.OpenForms["frmGCD"] as frmGCD).VerificareProrector();
+                (Application.OpenForms["frmGCD"] as frmGCD).VerificareProrector();
             }
 
             // Apoi metoda:
-            if (System.Windows.Forms.Application.OpenForms["frmGCD"] != null)
+            if (Application.OpenForms["frmGCD"] != null)
             {
-                (System.Windows.Forms.Application.OpenForms["frmGCD"] as frmGCD).AprobareVerifRP();
+                (Application.OpenForms["frmGCD"] as frmGCD).AprobareVerifRP();
+            }
+
+            // Apoi metoda:
+            if (Application.OpenForms["frmGCD"] != null)
+            {
+                (Application.OpenForms["frmGCD"] as frmGCD).MetodaScriereInStatusR();
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */

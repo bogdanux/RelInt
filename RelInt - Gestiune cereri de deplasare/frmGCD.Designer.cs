@@ -358,19 +358,12 @@
             this.tsStatusDeCeF.Name = "tsStatusDeCeF";
             this.tsStatusDeCeF.Size = new System.Drawing.Size(0, 17);
             // 
-            // tsStatusDeCePR
+            // tsStatusDeCeM
             // 
-            this.tsStatusDeCePR.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.tsStatusDeCePR.ForeColor = System.Drawing.Color.Purple;
-            this.tsStatusDeCePR.Name = "tsStatusDeCePR";
-            this.tsStatusDeCePR.Size = new System.Drawing.Size(0, 17);
-            // 
-            // tsStatusDeCeS
-            // 
-            this.tsStatusDeCeS.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.tsStatusDeCeS.ForeColor = System.Drawing.Color.Purple;
-            this.tsStatusDeCeS.Name = "tsStatusDeCeS";
-            this.tsStatusDeCeS.Size = new System.Drawing.Size(0, 17);
+            this.tsStatusDeCeM.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.tsStatusDeCeM.ForeColor = System.Drawing.Color.Purple;
+            this.tsStatusDeCeM.Name = "tsStatusDeCeM";
+            this.tsStatusDeCeM.Size = new System.Drawing.Size(0, 17);
             // 
             // tsStatusDeCeT
             // 
@@ -379,6 +372,13 @@
             this.tsStatusDeCeT.Name = "tsStatusDeCeT";
             this.tsStatusDeCeT.Size = new System.Drawing.Size(0, 17);
             // 
+            // tsStatusDeCeS
+            // 
+            this.tsStatusDeCeS.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.tsStatusDeCeS.ForeColor = System.Drawing.Color.Purple;
+            this.tsStatusDeCeS.Name = "tsStatusDeCeS";
+            this.tsStatusDeCeS.Size = new System.Drawing.Size(0, 17);
+            // 
             // tsStatusDeCeR
             // 
             this.tsStatusDeCeR.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
@@ -386,12 +386,12 @@
             this.tsStatusDeCeR.Name = "tsStatusDeCeR";
             this.tsStatusDeCeR.Size = new System.Drawing.Size(0, 17);
             // 
-            // tsStatusDeCeM
+            // tsStatusDeCePR
             // 
-            this.tsStatusDeCeM.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.tsStatusDeCeM.ForeColor = System.Drawing.Color.Purple;
-            this.tsStatusDeCeM.Name = "tsStatusDeCeM";
-            this.tsStatusDeCeM.Size = new System.Drawing.Size(0, 17);
+            this.tsStatusDeCePR.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.tsStatusDeCePR.ForeColor = System.Drawing.Color.Purple;
+            this.tsStatusDeCePR.Name = "tsStatusDeCePR";
+            this.tsStatusDeCePR.Size = new System.Drawing.Size(0, 17);
             // 
             // frmGCD
             // 
@@ -442,23 +442,23 @@
         private System.Windows.Forms.ToolStripMenuItem mnuSetari;
         private System.Windows.Forms.ToolStripMenuItem btnGCDTipIntrari;
         private System.Windows.Forms.ToolStripMenuItem btnManualUtilizare;
-        private System.Windows.Forms.ToolStripStatusLabel tsStatusDeCeGD;
         public System.Windows.Forms.ToolStripMenuItem btnGCDIntroducereFormular;
         public System.Windows.Forms.ToolStripMenuItem btnGCDModificareFormular;
         private System.Windows.Forms.ToolStripMenuItem btnGCDModificareODD;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripMenuItem btnGCDEditareRectori;
-        private System.Windows.Forms.ToolStripStatusLabel tsStatusDeCeM;
-        private System.Windows.Forms.ToolStripStatusLabel tsStatusDeCeF;
         private System.Windows.Forms.ToolStripMenuItem btnGCDAsistenta;
         private System.Windows.Forms.ToolStripMenuItem btnResetare;
         private System.Windows.Forms.ToolStripMenuItem btnCopieSiguranta;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripMenuItem btnGCDListaOrdineDeDeplasare;
-        private System.Windows.Forms.ToolStripStatusLabel tsStatusDeCePR;
-        private System.Windows.Forms.ToolStripStatusLabel tsStatusDeCeR;
+        private System.Windows.Forms.ToolStripStatusLabel tsStatusDeCeGD;
+        private System.Windows.Forms.ToolStripStatusLabel tsStatusDeCeF;
+        private System.Windows.Forms.ToolStripStatusLabel tsStatusDeCeM;
         private System.Windows.Forms.ToolStripStatusLabel tsStatusDeCeT;
         private System.Windows.Forms.ToolStripStatusLabel tsStatusDeCeS;
+        private System.Windows.Forms.ToolStripStatusLabel tsStatusDeCeR;
+        private System.Windows.Forms.ToolStripStatusLabel tsStatusDeCePR;
         public System.Windows.Forms.ToolStripStatusLabel tsStatusRectorCurent;
     }
 }

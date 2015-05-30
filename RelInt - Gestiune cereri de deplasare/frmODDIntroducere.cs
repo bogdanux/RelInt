@@ -19,10 +19,18 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
             // Incarcam ComboBox-urile urmatoare
             UmplereGradDidactic();
+            cmbGradDidactic.DropDownWidth = LatimeDropDown(cmbGradDidactic);
             UmplereFacultate();
+            cmbFacultatea.DropDownWidth = LatimeDropDown(cmbFacultatea);
             UmplereMonezi();
+            cmbMoneda1.DropDownWidth = LatimeDropDown(cmbMoneda1);
+            cmbMoneda2.DropDownWidth = LatimeDropDown(cmbMoneda2);
+            cmbMoneda3.DropDownWidth = LatimeDropDown(cmbMoneda3);
+            cmbMoneda4.DropDownWidth = LatimeDropDown(cmbMoneda4);
             UmplereTari();
+            cmbTara.DropDownWidth = LatimeDropDown(cmbTara);
             UmplereScop();
+            cmbScop.DropDownWidth = LatimeDropDown(cmbScop);
 
             // Pregatim formularul
             PregatireFormular();
@@ -89,6 +97,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         /* ---------- Metoda de umplere a cmbGradDidactic cu date din RelIntDB ------------------------------------------- */
         public void UmplereGradDidactic()
         {
+            cmbGradDidactic.Items.Clear();
             using (OdbcConnection conexiune_cmbGradDidactic = new OdbcConnection(sircon_RelIntDB))
             {           // Comanda
                 using (OdbcCommand comanda_cmbGradDidactic = new OdbcCommand())
@@ -107,7 +116,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                         {
                             string str_cmbGradDidactic = cititor_cmbGradDidactic.GetString(0);
                             cmbGradDidactic.Items.Add(str_cmbGradDidactic);
-                            cmbCPGradDidactic.Items.Add(str_cmbGradDidactic);
                         }
                     }
                     catch (Exception excmbGradDidactic)
@@ -125,6 +133,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         /* ---------- Metoda de umplere a cmbFacultate cu date din RelIntDB ---------------------------------------------- */
         public void UmplereFacultate()
         {
+            cmbFacultatea.Items.Clear();
             using (OdbcConnection conexiune_cmbFacultate = new OdbcConnection(sircon_RelIntDB))
             {           // Comanda
                 using (OdbcCommand comanda_cmbFacultate = new OdbcCommand())
@@ -160,6 +169,10 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         /* ---------- Metoda de umplere a cmbMonezi cu date din RelIntDB ------------------------------------------------- */
         public void UmplereMonezi()
         {
+            cmbMoneda1.Items.Clear();
+            cmbMoneda2.Items.Clear();
+            cmbMoneda3.Items.Clear();
+            cmbMoneda4.Items.Clear();
             using (OdbcConnection conexiune_cmbMonezi = new OdbcConnection(sircon_RelIntDB))
             {           // Comanda
                 using (OdbcCommand comanda_cmbMonezi = new OdbcCommand())
@@ -198,6 +211,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         /* ---------- Metoda de umplere a cmbTari cu date din RelIntDB --------------------------------------------------- */
         public void UmplereTari()
         {
+            cmbTara.Items.Clear();
             using (OdbcConnection conexiune_cmbTari = new OdbcConnection(sircon_RelIntDB))
             {           // Comanda
                 using (OdbcCommand comanda_cmbTari = new OdbcCommand())
@@ -233,6 +247,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         /* ---------- Metoda de umplere a cmbScop cu date din RelIntDB --------------------------------------------------- */
         public void UmplereScop()
         {
+            cmbScop.Items.Clear();
             using (OdbcConnection conexiune_cmbScop = new OdbcConnection(sircon_RelIntDB))
             {           // Comanda
                 using (OdbcCommand comanda_cmbScop = new OdbcCommand())
@@ -263,6 +278,26 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     }
                 }
             }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* ----------- Metoda de setare a latimii dropdown-ului pentru combobox-uri -------------------------------------- */
+        int LatimeDropDown(ComboBox myCombo)
+        {
+            int maxWidth = 0;
+            int temp = 0;
+            Label label1 = new Label();
+
+            foreach (var obj in myCombo.Items)
+            {
+                label1.Text = obj.ToString();
+                temp = label1.PreferredWidth;
+                if (temp > maxWidth)
+                {
+                    maxWidth = temp;
+                }
+            }
+            label1.Dispose();
+            return maxWidth;
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
