@@ -402,6 +402,9 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 btnGCDIntroducereODD.Enabled = false;
                 btnGCDModificareODD.Enabled = false;
                 btnGCDListaOrdineDeDeplasare.Enabled = false;
+
+                tsStatusRectorCurent.Text = string.Empty;
+                tsStatusUltimaInregistrare.Text = string.Empty;
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
