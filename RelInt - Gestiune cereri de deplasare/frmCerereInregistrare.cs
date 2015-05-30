@@ -143,18 +143,11 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         double varCazare;
         double varTaxaDeParticipare;
         double varTaxaDeVizaEtc;
-        bool diurnaEsteNumar;
-        bool cazareEsteNumar;
-        bool TaxaDeParticipareEsteNumar;
-        bool TaxaDeVizaEtceEsteNumar;
-        double varTotalDePlata;
 
         // Variabile pentru alte porti logice
-        bool CalculTotalSucces = false;
         bool MetodaInserareSucces = false;
 
         // Variabile de lucru pentru CevaSchimbat()
-        bool txtNrInregistrareSchimbat = false;
         bool txtSubsemnatulSchimbat = false;
         bool cmbGradDidacticSchimbat = false;
         bool cmbFacultateaSchimbat = false;
@@ -551,17 +544,17 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     comanda_inserareRelInt.Parameters.AddWithValue("@platitorintretinerec", OdbcType.NVarChar).Value = txtPlatitorIntretinere.Text;
                     comanda_inserareRelInt.Parameters.AddWithValue("@bifadiurnac", OdbcType.Bit).Value = chkDiurna.Checked;
                     comanda_inserareRelInt.Parameters.AddWithValue("@nrzilediurnac", OdbcType.Int).Value = vartxtNrZileDiurna;
-                    comanda_inserareRelInt.Parameters.AddWithValue("@diurnac", OdbcType.Double).Value = vartxtDiurna;
+                    comanda_inserareRelInt.Parameters.AddWithValue("@diurnac", OdbcType.Double).Value = varDiurna;
                     comanda_inserareRelInt.Parameters.AddWithValue("@monedadiurnac", OdbcType.NVarChar).Value = cmbMoneda1.SelectedItem;
                     comanda_inserareRelInt.Parameters.AddWithValue("@bifacazarec", OdbcType.Bit).Value = chkCazare.Checked;
                     comanda_inserareRelInt.Parameters.AddWithValue("@nrzilecazarec", OdbcType.Int).Value = vartxtNrZileCazare;
-                    comanda_inserareRelInt.Parameters.AddWithValue("@cazarec", OdbcType.Double).Value = vartxtCazare;
+                    comanda_inserareRelInt.Parameters.AddWithValue("@cazarec", OdbcType.Double).Value = varCazare;
                     comanda_inserareRelInt.Parameters.AddWithValue("@monedacazarec", OdbcType.NVarChar).Value = cmbMoneda2.SelectedItem;
                     comanda_inserareRelInt.Parameters.AddWithValue("@bifataxadeparticiparec", OdbcType.Bit).Value = chkTaxaDeParticipare.Checked;
-                    comanda_inserareRelInt.Parameters.AddWithValue("@taxadeparticiparec", OdbcType.Double).Value = vartxtTaxaDeParticipare;
+                    comanda_inserareRelInt.Parameters.AddWithValue("@taxadeparticiparec", OdbcType.Double).Value = varTaxaDeParticipare;
                     comanda_inserareRelInt.Parameters.AddWithValue("@monedataxadeparticiparec", OdbcType.NVarChar).Value = cmbMoneda3.SelectedItem;
                     comanda_inserareRelInt.Parameters.AddWithValue("@bifataxadevizaetcc", OdbcType.Bit).Value = chkTaxaDeViza.Checked;
-                    comanda_inserareRelInt.Parameters.AddWithValue("@taxadevizaetcc", OdbcType.Double).Value = vartxtTaxaDeViza;
+                    comanda_inserareRelInt.Parameters.AddWithValue("@taxadevizaetcc", OdbcType.Double).Value = varTaxaDeVizaEtc;
                     comanda_inserareRelInt.Parameters.AddWithValue("@monedataxadevizaetcc", OdbcType.NVarChar).Value = cmbMoneda4.SelectedItem;
                     comanda_inserareRelInt.Parameters.AddWithValue("@totalc", OdbcType.NVarChar).Value = CalculTotal();
                     comanda_inserareRelInt.Parameters.AddWithValue("@ambasadac", OdbcType.NVarChar).Value = txtAmbasada.Text;
@@ -1682,7 +1675,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             double varSubtotal = 0;
 
             // Calculam
-            varSubtotal = vartxtNrZileDiurna * vartxtDiurna;
+            varSubtotal = vartxtNrZileDiurna * varDiurna;
 
             // Afisam
             txtSubtotalDiurna.Text = varSubtotal.ToString();
@@ -1695,7 +1688,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             double varSubtotal = 0;
 
             // Calculam
-            varSubtotal = vartxtNrZileCazare * vartxtCazare;
+            varSubtotal = vartxtNrZileCazare * varCazare;
 
             // Afisam
             txtSubtotalCazare.Text = varSubtotal.ToString();
@@ -1734,7 +1727,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         }
         /* --------------------------------------------------------------------------------------------------------------- */
         /* --------------------- variabile de lucru pentru eveniment txtDiurna ------------------------------------------- */
-        double vartxtDiurna;
         /* ------------------------- Eveniment pentru txtDiurna ---------------------------------------------------------- */
         private void txtDiurna_TextChanged(object sender, EventArgs e)
         {
@@ -1746,10 +1738,10 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             else
             {
                 // Verificam daca valoarea din "txtDiurna" este de tip int si daca da, o inregistram in "vartxtDiurna"
-                bool vartxtDiurnaEsteNumar = double.TryParse(txtDiurna.Text, out vartxtDiurna);
+                bool vartxtDiurnaEsteNumar = double.TryParse(txtDiurna.Text, out varDiurna);
                 if (vartxtDiurnaEsteNumar != false)
                 {
-                    vartxtDiurna = double.Parse(txtDiurna.Text, CultureInfo.InvariantCulture);
+                    varDiurna = double.Parse(txtDiurna.Text, CultureInfo.InvariantCulture);
                 }
 
                 // Judecam si "sanctionam" la nevoie
@@ -1796,7 +1788,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         }
         /* --------------------------------------------------------------------------------------------------------------- */
         /* ------------------------- Variabile de lucru pentru txtCazare ------------------------------------------------- */
-        double vartxtCazare;
         /* ------------------------- Eveniment pentru txtCazare ---------------------------------------------------------- */
         private void txtCazare_TextChanged(object sender, EventArgs e)
         {
@@ -1808,10 +1799,10 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             else
             {
                 // Verificam daca valoarea din "txtCazare" este de tip int si daca da, o inregistram in "vartxtCazare"
-                bool vartxtCazareEsteNumar = Double.TryParse(txtCazare.Text, out vartxtCazare);
+                bool vartxtCazareEsteNumar = Double.TryParse(txtCazare.Text, out varCazare);
                 if (vartxtCazareEsteNumar != false)
                 {
-                    vartxtCazare = double.Parse(txtCazare.Text, CultureInfo.InvariantCulture);
+                    varCazare = double.Parse(txtCazare.Text, CultureInfo.InvariantCulture);
                 }
 
 
@@ -1834,7 +1825,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         }
         /* --------------------------------------------------------------------------------------------------------------- */
         /* ------------------------ Variabile de lucru pentru txtTaxaDeParticipare --------------------------------------- */
-        double vartxtTaxaDeParticipare;
         /* ------------------------- Eveniment pentru txtTaxaDeParticipare ----------------------------------------------- */
         private void txtTaxaDeParticipare_TextChanged(object sender, EventArgs e)
         {
@@ -1846,10 +1836,10 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             else
             {
                 // Verificam daca valoarea din "txtTaxaDeParticipare" este de tip int si daca da, o inregistram in "vartxtTaxaDeParticipare"
-                bool vartxtTaxaDeParticipareEsteNumar = Double.TryParse(txtTaxaDeParticipare.Text, out vartxtTaxaDeParticipare);
+                bool vartxtTaxaDeParticipareEsteNumar = Double.TryParse(txtTaxaDeParticipare.Text, out varTaxaDeParticipare);
                 if (vartxtTaxaDeParticipareEsteNumar != false)
                 {
-                    vartxtTaxaDeParticipare = double.Parse(txtTaxaDeParticipare.Text, CultureInfo.InvariantCulture);
+                    varTaxaDeParticipare = double.Parse(txtTaxaDeParticipare.Text, CultureInfo.InvariantCulture);
                 }
 
                 // Judecam si "sanctionam" la nevoie
@@ -1868,7 +1858,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         }
         /* --------------------------------------------------------------------------------------------------------------- */
         /* -------------------------- Variabile de lucru pentru txtTaxaDeViza -------------------------------------------- */
-        double vartxtTaxaDeViza;
         /* ------------------------- Eveniment pentru txtTaxaDeViza ------------------------------------------------------ */
         private void txtTaxaDeViza_TextChanged(object sender, EventArgs e)
         {
@@ -1880,10 +1869,10 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             else
             {
                 // Verificam daca valoarea din "txtTaxaDeViza" este de tip int si daca da, o inregistram in "vartxtTaxaDeViza"
-                bool vartxtTaxaDeVizaEsteNumar = Double.TryParse(txtTaxaDeViza.Text, out vartxtTaxaDeViza);
+                bool vartxtTaxaDeVizaEsteNumar = Double.TryParse(txtTaxaDeViza.Text, out varTaxaDeVizaEtc);
                 if (vartxtTaxaDeVizaEsteNumar != false)
                 {
-                    vartxtTaxaDeViza = double.Parse(txtTaxaDeViza.Text, CultureInfo.InvariantCulture);
+                    varTaxaDeVizaEtc = double.Parse(txtTaxaDeViza.Text, CultureInfo.InvariantCulture);
                 }
                 // Judecam si "sanctionam" la nevoie
                 switch (vartxtTaxaDeVizaEsteNumar || txtTaxaDeViza.Text == string.Empty)
