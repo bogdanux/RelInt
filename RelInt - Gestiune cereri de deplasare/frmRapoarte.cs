@@ -1,8 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.Odbc;
+using System.Linq;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using System.Windows.Forms.VisualStyles;
+using MigraDoc.DocumentObjectModel.Shapes.Charts;
 
 namespace RelInt___Gestiune_cereri_de_deplasare
 {
@@ -11,6 +15,10 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         public frmRapoarte() // Metoda de LOAD
         {
             InitializeComponent();
+
+            // Umplem urmatoarele combobox-uri
+            UmplereScop();
+            cmbRPScop.DropDownWidth = LatimeDropDown(cmbRPScop);
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
@@ -22,6 +30,68 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         /* ----------- Obiecte de lucru cu RelIntDB ---------------------------------------------------------------------- */
         // Sir de conectare al RelIntDB
         string sircon_RelIntDB = "DSN=PostgreSQL35W;database=RelIntDB;server=localhost;port=5432;UID=postgres;PWD=12345;sslmode=disable;readonly=0;protocol=7.4;fakeoidindex=0;showoidcolumn=0;rowversioning=0;showsystemtables=0;fetch=100;socket=4096;unknownsizes=0;maxvarcharsize=255;maxlongvarcharsize=8190;debug=0;commlog=0;optimizer=0;ksqo=1;usedeclarefetch=0;textaslongvarchar=1;unknownsaslongvarchar=0;boolsaschar=1;parse=0;cancelasfreestmt=0;extrasystableprefixes=dd_;lfconversion=1;updatablecursors=1;disallowpremature=0;trueisminus1=0;bi=0;byteaaslongvarbinary=0;useserversideprepare=1;lowercaseidentifier=0;gssauthusegss=0;xaopt=1;";
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+        /* ---------- Metoda de umplere a cmbScop cu date din RelIntDB --------------------------------------------------- */
+        public void UmplereScop()
+        {
+            cmbRPScop.Items.Clear();
+            using (OdbcConnection conexiune_cmbScop = new OdbcConnection(sircon_RelIntDB))
+            {           // Comanda
+                using (OdbcCommand comanda_cmbScop = new OdbcCommand())
+                {
+                    comanda_cmbScop.Connection = conexiune_cmbScop;
+                    comanda_cmbScop.CommandType = CommandType.Text;
+                    comanda_cmbScop.CommandText = "SELECT * FROM scopuri";
+
+                    OdbcDataReader cititor_cmbScop;
+
+                    try
+                    {
+                        conexiune_cmbScop.Open();
+                        cititor_cmbScop = comanda_cmbScop.ExecuteReader();
+                        while (cititor_cmbScop.Read())
+                        {
+                            string str_cmbScop = cititor_cmbScop.GetString(0);
+                            cmbRPScop.Items.Add(str_cmbScop);
+                        }
+                    }
+                    catch (Exception excmbScop)
+                    {
+                        MessageBox.Show(excmbScop.Message);
+                    } // Ne deconectam
+                    finally
+                    {
+                        conexiune_cmbScop.Close();
+                    }
+                }
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* ----------- Metoda de setare a latimii dropdown-ului pentru combobox-uri -------------------------------------- */
+        int LatimeDropDown(ComboBox myCombo)
+        {
+            int maxWidth = 0;
+            int temp = 0;
+            Label label1 = new Label();
+
+            foreach (var obj in myCombo.Items)
+            {
+                label1.Text = obj.ToString();
+                temp = label1.PreferredWidth;
+                if (temp > maxWidth)
+                {
+                    maxWidth = temp;
+                }
+            }
+            label1.Dispose();
+            return maxWidth;
+        }
         /* --------------------------------------------------------------------------------------------------------------- */
 
 
@@ -43,259 +113,270 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
-        /* ----------------- Metoda de incarcare a cmbRCConditie --------------------------------------------------------- */
-        private void MetodaIncarcareConditieRC(string ce, string deunde, Int32 an)
+        /* --------------------------------------------------------------------------------------------------------------- */
+        private void cmbRPScop_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Definim vector pentru ani
-            Int32[] vectorAni = new Int32[16] { 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029, 2030 };
-
-            if (ce == string.Empty && deunde == string.Empty && an != 0)
+            if (cmbRPScop.SelectedIndex != -1)
             {
-                foreach (var element in vectorAni)
-                {
-                    cmbRCConditia.Enabled = true;
-                    cmbRCConditia.Items.Add(element);
-                }
+                btnRPGenerare.Enabled = true;
             }
-
-            else if (ce != string.Empty && deunde != string.Empty && an == 0)
+            else
             {
+                btnRPGenerare.Enabled = false;
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
 
-                using (OdbcConnection conexiune_cmbRCConditie = new OdbcConnection(sircon_RelIntDB))
+
+
+
+
+        private Dictionary<string, string> IterarePrecizariScop()
+        {
+            Dictionary<string, string> nomenclatorDate = new Dictionary<string, string>();
+            using (OdbcConnection conexiune = new OdbcConnection(sircon_RelIntDB))
+            {           // Comanda
+                using (OdbcCommand comanda = new OdbcCommand())
                 {
-                    // Comanda
-                    using (OdbcCommand comanda_cmbRCConditie = new OdbcCommand())
+                    comanda.Connection = conexiune;
+                    comanda.CommandType = CommandType.Text;
+                    comanda.CommandText = "SELECT dataod, dataodnoua, facultateaod, precizariscopod FROM ordinedeplasare WHERE scopod = ?";
+                    comanda.Parameters.AddWithValue("@scopod", OdbcType.NVarChar).Value = cmbRPScop.SelectedItem;
+                    
+                    OdbcDataReader cititor;
+
+                    try
                     {
-                        comanda_cmbRCConditie.Connection = conexiune_cmbRCConditie;
-                        comanda_cmbRCConditie.CommandType = CommandType.Text;
-                        comanda_cmbRCConditie.CommandText = "SELECT " + ce + " FROM " + deunde;
+                        conexiune.Open();
+                        cititor = comanda.ExecuteReader();
 
-                        OdbcDataReader cititor_cmbRCConditia;
-
-                        try
+                        foreach (Object obj in cititor)
                         {
-                            conexiune_cmbRCConditie.Open();
-                            cititor_cmbRCConditia = comanda_cmbRCConditie.ExecuteReader();
-
-                            if (cititor_cmbRCConditia.HasRows)
+                            if (cititor[1].ToString() == "")
                             {
-                                // Activam
-                                cmbRCConditia.Enabled = true;
-
-                                // Afisam
-                                while (cititor_cmbRCConditia.Read())
+                                if (cititor.GetDate(0).Date >= dpRPDataInceput.Value.Date && cititor.GetDate(0).Date <= dpRPDataSfarsit.Value.Date)
                                 {
-                                    string str_cmbRCConditia = cititor_cmbRCConditia.GetString(0);
-
-                                    switch (ce)
+                                    if (nomenclatorDate.ContainsKey(cititor.GetValue(2).ToString()))
                                     {
-                                        case "facultatif":
-                                            cmbRCConditia.Items.Add(str_cmbRCConditia);
-                                            break;
+                                        nomenclatorDate[cititor.GetValue(2).ToString()] =
+                                            nomenclatorDate[cititor.GetValue(2).ToString()] + "*" +
+                                            cititor.GetValue(3).ToString();
 
-                                        case "graddidacticgd":
-                                            cmbRCConditia.Items.Add(str_cmbRCConditia);
-                                            break;
+                                    }
+                                    else
+                                    {
+                                        nomenclatorDate.Add(cititor.GetValue(2).ToString(), cititor.GetValue(3).ToString());
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                if (cititor.GetDate(1).Date >= dpRPDataInceput.Value.Date && cititor.GetDate(1).Date <= dpRPDataSfarsit.Value.Date)
+                                {
+                                    if (nomenclatorDate.ContainsKey(cititor.GetValue(2).ToString()))
+                                    {
+                                        nomenclatorDate[cititor.GetValue(2).ToString()] =
+                                            nomenclatorDate[cititor.GetValue(2).ToString()] + "*" +
+                                            cititor.GetValue(3).ToString();
 
-                                        case "tarit":
-                                            cmbRCConditia.Items.Add(str_cmbRCConditia);
-                                            break;
-
-                                        case "scopuris":
-                                            cmbRCConditia.Items.Add(str_cmbRCConditia);
-                                            break;
-
-                                        default:
-                                            cmbRCConditia.Items.Clear();
-                                            break;
+                                    }
+                                    else
+                                    {
+                                        nomenclatorDate.Add(cititor.GetValue(2).ToString(), cititor.GetValue(3).ToString());
                                     }
                                 }
                             }
                         }
-                        catch (Exception excmbRCConditie)
-                        {
-                            MessageBox.Show(excmbRCConditie.Message);
-                        } // Ne deconectam
-                        finally
-                        {
-                            conexiune_cmbRCConditie.Close();
-                        }
                     }
-                }
-            }
-        }
-        /* --------------------------------------------------------------------------------------------------------------- */
-        /* --------------- Eveniment al cmbRCAsupra ---------------------------------------------------------------------- */
-        private void cmbRCAsupra_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            switch (cmbRCAsupra.SelectedItem.ToString())
-            {
-                case "Facultate":
-                    cmbRCConditia.Items.Clear();
-                    MetodaIncarcareConditieRC("facultatif", "facultati", 0);
-                    break;
-
-                case "Grad didactic":
-                    cmbRCConditia.Items.Clear();
-                    MetodaIncarcareConditieRC("graddidacticgd", "gradedidactice", 0);
-                    break;
-
-                case "Țară":
-                    cmbRCConditia.Items.Clear();
-                    MetodaIncarcareConditieRC("tarit", "tari", 0);
-                    break;
-
-                case "Scop":
-                    cmbRCConditia.Items.Clear();
-                    MetodaIncarcareConditieRC("scopuris", "scopuri", 0);
-                    break;
-
-                case "An":
-                    cmbRCConditia.Items.Clear();
-                    MetodaIncarcareConditieRC(string.Empty, string.Empty, 1);
-                    break;
-            }
-        }
-        /* --------------------------------------------------------------------------------------------------------------- */
-        /* --------------- Eveniment al cmbRCConditia -------------------------------------------------------------------- */
-        private void cmbRCConditia_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cmbRCConditia.SelectedIndex != -1)
-            {
-                btnRCAfiseaza.Enabled = true;
-            }
-        }
-        /* --------------------------------------------------------------------------------------------------------------- */
-
-
-
-
-
-
-
-        /* ----------------- Metoda de incarcare a cmbRCConditie --------------------------------------------------------- */
-        private void MetodaIncarcareConditieRODD(string ce, string deunde, Int32 an)
-        {
-            // Definim vector pentru ani
-            Int32[] vectorAni = new Int32[16] { 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026, 2027, 2028, 2029, 2030 };
-
-            if (ce == string.Empty && deunde == string.Empty && an != 0)
-            {
-                foreach (var element in vectorAni)
-                {
-                    cmbRODDConditia.Enabled = true;
-                    cmbRODDConditia.Items.Add(element);
-                }
-            }
-
-            else if (ce != string.Empty && deunde != string.Empty && an == 0)
-            {
-
-                using (OdbcConnection conexiune_cmbRODDConditie = new OdbcConnection(sircon_RelIntDB))
-                {
-                    // Comanda
-                    using (OdbcCommand comanda_cmbRODDConditie = new OdbcCommand())
+                    catch (Exception exceptie)
                     {
-                        comanda_cmbRODDConditie.Connection = conexiune_cmbRODDConditie;
-                        comanda_cmbRODDConditie.CommandType = CommandType.Text;
-                        comanda_cmbRODDConditie.CommandText = "SELECT " + ce + " FROM " + deunde;
-
-                        OdbcDataReader cititor_cmbRODDConditia;
-
-                        try
-                        {
-                            conexiune_cmbRODDConditie.Open();
-                            cititor_cmbRODDConditia = comanda_cmbRODDConditie.ExecuteReader();
-
-                            if (cititor_cmbRODDConditia.HasRows)
-                            {
-                                // Activam
-                                cmbRODDConditia.Enabled = true;
-
-                                // Afisam
-                                while (cititor_cmbRODDConditia.Read())
-                                {
-                                    string str_cmbRODDConditia = cititor_cmbRODDConditia.GetString(0);
-
-                                    switch (ce)
-                                    {
-                                        case "facultatif":
-                                            cmbRODDConditia.Items.Add(str_cmbRODDConditia);
-                                            break;
-
-                                        case "graddidacticgd":
-                                            cmbRODDConditia.Items.Add(str_cmbRODDConditia);
-                                            break;
-
-                                        case "tarit":
-                                            cmbRODDConditia.Items.Add(str_cmbRODDConditia);
-                                            break;
-
-                                        case "scopuris":
-                                            cmbRODDConditia.Items.Add(str_cmbRODDConditia);
-                                            break;
-
-                                        default:
-                                            cmbRODDConditia.Items.Clear();
-                                            break;
-                                    }
-                                }
-                            }
-                        }
-                        catch (Exception excmbRODDConditie)
-                        {
-                            MessageBox.Show(excmbRODDConditie.Message);
-                        } // Ne deconectam
-                        finally
-                        {
-                            conexiune_cmbRODDConditie.Close();
-                        }
+                        MessageBox.Show(exceptie.Message);
                     }
+                    finally
+                    {
+                        conexiune.Close();
+                    }
+
+                    return nomenclatorDate;
                 }
             }
         }
-        /* --------------------------------------------------------------------------------------------------------------- */
-        /* --------------- Eveniment al cmbRCAsupra ---------------------------------------------------------------------- */
-        private void cmbRODDAsupra_SelectedIndexChanged(object sender, EventArgs e)
+
+
+
+
+
+        private void btnRPGenerare_Click(object sender, EventArgs e)
         {
-            switch (cmbRODDAsupra.SelectedItem.ToString())
+            Dictionary<string, string> nomenclatorDate = new Dictionary<string, string>();
+            nomenclatorDate = IterarePrecizariScop();
+            int i = 0;
+
+            Dictionary<string, List<int>> grafic = new Dictionary<string, List<int>>();
+
+            List<string> series = new List<string>();
+            series = GenereazaSerii(nomenclatorDate);
+
+            foreach (var s in series)
             {
-                case "Facultate":
-                    cmbRODDConditia.Items.Clear();
-                    MetodaIncarcareConditieRODD("facultatif", "facultati", 0);
-                    break;
+                chart1.Series.Add(s);
+            }
 
-                case "Grad didactic":
-                    cmbRODDConditia.Items.Clear();
-                    MetodaIncarcareConditieRODD("graddidacticgd", "gradedidactice", 0);
-                    break;
+            foreach (var nom in nomenclatorDate)
+            {
+                if (nom.Value.Contains("*"))
+                {
+                    Dictionary<string, int> dictionary = new Dictionary<string, int>();
+                    dictionary = NumarareAparitiiSerii(nom.Value);
+                    
+                    List<int> aparitii = new List<int>();
+                    aparitii = GenereazaAparitiiValMultiple(series, dictionary);
 
-                case "Țară":
-                    cmbRODDConditia.Items.Clear();
-                    MetodaIncarcareConditieRODD("tarit", "tari", 0);
-                    break;
+                    grafic.Add(nom.Key,aparitii);
 
-                case "Scop":
-                    cmbRODDConditia.Items.Clear();
-                    MetodaIncarcareConditieRODD("scopuris", "scopuri", 0);
-                    break;
+                }
+                else
+                {
+                    List<int> aparitii = new List<int>();
+                    aparitii = GenereazaAparitiiValSingulare(series, nom.Value);
+                    
+                    grafic.Add(nom.Key, aparitii);
+                }
+            }
 
-                case "An":
-                    cmbRODDConditia.Items.Clear();
-                    MetodaIncarcareConditieRODD(string.Empty, string.Empty, 1);
-                    break;
+            foreach (var pereche in grafic)
+            {
+                foreach (var s in series)
+                {
+                    foreach (var p in pereche.Value)
+                    {
+                        chart1.Series[s].Points.AddY(p);
+                        pereche.Value.Remove(p);
+                        break;
+                    }
+                }
+            }
+
+            foreach (var pereche in grafic)
+            {
+                chart1.Series[series[0]].Points[i].AxisLabel = pereche.Key;
+                i++;
+            }
+
+            for (int j = 0; j < series.Count(); j++)
+            {
+                chart1.Series[series[j]].ChartType = SeriesChartType.StackedColumn;
             }
         }
-        /* --------------------------------------------------------------------------------------------------------------- */
-        /* --------------- Eveniment al cmbRCConditia -------------------------------------------------------------------- */
-        private void cmbRODDConditia_SelectedIndexChanged(object sender, EventArgs e)
+
+
+        public List<string> GenereazaSerii(Dictionary<string, string> nomenclatorDate)
         {
-            if (cmbRODDConditia.SelectedIndex != -1)
+            List<string> series = new List<string>();
+            foreach (var pereche in nomenclatorDate)
             {
-                btnRODDAfiseaza.Enabled = true;
+                if (pereche.Value.Contains("*"))
+                {
+                    string[] words = pereche.Value.Split('*');
+
+                    foreach (var word in words)
+                    {
+                        if (!series.Contains(word))
+                        {
+                            series.Add(word);
+                        }
+                    }
+                }
+                else
+                {
+                    if (!series.Contains(pereche.Value))
+                    {
+                        series.Add(pereche.Value);
+                    }
+                }
             }
+
+            return series;
         }
-        /* --------------------------------------------------------------------------------------------------------------- */
+
+        public Dictionary<string, int> NumarareAparitiiSerii(string nomValoare)
+        {
+            Dictionary<string, int> dictionary = new Dictionary<string, int>();
+
+            string[] words = nomValoare.Split('*');
+
+            foreach (var w in words)
+            {
+                if (dictionary.ContainsKey(w))
+                {
+                    dictionary[w] = dictionary[w] + 1;
+                }
+                else
+                {
+                    dictionary.Add(w, 1);
+                }
+            }
+
+            return dictionary;
+
+        }
+
+        public List<int> GenereazaAparitiiValMultiple(List<string> series, Dictionary<string, int> dictionary)
+        {
+            List<int> aparitii = new List<int>();
+
+            foreach (var s in series)
+            {
+                bool ok = false;
+                foreach (var d in dictionary)
+                {
+                    if (s == d.Key)
+                    {
+                        aparitii.Add(d.Value);
+                        dictionary.Remove(d.Key);
+                        ok = true;
+                        break;
+
+                    }
+                    else
+                    {
+                        aparitii.Add(0);
+                        break;
+                    }
+                }
+                if (dictionary.Count() == 0 && ok == false)
+                {
+                    aparitii.Add(0);
+                }
+            }
+
+            return aparitii;
+        }
+
+        public List<int> GenereazaAparitiiValSingulare(List<string> series, string valoare)
+        {
+            List<int> aparitii = new List<int>();
+
+            foreach (var s in series)
+            {
+                bool ok = false;
+
+                if (s == valoare)
+                {
+                    aparitii.Add(1);
+
+                }
+                else
+                {
+                    aparitii.Add(0);
+                }
+            }
+
+            return aparitii;
+        }
+
+
+
 
 
 

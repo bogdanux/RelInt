@@ -351,7 +351,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 {
                     comanda_cmbScop.Connection = conexiune_cmbScop;
                     comanda_cmbScop.CommandType = CommandType.Text;
-                    comanda_cmbScop.CommandText = "SELECT * FROM scopuri ORDER BY scopuris ASC";
+                    comanda_cmbScop.CommandText = "SELECT * FROM scopuri";
 
                     OdbcDataReader cititor_cmbScop;
 

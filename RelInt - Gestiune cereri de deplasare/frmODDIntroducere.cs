@@ -1302,6 +1302,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             {
                 if (cmbGradDidactic.SelectedIndex != -1
                     && cmbCPGradDidactic.SelectedIndex != -1
+                    && cmbRectorProrector.SelectedIndex != -1
                     && txtCPNumeCoord.Text != string.Empty
                     && cmbFacultatea.SelectedIndex != -1
                     && cmbTara.SelectedIndex != -1
@@ -1418,6 +1419,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             else
             {
                 if (cmbGradDidactic.SelectedIndex != -1
+                    && cmbRectorProrector.SelectedIndex != -1
                     && cmbFacultatea.SelectedIndex != -1
                     && cmbTara.SelectedIndex != -1
                     && cmbScop.SelectedIndex != -1

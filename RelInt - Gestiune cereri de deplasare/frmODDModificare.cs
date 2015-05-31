@@ -925,7 +925,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                                 cmbRectorProrector.SelectedItem = cititor_populareDinBD.GetString(39);
                                 txtDFC.Text = cititor_populareDinBD.GetString(40);
                                 txtCPNumeProj.Text = cititor_populareDinBD.GetString(41);
-                                cmbCPGradDidactic.SelectedItem = cititor_populareDinBD.GetString(42);
+                                cmbCPGradDidactic.SelectedItem = cititor_populareDinBD.IsDBNull(42) ? cmbCPGradDidactic.SelectedItem = string.Empty : cmbCPGradDidactic.SelectedItem = cititor_populareDinBD.GetString(42);
                                 txtCPNumeCoord.Text = cititor_populareDinBD.GetString(43);
 
                                 // Activam
@@ -1250,6 +1250,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             {
                 if (cmbGradDidactic.SelectedIndex != -1
                     && cmbCPGradDidactic.SelectedIndex != -1
+                    && cmbRectorProrector.SelectedIndex != -1
                     && txtCPNumeCoord.Text != string.Empty
                     && cmbFacultatea.SelectedIndex != -1
                     && cmbTara.SelectedIndex != -1
@@ -1366,6 +1367,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             else
             {
                 if (cmbGradDidactic.SelectedIndex != -1
+                    && cmbRectorProrector.SelectedIndex != -1
                     && cmbFacultatea.SelectedIndex != -1
                     && cmbTara.SelectedIndex != -1
                     && cmbScop.SelectedIndex != -1

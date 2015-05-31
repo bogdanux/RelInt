@@ -28,32 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRapoarte));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.btnIesire = new System.Windows.Forms.ToolStripMenuItem();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tpRapoarteCereri = new System.Windows.Forms.TabPage();
-            this.panouRCIdentificare = new System.Windows.Forms.Panel();
-            this.btnRCAfiseaza = new System.Windows.Forms.Button();
-            this.cmbRCConditia = new System.Windows.Forms.ComboBox();
-            this.lblRCConditia = new System.Windows.Forms.Label();
-            this.cmbRCAsupra = new System.Windows.Forms.ComboBox();
-            this.lblAsupra = new System.Windows.Forms.Label();
-            this.lblRCIdentificare = new System.Windows.Forms.Label();
-            this.tpRapoarteODD = new System.Windows.Forms.TabPage();
-            this.panelRODDIdentificare = new System.Windows.Forms.Panel();
-            this.btnRODDAfiseaza = new System.Windows.Forms.Button();
-            this.cmbRODDConditia = new System.Windows.Forms.ComboBox();
-            this.lblRODDConditia = new System.Windows.Forms.Label();
-            this.cmbRODDAsupra = new System.Windows.Forms.ComboBox();
-            this.lblRODDAsupra = new System.Windows.Forms.Label();
-            this.lblRODDIdentificare = new System.Windows.Forms.Label();
+            this.lblRPDataInceput = new System.Windows.Forms.Label();
+            this.dpRPDataInceput = new System.Windows.Forms.DateTimePicker();
+            this.dpRPDataSfarsit = new System.Windows.Forms.DateTimePicker();
+            this.lblRPDataSfarsit = new System.Windows.Forms.Label();
+            this.btnRPGenerare = new System.Windows.Forms.Button();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.tcRapoarte = new System.Windows.Forms.TabControl();
+            this.tpRP = new System.Windows.Forms.TabPage();
+            this.cmbRPScop = new System.Windows.Forms.ComboBox();
+            this.lblRPScop = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.menuStrip1.SuspendLayout();
-            this.tabControl1.SuspendLayout();
-            this.tpRapoarteCereri.SuspendLayout();
-            this.panouRCIdentificare.SuspendLayout();
-            this.tpRapoarteODD.SuspendLayout();
-            this.panelRODDIdentificare.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            this.tcRapoarte.SuspendLayout();
+            this.tpRP.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -75,202 +69,126 @@
             this.btnIesire.Text = "I&eșire";
             this.btnIesire.Click += new System.EventHandler(this.btnIesire_Click);
             // 
-            // tabControl1
+            // lblRPDataInceput
             // 
-            this.tabControl1.Controls.Add(this.tpRapoarteCereri);
-            this.tabControl1.Controls.Add(this.tpRapoarteODD);
-            this.tabControl1.Location = new System.Drawing.Point(3, 27);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(695, 632);
-            this.tabControl1.TabIndex = 2;
+            this.lblRPDataInceput.AutoSize = true;
+            this.lblRPDataInceput.Location = new System.Drawing.Point(6, 12);
+            this.lblRPDataInceput.Name = "lblRPDataInceput";
+            this.lblRPDataInceput.Size = new System.Drawing.Size(150, 13);
+            this.lblRPDataInceput.TabIndex = 1;
+            this.lblRPDataInceput.Text = "Selectați perioada, între data: ";
             // 
-            // tpRapoarteCereri
+            // dpRPDataInceput
             // 
-            this.tpRapoarteCereri.Controls.Add(this.panouRCIdentificare);
-            this.tpRapoarteCereri.Location = new System.Drawing.Point(4, 22);
-            this.tpRapoarteCereri.Name = "tpRapoarteCereri";
-            this.tpRapoarteCereri.Padding = new System.Windows.Forms.Padding(3);
-            this.tpRapoarteCereri.Size = new System.Drawing.Size(687, 606);
-            this.tpRapoarteCereri.TabIndex = 0;
-            this.tpRapoarteCereri.Text = "Rapoarte Cereri";
-            this.tpRapoarteCereri.UseVisualStyleBackColor = true;
+            this.dpRPDataInceput.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dpRPDataInceput.Location = new System.Drawing.Point(162, 9);
+            this.dpRPDataInceput.Name = "dpRPDataInceput";
+            this.dpRPDataInceput.Size = new System.Drawing.Size(91, 20);
+            this.dpRPDataInceput.TabIndex = 2;
             // 
-            // panouRCIdentificare
+            // dpRPDataSfarsit
             // 
-            this.panouRCIdentificare.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panouRCIdentificare.Controls.Add(this.btnRCAfiseaza);
-            this.panouRCIdentificare.Controls.Add(this.cmbRCConditia);
-            this.panouRCIdentificare.Controls.Add(this.lblRCConditia);
-            this.panouRCIdentificare.Controls.Add(this.cmbRCAsupra);
-            this.panouRCIdentificare.Controls.Add(this.lblAsupra);
-            this.panouRCIdentificare.Controls.Add(this.lblRCIdentificare);
-            this.panouRCIdentificare.Location = new System.Drawing.Point(6, 6);
-            this.panouRCIdentificare.Name = "panouRCIdentificare";
-            this.panouRCIdentificare.Size = new System.Drawing.Size(674, 68);
-            this.panouRCIdentificare.TabIndex = 0;
+            this.dpRPDataSfarsit.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dpRPDataSfarsit.Location = new System.Drawing.Point(309, 9);
+            this.dpRPDataSfarsit.Name = "dpRPDataSfarsit";
+            this.dpRPDataSfarsit.Size = new System.Drawing.Size(91, 20);
+            this.dpRPDataSfarsit.TabIndex = 4;
             // 
-            // btnRCAfiseaza
+            // lblRPDataSfarsit
             // 
-            this.btnRCAfiseaza.Enabled = false;
-            this.btnRCAfiseaza.Location = new System.Drawing.Point(534, 30);
-            this.btnRCAfiseaza.Name = "btnRCAfiseaza";
-            this.btnRCAfiseaza.Size = new System.Drawing.Size(120, 23);
-            this.btnRCAfiseaza.TabIndex = 5;
-            this.btnRCAfiseaza.Text = "Afișează raport";
-            this.btnRCAfiseaza.UseVisualStyleBackColor = true;
+            this.lblRPDataSfarsit.AutoSize = true;
+            this.lblRPDataSfarsit.Location = new System.Drawing.Point(259, 12);
+            this.lblRPDataSfarsit.Name = "lblRPDataSfarsit";
+            this.lblRPDataSfarsit.Size = new System.Drawing.Size(44, 13);
+            this.lblRPDataSfarsit.TabIndex = 3;
+            this.lblRPDataSfarsit.Text = "și data: ";
             // 
-            // cmbRCConditia
+            // btnRPGenerare
             // 
-            this.cmbRCConditia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbRCConditia.Enabled = false;
-            this.cmbRCConditia.FormattingEnabled = true;
-            this.cmbRCConditia.Location = new System.Drawing.Point(278, 31);
-            this.cmbRCConditia.Name = "cmbRCConditia";
-            this.cmbRCConditia.Size = new System.Drawing.Size(250, 21);
-            this.cmbRCConditia.TabIndex = 4;
-            this.cmbRCConditia.SelectedIndexChanged += new System.EventHandler(this.cmbRCConditia_SelectedIndexChanged);
+            this.btnRPGenerare.Enabled = false;
+            this.btnRPGenerare.Location = new System.Drawing.Point(411, 36);
+            this.btnRPGenerare.Name = "btnRPGenerare";
+            this.btnRPGenerare.Size = new System.Drawing.Size(157, 23);
+            this.btnRPGenerare.TabIndex = 5;
+            this.btnRPGenerare.Text = "Generare raport anual";
+            this.btnRPGenerare.UseVisualStyleBackColor = true;
+            this.btnRPGenerare.Click += new System.EventHandler(this.btnRPGenerare_Click);
             // 
-            // lblRCConditia
+            // chart1
             // 
-            this.lblRCConditia.AutoSize = true;
-            this.lblRCConditia.Location = new System.Drawing.Point(225, 34);
-            this.lblRCConditia.Name = "lblRCConditia";
-            this.lblRCConditia.Size = new System.Drawing.Size(47, 13);
-            this.lblRCConditia.TabIndex = 3;
-            this.lblRCConditia.Text = "condiția:";
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(9, 65);
+            this.chart1.Name = "chart1";
+            this.chart1.Size = new System.Drawing.Size(668, 349);
+            this.chart1.TabIndex = 6;
+            this.chart1.Text = "chart1";
             // 
-            // cmbRCAsupra
+            // tcRapoarte
             // 
-            this.cmbRCAsupra.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbRCAsupra.FormattingEnabled = true;
-            this.cmbRCAsupra.Items.AddRange(new object[] {
-            "Facultate",
-            "Grad didactic",
-            "Țară",
-            "An",
-            "Scop"});
-            this.cmbRCAsupra.Location = new System.Drawing.Point(98, 31);
-            this.cmbRCAsupra.Name = "cmbRCAsupra";
-            this.cmbRCAsupra.Size = new System.Drawing.Size(121, 21);
-            this.cmbRCAsupra.TabIndex = 2;
-            this.cmbRCAsupra.SelectedIndexChanged += new System.EventHandler(this.cmbRCAsupra_SelectedIndexChanged);
+            this.tcRapoarte.Controls.Add(this.tpRP);
+            this.tcRapoarte.Controls.Add(this.tabPage2);
+            this.tcRapoarte.Location = new System.Drawing.Point(3, 27);
+            this.tcRapoarte.Name = "tcRapoarte";
+            this.tcRapoarte.SelectedIndex = 0;
+            this.tcRapoarte.Size = new System.Drawing.Size(695, 632);
+            this.tcRapoarte.TabIndex = 3;
             // 
-            // lblAsupra
+            // tpRP
             // 
-            this.lblAsupra.AutoSize = true;
-            this.lblAsupra.Location = new System.Drawing.Point(15, 34);
-            this.lblAsupra.Name = "lblAsupra";
-            this.lblAsupra.Size = new System.Drawing.Size(77, 13);
-            this.lblAsupra.TabIndex = 1;
-            this.lblAsupra.Text = "Raport asupra:";
+            this.tpRP.Controls.Add(this.cmbRPScop);
+            this.tpRP.Controls.Add(this.lblRPScop);
+            this.tpRP.Controls.Add(this.chart1);
+            this.tpRP.Controls.Add(this.btnRPGenerare);
+            this.tpRP.Controls.Add(this.lblRPDataInceput);
+            this.tpRP.Controls.Add(this.dpRPDataSfarsit);
+            this.tpRP.Controls.Add(this.dpRPDataInceput);
+            this.tpRP.Controls.Add(this.lblRPDataSfarsit);
+            this.tpRP.Location = new System.Drawing.Point(4, 22);
+            this.tpRP.Name = "tpRP";
+            this.tpRP.Padding = new System.Windows.Forms.Padding(3);
+            this.tpRP.Size = new System.Drawing.Size(687, 606);
+            this.tpRP.TabIndex = 0;
+            this.tpRP.Text = "Rapoarte periodice";
+            this.tpRP.UseVisualStyleBackColor = true;
             // 
-            // lblRCIdentificare
+            // cmbRPScop
             // 
-            this.lblRCIdentificare.AutoSize = true;
-            this.lblRCIdentificare.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRCIdentificare.Location = new System.Drawing.Point(12, 11);
-            this.lblRCIdentificare.Name = "lblRCIdentificare";
-            this.lblRCIdentificare.Size = new System.Drawing.Size(162, 17);
-            this.lblRCIdentificare.TabIndex = 0;
-            this.lblRCIdentificare.Text = "1. Identificare Raport";
+            this.cmbRPScop.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbRPScop.FormattingEnabled = true;
+            this.cmbRPScop.Location = new System.Drawing.Point(162, 37);
+            this.cmbRPScop.Name = "cmbRPScop";
+            this.cmbRPScop.Size = new System.Drawing.Size(238, 21);
+            this.cmbRPScop.TabIndex = 8;
+            this.cmbRPScop.SelectedIndexChanged += new System.EventHandler(this.cmbRPScop_SelectedIndexChanged);
             // 
-            // tpRapoarteODD
+            // lblRPScop
             // 
-            this.tpRapoarteODD.Controls.Add(this.panelRODDIdentificare);
-            this.tpRapoarteODD.Location = new System.Drawing.Point(4, 22);
-            this.tpRapoarteODD.Name = "tpRapoarteODD";
-            this.tpRapoarteODD.Padding = new System.Windows.Forms.Padding(3);
-            this.tpRapoarteODD.Size = new System.Drawing.Size(687, 606);
-            this.tpRapoarteODD.TabIndex = 1;
-            this.tpRapoarteODD.Text = "Rapoarte Ordine de Deplasare";
-            this.tpRapoarteODD.UseVisualStyleBackColor = true;
+            this.lblRPScop.AutoSize = true;
+            this.lblRPScop.Location = new System.Drawing.Point(70, 40);
+            this.lblRPScop.Name = "lblRPScop";
+            this.lblRPScop.Size = new System.Drawing.Size(86, 13);
+            this.lblRPScop.TabIndex = 7;
+            this.lblRPScop.Text = "selectați scopul: ";
             // 
-            // panelRODDIdentificare
+            // tabPage2
             // 
-            this.panelRODDIdentificare.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelRODDIdentificare.Controls.Add(this.btnRODDAfiseaza);
-            this.panelRODDIdentificare.Controls.Add(this.cmbRODDConditia);
-            this.panelRODDIdentificare.Controls.Add(this.lblRODDConditia);
-            this.panelRODDIdentificare.Controls.Add(this.cmbRODDAsupra);
-            this.panelRODDIdentificare.Controls.Add(this.lblRODDAsupra);
-            this.panelRODDIdentificare.Controls.Add(this.lblRODDIdentificare);
-            this.panelRODDIdentificare.Location = new System.Drawing.Point(6, 6);
-            this.panelRODDIdentificare.Name = "panelRODDIdentificare";
-            this.panelRODDIdentificare.Size = new System.Drawing.Size(674, 68);
-            this.panelRODDIdentificare.TabIndex = 1;
-            // 
-            // btnRODDAfiseaza
-            // 
-            this.btnRODDAfiseaza.Enabled = false;
-            this.btnRODDAfiseaza.Location = new System.Drawing.Point(534, 30);
-            this.btnRODDAfiseaza.Name = "btnRODDAfiseaza";
-            this.btnRODDAfiseaza.Size = new System.Drawing.Size(120, 23);
-            this.btnRODDAfiseaza.TabIndex = 5;
-            this.btnRODDAfiseaza.Text = "Afișează raport";
-            this.btnRODDAfiseaza.UseVisualStyleBackColor = true;
-            // 
-            // cmbRODDConditia
-            // 
-            this.cmbRODDConditia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbRODDConditia.Enabled = false;
-            this.cmbRODDConditia.FormattingEnabled = true;
-            this.cmbRODDConditia.Location = new System.Drawing.Point(278, 31);
-            this.cmbRODDConditia.Name = "cmbRODDConditia";
-            this.cmbRODDConditia.Size = new System.Drawing.Size(250, 21);
-            this.cmbRODDConditia.TabIndex = 4;
-            this.cmbRODDConditia.SelectedIndexChanged += new System.EventHandler(this.cmbRODDConditia_SelectedIndexChanged);
-            // 
-            // lblRODDConditia
-            // 
-            this.lblRODDConditia.AutoSize = true;
-            this.lblRODDConditia.Location = new System.Drawing.Point(225, 34);
-            this.lblRODDConditia.Name = "lblRODDConditia";
-            this.lblRODDConditia.Size = new System.Drawing.Size(47, 13);
-            this.lblRODDConditia.TabIndex = 3;
-            this.lblRODDConditia.Text = "condiția:";
-            // 
-            // cmbRODDAsupra
-            // 
-            this.cmbRODDAsupra.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbRODDAsupra.FormattingEnabled = true;
-            this.cmbRODDAsupra.Items.AddRange(new object[] {
-            "Facultate",
-            "Grad didactic",
-            "Țară",
-            "An",
-            "Scop"});
-            this.cmbRODDAsupra.Location = new System.Drawing.Point(98, 31);
-            this.cmbRODDAsupra.Name = "cmbRODDAsupra";
-            this.cmbRODDAsupra.Size = new System.Drawing.Size(121, 21);
-            this.cmbRODDAsupra.TabIndex = 2;
-            this.cmbRODDAsupra.SelectedIndexChanged += new System.EventHandler(this.cmbRODDAsupra_SelectedIndexChanged);
-            // 
-            // lblRODDAsupra
-            // 
-            this.lblRODDAsupra.AutoSize = true;
-            this.lblRODDAsupra.Location = new System.Drawing.Point(15, 34);
-            this.lblRODDAsupra.Name = "lblRODDAsupra";
-            this.lblRODDAsupra.Size = new System.Drawing.Size(77, 13);
-            this.lblRODDAsupra.TabIndex = 1;
-            this.lblRODDAsupra.Text = "Raport asupra:";
-            // 
-            // lblRODDIdentificare
-            // 
-            this.lblRODDIdentificare.AutoSize = true;
-            this.lblRODDIdentificare.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRODDIdentificare.Location = new System.Drawing.Point(12, 11);
-            this.lblRODDIdentificare.Name = "lblRODDIdentificare";
-            this.lblRODDIdentificare.Size = new System.Drawing.Size(162, 17);
-            this.lblRODDIdentificare.TabIndex = 0;
-            this.lblRODDIdentificare.Text = "1. Identificare Raport";
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(687, 606);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // frmRapoarte
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(699, 661);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tcRapoarte);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
@@ -279,13 +197,10 @@
             this.Text = "Rapoarte";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.tabControl1.ResumeLayout(false);
-            this.tpRapoarteCereri.ResumeLayout(false);
-            this.panouRCIdentificare.ResumeLayout(false);
-            this.panouRCIdentificare.PerformLayout();
-            this.tpRapoarteODD.ResumeLayout(false);
-            this.panelRODDIdentificare.ResumeLayout(false);
-            this.panelRODDIdentificare.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            this.tcRapoarte.ResumeLayout(false);
+            this.tpRP.ResumeLayout(false);
+            this.tpRP.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -295,22 +210,16 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem btnIesire;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tpRapoarteCereri;
-        private System.Windows.Forms.TabPage tpRapoarteODD;
-        private System.Windows.Forms.Panel panouRCIdentificare;
-        private System.Windows.Forms.Label lblRCIdentificare;
-        private System.Windows.Forms.Label lblAsupra;
-        private System.Windows.Forms.ComboBox cmbRCAsupra;
-        private System.Windows.Forms.Label lblRCConditia;
-        private System.Windows.Forms.ComboBox cmbRCConditia;
-        private System.Windows.Forms.Button btnRCAfiseaza;
-        private System.Windows.Forms.Panel panelRODDIdentificare;
-        private System.Windows.Forms.Button btnRODDAfiseaza;
-        private System.Windows.Forms.ComboBox cmbRODDConditia;
-        private System.Windows.Forms.Label lblRODDConditia;
-        private System.Windows.Forms.ComboBox cmbRODDAsupra;
-        private System.Windows.Forms.Label lblRODDAsupra;
-        private System.Windows.Forms.Label lblRODDIdentificare;
+        private System.Windows.Forms.Label lblRPDataInceput;
+        private System.Windows.Forms.DateTimePicker dpRPDataInceput;
+        private System.Windows.Forms.DateTimePicker dpRPDataSfarsit;
+        private System.Windows.Forms.Label lblRPDataSfarsit;
+        private System.Windows.Forms.Button btnRPGenerare;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.TabControl tcRapoarte;
+        private System.Windows.Forms.TabPage tpRP;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Label lblRPScop;
+        private System.Windows.Forms.ComboBox cmbRPScop;
     }
 }
