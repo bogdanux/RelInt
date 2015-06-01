@@ -36,13 +36,13 @@
             this.dpRPDataSfarsit = new System.Windows.Forms.DateTimePicker();
             this.lblRPDataSfarsit = new System.Windows.Forms.Label();
             this.btnRPGenerare = new System.Windows.Forms.Button();
-            this.tcRapoarte = new System.Windows.Forms.TabControl();
-            this.tpRP = new System.Windows.Forms.TabPage();
             this.cmbRPScop = new System.Windows.Forms.ComboBox();
             this.lblRPScop = new System.Windows.Forms.Label();
+            this.panouSDSituatie = new System.Windows.Forms.Panel();
+            this.lblSDSituatie = new System.Windows.Forms.Label();
+            this.lblAtenționare = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
-            this.tcRapoarte.SuspendLayout();
-            this.tpRP.SuspendLayout();
+            this.panouSDSituatie.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -67,7 +67,7 @@
             // lblRPDataInceput
             // 
             this.lblRPDataInceput.AutoSize = true;
-            this.lblRPDataInceput.Location = new System.Drawing.Point(6, 12);
+            this.lblRPDataInceput.Location = new System.Drawing.Point(19, 42);
             this.lblRPDataInceput.Name = "lblRPDataInceput";
             this.lblRPDataInceput.Size = new System.Drawing.Size(150, 13);
             this.lblRPDataInceput.TabIndex = 1;
@@ -76,23 +76,25 @@
             // dpRPDataInceput
             // 
             this.dpRPDataInceput.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpRPDataInceput.Location = new System.Drawing.Point(162, 9);
+            this.dpRPDataInceput.Location = new System.Drawing.Point(175, 39);
             this.dpRPDataInceput.Name = "dpRPDataInceput";
             this.dpRPDataInceput.Size = new System.Drawing.Size(91, 20);
             this.dpRPDataInceput.TabIndex = 2;
+            this.dpRPDataInceput.ValueChanged += new System.EventHandler(this.dpRPDataInceput_ValueChanged);
             // 
             // dpRPDataSfarsit
             // 
             this.dpRPDataSfarsit.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dpRPDataSfarsit.Location = new System.Drawing.Point(309, 9);
+            this.dpRPDataSfarsit.Location = new System.Drawing.Point(322, 39);
             this.dpRPDataSfarsit.Name = "dpRPDataSfarsit";
             this.dpRPDataSfarsit.Size = new System.Drawing.Size(91, 20);
             this.dpRPDataSfarsit.TabIndex = 4;
+            this.dpRPDataSfarsit.ValueChanged += new System.EventHandler(this.dpRPDataSfarsit_ValueChanged);
             // 
             // lblRPDataSfarsit
             // 
             this.lblRPDataSfarsit.AutoSize = true;
-            this.lblRPDataSfarsit.Location = new System.Drawing.Point(259, 12);
+            this.lblRPDataSfarsit.Location = new System.Drawing.Point(272, 42);
             this.lblRPDataSfarsit.Name = "lblRPDataSfarsit";
             this.lblRPDataSfarsit.Size = new System.Drawing.Size(44, 13);
             this.lblRPDataSfarsit.TabIndex = 3;
@@ -101,7 +103,7 @@
             // btnRPGenerare
             // 
             this.btnRPGenerare.Enabled = false;
-            this.btnRPGenerare.Location = new System.Drawing.Point(411, 36);
+            this.btnRPGenerare.Location = new System.Drawing.Point(424, 66);
             this.btnRPGenerare.Name = "btnRPGenerare";
             this.btnRPGenerare.Size = new System.Drawing.Size(157, 23);
             this.btnRPGenerare.TabIndex = 5;
@@ -109,37 +111,11 @@
             this.btnRPGenerare.UseVisualStyleBackColor = true;
             this.btnRPGenerare.Click += new System.EventHandler(this.btnRPGenerare_Click);
             // 
-            // tcRapoarte
-            // 
-            this.tcRapoarte.Controls.Add(this.tpRP);
-            this.tcRapoarte.Location = new System.Drawing.Point(3, 27);
-            this.tcRapoarte.Name = "tcRapoarte";
-            this.tcRapoarte.SelectedIndex = 0;
-            this.tcRapoarte.Size = new System.Drawing.Size(695, 96);
-            this.tcRapoarte.TabIndex = 3;
-            // 
-            // tpRP
-            // 
-            this.tpRP.Controls.Add(this.cmbRPScop);
-            this.tpRP.Controls.Add(this.lblRPScop);
-            this.tpRP.Controls.Add(this.btnRPGenerare);
-            this.tpRP.Controls.Add(this.lblRPDataInceput);
-            this.tpRP.Controls.Add(this.dpRPDataSfarsit);
-            this.tpRP.Controls.Add(this.dpRPDataInceput);
-            this.tpRP.Controls.Add(this.lblRPDataSfarsit);
-            this.tpRP.Location = new System.Drawing.Point(4, 22);
-            this.tpRP.Name = "tpRP";
-            this.tpRP.Padding = new System.Windows.Forms.Padding(3);
-            this.tpRP.Size = new System.Drawing.Size(687, 70);
-            this.tpRP.TabIndex = 0;
-            this.tpRP.Text = "Rapoarte periodice";
-            this.tpRP.UseVisualStyleBackColor = true;
-            // 
             // cmbRPScop
             // 
             this.cmbRPScop.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbRPScop.FormattingEnabled = true;
-            this.cmbRPScop.Location = new System.Drawing.Point(162, 37);
+            this.cmbRPScop.Location = new System.Drawing.Point(175, 67);
             this.cmbRPScop.Name = "cmbRPScop";
             this.cmbRPScop.Size = new System.Drawing.Size(238, 21);
             this.cmbRPScop.TabIndex = 8;
@@ -148,29 +124,66 @@
             // lblRPScop
             // 
             this.lblRPScop.AutoSize = true;
-            this.lblRPScop.Location = new System.Drawing.Point(70, 40);
+            this.lblRPScop.Location = new System.Drawing.Point(83, 70);
             this.lblRPScop.Name = "lblRPScop";
             this.lblRPScop.Size = new System.Drawing.Size(86, 13);
             this.lblRPScop.TabIndex = 7;
             this.lblRPScop.Text = "selectați scopul: ";
             // 
-            // frmRapoarte
+            // panouSDSituatie
+            // 
+            this.panouSDSituatie.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panouSDSituatie.Controls.Add(this.lblAtenționare);
+            this.panouSDSituatie.Controls.Add(this.lblSDSituatie);
+            this.panouSDSituatie.Controls.Add(this.lblRPDataInceput);
+            this.panouSDSituatie.Controls.Add(this.cmbRPScop);
+            this.panouSDSituatie.Controls.Add(this.dpRPDataInceput);
+            this.panouSDSituatie.Controls.Add(this.lblRPScop);
+            this.panouSDSituatie.Controls.Add(this.dpRPDataSfarsit);
+            this.panouSDSituatie.Controls.Add(this.lblRPDataSfarsit);
+            this.panouSDSituatie.Controls.Add(this.btnRPGenerare);
+            this.panouSDSituatie.Location = new System.Drawing.Point(12, 37);
+            this.panouSDSituatie.Name = "panouSDSituatie";
+            this.panouSDSituatie.Size = new System.Drawing.Size(675, 100);
+            this.panouSDSituatie.TabIndex = 9;
+            // 
+            // lblSDSituatie
+            // 
+            this.lblSDSituatie.AutoSize = true;
+            this.lblSDSituatie.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSDSituatie.Location = new System.Drawing.Point(19, 10);
+            this.lblSDSituatie.Name = "lblSDSituatie";
+            this.lblSDSituatie.Size = new System.Drawing.Size(154, 17);
+            this.lblSDSituatie.TabIndex = 9;
+            this.lblSDSituatie.Text = "Situația deplasărilor";
+            // 
+            // lblAtenționare
+            // 
+            this.lblAtenționare.AutoSize = true;
+            this.lblAtenționare.ForeColor = System.Drawing.Color.Red;
+            this.lblAtenționare.Location = new System.Drawing.Point(322, 18);
+            this.lblAtenționare.Name = "lblAtenționare";
+            this.lblAtenționare.Size = new System.Drawing.Size(298, 13);
+            this.lblAtenționare.TabIndex = 10;
+            this.lblAtenționare.Text = "Data de început nu poate fi mai recentă decât data de sfârșit!";
+            this.lblAtenționare.Visible = false;
+            // 
+            // frmSituatieDeplasari
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(699, 124);
-            this.Controls.Add(this.tcRapoarte);
+            this.ClientSize = new System.Drawing.Size(699, 147);
+            this.Controls.Add(this.panouSDSituatie);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
-            this.Name = "frmRapoarte";
-            this.Text = "Rapoarte";
+            this.Name = "frmSituatieDeplasari";
+            this.Text = "Situație deplasări";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.tcRapoarte.ResumeLayout(false);
-            this.tpRP.ResumeLayout(false);
-            this.tpRP.PerformLayout();
+            this.panouSDSituatie.ResumeLayout(false);
+            this.panouSDSituatie.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -185,9 +198,10 @@
         private System.Windows.Forms.DateTimePicker dpRPDataSfarsit;
         private System.Windows.Forms.Label lblRPDataSfarsit;
         private System.Windows.Forms.Button btnRPGenerare;
-        private System.Windows.Forms.TabControl tcRapoarte;
-        private System.Windows.Forms.TabPage tpRP;
         private System.Windows.Forms.Label lblRPScop;
         private System.Windows.Forms.ComboBox cmbRPScop;
+        private System.Windows.Forms.Panel panouSDSituatie;
+        private System.Windows.Forms.Label lblSDSituatie;
+        private System.Windows.Forms.Label lblAtenționare;
     }
 }

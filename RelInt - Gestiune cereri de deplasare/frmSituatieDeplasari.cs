@@ -15,7 +15,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             UmplereScop();
             cmbRPScop.DropDownWidth = LatimeDropDown(cmbRPScop);
         }
-
         /* --------------------------------------------------------------------------------------------------------------- */
 
 
@@ -98,7 +97,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
-        /* --------------------------------------------------------------------------------------------------------------- */
+        /* ------------- Eveniment btnIesire ----------------------------------------------------------------------------- */
         private void btnIesire_Click(object sender, EventArgs e)
         {
             Close();
@@ -111,7 +110,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
-        /* --------------------------------------------------------------------------------------------------------------- */
+        /* -------------- Eveniment cmbRPScop ---------------------------------------------------------------------------- */
         private void cmbRPScop_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmbRPScop.SelectedIndex != -1)
@@ -130,7 +129,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
-
+        /* ------------ Eveniment btnRPGenerare -------------------------------------------------------------------------- */
         private void btnRPGenerare_Click(object sender, EventArgs e)
         {
             ExcelUtlity obj = new ExcelUtlity();
@@ -145,13 +144,14 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 MessageBox.Show("Nu sunt date disponibile ce pot fi exportate după criteriile selectate.");
             }
         }
+        /* --------------------------------------------------------------------------------------------------------------- */
 
 
 
 
 
-        
 
+        /* ----------------- DataTable ce foloseste la generarea excel-ului ---------------------------------------------- */
         public DataTable GenerareTabel()
         {
             DataTable dt = new DataTable();
@@ -256,7 +256,45 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             }
             return auxdt;
         }
+        /* --------------------------------------------------------------------------------------------------------------- */
 
+
+
+
+
+
+        /* -------------- Evenimentele: ---------------------------------------------------------------------------------- */
+        private void dpRPDataInceput_ValueChanged(object sender, EventArgs e)
+        {
+            if (dpRPDataInceput.Value > dpRPDataSfarsit.Value)
+            {
+                lblAtenționare.Visible = true;
+                btnRPGenerare.Enabled = false;
+                cmbRPScop.Enabled = false;
+            }
+            else
+            {
+                lblAtenționare.Visible = false;
+                btnRPGenerare.Enabled = true;
+                cmbRPScop.Enabled = true;
+            }
+        }
+        private void dpRPDataSfarsit_ValueChanged(object sender, EventArgs e)
+        {
+            if (dpRPDataSfarsit.Value < dpRPDataInceput.Value)
+            {
+                lblAtenționare.Visible = true;
+                btnRPGenerare.Enabled = false;
+                cmbRPScop.Enabled = false;
+            }
+            else
+            {
+                lblAtenționare.Visible = false;
+                btnRPGenerare.Enabled = true;
+                cmbRPScop.Enabled = true;
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
 
 
 
