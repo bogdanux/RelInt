@@ -815,14 +815,14 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         private void mnuRapoarte_Click(object sender, EventArgs e)
         {
             // Apelam formularul "frmRaportCereri"
-            Form frmRapoarte = new frmRapoarte();
+            Form frmRapoarte = new frmSituatieDeplasari();
 
             // Facem "frmRaportCereri" copil al "frmGCD"
             frmRapoarte.MdiParent = this;
 
             foreach (Form form in Application.OpenForms)
             {
-                if (form.GetType() == typeof(frmRapoarte))
+                if (form.GetType() == typeof(frmSituatieDeplasari))
                 {
                     form.WindowState = FormWindowState.Normal;
                     form.Activate();

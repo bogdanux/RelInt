@@ -62,11 +62,11 @@
             this.tsStatusUltimaInregistrare = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsStatusDeCeGD = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsStatusDeCeF = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tsStatusDeCePR = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tsStatusDeCeS = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tsStatusDeCeT = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tsStatusDeCeR = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsStatusDeCeM = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tsStatusDeCeT = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tsStatusDeCeS = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tsStatusDeCeR = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tsStatusDeCePR = new System.Windows.Forms.ToolStripStatusLabel();
             this.mnuBaraMeniu.SuspendLayout();
             this.StatusGCD.SuspendLayout();
             this.SuspendLayout();
@@ -208,8 +208,8 @@
             // mnuRapoarte
             // 
             this.mnuRapoarte.Name = "mnuRapoarte";
-            this.mnuRapoarte.Size = new System.Drawing.Size(66, 26);
-            this.mnuRapoarte.Text = "&Rapoarte";
+            this.mnuRapoarte.Size = new System.Drawing.Size(108, 26);
+            this.mnuRapoarte.Text = "&Situație deplasări";
             this.mnuRapoarte.Click += new System.EventHandler(this.mnuRapoarte_Click);
             // 
             // mnuSetari
@@ -362,21 +362,13 @@
             this.tsStatusDeCeF.Size = new System.Drawing.Size(27, 19);
             this.tsStatusDeCeF.Text = "FAC";
             // 
-            // tsStatusDeCePR
+            // tsStatusDeCeM
             // 
-            this.tsStatusDeCePR.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.tsStatusDeCePR.ForeColor = System.Drawing.Color.Purple;
-            this.tsStatusDeCePR.Name = "tsStatusDeCePR";
-            this.tsStatusDeCePR.Size = new System.Drawing.Size(52, 19);
-            this.tsStatusDeCePR.Text = "PROREC";
-            // 
-            // tsStatusDeCeS
-            // 
-            this.tsStatusDeCeS.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.tsStatusDeCeS.ForeColor = System.Drawing.Color.Purple;
-            this.tsStatusDeCeS.Name = "tsStatusDeCeS";
-            this.tsStatusDeCeS.Size = new System.Drawing.Size(37, 19);
-            this.tsStatusDeCeS.Text = "SCOP";
+            this.tsStatusDeCeM.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.tsStatusDeCeM.ForeColor = System.Drawing.Color.Purple;
+            this.tsStatusDeCeM.Name = "tsStatusDeCeM";
+            this.tsStatusDeCeM.Size = new System.Drawing.Size(36, 19);
+            this.tsStatusDeCeM.Text = "MON";
             // 
             // tsStatusDeCeT
             // 
@@ -386,6 +378,14 @@
             this.tsStatusDeCeT.Size = new System.Drawing.Size(33, 19);
             this.tsStatusDeCeT.Text = "TARI";
             // 
+            // tsStatusDeCeS
+            // 
+            this.tsStatusDeCeS.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.tsStatusDeCeS.ForeColor = System.Drawing.Color.Purple;
+            this.tsStatusDeCeS.Name = "tsStatusDeCeS";
+            this.tsStatusDeCeS.Size = new System.Drawing.Size(37, 19);
+            this.tsStatusDeCeS.Text = "SCOP";
+            // 
             // tsStatusDeCeR
             // 
             this.tsStatusDeCeR.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
@@ -394,13 +394,13 @@
             this.tsStatusDeCeR.Size = new System.Drawing.Size(28, 19);
             this.tsStatusDeCeR.Text = "REC";
             // 
-            // tsStatusDeCeM
+            // tsStatusDeCePR
             // 
-            this.tsStatusDeCeM.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.tsStatusDeCeM.ForeColor = System.Drawing.Color.Purple;
-            this.tsStatusDeCeM.Name = "tsStatusDeCeM";
-            this.tsStatusDeCeM.Size = new System.Drawing.Size(36, 19);
-            this.tsStatusDeCeM.Text = "MON";
+            this.tsStatusDeCePR.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.tsStatusDeCePR.ForeColor = System.Drawing.Color.Purple;
+            this.tsStatusDeCePR.Name = "tsStatusDeCePR";
+            this.tsStatusDeCePR.Size = new System.Drawing.Size(52, 19);
+            this.tsStatusDeCePR.Text = "PROREC";
             // 
             // frmGCD
             // 
