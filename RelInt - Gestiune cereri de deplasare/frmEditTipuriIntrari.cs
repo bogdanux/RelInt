@@ -17,7 +17,9 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             IncarcaredgvMonezi();
             IncarcaredgvTari();
             IncarcaredgvScopuri();
+            IncarcaredgvDFC();
         }
+
         /* --------------------------------------------------------------------------------------------------------------- */
 
 
@@ -31,7 +33,8 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
         /* ----------- Obiecte de lucru cu RelIntDB ---------------------------------------------------------------------- */
         // Sir de conectare al RelIntDB
-        string sircon_RelIntDB = "DSN=PostgreSQL35W;database=RelIntDB;server=localhost;port=5432;UID=postgres;PWD=12345;sslmode=disable;readonly=0;protocol=7.4;fakeoidindex=0;showoidcolumn=0;rowversioning=0;showsystemtables=0;fetch=100;socket=4096;unknownsizes=0;maxvarcharsize=255;maxlongvarcharsize=8190;debug=0;commlog=0;optimizer=0;ksqo=1;usedeclarefetch=0;textaslongvarchar=1;unknownsaslongvarchar=0;boolsaschar=1;parse=0;cancelasfreestmt=0;extrasystableprefixes=dd_;lfconversion=1;updatablecursors=1;disallowpremature=0;trueisminus1=0;bi=0;byteaaslongvarbinary=0;useserversideprepare=1;lowercaseidentifier=0;gssauthusegss=0;xaopt=1;";
+        private string sircon_RelIntDB =
+            "DSN=PostgreSQL35W;database=RelIntDB;server=localhost;port=5432;UID=postgres;PWD=12345;sslmode=disable;readonly=0;protocol=7.4;fakeoidindex=0;showoidcolumn=0;rowversioning=0;showsystemtables=0;fetch=100;socket=4096;unknownsizes=0;maxvarcharsize=255;maxlongvarcharsize=8190;debug=0;commlog=0;optimizer=0;ksqo=1;usedeclarefetch=0;textaslongvarchar=1;unknownsaslongvarchar=0;boolsaschar=1;parse=0;cancelasfreestmt=0;extrasystableprefixes=dd_;lfconversion=1;updatablecursors=1;disallowpremature=0;trueisminus1=0;bi=0;byteaaslongvarbinary=0;useserversideprepare=1;lowercaseidentifier=0;gssauthusegss=0;xaopt=1;";
 
         /* --------------------------------------------------------------------------------------------------------------- */
 
@@ -43,10 +46,12 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
         /* --------------- Eveniment de tip click pentru btnIesire ------------------------------------------------------- */
+
         private void btnIesire_Click(object sender, EventArgs e)
         {
             Close();
         }
+
         /* --------------------------------------------------------------------------------------------------------------- */
 
 
@@ -119,7 +124,8 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 {
                     comanda_dgvGradDidactic.Connection = conexiune_dgvGradDidactic;
                     comanda_dgvGradDidactic.CommandType = CommandType.Text;
-                    comanda_dgvGradDidactic.CommandText = "SELECT graddidacticgd AS \"Grade Didactice\" FROM gradedidactice";
+                    comanda_dgvGradDidactic.CommandText =
+                        "SELECT graddidacticgd AS \"Grade Didactice\" FROM gradedidactice";
 
                     try
                     {
@@ -161,22 +167,26 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
             if (System.Windows.Forms.Application.OpenForms["frmCerereInregistrare"] != null)
             {
-                (System.Windows.Forms.Application.OpenForms["frmCerereInregistrare"] as frmCerereInregistrare).UmplereGradDidactic();
+                (System.Windows.Forms.Application.OpenForms["frmCerereInregistrare"] as frmCerereInregistrare)
+                    .UmplereGradDidactic();
             }
 
             if (System.Windows.Forms.Application.OpenForms["frmCerereModificare"] != null)
             {
-                (System.Windows.Forms.Application.OpenForms["frmCerereModificare"] as frmCerereModificare).UmplereGradDidactic();
+                (System.Windows.Forms.Application.OpenForms["frmCerereModificare"] as frmCerereModificare)
+                    .UmplereGradDidactic();
             }
 
             if (System.Windows.Forms.Application.OpenForms["frmODDIntroducere"] != null)
             {
-                (System.Windows.Forms.Application.OpenForms["frmODDIntroducere"] as frmODDIntroducere).UmplereGradDidactic();
+                (System.Windows.Forms.Application.OpenForms["frmODDIntroducere"] as frmODDIntroducere)
+                    .UmplereGradDidactic();
             }
 
             if (System.Windows.Forms.Application.OpenForms["frmODDModificare"] != null)
             {
-                (System.Windows.Forms.Application.OpenForms["frmODDModificare"] as frmODDModificare).UmplereGradDidactic();
+                (System.Windows.Forms.Application.OpenForms["frmODDModificare"] as frmODDModificare).UmplereGradDidactic
+                    ();
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
@@ -191,7 +201,8 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     comanda_dgvGradDidactic.Connection = conexiune_dgvGradDidactic;
                     comanda_dgvGradDidactic.CommandType = CommandType.Text;
                     comanda_dgvGradDidactic.CommandText = "INSERT INTO gradedidactice VALUES (?)";
-                    comanda_dgvGradDidactic.Parameters.AddWithValue("@graddidacticgd", OdbcType.NVarChar).Value = txtIntroducereGD.Text;
+                    comanda_dgvGradDidactic.Parameters.AddWithValue("@graddidacticgd", OdbcType.NVarChar).Value =
+                        txtIntroducereGD.Text;
 
                     try
                     {
@@ -227,9 +238,12 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 {
                     comanda_dgvGradDidactic.Connection = conexiune_dgvGradDidactic;
                     comanda_dgvGradDidactic.CommandType = CommandType.Text;
-                    comanda_dgvGradDidactic.CommandText = "UPDATE gradedidactice SET graddidacticgd = ? WHERE graddidacticgd = ?";
-                    comanda_dgvGradDidactic.Parameters.AddWithValue("@graddidacticgd", OdbcType.NVarChar).Value = txtGDNou.Text;
-                    comanda_dgvGradDidactic.Parameters.AddWithValue("@graddidacticgd", OdbcType.NVarChar).Value = txtGDVechi.Text;
+                    comanda_dgvGradDidactic.CommandText =
+                        "UPDATE gradedidactice SET graddidacticgd = ? WHERE graddidacticgd = ?";
+                    comanda_dgvGradDidactic.Parameters.AddWithValue("@graddidacticgd", OdbcType.NVarChar).Value =
+                        txtGDNou.Text;
+                    comanda_dgvGradDidactic.Parameters.AddWithValue("@graddidacticgd", OdbcType.NVarChar).Value =
+                        txtGDVechi.Text;
 
                     try
                     {
@@ -405,12 +419,14 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
             if (System.Windows.Forms.Application.OpenForms["frmCerereInregistrare"] != null)
             {
-                (System.Windows.Forms.Application.OpenForms["frmCerereInregistrare"] as frmCerereInregistrare).UmplereFacultate();
+                (System.Windows.Forms.Application.OpenForms["frmCerereInregistrare"] as frmCerereInregistrare)
+                    .UmplereFacultate();
             }
 
             if (System.Windows.Forms.Application.OpenForms["frmCerereModificare"] != null)
             {
-                (System.Windows.Forms.Application.OpenForms["frmCerereModificare"] as frmCerereModificare).UmplereFacultate();
+                (System.Windows.Forms.Application.OpenForms["frmCerereModificare"] as frmCerereModificare)
+                    .UmplereFacultate();
             }
 
             if (System.Windows.Forms.Application.OpenForms["frmODDIntroducere"] != null)
@@ -435,7 +451,8 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     comanda_dgvFacultate.Connection = conexiune_dgvFacultate;
                     comanda_dgvFacultate.CommandType = CommandType.Text;
                     comanda_dgvFacultate.CommandText = "INSERT INTO facultati VALUES (?)";
-                    comanda_dgvFacultate.Parameters.AddWithValue("@facultatif", OdbcType.NVarChar).Value = txtIntroducereF.Text;
+                    comanda_dgvFacultate.Parameters.AddWithValue("@facultatif", OdbcType.NVarChar).Value =
+                        txtIntroducereF.Text;
 
                     try
                     {
@@ -473,7 +490,8 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     //comanda_dgvFacultate.CommandText = "DELETE FROM facultati WHERE facultatif = ?";
                     comanda_dgvFacultate.CommandText = "UPDATE facultati SET facultatif = ? WHERE facultatif = ?";
                     comanda_dgvFacultate.Parameters.AddWithValue("@facultatif", OdbcType.NVarChar).Value = txtFNoua.Text;
-                    comanda_dgvFacultate.Parameters.AddWithValue("@facultatif", OdbcType.NVarChar).Value = txtFVeche.Text;
+                    comanda_dgvFacultate.Parameters.AddWithValue("@facultatif", OdbcType.NVarChar).Value =
+                        txtFVeche.Text;
 
                     try
                     {
@@ -642,12 +660,14 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
             if (System.Windows.Forms.Application.OpenForms["frmCerereInregistrare"] != null)
             {
-                (System.Windows.Forms.Application.OpenForms["frmCerereInregistrare"] as frmCerereInregistrare).UmplereMonezi();
+                (System.Windows.Forms.Application.OpenForms["frmCerereInregistrare"] as frmCerereInregistrare)
+                    .UmplereMonezi();
             }
 
             if (System.Windows.Forms.Application.OpenForms["frmCerereModificare"] != null)
             {
-                (System.Windows.Forms.Application.OpenForms["frmCerereModificare"] as frmCerereModificare).UmplereMonezi();
+                (System.Windows.Forms.Application.OpenForms["frmCerereModificare"] as frmCerereModificare).UmplereMonezi
+                    ();
             }
 
             if (System.Windows.Forms.Application.OpenForms["frmODDIntroducere"] != null)
@@ -672,7 +692,8 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     comanda_dgvMoneda.Connection = conexiune_dgvMoneda;
                     comanda_dgvMoneda.CommandType = CommandType.Text;
                     comanda_dgvMoneda.CommandText = "INSERT INTO monezi VALUES (?)";
-                    comanda_dgvMoneda.Parameters.AddWithValue("@monezim", OdbcType.NVarChar).Value = txtIntroducereM.Text;
+                    comanda_dgvMoneda.Parameters.AddWithValue("@monezim", OdbcType.NVarChar).Value =
+                        txtIntroducereM.Text;
 
                     try
                     {
@@ -1104,36 +1125,34 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 }
             }
 
-            // Efectuam metoda:
-            if (System.Windows.Forms.Application.OpenForms["frmGCD"] != null)
+            if (Application.OpenForms["frmGCD"] != null)
             {
-                (System.Windows.Forms.Application.OpenForms["frmGCD"] as frmGCD).VerificareScopuri();
+                (Application.OpenForms["frmGCD"] as frmGCD).VerificareScopuri();
             }
 
-            // Apoi metoda:
-            if (System.Windows.Forms.Application.OpenForms["frmGCD"] != null)
+            if (Application.OpenForms["frmGCD"] != null)
             {
-                (System.Windows.Forms.Application.OpenForms["frmGCD"] as frmGCD).AprobareVerifGDFMTSCA();
+                (Application.OpenForms["frmGCD"] as frmGCD).AprobareVerifGDFMTSCA();
             }
 
-            if (System.Windows.Forms.Application.OpenForms["frmCerereInregistrare"] != null)
+            if (Application.OpenForms["frmCerereInregistrare"] != null)
             {
-                (System.Windows.Forms.Application.OpenForms["frmCerereInregistrare"] as frmCerereInregistrare).UmplereScop();
+                (Application.OpenForms["frmCerereInregistrare"] as frmCerereInregistrare).UmplereScop();
             }
 
-            if (System.Windows.Forms.Application.OpenForms["frmCerereModificare"] != null)
+            if (Application.OpenForms["frmCerereModificare"] != null)
             {
-                (System.Windows.Forms.Application.OpenForms["frmCerereModificare"] as frmCerereModificare).UmplereScop();
+                (Application.OpenForms["frmCerereModificare"] as frmCerereModificare).UmplereScop();
             }
 
-            if (System.Windows.Forms.Application.OpenForms["frmODDIntroducere"] != null)
+            if (Application.OpenForms["frmODDIntroducere"] != null)
             {
-                (System.Windows.Forms.Application.OpenForms["frmODDIntroducere"] as frmODDIntroducere).UmplereScop();
+                (Application.OpenForms["frmODDIntroducere"] as frmODDIntroducere).UmplereScop();
             }
 
-            if (System.Windows.Forms.Application.OpenForms["frmODDModificare"] != null)
+            if (Application.OpenForms["frmODDModificare"] != null)
             {
-                (System.Windows.Forms.Application.OpenForms["frmODDModificare"] as frmODDModificare).UmplereScop();
+                (Application.OpenForms["frmODDModificare"] as frmODDModificare).UmplereScop();
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
@@ -1148,7 +1167,8 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     comanda_dgvScopuri.Connection = conexiune_dgvScopuri;
                     comanda_dgvScopuri.CommandType = CommandType.Text;
                     comanda_dgvScopuri.CommandText = "INSERT INTO scopuri VALUES (?)";
-                    comanda_dgvScopuri.Parameters.AddWithValue("@scopuris", OdbcType.NVarChar).Value = txtIntroducereS.Text;
+                    comanda_dgvScopuri.Parameters.AddWithValue("@scopuris", OdbcType.NVarChar).Value =
+                        txtIntroducereS.Text;
 
                     try
                     {
@@ -1242,5 +1262,140 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+
+        /* ------------------- Functii pentru dgvDFC --------------------------------------------------------------------- */
+        public void IncarcaredgvDFC()
+        {
+            using (OdbcConnection conexiune_dgvDFC = new OdbcConnection(sircon_RelIntDB))
+            {
+                // Comanda
+                using (OdbcCommand comanda_dgvDFC = new OdbcCommand())
+                {
+                    comanda_dgvDFC.Connection = conexiune_dgvDFC;
+                    comanda_dgvDFC.CommandType = CommandType.Text;
+                    comanda_dgvDFC.CommandText = "SELECT dfcd AS \"Director Financiar Contabil\" FROM dfc";
+
+                    try
+                    {
+                        conexiune_dgvDFC.Open();
+                        OdbcDataAdapter da_dgvDFC = new OdbcDataAdapter();
+                        da_dgvDFC.SelectCommand = comanda_dgvDFC;
+
+                        DataTable dt_dgvDFC = new DataTable();
+                        da_dgvDFC.Fill(dt_dgvDFC);
+
+                        BindingSource bs_dgvDFC = new BindingSource();
+                        bs_dgvDFC.DataSource = dt_dgvDFC;
+
+                        dgvDFC.DataSource = bs_dgvDFC;
+
+                        da_dgvDFC.Update(dt_dgvDFC);
+                    }
+                    catch (Exception exdgvDFC)
+                    {
+                        MessageBox.Show(exdgvDFC.Message);
+                    } // Ne deconectam
+                    finally
+                    {
+                        conexiune_dgvDFC.Close();
+                    }
+                }
+            }
+
+            if (Application.OpenForms["frmGCD"] != null)
+            {
+                (Application.OpenForms["frmGCD"] as frmGCD).VerificareDFC();
+            }
+
+            if (Application.OpenForms["frmGCD"] != null)
+            {
+                (Application.OpenForms["frmGCD"] as frmGCD).AprobareVerifRPD();
+            }
+
+            if (Application.OpenForms["frmGCD"] != null)
+            {
+                (Application.OpenForms["frmGCD"] as frmGCD).MetodaScriereInStatusD();
+            }
+
+            if (Application.OpenForms["frmODDIntroducere"] != null)
+            {
+                (Application.OpenForms["frmODDIntroducere"] as frmODDIntroducere).UmplereDFC();
+            }
+
+            if (Application.OpenForms["frmODDModificare"] != null)
+            {
+                (Application.OpenForms["frmODDModificare"] as frmODDModificare).UmplereDFC();
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* ------------------ Eveniment de tip TextChanged pentru caseta txtDFCIntroducere ------------------------------- */
+        private void txtDFCIntroducere_TextChanged(object sender, EventArgs e)
+        {
+            if (txtDFCIntroducere.Text != string.Empty)
+            {
+                // Activam
+                btnDFCActualizare.Enabled = true;
+            }
+            else
+            {
+                // Dezactivam
+                btnDFCActualizare.Enabled = false;
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* ------------------- Eveniment de tip click pentru btnDFCActualizare ------------------------------------------- */
+        private void btnDFCActualizare_Click(object sender, EventArgs e)
+        {
+            using (OdbcConnection conexiune_dgvDFC = new OdbcConnection(sircon_RelIntDB))
+            {
+                // Comanda
+                using (OdbcCommand comanda_dgvDFC = new OdbcCommand())
+                {
+                    comanda_dgvDFC.Connection = conexiune_dgvDFC;
+                    comanda_dgvDFC.CommandType = CommandType.Text;
+                    comanda_dgvDFC.CommandText = "UPDATE dfc SET dfcd = ?";
+                    comanda_dgvDFC.Parameters.AddWithValue("@dfcd", OdbcType.NVarChar).Value = txtDFCIntroducere.Text;
+
+                    try
+                    {
+                        conexiune_dgvDFC.Open();
+                        int recordsAffected = comanda_dgvDFC.ExecuteNonQuery();
+                    }
+                    catch (Exception exdgvDFC)
+                    {
+                        MessageBox.Show(exdgvDFC.Message);
+                    } // Ne deconectam
+                    finally
+                    {
+                        conexiune_dgvDFC.Close();
+                    }
+                }
+            }
+
+            // Actualizam
+            IncarcaredgvDFC();
+
+            // Golim
+            txtDFCIntroducere.Clear();
+            txtDFCIntroducere.Focus();
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+
     }
 }

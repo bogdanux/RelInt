@@ -25,10 +25,12 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             // Necesare pentru ODD
             VerificareRector();
             VerificareProrector();
+            VerificareDFC();
 
-            AprobareVerifRP();
+            AprobareVerifRPD();
 
             MetodaScriereInStatusR();
+            MetodaScriereInStatusD();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
@@ -56,12 +58,12 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
-        bool AprobareVerifGD = false;
-        bool AprobareVerifF = false;
-        bool AprobareVerifM = false;
-        bool AprobareVerifT = false;
-        bool AprobareVerifS = false;
-        bool ExistaCereri = false;
+        bool AprobareVerifGD;
+        bool AprobareVerifF;
+        bool AprobareVerifM;
+        bool AprobareVerifT;
+        bool AprobareVerifS;
+        bool ExistaCereri;
         /* ------------------- Metoda verificare gradedidactice ---------------------------------------------------------- */
         public void VerificareGradeDidactice()
         {
@@ -354,7 +356,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 && AprobareVerifT
                 && AprobareVerifS)
             {
-                AprobareVerifRP();
+                AprobareVerifRPD();
                 VerificareCereri();
 
                 if (ExistaCereri)
@@ -447,8 +449,9 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         /* --------------------------------------------------------------------------------------------------------------- */
 
 
-        bool AprobareVerifR = false;
-        bool AprobareVerifPR = false;
+        bool AprobareVerifR;
+        bool AprobareVerifPR;
+        bool AprobareVerifD;
         /* ------------ Metoda de verificare daca sunt introdusi Rectori ------------------------------------------------- */
         public void VerificareRector()
         {
@@ -545,10 +548,58 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-        /* --------------------------------------------------------------------------------------------------------------- */
-        public void AprobareVerifRP()
+        /* ------------ Metoda de verificare daca sunt introduse scopuri ------------------------------------------------- */
+        public void VerificareDFC()
         {
-            if (AprobareVerifR && AprobareVerifPR)
+            using (OdbcConnection conexiune_DFC = new OdbcConnection(sircon_RelIntDB))
+            {           // Comanda
+                using (OdbcCommand comanda_DFC = new OdbcCommand())
+                {
+                    comanda_DFC.Connection = conexiune_DFC;
+                    comanda_DFC.CommandType = CommandType.Text;
+                    comanda_DFC.CommandText = "SELECT * FROM dfc";
+
+                    OdbcDataReader cititor_DFC;
+
+                    try
+                    {
+                        conexiune_DFC.Open();
+                        cititor_DFC = comanda_DFC.ExecuteReader();
+
+                        // Daca cititorul
+                        if (cititor_DFC.HasRows == false)
+                        {
+                            // Afisam de ce
+                            tsStatusDeCeD.Text = " Nu sunt DFC introduși în baza de date. Introduceți-i! ";
+
+                            // Setam
+                            AprobareVerifD = false;
+                        }
+                        else
+                        {
+                            // Stergem afisarea
+                            tsStatusDeCeD.Text = string.Empty;
+
+                            // Setam
+                            AprobareVerifD = true;
+                        }
+                    }
+                    catch (Exception exDFC)
+                    {
+                        MessageBox.Show(exDFC.Message);
+                    } // Ne deconectam
+                    finally
+                    {
+                        conexiune_DFC.Close();
+                    }
+                }
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* --------------------------------------------------------------------------------------------------------------- */
+        public void AprobareVerifRPD()
+        {
+            if (AprobareVerifR && AprobareVerifPR && AprobareVerifD)
             {
                 // Activam
                 btnGCDIntroducereODD.Enabled = true;
@@ -590,13 +641,48 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                             tsStatusRectorCurent.Text = "Rector curent: " + cititor_ScriereStatusR.GetString(0);
                         }
                     }
-                    catch (Exception exProrectori)
+                    catch (Exception exR)
                     {
-                        MessageBox.Show(exProrectori.Message);
+                        MessageBox.Show(exR.Message);
                     } // Ne deconectam
                     finally
                     {
                         conexiune_ScriereStatusR.Close();
+                    }
+                }
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* -------------------- Scriem in status numele rectorului curent in functie ------------------------------------- */
+        public void MetodaScriereInStatusD()
+        {
+            using (OdbcConnection conexiune_ScriereStatusD = new OdbcConnection(sircon_RelIntDB))
+            {           // Comanda
+                using (OdbcCommand comanda_ScriereStatusD = new OdbcCommand())
+                {
+                    comanda_ScriereStatusD.Connection = conexiune_ScriereStatusD;
+                    comanda_ScriereStatusD.CommandType = CommandType.Text;
+                    comanda_ScriereStatusD.CommandText = "SELECT dfcd FROM dfc";
+
+                    OdbcDataReader cititor_ScriereStatusD;
+
+                    try
+                    {
+                        conexiune_ScriereStatusD.Open();
+                        cititor_ScriereStatusD = comanda_ScriereStatusD.ExecuteReader();
+
+                        while (cititor_ScriereStatusD.Read())
+                        {
+                            tsStatusDFCCurent.Text = "DFC curent: " + cititor_ScriereStatusD.GetString(0);
+                        }
+                    }
+                    catch (Exception exD)
+                    {
+                        MessageBox.Show(exD.Message);
+                    } // Ne deconectam
+                    finally
+                    {
+                        conexiune_ScriereStatusD.Close();
                     }
                 }
             }

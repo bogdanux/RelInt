@@ -92,6 +92,11 @@
             this.btnIntroducereS = new System.Windows.Forms.Button();
             this.txtIntroducereS = new System.Windows.Forms.TextBox();
             this.dgvScopuri = new System.Windows.Forms.DataGridView();
+            this.tpDFC = new System.Windows.Forms.TabPage();
+            this.lblDFCIntroducere = new System.Windows.Forms.Label();
+            this.btnDFCActualizare = new System.Windows.Forms.Button();
+            this.txtDFCIntroducere = new System.Windows.Forms.TextBox();
+            this.dgvDFC = new System.Windows.Forms.DataGridView();
             this.mnuTipuriIntrari.SuspendLayout();
             this.tabGDFMTSCA.SuspendLayout();
             this.tpGradDidactic.SuspendLayout();
@@ -104,6 +109,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvTari)).BeginInit();
             this.tpScopuri.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvScopuri)).BeginInit();
+            this.tpDFC.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDFC)).BeginInit();
             this.SuspendLayout();
             // 
             // mnuTipuriIntrari
@@ -132,6 +139,7 @@
             this.tabGDFMTSCA.Controls.Add(this.tpMonezi);
             this.tabGDFMTSCA.Controls.Add(this.tpTari);
             this.tabGDFMTSCA.Controls.Add(this.tpScopuri);
+            this.tabGDFMTSCA.Controls.Add(this.tpDFC);
             this.tabGDFMTSCA.Location = new System.Drawing.Point(3, 27);
             this.tabGDFMTSCA.Name = "tabGDFMTSCA";
             this.tabGDFMTSCA.SelectedIndex = 0;
@@ -790,6 +798,57 @@
             this.dgvScopuri.Size = new System.Drawing.Size(667, 415);
             this.dgvScopuri.TabIndex = 1;
             // 
+            // tpDFC
+            // 
+            this.tpDFC.Controls.Add(this.lblDFCIntroducere);
+            this.tpDFC.Controls.Add(this.btnDFCActualizare);
+            this.tpDFC.Controls.Add(this.txtDFCIntroducere);
+            this.tpDFC.Controls.Add(this.dgvDFC);
+            this.tpDFC.Location = new System.Drawing.Point(4, 22);
+            this.tpDFC.Name = "tpDFC";
+            this.tpDFC.Size = new System.Drawing.Size(673, 510);
+            this.tpDFC.TabIndex = 5;
+            this.tpDFC.Text = "Director financiar contabil";
+            this.tpDFC.UseVisualStyleBackColor = true;
+            // 
+            // lblDFCIntroducere
+            // 
+            this.lblDFCIntroducere.AutoSize = true;
+            this.lblDFCIntroducere.Location = new System.Drawing.Point(34, 421);
+            this.lblDFCIntroducere.Name = "lblDFCIntroducere";
+            this.lblDFCIntroducere.Size = new System.Drawing.Size(164, 13);
+            this.lblDFCIntroducere.TabIndex = 32;
+            this.lblDFCIntroducere.Text = "Grad didactic + Nume + Prenume";
+            // 
+            // btnDFCActualizare
+            // 
+            this.btnDFCActualizare.Enabled = false;
+            this.btnDFCActualizare.Location = new System.Drawing.Point(286, 435);
+            this.btnDFCActualizare.Name = "btnDFCActualizare";
+            this.btnDFCActualizare.Size = new System.Drawing.Size(75, 23);
+            this.btnDFCActualizare.TabIndex = 35;
+            this.btnDFCActualizare.Text = "Actualizează";
+            this.btnDFCActualizare.UseVisualStyleBackColor = true;
+            this.btnDFCActualizare.Click += new System.EventHandler(this.btnDFCActualizare_Click);
+            // 
+            // txtDFCIntroducere
+            // 
+            this.txtDFCIntroducere.Location = new System.Drawing.Point(27, 437);
+            this.txtDFCIntroducere.Name = "txtDFCIntroducere";
+            this.txtDFCIntroducere.Size = new System.Drawing.Size(253, 20);
+            this.txtDFCIntroducere.TabIndex = 34;
+            this.txtDFCIntroducere.TextChanged += new System.EventHandler(this.txtDFCIntroducere_TextChanged);
+            // 
+            // dgvDFC
+            // 
+            this.dgvDFC.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dgvDFC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDFC.Location = new System.Drawing.Point(3, 3);
+            this.dgvDFC.Name = "dgvDFC";
+            this.dgvDFC.ReadOnly = true;
+            this.dgvDFC.Size = new System.Drawing.Size(667, 415);
+            this.dgvDFC.TabIndex = 31;
+            // 
             // frmEditTipuriIntrari
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -821,6 +880,9 @@
             this.tpScopuri.ResumeLayout(false);
             this.tpScopuri.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvScopuri)).EndInit();
+            this.tpDFC.ResumeLayout(false);
+            this.tpDFC.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDFC)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -891,5 +953,10 @@
         private System.Windows.Forms.Button btnModificareS;
         private System.Windows.Forms.Button btnIntroducereS;
         private System.Windows.Forms.TextBox txtIntroducereS;
+        private System.Windows.Forms.TabPage tpDFC;
+        private System.Windows.Forms.Label lblDFCIntroducere;
+        private System.Windows.Forms.Button btnDFCActualizare;
+        private System.Windows.Forms.TextBox txtDFCIntroducere;
+        private System.Windows.Forms.DataGridView dgvDFC;
     }
 }

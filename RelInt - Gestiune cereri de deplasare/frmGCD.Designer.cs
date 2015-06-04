@@ -67,6 +67,8 @@
             this.tsStatusDeCeS = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsStatusDeCeR = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsStatusDeCePR = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tsStatusDeCeD = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tsStatusDFCCurent = new System.Windows.Forms.ToolStripStatusLabel();
             this.mnuBaraMeniu.SuspendLayout();
             this.StatusGCD.SuspendLayout();
             this.SuspendLayout();
@@ -316,6 +318,7 @@
             // 
             this.StatusGCD.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsStatusRectorCurent,
+            this.tsStatusDFCCurent,
             this.tsStatusUltimaInregistrare,
             this.tsStatusDeCeGD,
             this.tsStatusDeCeF,
@@ -323,7 +326,8 @@
             this.tsStatusDeCeT,
             this.tsStatusDeCeS,
             this.tsStatusDeCeR,
-            this.tsStatusDeCePR});
+            this.tsStatusDeCePR,
+            this.tsStatusDeCeD});
             this.StatusGCD.Location = new System.Drawing.Point(0, 437);
             this.StatusGCD.Name = "StatusGCD";
             this.StatusGCD.Size = new System.Drawing.Size(784, 24);
@@ -402,6 +406,22 @@
             this.tsStatusDeCePR.Size = new System.Drawing.Size(52, 19);
             this.tsStatusDeCePR.Text = "PROREC";
             // 
+            // tsStatusDeCeD
+            // 
+            this.tsStatusDeCeD.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.tsStatusDeCeD.ForeColor = System.Drawing.Color.Purple;
+            this.tsStatusDeCeD.Name = "tsStatusDeCeD";
+            this.tsStatusDeCeD.Size = new System.Drawing.Size(29, 19);
+            this.tsStatusDeCeD.Text = "DFC";
+            // 
+            // tsStatusDFCCurent
+            // 
+            this.tsStatusDFCCurent.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.tsStatusDFCCurent.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.tsStatusDFCCurent.Name = "tsStatusDFCCurent";
+            this.tsStatusDFCCurent.Size = new System.Drawing.Size(44, 19);
+            this.tsStatusDFCCurent.Text = "DFCC";
+            // 
             // frmGCD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -469,6 +489,8 @@
         private System.Windows.Forms.ToolStripStatusLabel tsStatusDeCeR;
         private System.Windows.Forms.ToolStripStatusLabel tsStatusDeCePR;
         public System.Windows.Forms.ToolStripStatusLabel tsStatusRectorCurent;
+        private System.Windows.Forms.ToolStripStatusLabel tsStatusDeCeD;
+        public System.Windows.Forms.ToolStripStatusLabel tsStatusDFCCurent;
     }
 }
 
