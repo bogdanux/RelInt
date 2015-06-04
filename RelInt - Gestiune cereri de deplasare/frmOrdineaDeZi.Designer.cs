@@ -84,7 +84,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.mnuODZ;
             this.Name = "frmOrdineaDeZi";
-            this.Text = "Ordineaza de Zi";
+            this.Text = "Ordinea de zi";
             this.Activated += new System.EventHandler(this.frmOrdineaDeZi_Activated);
             this.mnuODZ.ResumeLayout(false);
             this.mnuODZ.PerformLayout();

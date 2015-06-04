@@ -158,7 +158,7 @@
             this.btnGCDIntroducereODD.Name = "btnGCDIntroducereODD";
             this.btnGCDIntroducereODD.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B)));
             this.btnGCDIntroducereODD.Size = new System.Drawing.Size(325, 22);
-            this.btnGCDIntroducereODD.Text = "Introducere Ordin de Deplasare";
+            this.btnGCDIntroducereODD.Text = "Introducere Ordine de Deplasare";
             this.btnGCDIntroducereODD.Click += new System.EventHandler(this.btnGCDIntroducereODD_Click);
             // 
             // btnGCDModificareODD

@@ -1581,7 +1581,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             paragraf5.Format.Font.Size = 13;
             paragraf5.Format.Font.Name = "Times New Roman";
             paragraf5.Format.Font.Bold = true;
-            paragraf5.AddText("Nr. " + txtNrUAIC.Text + " / " + txtNrInregistrare.Text + " din " + dpDataODD.Value.ToString().Substring(0, DateTime.Today.ToString().IndexOf(" 0:")));
+            paragraf5.AddText("Nr. " + txtNrUAIC.Text + " / " + txtNrInregistrare.Text + " din " + dpDataODD.Value.ToString("dd.MM.yyyy"));
 
             // Paragraf 6
             Paragraph paragraf6 = section1.AddParagraph();
@@ -1591,7 +1591,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             paragraf6.Format.SpaceBefore = "1.0cm";
             paragraf6.Format.Alignment = ParagraphAlignment.Justify;
             paragraf6.AddText("În temeiul Ordinului M.Ed.C. nr. 4975/30.04.1992 și al Hotărârii Biroului Executiv al Consiliului de Administrație din data de ");
-            paragraf6.AddFormattedText(dpDataODD.Value.ToString().Substring(0, DateTime.Today.ToString().IndexOf(" 0:")), TextFormat.Bold);
+            paragraf6.AddFormattedText(dpDataODD.Value.ToString("dd.MM.yyyy"), TextFormat.Bold);
             paragraf6.AddText(".");
 
             // Paragraf 7
@@ -1641,9 +1641,9 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             paragraf11.Format.SpaceBefore = "0.3cm";
             paragraf11.Format.Font.Name = "Times New Roman";
             paragraf11.AddText("deplasarea are loc între ");
-            paragraf11.AddFormattedText(dpDataInceput.Value.ToString().Substring(0, DateTime.Today.ToString().IndexOf(" 0:")), TextFormat.Bold);
+            paragraf11.AddFormattedText(dpDataInceput.Value.ToString("dd.MM.yyyy"), TextFormat.Bold);
             paragraf11.AddText(" și ");
-            paragraf11.AddFormattedText(dpDataSfarsit.Value.ToString().Substring(0, DateTime.Today.ToString().IndexOf(" 0:")), TextFormat.Bold);
+            paragraf11.AddFormattedText(dpDataSfarsit.Value.ToString("dd.MM.yyyy"), TextFormat.Bold);
 
             // Paragraf 12
             Paragraph paragraf12 = section1.AddParagraph();
