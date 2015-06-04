@@ -320,6 +320,7 @@
             // 
             // dpDataODDVeche
             // 
+            this.dpDataODDVeche.Enabled = false;
             this.dpDataODDVeche.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dpDataODDVeche.Location = new System.Drawing.Point(445, 32);
             this.dpDataODDVeche.Name = "dpDataODDVeche";

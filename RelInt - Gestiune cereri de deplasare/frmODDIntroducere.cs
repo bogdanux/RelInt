@@ -37,6 +37,8 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
             // Pregatim formularul
             PregatireFormular();
+
+            MetodaNegareControale();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
@@ -2233,6 +2235,10 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 txtCPNumeProj.Enabled = false;
                 cmbCPGradDidactic.Enabled = false;
                 txtCPNumeCoord.Enabled = false;
+
+                txtCPNumeProj.Clear();
+                cmbCPGradDidactic.SelectedIndex = -1;
+                txtCPNumeCoord.Clear();
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */

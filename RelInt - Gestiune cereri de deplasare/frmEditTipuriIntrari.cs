@@ -1271,7 +1271,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
-        /* ------------------- Functii pentru dgvDFC --------------------------------------------------------------------- */
+        /* ------------------ Functii pentru dgvDFC ---------------------------------------------------------------------- */
         public void IncarcaredgvDFC()
         {
             using (OdbcConnection conexiune_dgvDFC = new OdbcConnection(sircon_RelIntDB))
@@ -1351,7 +1351,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-        /* ------------------- Eveniment de tip click pentru btnDFCActualizare ------------------------------------------- */
+        /* ------------------ Eveniment de tip click pentru btnDFCActualizare -------------------------------------------- */
         private void btnDFCActualizare_Click(object sender, EventArgs e)
         {
             using (OdbcConnection conexiune_dgvDFC = new OdbcConnection(sircon_RelIntDB))

@@ -36,6 +36,8 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
             // Pregatim formularul
             PregatireFormular();
+
+            MetodaNegareControale();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
@@ -1825,7 +1827,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             paragraph22.Format.ClearAll();
             // TabStop at column width minus inner margins and borders:
             paragraph22.Format.AddTabStop("7.7cm", MigraDoc.DocumentObjectModel.TabAlignment.Right);
-            if (cmbDFC.SelectedIndex == -1)
+            if (cmbDFC.SelectedIndex != -1)
             {
                 row1.Cells[1].AddParagraph("DIRECTOR FINANCIAR CONTABIL,");
             }
@@ -1842,7 +1844,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             paragraph23.Format.ClearAll();
             // TabStop at column width minus inner margins and borders:
             paragraph23.Format.AddTabStop("7.7cm", MigraDoc.DocumentObjectModel.TabAlignment.Right);
-            if (cmbDFC.SelectedIndex == -1)
+            if (cmbDFC.SelectedIndex != -1)
             {
                 row2.Cells[1].AddParagraph(cmbDFC.SelectedItem.ToString());
             }
@@ -2179,6 +2181,10 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 txtCPNumeProj.Enabled = false;
                 cmbCPGradDidactic.Enabled = false;
                 txtCPNumeCoord.Enabled = false;
+
+                txtCPNumeProj.Clear();
+                cmbCPGradDidactic.SelectedIndex = -1;
+                txtCPNumeCoord.Clear();
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
