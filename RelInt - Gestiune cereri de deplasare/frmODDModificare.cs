@@ -30,6 +30,9 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             cmbTara.DropDownWidth = LatimeDropDown(cmbTara);
             UmplereScop();
             cmbScop.DropDownWidth = LatimeDropDown(cmbScop);
+            UmplereDFC();
+            cmbDFC.DropDownWidth = LatimeDropDown(cmbDFC);
+            cmbDFC.SelectedIndex = 0;
 
             // Pregatim formularul
             PregatireFormular();
@@ -60,7 +63,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         /* ----------------- Eveniment de tip click pentru btnIesire ----------------------------------------------------- */
         private void btnIesire_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
@@ -275,6 +278,42 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     finally
                     {
                         conexiune_cmbScop.Close();
+                    }
+                }
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* ---------- Metoda de umplere a cmbDFC cu date din RelIntDB ---------------------------------------------------- */
+        public void UmplereDFC()
+        {
+            cmbDFC.Items.Clear();
+            using (OdbcConnection conexiune_cmbDFC = new OdbcConnection(sircon_RelIntDB))
+            {           // Comanda
+                using (OdbcCommand comanda_cmbDFC = new OdbcCommand())
+                {
+                    comanda_cmbDFC.Connection = conexiune_cmbDFC;
+                    comanda_cmbDFC.CommandType = CommandType.Text;
+                    comanda_cmbDFC.CommandText = "SELECT * FROM dfc";
+
+                    OdbcDataReader cititor_cmbDFC;
+
+                    try
+                    {
+                        conexiune_cmbDFC.Open();
+                        cititor_cmbDFC = comanda_cmbDFC.ExecuteReader();
+                        while (cititor_cmbDFC.Read())
+                        {
+                            string str_cmbDFC = cititor_cmbDFC.GetString(0);
+                            cmbDFC.Items.Add(str_cmbDFC);
+                        }
+                    }
+                    catch (Exception excmbDFC)
+                    {
+                        MessageBox.Show(excmbDFC.Message);
+                    } // Ne deconectam
+                    finally
+                    {
+                        conexiune_cmbDFC.Close();
                     }
                 }
             }
@@ -904,17 +943,17 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                                 chkDiurna.Checked = cititor_populareDinBD.GetBoolean(18);
                                 txtNrZileDiurna.Text = cititor_populareDinBD.GetString(19);
                                 txtDiurna.Text = cititor_populareDinBD.GetString(20);
-                                cmbMoneda1.SelectedItem = cititor_populareDinBD.IsDBNull(21) ? cmbMoneda1.SelectedItem = string.Empty : cmbMoneda1.SelectedItem = cititor_populareDinBD.GetString(21);
+                                cmbMoneda1.SelectedItem = cititor_populareDinBD.IsDBNull(21) ? string.Empty : cititor_populareDinBD.GetString(21);
                                 chkCazare.Checked = cititor_populareDinBD.GetBoolean(22);
                                 txtNrZileCazare.Text = cititor_populareDinBD.GetString(23);
                                 txtCazare.Text = cititor_populareDinBD.GetString(24);
-                                cmbMoneda2.SelectedItem = cititor_populareDinBD.IsDBNull(25) ? cmbMoneda2.SelectedItem = string.Empty : cmbMoneda2.SelectedItem = cititor_populareDinBD.GetString(25);
+                                cmbMoneda2.SelectedItem = cititor_populareDinBD.IsDBNull(25) ? string.Empty : cititor_populareDinBD.GetString(25);
                                 chkTaxaDeParticipare.Checked = cititor_populareDinBD.GetBoolean(26);
                                 txtTaxaDeParticipare.Text = cititor_populareDinBD.GetString(27);
-                                cmbMoneda3.SelectedItem = cititor_populareDinBD.IsDBNull(28) ? cmbMoneda3.SelectedItem = string.Empty : cmbMoneda3.SelectedItem = cititor_populareDinBD.GetString(28);
+                                cmbMoneda3.SelectedItem = cititor_populareDinBD.IsDBNull(28) ? string.Empty : cititor_populareDinBD.GetString(28);
                                 chkTaxaDeViza.Checked = cititor_populareDinBD.GetBoolean(29);
                                 txtTaxaDeViza.Text = cititor_populareDinBD.GetString(30);
-                                cmbMoneda4.SelectedItem = cititor_populareDinBD.IsDBNull(31) ? cmbMoneda4.SelectedItem = string.Empty : cmbMoneda4.SelectedItem = cititor_populareDinBD.GetString(31);
+                                cmbMoneda4.SelectedItem = cititor_populareDinBD.IsDBNull(31) ? string.Empty : cititor_populareDinBD.GetString(31);
                                 txtTotalDePlata.Text = cititor_populareDinBD.GetString(32);
                                 txtDispunere1.Text = cititor_populareDinBD.GetString(33);
                                 txtDispunere2.Text = cititor_populareDinBD.GetString(34);
@@ -923,10 +962,12 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                                 rdoRector.Checked = cititor_populareDinBD.GetBoolean(37);
                                 rdoProRector.Checked = cititor_populareDinBD.GetBoolean(38);
                                 cmbRectorProrector.SelectedItem = cititor_populareDinBD.GetString(39);
-                                txtDFC.Text = cititor_populareDinBD.GetString(40);
-                                txtCPNumeProj.Text = cititor_populareDinBD.GetString(41);
-                                cmbCPGradDidactic.SelectedItem = cititor_populareDinBD.IsDBNull(42) ? cmbCPGradDidactic.SelectedItem = string.Empty : cmbCPGradDidactic.SelectedItem = cititor_populareDinBD.GetString(42);
-                                txtCPNumeCoord.Text = cititor_populareDinBD.GetString(43);
+                                chkDFC.Checked = cititor_populareDinBD.GetBoolean(40);
+                                cmbDFC.SelectedItem = cititor_populareDinBD.IsDBNull(41) ? string.Empty : cititor_populareDinBD.GetString(41);
+                                chkCP.Checked = cititor_populareDinBD.GetBoolean(42);
+                                txtCPNumeProj.Text = cititor_populareDinBD.GetString(43);
+                                cmbCPGradDidactic.SelectedItem = cititor_populareDinBD.IsDBNull(44) ? string.Empty : cititor_populareDinBD.GetString(44);
+                                txtCPNumeCoord.Text = cititor_populareDinBD.GetString(45);
 
                                 // Activam
                                 txtNrUAICNou.Enabled = true;
@@ -1036,7 +1077,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 {
                     comanda_inserareRelInt.Connection = conexiune_InserareCerereRelInt;
                     comanda_inserareRelInt.CommandType = CommandType.Text;
-                    comanda_inserareRelInt.CommandText = "UPDATE ordinedeplasare SET nrinregistrareod = ?, nrinregistrareodnou = ?, dataOD = ?, dataODNoua = ?, subsemnatulOD = ?, graddidacticOD = ?, facultateaOD = ?, taraOD = ?, localitateaOD = ?, scopod = ?, precizariscopOD = ?, institutiaOD = ?, datainceputOD = ?, datasfarsitOD = ?, rutaOD = ?, platitortranspOD = ?, platitorintretinereOD = ?, bifadiurnaOD = ?, nrzilediurnaOD = ?, diurnaOD = ?, monedadiurnaOD = ?, bifacazareOD = ?, nrzilecazareOD = ?, cazareOD = ?, monedacazareOD = ?, bifataxadeparticipareOD = ?, taxadeparticipareOD = ?, monedataxadeparticipareOD = ?, bifataxadevizaetcOD =?, taxadevizaetcOD = ?, monedataxadevizaetcOD = ?, totalOD = ?, altedispuneri1OD = ?, altedispuneri2OD = ?, altedispuneri3OD = ?, altedispuneri4OD = ?, rectorOD = ?, prorectorOD = ?, numerpOD = ?, dfcOD = ?, cpnumeprojOD = ?, cpgraddidacticOD = ?, cpnumecoordOD = ?, oddi = ? WHERE nrinregistrareodc = ?";
+                    comanda_inserareRelInt.CommandText = "UPDATE ordinedeplasare SET nrinregistrareod = ?, nrinregistrareodnou = ?, dataOD = ?, dataODNoua = ?, subsemnatulOD = ?, graddidacticOD = ?, facultateaOD = ?, taraOD = ?, localitateaOD = ?, scopod = ?, precizariscopOD = ?, institutiaOD = ?, datainceputOD = ?, datasfarsitOD = ?, rutaOD = ?, platitortranspOD = ?, platitorintretinereOD = ?, bifadiurnaOD = ?, nrzilediurnaOD = ?, diurnaOD = ?, monedadiurnaOD = ?, bifacazareOD = ?, nrzilecazareOD = ?, cazareOD = ?, monedacazareOD = ?, bifataxadeparticipareOD = ?, taxadeparticipareOD = ?, monedataxadeparticipareOD = ?, bifataxadevizaetcOD =?, taxadevizaetcOD = ?, monedataxadevizaetcOD = ?, totalOD = ?, altedispuneri1OD = ?, altedispuneri2OD = ?, altedispuneri3OD = ?, altedispuneri4OD = ?, rectorOD = ?, prorectorOD = ?, numerpOD = ?, bifadfcOD = ?, dfcOD = ?, bifacpOD = ?, cpnumeprojOD = ?, cpgraddidacticOD = ?, cpnumecoordOD = ?, oddi = ? WHERE nrinregistrareodc = ?";
                     comanda_inserareRelInt.Parameters.AddWithValue("@nrinregistrareod", OdbcType.Int).Value = vartxtNrUAICVechi;
                     comanda_inserareRelInt.Parameters.AddWithValue("@nrinregistrareodnou", OdbcType.Int).Value = vartxtNrUAICNou;
                     comanda_inserareRelInt.Parameters.AddWithValue("@dataOD", OdbcType.DateTime).Value = dpDataODDVeche.Value;
@@ -1076,7 +1117,9 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     comanda_inserareRelInt.Parameters.AddWithValue("@rectorOD", OdbcType.Bit).Value = rdoRector.Checked;
                     comanda_inserareRelInt.Parameters.AddWithValue("@prorectorOD", OdbcType.Bit).Value = rdoProRector.Checked;
                     comanda_inserareRelInt.Parameters.AddWithValue("@numerpOD", OdbcType.NVarChar).Value = cmbRectorProrector.SelectedItem;
-                    comanda_inserareRelInt.Parameters.AddWithValue("@dfcOD", OdbcType.NVarChar).Value = txtDFC.Text;
+                    comanda_inserareRelInt.Parameters.AddWithValue("@bifadfcOD", OdbcType.Bit).Value = chkDFC.Checked;
+                    comanda_inserareRelInt.Parameters.AddWithValue("@dfcOD", OdbcType.NVarChar).Value = cmbDFC.SelectedItem;
+                    comanda_inserareRelInt.Parameters.AddWithValue("@bifacpOD", OdbcType.Bit).Value = chkCP.Checked;
                     comanda_inserareRelInt.Parameters.AddWithValue("@cpnumeprojOD", OdbcType.NVarChar).Value = txtCPNumeProj.Text;
                     comanda_inserareRelInt.Parameters.AddWithValue("@cpgraddidacticOD", OdbcType.NVarChar).Value = cmbCPGradDidactic.SelectedItem;
                     comanda_inserareRelInt.Parameters.AddWithValue("@cpnumecoordOD", OdbcType.NVarChar).Value = txtCPNumeCoord.Text;
@@ -1242,231 +1285,320 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
-        bool SuccesSalvareFormular = false;
+        bool SuccesSalvareFormular;
         /* -------------- Actiunile ce iau loc la salvare ---------------------------------------------------------------- */
         private void SalvareFormular()
         {
-            if (txtCPNumeProj.Text != string.Empty)
+            if (chkDFC.Checked)
             {
-                if (cmbGradDidactic.SelectedIndex != -1
-                    && cmbCPGradDidactic.SelectedIndex != -1
-                    && cmbRectorProrector.SelectedIndex != -1
-                    && txtCPNumeCoord.Text != string.Empty
-                    && cmbFacultatea.SelectedIndex != -1
-                    && cmbTara.SelectedIndex != -1
-                    && cmbScop.SelectedIndex != -1
-                    && VerifMoneziCheltuieli())
+                if (chkCP.Checked)
                 {
-                    // Lucreaza asta
-                    txtTotalDePlata.Text = CalculTotal();
-
-                    // Lucreaza asta
-                    MetodaInserareDB();
-
-                    // Daca variabila "MetodaInserareSucces" este adevarata
-                    if (MetodaInserareSucces == true)
+                    if (txtNrUAICNou.Text != string.Empty
+                        && cmbGradDidactic.SelectedIndex != -1
+                        && cmbFacultatea.SelectedIndex != -1
+                        && cmbTara.SelectedIndex != -1
+                        && cmbScop.SelectedIndex != -1
+                        && VerifMoneziCheltuieli()
+                        && cmbRectorProrector.SelectedIndex != -1
+                        && cmbDFC.SelectedIndex != -1
+                        && txtCPNumeProj.Text != string.Empty
+                        && cmbCPGradDidactic.SelectedIndex != -1
+                        && txtCPNumeCoord.Text != string.Empty)
                     {
-                        // Dezactivam urmatoarele
-                        panouIdentificareODD.Enabled = false;
-                        panouContinutODD.Enabled = false;
-                        panouCheltuieliODD.Enabled = false;
-                        panouAlteDispuneriODD.Enabled = false;
-                        panouSemnatariODD.Enabled = false;
-
-                        // Notifica
-                        SuccesSalvareFormular = true;
-
-                        // Dezactivam
-                        btnSalvare.Enabled = false;
-
-                        // Negam modificarile
-                        MetodaNegareControale();
-
-                        // Generam PDF
-                        GenerarePDF();
+                        SalvareFormularEfectiva();
                     }
                     else
                     {
-                        // Notifica
-                        SuccesSalvareFormular = false;
-
-                        // Dezactivam
-                        btnSalvare.Enabled = true;
+                        if (txtNrUAICNou.Text == string.Empty)
+                        {
+                            // Afiseaza eroarea
+                            MessageBox.Show(
+                                "               Nu ați completat caseta \"Număr UAIC Nou\"! \n                              Vă rugăm să o completați.");
+                        }
+                        else if (cmbGradDidactic.SelectedIndex == -1)
+                        {
+                            // Afiseaza eroarea
+                            MessageBox.Show(
+                                "               Nu ați selectat nici un grad didactic (-- Grad didactic --) ! \n                 Vă rugăm selectați o valoare.");
+                        }
+                        else if (cmbFacultatea.SelectedIndex == -1)
+                        {
+                            // Afiseaza eroarea
+                            MessageBox.Show(
+                                "               Nu ați selectat nici o facultate (-- Facultatea --) ! \n                 Vă rugăm selectați o valoare.");
+                        }
+                        else if (cmbTara.SelectedIndex == -1)
+                        {
+                            // Afiseaza eroarea
+                            MessageBox.Show(
+                                "               Nu ați selectat nici o țară (-- Țara --) ! \n                 Vă rugăm selectați o valoare.");
+                        }
+                        else if (cmbScop.SelectedIndex == -1)
+                        {
+                            // Afiseaza eroarea
+                            MessageBox.Show(
+                                "               Nu ați selectat nici un scop (-- Scop --) ! \n                 Vă rugăm selectați o valoare.");
+                        }
+                        else if (cmbRectorProrector.SelectedIndex == -1)
+                        {
+                            // Afiseaza eroarea
+                            MessageBox.Show(
+                                "               Nu ați selectat nici un Rector / ProRector (-- Rector/ProRector --) ! \n                 Vă rugăm selectați o valoare.");
+                        }
+                        else if (cmbDFC.SelectedIndex == -1)
+                        {
+                            // Afiseaza eroarea
+                            MessageBox.Show(
+                                "               Nu ați introdus nici un Director Financiar Contabil (-- Director Financiar-Contabil --) ! \n                 Vă rugăm introduceți o valoare.");
+                        }
+                        else if (txtCPNumeProj.Text == string.Empty)
+                        {
+                            // Afiseaza eroarea
+                            MessageBox.Show(
+                                "               Nu ați introdus numele proiectului (-- Denumire Proiect --) ! \n                 Vă rugăm introduceți o valoare.");
+                        }
+                        else if (cmbCPGradDidactic.SelectedIndex == -1)
+                        {
+                            // Afiseaza eroarea
+                            MessageBox.Show(
+                                "   Nu ați selectat nici un grad didactic (-- Coordonator proiect - Grad didactic --) ! \n                         Vă rugăm selectați o valoare.");
+                        }
+                        else if (txtCPNumeCoord.Text == string.Empty)
+                        {
+                            // Afiseaza eroarea
+                            MessageBox.Show(
+                                "        Nu ați introdus numele coordonatorului (-- Nume Prenume Coordonator --) ! \n                      Vă rugăm introduceți o valoare.");
+                        }
                     }
-                } // Daca urmatoarele
+                }
                 else
                 {
-                    if (txtNrUAICVechi.Text == string.Empty)
+                    if (txtNrUAICNou.Text != string.Empty
+                        && cmbGradDidactic.SelectedIndex != -1
+                        && cmbFacultatea.SelectedIndex != -1
+                        && cmbTara.SelectedIndex != -1
+                        && cmbScop.SelectedIndex != -1
+                        && VerifMoneziCheltuieli()
+                        && cmbRectorProrector.SelectedIndex != -1
+                        && cmbDFC.SelectedIndex != -1)
                     {
-                        // Afiseaza eroarea
-                        MessageBox.Show(
-                            "               Nu ați completat caseta \"Număr UAIC\"! \n                              Vă rugăm să o completați.");
+                        SalvareFormularEfectiva();
                     }
-                    else if (cmbGradDidactic.SelectedIndex == -1)
+                    else
                     {
-                        // Afiseaza eroarea
-                        MessageBox.Show(
-                            "               Nu ați selectat nici un grad didactic (-- Grad didactic --) ! \n                 Vă rugăm selectați o valoare.");
-                    }
-                    else if (cmbCPGradDidactic.SelectedIndex == -1)
-                    {
-                        // Afiseaza eroarea
-                        MessageBox.Show(
-                            "Nu ați selectat nici un grad didactic (-- Coordonator Proiect Grad didactic --) ! \n                         Vă rugăm selectați o valoare.");
-                    }
-                    else if (txtCPNumeCoord.Text == string.Empty)
-                    {
-                        // Afiseaza eroarea
-                        MessageBox.Show(
-                            "Nu ați introdus numele coordonatorului de proiect (-- Nume Prenume Coordonator --) ! \n                         Vă rugăm selectați o valoare.");
-                    }
-                    else if (cmbFacultatea.SelectedIndex == -1)
-                    {
-                        // Afiseaza eroarea
-                        MessageBox.Show(
-                            "               Nu ați selectat nici o facultate (-- Facultatea --) ! \n                 Vă rugăm selectați o valoare.");
-                    }
-                    else if (cmbMoneda1.SelectedIndex == -1)
-                    {
-                        // Afiseaza eroarea
-                        MessageBox.Show(
-                            "               Nu ați selectat nici o moneda (-- Diurnă --) ! \n                 Vă rugăm selectați o valoare.");
-                    }
-                    else if (cmbMoneda2.SelectedIndex == -1)
-                    {
-                        // Afiseaza eroarea
-                        MessageBox.Show(
-                            "               Nu ați selectat nici o moneda (-- Cazare --) ! \n                 Vă rugăm selectați o valoare.");
-                    }
-                    else if (cmbMoneda3.SelectedIndex == -1)
-                    {
-                        // Afiseaza eroarea
-                        MessageBox.Show(
-                            "               Nu ați selectat nici o moneda (-- Taxă de participare --) ! \n                 Vă rugăm selectați o valoare.");
-                    }
-                    else if (cmbMoneda4.SelectedIndex == -1)
-                    {
-                        // Afiseaza eroarea
-                        MessageBox.Show(
-                            "               Nu ați selectat nici o moneda (-- Taxă de Viza + Asigurare Medicală --) ! \n                 Vă rugăm selectați o valoare.");
-                    }
-                    else if (cmbRectorProrector.SelectedIndex == -1)
-                    {
-                        // Afiseaza eroarea
-                        MessageBox.Show(
-                            "               Nu ați selectat nici un Rector / ProRector (-- Rector/ProRector --) ! \n                 Vă rugăm selectați o valoare.");
-                    }
-                    else if (txtDFC.Text == string.Empty)
-                    {
-                        // Afiseaza eroarea
-                        MessageBox.Show(
-                            "               Nu ați introdus nici un Director Financiar Contabil (-- Director Financiar-Contabil --) ! \n                 Vă rugăm introduceți o valoare.");
+                        if (txtNrUAICNou.Text == string.Empty)
+                        {
+                            // Afiseaza eroarea
+                            MessageBox.Show(
+                                "               Nu ați completat caseta \"Număr UAIC Nou\"! \n                              Vă rugăm să o completați.");
+                        }
+                        else if (cmbGradDidactic.SelectedIndex == -1)
+                        {
+                            // Afiseaza eroarea
+                            MessageBox.Show(
+                                "               Nu ați selectat nici un grad didactic (-- Grad didactic --) ! \n                 Vă rugăm selectați o valoare.");
+                        }
+                        else if (cmbFacultatea.SelectedIndex == -1)
+                        {
+                            // Afiseaza eroarea
+                            MessageBox.Show(
+                                "               Nu ați selectat nici o facultate (-- Facultatea --) ! \n                 Vă rugăm selectați o valoare.");
+                        }
+                        else if (cmbTara.SelectedIndex == -1)
+                        {
+                            // Afiseaza eroarea
+                            MessageBox.Show(
+                                "               Nu ați selectat nici o țară (-- Țara --) ! \n                 Vă rugăm selectați o valoare.");
+                        }
+                        else if (cmbScop.SelectedIndex == -1)
+                        {
+                            // Afiseaza eroarea
+                            MessageBox.Show(
+                                "               Nu ați selectat nici un scop (-- Scop --) ! \n                 Vă rugăm selectați o valoare.");
+                        }
+                        else if (cmbRectorProrector.SelectedIndex == -1)
+                        {
+                            // Afiseaza eroarea
+                            MessageBox.Show(
+                                "               Nu ați selectat nici un Rector / ProRector (-- Rector/ProRector --) ! \n                 Vă rugăm selectați o valoare.");
+                        }
+                        else if (cmbDFC.SelectedIndex == -1)
+                        {
+                            // Afiseaza eroarea
+                            MessageBox.Show(
+                                "               Nu ați introdus nici un Director Financiar Contabil (-- Director Financiar-Contabil --) ! \n                 Vă rugăm introduceți o valoare.");
+                        }
                     }
                 }
             }
             else
             {
-                if (cmbGradDidactic.SelectedIndex != -1
-                    && cmbRectorProrector.SelectedIndex != -1
-                    && cmbFacultatea.SelectedIndex != -1
-                    && cmbTara.SelectedIndex != -1
-                    && cmbScop.SelectedIndex != -1
-                    && VerifMoneziCheltuieli())
+                if (chkCP.Checked)
                 {
-                    // Lucreaza asta
-                    txtTotalDePlata.Text = CalculTotal();
-
-                    // Lucreaza asta
-                    MetodaInserareDB();
-
-                    // Daca variabila "MetodaInserareSucces" este adevarata
-                    if (MetodaInserareSucces == true)
+                    if (txtNrUAICNou.Text != string.Empty
+                        && cmbGradDidactic.SelectedIndex != -1
+                        && cmbFacultatea.SelectedIndex != -1
+                        && cmbTara.SelectedIndex != -1
+                        && cmbScop.SelectedIndex != -1
+                        && VerifMoneziCheltuieli()
+                        && cmbRectorProrector.SelectedIndex != -1
+                        && txtCPNumeProj.Text != string.Empty
+                        && cmbCPGradDidactic.SelectedIndex != -1
+                        && txtCPNumeCoord.Text != string.Empty)
                     {
-                        // Dezactivam urmatoarele
-                        panouIdentificareODD.Enabled = false;
-                        panouContinutODD.Enabled = false;
-                        panouCheltuieliODD.Enabled = false;
-                        panouAlteDispuneriODD.Enabled = false;
-                        panouSemnatariODD.Enabled = false;
-
-                        // Notifica
-                        SuccesSalvareFormular = true;
-
-                        // Dezactivam
-                        btnSalvare.Enabled = false;
-
-                        // Negam modificarile
-                        MetodaNegareControale();
-
-                        // Generam PDF
-                        GenerarePDF();
+                        SalvareFormularEfectiva();
                     }
                     else
                     {
-                        // Notifica
-                        SuccesSalvareFormular = false;
-
-                        // Dezactivam
-                        btnSalvare.Enabled = true;
-                    }
-                } // Daca urmatoarele
-                else
-                {
-                    if (txtNrUAICVechi.Text == string.Empty)
-                    {
-                        // Afiseaza eroarea
-                        MessageBox.Show(
-                            "               Nu ați completat caseta \"Număr UAIC\"! \n                              Vă rugăm să o completați.");
-                    }
-                    else if (cmbGradDidactic.SelectedIndex == -1)
-                    {
-                        // Afiseaza eroarea
-                        MessageBox.Show(
-                            "               Nu ați selectat nici un grad didactic (-- Grad didactic --) ! \n                 Vă rugăm selectați o valoare.");
-                    }
-                    else if (cmbFacultatea.SelectedIndex == -1)
-                    {
-                        // Afiseaza eroarea
-                        MessageBox.Show(
-                            "               Nu ați selectat nici o facultate (-- Facultatea --) ! \n                 Vă rugăm selectați o valoare.");
-                    }
-                    else if (cmbMoneda1.SelectedIndex == -1)
-                    {
-                        // Afiseaza eroarea
-                        MessageBox.Show(
-                            "               Nu ați selectat nici o moneda (-- Diurnă --) ! \n                 Vă rugăm selectați o valoare.");
-                    }
-                    else if (cmbMoneda2.SelectedIndex == -1)
-                    {
-                        // Afiseaza eroarea
-                        MessageBox.Show(
-                            "               Nu ați selectat nici o moneda (-- Cazare --) ! \n                 Vă rugăm selectați o valoare.");
-                    }
-                    else if (cmbMoneda3.SelectedIndex == -1)
-                    {
-                        // Afiseaza eroarea
-                        MessageBox.Show(
-                            "               Nu ați selectat nici o moneda (-- Taxă de participare --) ! \n                 Vă rugăm selectați o valoare.");
-                    }
-                    else if (cmbMoneda4.SelectedIndex == -1)
-                    {
-                        // Afiseaza eroarea
-                        MessageBox.Show(
-                            "               Nu ați selectat nici o moneda (-- Taxă de Viza + Asigurare Medicală --) ! \n                 Vă rugăm selectați o valoare.");
-                    }
-                    else if (cmbRectorProrector.SelectedIndex == -1)
-                    {
-                        // Afiseaza eroarea
-                        MessageBox.Show(
-                            "               Nu ați selectat nici un Rector / ProRector (-- Rector/ProRector --) ! \n                 Vă rugăm selectați o valoare.");
-                    }
-                    else if (txtDFC.Text == string.Empty)
-                    {
-                        // Afiseaza eroarea
-                        MessageBox.Show(
-                            "               Nu ați introdus nici un Director Financiar Contabil (-- Director Financiar-Contabil --) ! \n                 Vă rugăm introduceți o valoare.");
+                        if (txtNrUAICNou.Text == string.Empty)
+                        {
+                            // Afiseaza eroarea
+                            MessageBox.Show(
+                                "               Nu ați completat caseta \"Număr UAIC Nou\"! \n                              Vă rugăm să o completați.");
+                        }
+                        else if (cmbGradDidactic.SelectedIndex == -1)
+                        {
+                            // Afiseaza eroarea
+                            MessageBox.Show(
+                                "               Nu ați selectat nici un grad didactic (-- Grad didactic --) ! \n                 Vă rugăm selectați o valoare.");
+                        }
+                        else if (cmbFacultatea.SelectedIndex == -1)
+                        {
+                            // Afiseaza eroarea
+                            MessageBox.Show(
+                                "               Nu ați selectat nici o facultate (-- Facultatea --) ! \n                 Vă rugăm selectați o valoare.");
+                        }
+                        else if (cmbTara.SelectedIndex == -1)
+                        {
+                            // Afiseaza eroarea
+                            MessageBox.Show(
+                                "               Nu ați selectat nici o țară (-- Țara --) ! \n                 Vă rugăm selectați o valoare.");
+                        }
+                        else if (cmbScop.SelectedIndex == -1)
+                        {
+                            // Afiseaza eroarea
+                            MessageBox.Show(
+                                "               Nu ați selectat nici un scop (-- Scop --) ! \n                 Vă rugăm selectați o valoare.");
+                        }
+                        else if (cmbRectorProrector.SelectedIndex == -1)
+                        {
+                            // Afiseaza eroarea
+                            MessageBox.Show(
+                                "               Nu ați selectat nici un Rector / ProRector (-- Rector/ProRector --) ! \n                 Vă rugăm selectați o valoare.");
+                        }
+                        else if (txtCPNumeProj.Text == string.Empty)
+                        {
+                            // Afiseaza eroarea
+                            MessageBox.Show(
+                                "               Nu ați introdus numele proiectului (-- Denumire Proiect --) ! \n                 Vă rugăm introduceți o valoare.");
+                        }
+                        else if (cmbCPGradDidactic.SelectedIndex == -1)
+                        {
+                            // Afiseaza eroarea
+                            MessageBox.Show(
+                                "   Nu ați selectat nici un grad didactic (-- Coordonator proiect - Grad didactic --) ! \n                         Vă rugăm selectați o valoare.");
+                        }
+                        else if (txtCPNumeCoord.Text == string.Empty)
+                        {
+                            // Afiseaza eroarea
+                            MessageBox.Show(
+                                "        Nu ați introdus numele coordonatorului (-- Nume Prenume Coordonator --) ! \n                      Vă rugăm introduceți o valoare.");
+                        }
                     }
                 }
+                else
+                {
+                    if (txtNrUAICNou.Text != string.Empty
+                        && cmbGradDidactic.SelectedIndex != -1
+                        && cmbFacultatea.SelectedIndex != -1
+                        && cmbTara.SelectedIndex != -1
+                        && cmbScop.SelectedIndex != -1
+                        && VerifMoneziCheltuieli()
+                        && cmbRectorProrector.SelectedIndex != -1)
+                    {
+                        SalvareFormularEfectiva();
+                    }
+                    else
+                    {
+                        if (txtNrUAICNou.Text == string.Empty)
+                        {
+                            // Afiseaza eroarea
+                            MessageBox.Show(
+                                "               Nu ați completat caseta \"Număr UAIC Nou\"! \n                              Vă rugăm să o completați.");
+                        }
+                        else if (cmbGradDidactic.SelectedIndex == -1)
+                        {
+                            // Afiseaza eroarea
+                            MessageBox.Show(
+                                "               Nu ați selectat nici un grad didactic (-- Grad didactic --) ! \n                 Vă rugăm selectați o valoare.");
+                        }
+                        else if (cmbFacultatea.SelectedIndex == -1)
+                        {
+                            // Afiseaza eroarea
+                            MessageBox.Show(
+                                "               Nu ați selectat nici o facultate (-- Facultatea --) ! \n                 Vă rugăm selectați o valoare.");
+                        }
+                        else if (cmbTara.SelectedIndex == -1)
+                        {
+                            // Afiseaza eroarea
+                            MessageBox.Show(
+                                "               Nu ați selectat nici o țară (-- Țara --) ! \n                 Vă rugăm selectați o valoare.");
+                        }
+                        else if (cmbScop.SelectedIndex == -1)
+                        {
+                            // Afiseaza eroarea
+                            MessageBox.Show(
+                                "               Nu ați selectat nici un scop (-- Scop --) ! \n                 Vă rugăm selectați o valoare.");
+                        }
+                        else if (cmbRectorProrector.SelectedIndex == -1)
+                        {
+                            // Afiseaza eroarea
+                            MessageBox.Show(
+                                "               Nu ați selectat nici un Rector / ProRector (-- Rector/ProRector --) ! \n                 Vă rugăm selectați o valoare.");
+                        }
+                    }
+                }
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* -------------- Metoda efectiva de salvare a formularului ------------------------------------------------------ */
+        private void SalvareFormularEfectiva()
+        {
+            // Lucreaza asta
+            txtTotalDePlata.Text = CalculTotal();
+
+            // Lucreaza asta
+            MetodaInserareDB();
+
+            // Daca variabila "MetodaInserareSucces" este adevarata
+            if (MetodaInserareSucces)
+            {
+                // Dezactivam urmatoarele
+                panouIdentificareODD.Enabled = false;
+                panouContinutODD.Enabled = false;
+                panouCheltuieliODD.Enabled = false;
+                panouAlteDispuneriODD.Enabled = false;
+                panouSemnatariODD.Enabled = false;
+
+                // Notifica
+                SuccesSalvareFormular = true;
+
+                // Dezactivam
+                btnSalvare.Enabled = false;
+
+                // Negam modificarile
+                MetodaNegareControale();
+
+                // Generam PDF
+                GenerarePDF();
+            }
+            else
+            {
+                // Notifica
+                SuccesSalvareFormular = false;
+
+                // Dezactivam
+                btnSalvare.Enabled = true;
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
@@ -1693,7 +1825,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             paragraph22.Format.ClearAll();
             // TabStop at column width minus inner margins and borders:
             paragraph22.Format.AddTabStop("7.7cm", MigraDoc.DocumentObjectModel.TabAlignment.Right);
-            if (txtDFC.Text != string.Empty)
+            if (cmbDFC.SelectedIndex == -1)
             {
                 row1.Cells[1].AddParagraph("DIRECTOR FINANCIAR CONTABIL,");
             }
@@ -1710,9 +1842,9 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             paragraph23.Format.ClearAll();
             // TabStop at column width minus inner margins and borders:
             paragraph23.Format.AddTabStop("7.7cm", MigraDoc.DocumentObjectModel.TabAlignment.Right);
-            if (txtDFC.Text != string.Empty)
+            if (cmbDFC.SelectedIndex == -1)
             {
-                row2.Cells[1].AddParagraph(txtDFC.Text);
+                row2.Cells[1].AddParagraph(cmbDFC.SelectedItem.ToString());
             }
             table2.Borders.Width = 0;
 
@@ -1776,7 +1908,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             else
             {
                 // Inchidem formularul curent
-                this.Close();
+                Close();
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
@@ -1817,7 +1949,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 || rdoRectorSchimbat
                 || rdoProRectorSchimbat
                 || cmbRectorProrectorSchimbat
-                || txtDFCSchimbat
+                || cmbDFCSchimbat
                 || txtCPNumeProjSchimbat
                 || cmbCPGradDidacticSchimbat
                 || txtCPNumeCoordSchimbat)
@@ -1858,7 +1990,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             rdoRectorSchimbat = false;
             rdoProRectorSchimbat = false;
             cmbRectorProrectorSchimbat = false;
-            txtDFCSchimbat = false;
+            cmbDFCSchimbat = false;
             txtCPNumeProjSchimbat = false;
             cmbCPGradDidacticSchimbat = false;
             txtCPNumeCoordSchimbat = false;
@@ -1889,7 +2021,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         bool txtDispunere3Schimbat;
         bool txtDispunere4Schimbat;
         bool cmbRectorProrectorSchimbat;
-        bool txtDFCSchimbat;
+        bool cmbDFCSchimbat;
         bool txtCPNumeProjSchimbat;
         bool cmbCPGradDidacticSchimbat;
         bool txtCPNumeCoordSchimbat;
@@ -1985,18 +2117,9 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             cmbRectorProrectorSchimbat = true;
         }
 
-        private void txtDFC_TextChanged(object sender, EventArgs e)
+        private void cmbDFC_SelectedIndexChanged(object sender, EventArgs e)
         {
-            txtDFCSchimbat = true;
-
-            if (txtDFC.Text != string.Empty)
-            {
-                btnDFCSterge.Enabled = true;
-            }
-            else
-            {
-                btnDFCSterge.Enabled = false;
-            }
+            cmbDFCSchimbat = true;
         }
 
         private void txtCPNumeProj_TextChanged(object sender, EventArgs e)
@@ -2007,32 +2130,56 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         private void cmbCPGradDidactic_SelectedIndexChanged(object sender, EventArgs e)
         {
             cmbCPGradDidacticSchimbat = true;
-
-            if (cmbCPGradDidactic.SelectedIndex != -1)
-            {
-                btnCPSterge.Enabled = true;
-            }
-            else
-            {
-                btnCPSterge.Enabled = false;
-            }
         }
 
         private void txtCPNumeCoord_TextChanged(object sender, EventArgs e)
         {
             txtCPNumeCoordSchimbat = true;
         }
+        /* --------------------------------------------------------------------------------------------------------------- */
 
-        private void btnDFCSterge_Click(object sender, EventArgs e)
+
+
+
+
+
+
+        /* -------------- Eveniment ptr chkDFC --------------------------------------------------------------------------- */
+        private void chkDFC_CheckedChanged(object sender, EventArgs e)
         {
-            txtDFC.Clear();
+            if (chkDFC.Checked)
+            {
+                cmbDFC.Enabled = true;
+                cmbDFC.SelectedIndex = 0;
+            }
+            else
+            {
+                cmbDFC.SelectedIndex = -1;
+                cmbDFC.Enabled = false;
+            }
         }
+        /* --------------------------------------------------------------------------------------------------------------- */
 
-        private void btnCPSterge_Click(object sender, EventArgs e)
+
+
+
+
+
+        /* ----------------- Eveniment pentru chkCP ---------------------------------------------------------------------- */
+        private void chkCP_CheckedChanged(object sender, EventArgs e)
         {
-            txtCPNumeProj.Clear();
-            cmbCPGradDidactic.SelectedIndex = -1;
-            txtCPNumeCoord.Clear();
+            if (chkCP.Checked)
+            {
+                txtCPNumeProj.Enabled = true;
+                cmbCPGradDidactic.Enabled = true;
+                txtCPNumeCoord.Enabled = true;
+            }
+            else
+            {
+                txtCPNumeProj.Enabled = false;
+                cmbCPGradDidactic.Enabled = false;
+                txtCPNumeCoord.Enabled = false;
+            }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 

@@ -118,22 +118,23 @@
             this.lblAlteDispuneriODD = new System.Windows.Forms.Label();
             this.panouFinal = new System.Windows.Forms.Panel();
             this.panouSemnatariODD = new System.Windows.Forms.Panel();
-            this.panouCPSterge = new System.Windows.Forms.Panel();
-            this.btnCPSterge = new System.Windows.Forms.Button();
+            this.panouRP = new System.Windows.Forms.Panel();
+            this.rdoRector = new System.Windows.Forms.RadioButton();
+            this.rdoProRector = new System.Windows.Forms.RadioButton();
+            this.cmbRectorProrector = new System.Windows.Forms.ComboBox();
             this.panouCP = new System.Windows.Forms.Panel();
+            this.panouCPChk = new System.Windows.Forms.Panel();
+            this.chkCP = new System.Windows.Forms.CheckBox();
             this.lblCPNumeProj = new System.Windows.Forms.Label();
             this.txtCPNumeProj = new System.Windows.Forms.TextBox();
             this.txtCPNumeCoord = new System.Windows.Forms.TextBox();
             this.cmbCPGradDidactic = new System.Windows.Forms.ComboBox();
             this.lblCPNumeCoord = new System.Windows.Forms.Label();
             this.panouDFC = new System.Windows.Forms.Panel();
-            this.panouDFCSterge = new System.Windows.Forms.Panel();
-            this.btnDFCSterge = new System.Windows.Forms.Button();
+            this.cmbDFC = new System.Windows.Forms.ComboBox();
+            this.panouDFCChk = new System.Windows.Forms.Panel();
+            this.chkDFC = new System.Windows.Forms.CheckBox();
             this.lblDFC = new System.Windows.Forms.Label();
-            this.txtDFC = new System.Windows.Forms.TextBox();
-            this.cmbRectorProrector = new System.Windows.Forms.ComboBox();
-            this.rdoProRector = new System.Windows.Forms.RadioButton();
-            this.rdoRector = new System.Windows.Forms.RadioButton();
             this.lblSemnatariODD = new System.Windows.Forms.Label();
             this.mnuCerereBeca.SuspendLayout();
             this.panouIdentificareODD.SuspendLayout();
@@ -141,10 +142,11 @@
             this.panouCheltuieliODD.SuspendLayout();
             this.panouAlteDispuneriODD.SuspendLayout();
             this.panouSemnatariODD.SuspendLayout();
-            this.panouCPSterge.SuspendLayout();
+            this.panouRP.SuspendLayout();
             this.panouCP.SuspendLayout();
+            this.panouCPChk.SuspendLayout();
             this.panouDFC.SuspendLayout();
-            this.panouDFCSterge.SuspendLayout();
+            this.panouDFCChk.SuspendLayout();
             this.SuspendLayout();
             // 
             // mnuCerereBeca
@@ -1052,7 +1054,7 @@
             // panouFinal
             // 
             this.panouFinal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panouFinal.Location = new System.Drawing.Point(12, 1008);
+            this.panouFinal.Location = new System.Drawing.Point(12, 958);
             this.panouFinal.Name = "panouFinal";
             this.panouFinal.Size = new System.Drawing.Size(642, 10);
             this.panouFinal.TabIndex = 34;
@@ -1060,161 +1062,43 @@
             // panouSemnatariODD
             // 
             this.panouSemnatariODD.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panouSemnatariODD.Controls.Add(this.panouCPSterge);
+            this.panouSemnatariODD.Controls.Add(this.panouRP);
             this.panouSemnatariODD.Controls.Add(this.panouCP);
             this.panouSemnatariODD.Controls.Add(this.panouDFC);
-            this.panouSemnatariODD.Controls.Add(this.cmbRectorProrector);
-            this.panouSemnatariODD.Controls.Add(this.rdoProRector);
-            this.panouSemnatariODD.Controls.Add(this.rdoRector);
             this.panouSemnatariODD.Controls.Add(this.lblSemnatariODD);
             this.panouSemnatariODD.Enabled = false;
             this.panouSemnatariODD.Location = new System.Drawing.Point(12, 752);
             this.panouSemnatariODD.Name = "panouSemnatariODD";
-            this.panouSemnatariODD.Size = new System.Drawing.Size(642, 240);
-            this.panouSemnatariODD.TabIndex = 35;
+            this.panouSemnatariODD.Size = new System.Drawing.Size(642, 190);
+            this.panouSemnatariODD.TabIndex = 37;
             // 
-            // panouCPSterge
+            // panouRP
             // 
-            this.panouCPSterge.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panouCPSterge.Controls.Add(this.btnCPSterge);
-            this.panouCPSterge.Location = new System.Drawing.Point(412, 135);
-            this.panouCPSterge.Name = "panouCPSterge";
-            this.panouCPSterge.Size = new System.Drawing.Size(184, 94);
-            this.panouCPSterge.TabIndex = 20;
+            this.panouRP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panouRP.Controls.Add(this.rdoRector);
+            this.panouRP.Controls.Add(this.rdoProRector);
+            this.panouRP.Controls.Add(this.cmbRectorProrector);
+            this.panouRP.Location = new System.Drawing.Point(12, 25);
+            this.panouRP.Name = "panouRP";
+            this.panouRP.Size = new System.Drawing.Size(190, 55);
+            this.panouRP.TabIndex = 24;
             // 
-            // btnCPSterge
+            // rdoRector
             // 
-            this.btnCPSterge.Enabled = false;
-            this.btnCPSterge.Location = new System.Drawing.Point(6, 19);
-            this.btnCPSterge.Name = "btnCPSterge";
-            this.btnCPSterge.Size = new System.Drawing.Size(169, 23);
-            this.btnCPSterge.TabIndex = 20;
-            this.btnCPSterge.Text = "Sterge Coordonator Proiect";
-            this.btnCPSterge.UseVisualStyleBackColor = true;
-            this.btnCPSterge.Click += new System.EventHandler(this.btnCPSterge_Click);
-            // 
-            // panouCP
-            // 
-            this.panouCP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panouCP.Controls.Add(this.lblCPNumeProj);
-            this.panouCP.Controls.Add(this.txtCPNumeProj);
-            this.panouCP.Controls.Add(this.txtCPNumeCoord);
-            this.panouCP.Controls.Add(this.cmbCPGradDidactic);
-            this.panouCP.Controls.Add(this.lblCPNumeCoord);
-            this.panouCP.Location = new System.Drawing.Point(12, 135);
-            this.panouCP.Name = "panouCP";
-            this.panouCP.Size = new System.Drawing.Size(584, 94);
-            this.panouCP.TabIndex = 23;
-            // 
-            // lblCPNumeProj
-            // 
-            this.lblCPNumeProj.AutoSize = true;
-            this.lblCPNumeProj.Location = new System.Drawing.Point(3, 5);
-            this.lblCPNumeProj.Name = "lblCPNumeProj";
-            this.lblCPNumeProj.Size = new System.Drawing.Size(87, 13);
-            this.lblCPNumeProj.TabIndex = 9;
-            this.lblCPNumeProj.Text = "Denumire proiect";
-            // 
-            // txtCPNumeProj
-            // 
-            this.txtCPNumeProj.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCPNumeProj.Location = new System.Drawing.Point(6, 21);
-            this.txtCPNumeProj.Name = "txtCPNumeProj";
-            this.txtCPNumeProj.Size = new System.Drawing.Size(385, 20);
-            this.txtCPNumeProj.TabIndex = 7;
-            this.txtCPNumeProj.TextChanged += new System.EventHandler(this.txtCPNumeProj_TextChanged);
-            // 
-            // txtCPNumeCoord
-            // 
-            this.txtCPNumeCoord.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCPNumeCoord.Location = new System.Drawing.Point(103, 62);
-            this.txtCPNumeCoord.Name = "txtCPNumeCoord";
-            this.txtCPNumeCoord.Size = new System.Drawing.Size(169, 20);
-            this.txtCPNumeCoord.TabIndex = 17;
-            this.txtCPNumeCoord.TextChanged += new System.EventHandler(this.txtCPNumeCoord_TextChanged);
-            // 
-            // cmbCPGradDidactic
-            // 
-            this.cmbCPGradDidactic.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCPGradDidactic.FormattingEnabled = true;
-            this.cmbCPGradDidactic.Location = new System.Drawing.Point(6, 62);
-            this.cmbCPGradDidactic.Name = "cmbCPGradDidactic";
-            this.cmbCPGradDidactic.Size = new System.Drawing.Size(91, 21);
-            this.cmbCPGradDidactic.TabIndex = 19;
-            this.cmbCPGradDidactic.SelectedIndexChanged += new System.EventHandler(this.cmbCPGradDidactic_SelectedIndexChanged);
-            // 
-            // lblCPNumeCoord
-            // 
-            this.lblCPNumeCoord.AutoSize = true;
-            this.lblCPNumeCoord.Location = new System.Drawing.Point(4, 46);
-            this.lblCPNumeCoord.Name = "lblCPNumeCoord";
-            this.lblCPNumeCoord.Size = new System.Drawing.Size(252, 13);
-            this.lblCPNumeCoord.TabIndex = 18;
-            this.lblCPNumeCoord.Text = "Grad didactic                Nume Prenume Coordonator";
-            // 
-            // panouDFC
-            // 
-            this.panouDFC.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panouDFC.Controls.Add(this.panouDFCSterge);
-            this.panouDFC.Controls.Add(this.lblDFC);
-            this.panouDFC.Controls.Add(this.txtDFC);
-            this.panouDFC.Location = new System.Drawing.Point(12, 76);
-            this.panouDFC.Name = "panouDFC";
-            this.panouDFC.Size = new System.Drawing.Size(281, 53);
-            this.panouDFC.TabIndex = 22;
-            // 
-            // panouDFCSterge
-            // 
-            this.panouDFCSterge.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panouDFCSterge.Controls.Add(this.btnDFCSterge);
-            this.panouDFCSterge.Location = new System.Drawing.Point(188, -1);
-            this.panouDFCSterge.Name = "panouDFCSterge";
-            this.panouDFCSterge.Size = new System.Drawing.Size(92, 53);
-            this.panouDFCSterge.TabIndex = 23;
-            // 
-            // btnDFCSterge
-            // 
-            this.btnDFCSterge.Enabled = false;
-            this.btnDFCSterge.Location = new System.Drawing.Point(7, 19);
-            this.btnDFCSterge.Name = "btnDFCSterge";
-            this.btnDFCSterge.Size = new System.Drawing.Size(75, 23);
-            this.btnDFCSterge.TabIndex = 21;
-            this.btnDFCSterge.Text = "StergeDFC";
-            this.btnDFCSterge.UseVisualStyleBackColor = true;
-            this.btnDFCSterge.Click += new System.EventHandler(this.btnDFCSterge_Click);
-            // 
-            // lblDFC
-            // 
-            this.lblDFC.AutoSize = true;
-            this.lblDFC.Location = new System.Drawing.Point(3, 5);
-            this.lblDFC.Name = "lblDFC";
-            this.lblDFC.Size = new System.Drawing.Size(179, 13);
-            this.lblDFC.TabIndex = 4;
-            this.lblDFC.Text = "DIRECTOR FINANCIAR-CONTABIL";
-            // 
-            // txtDFC
-            // 
-            this.txtDFC.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDFC.Location = new System.Drawing.Point(6, 21);
-            this.txtDFC.Name = "txtDFC";
-            this.txtDFC.Size = new System.Drawing.Size(176, 20);
-            this.txtDFC.TabIndex = 5;
-            this.txtDFC.TextChanged += new System.EventHandler(this.txtDFC_TextChanged);
-            // 
-            // cmbRectorProrector
-            // 
-            this.cmbRectorProrector.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbRectorProrector.FormattingEnabled = true;
-            this.cmbRectorProrector.Location = new System.Drawing.Point(12, 49);
-            this.cmbRectorProrector.Name = "cmbRectorProrector";
-            this.cmbRectorProrector.Size = new System.Drawing.Size(176, 21);
-            this.cmbRectorProrector.TabIndex = 3;
-            this.cmbRectorProrector.SelectedIndexChanged += new System.EventHandler(this.cmbRectorProrector_SelectedIndexChanged);
+            this.rdoRector.AutoSize = true;
+            this.rdoRector.Location = new System.Drawing.Point(6, 8);
+            this.rdoRector.Name = "rdoRector";
+            this.rdoRector.Size = new System.Drawing.Size(70, 17);
+            this.rdoRector.TabIndex = 1;
+            this.rdoRector.TabStop = true;
+            this.rdoRector.Text = "RECTOR";
+            this.rdoRector.UseVisualStyleBackColor = true;
+            this.rdoRector.CheckedChanged += new System.EventHandler(this.rdoRector_CheckedChanged);
             // 
             // rdoProRector
             // 
             this.rdoProRector.AutoSize = true;
-            this.rdoProRector.Location = new System.Drawing.Point(86, 31);
+            this.rdoProRector.Location = new System.Drawing.Point(80, 8);
             this.rdoProRector.Name = "rdoProRector";
             this.rdoProRector.Size = new System.Drawing.Size(93, 17);
             this.rdoProRector.TabIndex = 2;
@@ -1223,17 +1107,152 @@
             this.rdoProRector.UseVisualStyleBackColor = true;
             this.rdoProRector.CheckedChanged += new System.EventHandler(this.rdoProRector_CheckedChanged);
             // 
-            // rdoRector
+            // cmbRectorProrector
             // 
-            this.rdoRector.AutoSize = true;
-            this.rdoRector.Location = new System.Drawing.Point(12, 31);
-            this.rdoRector.Name = "rdoRector";
-            this.rdoRector.Size = new System.Drawing.Size(70, 17);
-            this.rdoRector.TabIndex = 1;
-            this.rdoRector.TabStop = true;
-            this.rdoRector.Text = "RECTOR";
-            this.rdoRector.UseVisualStyleBackColor = true;
-            this.rdoRector.CheckedChanged += new System.EventHandler(this.rdoRector_CheckedChanged);
+            this.cmbRectorProrector.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbRectorProrector.FormattingEnabled = true;
+            this.cmbRectorProrector.Location = new System.Drawing.Point(6, 26);
+            this.cmbRectorProrector.Name = "cmbRectorProrector";
+            this.cmbRectorProrector.Size = new System.Drawing.Size(176, 21);
+            this.cmbRectorProrector.TabIndex = 3;
+            this.cmbRectorProrector.SelectedIndexChanged += new System.EventHandler(this.cmbRectorProrector_SelectedIndexChanged);
+            // 
+            // panouCP
+            // 
+            this.panouCP.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panouCP.Controls.Add(this.panouCPChk);
+            this.panouCP.Controls.Add(this.lblCPNumeProj);
+            this.panouCP.Controls.Add(this.txtCPNumeProj);
+            this.panouCP.Controls.Add(this.txtCPNumeCoord);
+            this.panouCP.Controls.Add(this.cmbCPGradDidactic);
+            this.panouCP.Controls.Add(this.lblCPNumeCoord);
+            this.panouCP.Location = new System.Drawing.Point(12, 86);
+            this.panouCP.Name = "panouCP";
+            this.panouCP.Size = new System.Drawing.Size(457, 94);
+            this.panouCP.TabIndex = 23;
+            // 
+            // panouCPChk
+            // 
+            this.panouCPChk.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panouCPChk.Controls.Add(this.chkCP);
+            this.panouCPChk.Location = new System.Drawing.Point(-1, -1);
+            this.panouCPChk.Name = "panouCPChk";
+            this.panouCPChk.Size = new System.Drawing.Size(52, 94);
+            this.panouCPChk.TabIndex = 20;
+            // 
+            // chkCP
+            // 
+            this.chkCP.AutoSize = true;
+            this.chkCP.CheckAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.chkCP.Location = new System.Drawing.Point(6, 38);
+            this.chkCP.Name = "chkCP";
+            this.chkCP.Size = new System.Drawing.Size(40, 31);
+            this.chkCP.TabIndex = 0;
+            this.chkCP.Text = "cu CP";
+            this.chkCP.UseVisualStyleBackColor = true;
+            this.chkCP.CheckedChanged += new System.EventHandler(this.chkCP_CheckedChanged);
+            // 
+            // lblCPNumeProj
+            // 
+            this.lblCPNumeProj.AutoSize = true;
+            this.lblCPNumeProj.Location = new System.Drawing.Point(57, 5);
+            this.lblCPNumeProj.Name = "lblCPNumeProj";
+            this.lblCPNumeProj.Size = new System.Drawing.Size(87, 13);
+            this.lblCPNumeProj.TabIndex = 9;
+            this.lblCPNumeProj.Text = "Denumire proiect";
+            // 
+            // txtCPNumeProj
+            // 
+            this.txtCPNumeProj.Enabled = false;
+            this.txtCPNumeProj.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCPNumeProj.Location = new System.Drawing.Point(60, 21);
+            this.txtCPNumeProj.Name = "txtCPNumeProj";
+            this.txtCPNumeProj.Size = new System.Drawing.Size(385, 20);
+            this.txtCPNumeProj.TabIndex = 7;
+            this.txtCPNumeProj.TextChanged += new System.EventHandler(this.txtCPNumeProj_TextChanged);
+            // 
+            // txtCPNumeCoord
+            // 
+            this.txtCPNumeCoord.Enabled = false;
+            this.txtCPNumeCoord.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCPNumeCoord.Location = new System.Drawing.Point(157, 62);
+            this.txtCPNumeCoord.Name = "txtCPNumeCoord";
+            this.txtCPNumeCoord.Size = new System.Drawing.Size(288, 20);
+            this.txtCPNumeCoord.TabIndex = 17;
+            this.txtCPNumeCoord.TextChanged += new System.EventHandler(this.txtCPNumeCoord_TextChanged);
+            // 
+            // cmbCPGradDidactic
+            // 
+            this.cmbCPGradDidactic.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCPGradDidactic.Enabled = false;
+            this.cmbCPGradDidactic.FormattingEnabled = true;
+            this.cmbCPGradDidactic.Location = new System.Drawing.Point(60, 62);
+            this.cmbCPGradDidactic.Name = "cmbCPGradDidactic";
+            this.cmbCPGradDidactic.Size = new System.Drawing.Size(91, 21);
+            this.cmbCPGradDidactic.TabIndex = 19;
+            this.cmbCPGradDidactic.SelectedIndexChanged += new System.EventHandler(this.cmbCPGradDidactic_SelectedIndexChanged);
+            // 
+            // lblCPNumeCoord
+            // 
+            this.lblCPNumeCoord.AutoSize = true;
+            this.lblCPNumeCoord.Location = new System.Drawing.Point(58, 46);
+            this.lblCPNumeCoord.Name = "lblCPNumeCoord";
+            this.lblCPNumeCoord.Size = new System.Drawing.Size(252, 13);
+            this.lblCPNumeCoord.TabIndex = 18;
+            this.lblCPNumeCoord.Text = "Grad didactic                Nume Prenume Coordonator";
+            // 
+            // panouDFC
+            // 
+            this.panouDFC.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panouDFC.Controls.Add(this.cmbDFC);
+            this.panouDFC.Controls.Add(this.panouDFCChk);
+            this.panouDFC.Controls.Add(this.lblDFC);
+            this.panouDFC.Location = new System.Drawing.Point(215, 25);
+            this.panouDFC.Name = "panouDFC";
+            this.panouDFC.Size = new System.Drawing.Size(346, 55);
+            this.panouDFC.TabIndex = 22;
+            // 
+            // cmbDFC
+            // 
+            this.cmbDFC.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbDFC.FormattingEnabled = true;
+            this.cmbDFC.Location = new System.Drawing.Point(66, 26);
+            this.cmbDFC.Name = "cmbDFC";
+            this.cmbDFC.Size = new System.Drawing.Size(272, 21);
+            this.cmbDFC.TabIndex = 25;
+            this.cmbDFC.SelectedIndexChanged += new System.EventHandler(this.cmbDFC_SelectedIndexChanged);
+            // 
+            // panouDFCChk
+            // 
+            this.panouDFCChk.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panouDFCChk.Controls.Add(this.chkDFC);
+            this.panouDFCChk.Location = new System.Drawing.Point(-1, -1);
+            this.panouDFCChk.Name = "panouDFCChk";
+            this.panouDFCChk.Size = new System.Drawing.Size(61, 55);
+            this.panouDFCChk.TabIndex = 25;
+            // 
+            // chkDFC
+            // 
+            this.chkDFC.AutoSize = true;
+            this.chkDFC.CheckAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.chkDFC.Checked = true;
+            this.chkDFC.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkDFC.Location = new System.Drawing.Point(6, 10);
+            this.chkDFC.Name = "chkDFC";
+            this.chkDFC.Size = new System.Drawing.Size(47, 31);
+            this.chkDFC.TabIndex = 0;
+            this.chkDFC.Text = "cu DFC";
+            this.chkDFC.UseVisualStyleBackColor = true;
+            this.chkDFC.CheckedChanged += new System.EventHandler(this.chkDFC_CheckedChanged);
+            // 
+            // lblDFC
+            // 
+            this.lblDFC.AutoSize = true;
+            this.lblDFC.Location = new System.Drawing.Point(64, 10);
+            this.lblDFC.Name = "lblDFC";
+            this.lblDFC.Size = new System.Drawing.Size(179, 13);
+            this.lblDFC.TabIndex = 4;
+            this.lblDFC.Text = "DIRECTOR FINANCIAR-CONTABIL";
             // 
             // lblSemnatariODD
             // 
@@ -1276,12 +1295,16 @@
             this.panouAlteDispuneriODD.PerformLayout();
             this.panouSemnatariODD.ResumeLayout(false);
             this.panouSemnatariODD.PerformLayout();
-            this.panouCPSterge.ResumeLayout(false);
+            this.panouRP.ResumeLayout(false);
+            this.panouRP.PerformLayout();
             this.panouCP.ResumeLayout(false);
             this.panouCP.PerformLayout();
+            this.panouCPChk.ResumeLayout(false);
+            this.panouCPChk.PerformLayout();
             this.panouDFC.ResumeLayout(false);
             this.panouDFC.PerformLayout();
-            this.panouDFCSterge.ResumeLayout(false);
+            this.panouDFCChk.ResumeLayout(false);
+            this.panouDFCChk.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1378,22 +1401,23 @@
         private System.Windows.Forms.Label lblIntroduceri;
         private System.Windows.Forms.TextBox txtPrecizariScop;
         private System.Windows.Forms.Panel panouSemnatariODD;
-        private System.Windows.Forms.Panel panouCPSterge;
-        private System.Windows.Forms.Button btnCPSterge;
+        private System.Windows.Forms.Panel panouRP;
+        private System.Windows.Forms.RadioButton rdoRector;
+        private System.Windows.Forms.RadioButton rdoProRector;
+        private System.Windows.Forms.ComboBox cmbRectorProrector;
         private System.Windows.Forms.Panel panouCP;
+        private System.Windows.Forms.Panel panouCPChk;
+        private System.Windows.Forms.CheckBox chkCP;
         private System.Windows.Forms.Label lblCPNumeProj;
         private System.Windows.Forms.TextBox txtCPNumeProj;
         private System.Windows.Forms.TextBox txtCPNumeCoord;
         private System.Windows.Forms.ComboBox cmbCPGradDidactic;
         private System.Windows.Forms.Label lblCPNumeCoord;
         private System.Windows.Forms.Panel panouDFC;
-        private System.Windows.Forms.Panel panouDFCSterge;
-        private System.Windows.Forms.Button btnDFCSterge;
+        private System.Windows.Forms.ComboBox cmbDFC;
+        private System.Windows.Forms.Panel panouDFCChk;
+        private System.Windows.Forms.CheckBox chkDFC;
         private System.Windows.Forms.Label lblDFC;
-        private System.Windows.Forms.TextBox txtDFC;
-        private System.Windows.Forms.ComboBox cmbRectorProrector;
-        private System.Windows.Forms.RadioButton rdoProRector;
-        private System.Windows.Forms.RadioButton rdoRector;
         private System.Windows.Forms.Label lblSemnatariODD;
     }
 }
