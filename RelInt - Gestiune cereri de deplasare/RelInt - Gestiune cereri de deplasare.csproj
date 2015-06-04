@@ -352,12 +352,14 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="UAIC_logo_mic.png" />
-    <None Include="RelInt-GCdD.manifest" />
-    <Content Include="RelInt-GCdDLicentiere.html" />
-    <Content Include="RelIntBD-CRPO.sql">
+    <Content Include="RelIntBD-Creare.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="UAIC_logo_mic.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="RelInt-GCdD.manifest" />
+    <Content Include="RelInt-GCdDLicentiere.html" />
     <Content Include="UAIC_icon.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

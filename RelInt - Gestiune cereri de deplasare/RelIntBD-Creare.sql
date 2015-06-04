@@ -176,3 +176,5 @@ CPGradDidacticOD VARCHAR(50) CONSTRAINT fk_CPGradDidacticOD REFERENCES GradeDida
 CPNumeCoordOD VARCHAR(100),
 ODDI BOOLEAN
 );
+
+INSERT INTO DFC(DFCD) VALUES ('MODIFICĂ Directorul Financiar Contabil !');
