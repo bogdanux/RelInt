@@ -1841,20 +1841,20 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             // Paragraf 20
             Paragraph paragraf20 = section1.AddParagraph();
             paragraf20.Format.Alignment = ParagraphAlignment.Justify;
-            paragraf20.Format.Font.Size = 13;
+            paragraf20.Format.Font.Size = 12;
             paragraf20.Format.SpaceBefore = "0.3cm";
             paragraf20.Format.Font.Name = "Times New Roman";
-            paragraf20.AddText("3. Pe perioada deplasării, se asigură salariul în țară conform normelor în vigoare.");
+            if (chkCOS.Checked)
+            {
+                paragraf20.AddText(txtCOS.Text);
+            }
 
             // Paragraf 21
             Paragraph paragraf21 = section1.AddParagraph();
             paragraf21.Format.Alignment = ParagraphAlignment.Justify;
             paragraf21.Format.Font.Size = 12;
             paragraf21.Format.Font.Name = "Times New Roman";
-            if (chkCOS.Checked)
-            {
-                paragraf21.AddText(txtCOS.Text);
-            }
+            paragraf21.AddText("4. Pe perioada deplasării, se asigură salariul în țară conform normelor în vigoare.");
 
             // Tabel paragraf22
             var table1 = section1.AddTable();
