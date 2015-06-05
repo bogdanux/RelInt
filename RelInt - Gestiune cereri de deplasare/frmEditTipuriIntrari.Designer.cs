@@ -97,6 +97,11 @@
             this.btnDFCActualizare = new System.Windows.Forms.Button();
             this.txtDFCIntroducere = new System.Windows.Forms.TextBox();
             this.dgvDFC = new System.Windows.Forms.DataGridView();
+            this.tpCOS = new System.Windows.Forms.TabPage();
+            this.lblCOSPropozitie = new System.Windows.Forms.Label();
+            this.btnCOSActualizeaza = new System.Windows.Forms.Button();
+            this.txtCOSPropozitie = new System.Windows.Forms.TextBox();
+            this.dgvCOS = new System.Windows.Forms.DataGridView();
             this.mnuTipuriIntrari.SuspendLayout();
             this.tabGDFMTSCA.SuspendLayout();
             this.tpGradDidactic.SuspendLayout();
@@ -111,6 +116,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvScopuri)).BeginInit();
             this.tpDFC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDFC)).BeginInit();
+            this.tpCOS.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCOS)).BeginInit();
             this.SuspendLayout();
             // 
             // mnuTipuriIntrari
@@ -140,6 +147,7 @@
             this.tabGDFMTSCA.Controls.Add(this.tpTari);
             this.tabGDFMTSCA.Controls.Add(this.tpScopuri);
             this.tabGDFMTSCA.Controls.Add(this.tpDFC);
+            this.tabGDFMTSCA.Controls.Add(this.tpCOS);
             this.tabGDFMTSCA.Location = new System.Drawing.Point(3, 27);
             this.tabGDFMTSCA.Name = "tabGDFMTSCA";
             this.tabGDFMTSCA.SelectedIndex = 0;
@@ -849,6 +857,57 @@
             this.dgvDFC.Size = new System.Drawing.Size(667, 415);
             this.dgvDFC.TabIndex = 31;
             // 
+            // tpCOS
+            // 
+            this.tpCOS.Controls.Add(this.lblCOSPropozitie);
+            this.tpCOS.Controls.Add(this.btnCOSActualizeaza);
+            this.tpCOS.Controls.Add(this.txtCOSPropozitie);
+            this.tpCOS.Controls.Add(this.dgvCOS);
+            this.tpCOS.Location = new System.Drawing.Point(4, 22);
+            this.tpCOS.Name = "tpCOS";
+            this.tpCOS.Size = new System.Drawing.Size(673, 510);
+            this.tpCOS.TabIndex = 6;
+            this.tpCOS.Text = "Specificația nr. 3";
+            this.tpCOS.UseVisualStyleBackColor = true;
+            // 
+            // lblCOSPropozitie
+            // 
+            this.lblCOSPropozitie.AutoSize = true;
+            this.lblCOSPropozitie.Location = new System.Drawing.Point(34, 421);
+            this.lblCOSPropozitie.Name = "lblCOSPropozitie";
+            this.lblCOSPropozitie.Size = new System.Drawing.Size(108, 13);
+            this.lblCOSPropozitie.TabIndex = 37;
+            this.lblCOSPropozitie.Text = "Text specificația nr. 3";
+            // 
+            // btnCOSActualizeaza
+            // 
+            this.btnCOSActualizeaza.Enabled = false;
+            this.btnCOSActualizeaza.Location = new System.Drawing.Point(286, 435);
+            this.btnCOSActualizeaza.Name = "btnCOSActualizeaza";
+            this.btnCOSActualizeaza.Size = new System.Drawing.Size(75, 23);
+            this.btnCOSActualizeaza.TabIndex = 39;
+            this.btnCOSActualizeaza.Text = "Actualizează";
+            this.btnCOSActualizeaza.UseVisualStyleBackColor = true;
+            this.btnCOSActualizeaza.Click += new System.EventHandler(this.btnCOSActualizeaza_Click);
+            // 
+            // txtCOSPropozitie
+            // 
+            this.txtCOSPropozitie.Location = new System.Drawing.Point(27, 437);
+            this.txtCOSPropozitie.Name = "txtCOSPropozitie";
+            this.txtCOSPropozitie.Size = new System.Drawing.Size(253, 20);
+            this.txtCOSPropozitie.TabIndex = 38;
+            this.txtCOSPropozitie.TextChanged += new System.EventHandler(this.txtCOSPropozitie_TextChanged);
+            // 
+            // dgvCOS
+            // 
+            this.dgvCOS.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.dgvCOS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCOS.Location = new System.Drawing.Point(3, 3);
+            this.dgvCOS.Name = "dgvCOS";
+            this.dgvCOS.ReadOnly = true;
+            this.dgvCOS.Size = new System.Drawing.Size(667, 415);
+            this.dgvCOS.TabIndex = 36;
+            // 
             // frmEditTipuriIntrari
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -883,6 +942,9 @@
             this.tpDFC.ResumeLayout(false);
             this.tpDFC.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDFC)).EndInit();
+            this.tpCOS.ResumeLayout(false);
+            this.tpCOS.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCOS)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -958,5 +1020,10 @@
         private System.Windows.Forms.Button btnDFCActualizare;
         private System.Windows.Forms.TextBox txtDFCIntroducere;
         private System.Windows.Forms.DataGridView dgvDFC;
+        private System.Windows.Forms.TabPage tpCOS;
+        private System.Windows.Forms.Label lblCOSPropozitie;
+        private System.Windows.Forms.Button btnCOSActualizeaza;
+        private System.Windows.Forms.TextBox txtCOSPropozitie;
+        private System.Windows.Forms.DataGridView dgvCOS;
     }
 }

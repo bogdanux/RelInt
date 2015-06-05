@@ -59,6 +59,7 @@
             this.btnCopieSiguranta = new System.Windows.Forms.ToolStripMenuItem();
             this.StatusGCD = new System.Windows.Forms.StatusStrip();
             this.tsStatusRectorCurent = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tsStatusDFCCurent = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsStatusUltimaInregistrare = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsStatusDeCeGD = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsStatusDeCeF = new System.Windows.Forms.ToolStripStatusLabel();
@@ -68,7 +69,7 @@
             this.tsStatusDeCeR = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsStatusDeCePR = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsStatusDeCeD = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tsStatusDFCCurent = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tsStatusDeCeC = new System.Windows.Forms.ToolStripStatusLabel();
             this.mnuBaraMeniu.SuspendLayout();
             this.StatusGCD.SuspendLayout();
             this.SuspendLayout();
@@ -327,6 +328,7 @@
             this.tsStatusDeCeS,
             this.tsStatusDeCeR,
             this.tsStatusDeCePR,
+            this.tsStatusDeCeC,
             this.tsStatusDeCeD});
             this.StatusGCD.Location = new System.Drawing.Point(0, 437);
             this.StatusGCD.Name = "StatusGCD";
@@ -341,6 +343,14 @@
             this.tsStatusRectorCurent.Name = "tsStatusRectorCurent";
             this.tsStatusRectorCurent.Size = new System.Drawing.Size(27, 19);
             this.tsStatusRectorCurent.Text = "RC";
+            // 
+            // tsStatusDFCCurent
+            // 
+            this.tsStatusDFCCurent.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.tsStatusDFCCurent.ForeColor = System.Drawing.Color.SaddleBrown;
+            this.tsStatusDFCCurent.Name = "tsStatusDFCCurent";
+            this.tsStatusDFCCurent.Size = new System.Drawing.Size(44, 19);
+            this.tsStatusDFCCurent.Text = "DFCC";
             // 
             // tsStatusUltimaInregistrare
             // 
@@ -414,13 +424,13 @@
             this.tsStatusDeCeD.Size = new System.Drawing.Size(29, 19);
             this.tsStatusDeCeD.Text = "DFC";
             // 
-            // tsStatusDFCCurent
+            // tsStatusDeCeC
             // 
-            this.tsStatusDFCCurent.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.tsStatusDFCCurent.ForeColor = System.Drawing.Color.SaddleBrown;
-            this.tsStatusDFCCurent.Name = "tsStatusDFCCurent";
-            this.tsStatusDFCCurent.Size = new System.Drawing.Size(44, 19);
-            this.tsStatusDFCCurent.Text = "DFCC";
+            this.tsStatusDeCeC.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.tsStatusDeCeC.ForeColor = System.Drawing.Color.Purple;
+            this.tsStatusDeCeC.Name = "tsStatusDeCeC";
+            this.tsStatusDeCeC.Size = new System.Drawing.Size(30, 19);
+            this.tsStatusDeCeC.Text = "COS";
             // 
             // frmGCD
             // 
@@ -491,6 +501,7 @@
         public System.Windows.Forms.ToolStripStatusLabel tsStatusRectorCurent;
         private System.Windows.Forms.ToolStripStatusLabel tsStatusDeCeD;
         public System.Windows.Forms.ToolStripStatusLabel tsStatusDFCCurent;
+        private System.Windows.Forms.ToolStripStatusLabel tsStatusDeCeC;
     }
 }
 

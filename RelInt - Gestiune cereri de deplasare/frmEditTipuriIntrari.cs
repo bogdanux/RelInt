@@ -18,6 +18,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             IncarcaredgvTari();
             IncarcaredgvScopuri();
             IncarcaredgvDFC();
+            IncarcaredgvCOS();
         }
 
         /* --------------------------------------------------------------------------------------------------------------- */
@@ -1317,7 +1318,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
             if (Application.OpenForms["frmGCD"] != null)
             {
-                (Application.OpenForms["frmGCD"] as frmGCD).AprobareVerifRPD();
+                (Application.OpenForms["frmGCD"] as frmGCD).AprobareVerifRPCD();
             }
 
             if (Application.OpenForms["frmGCD"] != null)
@@ -1367,7 +1368,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     try
                     {
                         conexiune_dgvDFC.Open();
-                        int recordsAffected = comanda_dgvDFC.ExecuteNonQuery();
+                        comanda_dgvDFC.ExecuteNonQuery();
                     }
                     catch (Exception exdgvDFC)
                     {
@@ -1386,6 +1387,127 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             // Golim
             txtDFCIntroducere.Clear();
             txtDFCIntroducere.Focus();
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+
+        /* ------------------ Functii pentru dgvDFC ---------------------------------------------------------------------- */
+        public void IncarcaredgvCOS()
+        {
+            using (OdbcConnection conexiune_dgvCOS = new OdbcConnection(sircon_RelIntDB))
+            {
+                // Comanda
+                using (OdbcCommand comanda_dgvCOS = new OdbcCommand())
+                {
+                    comanda_dgvCOS.Connection = conexiune_dgvCOS;
+                    comanda_dgvCOS.CommandType = CommandType.Text;
+                    comanda_dgvCOS.CommandText = "SELECT cosc AS \"Specificația nr. 3\" FROM cos";
+
+                    try
+                    {
+                        conexiune_dgvCOS.Open();
+                        OdbcDataAdapter da_dgvCOS = new OdbcDataAdapter();
+                        da_dgvCOS.SelectCommand = comanda_dgvCOS;
+
+                        DataTable dt_dgvCOS = new DataTable();
+                        da_dgvCOS.Fill(dt_dgvCOS);
+
+                        BindingSource bs_dgvCOS = new BindingSource();
+                        bs_dgvCOS.DataSource = dt_dgvCOS;
+
+                        dgvCOS.DataSource = bs_dgvCOS;
+
+                        da_dgvCOS.Update(dt_dgvCOS);
+                    }
+                    catch (Exception exdgvCOS)
+                    {
+                        MessageBox.Show(exdgvCOS.Message);
+                    } // Ne deconectam
+                    finally
+                    {
+                        conexiune_dgvCOS.Close();
+                    }
+                }
+            }
+
+            if (Application.OpenForms["frmGCD"] != null)
+            {
+                (Application.OpenForms["frmGCD"] as frmGCD).VerificareCOS();
+            }
+
+            if (Application.OpenForms["frmGCD"] != null)
+            {
+                (Application.OpenForms["frmGCD"] as frmGCD).AprobareVerifRPCD();
+            }
+
+            if (Application.OpenForms["frmODDIntroducere"] != null)
+            {
+                (Application.OpenForms["frmODDIntroducere"] as frmODDIntroducere).UmplereCOS();
+            }
+
+            if (Application.OpenForms["frmODDModificare"] != null)
+            {
+                (Application.OpenForms["frmODDModificare"] as frmODDModificare).UmplereCOS();
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* ------------------ Eveniment de tip TextChanged pentru caseta txtDFCIntroducere ------------------------------- */
+        private void txtCOSPropozitie_TextChanged(object sender, EventArgs e)
+        {
+            if (txtCOSPropozitie.Text != string.Empty)
+            {
+                // Activam
+                btnCOSActualizeaza.Enabled = true;
+            }
+            else
+            {
+                // Dezactivam
+                btnCOSActualizeaza.Enabled = false;
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* ------------------ Eveniment de tip click pentru btnDFCActualizare -------------------------------------------- */
+        private void btnCOSActualizeaza_Click(object sender, EventArgs e)
+        {
+            using (OdbcConnection conexiune_dgvCOS = new OdbcConnection(sircon_RelIntDB))
+            {
+                // Comanda
+                using (OdbcCommand comanda_dgvCOS = new OdbcCommand())
+                {
+                    comanda_dgvCOS.Connection = conexiune_dgvCOS;
+                    comanda_dgvCOS.CommandType = CommandType.Text;
+                    comanda_dgvCOS.CommandText = "UPDATE cos SET cosc = ?";
+                    comanda_dgvCOS.Parameters.AddWithValue("@cosc", OdbcType.NVarChar).Value = txtCOSPropozitie.Text;
+
+                    try
+                    {
+                        conexiune_dgvCOS.Open();
+                        comanda_dgvCOS.ExecuteNonQuery();
+                    }
+                    catch (Exception exdgvDFC)
+                    {
+                        MessageBox.Show(exdgvDFC.Message);
+                    } // Ne deconectam
+                    finally
+                    {
+                        conexiune_dgvCOS.Close();
+                    }
+                }
+            }
+
+            // Actualizam
+            IncarcaredgvCOS();
+
+            // Golim
+            txtCOSPropozitie.Clear();
+            txtCOSPropozitie.Focus();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 

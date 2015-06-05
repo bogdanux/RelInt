@@ -34,6 +34,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             UmplereDFC();
             cmbDFC.DropDownWidth = LatimeDropDown(cmbDFC);
             cmbDFC.SelectedIndex = 0;
+            UmplereCOS();
 
             // Pregatim formularul
             PregatireFormular();
@@ -340,6 +341,41 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             }
             label1.Dispose();
             return maxWidth;
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* ---------- Metoda de umplere a cmbDFC cu date din RelIntDB ---------------------------------------------------- */
+        public void UmplereCOS()
+        {
+            txtCOS.Clear();
+            using (OdbcConnection conexiune_txtCOS = new OdbcConnection(sircon_RelIntDB))
+            {           // Comanda
+                using (OdbcCommand comanda_txtCOS = new OdbcCommand())
+                {
+                    comanda_txtCOS.Connection = conexiune_txtCOS;
+                    comanda_txtCOS.CommandType = CommandType.Text;
+                    comanda_txtCOS.CommandText = "SELECT * FROM cos";
+
+                    OdbcDataReader cititor_txtCOS;
+
+                    try
+                    {
+                        conexiune_txtCOS.Open();
+                        cititor_txtCOS = comanda_txtCOS.ExecuteReader();
+                        while (cititor_txtCOS.Read())
+                        {
+                            txtCOS.Text = cititor_txtCOS.GetString(0);
+                        }
+                    }
+                    catch (Exception extxtCOS)
+                    {
+                        MessageBox.Show(extxtCOS.Message);
+                    } // Ne deconectam
+                    finally
+                    {
+                        conexiune_txtCOS.Close();
+                    }
+                }
+            }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
@@ -1129,7 +1165,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 {
                     comanda_inserareRelInt.Connection = conexiune_InserareCerereRelInt;
                     comanda_inserareRelInt.CommandType = CommandType.Text;
-                    comanda_inserareRelInt.CommandText = "INSERT into ordinedeplasare VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                    comanda_inserareRelInt.CommandText = "INSERT into ordinedeplasare VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
                     comanda_inserareRelInt.Parameters.AddWithValue("@nrinregistrareodc", OdbcType.Int).Value = vartxtNrInregistrare;
                     comanda_inserareRelInt.Parameters.AddWithValue("@nrinregistrareod", OdbcType.Int).Value = vartxtNrUAIC;
                     comanda_inserareRelInt.Parameters.AddWithValue("@nrinregistrareodNou", OdbcType.Int).Value = null;
@@ -1163,6 +1199,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     comanda_inserareRelInt.Parameters.AddWithValue("@taxadevizaetcOD", OdbcType.Double).Value = vartxtTaxaDeViza;
                     comanda_inserareRelInt.Parameters.AddWithValue("@monedataxadevizaetcOD", OdbcType.NVarChar).Value = cmbMoneda4.SelectedItem;
                     comanda_inserareRelInt.Parameters.AddWithValue("@totalOD", OdbcType.NVarChar).Value = CalculTotal();
+                    comanda_inserareRelInt.Parameters.AddWithValue("@cosOD", OdbcType.NVarChar).Value = txtCOS.Text;
                     comanda_inserareRelInt.Parameters.AddWithValue("@altedispuneri1OD", OdbcType.NVarChar).Value = txtDispunere1.Text;
                     comanda_inserareRelInt.Parameters.AddWithValue("@altedispuneri2OD", OdbcType.NVarChar).Value = txtDispunere2.Text;
                     comanda_inserareRelInt.Parameters.AddWithValue("@altedispuneri3OD", OdbcType.NVarChar).Value = txtDispunere3.Text;
@@ -1182,7 +1219,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     try
                     {
                         conexiune_InserareCerereRelInt.Open();
-                        int recordsAffected = comanda_inserareRelInt.ExecuteNonQuery();
+                        comanda_inserareRelInt.ExecuteNonQuery();
                         MetodaInserareSucces = true;
                     }
 
@@ -1863,7 +1900,10 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             paragraf21.Format.Alignment = ParagraphAlignment.Justify;
             paragraf21.Format.Font.Size = 12;
             paragraf21.Format.Font.Name = "Times New Roman";
-            paragraf21.AddText("4. Serviciile CONTABILITATE și ORGANIZARE - SALARIZARE vor duce la îndeplinire prevederile prezentei dispoziții.");
+            if (chkCOS.Checked)
+            {
+                paragraf21.AddText(txtCOS.Text);
+            }
 
             // Tabel paragraf22
             var table1 = section1.AddTable();
@@ -1991,6 +2031,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 || rdoRectorSchimbat
                 || rdoProRectorSchimbat
                 || cmbRectorProrectorSchimbat
+                || chkCOSSchimbat
                 || cmbDFCSchimbat
                 || txtCPNumeProjSchimbat
                 || cmbCPGradDidacticSchimbat
@@ -2025,6 +2066,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             chkCazareSchimbat = false;
             chkTaxaDeParticipareSchimbat = false;
             chkTaxaDeVizaSchimbat = false;
+            chkCOSSchimbat = false;
             txtDispunere1Schimbat = false;
             txtDispunere2Schimbat = false;
             txtDispunere3Schimbat = false;
@@ -2240,6 +2282,26 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 cmbCPGradDidactic.SelectedIndex = -1;
                 txtCPNumeCoord.Clear();
             }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+        bool chkCOSSchimbat;
+        /* -------------- Eveniment pentru chkCOS ------------------------------------------------------------------------ */
+        private void chkCOS_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkCOS.Checked)
+            {
+                UmplereCOS();
+            }
+            else
+            {
+                txtCOS.Clear();
+            }
+            chkCOSSchimbat = true;
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 

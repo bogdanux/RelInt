@@ -136,6 +136,8 @@
             this.chkDFC = new System.Windows.Forms.CheckBox();
             this.lblDFC = new System.Windows.Forms.Label();
             this.lblSemnatariODD = new System.Windows.Forms.Label();
+            this.chkCOS = new System.Windows.Forms.CheckBox();
+            this.txtCOS = new System.Windows.Forms.TextBox();
             this.mnuCerereBeca.SuspendLayout();
             this.panouIdentificareODD.SuspendLayout();
             this.panouContinutODD.SuspendLayout();
@@ -156,7 +158,7 @@
             this.btnFormular});
             this.mnuCerereBeca.Location = new System.Drawing.Point(0, 0);
             this.mnuCerereBeca.Name = "mnuCerereBeca";
-            this.mnuCerereBeca.Size = new System.Drawing.Size(682, 24);
+            this.mnuCerereBeca.Size = new System.Drawing.Size(677, 24);
             this.mnuCerereBeca.TabIndex = 0;
             this.mnuCerereBeca.Text = "menuStrip1";
             // 
@@ -996,6 +998,8 @@
             // panouAlteDispuneriODD
             // 
             this.panouAlteDispuneriODD.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panouAlteDispuneriODD.Controls.Add(this.chkCOS);
+            this.panouAlteDispuneriODD.Controls.Add(this.txtCOS);
             this.panouAlteDispuneriODD.Controls.Add(this.txtDispunere4);
             this.panouAlteDispuneriODD.Controls.Add(this.txtDispunere3);
             this.panouAlteDispuneriODD.Controls.Add(this.txtDispunere2);
@@ -1003,13 +1007,13 @@
             this.panouAlteDispuneriODD.Controls.Add(this.lblAlteDispuneriODD);
             this.panouAlteDispuneriODD.Location = new System.Drawing.Point(12, 597);
             this.panouAlteDispuneriODD.Name = "panouAlteDispuneriODD";
-            this.panouAlteDispuneriODD.Size = new System.Drawing.Size(642, 149);
+            this.panouAlteDispuneriODD.Size = new System.Drawing.Size(642, 163);
             this.panouAlteDispuneriODD.TabIndex = 9;
             // 
             // txtDispunere4
             // 
             this.txtDispunere4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDispunere4.Location = new System.Drawing.Point(12, 113);
+            this.txtDispunere4.Location = new System.Drawing.Point(12, 134);
             this.txtDispunere4.Name = "txtDispunere4";
             this.txtDispunere4.Size = new System.Drawing.Size(608, 20);
             this.txtDispunere4.TabIndex = 4;
@@ -1018,7 +1022,7 @@
             // txtDispunere3
             // 
             this.txtDispunere3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDispunere3.Location = new System.Drawing.Point(12, 87);
+            this.txtDispunere3.Location = new System.Drawing.Point(12, 108);
             this.txtDispunere3.Name = "txtDispunere3";
             this.txtDispunere3.Size = new System.Drawing.Size(608, 20);
             this.txtDispunere3.TabIndex = 3;
@@ -1027,7 +1031,7 @@
             // txtDispunere2
             // 
             this.txtDispunere2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDispunere2.Location = new System.Drawing.Point(12, 61);
+            this.txtDispunere2.Location = new System.Drawing.Point(12, 82);
             this.txtDispunere2.Name = "txtDispunere2";
             this.txtDispunere2.Size = new System.Drawing.Size(608, 20);
             this.txtDispunere2.TabIndex = 2;
@@ -1036,7 +1040,7 @@
             // txtDispunere1
             // 
             this.txtDispunere1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDispunere1.Location = new System.Drawing.Point(12, 35);
+            this.txtDispunere1.Location = new System.Drawing.Point(12, 56);
             this.txtDispunere1.Name = "txtDispunere1";
             this.txtDispunere1.Size = new System.Drawing.Size(608, 20);
             this.txtDispunere1.TabIndex = 1;
@@ -1055,7 +1059,7 @@
             // panouFinal
             // 
             this.panouFinal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panouFinal.Location = new System.Drawing.Point(12, 958);
+            this.panouFinal.Location = new System.Drawing.Point(12, 972);
             this.panouFinal.Name = "panouFinal";
             this.panouFinal.Size = new System.Drawing.Size(642, 10);
             this.panouFinal.TabIndex = 34;
@@ -1068,7 +1072,7 @@
             this.panouSemnatariODD.Controls.Add(this.panouDFC);
             this.panouSemnatariODD.Controls.Add(this.lblSemnatariODD);
             this.panouSemnatariODD.Enabled = false;
-            this.panouSemnatariODD.Location = new System.Drawing.Point(12, 752);
+            this.panouSemnatariODD.Location = new System.Drawing.Point(12, 766);
             this.panouSemnatariODD.Name = "panouSemnatariODD";
             this.panouSemnatariODD.Size = new System.Drawing.Size(642, 190);
             this.panouSemnatariODD.TabIndex = 37;
@@ -1265,12 +1269,35 @@
             this.lblSemnatariODD.TabIndex = 0;
             this.lblSemnatariODD.Text = "V. Semnatari";
             // 
+            // chkCOS
+            // 
+            this.chkCOS.AutoSize = true;
+            this.chkCOS.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.chkCOS.Checked = true;
+            this.chkCOS.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkCOS.Location = new System.Drawing.Point(12, 33);
+            this.chkCOS.Name = "chkCOS";
+            this.chkCOS.Size = new System.Drawing.Size(104, 17);
+            this.chkCOS.TabIndex = 8;
+            this.chkCOS.Text = "Adaugă pe ordin";
+            this.chkCOS.UseVisualStyleBackColor = true;
+            this.chkCOS.CheckedChanged += new System.EventHandler(this.chkCOS_CheckedChanged);
+            // 
+            // txtCOS
+            // 
+            this.txtCOS.Enabled = false;
+            this.txtCOS.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCOS.Location = new System.Drawing.Point(122, 30);
+            this.txtCOS.Name = "txtCOS";
+            this.txtCOS.Size = new System.Drawing.Size(498, 20);
+            this.txtCOS.TabIndex = 7;
+            // 
             // frmODDModificare
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(699, 667);
+            this.ClientSize = new System.Drawing.Size(694, 667);
             this.Controls.Add(this.panouSemnatariODD);
             this.Controls.Add(this.panouFinal);
             this.Controls.Add(this.panouAlteDispuneriODD);
@@ -1420,5 +1447,7 @@
         private System.Windows.Forms.CheckBox chkDFC;
         private System.Windows.Forms.Label lblDFC;
         private System.Windows.Forms.Label lblSemnatariODD;
+        private System.Windows.Forms.CheckBox chkCOS;
+        private System.Windows.Forms.TextBox txtCOS;
     }
 }

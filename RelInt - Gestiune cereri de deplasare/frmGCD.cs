@@ -25,9 +25,10 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             // Necesare pentru ODD
             VerificareRector();
             VerificareProrector();
+            VerificareCOS();
             VerificareDFC();
 
-            AprobareVerifRPD();
+            AprobareVerifRPCD();
 
             MetodaScriereInStatusR();
             MetodaScriereInStatusD();
@@ -356,7 +357,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 && AprobareVerifT
                 && AprobareVerifS)
             {
-                AprobareVerifRPD();
+                AprobareVerifRPCD();
                 VerificareCereri();
 
                 if (ExistaCereri)
@@ -452,6 +453,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         bool AprobareVerifR;
         bool AprobareVerifPR;
         bool AprobareVerifD;
+        bool AprobareVerifC;
         /* ------------ Metoda de verificare daca sunt introdusi Rectori ------------------------------------------------- */
         public void VerificareRector()
         {
@@ -549,6 +551,54 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         }
         /* --------------------------------------------------------------------------------------------------------------- */
         /* ------------ Metoda de verificare daca sunt introduse scopuri ------------------------------------------------- */
+        public void VerificareCOS()
+        {
+            using (OdbcConnection conexiune_COS = new OdbcConnection(sircon_RelIntDB))
+            {           // Comanda
+                using (OdbcCommand comanda_COS = new OdbcCommand())
+                {
+                    comanda_COS.Connection = conexiune_COS;
+                    comanda_COS.CommandType = CommandType.Text;
+                    comanda_COS.CommandText = "SELECT * FROM cos";
+
+                    OdbcDataReader cititor_COS;
+
+                    try
+                    {
+                        conexiune_COS.Open();
+                        cititor_COS = comanda_COS.ExecuteReader();
+
+                        // Daca cititorul
+                        if (cititor_COS.HasRows == false)
+                        {
+                            // Afisam de ce
+                            tsStatusDeCeC.Text = " Nu este introdusă \"specificația nr. 3\" pentru Ordinele de deplasare! ";
+
+                            // Setam
+                            AprobareVerifC = false;
+                        }
+                        else
+                        {
+                            // Stergem afisarea
+                            tsStatusDeCeC.Text = string.Empty;
+
+                            // Setam
+                            AprobareVerifC = true;
+                        }
+                    }
+                    catch (Exception exCOS)
+                    {
+                        MessageBox.Show(exCOS.Message);
+                    } // Ne deconectam
+                    finally
+                    {
+                        conexiune_COS.Close();
+                    }
+                }
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* ------------ Metoda de verificare daca sunt introduse scopuri ------------------------------------------------- */
         public void VerificareDFC()
         {
             using (OdbcConnection conexiune_DFC = new OdbcConnection(sircon_RelIntDB))
@@ -597,9 +647,9 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         }
         /* --------------------------------------------------------------------------------------------------------------- */
         /* --------------------------------------------------------------------------------------------------------------- */
-        public void AprobareVerifRPD()
+        public void AprobareVerifRPCD()
         {
-            if (AprobareVerifR && AprobareVerifPR && AprobareVerifD)
+            if (AprobareVerifR && AprobareVerifPR && AprobareVerifD && AprobareVerifC)
             {
                 // Activam
                 btnGCDIntroducereODD.Enabled = true;
