@@ -68,8 +68,8 @@
             this.tsStatusDeCeS = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsStatusDeCeR = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsStatusDeCePR = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tsStatusDeCeD = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsStatusDeCeC = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tsStatusDeCeD = new System.Windows.Forms.ToolStripStatusLabel();
             this.mnuBaraMeniu.SuspendLayout();
             this.StatusGCD.SuspendLayout();
             this.SuspendLayout();
@@ -259,6 +259,7 @@
             this.btnManualUtilizare.ShortcutKeys = System.Windows.Forms.Keys.F1;
             this.btnManualUtilizare.Size = new System.Drawing.Size(178, 22);
             this.btnManualUtilizare.Text = "Manual Utilizare";
+            this.btnManualUtilizare.Click += new System.EventHandler(this.btnManualUtilizare_Click);
             // 
             // toolStripSeparator2
             // 
@@ -416,14 +417,6 @@
             this.tsStatusDeCePR.Size = new System.Drawing.Size(52, 19);
             this.tsStatusDeCePR.Text = "PROREC";
             // 
-            // tsStatusDeCeD
-            // 
-            this.tsStatusDeCeD.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.tsStatusDeCeD.ForeColor = System.Drawing.Color.Purple;
-            this.tsStatusDeCeD.Name = "tsStatusDeCeD";
-            this.tsStatusDeCeD.Size = new System.Drawing.Size(29, 19);
-            this.tsStatusDeCeD.Text = "DFC";
-            // 
             // tsStatusDeCeC
             // 
             this.tsStatusDeCeC.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
@@ -431,6 +424,14 @@
             this.tsStatusDeCeC.Name = "tsStatusDeCeC";
             this.tsStatusDeCeC.Size = new System.Drawing.Size(30, 19);
             this.tsStatusDeCeC.Text = "COS";
+            // 
+            // tsStatusDeCeD
+            // 
+            this.tsStatusDeCeD.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.tsStatusDeCeD.ForeColor = System.Drawing.Color.Purple;
+            this.tsStatusDeCeD.Name = "tsStatusDeCeD";
+            this.tsStatusDeCeD.Size = new System.Drawing.Size(29, 19);
+            this.tsStatusDeCeD.Text = "DFC";
             // 
             // frmGCD
             // 

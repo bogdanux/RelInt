@@ -1193,5 +1193,18 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
 
+
+
+        private void btnManualUtilizare_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+
+
+
+
     }
 }
