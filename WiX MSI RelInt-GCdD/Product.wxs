@@ -52,9 +52,9 @@
               <RemoveFile Id="RelInt.exe.manifest" Name="RelInt.exe.manifest" On="uninstall"/>
             </Component>
           <!-- Resurse -->
-            <Component Id="RelInt.CRPO.sql" Guid="A0902D73-030A-4AB6-BAAE-7CE7E926F7A0">
-                <File Id="RelInt.CRPO.sql" Source="D:\RelInt\RelInt - Gestiune cereri de deplasare\bin\x86\Debug\RelIntBD-CRPO.sql" KeyPath="yes"/>
-              <RemoveFile Id="RelInt.CRPO.sql" Name="RelInt.CRPO.sql" On="uninstall"/>
+            <Component Id="RelInt.Creare.sql" Guid="A0902D73-030A-4AB6-BAAE-7CE7E926F7A0">
+                <File Id="RelInt.Creare.sql" Source="D:\RelInt\RelInt - Gestiune cereri de deplasare\bin\x86\Debug\RelIntDB-Creare.sql" KeyPath="yes"/>
+              <RemoveFile Id="RelInt.Creare.sql" Name="RelInt.Creare.sql" On="uninstall"/>
             </Component>
             <Component Id="UAIC_icon.ico" Guid="C98449B2-BC4F-4DB1-9C81-E659CC7155EB">
                 <File Id="UAIC_icon.ico" Source="D:\RelInt\RelInt - Gestiune cereri de deplasare\bin\x86\Debug\UAIC_icon.ico" KeyPath="yes"/>
@@ -193,7 +193,7 @@
             <ComponentRef Id="RelInt.exe.config" />
             <ComponentRef Id="RelInt.exe.manifest" />
           <!-- Resurse -->
-            <ComponentRef Id="RelInt.CRPO.sql" />
+            <ComponentRef Id="RelInt.Creare.sql" />
             <ComponentRef Id="UAIC_icon.ico" />
             <ComponentRef Id="UAIC_logo.png" />
             <ComponentRef Id="UAIC_logo_bw_1024.png" />

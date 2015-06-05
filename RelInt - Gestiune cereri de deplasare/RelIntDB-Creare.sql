@@ -3,9 +3,8 @@
 DROP TABLE IF EXISTS OrdineDeplasare;
 DROP TABLE IF EXISTS Rectori;
 DROP TABLE IF EXISTS ProRectori;
+DROP TABLE IF EXISTS COS;
 DROP TABLE IF EXISTS DFC;
-DROP TABLE IF EXISTS OreRecuperate;
-DROP TABLE IF EXISTS ConditiiDePlata;
 DROP TABLE IF EXISTS Cereri;
 DROP TABLE IF EXISTS GradeDidactice;
 DROP TABLE IF EXISTS Facultati;
@@ -74,34 +73,7 @@ BifaTaxaDeVizaEtcC BOOLEAN,
 TaxaDeVizaEtcC NUMERIC(7,2),
 MonedaTaxaDeVizaEtcC VARCHAR(50) CONSTRAINT fk_MonedaTaxaDeVizaEtcC REFERENCES Monezi(MoneziM) ON UPDATE CASCADE,
 TotalC VARCHAR(50),
-AmbasadaC VARCHAR(50),
-NedeterminataC BOOLEAN,
-DeterminataC BOOLEAN,
-DecanC VARCHAR(30),
-VizaContaC VARCHAR(30),
-AdmSefBirouC VARCHAR(30),
-SefDepartamentDirC VARCHAR(30),
-VizaRUC VARCHAR(30),
 TIOZC BOOLEAN
-);
-
--- Creare tabela OreRecuperate
-CREATE TABLE OreRecuperate (
-NrCerereOR NUMERIC(5) CONSTRAINT fk_NrCrtOR REFERENCES Cereri(NrInregistrareC),
-NrCrtOR NUMERIC(5),
-DenDisciplinaOR VARCHAR(30),
-DataOR DATE,
-OraOR time,
-SalaOR VARCHAR(5)
-);
-
--- Creare tabela ConditiiDePlata
-CREATE TABLE ConditiiDePlata (
-NrCerereCDP NUMERIC(5) CONSTRAINT fk_NrCrtCDP REFERENCES Cereri(NrInregistrareC),
-NrCrtCDP NUMERIC(5),
-NumePrenProfCDP VARCHAR(30),
-DenDisciplinaCDP VARCHAR(50),
-CondDePlataCDP VARCHAR(70)
 );
 
 -- Creare tabela Rectori
@@ -124,6 +96,11 @@ SectorP VARCHAR(400)
 -- Creare tabela DFC
 CREATE TABLE DFC (
 DFCD VARCHAR(50) CONSTRAINT pk_DFC PRIMARY KEY
+);
+
+-- Creare tabela COS
+CREATE TABLE COS (
+COSC VARCHAR(300) CONSTRAINT pk_COS PRIMARY KEY
 );
 
 -- Creare tabela CereriBECA
@@ -161,6 +138,7 @@ BifaTaxaDeVizaEtcOD BOOLEAN,
 TaxaDeVizaEtcOD NUMERIC(7,2),
 MonedaTaxaDeVizaEtcOD VARCHAR(50) CONSTRAINT fk_MonedaTaxaDeVizaEtcC REFERENCES Monezi(MoneziM) ON UPDATE CASCADE,
 TotalOD VARCHAR(50),
+COSOD VARCHAR(300),
 AlteDispuneri1OD VARCHAR(150),
 AlteDispuneri2OD VARCHAR(150),
 AlteDispuneri3OD VARCHAR(150),
@@ -177,4 +155,5 @@ CPNumeCoordOD VARCHAR(100),
 ODDI BOOLEAN
 );
 
-INSERT INTO DFC(DFCD) VALUES ('MODIFICĂ Directorul Financiar Contabil !');
+INSERT INTO DFC(DFCD) VALUES ('! Modifică DFC !');
+INSERT INTO COS(COSC) VALUES ('! Modifică Dispunere 1 !');

@@ -352,7 +352,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="RelIntBD-Creare.sql">
+    <Content Include="RelIntDB-Creare.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="UAIC_logo_mic.png">
