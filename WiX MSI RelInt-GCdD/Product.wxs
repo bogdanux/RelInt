@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
+     xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
   <Product Id="*" Name="RelInt - Gestiunea Cererilor de Deplasare" Language="1048" Version="1.0.1.25" Manufacturer="SIA-FEAA" UpgradeCode="11163168-B0A4-4B26-A553-404359B0D84F">
     <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine"/>
 
@@ -12,6 +13,8 @@
 
         <!-- 1: Definim structura de directoare -->
         <Directory Id="TARGETDIR" Name="SourceDir">
+          <!-- Iconita pe Desktop -->
+          <Directory Id="DesktopFolder" Name="Desktop"/>
           
           <!-- Structura dosare in Program Files 32bit -->
             <Directory Id="ProgramFilesFolder">
@@ -23,20 +26,47 @@
           <!-- Iconita in START -->
           <Directory Id="ProgramMenuFolder">
             <Directory Id="ProgramMenuVendorFolder" Name="SIA-FEAA">
-              <Directory Id="ProgramMenuProductFolder" Name="RelInt-GCdD"/>
+              <Directory Id="ProgramMenuProductFolder" Name="RelInt-GCdD">
+                  <Component Id="ScurtaturiInSTART" Guid="45ACDF43-3D67-4531-B611-263B835D43FB">
+                  
+                    <!-- Scurtaturi pentru iconite -->
+                    <!-- Ptr Executabil -->
+                    <Shortcut Id="ApplicationStartMenuShortcut"
+                              Name="RelInt-GCdD"
+                              Description="RelInt - Gestiunea Cererilor de Deplasare"
+                              Target="[#RelInt.exe]"
+                              WorkingDirectory="APPLICATIONROOTDIRECTORY"/>
+                    <RemoveFile Id="StergeApplicationStartMenuShortcut" On="both" Name="RelInt-GCdD.lnk" />
+                    <!-- Ptr Dezvoltator -->
+                    <util:InternetShortcut Id="IconitaDezvoltator"
+                                           Name="Dezolvator"
+                                           Target="https://www.facebook.com/tkooficial"
+                                           Type="url"/>
+                    <RemoveFile Id="StergeIconitaDezvoltator" On="both" Name="Dezolvator.lnk" />
+                    <!-- Ptr Dezinstalare -->
+                    <Shortcut Id="DezinstaleazaRelInt"
+                              Name="Dezinstalare RelInt-GCdD"
+                              Description="Dezinstaleaza programul RelInt-GCdD"
+                              Target="[SystemFolder]msiexec.exe"
+                              Arguments="/x [ProductCode]"/>
+                    <RemoveFile Id="StergeDezinstaleazaRelInt" On="both" Name="Dezinstalare RelInt-GCdD.lnk" />
+
+                    <!-- Valoare in registru -->
+                    <RegistryValue Root="HKCU" Key="Software\Microsoft\SIA-FEAA\RelInt-GCdD" Name="ScurtaturiSTART" Type="integer" Value="1" KeyPath="yes"/>
+                    
+                    <RemoveFolder Id="ProgramMenuProductFolder" On="uninstall"/>
+                    <RemoveFolder Id="ProgramMenuVendorFolder" On="uninstall"/>
+                  </Component>
+              </Directory>
             </Directory>
           </Directory>
-          
-          <!-- Iconita pe Desktop -->
-            <Directory Id="DesktopFolder" Name="Desktop"/>
-        
         </Directory>
 
 
 
 
 
-        <!-- 2: Adaugam fisierele in aplicatie -->
+    <!-- 2: Adaugam fisierele in aplicatie -->
         <DirectoryRef Id="APPLICATIONROOTDIRECTORY">
           <!-- Executabile -->
             <Component Id="RelInt.exe" Guid="D62FA35E-8728-4CBE-B476-9950B42C3E79">
@@ -128,43 +158,9 @@
 
 
 
-        <!-- Cream scurtatura in START -->
-        <DirectoryRef Id="ProgramMenuProductFolder">
-          <Component Id="ProgramMenuScurtaturiInSTART" Guid="865C1AB8-615A-4609-970A-9AF7B0BC72C0">
-
-                <!-- Scurtaturi pentru iconite -->
-                <!-- Ptr Executabil -->
-                <Shortcut Id="ApplicationStartMenuShortcut"
-                              Name="RelInt-GCdD"
-                              Description="RelInt - Gestiunea Cererilor de Deplasare"
-                              Target="[#RelInt.exe]"
-                              WorkingDirectory="APPLICATIONROOTDIRECTORY"/>
-                <!-- Ptr Dezvoltator -->
-                <util:InternetShortcut Id="IconitaDezvoltator" Name="Dezolvator" Target="https://www.facebook.com/tkooficial" Type="url"/>
-                <!-- Ptr Dezinstalare -->
-                <Shortcut Id="DezinstaleazaRelInt"
-                              Name="Dezinstalare RelInt-GCdD"
-                              Description="Dezinstaleaza programul RelInt-GCdD"
-                              Target="[SystemFolder]msiexec.exe"
-                              Arguments="/x [ProductCode]"/>
-            
-            <!-- Valoare in registru -->
-            <RegistryValue Root="HKCU" Key="Software\Microsoft\SIA-FEAA\RelInt-GCdD" Name="ScurtaturiSTART" Type="integer" Value="1" KeyPath="yes"/>
-            
-            <!-- Instructiuni pentru stergere foldere -->
-            <RemoveFolder Id="RemoveProgramMenuProductFolder" Directory="ProgramMenuProductFolder" On="uninstall" />
-            <RemoveFolder Id="RemoveProgramMenuVendorFolder" Directory="ProgramMenuVendorFolder" On="uninstall" />
-            
-          </Component>
-        </DirectoryRef>
-
-
-
-
-
-        <!-- Cream scurtatura pe Desktop -->
+    <!-- Cream scurtatura pe Desktop -->
         <DirectoryRef Id="DesktopFolder">
-            <Component Id="IconitaRelIntDesktop" Guid="0F85971D-4C8D-403F-81C6-0F38B246117C">
+            <Component Id="IconitaRelIntDesktop" Guid="BEC339B3-E928-4190-A3B6-A6714D84A57F">
 
               <!-- Iconita catre aplicatie -->
               <Shortcut Id="ApplicationDesktopShortcut"
@@ -213,9 +209,8 @@
             <ComponentRef Id="Microsoft.ReportViewer.DataVisualization.DLL"/>
             <ComponentRef Id="Microsoft.ReportViewer.ProcessingObjectModel.DLL"/>
           <!-- Iconite -->
-            <!--<ComponentRef Id ="Dosar_SIA_FEAAPMF"/>-->
-            <ComponentRef Id="ProgramMenuScurtaturiInSTART"/>
-            <ComponentRef Id="IconitaRelIntDesktop"/>
+          <ComponentRef Id="IconitaRelIntDesktop"/>
+          <ComponentRef Id="ScurtaturiInSTART"/>
           <!-- Scriem in Registru -->
             <!--<ComponentRef Id="RegistruVersiune"/>-->
         </Feature>
