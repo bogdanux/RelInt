@@ -516,67 +516,75 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
 
         /* --------------------- variabile de lucru pentru eveniment txtNrZileDiurna ------------------------------------- */
-        int vartxtNrZileDiurna;
+        Double vartxtNrZileDiurna;
         /* ------------------------- Eveniment pentru txtNrZileDiurna ---------------------------------------------------- */
         private void txtNrZileDiurna_TextChanged(object sender, EventArgs e)
         {
-            // Verificam daca valoarea din "txtNrZileDiurna" este de tip int si daca da, o inregistram in "vartxtNrZileDiurna"
-            bool vartxtNrZileDiurnaEsteNumar = Int32.TryParse(txtNrZileDiurna.Text, out vartxtNrZileDiurna);
-
-            // Judecam si "sanctionam" la nevoie
-            switch (vartxtNrZileDiurnaEsteNumar || txtNrZileDiurna.Text == string.Empty)
+            if (txtNrZileDiurna.Text.Contains(","))
             {
-                case false:
-                    // Golim casuta si afisam mesaj de eroare
-                    txtNrZileDiurna.Clear();
-                    MessageBox.Show("        Vă rugăm introduceți doar numere în această casetă de text.");
-                    break;
+                MessageBox.Show("Caracterul \"(,) virgula\" nu este permis!");
+                txtNrZileDiurna.Clear();
+            }
+            else
+            {
+                // Verificam daca valoarea din "txtDiurna" este de tip int si daca da, o inregistram in "vartxtDiurna"
+                bool vartxtNrZileDiurnaEsteNumar = double.TryParse(txtNrZileDiurna.Text, out vartxtNrZileDiurna);
+                if (vartxtNrZileDiurnaEsteNumar != false)
+                {
+                    vartxtNrZileDiurna = double.Parse(txtNrZileDiurna.Text, CultureInfo.InvariantCulture);
+                }
+
+                // Judecam si "sanctionam" la nevoie
+                switch (vartxtNrZileDiurnaEsteNumar || txtNrZileDiurna.Text == string.Empty)
+                {
+                    case false:
+                        // Golim casuta si afisam mesaj de eroare
+                        txtNrZileDiurna.Clear();
+                        MessageBox.Show("        Vă rugăm introduceți doar numere în această casetă de text.");
+                        break;
+                }
             }
 
             // Calculam
             MetodaCalculSubtotalDiurna();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-
-
-
-
-
-
-
-
         /* --------------------- variabile de lucru pentru eveniment txtNrZileCazare ------------------------------------- */
-        int vartxtNrZileCazare;
+        Double vartxtNrZileCazare;
         /* ------------------------- Eveniment pentru txtNrZileCazare ---------------------------------------------------- */
         private void txtNrZileCazare_TextChanged(object sender, EventArgs e)
         {
-            // Verificam daca valoarea din "txtNrZileCazare" este de tip int si daca da, o inregistram in "vartxtNrZileCazare"
-            bool vartxtNrZileCazareEsteNumar = Int32.TryParse(txtNrZileCazare.Text, out vartxtNrZileCazare);
-
-            // Judecam si "sanctionam" la nevoie
-            switch (vartxtNrZileCazareEsteNumar || txtNrZileCazare.Text == string.Empty)
+            if (txtNrZileCazare.Text.Contains(","))
             {
-                case false:
-                    // Golim casuta si afisam mesaj de eroare
-                    txtNrZileCazare.Clear();
-                    MessageBox.Show("        Vă rugăm introduceți doar numere în această casetă de text.");
-                    break;
+                MessageBox.Show("Caracterul \"(,) virgula\" nu este permis!");
+                txtNrZileCazare.Clear();
+            }
+            else
+            {
+                // Verificam daca valoarea din "txtCazare" este de tip int si daca da, o inregistram in "vartxtCazare"
+                bool vartxtNrZileCazareEsteNumar = Double.TryParse(txtNrZileCazare.Text, out vartxtNrZileCazare);
+                if (vartxtNrZileCazareEsteNumar != false)
+                {
+                    vartxtNrZileCazare = double.Parse(txtNrZileCazare.Text, CultureInfo.InvariantCulture);
+                }
+
+
+                // Judecam si "sanctionam" la nevoie
+                switch (vartxtNrZileCazareEsteNumar || txtNrZileCazare.Text == string.Empty)
+                {
+                    case false:
+                        // Golim casuta si afisam mesaj de eroare
+                        txtNrZileCazare.Clear();
+                        MessageBox.Show("        Vă rugăm introduceți doar numere în această casetă de text.");
+                        break;
+                }
             }
 
             // Calculam
             MetodaCalculSubtotalCazare();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-
-
-
-
-
-
-
-
-
-        /* --------------------- variabile de lucru pentru eveniment txtDiurna ------------------------------------- */
+        /* --------------------- variabile de lucru pentru eveniment txtDiurna ------------------------------------------- */
         double vartxtDiurna;
         /* ------------------------- Eveniment pentru txtDiurna ---------------------------------------------------------- */
         private void txtDiurna_TextChanged(object sender, EventArgs e)
@@ -610,13 +618,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             MetodaCalculSubtotalDiurna();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-
-
-
-
-
-
-
         /* ------------------------- Variabile de lucru pentru txtCazare ------------------------------------------------- */
         double vartxtCazare;
         /* ------------------------- Eveniment pentru txtCazare ---------------------------------------------------------- */
@@ -652,14 +653,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             MetodaCalculSubtotalCazare();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-
-
-
-
-
-
-
-
         /* ------------------------ Variabile de lucru pentru txtTaxaDeParticipare --------------------------------------- */
         double vartxtTaxaDeParticipare;
         /* ------------------------- Eveniment pentru txtTaxaDeParticipare ----------------------------------------------- */
@@ -691,15 +684,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             }
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-
-
-
-
-
-
-
-
-
         /* -------------------------- Variabile de lucru pentru txtTaxaDeViza -------------------------------------------- */
         double vartxtTaxaDeViza;
         /* ------------------------- Eveniment pentru txtTaxaDeViza ------------------------------------------------------ */
