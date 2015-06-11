@@ -933,7 +933,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             {
                 // Verificam daca valoarea din "txtDiurna" este de tip int si daca da, o inregistram in "vartxtDiurna"
                 bool vartxtDiurnaEsteNumar = double.TryParse(txtDiurna.Text, out varDiurna);
-                if (vartxtDiurnaEsteNumar != false)
+                if (vartxtDiurnaEsteNumar)
                 {
                     varDiurna = double.Parse(txtDiurna.Text, CultureInfo.InvariantCulture);
                 }

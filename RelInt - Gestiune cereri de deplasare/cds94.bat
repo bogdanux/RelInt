@@ -1,1 +1,0 @@
-"%PROGRAMFILES%\PostgreSQL\9.4\bin\pg_dump.exe" -U postgres RelIntDB > "%PROGRAMFILES(X86)%\SIA-FEAA\Copii de siguranta\CopieSiguranta-RelIntDB.sql"

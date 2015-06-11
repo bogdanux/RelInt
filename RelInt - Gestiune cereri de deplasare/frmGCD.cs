@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Windows.Forms;
 using System.Data.Odbc;
@@ -1200,34 +1201,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                     } 
                 }
             }
-        }
-        /* --------------------------------------------------------------------------------------------------------------- */
-
-
-
-
-
-        /* --------------------------------------------------------------------------------------------------------------- */
-        private void frmGCD_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            //try
-            //{
-            //    // Scriem Fisierul
-            //    string comanda_CopieDeSiguranta = "\"C:\\Program Files\\PostgreSQL\\9.4\\bin\\pg_dump.exe\" -U postgres RelIntDB > C:\\Program Files (x86)\\SIA-FEAA\\Copii de siguranta\\CopieSiguranta-RelIntDB.sql";
-            //    Process processCopieDeSiguranta = new Process();
-            //    ProcessStartInfo startInfo_CopieDeSiguranta = new ProcessStartInfo();
-            //    startInfo_CopieDeSiguranta.WindowStyle = ProcessWindowStyle.Hidden;
-            //    startInfo_CopieDeSiguranta.FileName = "cmd.exe";
-            //    startInfo_CopieDeSiguranta.Arguments = "/user:Administrator cmd /K" + comanda_CopieDeSiguranta;
-            //    startInfo_CopieDeSiguranta.CreateNoWindow = false;
-            //    processCopieDeSiguranta.StartInfo = startInfo_CopieDeSiguranta;
-            //    processCopieDeSiguranta.Start();
-            //}
-            //catch (Exception exCopieDeSiguranta)
-            //{
-            //    MessageBox.Show(exCopieDeSiguranta.Message);
-            //}
-
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 

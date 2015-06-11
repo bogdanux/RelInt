@@ -459,7 +459,6 @@
             this.Name = "frmGCD";
             this.Text = "Gestiune Cereri de Deplasare";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmGCD_FormClosing);
             this.Load += new System.EventHandler(this.frmGCD_Load);
             this.mnuBaraMeniu.ResumeLayout(false);
             this.mnuBaraMeniu.PerformLayout();
