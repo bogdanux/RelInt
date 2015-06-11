@@ -28,9 +28,10 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             VerificareRector();
             VerificareProrector();
             VerificareCOS();
+            VerificareODP();
             VerificareDFC();
 
-            AprobareVerifRPCD();
+            AprobareVerifRPCOD();
 
             MetodaScriereInStatusR();
             MetodaScriereInStatusD();
@@ -359,7 +360,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                 && AprobareVerifT
                 && AprobareVerifS)
             {
-                AprobareVerifRPCD();
+                AprobareVerifRPCOD();
                 VerificareCereri();
 
                 if (ExistaCereri)
@@ -456,6 +457,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         bool AprobareVerifPR;
         bool AprobareVerifD;
         bool AprobareVerifC;
+        bool AprobareVerifO;
         /* ------------ Metoda de verificare daca sunt introdusi Rectori ------------------------------------------------- */
         public void VerificareRector()
         {
@@ -601,6 +603,54 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         }
         /* --------------------------------------------------------------------------------------------------------------- */
         /* ------------ Metoda de verificare daca sunt introduse scopuri ------------------------------------------------- */
+        public void VerificareODP()
+        {
+            using (OdbcConnection conexiune_ODP = new OdbcConnection(sircon_RelIntDB))
+            {           // Comanda
+                using (OdbcCommand comanda_ODP = new OdbcCommand())
+                {
+                    comanda_ODP.Connection = conexiune_ODP;
+                    comanda_ODP.CommandType = CommandType.Text;
+                    comanda_ODP.CommandText = "SELECT * FROM odp";
+
+                    OdbcDataReader cititor_ODP;
+
+                    try
+                    {
+                        conexiune_ODP.Open();
+                        cititor_ODP = comanda_ODP.ExecuteReader();
+
+                        // Daca cititorul
+                        if (cititor_ODP.HasRows == false)
+                        {
+                            // Afisam de ce
+                            tsStatusDeCeO.Text = " Nu este introdusă \"specificația nr. 4\" pentru Ordinele de deplasare! ";
+
+                            // Setam
+                            AprobareVerifO = false;
+                        }
+                        else
+                        {
+                            // Stergem afisarea
+                            tsStatusDeCeO.Text = string.Empty;
+
+                            // Setam
+                            AprobareVerifO = true;
+                        }
+                    }
+                    catch (Exception exODP)
+                    {
+                        MessageBox.Show(exODP.Message);
+                    } // Ne deconectam
+                    finally
+                    {
+                        conexiune_ODP.Close();
+                    }
+                }
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* ------------ Metoda de verificare daca sunt introduse scopuri ------------------------------------------------- */
         public void VerificareDFC()
         {
             using (OdbcConnection conexiune_DFC = new OdbcConnection(sircon_RelIntDB))
@@ -649,9 +699,9 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         }
         /* --------------------------------------------------------------------------------------------------------------- */
         /* --------------------------------------------------------------------------------------------------------------- */
-        public void AprobareVerifRPCD()
+        public void AprobareVerifRPCOD()
         {
-            if (AprobareVerifR && AprobareVerifPR && AprobareVerifD && AprobareVerifC)
+            if (AprobareVerifR && AprobareVerifPR && AprobareVerifD && AprobareVerifC && AprobareVerifO)
             {
                 // Activam
                 btnGCDIntroducereODD.Enabled = true;
@@ -751,7 +801,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
         /* ------------------- Evenimentul click al butonului "mnuIesire" ------------------------------------------------ */
         private void mnuIesire_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
@@ -1110,6 +1160,12 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             frmCopieDeSiguranta.Show();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
+        /* ------------------- Deschiderea formularului frmManualUtilizare ----------------------------------------------- */
+        private void btnManualUtilizare_Click(object sender, EventArgs e)
+        {
+
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
 
 
 
@@ -1174,17 +1230,6 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
         }
         /* --------------------------------------------------------------------------------------------------------------- */
-
-
-
-
-
-
-
-        private void btnManualUtilizare_Click(object sender, EventArgs e)
-        {
-
-        }
 
 
 

@@ -70,6 +70,7 @@
             this.tsStatusDeCePR = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsStatusDeCeC = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsStatusDeCeD = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tsStatusDeCeO = new System.Windows.Forms.ToolStripStatusLabel();
             this.mnuBaraMeniu.SuspendLayout();
             this.StatusGCD.SuspendLayout();
             this.SuspendLayout();
@@ -330,6 +331,7 @@
             this.tsStatusDeCeR,
             this.tsStatusDeCePR,
             this.tsStatusDeCeC,
+            this.tsStatusDeCeO,
             this.tsStatusDeCeD});
             this.StatusGCD.Location = new System.Drawing.Point(0, 437);
             this.StatusGCD.Name = "StatusGCD";
@@ -433,6 +435,14 @@
             this.tsStatusDeCeD.Size = new System.Drawing.Size(29, 19);
             this.tsStatusDeCeD.Text = "DFC";
             // 
+            // tsStatusDeCeO
+            // 
+            this.tsStatusDeCeO.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.tsStatusDeCeO.ForeColor = System.Drawing.Color.Purple;
+            this.tsStatusDeCeO.Name = "tsStatusDeCeO";
+            this.tsStatusDeCeO.Size = new System.Drawing.Size(32, 19);
+            this.tsStatusDeCeO.Text = "ODP";
+            // 
             // frmGCD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -503,6 +513,7 @@
         private System.Windows.Forms.ToolStripStatusLabel tsStatusDeCeD;
         public System.Windows.Forms.ToolStripStatusLabel tsStatusDFCCurent;
         private System.Windows.Forms.ToolStripStatusLabel tsStatusDeCeC;
+        private System.Windows.Forms.ToolStripStatusLabel tsStatusDeCeO;
     }
 }
 

@@ -102,7 +102,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             // Apoi metoda:
             if (Application.OpenForms["frmGCD"] != null)
             {
-                (Application.OpenForms["frmGCD"] as frmGCD).AprobareVerifRPCD();
+                (Application.OpenForms["frmGCD"] as frmGCD).AprobareVerifRPCOD();
             }
 
             // Apoi metoda:
@@ -587,7 +587,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             // Apoi metoda:
             if (Application.OpenForms["frmGCD"] != null)
             {
-                (Application.OpenForms["frmGCD"] as frmGCD).AprobareVerifRPCD();
+                (Application.OpenForms["frmGCD"] as frmGCD).AprobareVerifRPCOD();
             }
 
             // Apoi metoda:

@@ -19,6 +19,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             IncarcaredgvScopuri();
             IncarcaredgvDFC();
             IncarcaredgvCOS();
+            IncarcaredgvODP();
         }
 
         /* --------------------------------------------------------------------------------------------------------------- */
@@ -1318,7 +1319,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
             if (Application.OpenForms["frmGCD"] != null)
             {
-                (Application.OpenForms["frmGCD"] as frmGCD).AprobareVerifRPCD();
+                (Application.OpenForms["frmGCD"] as frmGCD).AprobareVerifRPCOD();
             }
 
             if (Application.OpenForms["frmGCD"] != null)
@@ -1444,7 +1445,7 @@ namespace RelInt___Gestiune_cereri_de_deplasare
 
             if (Application.OpenForms["frmGCD"] != null)
             {
-                (Application.OpenForms["frmGCD"] as frmGCD).AprobareVerifRPCD();
+                (Application.OpenForms["frmGCD"] as frmGCD).AprobareVerifRPCOD();
             }
 
             if (Application.OpenForms["frmODDIntroducere"] != null)
@@ -1491,9 +1492,9 @@ namespace RelInt___Gestiune_cereri_de_deplasare
                         conexiune_dgvCOS.Open();
                         comanda_dgvCOS.ExecuteNonQuery();
                     }
-                    catch (Exception exdgvDFC)
+                    catch (Exception exdgvCOS)
                     {
-                        MessageBox.Show(exdgvDFC.Message);
+                        MessageBox.Show(exdgvCOS.Message);
                     } // Ne deconectam
                     finally
                     {
@@ -1508,6 +1509,127 @@ namespace RelInt___Gestiune_cereri_de_deplasare
             // Golim
             txtCOSPropozitie.Clear();
             txtCOSPropozitie.Focus();
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+
+
+
+
+
+
+
+
+
+        /* ------------------ Functii pentru dgvDFC ---------------------------------------------------------------------- */
+        public void IncarcaredgvODP()
+        {
+            using (OdbcConnection conexiune_dgvODP = new OdbcConnection(sircon_RelIntDB))
+            {
+                // Comanda
+                using (OdbcCommand comanda_dgvODP = new OdbcCommand())
+                {
+                    comanda_dgvODP.Connection = conexiune_dgvODP;
+                    comanda_dgvODP.CommandType = CommandType.Text;
+                    comanda_dgvODP.CommandText = "SELECT odpo AS \"Specificația nr. 4\" FROM odp";
+
+                    try
+                    {
+                        conexiune_dgvODP.Open();
+                        OdbcDataAdapter da_dgvODP = new OdbcDataAdapter();
+                        da_dgvODP.SelectCommand = comanda_dgvODP;
+
+                        DataTable dt_dgvODP = new DataTable();
+                        da_dgvODP.Fill(dt_dgvODP);
+
+                        BindingSource bs_dgvODP = new BindingSource();
+                        bs_dgvODP.DataSource = dt_dgvODP;
+
+                        dgvODP.DataSource = bs_dgvODP;
+
+                        da_dgvODP.Update(dt_dgvODP);
+                    }
+                    catch (Exception exdgvODP)
+                    {
+                        MessageBox.Show(exdgvODP.Message);
+                    } // Ne deconectam
+                    finally
+                    {
+                        conexiune_dgvODP.Close();
+                    }
+                }
+            }
+
+            if (Application.OpenForms["frmGCD"] != null)
+            {
+                (Application.OpenForms["frmGCD"] as frmGCD).VerificareODP();
+            }
+
+            if (Application.OpenForms["frmGCD"] != null)
+            {
+                (Application.OpenForms["frmGCD"] as frmGCD).AprobareVerifRPCOD();
+            }
+
+            if (Application.OpenForms["frmODDIntroducere"] != null)
+            {
+                (Application.OpenForms["frmODDIntroducere"] as frmODDIntroducere).UmplereODP();
+            }
+
+            if (Application.OpenForms["frmODDModificare"] != null)
+            {
+                (Application.OpenForms["frmODDModificare"] as frmODDModificare).UmplereODP();
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* ------------------ Eveniment de tip TextChanged pentru caseta txtDFCIntroducere ------------------------------- */
+        private void txtODPPropozitie_TextChanged(object sender, EventArgs e)
+        {
+            if (txtODPPropozitie.Text != string.Empty)
+            {
+                // Activam
+                btnODPActualizeaza.Enabled = true;
+            }
+            else
+            {
+                // Dezactivam
+                btnODPActualizeaza.Enabled = false;
+            }
+        }
+        /* --------------------------------------------------------------------------------------------------------------- */
+        /* ------------------ Eveniment de tip click pentru btnDFCActualizare -------------------------------------------- */
+        private void btnODPActualizeaza_Click(object sender, EventArgs e)
+        {
+            using (OdbcConnection conexiune_dgvODP = new OdbcConnection(sircon_RelIntDB))
+            {
+                // Comanda
+                using (OdbcCommand dgvCOS = new OdbcCommand())
+                {
+                    dgvCOS.Connection = conexiune_dgvODP;
+                    dgvCOS.CommandType = CommandType.Text;
+                    dgvCOS.CommandText = "UPDATE odp SET odpo = ?";
+                    dgvCOS.Parameters.AddWithValue("@odpo", OdbcType.NVarChar).Value = txtODPPropozitie.Text;
+
+                    try
+                    {
+                        conexiune_dgvODP.Open();
+                        dgvCOS.ExecuteNonQuery();
+                    }
+                    catch (Exception exdgvODP)
+                    {
+                        MessageBox.Show(exdgvODP.Message);
+                    } // Ne deconectam
+                    finally
+                    {
+                        conexiune_dgvODP.Close();
+                    }
+                }
+            }
+
+            // Actualizam
+            IncarcaredgvODP();
+
+            // Golim
+            txtODPPropozitie.Clear();
+            txtODPPropozitie.Focus();
         }
         /* --------------------------------------------------------------------------------------------------------------- */
 
